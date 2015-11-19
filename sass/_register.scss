@@ -1,0 +1,48 @@
+#register{
+    
+    @extend .col-100;
+    @extend .text-center;
+    // padding-bottom: 3vw;
+    
+    #lessonNote{
+        height: 2vw;
+        line-height: 2vw;
+        margin-bottom: 1vw;
+    }
+    
+    table, #lessonNote{
+        .fa{
+            padding-left: 0.5vw;
+        }
+    }
+    
+    #timepickers{
+        table{
+            @extend .middler;
+            display: inline-block;
+            margin: 0 1vw;
+        }
+        span{
+            @extend .middle;
+        }
+    }
+    
+    #addLesson{
+        
+        button:hover{
+            @extend .bg-light-green;
+        }
+    }
+    
+    #saveLesson{
+        margin-bottom: 1vw;
+    }
+    
+    .fc-title{
+        color: white;
+    }
+    
+    .fc-view-container{
+        background-color: white;
+    }
+}

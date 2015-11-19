@@ -1,0 +1,13 @@
+@font-face {
+    font-family: logoFont;
+    src: url(fertigo.ttf);
+}
+
+#home{
+    @extend .col-100;
+    
+    @import "presentation";
+    
+    @import "team";
+    
+}

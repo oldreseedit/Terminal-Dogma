@@ -1,0 +1,60 @@
+#payment{
+    
+    @extend .in-main;
+    text-align: left;
+    margin-top: 1em;
+    
+    .stepLine{
+        @extend .col-100;
+    }
+    
+    .paymentStep{
+        @extend .col-70;
+        @extend .offset-15;
+        margin-top: 2em;
+    }
+    .stepTitle{
+        font-size: 2em;
+    }
+    .stepContent{
+        @extend .col-100;
+        margin-top: 1em;
+    }
+    
+    #paymentFirstStep{
+        .stepLine{
+            @extend .light-olive;
+        }
+    }
+    
+    #paymentSecondStep{
+        .stepLine{
+            @extend .light-pond;
+        }
+    }
+    
+    #paymentThirdStep{
+        .stepLine{
+            @extend .light-water;
+        }
+    }
+    
+    #paymentFinalStep{
+        .stepLine{
+            @extend .light-green;
+        }
+    }
+    
+    #subscriptionButton{
+        margin-top: 4em;
+        @extend .col-50;
+        @extend .offset-25;
+        
+        button{
+            width: 100%;
+            font-size: 3em;
+            vertical-align: bottom;
+        }
+    }
+    
+}

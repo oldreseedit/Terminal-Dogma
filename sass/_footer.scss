@@ -1,0 +1,86 @@
+#footer{
+    
+    @extend .col-100;
+    @extend .text-center;
+    
+    background: url(../imgs/footer.jpg) no-repeat center;
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+    
+    padding-bottom: 3vw;
+        
+    a{
+        color: white;
+        &:hover{
+            @extend .light-green;
+            text-decoration: none;
+        }
+        &:active{
+            @extend .white;
+        }
+    }
+    
+    #social-icons{
+        @extend .col-38;
+        @extend .offset-31;
+        @include responsive{
+            @include col(80);
+            @include offset(10);
+        }
+        margin-top: 3vw;
+    }
+    
+    #tabs{
+        @extend .col-64;
+        @extend .offset-18;
+        margin-top: 1em;
+        
+        @include responsive{
+            @include col(100);
+            @include offset(0);
+        }
+        
+        a{
+            text-shadow: 0.2vw 0.2vw 0.4vw black;
+            padding: 0.4vw 0;
+            font-weight: 500;
+            line-height: 2;
+        
+            @include responsive{
+                font-size: (4em/5);
+            }
+        }
+    }
+    
+    #footer-logo{
+        @extend .col-20;
+        @extend .offset-40;
+        @include responsive{
+            @include col(50);
+            @include offset(25);
+        }
+        margin-top: 1.5vw;
+        
+        img{
+            width: 100%;
+        }
+    }
+    
+    #commercial-info{
+        @extend .col-100;
+        margin-top: 0.5vw;
+        line-height: 1.5;
+        
+        p{
+            color: white;
+            text-shadow: 0.2vw 0.2vw 0.4vw black;
+            font-weight: 500;
+            padding: 0.6vw 0;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
+    
+}

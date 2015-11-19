@@ -1,0 +1,30 @@
+#faqPage{
+    
+    @extend .in-main;
+    text-align: left;
+    margin-top: 1em;
+    
+    .stepLine{
+        @extend .col-100;
+    }
+    
+    .faqStep{
+        @extend .col-70;
+        @extend .offset-15;
+        margin-top: 2em;
+    }
+    .stepTitle{
+        color: #4C4C4C;
+        font-size: 1.5em;
+    }
+    .stepContent{
+        @extend .col-100;
+        margin-top: 1em;
+    }
+    
+    .faqIntroduction{
+        color: #4C4C4C;
+        font-size: 2em;
+    }
+    
+}

@@ -1,0 +1,106 @@
+body {
+    margin-top: $size-body*$navbar-modifier*$navbar-line-height;
+    @include responsive {
+        margin-top: $size-body*$navbar-responsive-modifier*$navbar-line-height;
+    }
+    
+}
+
+#navbar{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    padding: 0 5%;
+    @include responsive {
+        padding: 0 2%;
+    }
+    z-index: 100;
+    
+    color: white;
+    @extend .text-center;
+    font-weight: 400;
+    font-size: $size-body*$navbar-modifier;
+    @include responsive {
+        font-size: $size-body*$navbar-responsive-modifier;
+    }
+    
+    margin-top: -6px;
+    border-bottom: 3px solid white;
+    
+    @include bg-jungle;
+    
+    a{
+        text-decoration: none;
+        color: inherit;
+        &:hover{
+            @include light-olive;
+        }
+    }
+    
+    .macrotab{
+        line-height: $navbar-line-height;
+        &:hover{
+            // @extend .bg-dark-grey;
+        }
+    }
+    
+    #navbar-home{
+        @extend .col-20;
+        @extend .text-left;
+    }
+    
+    #navbar-tabs{
+        @extend .col-25;
+        @extend .offset-15;
+        @include responsive {
+            @include col(45);
+            @include offset(5);
+        }
+    }
+    
+    #navbar-profile{
+        @extend .col-25;
+        @extend .offset-15;
+        @include responsive {
+            @include col(25);
+            @include offset(5);
+        }
+    }
+    
+    #navbar-signin, #navbar-signup{
+        @extend .col-49;
+        @extend .white;
+        
+        button{
+            width: 90%;
+            font-weight: 400;
+            line-height: 1;
+            font-size: $size-body*$navbar-modifier*0.9;
+            @include responsive {
+                font-size: $size-body*$navbar-responsive-modifier*0.9;
+            }
+        }
+        
+    }
+    
+    #navbar-signin{
+        @extend .offset-2;
+    }
+    
+    #navbar-logged{
+        @extend .col-100;
+        @extend .white;
+        @extend .text-right;
+        
+        button{
+            margin-right: 3em;
+            width: 30%;
+            font-weight: 400;
+            line-height: 1;
+            font-size: $size-body*$navbar-modifier*0.9;
+            @include responsive {
+                font-size: $size-body*$navbar-responsive-modifier*0.9;
+            }
+        }
+    }
+}

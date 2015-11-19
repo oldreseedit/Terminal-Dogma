@@ -1,0 +1,9 @@
+input, textarea{
+    width: 100%;
+    @extend .form-control;
+    margin: 1vw 0;
+}
+
+textarea{
+    resize: vertical;
+}

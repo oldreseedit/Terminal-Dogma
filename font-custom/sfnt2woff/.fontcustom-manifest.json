@@ -1,0 +1,109 @@
+{
+  "checksum": {
+    "previous": "7b6f2175ce8f156e9b05ff7e8d68c85fabaf74e8f59ada7a4b1dd1a9160b4e44",
+    "current": "7b6f2175ce8f156e9b05ff7e8d68c85fabaf74e8f59ada7a4b1dd1a9160b4e44"
+  },
+  "fonts": [
+    "fontcustom/fontcustom_7b6f2175ce8f156e9b05ff7e8d68c85f.ttf",
+    "fontcustom/fontcustom_7b6f2175ce8f156e9b05ff7e8d68c85f.svg",
+    "fontcustom/fontcustom_7b6f2175ce8f156e9b05ff7e8d68c85f.woff",
+    "fontcustom/fontcustom_7b6f2175ce8f156e9b05ff7e8d68c85f.eot"
+  ],
+  "glyphs": {
+    "chim1": {
+      "codepoint": 61696,
+      "source": "../vectors/chim1.svg"
+    },
+    "fis1": {
+      "codepoint": 61697,
+      "source": "../vectors/fis1.svg"
+    },
+    "game1": {
+      "codepoint": 61698,
+      "source": "../vectors/game1.svg"
+    },
+    "game2": {
+      "codepoint": 61699,
+      "source": "../vectors/game2.svg"
+    },
+    "game3": {
+      "codepoint": 61700,
+      "source": "../vectors/game3.svg"
+    },
+    "info1": {
+      "codepoint": 61701,
+      "source": "../vectors/info1.svg"
+    },
+    "info2": {
+      "codepoint": 61702,
+      "source": "../vectors/info2.svg"
+    },
+    "info3": {
+      "codepoint": 61703,
+      "source": "../vectors/info3.svg"
+    },
+    "info4": {
+      "codepoint": 61704,
+      "source": "../vectors/info4.svg"
+    },
+    "mat1": {
+      "codepoint": 61705,
+      "source": "../vectors/mat1.svg"
+    },
+    "mat2": {
+      "codepoint": 61706,
+      "source": "../vectors/mat2.svg"
+    },
+    "mat3": {
+      "codepoint": 61707,
+      "source": "../vectors/mat3.svg"
+    },
+    "mat5": {
+      "codepoint": 61708,
+      "source": "../vectors/mat5.svg"
+    },
+    "mat6": {
+      "codepoint": 61709,
+      "source": "../vectors/mat6.svg"
+    },
+    "sdt1": {
+      "codepoint": 61710,
+      "source": "../vectors/sdt1.svg"
+    }
+  },
+  "options": {
+    "autowidth": false,
+    "config": "fontcustom.yml",
+    "css": "../../stylesheets",
+    "css_selector": ".icon-{{glyph}}",
+    "debug": false,
+    "font_ascent": 448,
+    "font_descent": 64,
+    "font_design_size": 16,
+    "font_em": 512,
+    "font_name": "fontcustom",
+    "force": false,
+    "input": {
+      "templates": "../vectors/",
+      "vectors": "../vectors/"
+    },
+    "no_hash": false,
+    "output": {
+      "css": "fontcustom",
+      "fonts": "fontcustom",
+      "preview": "fontcustom"
+    },
+    "preprocessor_path": null,
+    "quiet": false,
+    "skip_first": false,
+    "templates": [
+      "css",
+      "preview"
+    ],
+    "vectors": "../vectors"
+  },
+  "templates": [
+    "fontcustom/fontcustom.css",
+    "fontcustom/fontcustom-preview.html"
+  ]
+}

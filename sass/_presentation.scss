@@ -1,0 +1,56 @@
+#presentation{
+    
+    @extend .in-main;
+    @extend .text-center;
+    padding-bottom: 3vw;
+    
+    #tiles-presentation{
+        @extend .col-100;
+        margin-top: 1em;
+        margin-bottom: 3em;
+        
+        .tab{
+            @include desktop {
+                @include equal-height;
+            }
+            @include responsive {
+                margin-bottom: 2em;
+            }
+        }
+        
+        .inside-tab{
+            margin-top: 1em;
+            @extend .col-90;
+            @extend .offset-5;
+            
+            .title{
+                font-weight: 600;
+            }
+            
+            .title-wrapper{
+                @extend .col-90;
+                @extend .offset-5;
+                margin-top: 0.5em;
+                margin-bottom: 0.5em;
+            }
+            
+            .tab-content{
+                @extend .col-100;
+            }
+            
+            span{
+                @extend .darker-grey;
+            }
+            
+            p{
+                @extend .darker-grey;
+                margin-bottom: 1em;
+            }
+        }
+    }
+    
+    #tiles-newsEvents{
+        
+    }
+    
+}

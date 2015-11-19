@@ -1,0 +1,51 @@
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Raleway";
+}
+
+body, p{
+    font-family: 'Lato', sans-serif;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+	padding: 0.5vw;
+	margin: 0;
+}
+
+body, p{
+    @extend .dark-grey;
+}
+
+h1{
+    color: black;
+}
+h2{
+    @extend .darkest-grey;
+}
+h3{
+    @extend .darker-grey;
+}
+h4{
+    @extend .darker-grey;
+}
+h5{
+    @extend .darker-grey;
+}
+h6{
+    @extend .darker-grey;
+}
+
+.strong{
+    font-weight: 500;
+}
+
+.stronger{
+    font-weight: 600;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.bolder{
+    font-weight: 900;
+}

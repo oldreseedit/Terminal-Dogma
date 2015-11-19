@@ -1,0 +1,222 @@
+/* TEXT */
+
+.senape{color:$senape;}
+.olive{color:$olive;}
+.lawn{color:$lawn;}
+.green{color:$green;}
+.leaf{color:$leaf;}
+.pond{color:$pond;}
+.water{color:$water;}
+
+.yellow{color:$yellow;}
+.light-senape{color:$light-senape;}
+.light-olive{color:$light-olive;}
+.light-lawn{color:$light-lawn;}
+.light-green{color:$light-green;}
+.light-leaf{color:$light-leaf;}
+.light-pond{color:$light-pond;}
+.light-water{color:$light-water;}
+
+.dark-senape{color:$dark-senape;}
+.dark-olive{color:$dark-olive;}
+.dark-lawn{color:$dark-lawn;}
+.dark-green{color:$dark-green;}
+.dark-leaf{color:$dark-leaf;}
+.dark-pond{color:$dark-pond;}
+.dark-water{color:$dark-water;}
+
+.white{color: white;}
+.lightest-grey{color: $lightest-grey;}
+.lighter-grey{color: $lighter-grey};
+.light-grey{color: $light-grey;}
+.grey{color: $grey;}
+.slightly-darker-grey{color: $slightly-darker-grey};
+.dark-grey{color: $dark-grey;}
+.darker-grey{color: $darker-grey;}
+.darkest-grey{color: $darkest-grey;}
+.black{color: black;}
+
+.jungle{color: $jungle;}
+
+/* BACKGROUND */
+
+.bg-senape{background-color:$senape;}
+.bg-olive{background-color:$olive;}
+.bg-lawn{background-color:$lawn;}
+.bg-green{background-color:$green;}
+.bg-leaf{background-color:$leaf;}
+.bg-pond{background-color:$pond;}
+.bg-water{background-color:$water;}
+
+.bg-yellow{background-color:$yellow;}
+.bg-light-senape{background-color:$light-senape;}
+.bg-light-olive{background-color:$light-olive;}
+.bg-light-lawn{background-color:$light-lawn;}
+.bg-light-green{background-color:$light-green;}
+.bg-light-leaf{background-color:$light-leaf;}
+.bg-light-pond{background-color:$light-pond;}
+.bg-light-water{background-color:$light-water;}
+
+.bg-dark-senape{background-color:$dark-senape;}
+.bg-dark-olive{background-color:$dark-olive;}
+.bg-dark-lawn{background-color:$dark-lawn;}
+.bg-dark-green{background-color:$dark-green;}
+.bg-dark-leaf{background-color:$dark-leaf;}
+.bg-dark-pond{background-color:$dark-pond;}
+.bg-dark-water{background-color:$dark-water;}
+
+.bg-white{background-color: white;}
+.bg-lightest-grey{background-color: $lightest-grey;}
+.bg-lighter-grey{background-color: $lighter-grey};
+.bg-light-grey{background-color: $light-grey;}
+.bg-grey{background-color: $grey;}
+.bg-dark-grey{background-color: $dark-grey;}
+.bg-slightly-darker-grey{background-color: $slightly-darker-grey;}
+.bg-darker-grey{background-color: $darker-grey;}
+.bg-darkest-grey{color: $darkest-grey;}
+.bg-black{background-color: black;}
+
+.bg-jungle{background-color: $jungle;}
+
+/*** Mixins ***/
+
+/* TEXT */
+
+@mixin senape{color:$senape;}
+@mixin olive{color:$olive;}
+@mixin lawn{color:$lawn;}
+@mixin green{color:$green;}
+@mixin leaf{color:$leaf;}
+@mixin pond{color:$pond;}
+@mixin water{color:$water;}
+
+@mixin yellow{color:$yellow;}
+@mixin light-senape{color:$light-senape;}
+@mixin light-olive{color:$light-olive;}
+@mixin light-lawn{color:$light-lawn;}
+@mixin light-green{color:$light-green;}
+@mixin light-leaf{color:$light-leaf;}
+@mixin light-pond{color:$light-pond;}
+@mixin light-water{color:$light-water;}
+
+@mixin dark-senape{color:$dark-senape;}
+@mixin dark-olive{color:$dark-olive;}
+@mixin dark-lawn{color:$dark-lawn;}
+@mixin dark-green{color:$dark-green;}
+@mixin dark-leaf{color:$dark-leaf;}
+@mixin dark-pond{color:$dark-pond;}
+@mixin dark-water{color:$dark-water;}
+
+@mixin white{color: white;}
+@mixin lightest-grey{color: $lightest-grey;}
+@mixin light-grey{color: $light-grey;}
+@mixin grey{color: $grey;}
+@mixin dark-grey{color: $dark-grey;}
+@mixin darker-grey{color: $darker-grey;}
+@mixin darkest-grey{color: $darkest-grey;}
+@mixin black{color: black;}
+
+@mixin jungle{color: $jungle;}
+
+/* BACKGROUND */
+
+@mixin bg-senape{background-color:$senape;}
+@mixin bg-olive{background-color:$olive;}
+@mixin bg-lawn{background-color:$lawn;}
+@mixin bg-green{background-color:$green;}
+@mixin bg-leaf{background-color:$leaf;}
+@mixin bg-pond{background-color:$pond;}
+@mixin bg-water{background-color:$water;}
+
+@mixin bg-yellow{background-color:$yellow;}
+@mixin bg-light-senape{background-color:$light-senape;}
+@mixin bg-light-olive{background-color:$light-olive;}
+@mixin bg-light-lawn{background-color:$light-lawn;}
+@mixin bg-light-green{background-color:$light-green;}
+@mixin bg-light-leaf{background-color:$light-leaf;}
+@mixin bg-light-pond{background-color:$light-pond;}
+@mixin bg-light-water{background-color:$light-water;}
+
+@mixin bg-dark-senape{background-color:$dark-senape;}
+@mixin bg-dark-olive{background-color:$dark-olive;}
+@mixin bg-dark-lawn{background-color:$dark-lawn;}
+@mixin bg-dark-green{background-color:$dark-green;}
+@mixin bg-dark-leaf{background-color:$dark-leaf;}
+@mixin bg-dark-pond{background-color:$dark-pond;}
+@mixin bg-dark-water{background-color:$dark-water;}
+
+@mixin bg-white{background-color: white;}
+@mixin bg-lightest-grey{background-color: $lightest-grey;}
+@mixin bg-light-grey{background-color: $light-grey;}
+@mixin bg-grey{background-color: $grey;}
+@mixin bg-dark-grey{background-color: $dark-grey;}
+@mixin bg-darker-grey{background-color: $darker-grey;}
+@mixin bg-darkest-grey{color: $darkest-grey;}
+@mixin bg-black{background-color: black;}
+
+@mixin bg-jungle{background-color: $jungle;}
+
+
+/* OLD Palette */
+
+// .orange{color: $orange;}
+// .yellow{color: $yellow;}
+// .lightest-green{color: $lightest-green;}
+// .clean-water-green{color: $clean-water-green;}
+// .clean-water{color: $clean-water;}
+// .purple-blue{color: $purple-blue;}
+// .purple{color: $purple;}
+// .red{color: $red;}
+// .darkest-green{color: $darkest-green;}
+// .dark-green{color: $dark-green;}
+// .green{color: $green;}
+// .water-green{color: $water-green;}
+// .water{color: $water;}
+// .light-green{color: $light-green;}
+
+// .bg-orange{background-color: $orange;}
+// .bg-yellow{background-color: $yellow;}
+// .bg-lightest-green{background-color: $lightest-green;}
+// .bg-clean-water-green{background-color: $clean-water-green;}
+// .bg-clean-water{background-color: $clean-water;}
+// .bg-purple-blue{background-color: $purple-blue;}
+// .bg-purple{background-color: $purple;}
+// .bg-red{background-color: $red;}
+// .bg-darkest-green{background-color: $darkest-green;}
+// .bg-dark-green{background-color: $dark-green;}
+// .bg-green{background-color: $green;}
+// .bg-water-green{background-color: $water-green;}
+// .bg-water{background-color: $water;}
+// .bg-light-green{background-color: $light-green;}
+
+
+// /* MIXINS */
+
+// @mixin orange{color: $orange;}
+// @mixin yellow{color: $yellow;}
+// @mixin lightest-green{color: $lightest-green;}
+// @mixin clean-water-green{color: $clean-water-green;}
+// @mixin clean-water{color: $clean-water;}
+// @mixin purple-blue{color: $purple-blue;}
+// @mixin purple{color: $purple;}
+// @mixin red{color: $red;}
+// @mixin darkest-green{color: $darkest-green;}
+// @mixin dark-green{color: $dark-green;}
+// @mixin green{backgroundcolor: $green;}
+// @mixin water-green{color: $water-green;}
+// @mixin water{color: $water;}
+// @mixin light-green{color: $light-green;}
+// @mixin bg-orange{background-color: $orange;}
+// @mixin bg-yellow{background-color: $yellow;}
+// @mixin bg-lightest-green{background-color: $lightest-green;}
+// @mixin bg-clean-water-green{background-color: $clean-water-green;}
+// @mixin bg-clean-water{background-color: $clean-water;}
+// @mixin bg-purple-blue{background-color: $purple-blue;}
+// @mixin bg-purple{background-color: $purple;}
+// @mixin bg-red{background-color: $red;}
+// @mixin bg-darkest-green{background-color: $darkest-green;}
+// @mixin bg-green{background-color: $green;}
+// @mixin bg-dark-green{background-color: $dark-green;}
+// @mixin bg-water-green{background-color: $water-green;}
+// @mixin bg-water{background-color: $water;}
+// @mixin bg-light-green{background-color: $light-green;}

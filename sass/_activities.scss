@@ -1,0 +1,51 @@
+#activities{
+    
+    @extend .in-main;
+    @extend .text-center;
+    padding-bottom: 3vw;
+    
+    #tiles-activities{
+        @extend .col-100;
+        margin-top: 3vw;
+        
+        @include responsive {
+            width: 100%;
+            margin-left: 0;
+        }
+        
+        .tile-wrapper{
+            padding-bottom: 2%;
+        }
+        
+        .tile{
+            width: 100%;
+            @extend .square;
+            
+            .title{
+                padding: 5%;
+                @include responsive {
+                    padding: 2%;
+                }
+            }
+            
+            .back{
+                @extend .text-justify;
+                padding: 5%;
+                
+                .back-symbol{
+                    @extend .col-30;
+                }
+                
+                .back-title{
+                    @extend .col-70;
+                }
+                
+                .back-content{
+                    @extend .col-100;
+                }
+            }
+        }
+        
+    }
+    
+}

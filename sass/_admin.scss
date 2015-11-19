@@ -1,0 +1,12 @@
+#admin{
+    @extend .in-main;
+    
+    .tab{
+        @extend .equal-height;
+    }
+    
+    .admin-content{
+        @extend .col-100;
+        margin-top: 2em;
+    }
+}
