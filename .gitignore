@@ -1,4 +1,10 @@
 .sass-cache/
+<<<<<<< HEAD
+
+.settings/
+.externalToolBuilders/Compass.launch
+=======
 .externalToolBuilders/
 .settings/
 *.project
+>>>>>>> master
