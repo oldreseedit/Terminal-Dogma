@@ -1,0 +1,72 @@
+@import "bootstrap-compass";
+@import "bootstrap";
+@import "bootstrap/theme";
+
+/* General Behavior */
+
+@import "responsive";
+@import "variables";
+@import "tricks";
+@import "fonts";
+@import "palette";
+@import "social";
+@import "flippers";
+@import "forms";
+
+/* Pages */
+
+@import "admin";
+@import "navbar";
+@import "header";
+@import "footer";
+@import "home";
+@import "courses";
+@import "course";
+@import "activities";
+@import "media";
+@import "contacts";
+@import "register";
+@import "signin";
+@import "signup";
+@import "login";
+@import "payment-disclaimer";
+@import "payment";
+@import "faq";
+@import "profile";
+
+@import "sham-spinner";
+@import "sham-setup";
+@import "scrollbar";
+@import "perfect-scrollbar";
+@import "angular-gridster";
+
+#main{
+    width: 100%;
+}
+    
+.wrapper{
+    @extend .col-100;
+}
+
+.mini-header{
+    @extend .col-100;
+    margin-bottom: 2em;
+    
+    img{
+        width: 100%;
+    }
+}
+
+    
+.table-striped{
+    &>tbody{
+        &>tr{
+            &:nth-of-type(odd){
+                @extend .bg-white;
+            }
+            &:nth-of-type(even){
+                @extend .bg-lightest-grey;
+            }
+        }
+    }
+}

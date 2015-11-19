@@ -1,0 +1,35 @@
+#team{
+    @extend .col-100;
+    @extend .bg-light-grey;
+    @extend .text-center;
+    @extend .dark-grey;
+    padding-top: 3vw;
+    padding-bottom: 3vw;
+    
+    #team-wrapper{
+        @extend .in-main;
+        
+        .circle-img{
+            width: 50%;
+            height: 50%;
+        }
+        
+        .name{
+            margin-top: 1vw;
+            p{
+                font-weight: bold;
+                @extend .darker-grey;
+            }
+        }
+        
+        .team-social-buttons{
+            @extend .col-80;
+            @extend .offset-10;
+            @include responsive {
+                @include col(90);
+                @include offset(5);
+            }
+        }
+    }
+    
+}

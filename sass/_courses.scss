@@ -1,0 +1,67 @@
+#courses{
+    
+    @extend .in-main;
+    @extend .text-center;
+    padding-bottom: 3vw;
+    
+    #tiles-courses{
+        @extend .col-76;
+        @extend .offset-12;
+        margin-top: 3vw;
+        
+        @include responsive {
+            @include col(100);
+            @include offset(0);
+        }
+        
+        .category-column{
+            @extend .float;
+        }
+        
+        .category-title{
+            @extend .bg-darker-grey;
+            .container {
+                padding: 5%;
+            }
+        }
+            
+        .routePossible{
+            cursor: pointer;
+        }
+        
+        .tile{
+            width: 100%;
+            @extend .square;
+            
+            .title{
+                padding: 5%;
+                @include responsive {
+                    padding: 2%;
+                }
+            }
+            
+            .back{
+                @extend .text-left;
+                
+                .back-title-icon{
+                    margin-right: 0.2em;
+                }
+                
+                .back-title{
+                    padding-left: 5%;
+                    padding-right: 5%;
+                }
+                
+                .back-content{
+                    padding: 2% 5% 5% 5%;
+                    @include responsive {
+                        padding: 2%;
+                    }
+                }
+                
+            }
+        }
+        
+    }
+    
+}

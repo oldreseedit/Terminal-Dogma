@@ -1,0 +1,44 @@
+#profile{
+    @extend .in-main;
+    
+    .profile-info{
+        @extend .col-100;
+        padding: 5%;
+        
+        .profile-level-symbol{
+            @extend .col-30;
+        }
+        
+        .profile-name-level-xp{
+            @extend .col-65;
+            @extend .offset-5;
+            
+            .profile-xp{
+                @extend .col-100;
+            }
+            
+            p{
+                padding: 0;
+            }
+        }
+    }
+    
+    .profile-notifications{
+        @extend .col-100;
+        @extend .text-center;
+        padding: 5%;
+    }
+    
+    .profile-achievements{
+        @extend .col-100;
+        @extend .text-center;
+        padding: 5%;
+    }
+    
+    .profile-rewards{
+        @extend .col-100;
+        @extend .text-center;
+        padding: 5%;
+    }
+    
+}

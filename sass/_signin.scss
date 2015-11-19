@@ -1,0 +1,30 @@
+#signinModal{
+    @extend .in-main;
+    margin-top: 3em;
+    margin-bottom: 3em;
+    
+    form{
+        margin-left: 3px;
+        
+        #signin-submit{
+            @extend .col-30;
+            @extend .btn;
+            @extend .white;
+            &:hover, &:active, &:focus{
+                @extend .white;
+            }
+            margin-top:5em;
+        }
+        
+        #signin-cancel{
+            @extend .col-30;
+            @extend .offset-40;
+            @extend .btn;
+            @extend .btn-danger;
+            margin-top:5em;
+        }
+        
+        
+    }
+    
+}

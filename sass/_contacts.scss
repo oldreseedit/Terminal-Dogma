@@ -1,0 +1,47 @@
+#contacts{
+    
+    @extend .in-main;
+    @extend .text-center;
+    
+    .angular-google-map-container{
+        height: 20em;
+    }
+    
+    #contact-form-wrapper, #how-to-map-wrapper{
+        @extend .bg-light-grey;
+        @extend .well;
+        
+        @include desktop {
+            @include equal-height;
+        }
+    }
+    
+    #contact-form-wrapper{
+        @include responsive{
+            margin-top: $main-spacer;    
+        }
+    }
+    
+    #contact-form, #contacts-list{
+        @extend .text-left;
+    }
+    
+    #contact-form{
+        @extend .in-main;
+        
+        #contacts-submit{
+            @extend .col-30;
+            @extend .offset-35;
+            @extend .btn;
+        }
+    }
+    
+    #contacts-map{
+        margin-bottom: 19px;
+    }
+    
+    .distant{
+        margin-top: 2em;
+    }
+    
+}

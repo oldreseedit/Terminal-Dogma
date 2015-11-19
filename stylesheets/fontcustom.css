@@ -1,0 +1,55 @@
+/*
+  Icon Font: fontcustom
+*/
+
+@font-face {
+  font-family: "fontcustom";
+  src: url("./fontcustom_25219b5ac385747cb1721a57fe880592.eot");
+  src: url("./fontcustom_25219b5ac385747cb1721a57fe880592.eot?#iefix") format("embedded-opentype"),
+       url("./fontcustom_25219b5ac385747cb1721a57fe880592.woff") format("woff"),
+       url("./fontcustom_25219b5ac385747cb1721a57fe880592.ttf") format("truetype"),
+       url("./fontcustom_25219b5ac385747cb1721a57fe880592.svg#fontcustom") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "fontcustom";
+    src: url("./fontcustom_25219b5ac385747cb1721a57fe880592.svg#fontcustom") format("svg");
+  }
+}
+
+[data-icon]:before { content: attr(data-icon); }
+
+[data-icon]:before,
+.icon-3DStudioMax:before,
+.icon-android:before,
+.icon-gameDesign:before,
+.icon-gameMaker:before,
+.icon-gamesForDummies:before,
+.icon-java:before,
+.icon-web:before,
+.icon-web2:before {
+  display: inline-block;
+  font-family: "fontcustom";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+.icon-3DStudioMax:before { content: "\f11e"; }
+.icon-android:before { content: "\f113"; }
+.icon-gameDesign:before { content: "\f114"; }
+.icon-gameMaker:before { content: "\f115"; }
+.icon-gamesForDummies:before { content: "\f116"; }
+.icon-java:before { content: "\f11d"; }
+.icon-web:before { content: "\f11b"; }
+.icon-web2:before { content: "\f11c"; }

@@ -1,0 +1,308 @@
+@for $i from 0 through 100{
+	
+	.col-#{$i} {
+		width: 0% + $i;
+		float: left;
+	}
+	
+	.row-#{$i} {
+		height: 0% + $i;
+	}
+	
+	.offset-#{$i} {
+		margin-left: 0% + $i;
+	}
+}
+	
+@mixin col($i) {
+	width: 0% + $i;
+	float: left;
+}
+	
+@mixin row($i) {
+	height: 0% + $i;
+}
+	
+@mixin offset($i) {
+	margin-left: 0% + $i;
+}
+        
+@mixin responsive {
+    @media all 
+	and (max-device-width: 1079px)
+	{
+		@content
+    }
+}
+
+@mixin mini {
+	@media all
+	and (max-device-width: 539px)
+	{
+		@content
+	}
+}
+        
+@mixin desktop {
+    @media all 
+	and (min-device-width: 1080px)
+	{
+		@content
+    }
+}
+
+@mixin maxi {
+	@media all
+	and (min-device-width: 4096px)
+	{
+		@content
+	}
+}
+
+/* RESPONSIVE STYLES */
+
+/* For referencing $size-body outside of media queries */
+
+$size-body: 0px;
+
+/* From 100 to 539px - MINI - 15px */
+
+@include mini {
+	
+	$size-body: 15px;
+
+	body{
+	    font-size: $size-body;
+	}
+	
+	p{
+	    font-size: $size-body;
+	}
+	
+	h6{
+	    font-size: $size-body*5/4;
+	}
+	
+	h5{
+	    font-size: $size-body*3/2;
+	}
+	
+	h4{
+	    font-size: $size-body*7/4;
+	}
+	
+	h3{
+	    font-size: $size-body*2;
+	}
+	
+	h2{
+	    font-size: $size-body*3/2;
+	}
+	
+	h1{
+	    font-size: $size-body*3;
+	}
+	
+}
+
+/* From 540 to 1080px - RESPONSIVE - Scaling 15px - 17px */
+
+@for $i from 0 through 100{
+    @media all 
+	and (min-device-width: 540px + 5.4*$i)
+	and (max-device-width: 545.4px + 5.4*$i)
+	{
+	    $size-body: 15px + 0.02*$i;
+	    
+    	body{
+    	    font-size: $size-body;
+    	}
+    	
+    	p{
+    	    font-size: $size-body;
+    	}
+    	
+    	h6{
+    	    font-size: $size-body*5/4;
+    	}
+    	
+    	h5{
+    	    font-size: $size-body*3/2;
+    	}
+    	
+    	h4{
+    	    font-size: $size-body*7/4;
+    	}
+    	
+    	h3{
+    	    font-size: $size-body*2;
+    	}
+    	
+    	h2{
+    	    font-size: $size-body*3/2;
+    	}
+    	
+    	h1{
+    	    font-size: $size-body*3;
+    	}
+    }
+}
+
+/* From 1080 to 4096px - DESKTOP - Scaling 17px - 28px */
+
+@for $i from 1 through 100{
+    @media all 
+	and (min-device-width: 1080px + 30.16*$i)
+	and (max-device-width: 1110.16px + 30.16*$i)
+	{
+	    $size-body: 17px + 0.011*$i;
+	    
+    	body{
+    	    font-size: $size-body;
+    	}
+    	
+    	p{
+    	    font-size: $size-body;
+    	}
+    	
+    	h6{
+    	    font-size: $size-body*5/4;
+    	}
+    	
+    	h5{
+    	    font-size: $size-body*3/2;
+    	}
+    	
+    	h4{
+    	    font-size: $size-body*7/4;
+    	}
+    	
+    	h3{
+    	    font-size: $size-body*2;
+    	}
+    	
+    	h2{
+    	    font-size: $size-body*3/2;
+    	}
+    	
+    	h1{
+    	    font-size: $size-body*3;
+    	}
+    }
+}
+
+/* From 4096 px to +\infty - MAXI - 28px */
+
+@include maxi {
+	
+	$size-body: 28px;
+
+	body{
+	    font-size: $size-body;
+	}
+	
+	p{
+	    font-size: $size-body;
+	}
+	
+	h6{
+	    font-size: $size-body*5/4;
+	}
+	
+	h5{
+	    font-size: $size-body*3/2;
+	}
+	
+	h4{
+	    font-size: $size-body*7/4;
+	}
+	
+	h3{
+	    font-size: $size-body*2;
+	}
+	
+	h2{
+	    font-size: $size-body*3/2;
+	}
+	
+	h1{
+	    font-size: $size-body*3;
+	}
+	
+}
+
+.mini-hide{
+	@include mini {
+		display: none;
+	}
+}
+
+.responsive-hide{
+	@include responsive {
+		display: none;
+	}
+}
+
+.desktop-hide{
+	@include desktop {
+		display: none;
+	}
+}
+
+.maxi-hide{
+	@include maxi {
+		display: none;
+	}
+}
+
+.mini-only{
+	display: none;
+	@include mini {
+		display: initial;
+	}
+}
+
+.responsive-only{
+	display: none;
+	@include responsive {
+		display: initial;
+	}
+}
+
+.responsive-strict{
+	display: none;
+	@include responsive {
+		display: initial;
+	}
+	@include mini{
+		display: none;
+	}
+}
+
+.desktop-only{
+	display: none;
+	@include desktop {
+		display: initial;
+	}
+}
+
+.maxi-only{
+	display: none;
+	@include maxi {
+		display: initial;
+	}
+}
+
+.desktop-strict{
+	display: none;
+	@include desktop {
+		display: initial;
+	}
+	@include maxi {
+		display: initial;
+	}
+}
+
+.fa{
+	margin-right: 2px;
+}

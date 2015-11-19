@@ -1,0 +1,32 @@
+#header
+{
+    width: 100%;
+    height: 100vh;
+    max-height: 55vw;
+    
+    /* For proper full-page visualization */
+    position: relative;
+    margin-top: -($size-body*$navbar-modifier*1.5 + 3px);
+    @include responsive {
+        margin-top: -($size-body*$navbar-responsive-modifier*1.5 + 3px);
+    }
+    margin-bottom: $main-spacer;
+    
+    background: url(../imgs/header.jpg) no-repeat center;
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+    
+    /* For parallax effect */
+    // background: url(../imgs/header.png) no-repeat bottom fixed;
+    // -webkit-background-size: cover;
+    // -moz-background-size: cover;
+    // -o-background-size: cover;
+    // background-size: cover;
+}
+
+#header-img{
+    width: 100%;
+    height: 100%;
+}

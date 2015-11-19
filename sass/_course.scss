@@ -1,0 +1,72 @@
+#singleCourse{
+    @extend .in-main;
+    
+    .gridster-item{
+        
+        @extend .col-100;
+        @extend .text-justify;
+        // @extend .bg-lightest-grey;
+    }
+    
+    .course-panel-title{
+        @extend .col-100;
+        @extend .text-center;
+        font-variant: small-caps;
+    }
+    
+    .course-panel-content{
+        @extend .col-100;
+        
+        &>.container{
+            padding: 10px;
+        }
+    }
+    
+    a{
+        text-decoration: none;
+        color: inherit;
+        &:hover{
+            @extend .green;
+        }
+    }
+    
+    .material-title{
+        @extend .col-40;
+    }
+    
+    .material-content{
+        @extend .col-50;
+        @extend .offset-10;
+    }
+    
+    .course-notification-date{
+        @extend .col-30;
+    }
+    
+    .course-notification-text{
+        @extend .col-70;
+    }
+    
+    .teacher-avatar{
+        @extend .col-50;
+        @extend .offset-25;
+    }
+    
+    .teacher-name, .teacher-description{
+        @extend .col-100;
+    }
+    
+    .course-description-introduction, .course-description-syllabus{
+        @extend .col-100;
+    }
+    
+    .course-icon{
+        @extend .col-25;
+        @extend .text-center;
+    }
+    
+    .course-description{
+        @extend .col-75;
+    }
+    
+}

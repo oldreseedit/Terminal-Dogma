@@ -1,0 +1,35 @@
+{
+  "name": "reseed",
+  "version": "0.8.1",
+  "authors": [
+    "AleksAndros <alessandro.flati@gmail.com>"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-bootstrap": "~0.13.1",
+    "angular-google-maps": "~2.2.1",
+    "angular-perfect-scrollbar": "~0.0.4",
+    "angular-sham-spinner": "~0.0.10",
+    "angular-ui-calendar": "~1.0.1",
+    "angular-youtube-mb": "~1.1.0",
+    "bootstrap-sass": "~3.3.5",
+    "ngDialog": "~0.4.0",
+    "ngFitText": "~3.3.3",
+    "ng-file-upload": "~9.1.2",
+    "angular-upload": "~1.0.12"
+  },
+  "resolutions": {
+    "angular": "1.4.5",
+    "angular-bootstrap": "~0.14.3"
+  }
+}
