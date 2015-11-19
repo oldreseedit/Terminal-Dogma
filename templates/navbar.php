@@ -36,11 +36,22 @@
                 <!-- If logged -->
                 <div id="navbar-logged" ng-if="userVerified">
                     <div class="container">
-                        <span class="noselect" fittext="0.9" fittext-reference="navbar-logged">
-                            <span class="middler"></span>
-                            <span class="fa fa-user middle"></span>
-                            <span class="middle" ng-bind="username"></span>
-                        </span>
+                    	<div class="navbar-profile-name">
+                    		<span class="noselect" fittext="0.9">
+                    			<a class="clickable" ng-href="#!/profile/{{username}}">
+		                            <span class="middler"></span>
+		                            <span class="fa-stack" ng-if="navbar.getAvatar()">
+		                            	<img class="navbar-avatar" ng-src="{{navbar.getAvatar()}}">
+		                            </span>
+		                            <span class="fa fa-user middle" ng-if="!navbar.getAvatar()"></span>
+	                            	<span class="middle" ng-bind="username"></span>
+	                            </a>
+	                            <span class="navbar-icons">
+	                        		<a ng-href="#!/profile/{{username}}"><span class="fa fa-user middle clickable"></span></a>
+	                        		<a  ng-click="navbar.signout()"><span class="fa fa-sign-out middle clickable"></span></a>
+	                            </span>
+                        	</span>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-main.controller('navbarController',['utilities','$timeout','$window','$uibModal','$rootScope',function(utilities,$timeout,$window,$uibModal,$rootScope){
+main.controller('navbarController',['utilities','$timeout','$window','$uibModal','$rootScope','$cookies',function(utilities,$timeout,$window,$uibModal,$rootScope,$cookies){
     var self = this;
     
     self.tabs = [
@@ -67,6 +67,19 @@ main.controller('navbarController',['utilities','$timeout','$window','$uibModal'
         },function(){
             
         });
+    };
+    
+    self.signout = function(){
+    	$cookies.remove('username',{path:'/'});
+    	$cookies.remove('verified',{path:'/'});
+    	$cookies.remove('token',{path:'/'});
+    	$window.location.reload();
+    };
+    
+    self.getAvatar = function(){
+    	var avatarURI = $cookies.get('avatarURI');
+    	avatarURI = 'imgs/team/Alessandro.jpg';
+    	return avatarURI;
     };
     
 }]);

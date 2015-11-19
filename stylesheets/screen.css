@@ -19367,7 +19367,7 @@ button.close {
 }
 
 /* line 11, ../sass/_tricks.scss */
-.resp-img {
+.resp-img, #navbar #navbar-profile .navbar-avatar {
   max-width: 90%;
   max-height: 90%;
 }
@@ -19450,31 +19450,32 @@ button.close {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  cursor: default;
 }
 
-/* line 84, ../sass/_tricks.scss */
+/* line 85, ../sass/_tricks.scss */
 .clickable {
   cursor: pointer;
 }
 
-/* line 88, ../sass/_tricks.scss */
+/* line 89, ../sass/_tricks.scss */
 .first {
   margin-left: 0 !important;
 }
 
-/* line 92, ../sass/_tricks.scss */
-.circle-img {
+/* line 93, ../sass/_tricks.scss */
+.circle-img, #navbar #navbar-profile .navbar-avatar {
   width: 100%;
   height: 100%;
   border-radius: 50%;
 }
 
-/* line 98, ../sass/_tricks.scss */
+/* line 99, ../sass/_tricks.scss */
 .square, #courses #tiles-courses .tile, #activities #tiles-activities .tile {
   padding-top: 100%;
   position: relative;
 }
-/* line 102, ../sass/_tricks.scss */
+/* line 103, ../sass/_tricks.scss */
 .square .square-content, #courses #tiles-courses .tile .square-content, #activities #tiles-activities .tile .square-content {
   position: absolute;
   top: 0;
@@ -19483,12 +19484,12 @@ button.close {
   right: 0;
 }
 
-/* line 111, ../sass/_tricks.scss */
+/* line 112, ../sass/_tricks.scss */
 .square-only {
   padding-bottom: 100%;
 }
 
-/* line 116, ../sass/_tricks.scss */
+/* line 117, ../sass/_tricks.scss */
 .container {
   width: auto;
   height: inherit;
@@ -19497,38 +19498,38 @@ button.close {
   padding: 0;
 }
 
-/* line 124, ../sass/_tricks.scss */
+/* line 125, ../sass/_tricks.scss */
 .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #media, #contacts, #contacts #contact-form, #signinModal, #signupModal, #payment-disclaimer-modal, #payment, #faqPage, #profile {
   margin-bottom: 3vw;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 124, ../sass/_tricks.scss */
+  /* line 125, ../sass/_tricks.scss */
   .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #media, #contacts, #contacts #contact-form, #signinModal, #signupModal, #payment-disclaimer-modal, #payment, #faqPage, #profile {
     width: 80%;
     margin-left: 10%;
   }
 }
 @media all and (max-device-width: 539px) {
-  /* line 124, ../sass/_tricks.scss */
+  /* line 125, ../sass/_tricks.scss */
   .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #media, #contacts, #contacts #contact-form, #signinModal, #signupModal, #payment-disclaimer-modal, #payment, #faqPage, #profile {
     width: 96%;
     margin-left: 2%;
   }
 }
 
-/* line 141, ../sass/_tricks.scss */
+/* line 142, ../sass/_tricks.scss */
 .scrollbar-wrapper {
   width: 100%;
   height: 100%;
   overflow-y: hidden;
   position: relative;
 }
-/* line 147, ../sass/_tricks.scss */
+/* line 148, ../sass/_tricks.scss */
 .scrollbar-wrapper .scrollbar {
   padding-right: 26px;
 }
 
-/* line 154, ../sass/_tricks.scss */
+/* line 155, ../sass/_tricks.scss */
 .fa ~ span {
   margin-left: 0.5em;
 }
@@ -20088,7 +20089,19 @@ body {
     margin-left: 5%;
   }
 }
+/* line 69, ../sass/_navbar.scss */
+#navbar #navbar-profile a {
+  margin-right: 0.5em;
+}
 /* line 74, ../sass/_navbar.scss */
+#navbar #navbar-profile .navbar-icons {
+  margin-left: 1em;
+}
+/* line 79, ../sass/_navbar.scss */
+#navbar #navbar-profile .navbar-avatar {
+  display: inline;
+}
+/* line 92, ../sass/_navbar.scss */
 #navbar #navbar-signin button, #navbar #navbar-signup button {
   width: 90%;
   font-weight: 400;
@@ -20096,12 +20109,12 @@ body {
   font-size: 21.177px;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 74, ../sass/_navbar.scss */
+  /* line 92, ../sass/_navbar.scss */
   #navbar #navbar-signin button, #navbar #navbar-signup button {
     font-size: 13.032px;
   }
 }
-/* line 95, ../sass/_navbar.scss */
+/* line 113, ../sass/_navbar.scss */
 #navbar #navbar-logged button {
   margin-right: 3em;
   width: 30%;
@@ -20110,7 +20123,7 @@ body {
   font-size: 21.177px;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 95, ../sass/_navbar.scss */
+  /* line 113, ../sass/_navbar.scss */
   #navbar #navbar-logged button {
     font-size: 13.032px;
   }
@@ -20280,7 +20293,7 @@ body {
   padding-bottom: 3vw;
 }
 /* line 12, ../sass/_team.scss */
-#home #team #team-wrapper .circle-img {
+#home #team #team-wrapper .circle-img, #home #team #team-wrapper #navbar #navbar-profile .navbar-avatar, #navbar #navbar-profile #home #team #team-wrapper .navbar-avatar {
   width: 50%;
   height: 50%;
 }
