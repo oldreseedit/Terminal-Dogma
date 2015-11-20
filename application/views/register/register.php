@@ -58,7 +58,7 @@
                                 <span ng-show="register.selectedLessonID" class="fa clickable" ng-class="modifyingLesson ? 'fa-check light-green' : 'fa-pencil'" ng-click="modifyingLesson = !modifyingLesson; oldLessonNote = register.db[register.selectedLessonID].lessonNote; register.modifyLessonNote(modifyingLesson)"></span>
                             </div>
                             
-                            <table class="table table-striped">
+                            <table class="table table-striped" ng-controller="expController as xp">
                                 <tr><th class="text-center" ng-repeat="heading in register.headings" ng-bind="heading"></th></tr>
                                 <tr class="noselect" ng-repeat="student in register.getStudentList()" ng-init="index = $index">
                                     <td ng-bind="student.name + ' ' + student.surname"></td>
@@ -73,31 +73,15 @@
                                     </td>
                                     <td>
                                     	<div class="XP" fittext>
-                                    		<span class="fa-stack fa-lg clickable">
+                                    		<span class="fa-stack fa-lg clickable" ng-repeat="i in [100,200,300]" ng-click="xp.add(student.userID, i,  register.db[register.selectedLessonID].courseID)">
                                     			<span class="fa fa-stack-2x fa-square light-green"></span>
-                                    			<span class="fa fa-stack-1x white" fittext>100</span> 
-                                    		</span>
-                                    		<span class="fa-stack fa-lg clickable">
-                                    			<span class="fa fa-stack-2x fa-square light-green"></span>
-                                    			<span class="fa fa-stack-1x white" fittext>200</span> 
-                                    		</span>
-                                    		<span class="fa-stack fa-lg clickable">
-                                    			<span class="fa fa-stack-2x fa-square light-green"></span>
-                                    			<span class="fa fa-stack-1x white" fittext>300</span> 
+                                    			<span class="fa fa-stack-1x white" fittext ng-bind="i"></span> 
                                     		</span>
                                     	</div>
                                     	<div class="XP" fittext>
-                                    		<span class="fa-stack fa-lg clickable">
+                                    		<span class="fa-stack fa-lg clickable" ng-repeat="i in [100,200,300]" ng-click="xp.add(student.userID, -i,  register.db[register.selectedLessonID].courseID)">
                                     			<span class="fa fa-stack-2x fa-square text-danger"></span>
-                                    			<span class="fa fa-stack-1x white" fittext>100</span> 
-                                    		</span>
-                                    		<span class="fa-stack fa-lg clickable">
-                                    			<span class="fa fa-stack-2x fa-square text-danger"></span>
-                                    			<span class="fa fa-stack-1x white" fittext>200</span> 
-                                    		</span>
-                                    		<span class="fa-stack fa-lg clickable">
-                                    			<span class="fa fa-stack-2x fa-square text-danger"></span>
-                                    			<span class="fa fa-stack-1x white" fittext>300</span> 
+                                    			<span class="fa fa-stack-1x white" fittext ng-bind="i"></span> 
                                     		</span>
                                     	</div>
                                     </td>
