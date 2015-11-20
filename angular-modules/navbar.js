@@ -78,7 +78,7 @@ main.controller('navbarController',['utilities','$timeout','$window','$uibModal'
     
     self.getAvatar = function(){
     	var avatarURI = $cookies.get('avatarURI');
-    	avatarURI = 'imgs/team/Alessandro.jpg';
+//    	avatarURI = 'imgs/team/Alessandro.jpg';
     	return avatarURI;
     };
     

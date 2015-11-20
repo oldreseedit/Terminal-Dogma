@@ -20094,14 +20094,22 @@ body {
   margin-right: 0.5em;
 }
 /* line 74, ../sass/_navbar.scss */
+#navbar #navbar-profile .fa-question {
+  font-size: 2.5em;
+}
+/* line 79, ../sass/_navbar.scss */
+#navbar #navbar-profile .navbar-username {
+  margin-left: 0.5em;
+}
+/* line 84, ../sass/_navbar.scss */
 #navbar #navbar-profile .navbar-icons {
   margin-left: 1em;
 }
-/* line 79, ../sass/_navbar.scss */
+/* line 89, ../sass/_navbar.scss */
 #navbar #navbar-profile .navbar-avatar {
   display: inline;
 }
-/* line 92, ../sass/_navbar.scss */
+/* line 102, ../sass/_navbar.scss */
 #navbar #navbar-signin button, #navbar #navbar-signup button {
   width: 90%;
   font-weight: 400;
@@ -20109,12 +20117,12 @@ body {
   font-size: 21.177px;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 92, ../sass/_navbar.scss */
+  /* line 102, ../sass/_navbar.scss */
   #navbar #navbar-signin button, #navbar #navbar-signup button {
     font-size: 13.032px;
   }
 }
-/* line 113, ../sass/_navbar.scss */
+/* line 123, ../sass/_navbar.scss */
 #navbar #navbar-logged button {
   margin-right: 3em;
   width: 30%;
@@ -20123,7 +20131,7 @@ body {
   font-size: 21.177px;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 113, ../sass/_navbar.scss */
+  /* line 123, ../sass/_navbar.scss */
   #navbar #navbar-logged button {
     font-size: 13.032px;
   }

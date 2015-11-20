@@ -43,12 +43,19 @@
 		                            <span class="fa-stack" ng-if="navbar.getAvatar()">
 		                            	<img class="navbar-avatar" ng-src="{{navbar.getAvatar()}}">
 		                            </span>
-		                            <span class="fa fa-user middle" ng-if="!navbar.getAvatar()"></span>
-	                            	<span class="middle" ng-bind="username"></span>
+		                            <span class="fa-stack" ng-if="!navbar.getAvatar()"  ng-mouseenter="hover = true" ng-mouseleave="hover = false">
+		                            	<i class="fa fa-users fa-stack-2x"></i>
+		                            	<i class="fa fa-question fa-stack-1x" ng-class="{'white':hover, 'olive':!hover}"></i>
+		                            </span>
+		                         </a>
+		                         
+		                         <a ng-href="#!/profile/{{username}}">
+	                            	<span class="middle navbar-username" ng-bind="username"></span>
 	                            </a>
+	                            
 	                            <span class="navbar-icons">
-	                        		<a ng-href="#!/profile/{{username}}"><span class="fa fa-user middle clickable"></span></a>
-	                        		<a  ng-click="navbar.signout()"><span class="fa fa-sign-out middle clickable"></span></a>
+	                        		<a ng-href="#!/profile/{{username}}"><span class="fa fa-lg fa-user middle clickable"></span></a>
+	                        		<a  ng-click="navbar.signout()"><span class="fa fa-lg fa-sign-out middle clickable"></span></a>
 	                            </span>
                         	</span>
                         </div>
