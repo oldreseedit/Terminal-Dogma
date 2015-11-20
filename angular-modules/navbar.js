@@ -1,4 +1,4 @@
-main.controller('navbarController',['utilities','$timeout','$window','$uibModal','$rootScope',function(utilities,$timeout,$window,$uibModal,$rootScope){
+main.controller('navbarController',['utilities','$timeout','$window','$uibModal','$rootScope','$cookies',function(utilities,$timeout,$window,$uibModal,$rootScope,$cookies){
     var self = this;
     
     self.tabs = [
@@ -68,5 +68,37 @@ main.controller('navbarController',['utilities','$timeout','$window','$uibModal'
             
         });
     };
+    
+    self.signout = function(){
+    	$cookies.remove('username',{path:'/'});
+    	$cookies.remove('verified',{path:'/'});
+    	$cookies.remove('token',{path:'/'});
+    	$window.location.reload();
+    };
+    
+    self.getAvatar = function()
+    {
+    	var avatarURI = $cookies.get('avatarURI');
+//    	avatarURI = 'imgs/team/Alessandro.jpg';
+    	return avatarURI;
+    };
+    
+    self.changeAvatar = function()
+    {
+    	var modalInstance = $uibModal.open({
+            templateUrl: 'templates/change-avatar-modal.php',
+            controller: 'avatarController as avatar',
+            animation: true,
+            backdrop: 'static',
+            size: 'lg',
+            
+        });
+        
+        modalInstance.result.then(function(){
+            
+        },function(){
+            
+        });
+    }
     
 }]);
