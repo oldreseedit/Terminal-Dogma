@@ -51,7 +51,7 @@
 <!-- ANGULAR JS -->
 
     <!-- AngularJS library -->
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-messages.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-sanitize.js"></script>
@@ -101,6 +101,7 @@
     <script type="text/javascript" src="angular-modules/signin.js"></script>
     <script type="text/javascript" src="angular-modules/signup.js"></script>
     <script type="text/javascript" src="angular-modules/profile.js"></script>
+    <script type="text/javascript" src="angular-modules/avatar.js"></script>
     <script type="text/javascript" src="angular-modules/paymentDisclaimer.js"></script>
     <script type="text/javascript" src="angular-modules/paymentNotRegistered.js"></script>
     <script type="text/javascript" src="angular-modules/paymentCancel.js"></script>

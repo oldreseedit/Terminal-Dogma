@@ -36,11 +36,31 @@
                 <!-- If logged -->
                 <div id="navbar-logged" ng-if="userVerified">
                     <div class="container">
-                        <span class="noselect" fittext="0.9" fittext-reference="navbar-logged">
-                            <span class="middler"></span>
-                            <span class="fa fa-user middle"></span>
-                            <span class="middle" ng-bind="username"></span>
-                        </span>
+                    	<div class="navbar-profile-name">
+                    		<span class="noselect" fittext="0.9">
+	                            <span class="middler"></span>
+                    			<a class="clickable" ng-href="#!/profile/{{username}}" ng-if="navbar.getAvatar()">
+		                            <span class="fa-stack" >
+		                            	<img class="navbar-avatar" ng-src="{{navbar.getAvatar()}}">
+		                            </span>
+	                            </a>
+	                            <a  ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-click="navbar.changeAvatar()" ng-if="!navbar.getAvatar()">
+		                            <span class="fa-stack">
+		                            	<i class="fa fa-users fa-stack-2x"></i>
+		                            	<i class="fa fa-question fa-stack-1x" ng-class="{'white':hover, 'olive':!hover}"></i>
+		                            </span>
+		                         </a>
+		                         
+		                         <a ng-href="#!/profile/{{username}}">
+	                            	<span class="middle navbar-username" ng-bind="username"></span>
+	                            </a>
+	                            
+	                            <span class="navbar-icons">
+	                        		<a ng-href="#!/profile/{{username}}"><span class="fa fa-lg fa-user middle clickable"></span></a>
+	                        		<a  ng-click="navbar.signout()"><span class="fa fa-lg fa-sign-out middle clickable"></span></a>
+	                            </span>
+                        	</span>
+                        </div>
                     </div>
                 </div>
             </div>
