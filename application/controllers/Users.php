@@ -182,7 +182,7 @@ class Users extends CI_Controller {
             $password = $this->input->post('password');
             if($password == false)
             {
-                echo json_encode(array("error" => true, "description" => "La password è obbligatoria.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("password")));
+                echo json_encode(array("error" => true, "description" => "La password e obbligatoria.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("password")));
                 return;
             }
             
@@ -195,7 +195,7 @@ class Users extends CI_Controller {
             $token = password_hash($userID.$password, PASSWORD_BCRYPT);
             $this->users_model->addToken($userID, $token);
             
-            echo json_encode(array("error" => false, "description" => "Il login è stato effettuato correttamente.", "username" => $userID, "token" => $token, "expire" => time()+86400*self::COOKIE_DAYS));
+            echo json_encode(array("error" => false, "description" => "Il login e stato effettuato correttamente.", "username" => $userID, "token" => $token, "expire" => time()+86400*self::COOKIE_DAYS));
         }
         
         // public function isLoggedIn()
@@ -210,7 +210,7 @@ class Users extends CI_Controller {
         //     $token = $this->input->post('token');
         //     if($token == false)
         //     {
-        //         echo json_encode(array("error" => true, "description" => "Il token è obbligatoria.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("token")));
+        //         echo json_encode(array("error" => true, "description" => "Il token e obbligatoria.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("token")));
         //         return;
         //     }
             
@@ -233,7 +233,7 @@ class Users extends CI_Controller {
             
             if(!isset($_COOKIE["token"]))
             {
-                echo json_encode(array("error" => true, "description" => "Il token è obbligatoria.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("token")));
+                echo json_encode(array("error" => true, "description" => "Il token è obbligatorio.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("token")));
                 return;
             }
             
@@ -243,7 +243,7 @@ class Users extends CI_Controller {
                 return;
             }
             
-            echo json_encode(array("error" => false, "description" => "Il logout è stato effettuato correttamente."));
+            echo json_encode(array("error" => false, "description" => "Il logout e stato effettuato correttamente."));
         }
         
 		public function init_exp_events()
