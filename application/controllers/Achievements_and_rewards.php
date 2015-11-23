@@ -1,5 +1,8 @@
 <?php
 
+// TODO: aggiungi punti exp automaticamente per le lezioni
+// TODO: aggiungi l'achievement per l'80% delle lezioni di un corso
+
 class Achievements_and_rewards extends CI_Controller {
 
 		const ACHIEVEMENT = "ACHIEVEMENT";
@@ -9,6 +12,7 @@ class Achievements_and_rewards extends CI_Controller {
         {
                 parent::__construct();
                 $this->load->model('achievements_and_rewards_model');
+                $this->load->model('user_achievements_rewards_model');
         }
         
         public function init()
@@ -63,8 +67,8 @@ class Achievements_and_rewards extends CI_Controller {
         		echo json_encode(array("error" => true, "description" => "Specificare una descrizione", "errorCode" => "MANDATORY_FIELD", "parameters" => array("description")));
 				return;
         	}
-        	
-        	$this->achievements_and_rewards_model->add(self::ACHIEVEMENT, $achievementID, urldecode($description), $level);
+
+        	$this->achievements_and_rewards_model->add(self::ACHIEVEMENT, $achievementID, urldecode($description));
             
         	echo json_encode(array("error" => false, "description" => "Achievement memorizzato con successo."));
         	return;
@@ -73,6 +77,18 @@ class Achievements_and_rewards extends CI_Controller {
         public function get()
         {
         	echo json_encode($this->achievements_and_rewards_model->get());
+        }
+        
+        public function get_achievements_and_rewards()
+        {
+        	$userID = $this->input->post('username');
+        	if($userID == false)
+        	{
+        		echo json_encode(array("error" => true, "description" => "Lo username è obbligatorio.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("username")));
+        		return;
+        	}
+        	 
+        	echo json_encode($this->user_achievements_rewards_model->get($userID));
         }
 }
 ?>

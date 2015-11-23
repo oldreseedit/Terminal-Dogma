@@ -3,6 +3,7 @@ var main = angular.module('Main',[
     'ngMessages', // For validation purposes
     'ngSanitize', // For validation and sanitizing purposes
     'ngCookies', // For setting/retrieving cookies easily
+    'ngAnimate', // For animating purposes
     'ui.calendar', // For register calendar
     'ui.bootstrap', // For all bootstrap functions and more
     'angularShamSpinner', // For pre-loading spinner
@@ -12,7 +13,9 @@ var main = angular.module('Main',[
     'youtube-embed', // For embedding Youtube Videos
     'ngFitText', // My creation for perfectly centering text into div
     'gridster', // For draggable/resizable divs
-    'lr.upload' // For uploading purposes
+    'lr.upload', // For uploading purposes
+    'inform', // For notifier purposes
+    'inform-http-exception' // For http exceptions handlers
     ], function($httpProvider) {
 
     // FOR CI
@@ -37,7 +40,19 @@ config(function(uiGmapGoogleMapApiProvider) {
         v: '3.20', //defaults to latest 3.X anyhow
         libraries: 'weather,geometry,visualization'
     });
-});
+}).
+/* Configures Angular Inform */
+config(function(informProvider) {
+
+    var myDefaults = {
+      /* default time to live for each notification */
+      ttl: 4000,
+      /* default type of notification */
+      type: 'success'
+    };
+
+    informProvider.defaults(myDefaults);
+});;
 
 /* Check if you are on "responsive" devices */
 imOnResponsive = (window.innerWidth > 0) ? (window.innerWidth < 1080) : (screen.width < 1080);
