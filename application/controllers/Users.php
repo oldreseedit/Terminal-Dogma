@@ -2,7 +2,6 @@
 
 // require_once(APPPATH . 'libraries\Achievement10.php');
 // print(APPPATH . 'libraries\Achievement10.php');
-
 // require_once(APPPATH.'libraries/Achievement10.php');
 
 class Users extends CI_Controller {
@@ -16,7 +15,10 @@ class Users extends CI_Controller {
                 $this->load->model('users_model');
                 $this->load->model('userinfo_model');
                 $this->load->model('notifications_model');
+                
                 $this->load->model('experience_events_model');
+                $this->load->model('achievements_and_rewards_model');
+                $this->load->model('user_achievements_rewards_model');
                 
                 $this->load->helper('url');
                 $this->load->helper('email');
@@ -180,7 +182,7 @@ class Users extends CI_Controller {
             $password = $this->input->post('password');
             if($password == false)
             {
-                echo json_encode(array("error" => true, "description" => "La password è obbligatoria.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("password")));
+                echo json_encode(array("error" => true, "description" => "La password e obbligatoria.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("password")));
                 return;
             }
             
@@ -193,7 +195,7 @@ class Users extends CI_Controller {
             $token = password_hash($userID.$password, PASSWORD_BCRYPT);
             $this->users_model->addToken($userID, $token);
             
-            echo json_encode(array("error" => false, "description" => "Il login è stato effettuato correttamente.", "username" => $userID, "token" => $token, "expire" => time()+86400*self::COOKIE_DAYS));
+            echo json_encode(array("error" => false, "description" => "Il login e stato effettuato correttamente.", "username" => $userID, "token" => $token, "expire" => time()+86400*self::COOKIE_DAYS));
         }
         
         // public function isLoggedIn()
@@ -208,7 +210,7 @@ class Users extends CI_Controller {
         //     $token = $this->input->post('token');
         //     if($token == false)
         //     {
-        //         echo json_encode(array("error" => true, "description" => "Il token è obbligatoria.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("token")));
+        //         echo json_encode(array("error" => true, "description" => "Il token e obbligatoria.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("token")));
         //         return;
         //     }
             
@@ -231,7 +233,7 @@ class Users extends CI_Controller {
             
             if(!isset($_COOKIE["token"]))
             {
-                echo json_encode(array("error" => true, "description" => "Il token è obbligatoria.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("token")));
+                echo json_encode(array("error" => true, "description" => "Il token è obbligatorio.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("token")));
                 return;
             }
             
@@ -241,7 +243,7 @@ class Users extends CI_Controller {
                 return;
             }
             
-            echo json_encode(array("error" => false, "description" => "Il logout è stato effettuato correttamente."));
+            echo json_encode(array("error" => false, "description" => "Il logout e stato effettuato correttamente."));
         }
         
 		public function init_exp_events()
@@ -256,27 +258,25 @@ class Users extends CI_Controller {
 		
         public function add_exp()
         {
-//             $userID = $this->input->post('username');
-//             if($userID == false)
-//             {
-//                 echo json_encode(array("error" => true, "description" => "Lo username è obbligatorio.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("username")));
-//                 return;
-//             }
+            $userID = $this->input->post('username');
+            if($userID == false)
+            {
+                echo json_encode(array("error" => true, "description" => "Lo username è obbligatorio.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("username")));
+                return;
+            }
             
-//             $exp = $this->input->post('exp');
-//             if($exp == false)
-//             {
-//                 echo json_encode(array("error" => true, "description" => "Specificare punti esperienza.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("exp")));
-//                 return;
-//             }
-			$userID = "Titto";
-			$exp = 500;
+            $exp = $this->input->post('exp');
+            if($exp == false)
+            {
+                echo json_encode(array("error" => true, "description" => "Specificare punti esperienza.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("exp")));
+                return;
+            }
             
             $courseID = $this->input->post('courseID');
             if($courseID == false) $courseID = null;
             
             $description = $this->input->post('description');
-            if($description == false) $description = "Ti sono stati assegnati " . $exp . " punti esperienza";
+            if($description == false) $description = null;
 			
 			$publishingTimestamp = date("Y-m-d H:i:s");
 
@@ -292,45 +292,53 @@ class Users extends CI_Controller {
             
 			$this->db->trans_start();
 			
-//             // Update the information on the database
-//             $this->userinfo_model->update_exp_info($userID, $currentExperience, $newExperience, $newLevel);
+            // Update the information on the database
+            $this->userinfo_model->update_exp_info($userID, $currentExperience, $newExperience, $newLevel);
             
-//             // Add the notification in the experience events table and notify this to the GUI
-//             array_push($notifications, array("error" => false, "description" => "Sono stati assegnati " . $exp . " punti esperienza.", "errorCode" => "EXPERIENCE_UPDATE_EVENT"));
-//             $this->experience_events_model->add($userID, "EXP_POINTS", $publishingTimestamp, $description, $courseID);
-//             $this->notifications_model->add("Ti sono stati assegnati " . $exp . " punti esperienza.", $publishingTimestamp, array($userID), true, $courseID);
+            // Add the notification in the experience events table and notify this to the GUI
+            array_push($notifications, array("error" => false, "description" => "Sono stati assegnati " . $exp . " punti esperienza.", "errorCode" => "EXPERIENCE_UPDATE_EVENT"));
+            $this->experience_events_model->add($userID, "EXP_POINTS", $exp, $publishingTimestamp, $description, $courseID);
+            $this->notifications_model->add("Ti sono stati assegnati " . $exp . " punti esperienza.", $publishingTimestamp, array($userID), true, $courseID);
             
-//             if($newLevel != $level)
-//             {
-//             	$event = $newLevel > $level ? "LEVEL_UP" : "LEVEL_DOWN";
-            	
-//                 // Add the level-up notification in the experience events table and notify this to the GUI
-//                 array_push($notifications, array("error" => false, "description" => "Level " . ($newLevel > $level ? "up" : "down") ."!", "errorCode" => "LEVEL_UPDATE_EVENT"));
-//                 $this->experience_events_model->add($userID, $event, $publishingTimestamp, $newLevel, $courseID);
-//                 $this->notifications_model->add("Hai fatto level-".($newLevel > $level ? "up" : "down")."! Nuovo livello raggiunto: " . $newLevel, $publishingTimestamp, array($userID), true, $courseID);
-//             }
-            
-            // Calculate which new rewards/achievements assignable
-            $achievements = $this->getNewAchievements($userID);
-            foreach($achievements as $achievement)
+            $achievements_and_rewards_db = $this->user_achievements_rewards_model->get_achievements_and_rewards($userID);
+            $achievements_and_rewards = array();
+            foreach ($achievements_and_rewards_db as $achievement_or_reward)
+            	$achievements_and_rewards[] = $achievement_or_reward['AchievementOrRewardID'];
+
+            if($newLevel != $level)
             {
-            	$achievement->applies($userID);
+            	$event = $newLevel > $level ? "LEVEL_UP" : "LEVEL_DOWN";
             	
-                // Add the achievement notification in the experience events table and notify this to the GUI
-//                 array_push($notifications, array("error" => false, "description" => "Hai guadagnato un nuovo achievement!", "errorCode" => "ACHIEVEMENT_EVENT"));
-//                 $this->experience_events_model->add($userID, "ACHIEVEMENT", $publishingTimestamp, $achievement, $courseID);
-//                 $this->notifications_model->add("Hai ottenuto un achievement:" . $achievement, $publishingTimestamp, array($userID), true, $courseID);
+                // Add the level-up notification in the experience events table and notify this to the GUI
+                array_push($notifications, array("error" => false, "description" => "Level " . ($newLevel > $level ? "up" : "down") ."!", "errorCode" => "LEVEL_UPDATE_EVENT"));
+                $this->experience_events_model->add($userID, $event, $newLevel, $publishingTimestamp, null, $courseID);
+                $this->notifications_model->add("Hai fatto level-".($newLevel > $level ? "up" : "down")."! Nuovo livello raggiunto: " . $newLevel, $publishingTimestamp, array($userID), true, $courseID);
+                
+                // Assign new achievements and rewards
+                if($newLevel > $level)
+                {
+                	// Assign the reward corresponding to this level (if any)
+                	$all_achievements_and_rewards = $this->achievements_and_rewards_model->get();
+                	foreach ($all_achievements_and_rewards as $achievement_or_reward)
+                	{
+                		if($achievement_or_reward['Level'] != null && $achievement_or_reward['Level'] <= $newLevel)
+                		{
+                			$achievement_or_rewardID = $achievement_or_reward['AchievementRewardID'];
+                			
+                			// If the user hasn't already obtained that achievement/reward
+                			if(in_array($achievement_or_rewardID, $achievements_and_rewards)) continue;
+                			
+                			$type = $achievement_or_reward['Type'];
+                			
+                			array_push($notifications, array("error" => false, "description" => "Hai ottenuto " . $achievement_or_rewardID . ": " . $achievement_or_reward['Description'], "errorCode" => $type . "_EVENT"));
+							$this->experience_events_model->add($userID, "REWARD", $achievement_or_rewardID, $publishingTimestamp, null, $courseID);
+							$this->notifications_model->add("Hai ottenuto " . $achievement_or_rewardID . ": " . $achievement_or_reward['Description'], $publishingTimestamp, array($userID), true, $courseID);
+							$this->user_achievements_rewards_model->add($userID, $achievement_or_rewardID);
+                		}
+                	}
+                }
             }
             
-//             $rewards = $this->getNewRewards($userID);
-//             foreach($rewards as $reward)
-//             {
-//                 // Add the reward notification in the experience events table and notify this to the GUI
-//                 array_push($notifications, array("error" => false, "description" => "Hai guadagnato una nuova reward!", "errorCode" => "REWARD_EVENT"));
-//                 $this->experience_events_model->add($userID, "REWARD", $publishingTimestamp, $reward, $courseID);
-//                 $this->notifications_model->add("Hai ottenuto una reward:" . $reward, $publishingTimestamp, array($userID), true, $courseID);
-//             }
-			
 			$this->db->trans_complete();
             
             echo json_encode($notifications);
@@ -344,41 +352,7 @@ class Users extends CI_Controller {
 			$a = 125;
 			$b = 875;
 			
-            $newLevel = floor((-$b + sqrt(pow($b, 2) + 4*$a*$newExperience))/(2*$a));
-			
-//             echo "b^2:" . pow($b, 2);
-//             echo "<br/>";
-//             echo "4ac: " . 4*$a*$newExperience;
-//             echo "<br/>";
-//             echo "b^2-4ac:" . (pow($b, 2) + 4*$a*$newExperience);
-//             echo "<br/>";
-//             echo "sqrt:" . sqrt(pow($b, 2) + 4*$a*$newExperience);
-//             echo "<br/>";
-//             echo "(-b + sqrt(b^2-4ac)/2a:" . (-$b + sqrt(pow($b, 2) + 4*$a*$newExperience));
-//             echo "<br/>";
-//             echo "floor:" . floor((-$b + sqrt(pow($b, 2) + 4*$a*$newExperience))/(2*$a));
-//             echo "<br/>";
-//             echo $newLevel;
-            
-			return $newLevel;
-        }
-        
-        private function getNewAchievements($userID)
-        {
-            $achievements = array();
-            
-            new Achievement10();
-            
-//             array_push($achievements, new Achievement10());
-            
-            return $achievements;
-        }
-        
-        private function getNewRewards($userID)
-        {
-            $rewards = array();
-            
-            return $rewards;
+            return floor((-$b + sqrt(pow($b, 2) + 4*$a*$newExperience))/(2*$a));
         }
 }
 ?>

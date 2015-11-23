@@ -58,9 +58,7 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-cookies.js"></script>
     
     <!-- AngularJS Bootstrap UI -->
-    <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-    <!--<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>-->
-    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" type="text/css" />-->
+    <script type="text/javascript" src="angular-modules/ui-bootstrap-tpls-0.14.3.min.js"></script>
     
     <!-- AngularUI Calendar -->
     <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.css"/>
@@ -111,7 +109,6 @@
     <script type="text/javascript" src="angular-modules/faq.js"></script>
     <script type="text/javascript" src="angular-modules/fitText.js"></script>
     
-    
     <!-- Grunt Plugins -->
     <!--<script type="text/javascript" src="angular-modules/templates.js"></script>-->
     
@@ -130,6 +127,11 @@
     <!-- Angular File Upload -->
     <!--<script src="ng-file-upload.min.js"></script>-->
     <script src='bower_components/angular-upload/angular-upload.js'></script>
+    
+    <!-- Angular Inform -->
+    <link rel="stylesheet" href="/bower_components/angular-inform/dist/angular-inform.min.css"/>
+    <script src="/bower_components/angular-inform/dist/angular-inform.min.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.js"></script>
     
     <!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
     <script type="text/javascript">
