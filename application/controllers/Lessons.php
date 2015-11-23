@@ -192,8 +192,6 @@ class Lessons extends CI_Controller {
         		$all_achievements_and_rewards[$achievement_or_reward] = $achievement_or_reward; 
         	}
         	
-        	print_r($all_achievements_and_rewards);
-        	
         	// Check if it is the case to assign achievements regarding the % of the total lessons
         	if($attendance_ratio >= 0.8)
         	{
@@ -207,7 +205,7 @@ class Lessons extends CI_Controller {
         		$achievement_or_rewardID = 'ACHV_80_PERCENT';
 
         		// If the user has not taken this achievement already
-        		if(!array_key_exists($achievement_or_rewardID, $achievements_and_rewards))
+        		if(!in_array($achievement_or_rewardID, $achievements_and_rewards))
         		{
         			$eighty_percent_achievement = $all_achievements_and_rewards[$achievement_or_rewardID];
         	
@@ -223,7 +221,7 @@ class Lessons extends CI_Controller {
         			$achievement_or_rewardID = 'ACHV_100_PERCENT';
         	
         			// If the user has not taken this achievement already
-        			if(!array_key_exists($achievement_or_rewardID, $achievements_and_rewards))
+        			if(!in_array($achievement_or_rewardID, $achievements_and_rewards))
         			{
         				$eighty_percent_achievement = $all_achievements_and_rewards[$achievement_or_rewardID];
         				 
