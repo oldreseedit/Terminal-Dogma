@@ -16,7 +16,6 @@
     "tests"
   ],
   "dependencies": {
-    "angular-bootstrap": "~0.13.1",
     "angular-google-maps": "~2.2.1",
     "angular-perfect-scrollbar": "~0.0.4",
     "angular-sham-spinner": "~0.0.10",
@@ -26,10 +25,11 @@
     "ngDialog": "~0.4.0",
     "ngFitText": "~3.3.3",
     "ng-file-upload": "~9.1.2",
-    "angular-upload": "~1.0.12"
+    "angular-upload": "~1.0.12",
+    "angular-inform": "~0.0.18",
+    "angular-animate": "~1.4.8"
   },
   "resolutions": {
-    "angular": "1.4.5",
-    "angular-bootstrap": "~0.14.3"
+    "angular": "1.4.7"
   }
 }
