@@ -100,5 +100,22 @@ class Register_model extends CI_Model
                 
                 return $query->result_array();
         }
+        
+        public function get_lessons($courseID, $userID)
+        {
+        	$costraints = array();
+        	
+        	if($courseID != null) $costraints['courseID'] = $courseID;
+        	if($userID != null) $costraints['userID'] = $userID;
+			if(count($costraints) == 0) return;
+        	
+        	$query = $this->db
+        		->where($costraints)
+        		->from(self::table_name)
+        		->join(Lessons_model::table_name, Lessons_model::table_name . '.lessonID' . '=' . self::table_name . '.lessonID')
+        		->get();
+        	
+        	return $query->result_array();
+        }
 }
 ?>
