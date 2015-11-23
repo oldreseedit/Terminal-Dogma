@@ -189,10 +189,11 @@ class Lessons extends CI_Controller {
         	$all_achievements_and_rewards = array();
         	foreach ($this->achievements_and_rewards_model->get() as $achievement_or_reward)
         	{
-        		$all_achievements_and_rewards[$achievement_or_reward] = $achievement_or_reward; 
+        		$all_achievements_and_rewards[$achievement_or_reward['AchievementRewardID']] = $achievement_or_reward; 
         	}
         	
-        	print_r($all_achievements_and_rewards);
+//         	print("ALL:");
+//         	print_r($all_achievements_and_rewards);
         	
         	// Check if it is the case to assign achievements regarding the % of the total lessons
         	if($attendance_ratio >= 0.8)
@@ -204,11 +205,20 @@ class Lessons extends CI_Controller {
         			$achievements_and_rewards[] = $achievement_or_reward['AchievementOrRewardID'];
         		}
         		
+//         		print("USER:");
+//         		print_r($achievements_and_rewards);
+        		
+//         		print_r(array_keys($achievements_and_rewards));
+//         		print("EXISTS:");
+// 				print(array_key_exists($achievement_or_rewardID, $achievements_and_rewards));
+        		
         		$achievement_or_rewardID = 'ACHV_80_PERCENT';
 
         		// If the user has not taken this achievement already
-        		if(!array_key_exists($achievement_or_rewardID, $achievements_and_rewards))
+        		if(!in_array($achievement_or_rewardID, $achievements_and_rewards))
         		{
+        			print("ADDING AN ACHIEVEMENT TO USER " . $userID);       			
+        			
         			$eighty_percent_achievement = $all_achievements_and_rewards[$achievement_or_rewardID];
         	
         			$publishingTimestamp = date("Y-m-d H:i:s");
@@ -223,7 +233,7 @@ class Lessons extends CI_Controller {
         			$achievement_or_rewardID = 'ACHV_100_PERCENT';
         	
         			// If the user has not taken this achievement already
-        			if(!array_key_exists($achievement_or_rewardID, $achievements_and_rewards))
+        			if(!in_array($achievement_or_rewardID, $achievements_and_rewards))
         			{
         				$eighty_percent_achievement = $all_achievements_and_rewards[$achievement_or_rewardID];
         				 
