@@ -9,8 +9,7 @@ main.controller('expController',['$http','inform',function($http,inform){
 		
 		$http.post('users/add_exp',data).then(function(response)
 				{
-//					if(data.error) 
-					console.log(response.data);
+					console.log(response);
 					
 				},function(error)
 				{
