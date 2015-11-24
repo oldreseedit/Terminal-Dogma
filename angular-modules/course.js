@@ -8,123 +8,119 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     
     /* AJAX CALLS */
     
-    self.init = function()
-    {    
-	    $http.post('courses/get',{courseID : $routeParams.courseID}).then(function(response) {
-	        // console.log(response);
-	        self.courseDescription = response.data;
-	        self.componentsReady['courseDescription'] = true;        
-	    },function(error) {
-	        console.log(error);
-	    });
-	    
-	    $http.post('teachers/get',{courseID : $routeParams.courseID}).then(function(response) {
-	        // console.log(response);
-	        self.teacher = response.data;
-	        self.componentsReady['teacher'] = true;
-	    },function(error) {
-	        console.log(error);
-	    });
-	    
-	    $http.post('notifications/get',{courseID : $routeParams.courseID}).then(function(response){
-	        self.notifications = response.data;
-	        angular.forEach(self.notifications,function(notification){
-	            notification.publishingTimestamp = moment(notification.publishingTimestamp).format('DD/MM/YYYY');
-	        });
-	        self.componentsReady['notifications'] = true;
-	        // console.log(response);
-	    },function(error){
-	        console.log(error);
-	    });
-	    
-	    $http.post('course_material/get_all',$routeParams).then(function(response){
-	        // console.log(response);
-	        self.materials = response.data;
-	        
-	        angular.forEach(self.materials,function(m){
-	            m.getFA = function(){
-	                var fileExtension = m.fileURI.split('.');
-	                fileExtension = fileExtension[fileExtension.length-1];
-	                if(fileExtension === 'jpg' || fileExtension === 'jpeg' || fileExtension === 'png' || fileExtension === 'gif') fileExtension = 'image';
-	                if(fileExtension === 'doc' || fileExtension === 'docx') fileExtension = 'word';
-	                if(fileExtension === 'ppt' || fileExtension === 'pptx') fileExtension = 'powerpoint';
-	                if(fileExtension === 'xls' || fileExtension === 'xlsx') fileExtension = 'excel';
-	                if(fileExtension === 'rar') fileExtension = 'zip';
-	                if(fileExtension === 'c' || fileExtension === 'java' || fileExtension === 'php' || fileExtension === 'js' || fileExtension === 'html') fileExtension = 'code';
-	                return 'fa-file-' + fileExtension + '-o';
-	            };
-	            m.getTitle = function(){
-	                var title = m.fileURI.split('/');
-	                title = title[title.length-1].split('.');
-	                title = title[0];
-	                title = title.replace(/_/g,' ');
-	                // console.log(title);
-	                return title;
-	            };
-	        });
+    $http.post('courses/get',{courseID : $routeParams.courseID}).then(function(response) {
+        // console.log(response);
+        self.courseDescription = response.data;
+        self.componentsReady['courseDescription'] = true;        
+    },function(error) {
+        console.log(error);
+    });
+    
+    $http.post('teachers/get',{courseID : $routeParams.courseID}).then(function(response) {
+        // console.log(response);
+        self.teacher = response.data;
+        self.componentsReady['teacher'] = true;
+    },function(error) {
+        console.log(error);
+    });
+    
+    $http.post('notifications/get',{courseID : $routeParams.courseID}).then(function(response){
+        self.notifications = response.data;
+        angular.forEach(self.notifications,function(notification){
+            notification.publishingTimestamp = moment(notification.publishingTimestamp).format('DD/MM/YYYY');
+        });
+        self.componentsReady['notifications'] = true;
+        // console.log(response);
+    },function(error){
+        console.log(error);
+    });
+    
+    $http.post('course_material/get_all',$routeParams).then(function(response){
+        // console.log(response);
+        self.materials = response.data;
+        
+        angular.forEach(self.materials,function(m){
+            m.getFA = function(){
+                var fileExtension = m.fileURI.split('.');
+                fileExtension = fileExtension[fileExtension.length-1];
+                if(fileExtension === 'jpg' || fileExtension === 'jpeg' || fileExtension === 'png' || fileExtension === 'gif') fileExtension = 'image';
+                if(fileExtension === 'doc' || fileExtension === 'docx') fileExtension = 'word';
+                if(fileExtension === 'ppt' || fileExtension === 'pptx') fileExtension = 'powerpoint';
+                if(fileExtension === 'xls' || fileExtension === 'xlsx') fileExtension = 'excel';
+                if(fileExtension === 'rar') fileExtension = 'zip';
+                if(fileExtension === 'c' || fileExtension === 'java' || fileExtension === 'php' || fileExtension === 'js' || fileExtension === 'html') fileExtension = 'code';
+                return 'fa-file-' + fileExtension + '-o';
+            };
+            m.getTitle = function(){
+                var title = m.fileURI.split('/');
+                title = title[title.length-1].split('.');
+                title = title[0];
+                title = title.replace(/_/g,' ');
+                // console.log(title);
+                return title;
+            };
+        });
 
-	        self.componentsReady['materials'] = true;
-	        
-	    },function(error){
-	        console.log(error);
-	    });
-	    
-	    /* CALENDAR */
-	    
-	    $http.post('lessons/get',$routeParams).then(function(response){
-	        // console.log(response);
-	        
-	        self.raw = response.data;
-	        self.intervalName = 'year'; // Available
-	        
-	        $scope.uiConfig = {
-	            calendar:{
-	                lang : "it",
-	                displayEventTime : false,
-	                // scrollTime : '08:00:00',
-	                minTime : '06:00:00',
-	                maxTime : '21:00:00',
-	                contentHeight : 'auto',
-	                editable : false,
-	                selectable : false,
-	                unselectAuto : false,
-	                header : {
-	                    left:   'title',
-	                    center: '',
-	                    right:  'prev,next'
-	                },
-	                viewRender : function(view, element){
-	                    
-	                    if(self.isIntervalChanged(view)){
-	                        
-	                        self.setInterval(view);
-	                        
-	                        $http.post('lessons/get',{'startingDate': self.currentIntervalStart.format('YYYY-MM-DD HH:mm:ss'), 'endingDate': self.currentIntervalEnd.format('YYYY-MM-DD HH:mm:ss'), courseID: $routeParams.courseID}).
-	                        then( function(response){
-	                            
-	                            self.raw = response.data;
-	                            self.buildDB();
-	                            
-	                        }, function(error){
-	                            console.log(error);
-	                        });
-	                        
-	                    }
-	                }
-	            }
-	        };
-	        
-	        self.buildDB();
-	        
-	        $scope.eventSources = [{events: $scope.events, color: 'green'}];
+        self.componentsReady['materials'] = true;
+        
+    },function(error){
+        console.log(error);
+    });
+    
+    /* CALENDAR */
+    
+    $http.post('lessons/get',$routeParams).then(function(response){
+        // console.log(response);
+        
+        self.raw = response.data;
+        self.intervalName = 'year'; // Available
+        
+        $scope.uiConfig = {
+            calendar:{
+                lang : "it",
+                displayEventTime : false,
+                // scrollTime : '08:00:00',
+                minTime : '06:00:00',
+                maxTime : '21:00:00',
+                contentHeight : 'auto',
+                editable : false,
+                selectable : false,
+                unselectAuto : false,
+                header : {
+                    left:   'title',
+                    center: '',
+                    right:  'prev,next'
+                },
+                viewRender : function(view, element){
+                    
+                    if(self.isIntervalChanged(view)){
+                        
+                        self.setInterval(view);
+                        
+                        $http.post('lessons/get',{'startingDate': self.currentIntervalStart.format('YYYY-MM-DD HH:mm:ss'), 'endingDate': self.currentIntervalEnd.format('YYYY-MM-DD HH:mm:ss'), courseID: $routeParams.courseID}).
+                        then( function(response){
+                            
+                            self.raw = response.data;
+                            self.buildDB();
+                            
+                        }, function(error){
+                            console.log(error);
+                        });
+                        
+                    }
+                }
+            }
+        };
+        
+        self.buildDB();
+        
+        $scope.eventSources = [{events: $scope.events, color: 'green'}];
 
-	        self.componentsReady['calendar'] = true;
-	        
-	    },function(error){
-	        console.log(error);
-	    });
-	    
-    };
+        self.componentsReady['calendar'] = true;
+        
+    },function(error){
+        console.log(error);
+    });
     
     $scope.changeView = function(viewName){
         uiCalendarConfig.calendars['register'].fullCalendar('changeView',viewName);
