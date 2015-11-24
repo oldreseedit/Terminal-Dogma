@@ -73,13 +73,13 @@
                                     </td>
                                     <td>
                                     	<div class="XP" fittext>
-                                    		<span class="fa-stack fa-lg clickable" ng-repeat="i in [100,200,300]" ng-click="xp.add(student.userID, i,  register.db[register.selectedLessonID].courseID)">
+                                    		<span class="fa-stack fa-lg clickable" ng-repeat="i in [100,200,300]" ng-click="xp.addAdmin(student.userID, i,  register.db[register.selectedLessonID].courseID)">
                                     			<span class="fa fa-stack-2x fa-square light-green"></span>
                                     			<span class="fa fa-stack-1x white" fittext ng-bind="i"></span> 
                                     		</span>
                                     	</div>
                                     	<div class="XP" fittext>
-                                    		<span class="fa-stack fa-lg clickable" ng-repeat="i in [100,200,300]" ng-click="xp.add(student.userID, -i,  register.db[register.selectedLessonID].courseID)">
+                                    		<span class="fa-stack fa-lg clickable" ng-repeat="i in [100,200,300]" ng-click="xp.addAdmin(student.userID, -i,  register.db[register.selectedLessonID].courseID)">
                                     			<span class="fa fa-stack-2x fa-square text-danger"></span>
                                     			<span class="fa fa-stack-1x white" fittext ng-bind="i"></span> 
                                     		</span>
