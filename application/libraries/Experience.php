@@ -24,6 +24,7 @@ class Experience
 		$level = $exp_info['level'];
 		$currentExperience = $exp_info['currentExp'];
 		$newExperience = $currentExperience + $exp;
+		if($newExperience < 0) $newExperience = 0;
 		$newLevel = $this->calculateNewLevel($level, $newExperience);
 		 
 		$notifications = array();
@@ -45,7 +46,7 @@ class Experience
 		{
 			$achievements_and_rewards[] = $achievement_or_reward['AchievementOrRewardID'];
 		}
-		 
+		
 		if($newLevel != $level)
 		{
 			$event = $newLevel > $level ? "LEVEL_UP" : "LEVEL_DOWN";
@@ -65,7 +66,7 @@ class Experience
 					if($achievement_or_reward['Level'] != null && $achievement_or_reward['Level'] <= $newLevel)
 					{
 						$achievement_or_rewardID = $achievement_or_reward['AchievementRewardID'];
-	
+
 						// If the user hasn't already obtained that achievement/reward
 						if(in_array($achievement_or_rewardID, $achievements_and_rewards)) continue;
 	
@@ -79,14 +80,16 @@ class Experience
 				}
 			}
 		}
-	
+
 		$this->CI->db->trans_complete();
-		 
+		
 		return $notifications;
 	}
 	
 	public function calculateNewLevel($level, $newExperience)
 	{
+		if($newExperience < 0) return 0;
+		
 		// exp(n) = 875n + 125n^2
 		// 750 + 250n (parziale, essendo al livello n-1)
 		$a = 125;
