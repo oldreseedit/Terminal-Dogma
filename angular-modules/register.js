@@ -312,7 +312,6 @@ main.controller('Register',['$http','$route','$scope','$compile','uiCalendarConf
     
     self.restoreOriginalNote = function(index){
         self.db[self.selectedLessonID].studentList[index].note = self.db[self.selectedLessonID].studentList[index].originalNote;
-        self.updateChanges(self.db[self.selectedLessonID].studentList[index].userID,self.db[self.selectedLessonID].studentList[index].note);
     };
     
     self.restoreOriginalLessonNote = function(){
@@ -469,7 +468,7 @@ main.controller('Register',['$http','$route','$scope','$compile','uiCalendarConf
     /* MAIN */
     
     self.raw = $route.current.locals.raw.data;
-    self.headings = ['Nome','Presente','Note']; // headings for right panel
+    self.headings = ['Nome','Presente','Note','XP']; // headings for right panel
     
     self.buildDB();
     

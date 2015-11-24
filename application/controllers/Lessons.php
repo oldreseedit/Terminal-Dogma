@@ -191,10 +191,8 @@ class Lessons extends CI_Controller {
         	{
         		$all_achievements_and_rewards[$achievement_or_reward['AchievementRewardID']] = $achievement_or_reward; 
         	}
-        	
 //         	print("ALL:");
 //         	print_r($all_achievements_and_rewards);
-        	
         	// Check if it is the case to assign achievements regarding the % of the total lessons
         	if($attendance_ratio >= 0.8)
         	{
