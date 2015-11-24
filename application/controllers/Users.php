@@ -1,9 +1,5 @@
 <?php
 
-// require_once(APPPATH . 'libraries\Achievement10.php');
-// print(APPPATH . 'libraries\Achievement10.php');
-// require_once(APPPATH.'libraries/Achievement10.php');
-
 class Users extends CI_Controller {
 
         const COOKIE_DAYS = 90;
@@ -178,7 +174,7 @@ class Users extends CI_Controller {
             $password = $this->input->post('password');
             if($password == false)
             {
-                echo json_encode(array("error" => true, "description" => "La password e obbligatoria.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("password")));
+                echo json_encode(array("error" => true, "description" => "La password è obbligatoria.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("password")));
                 return;
             }
             
@@ -191,33 +187,8 @@ class Users extends CI_Controller {
             $token = password_hash($userID.$password, PASSWORD_BCRYPT);
             $this->users_model->addToken($userID, $token);
             
-            echo json_encode(array("error" => false, "description" => "Il login e stato effettuato correttamente.", "username" => $userID, "token" => $token, "expire" => time()+86400*self::COOKIE_DAYS));
+            echo json_encode(array("error" => false, "description" => "Il login è stato effettuato correttamente.", "username" => $userID, "token" => $token, "expire" => time()+86400*self::COOKIE_DAYS));
         }
-        
-        // public function isLoggedIn()
-        // {
-        //     $userID = $this->input->post('username');
-        //     if($userID == false)
-        //     {
-        //         echo json_encode(array("error" => true, "description" => "Lo username è obbligatorio.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("username")));
-        //         return;
-        //     }
-            
-        //     $token = $this->input->post('token');
-        //     if($token == false)
-        //     {
-        //         echo json_encode(array("error" => true, "description" => "Il token e obbligatoria.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("token")));
-        //         return;
-        //     }
-            
-        //     if(!$this->users_model->isLoggedIn($userID, $token))
-        //     {
-        //         echo json_encode(array("error" => true, "description" => "Il nome utente o il token non sono corretti.", "errorCode" => "LOGIN_ERROR", "parameters" => array("username", "token")));
-        //         return;
-        //     }
-            
-        //     echo json_encode(array("error" => false, "description" => "L'utente ha eseguito l'accesso correttamente."));
-        // }
         
         public function logout()
         {
@@ -254,10 +225,16 @@ class Users extends CI_Controller {
 		
         public function add_exp()
         {
+//         	print_r($this->input->post());
+//         	print($this->input->post('username'));
+//         	print($this->input->post('username') == false);
+//         	print($this->input->post('username') == null);
+        	
             $userID = $this->input->post('username');
             if($userID == false)
             {
-                echo json_encode(array("error" => true, "description" => "Lo username � obbligatorio.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("username")));
+//                 echo json_encode(array("error" => true, "description" => "Lo username � obbligatorio.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("username")));
+                echo json_encode(array("error" => true, "description" => "Lo username è obbligatorio.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("username")));
                 return;
             }
             

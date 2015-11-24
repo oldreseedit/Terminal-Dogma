@@ -95,6 +95,7 @@
     <script type="text/javascript" src="angular-modules/contacts.js"></script>
     <script type="text/javascript" src="angular-modules/infoWindow.js"></script>
     <script type="text/javascript" src="angular-modules/register.js"></script>
+    <script type="text/javascript" src="angular-modules/exp.js"></script>
     <script type="text/javascript" src="angular-modules/admin.js"></script>
     <script type="text/javascript" src="angular-modules/signin.js"></script>
     <script type="text/javascript" src="angular-modules/signup.js"></script>

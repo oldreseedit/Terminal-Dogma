@@ -1932,7 +1932,7 @@ mark,
 }
 
 /* line 92, ../sass/bootstrap/_type.scss */
-.text-center, .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #navbar, #footer, #home #team, #singleCourse .course-panel-title, #singleCourse .course-icon, #register, #profile .profile-notifications, #profile .profile-achievements, #profile .profile-rewards {
+.text-center, .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #navbar, #footer, #home #team, #singleCourse .course-panel-title, #singleCourse .course-icon, #register, #register .XP, #profile .profile-notifications, #profile .profile-achievements, #profile .profile-rewards {
   text-align: center;
 }
 
@@ -10800,7 +10800,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-100, .scrollbar-wrapper .scrollbar, #admin .admin-content, #navbar #navbar-logged, #footer, #footer #commercial-info, #home, #home #presentation #tiles-presentation, #home #presentation #tiles-presentation .inside-tab .tab-content, #home #team, #singleCourse .gridster-item, #singleCourse .course-panel-title, #singleCourse .course-panel-content, #singleCourse .teacher-name, #singleCourse .teacher-description, #singleCourse .course-description-introduction, #singleCourse .course-description-syllabus, #activities #tiles-activities, #activities #tiles-activities .tile .back .back-content, #media .media-panel, #media .media-panel .media-panel-title, #media .media-panel .media-panel-main, #media .media-panel .media-panel-main .media-navbar .media-navbar-right-content, #register, #payment .stepLine, #payment .stepContent, #faqPage .stepLine, #faqPage .stepContent, #profile .profile-info, #profile .profile-info .profile-name-level-xp .profile-xp, #profile .profile-notifications, #profile .profile-achievements, #profile .profile-rewards, .wrapper, .mini-header {
+.col-100, .scrollbar-wrapper .scrollbar, #admin .admin-content, #navbar #navbar-logged, #footer, #footer #commercial-info, #home, #home #presentation #tiles-presentation, #home #presentation #tiles-presentation .inside-tab .tab-content, #home #team, #singleCourse .gridster-item, #singleCourse .course-panel-title, #singleCourse .course-panel-content, #singleCourse .teacher-name, #singleCourse .teacher-description, #singleCourse .course-description-introduction, #singleCourse .course-description-syllabus, #activities #tiles-activities, #activities #tiles-activities .tile .back .back-content, #media .media-panel, #media .media-panel .media-panel-title, #media .media-panel .media-panel-main, #media .media-panel .media-panel-main .media-navbar .media-navbar-right-content, #register, #register .XP, #payment .stepLine, #payment .stepContent, #faqPage .stepLine, #faqPage .stepContent, #profile .profile-info, #profile .profile-info .profile-name-level-xp .profile-xp, #profile .profile-notifications, #profile .profile-achievements, #profile .profile-rewards, .wrapper, .mini-header {
   width: 100%;
   float: left;
 }
@@ -20387,7 +20387,7 @@ body {
   margin-bottom: 1vw;
 }
 /* line 14, ../sass/_register.scss */
-#register table .fa, #register #lessonNote .fa {
+#register #lessonNote .fa {
   padding-left: 0.5vw;
 }
 /* line 20, ../sass/_register.scss */
@@ -20406,6 +20406,10 @@ body {
 /* line 45, ../sass/_register.scss */
 #register .fc-view-container {
   background-color: white;
+}
+/* line 54, ../sass/_register.scss */
+#register .XP .fa ~ span {
+  margin-left: 0;
 }
 
 /* line 1, ../sass/_payment-disclaimer.scss */

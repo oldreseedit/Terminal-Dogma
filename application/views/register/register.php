@@ -53,23 +53,37 @@
                             <h5>Note:</h5>
                             <div id="lessonNote">
                                 <span ng-bind="register.db[register.selectedLessonID].lessonNote" ng-show="!modifyingLesson"></span><input ng-model="register.db[register.selectedLessonID].lessonNote" ng-show="modifyingLesson"></input>
-                                <span ng-show="register.selectedLessonID" class="fa clickable float-right" ng-class="modifyingLesson ? 'fa-check light-green' : 'fa-pencil'" ng-click="modifyingLesson = !modifyingLesson; oldLessonNote = register.db[register.selectedLessonID].lessonNote; register.modifyLessonNote(modifyingLesson)" style="line-height: 2vw"></span>
-                                <span ng-show="modifyingLesson" class="fa fa-times clickable float-right red" ng-click="modifyingLesson = !modifyingLesson; register.restoreOldLessonNote(oldLessonNote)" style="line-height: 2vw"></span>
-                                <span ng-show="modifyingLesson" class="fa fa-repeat clickable float-right purple-blue" ng-click="modifyingLesson = !modifyingLesson; register.restoreOriginalLessonNote()" style="line-height: 2vw"></span>
+                                <span ng-show="modifyingLesson" class="fa fa-repeat clickable text-warning" ng-click="modifyingLesson = !modifyingLesson; register.restoreOriginalLessonNote()"></span>
+                                <span ng-show="modifyingLesson" class="fa fa-times clickable text-danger" ng-click="modifyingLesson = !modifyingLesson; register.restoreOldLessonNote(oldLessonNote)"></span>
+                                <span ng-show="register.selectedLessonID" class="fa clickable" ng-class="modifyingLesson ? 'fa-check light-green' : 'fa-pencil'" ng-click="modifyingLesson = !modifyingLesson; oldLessonNote = register.db[register.selectedLessonID].lessonNote; register.modifyLessonNote(modifyingLesson)"></span>
                             </div>
                             
-                            <table class="table table-striped">
+                            <table class="table table-striped" ng-controller="expController as xp">
                                 <tr><th class="text-center" ng-repeat="heading in register.headings" ng-bind="heading"></th></tr>
                                 <tr class="noselect" ng-repeat="student in register.getStudentList()" ng-init="index = $index">
                                     <td ng-bind="student.name + ' ' + student.surname"></td>
                                     <td>
-                                        <span class="fa fa-lg clickable" ng-class="student.attendance ? 'fa-check light-green' : 'fa-times red'" ng-click="register.toggleAttendance(index)"></span>
+                                        <span class="fa fa-lg clickable" ng-class="student.attendance ? 'fa-check light-green' : 'fa-times text-danger'" ng-click="register.toggleAttendance(index)"></span>
                                     </td>
                                     <td>
                                         <span ng-bind="student.note" ng-show="!modifying"></span><input ng-model="student.note" ng-show="modifying"></input>
-                                        <span class="fa clickable float-right" ng-class="modifying ? 'fa-check light-green' : 'fa-pencil'" ng-click="modifying = !modifying; oldNote = student.note; register.modifyNote(index,modifying)" style="line-height: 1vw"></span>
-                                        <span ng-show="modifying" class="fa fa-times clickable float-right red" ng-click="modifying = !modifying; register.restoreOldNote(index,oldNote)" style="line-height: 1vw"></span>
-                                        <span ng-show="modifying" class="fa fa-repeat clickable float-right purple-blue" ng-click="modifying = !modifying; register.restoreOriginalNote(index)" style="line-height: 1vw"></span>
+                                        <span ng-show="modifying" class="fa fa-repeat clickable text-warning" ng-click="modifying = !modifying; register.restoreOriginalNote(index)"></span>
+                                        <span ng-show="modifying" class="fa fa-times clickable text-danger" ng-click="modifying = !modifying; register.restoreOldNote(index,oldNote)"></span>
+                                        <span class="fa clickable" ng-class="modifying ? 'fa-check light-green' : 'fa-pencil'" ng-click="modifying = !modifying; oldNote = student.note; register.modifyNote(index,modifying)"></span>
+                                    </td>
+                                    <td>
+                                    	<div class="XP" fittext>
+                                    		<span class="fa-stack fa-lg clickable" ng-repeat="i in [100,200,300]" ng-click="xp.add(student.userID, i,  register.db[register.selectedLessonID].courseID)">
+                                    			<span class="fa fa-stack-2x fa-square light-green"></span>
+                                    			<span class="fa fa-stack-1x white" fittext ng-bind="i"></span> 
+                                    		</span>
+                                    	</div>
+                                    	<div class="XP" fittext>
+                                    		<span class="fa-stack fa-lg clickable" ng-repeat="i in [100,200,300]" ng-click="xp.add(student.userID, -i,  register.db[register.selectedLessonID].courseID)">
+                                    			<span class="fa fa-stack-2x fa-square text-danger"></span>
+                                    			<span class="fa fa-stack-1x white" fittext ng-bind="i"></span> 
+                                    		</span>
+                                    	</div>
                                     </td>
                                 </tr>
                             </table>
