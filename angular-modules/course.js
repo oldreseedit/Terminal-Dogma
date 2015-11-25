@@ -162,11 +162,12 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     console.log($scope.events);
     $scope.eventSources = [{events: $scope.events, color: 'green'}];
     
+    /* Watches if gridster has been initialized */ 
     $scope.$watch('gridster-item-initialized',function(item){
     	self.gridsterIsReady = true;
-    	$timeout(function(){
-    		uiCalendarConfig.calendars['register'].fullCalendar('render');
-    	});
+//    	$timeout(function(){
+//    		uiCalendarConfig.calendars['register'].fullCalendar('render');
+//    	});
     });
     
 }]);
