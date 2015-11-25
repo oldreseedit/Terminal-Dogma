@@ -17,7 +17,9 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     		calendar: {
     			lang : "it",
     			displayEventTime : false,
-    			// scrollTime : '08:00:00',
+//    			firstDay: '1',
+//    			monthNames: ['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'],
+//    			
     			minTime : '06:00:00',
     			maxTime : '21:00:00',
     			contentHeight : 'auto',
@@ -165,9 +167,6 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     /* Watches if gridster has been initialized */ 
     $scope.$watch('gridster-item-initialized',function(item){
     	self.gridsterIsReady = true;
-//    	$timeout(function(){
-//    		uiCalendarConfig.calendars['register'].fullCalendar('render');
-//    	});
     });
     
 }]);

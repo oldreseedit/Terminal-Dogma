@@ -20824,7 +20824,7 @@ body {
   list-style: none;
   z-index: 2;
   position: absolute;
-  display: none;
+  /* 	display: none; */
 }
 
 /* line 28, ../sass/_angular-gridster.scss */
@@ -20849,7 +20849,7 @@ body {
 }
 /* line 47, ../sass/_angular-gridster.scss */
 .gridster-loaded .gridster-preview-holder {
-  display: none;
+  /* 		display: none; */
   z-index: 1;
   position: absolute;
   background-color: #ddd;
