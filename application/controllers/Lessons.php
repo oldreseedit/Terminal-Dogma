@@ -93,14 +93,6 @@ class Lessons extends CI_Controller {
         
         public function update_batch()
         {
-            // lessonNote (solo nel caso in cui sia cambiato)
-            // lessonID (fisso)
-            // e un array chiamato studentsChanges in cui ogni cella contiene lo userID e uno o entrambi attendance e note
-            // $this->lessons_model->update($data->lessonID, urldecode($startingDate), urldecode($endingDate), $courseId, urldecode($note));
-            // $attendances = array();
-            
-            // print_r($this->input->post());
-            
             $lessonId = $this->input->post('lessonID');
             if($lessonId == false) $lessonId = null;
             
@@ -169,7 +161,8 @@ class Lessons extends CI_Controller {
         	// Update the exp to account for the attendance at this lesson
         	$attendanceExp = 400;
         	if($attendance == false) $attendanceExp *= -1;
-        	$notifications[] = $this->experience->add_exp_to_user($userID, $attendanceExp, $courseID, null);
+        	foreach($this->experience->add_exp_to_user($userID, $attendanceExp, $courseID, null) as $notification)
+        		$notifications[] = $notification;
         	
         	// Get all the information of the lessons of this course
         	$lessons = $this->register_model->get_lessons($courseID, $userID);
@@ -191,55 +184,79 @@ class Lessons extends CI_Controller {
         	{
         		$all_achievements_and_rewards[$achievement_or_reward['AchievementRewardID']] = $achievement_or_reward; 
         	}
-//         	print("ALL:");
-//         	print_r($all_achievements_and_rewards);
+
         	// Check if it is the case to assign achievements regarding the % of the total lessons
+        	$achievements_and_rewards_db = $this->user_achievements_rewards_model->get_achievements_and_rewards($userID);
+        	$obtained_rewards_and_achievements = array();
+        	foreach ($achievements_and_rewards_db as $achievement_or_reward)
+        	{
+        		$obtained_rewards_and_achievements[$achievement_or_reward['AchievementOrRewardID']] = $achievement_or_reward;
+        	}
+        	
+        	$arID = 'ACHV_80_PERCENT';
+        	$has_it = array_key_exists($arID, $obtained_rewards_and_achievements);
         	if($attendance_ratio >= 0.8)
         	{
-        		$achievements_and_rewards_db = $this->user_achievements_rewards_model->get_achievements_and_rewards($userID);
-        		$achievements_and_rewards = array();
-        		foreach ($achievements_and_rewards_db as $achievement_or_reward)
-        		{
-        			$achievements_and_rewards[] = $achievement_or_reward['AchievementOrRewardID'];
-        		}
-        		
-//         		print("USER:");
-//         		print_r($achievements_and_rewards);
-        		
-//         		print_r(array_keys($achievements_and_rewards));
-//         		print("EXISTS:");
-// 				print(array_key_exists($achievement_or_rewardID, $achievements_and_rewards));
-        		
-        		$achievement_or_rewardID = 'ACHV_80_PERCENT';
-
         		// If the user has not taken this achievement already
-        		if(!in_array($achievement_or_rewardID, $achievements_and_rewards))
+        		if(!$has_it)
         		{
-        			print("ADDING AN ACHIEVEMENT TO USER " . $userID);       			
-        			
-        			$eighty_percent_achievement = $all_achievements_and_rewards[$achievement_or_rewardID];
+        			$eighty_percent_achievement_prototype = $all_achievements_and_rewards[$arID];
         	
         			$publishingTimestamp = date("Y-m-d H:i:s");
-        			$notifications[] = array("error" => false, "description" => "Hai ottenuto " . $achievement_or_rewardID . ": " . $eighty_percent_achievement['Description'], "errorCode" => "ACHIEVEMENT_EVENT");
-        			$this->experience_events_model->add($userID, "ACHIEVEMENT", $achievement_or_rewardID, $publishingTimestamp, null, $courseID);
-        			$this->notifications_model->add("Hai ottenuto " . $achievement_or_rewardID . ": " . $eighty_percent_achievement['Description'], $publishingTimestamp, array($userID), true, $courseID);
-        			$this->user_achievements_rewards_model->add($userID, $achievement_or_rewardID);
+        			$notifications[] = array("error" => false, "description" => "Hai ottenuto " . $arID . ": " . $eighty_percent_achievement_prototype['Description'], "errorCode" => "ACHIEVEMENT_EVENT");
+        			$this->experience_events_model->add($userID, "ACHIEVEMENT", $arID, $publishingTimestamp, null, $courseID);
+        			$this->notifications_model->add("Hai ottenuto " . $arID . ": " . $eighty_percent_achievement_prototype['Description'], $publishingTimestamp, array($userID), true, $courseID);
+        			$this->user_achievements_rewards_model->add($userID, $arID, $publishingTimestamp, $courseID);
         		}
-        		 
-        		if($attendance_ratio >= 1.0)
+        	}
+        	else
+        	{
+        		// Remove it, if present
+        		if($has_it)
         		{
-        			$achievement_or_rewardID = 'ACHV_100_PERCENT';
+        			$eighty_percent_achievement = $obtained_rewards_and_achievements[$arID];
         	
-        			// If the user has not taken this achievement already
-        			if(!in_array($achievement_or_rewardID, $achievements_and_rewards))
+        			if(strcmp($eighty_percent_achievement['courseID'], $courseID) == 0)
         			{
-        				$eighty_percent_achievement = $all_achievements_and_rewards[$achievement_or_rewardID];
-        				 
         				$publishingTimestamp = date("Y-m-d H:i:s");
-        				$notifications[] = array("error" => false, "description" => "Hai ottenuto " . $achievement_or_rewardID . ": " . $eighty_percent_achievement['Description'], "errorCode" => "ACHIEVEMENT_EVENT");
-        				$this->experience_events_model->add($userID, "ACHIEVEMENT", $achievement_or_rewardID, $publishingTimestamp, null, $courseID);
-        				$this->notifications_model->add("Hai ottenuto " . $achievement_or_rewardID . ": " . $eighty_percent_achievement['Description'], $publishingTimestamp, array($userID), true, $courseID);
-        				$this->user_achievements_rewards_model->add($userID, $achievement_or_rewardID);
+        				$notifications[] = array("error" => false, "description" => "E' stato tolto " . $arID, "errorCode" => "ACHIEVEMENT_EVENT");
+        				$this->experience_events_model->add($userID, "ACHIEVEMENT_LOST", $arID, $publishingTimestamp, null, $courseID);
+        				$this->notifications_model->add("Hai perso " . $arID, $publishingTimestamp, array($userID), true, $courseID);
+        				$this->user_achievements_rewards_model->delete($userID, $arID);
+        			}
+        		}
+        	}
+        	
+        	$arID = 'ACHV_100_PERCENT';
+        	$has_it = array_key_exists($arID, $obtained_rewards_and_achievements);
+        	if($attendance_ratio >= 1.0)
+        	{
+        		// If the user has not taken this achievement already
+        		if(!$has_it)
+        		{
+        			$one_hundred_percent_achievement_prototype = $all_achievements_and_rewards[$arID];
+        	
+        			$publishingTimestamp = date("Y-m-d H:i:s");
+        			$notifications[] = array("error" => false, "description" => "Hai ottenuto " . $arID . ": " . $one_hundred_percent_achievement_prototype['Description'], "errorCode" => "ACHIEVEMENT_EVENT");
+        			$this->experience_events_model->add($userID, "ACHIEVEMENT", $arID, $publishingTimestamp, null, $courseID);
+        			$this->notifications_model->add("Hai ottenuto " . $arID . ": " . $one_hundred_percent_achievement_prototype['Description'], $publishingTimestamp, array($userID), true, $courseID);
+        			$this->user_achievements_rewards_model->add($userID, $arID, $publishingTimestamp, $courseID);
+        		}
+        	}
+        	else
+        	{
+        		// Remove it, if present
+        		if($has_it)
+        		{
+        			$one_hundred_percent_achievement = $obtained_rewards_and_achievements[$arID];
+        	
+        			if(strcmp($one_hundred_percent_achievement['courseID'], $courseID) == 0)
+        			{
+        				$publishingTimestamp = date("Y-m-d H:i:s");
+        				$notifications[] = array("error" => false, "description" => "E' stato tolto " . $arID, "errorCode" => "ACHIEVEMENT_EVENT");
+        				$this->experience_events_model->add($userID, "ACHIEVEMENT_LOST", $arID, $publishingTimestamp, null, $courseID);
+        				$this->notifications_model->add("Hai perso " . $arID, $publishingTimestamp, array($userID), true, $courseID);
+        				$this->user_achievements_rewards_model->delete($userID, $arID);
         			}
         		}
         	}

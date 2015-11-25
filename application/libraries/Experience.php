@@ -75,7 +75,7 @@ class Experience
 						$notifications[] = array("error" => false, "description" => $userID . " ha ottenuto " . $achievement_or_rewardID . ": " . $achievement_or_reward['Description'], "errorCode" => $type . "_EVENT");
 						$this->CI->experience_events_model->add($userID, "REWARD", $achievement_or_rewardID, $publishingTimestamp, null, $courseID);
 						$this->CI->notifications_model->add("Hai ottenuto " . $achievement_or_rewardID . ": " . $achievement_or_reward['Description'], $publishingTimestamp, array($userID), true, $courseID);
-						$this->CI->user_achievements_rewards_model->add($userID, $achievement_or_rewardID);
+						$this->CI->user_achievements_rewards_model->add($userID, $achievement_or_rewardID, $publishingTimestamp, $courseID);
 					}
 				}
 			}
