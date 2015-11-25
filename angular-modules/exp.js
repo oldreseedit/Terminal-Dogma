@@ -9,15 +9,12 @@ main.controller('expController',['$http','inform',function($http,inform){
 		
 		$http.post('users/add_exp',data).then(function(response)
 				{
-					if(response.data.error)
-					{
-						inform.add(response.data.description,{type: 'danger'});
-						return;
-					}
-					else
-					{
-						inform.add('Hai ' + (xp>0? 'aggiunto ' : 'tolto ') + Math.abs(xp) + ' punti esperienza a ' + userID + '!');
-					}
+					notifies = response.data;
+					angular.forEach(notifies,function(notify)
+						{
+							inform.add(notify.description,{type: (notify.error ? 'danger' : 'success')});
+						}		
+					)
 					
 				},function(error)
 				{

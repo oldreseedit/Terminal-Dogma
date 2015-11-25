@@ -225,15 +225,9 @@ class Users extends CI_Controller {
 		
         public function add_exp()
         {
-//         	print_r($this->input->post());
-//         	print($this->input->post('username'));
-//         	print($this->input->post('username') == false);
-//         	print($this->input->post('username') == null);
-        	
             $userID = $this->input->post('username');
             if($userID == false)
             {
-//                 echo json_encode(array("error" => true, "description" => "Lo username � obbligatorio.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("username")));
                 echo json_encode(array("error" => true, "description" => "Lo username è obbligatorio.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("username")));
                 return;
             }

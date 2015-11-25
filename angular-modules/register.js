@@ -1,4 +1,4 @@
-main.controller('Register',['$http','$route','$scope','$compile','uiCalendarConfig','$uibModal',function($http,$route,$scope,$compile,uiCalendarConfig,$modal){
+main.controller('Register',['$http','inform','$route','$scope','$compile','uiCalendarConfig','$uibModal',function($http,inform,$route,$scope,$compile,uiCalendarConfig,$modal){
     
     var self = this;
     
@@ -350,7 +350,14 @@ main.controller('Register',['$http','$route','$scope','$compile','uiCalendarConf
         
         $http.post('lessons/update_batch',self.changes).
         then(function(response){
-            
+        	
+        	notifies = response.data;
+			angular.forEach(notifies,function(notify)
+				{
+					inform.add(notify.description,{type: (notify.error ? 'danger' : 'success')});
+				}		
+			)
+        	
             // Replaces original values with current ones
             self.db[self.selectedLessonID].originalLessonNote = self.db[self.selectedLessonID].lessonNote;
             
@@ -362,7 +369,7 @@ main.controller('Register',['$http','$route','$scope','$compile','uiCalendarConf
             self.removeChanges();
             
         }, function(error) {
-            
+        	console.log("CIAO2");
             console.log(error);
             
         });
