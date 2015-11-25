@@ -1,4 +1,4 @@
-main.controller('courseController',['utilities','$scope','$http','$routeParams','uiCalendarConfig','$timeout','$route','$rootScope',function(utilities,$scope,$http,$routeParams,uiCalendarConfig,$timeout,$route,$rootScope){
+main.controller('courseController',['utilities','$scope','$http','$routeParams','uiCalendarConfig','$timeout','$route',function(utilities,$scope,$http,$routeParams,uiCalendarConfig,$timeout,$route){
     var self = this;
     
     /* CONFIG */
@@ -69,7 +69,7 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     
     /* PROPER OBJECTS AND METHODS */
     
-    self.items = [
+    $scope.gridsterItems = [
         {
         	id: 'courseDescription',
             title: self.courseName,
@@ -158,68 +158,10 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     	};
     };
     
-    self.resize = function(i)
-    {    	
-    	var container = $('#gridsterItem'+i).height();
-    	var inner = $('#gridsterItem'+i+'View').height();
-    	if(container === inner + self.panelHeader || inner === 0 || inner === undefined || inner === null)
-    	{
-    		return;
-    	}
-    	if(container < inner + self.panelHeader)
-    	{
-    		console.log(container, inner, self.panelHeader, inner+self.panelHeader);
-    		self.items[i].measures.height++;
-    	}
-    	
-    };
-    
     /* MAIN */
     
     self.buildDB();
-    console.log($scope.events);
-    $scope.eventSources = [{events: $scope.events, color: 'green'}];
-    
-    /* Watches if gridster has been initialized */ 
-    $scope.$watch('gridster-item-initialized',function(item){
-    	self.gridsterIsReady = true;
-        $timeout(function(){
-        	self.panelHeader = $('.course-panel-title').height();
-        });
-    });
-    
-//    $scope.$watch('gridster-item-resized',function(item){
-//		console.log('size has changed!')
-//		console.log(item);
-//    });
-    
-    $scope.$watch(
-    		function()
-    		{
-    			return self.items;
-    		},
-    		function(items)
-    		{
-//    			console.log(items);
-    			console.log('Ho rilevato un resize e ne ho generato un altro');
-    			$timeout(function(){
-    				self.resize(1);
-    			});
-    		},
-    		true
-    )
-    
-    $scope.$watch(
-    		function()
-    		{
-    			return self.gridsterItem1ViewHeight;
-    		},
-    		function()
-    		{
-//    			console.log(self.gridsterItem1ViewHeight);
-    			self.resize(1);
-    		}
-    )
-    
+//    console.log($scope.events);
+    $scope.eventSources = [{events: $scope.events, color: 'green'}];    
     
 }]);

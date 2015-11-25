@@ -108,6 +108,7 @@
     <script type="text/javascript" src="angular-modules/payment.js"></script>
     <script type="text/javascript" src="angular-modules/faq.js"></script>
     <script type="text/javascript" src="angular-modules/fitText.js"></script>
+    <script type="text/javascript" src="angular-modules/gridsterResizer.js"></script>
     
     <!-- Grunt Plugins -->
     <!--<script type="text/javascript" src="angular-modules/templates.js"></script>-->
