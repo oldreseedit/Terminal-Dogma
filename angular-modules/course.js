@@ -1,4 +1,4 @@
-main.controller('courseController',['utilities','$scope','$http','$routeParams','uiCalendarConfig','$timeout','$route',function(utilities,$scope,$http,$routeParams,uiCalendarConfig,$timeout,$route){
+main.controller('courseController',['utilities','$scope','$http','$routeParams','uiCalendarConfig','$timeout','$route','$rootScope',function(utilities,$scope,$http,$routeParams,uiCalendarConfig,$timeout,$route,$rootScope){
     var self = this;
     
     /* CONFIG */
@@ -12,7 +12,7 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     self.notifications = $route.current.locals.notifications;
     self.materials = $route.current.locals.materials;
     self.lessons = $route.current.locals.lessons;
-        
+     
     $scope.uiConfig = {
     		calendar: {
     			lang : "it",
@@ -77,7 +77,7 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
             templateUrl: 'templates/course-description.php',
             measures: {
                 width: 8,
-                height: 4,
+                height: 0,
                 position: {
                     x : 0,
                     y : 0
@@ -91,7 +91,7 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
             templateUrl: 'templates/course-teacher.php',
             measures: {
                 width: 4,
-                height: 4,
+                height: 0,
                 position: {
                     x : 9,
                     y : 0
@@ -105,7 +105,7 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
             templateUrl: 'templates/calendar.php',
             measures: {
                 width: 6,
-                height: 6,
+                height: 0,
                 position: {
                     x : 0,
                     y : 5
@@ -119,7 +119,7 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
             templateUrl: 'templates/course-notifications.php',
             measures: {
                 width: 6,
-                height: 6,
+                height: 0,
                 position: {
                     x : 7,
                     y : 5
@@ -133,7 +133,7 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
             templateUrl: 'templates/course-material.php',
             measures: {
                 width: 12,
-                height: 4,
+                height: 0,
                 position: {
                     x : 0,
                     y : 12
@@ -158,6 +158,22 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     	};
     };
     
+    self.resize = function(i)
+    {    	
+    	var container = $('#gridsterItem'+i).height();
+    	var inner = $('#gridsterItem'+i+'View').height();
+    	if(container === inner + self.panelHeader || inner === 0 || inner === undefined || inner === null)
+    	{
+    		return;
+    	}
+    	if(container < inner + self.panelHeader)
+    	{
+    		console.log(container, inner, self.panelHeader, inner+self.panelHeader);
+    		self.items[i].measures.height++;
+    	}
+    	
+    };
+    
     /* MAIN */
     
     self.buildDB();
@@ -167,6 +183,43 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     /* Watches if gridster has been initialized */ 
     $scope.$watch('gridster-item-initialized',function(item){
     	self.gridsterIsReady = true;
+        $timeout(function(){
+        	self.panelHeader = $('.course-panel-title').height();
+        });
     });
+    
+//    $scope.$watch('gridster-item-resized',function(item){
+//		console.log('size has changed!')
+//		console.log(item);
+//    });
+    
+    $scope.$watch(
+    		function()
+    		{
+    			return self.items;
+    		},
+    		function(items)
+    		{
+//    			console.log(items);
+    			console.log('Ho rilevato un resize e ne ho generato un altro');
+    			$timeout(function(){
+    				self.resize(1);
+    			});
+    		},
+    		true
+    )
+    
+    $scope.$watch(
+    		function()
+    		{
+    			return self.gridsterItem1ViewHeight;
+    		},
+    		function()
+    		{
+//    			console.log(self.gridsterItem1ViewHeight);
+    			self.resize(1);
+    		}
+    )
+    
     
 }]);

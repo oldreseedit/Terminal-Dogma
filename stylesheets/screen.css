@@ -19447,11 +19447,6 @@ button.close {
   padding-right: 26px;
 }
 
-/* line 169, ../sass/_tricks.scss */
-.fa ~ span {
-  margin-left: 0.5em;
-}
-
 /*** MIXINS ***/
 /* line 1, ../sass/_fonts.scss */
 h1, h2, h3, h4, h5, h6 {
@@ -19979,20 +19974,24 @@ body {
   }
 }
 /* line 32, ../sass/_navbar.scss */
+#navbar .fa ~ span {
+  margin-left: 0.5em;
+}
+/* line 36, ../sass/_navbar.scss */
 #navbar a {
   text-decoration: none;
   color: inherit;
 }
-/* line 35, ../sass/_navbar.scss */
+/* line 39, ../sass/_navbar.scss */
 #navbar a:hover {
   color: #b2e528;
 }
-/* line 40, ../sass/_navbar.scss */
+/* line 44, ../sass/_navbar.scss */
 #navbar .macrotab {
   line-height: 2.5;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 52, ../sass/_navbar.scss */
+  /* line 56, ../sass/_navbar.scss */
   #navbar #navbar-tabs {
     width: 45%;
     float: left;
@@ -20000,34 +19999,34 @@ body {
   }
 }
 @media all and (max-device-width: 1079px) {
-  /* line 61, ../sass/_navbar.scss */
+  /* line 65, ../sass/_navbar.scss */
   #navbar #navbar-profile {
     width: 25%;
     float: left;
     margin-left: 5%;
   }
 }
-/* line 69, ../sass/_navbar.scss */
+/* line 73, ../sass/_navbar.scss */
 #navbar #navbar-profile a {
   margin-right: 0.5em;
 }
-/* line 74, ../sass/_navbar.scss */
+/* line 78, ../sass/_navbar.scss */
 #navbar #navbar-profile .fa-question {
   font-size: 2.5em;
 }
-/* line 79, ../sass/_navbar.scss */
+/* line 83, ../sass/_navbar.scss */
 #navbar #navbar-profile .navbar-username {
   margin-left: 0.5em;
 }
-/* line 84, ../sass/_navbar.scss */
+/* line 88, ../sass/_navbar.scss */
 #navbar #navbar-profile .navbar-icons {
   margin-left: 1em;
 }
-/* line 89, ../sass/_navbar.scss */
+/* line 93, ../sass/_navbar.scss */
 #navbar #navbar-profile .navbar-avatar {
   display: inline;
 }
-/* line 102, ../sass/_navbar.scss */
+/* line 106, ../sass/_navbar.scss */
 #navbar #navbar-signin button, #navbar #navbar-signup button {
   width: 90%;
   font-weight: 400;
@@ -20035,12 +20034,12 @@ body {
   font-size: 21.177px;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 102, ../sass/_navbar.scss */
+  /* line 106, ../sass/_navbar.scss */
   #navbar #navbar-signin button, #navbar #navbar-signup button {
     font-size: 13.032px;
   }
 }
-/* line 123, ../sass/_navbar.scss */
+/* line 127, ../sass/_navbar.scss */
 #navbar #navbar-logged button {
   margin-right: 3em;
   width: 30%;
@@ -20049,7 +20048,7 @@ body {
   font-size: 21.177px;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 123, ../sass/_navbar.scss */
+  /* line 127, ../sass/_navbar.scss */
   #navbar #navbar-logged button {
     font-size: 13.032px;
   }
