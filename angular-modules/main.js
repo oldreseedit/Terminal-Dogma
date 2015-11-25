@@ -183,11 +183,6 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
         templateUrl : 'courses'
     });
     
-    $routeProvider.when('/courses/:courseID',{
-        templateUrl : function(parameters){return 'course/index/'+parameters.courseID;},
-        controller : 'courseController as course'
-    });
-    
     // Activities
     
     $routeProvider.when('/activities',{
@@ -229,6 +224,93 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     
     $routeProvider.when('/privacy',{
         templateUrl : 'privacy'
+    });
+    
+    // Course
+    
+    $routeProvider.when('/courses/:courseID',{
+        templateUrl : function(parameters){return 'course/index/'+parameters.courseID;},
+        controller : 'courseController as course',
+        resolve: {
+        	courseDescription : ['$http','$route',function($http,$route){
+        		var courseID = $route.current.params.courseID;
+        		return $http.post('courses/get',{courseID : courseID}).then(function(response) {
+        	        return response.data;
+        	    },function(error) {
+        	        console.log(error);
+        	    });
+        	}],
+        	teacher : ['$http','$route',function($http,$route){
+        		var courseID = $route.current.params.courseID;
+        		return $http.post('teachers/get',{courseID : courseID}).then(function(response) {
+        	        return response.data;
+        	    },function(error) {
+        	        console.log(error);
+        	    });
+        	}],
+        	notifications : ['$http','$route',function($http,$route){
+        		var courseID = $route.current.params.courseID;
+        		return $http.post('notifications/get',{courseID : courseID}).then(function(response) {
+        	        return response.data;
+        	    },function(error) {
+        	        console.log(error);
+        	    });
+        	}],
+        	materials : ['$http','$route',function($http,$route){
+        		var courseID = $route.current.params.courseID;
+        		return $http.post('course_material/get_all',{courseID : courseID}).then(function(response) {
+        	        var data = response.data;
+        	        angular.forEach(data,function(m){
+	    	            m.getFA = function(){
+	    	                var fileExtension = m.fileURI.split('.');
+	    	                fileExtension = fileExtension[fileExtension.length-1];
+	    	                if(fileExtension === 'jpg' || fileExtension === 'jpeg' || fileExtension === 'png' || fileExtension === 'gif') fileExtension = 'image';
+	    	                if(fileExtension === 'doc' || fileExtension === 'docx') fileExtension = 'word';
+	    	                if(fileExtension === 'ppt' || fileExtension === 'pptx') fileExtension = 'powerpoint';
+	    	                if(fileExtension === 'xls' || fileExtension === 'xlsx') fileExtension = 'excel';
+	    	                if(fileExtension === 'rar') fileExtension = 'zip';
+	    	                if(fileExtension === 'c' || fileExtension === 'java' || fileExtension === 'php' || fileExtension === 'js' || fileExtension === 'html') fileExtension = 'code';
+	    	                return 'fa-file-' + fileExtension + '-o';
+	    	            };
+	    	            m.getTitle = function(){
+	    	                var title = m.fileURI.split('/');
+	    	                title = title[title.length-1].split('.');
+	    	                title = title[0];
+	    	                title = title.replace(/_/g,' ');
+	    	                // console.log(title);
+	    	                return title;
+	    	            };
+        	        });
+        	        return data;
+        	    },function(error) {
+        	        console.log(error);
+        	    });
+        	}],
+        	lessons : ['$http','$route',function($http,$route){
+                
+                var date = new Date();
+                var courseID = $route.current.params.courseID;
+                
+                var startingDate = moment(date).startOf('year');
+                var endingDate = angular.copy(startingDate).add(365,'days');
+                var startOfMonth = angular.copy(endingDate).startOf('month');
+                startingDate.subtract(startingDate.weekday(),'days');
+                endingDate.add(7-endingDate.weekday(),'days');
+                startOfMonth.subtract(startOfMonth.weekday(),'days');
+                if(endingDate.diff(startOfMonth,'days') < 42) endingDate.add(7,'days');
+                
+                startingDate = startingDate.format('YYYY-MM-DD HH:mm:ss');
+                endingDate = endingDate.format('YYYY-MM-DD HH:mm:ss');
+                
+                return $http.post('lessons/get',{courseID: courseID, 'startingDate': startingDate, 'endingDate': endingDate}).
+                then(function(response){
+                    // console.log(data);
+                    return response.data;
+                }, function(error){
+                    console.log(error);
+                });
+            }]
+        }
     });
     
     // Register - Restricted

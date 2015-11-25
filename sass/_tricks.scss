@@ -51,11 +51,25 @@
 }
 
 
-// Trick for equal height columns - Apply to all columns
+/*  Trick for equal height columns - Apply to all columns */
         
 .equal-height{
     margin-bottom: -99999px;
     padding-bottom: 99999px;
+}
+
+/* Trick for centering vertically a div -> to put in sequence <outer><inner> */
+
+.outer {
+    display: table;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.inner {
+    display: table-cell;
+    vertical-align: middle;
 }
 
 .clearfix:before,

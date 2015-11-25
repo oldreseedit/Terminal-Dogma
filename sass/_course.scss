@@ -5,7 +5,7 @@
         
         @extend .col-100;
         @extend .text-justify;
-        // @extend .bg-lightest-grey;
+/*         @extend .bg-lightest-grey; */
     }
     
     .course-panel-title{
@@ -67,6 +67,12 @@
     
     .course-description{
         @extend .col-75;
+    }
+    
+    .agendaButtons
+    {
+    	margin-bottom: 1vw;
+    	text-align: center;
     }
     
 }

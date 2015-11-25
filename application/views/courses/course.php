@@ -10,7 +10,7 @@
                         <div class="container" id="gridsterItem{{index}}View">
 <!--                             <perfect-scrollbar class="scrollbar-wrapper" suppressScrollX="true"> -->
 <!--                             <div class="scrollbar"> -->
-                                    <div ng-include="item.templateUrl" ng-if="course.isReady(item.id)"></div>
+                                    <div ng-include="item.templateUrl"></div>
 <!--                             </div> -->
 <!--                             </perfect-scrollbar> -->
                         </div>
