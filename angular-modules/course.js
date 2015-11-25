@@ -12,7 +12,6 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     self.notifications = $route.current.locals.notifications;
     self.materials = $route.current.locals.materials;
     self.lessons = $route.current.locals.lessons;
-    self.intervalName = 'year'; // Available
         
     $scope.uiConfig = {
     		calendar: {
@@ -29,24 +28,6 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     				left:   'title',
     				center: '',
     				right:  'prev,next'
-    			},
-    			viewRender : function(view, element){
-
-    				if(self.isIntervalChanged(view)){
-
-    					self.setInterval(view);
-
-    					$http.post('lessons/get',{'courseID': self.courseID, 'startingDate': self.currentIntervalStart.format('YYYY-MM-DD HH:mm:ss'), 'endingDate': self.currentIntervalEnd.format('YYYY-MM-DD HH:mm:ss'), courseID: $routeParams.courseID}).
-    					then( function(response){
-
-    						self.lessons = response.data;
-    						self.buildDB();
-
-    					}, function(error){
-    						console.log(error);
-    					});
-
-    				}
     			}
     		}
     };
@@ -57,39 +38,10 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
         uiCalendarConfig.calendars['register'].fullCalendar('changeView',viewName);
     };
     
-    self.isIntervalChanged = function(view){
-        if(!self.currentIntervalStart || !self.currentIntervalEnd){ // Initialization
-            
-            self.setInterval(view);
-            return false;
-        }
-        
-        var end = angular.copy(self.currentIntervalEnd);
-            
-        if(self.intervalName === 'month') end.subtract(7,'days');
-        return (!view.start.isBetween(self.currentIntervalStart,end) && !view.start.isSame(self.currentIntervalStart)) || (!view.end.isBetween(self.currentIntervalStart,end) && !view.end.isSame(end)); 
-        
-    };
-    
-    self.setInterval = function(view){
-            
-            self.currentIntervalStart = angular.copy(view.intervalStart).startOf(self.intervalName);
-            self.currentIntervalEnd = angular.copy(self.currentIntervalStart).add(self.getIntervalDays()+self.currentIntervalStart.weekday(),'days');
-            var startOfMonth = angular.copy(self.currentIntervalEnd).startOf('month');
-            
-            self.currentIntervalStart.subtract(self.currentIntervalStart.weekday(),'days');
-            self.currentIntervalEnd.add(7-self.currentIntervalEnd.weekday(),'days');
-            startOfMonth.subtract(startOfMonth.weekday(),'days');
-           
-            if(self.currentIntervalEnd.diff(startOfMonth,'days') < 42) self.currentIntervalEnd.add(7,'days');
-    };
-    
-    self.getIntervalDays = function(){
-        switch(self.intervalName){
-            case 'month' : return 30;
-            case 'quarter' : return 90;
-            case 'semester' : return 180;
-            case 'year' : return 365;
+    /* Finds index of object by key */
+    self.indexOfByKey = function(key, value, array){
+        for(var i=0; i<array.length;i++){
+            if(array[i][key] === value) return i;
         }
         return -1;
     };
@@ -108,19 +60,9 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
             i.endingDate = moment(i.endingDate);
             
             var newLesson = {lessonID: i.lessonID, title: i.courseID, start: i.startingDate, end: i.endingDate, note: i.lessonNote, stick: true};
-            if(self.indexOfByKey('lessonID',i.lessonID,$scope.events) <= -1) $scope.events.push(newLesson);
+            if(self.indexOfByKey('lessonID',i.lessonID,$scope.events) < 0) $scope.events.push(newLesson);
             
         });
-        
-        // console.log(self.db);
-    };
-    
-    /* Finds index of object by key */
-    self.indexOfByKey = function(key, value, array){
-        for(var i=0; i<array.length;i++){
-            if(array[i][key] === value) return i;
-        }
-        return -1;
     };
     
     /* PROPER OBJECTS AND METHODS */
@@ -220,5 +162,11 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     console.log($scope.events);
     $scope.eventSources = [{events: $scope.events, color: 'green'}];
     
+    $scope.$watch('gridster-item-initialized',function(item){
+    	self.gridsterIsReady = true;
+    	$timeout(function(){
+    		uiCalendarConfig.calendars['register'].fullCalendar('render');
+    	});
+    });
     
 }]);

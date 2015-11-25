@@ -5,7 +5,7 @@ var main = angular.module('Main',[
     'ngCookies', // For setting/retrieving cookies easily
     'ngAnimate', // For animating purposes
     'ui.calendar', // For register calendar
-    'ui.bootstrap', // For all bootstrap functions and more
+    'ui.bootstrap', // For all bootstrap functions and for ui.calendar
     'angularShamSpinner', // For pre-loading spinner
     'monospaced.elastic', // For text-area auto-resizing
     'uiGmapgoogle-maps', // For Google Maps integration
@@ -288,21 +288,9 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
         	}],
         	lessons : ['$http','$route',function($http,$route){
                 
-                var date = new Date();
-                var courseID = $route.current.params.courseID;
+        		var courseID = $route.current.params.courseID;
                 
-                var startingDate = moment(date).startOf('year');
-                var endingDate = angular.copy(startingDate).add(365,'days');
-                var startOfMonth = angular.copy(endingDate).startOf('month');
-                startingDate.subtract(startingDate.weekday(),'days');
-                endingDate.add(7-endingDate.weekday(),'days');
-                startOfMonth.subtract(startOfMonth.weekday(),'days');
-                if(endingDate.diff(startOfMonth,'days') < 42) endingDate.add(7,'days');
-                
-                startingDate = startingDate.format('YYYY-MM-DD HH:mm:ss');
-                endingDate = endingDate.format('YYYY-MM-DD HH:mm:ss');
-                
-                return $http.post('lessons/get',{courseID: courseID, 'startingDate': startingDate, 'endingDate': endingDate}).
+                return $http.post('lessons/get',{courseID: courseID}).
                 then(function(response){
                     // console.log(data);
                     return response.data;

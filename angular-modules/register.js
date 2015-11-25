@@ -471,7 +471,7 @@ main.controller('Register',['$http','$route','$scope','$compile','uiCalendarConf
     self.headings = ['Nome','Presente','Note','XP']; // headings for right panel
     
     self.buildDB();
-    
+//    console.log($scope.events);
     $scope.eventSources = [{events: $scope.events, color: 'green'}];
     
     self.init = function(){
