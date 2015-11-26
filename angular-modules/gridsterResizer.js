@@ -2,49 +2,63 @@ main.controller('gridsterResizeController',['$scope','$element','$timeout',funct
 	var self = this;
 	
 	self.resize = function(element)
-    {    	
-    	if(self.outerHeight === self.innerHeight + self.panelHeaderHeight || self.innerHeight === 0 || self.innerHeight === undefined || self.innerHeight === null)
+    {
+		if(element === undefined) return;
+		console.log('Resize: sono stato chiamato con le seguenti misure: ', self.innerHeight, self.panelHeaderHeight, self.outerHeight);
+    	if(self.innerHeight === 0 || self.innerHeight === undefined || self.innerHeight === null || self.panelHeaderHeight === undefined)
     	{
     		return;
     	}
     	if(self.outerHeight < self.innerHeight + self.panelHeaderHeight)
     	{
     		scope = element.parents('[gridster-item]').scope();
-//    		console.log(scope.index);
     		$scope.gridsterItems[scope.index].measures.height++;
-//    		console.log($scope.gridsterItems);
     	}
-    	else return;    	
+    	else return;
     };
     
     /* Watches if gridster has been initialized */ 
     $scope.$on('gridster-item-initialized',function(item){
     	$scope.ready = true;
-        $timeout(function(){
-        	self.panelHeaderHeight = $('.course-panel-title').height();
-            self.content = $element.find('[gridster-content]');
-			self.outerHeight = $element[0].offsetHeight;
-            self.innerHeight = self.content[0].offsetHeight;
-        });
+//    	console.log(item);
     });
-	
-	$scope.$on('gridster-item-resized',function(item){
-		self.outerHeight = $element[0].offsetHeight;
-		self.resize(self.content);
-	});
-	
+    
 	$scope.$watch(
 			function()
 			{
-				return self.innerHeight;
+				if($element.find('[gridster-content]')[0]) return $element.find('[gridster-content]')[0].offsetHeight;
 			},
-			function(content)
+			function(newHeight, oldHeight)
 			{
-					if(content)
+					if(newHeight !== undefined && newHeight > 0 && newHeight !== oldHeight)
 					{
-						self.resize(self.content);
+						console.log('Il contenuto è stato caricato');
+						self.panelHeaderHeight = $('.course-panel-title').height();
+						self.innerHeight = newHeight;
+						self.content = $element.find('[gridster-content]');
+						self.outerHeight = $element[0].offsetHeight;
+						console.log(self.content[0], oldHeight + ' -> ' + newHeight);
+			 			self.resize(self.content);
 					}
 			}
 	);
+	
+	$scope.$watch(
+		function()
+		{
+			if($element[0]) return $element[0].offsetHeight;
+		},
+		function(newHeight, oldHeight)
+		{
+				if(self.content !== undefined && newHeight !== undefined && newHeight > 0 && newHeight !== oldHeight)
+				{
+					self.outerHeight = $element[0].offsetHeight;
+					console.log('Le misure sono cambiate in: ', self.innerHeight, self.panelHeaderHeight, self.outerHeight);
+					self.resize(self.content);			
+				}
+		}
+	);
+	
+	
 	
 }]);
