@@ -192,7 +192,8 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     // Profile
     
     $routeProvider.when('/profile/:userID',{
-        templateUrl : 'profile',
+//        templateUrl : 'profile',
+    	templateUrl: function(parameters){return 'profile/index/'+parameters.userID;},
         controller : 'profileController as user'
     });
     
