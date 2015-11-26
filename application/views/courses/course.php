@@ -7,8 +7,8 @@
                         <h4 ng-bind="item.title"></h4>
                     </div>
                     <div class="course-panel-content">
-                        <div class="container" gridster-content>
-                            <perfect-scrollbar refresh-on-change="item.measures.height" class="scrollbar-wrapper" suppressScrollX="true">
+                        <div class="container" gridster-content ng-style="course.getHeight()">
+                            <perfect-scrollbar class="scrollbar-wrapper" suppressScrollX="true" refresh-on-change="item.measures.height" >
 	                            <div class="scrollbar">
 	                            	<div class="container">
 	                                    <div ng-include="item.templateUrl"></div>
