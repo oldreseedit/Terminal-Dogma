@@ -55,7 +55,7 @@ angular.module('perfect_scrollbar', []).directive('perfectScrollbar',
 					// Possible future improvement - check the type here and use the appropriate watch for non-arrays
 					if ($attr.refreshOnChange) {
 						$scope.$watchCollection($attr.refreshOnChange, function() {
-							console.log('E\' cambiato qualcosa: update!');
+//							console.log('E\' cambiato qualcosa: update!');
 							update();
 						});
 					}

@@ -68,7 +68,7 @@ main.controller('gridsterResizeController',['$scope','$element','$timeout',funct
 				$scope.$on('gridster-item-resized',
 						function()
 						{
-							console.log('Ho intercettato un gridster-item-resized');
+//							console.log('Ho intercettato un gridster-item-resized');
 							var content = $element.find('[gridster-content]');
 							var innerHeight = content[0].offsetHeight;
 							var panelHeaderHeight = $('.course-panel-title').height();
