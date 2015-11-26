@@ -7,6 +7,5 @@
 .externalToolBuilders/
 .settings/
 node_modules/
-node_modules/grunt/
 >>>>>>> master
 node_modules/.bin/dateformat
