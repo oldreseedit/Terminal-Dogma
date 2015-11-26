@@ -164,4 +164,8 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
 //    console.log($scope.events);
     $scope.eventSources = [{events: $scope.events, color: 'green'}];    
     
+    $timeout(function(){
+    	$scope.activateScrollbar = true;
+    },3000);
+    
 }]);
