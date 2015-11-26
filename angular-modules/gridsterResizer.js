@@ -66,7 +66,7 @@ main.controller('gridsterResizeController',['$scope','$element','$timeout',funct
 				self.deregisterOuterHeight();
 			},
 			1000
-	)
+	);
 	
 	
 	

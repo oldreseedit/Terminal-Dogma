@@ -10,7 +10,7 @@ angular.module('perfect_scrollbar', []).directive('perfectScrollbar',
     restrict: 'EA',
     transclude: true,
     template: '<div><div ng-transclude></div></div>',
-    replace: true,
+//    replace: true,
     link: function($scope, $elem, $attr) {
       var jqWindow = angular.element($window);
       var options = {};
@@ -49,11 +49,12 @@ angular.module('perfect_scrollbar', []).directive('perfectScrollbar',
       }
 
       // This is necessary when you don't watch anything with the scrollbar
-      $elem.bind('mouseenter', update('mouseenter'));
+      $elem.bind('mouseenter',function($event) {update('mouseenter');});
 
       // Possible future improvement - check the type here and use the appropriate watch for non-arrays
       if ($attr.refreshOnChange) {
         $scope.$watchCollection($attr.refreshOnChange, function() {
+        	console.log('E\' cambiato qualcosa: update!');
           update();
         });
       }

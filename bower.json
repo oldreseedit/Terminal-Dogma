@@ -20,7 +20,6 @@
     "angular-google-maps": "~2.2.1",
     "angular-perfect-scrollbar": "~0.0.4",
     "angular-sham-spinner": "~0.0.10",
-    "angular-ui-calendar": "latest",
     "angular-youtube-mb": "~1.1.0",
     "bootstrap-sass": "~3.3.5",
     "ngDialog": "~0.4.0",
@@ -28,7 +27,8 @@
     "ng-file-upload": "~9.1.2",
     "angular-upload": "~1.0.12",
     "angular-inform": "~0.0.18",
-    "angular-animate": "~1.4.8"
+    "angular-animate": "~1.4.8",
+    "ng-scrollbar": "~0.0.8"
   },
   "resolutions": {
     "angular": "~1.4.8"
