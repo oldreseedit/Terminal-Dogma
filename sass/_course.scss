@@ -44,7 +44,8 @@
     }
     
     .course-notification-text{
-        @extend .col-70;
+        @extend .col-65;
+        @extend .offset-5;
     }
     
     .teacher-avatar{

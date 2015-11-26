@@ -114,7 +114,8 @@
     <!--<script type="text/javascript" src="angular-modules/templates.js"></script>-->
     
     <!-- Angular Perfect Scrollbar -->
-    <script src="bower_components/perfect-scrollbar/src/perfect-scrollbar.js"></script>
+    <link rel="stylesheet" href="/bower_components/perfect-scrollbar/min/perfect-scrollbar.min.css"/>
+    <script src="bower_components/perfect-scrollbar/min/perfect-scrollbar.min.js"></script>
     <script src="bower_components/angular-perfect-scrollbar/src/angular-perfect-scrollbar.js"></script>
     
     <!-- Angular Youtube -->
