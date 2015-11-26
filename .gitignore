@@ -6,5 +6,6 @@
 =======
 .externalToolBuilders/
 .settings/
-*.project
+node_modules/
 >>>>>>> master
+node_modules/.bin/dateformat

@@ -65,7 +65,7 @@
     <script type="text/javascript" src="bower_components/moment/min/moment.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-ui-calendar/src/calendar.js"></script>
     <script type="text/javascript" src="bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
-    <script type="text/javascript" src="bower_components/fullcalendar/dist/lang-all.js"></script>
+	<script ype="text/javascript" src='bower_components/fullcalendar/dist/lang/it.js'></script>
     <script type="text/javascript" src="bower_components/fullcalendar/dist/gcal.js"></script>
     
     <!-- Angular Sham Spinner -->
@@ -108,13 +108,20 @@
     <script type="text/javascript" src="angular-modules/payment.js"></script>
     <script type="text/javascript" src="angular-modules/faq.js"></script>
     <script type="text/javascript" src="angular-modules/fitText.js"></script>
+    <script type="text/javascript" src="angular-modules/gridsterResizer.js"></script>
     
     <!-- Grunt Plugins -->
     <!--<script type="text/javascript" src="angular-modules/templates.js"></script>-->
     
+    
     <!-- Angular Perfect Scrollbar -->
-    <script src="bower_components/perfect-scrollbar/src/perfect-scrollbar.js"></script>
+    <link rel="stylesheet" href="/bower_components/perfect-scrollbar/min/perfect-scrollbar.min.css"/>
+    <script src="bower_components/perfect-scrollbar/min/perfect-scrollbar.min.js"></script>
     <script src="bower_components/angular-perfect-scrollbar/src/angular-perfect-scrollbar.js"></script>
+    
+<!--     jQuery Scrollbar -->
+<!-- 	<link rel="stylesheet" href="angular-modules/jqueryScrollbar/jquery.scrollbar.css" /> -->
+<!-- 	<script src="angular-modules/jqueryScrollbar/jquery.scrollbar.js"></script> -->
     
     <!-- Angular Youtube -->
     <script src="https://www.youtube.com/iframe_api"></script>

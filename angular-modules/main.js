@@ -5,7 +5,7 @@ var main = angular.module('Main',[
     'ngCookies', // For setting/retrieving cookies easily
     'ngAnimate', // For animating purposes
     'ui.calendar', // For register calendar
-    'ui.bootstrap', // For all bootstrap functions and more
+    'ui.bootstrap', // For all bootstrap functions and for ui.calendar
     'angularShamSpinner', // For pre-loading spinner
     'monospaced.elastic', // For text-area auto-resizing
     'uiGmapgoogle-maps', // For Google Maps integration
@@ -183,11 +183,6 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
         templateUrl : 'courses'
     });
     
-    $routeProvider.when('/courses/:courseID',{
-        templateUrl : function(parameters){return 'course/index/'+parameters.courseID;},
-        controller : 'courseController as course'
-    });
-    
     // Activities
     
     $routeProvider.when('/activities',{
@@ -229,6 +224,81 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     
     $routeProvider.when('/privacy',{
         templateUrl : 'privacy'
+    });
+    
+    // Course
+    
+    $routeProvider.when('/courses/:courseID',{
+        templateUrl : function(parameters){return 'course/index/'+parameters.courseID;},
+        controller : 'courseController as course',
+        resolve: {
+        	courseDescription : ['$http','$route',function($http,$route){
+        		var courseID = $route.current.params.courseID;
+        		return $http.post('courses/get',{courseID : courseID}).then(function(response) {
+        	        return response.data;
+        	    },function(error) {
+        	        console.log(error);
+        	    });
+        	}],
+        	teacher : ['$http','$route',function($http,$route){
+        		var courseID = $route.current.params.courseID;
+        		return $http.post('teachers/get',{courseID : courseID}).then(function(response) {
+        	        return response.data;
+        	    },function(error) {
+        	        console.log(error);
+        	    });
+        	}],
+        	notifications : ['$http','$route',function($http,$route){
+        		var courseID = $route.current.params.courseID;
+        		return $http.post('notifications/get',{courseID : courseID}).then(function(response) {
+        	        return response.data;
+        	    },function(error) {
+        	        console.log(error);
+        	    });
+        	}],
+        	materials : ['$http','$route',function($http,$route){
+        		var courseID = $route.current.params.courseID;
+        		return $http.post('course_material/get_all',{courseID : courseID}).then(function(response) {
+        	        var data = response.data;
+        	        angular.forEach(data,function(m){
+	    	            m.getFA = function(){
+	    	                var fileExtension = m.fileURI.split('.');
+	    	                fileExtension = fileExtension[fileExtension.length-1];
+	    	                if(fileExtension === 'jpg' || fileExtension === 'jpeg' || fileExtension === 'png' || fileExtension === 'gif') fileExtension = 'image';
+	    	                if(fileExtension === 'doc' || fileExtension === 'docx') fileExtension = 'word';
+	    	                if(fileExtension === 'ppt' || fileExtension === 'pptx') fileExtension = 'powerpoint';
+	    	                if(fileExtension === 'xls' || fileExtension === 'xlsx') fileExtension = 'excel';
+	    	                if(fileExtension === 'rar') fileExtension = 'zip';
+	    	                if(fileExtension === 'c' || fileExtension === 'java' || fileExtension === 'php' || fileExtension === 'js' || fileExtension === 'html') fileExtension = 'code';
+	    	                return 'fa-file-' + fileExtension + '-o';
+	    	            };
+	    	            m.getTitle = function(){
+	    	                var title = m.fileURI.split('/');
+	    	                title = title[title.length-1].split('.');
+	    	                title = title[0];
+	    	                title = title.replace(/_/g,' ');
+	    	                // console.log(title);
+	    	                return title;
+	    	            };
+        	        });
+        	        return data;
+        	    },function(error) {
+        	        console.log(error);
+        	    });
+        	}],
+        	lessons : ['$http','$route',function($http,$route){
+                
+        		var courseID = $route.current.params.courseID;
+                
+                return $http.post('lessons/get',{courseID: courseID}).
+                then(function(response){
+                    // console.log(data);
+                    return response.data;
+                }, function(error){
+                    console.log(error);
+                });
+            }]
+        }
     });
     
     // Register - Restricted
