@@ -1,7 +1,7 @@
 main.controller('gridsterResizeController',['$scope','$element','$timeout',function($scope, $element,$timeout){
 	var self = this;
 	
-	self.timer = setTimeout(function(){self.deregisterWatchers();},100);
+	self.timer = setTimeout(function(){self.deregisterWatchers();},500);
 	
 	self.resize = function(element)
     {
@@ -15,7 +15,7 @@ main.controller('gridsterResizeController',['$scope','$element','$timeout',funct
     	{
     		scope = element.parents('[gridster-item]').scope();
     		$scope.gridsterItems[scope.index].measures.height++;
-    		self.timer = setTimeout(function(){self.deregisterWatchers();});
+    		self.timer = setTimeout(function(){self.deregisterWatchers();},500);
     	}
     	else return;
     };
