@@ -115,7 +115,7 @@
     
     
     <!-- Angular Perfect Scrollbar -->
-    <link rel="stylesheet" href="/bower_components/perfect-scrollbar/min/perfect-scrollbar.min.css"/>
+    <link rel="stylesheet" href="bower_components/perfect-scrollbar/min/perfect-scrollbar.min.css"/>
     <script src="bower_components/perfect-scrollbar/min/perfect-scrollbar.min.js"></script>
     <script src="bower_components/angular-perfect-scrollbar/src/angular-perfect-scrollbar.js"></script>
     
@@ -136,9 +136,9 @@
     <script src='bower_components/angular-upload/angular-upload.js'></script>
     
     <!-- Angular Inform -->
-    <link rel="stylesheet" href="/bower_components/angular-inform/dist/angular-inform.min.css"/>
-    <script src="/bower_components/angular-inform/dist/angular-inform.min.js"></script>
-    <script src="/bower_components/angular-animate/angular-animate.js"></script>
+    <link rel="stylesheet" href="bower_components/angular-inform/dist/angular-inform.min.css"/>
+    <script src="bower_components/angular-inform/dist/angular-inform.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
     
     <!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
     <script type="text/javascript">
