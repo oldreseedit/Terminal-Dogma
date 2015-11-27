@@ -1,79 +1,64 @@
-main.controller('profileController',['utilities','$scope','$http','$routeParams',function(utilities,$scope,$http,$routeParams){
+main.controller('profileController',['utilities','$scope','$http','$routeParams','$route',function(utilities,$scope,$http,$routeParams,$route){
     var self = this;
     
-    self.summaryReady = true;
-    self.notificationsReady = true;
-    self.achievementsReady = true;
-    self.rewardsReady = true;
-    
     self.username = $routeParams.userID;
-    
-    self.xpBarTypes = function(){
-        
-        
+    self.xpBarTypes = function(){        
         return 'success';
     };
+    self.notifications = $route.current.locals.notifications;
+    console.log(self.notifications);
     
-    self.items = [
+    $scope.gridsterItems = [
         {
+        	title: 'Sommario',
+            bgColour: 'bg-light-olive',
             templateUrl: 'templates/profile-summary.php',
-            ready : function(){
-                return self.summaryReady;
-            },
             measures: {
                 width: 6,
-                height: 5,
+                height: 1,
                 position: {
                     x : 0,
                     y : 0
-                },
-                minWidth: 6,
-                minHeight: 5
+                }
             }
         },
         {
+        	title: 'Notifiche',
+            bgColour: 'bg-light-lawn',
             templateUrl: 'templates/profile-notifications.php',
-            ready : function(){
-                return self.notificationsReady;
-            },
             measures: {
                 width: 6,
-                height: 5,
+                height: 1,
                 position: {
                     x : 7,
                     y : 0
-                },
-                minWidth: 4
+                }
             }
         },
         {
+        	title: 'Achievements',
+            bgColour: 'bg-light-green',
             templateUrl: 'templates/profile-achievements.php',
-            ready : function(){
-                return self.achievementsReady;
-            },
             measures: {
                 width: 6,
-                height: 5,
+                height: 1,
                 position: {
                     x : 0,
                     y : 7
-                },
-                minWidth: 4
+                }
             }
         },
         {
+        	title: 'Rewards',
+            bgColour: 'bg-light-leaf',
             templateUrl: 'templates/profile-rewards.php',
-            ready : function(){
-                return self.rewardsReady;
-            },
             measures: {
                 width: 6,
-                height: 5,
+                height: 1,
                 position: {
                     x : 7,
                     y : 7
-                },
-                minWidth: 4
+                }
             }
         }
     ];
@@ -86,5 +71,15 @@ main.controller('profileController',['utilities','$scope','$http','$routeParams'
         minSizeX: 'item.measures.minWidth',
         minSizeY: 'item.measures.minHeight'
     };
+    
+    /* METHODS */
+    
+    self.getTitleOfNotification = function(notification)
+    {
+    	var title = notification.courseID || 'reSeed';
+    	return title;
+    };
+    
+    
     
 }]);
