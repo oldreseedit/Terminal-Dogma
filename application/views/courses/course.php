@@ -8,7 +8,7 @@
                     </div>
                     <div class="course-panel-content">
                         <div class="container" gridster-content>
-                            <perfect-scrollbar class="scrollbar-wrapper" suppressScrollX="true" refresh-on-change="item.measures.height">
+                            <perfect-scrollbar class="scrollbar-wrapper" suppressScrollX="true">
 	                            <div class="scrollbar">
 	                            	<div class="container">
 	                                    <div ng-include="item.templateUrl"></div>
