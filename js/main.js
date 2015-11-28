@@ -189,14 +189,6 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
         templateUrl : 'activities'
     });
     
-    // Profile
-    
-    $routeProvider.when('/profile/:userID',{
-//        templateUrl : 'profile',
-    	templateUrl: function(parameters){return 'profile/index/'+parameters.userID;},
-        controller : 'profileController as user'
-    });
-    
     // Media
     
     $routeProvider.when('/media',{
@@ -299,6 +291,32 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
                     console.log(error);
                 });
             }]
+        }
+    });
+    
+
+    
+    // Profile
+    
+    $routeProvider.when('/profile/:userID',{
+//        templateUrl : 'profile',
+    	templateUrl: function(parameters){return 'profile/index/'+parameters.userID;},
+        controller : 'profileController as profile',
+        resolve : {
+        	notifications : ['$http','$route', function($http,$route){
+        		var userID = $route.current.params.userID;
+        		
+        		return $http.post('notifications/get_user_notifications',{username: userID}).then(
+        		function(response)
+        		{
+        			return response.data;
+        		},
+        		function(error)
+        		{
+        			console.log(error);
+        		}
+        		);
+        	}]
         }
     });
     

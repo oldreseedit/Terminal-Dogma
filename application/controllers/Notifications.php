@@ -126,15 +126,30 @@ class Notifications extends CI_Controller {
             echo json_encode(array("error" => false, "description" => "Notifica modificata con successo."));
             return;
         }
-        
-        // public function get_latest_news()
-        // {
-        //     $top = $this->input->post('top');
-        //     if($top == false) $top = self::TOP_N_NEWS;
-            
-        //     echo json_encode($this->news_model->get_latest_news($top));
-        //     return;
-        // }
+
+		public function update_seen()
+		{
+			$notificationIDs = $this->input->post('notificationIDs');
+			if($notificationIDs == false)
+			{
+				echo json_encode(array("error" => true, "description" => "Specificare almeno una notifica.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("notificationIDs")));
+				return;
+			}
+			
+			$data = array();
+			foreach ($notificationIDs as $notificationID)
+			{
+				$notificationData = array();
+		
+				$notificationData['notificationID'] = $notificationID;
+				$notificationData['seen'] = true;
+		
+				$data[] = $notificationData;
+			}
+		
+			// Update the users' attendances
+			$this->notifications_model->update_batch($data);
+		}
         
         public function get()
         {

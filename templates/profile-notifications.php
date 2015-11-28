@@ -1,9 +1,4 @@
-<div class="profile-notifications">
-    <div class="container">
-        <h4>Notifiche</h4>
-        <div ng-repeat="notification in self.notifications">
-            <span ng-bind="notification.title" ng-class="{'green':notification.read}"></span>
-            <span ng-bind="notification.content"></span>
-        </div>
-    </div>
+<div class="profile-notifications" ng-repeat="notification in profile.notifications">
+	<span class="bold" ng-bind="profile.getTitleOfNotification(notification)" ng-class="{'green':notification.seen,'dark-green':!notification.seen}"></span><br />
+	<span ng-bind="notification.text"></span>
 </div>

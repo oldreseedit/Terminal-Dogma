@@ -77,8 +77,8 @@ class Notifications_model extends CI_Model
 
                 return $this->db->delete(self::table_name, $data);
         }
-
-        public function update($notificationID, $text = null, $seen = null, $private = null, $courseID = null)
+        
+        function update($notificationID, $text = null, $seen = null, $private = null, $courseID = null)
         {
                 $data = array();
                 if($text != null) $data['text'] = $text;
@@ -90,6 +90,11 @@ class Notifications_model extends CI_Model
                 $this->db->where('notificationID', $notificationID)->update(self::table_name, $data);
                 
                 return true;
+        }
+        
+        public function update_batch($data)
+        {
+        	$this->db->update_batch(self::table_name, $data, 'notificationID');
         }
         
         public function get($notificationID)
