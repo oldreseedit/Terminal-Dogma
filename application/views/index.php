@@ -28,5 +28,7 @@
         
         <?php include_once("templates/footer.php"); ?>
     </div>
+    
+    <div inform class="inform-shadow inform-fixed inform-center inform-animate"></div>
 </body>
 </html>

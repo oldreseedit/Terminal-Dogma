@@ -4,3 +4,17 @@
     overflow-y: hidden;
     position: relative;
 }
+
+.scrollbar-wrapper{
+    width: 100%;
+    height: 100%;
+    overflow-y: hidden;
+    position: relative;
+
+    .scrollbar{
+        @extend .col-100;
+        @extend .text-justify;
+        padding-right: 26px;
+        padding-left: 26px;
+    }
+}

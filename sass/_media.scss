@@ -29,20 +29,6 @@
             .media-navbar{
                 @extend .col-35;
                 @extend .offset-5;
-                
-                .media-navbar-scrollbar{
-                    width: 100%;
-                    height: 100%;
-                    overflow-y: hidden;
-                    position: relative;
-                }
-                
-                .media-navbar-right-content{
-                    @extend .col-100;
-                    @extend .text-justify;
-                    padding-right: 26px;
-                }
-                
             }
         }
         

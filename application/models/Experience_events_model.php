@@ -27,6 +27,10 @@ class Experience_events_model extends CI_Model
                                 'type' => 'VARCHAR',
                                 'constraint' => 50
                         ),
+                		'event_data' => array(
+                				'type' => 'VARCHAR',
+                				'constraint' => 50
+                		),
                         'description' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => 4096,
@@ -52,11 +56,12 @@ class Experience_events_model extends CI_Model
                 $this->dbforge->create_table(self::table_name);
         }
         
-        public function add($userID, $eventType, $publishingTimestamp, $description = null, $courseID = null)
+        public function add($userID, $eventType, $eventData, $publishingTimestamp, $description = null, $courseID = null)
         {
                 $data = array(
                    'username' => $userID,
                    'event_type' => $eventType,
+                   'event_data' => $eventData,
                    'description' => $description,
                    'publishingTimestamp' => $publishingTimestamp,
                 );

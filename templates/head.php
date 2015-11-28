@@ -42,11 +42,8 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     
-    <!-- Include all compiled plugins for Bootstrap -->
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
     
 <!-- ANGULAR JS -->
 
@@ -58,16 +55,14 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-cookies.js"></script>
     
     <!-- AngularJS Bootstrap UI -->
-    <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-    <!--<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>-->
-    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" type="text/css" />-->
+    <script type="text/javascript" src="js/ui-bootstrap-tpls-0.14.3.min.js"></script>
     
     <!-- AngularUI Calendar -->
     <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.css"/>
     <script type="text/javascript" src="bower_components/moment/min/moment.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-ui-calendar/src/calendar.js"></script>
     <script type="text/javascript" src="bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
-    <script type="text/javascript" src="bower_components/fullcalendar/dist/lang-all.js"></script>
+	<script ype="text/javascript" src='bower_components/fullcalendar/dist/lang/it.js'></script>
     <script type="text/javascript" src="bower_components/fullcalendar/dist/gcal.js"></script>
     
     <!-- Angular Sham Spinner -->
@@ -79,44 +74,51 @@
     <script type="text/javascript" src="bower_components/angular-google-maps/dist/angular-google-maps.min.js"></script>
     
     <!-- Angular monospaced elastic for textareas -->
-    <script type="text/javascript" src="angular-modules/elastic.js"></script>
+    <script type="text/javascript" src="js/elastic.js"></script>
     
     <!-- AngularJS Modules -->
-    <script type="text/javascript" src="angular-modules/utilities-service.js"></script>
-    <script type="text/javascript" src="angular-modules/main.js"></script>
-    <script type="text/javascript" src="angular-modules/modal.js"></script>
-    <script type="text/javascript" src="angular-modules/navbar.js"></script>
-    <script type="text/javascript" src="angular-modules/header.js"></script>
-    <script type="text/javascript" src="angular-modules/presentation.js"></script>
-    <script type="text/javascript" src="angular-modules/team.js"></script>
-    <script type="text/javascript" src="angular-modules/footer.js"></script>
-    <script type="text/javascript" src="angular-modules/courses.js"></script>
-    <script type="text/javascript" src="angular-modules/course.js"></script>
-    <script type="text/javascript" src="angular-modules/activities.js"></script>
-    <script type="text/javascript" src="angular-modules/media.js"></script>
-    <script type="text/javascript" src="angular-modules/contacts.js"></script>
-    <script type="text/javascript" src="angular-modules/infoWindow.js"></script>
-    <script type="text/javascript" src="angular-modules/register.js"></script>
-    <script type="text/javascript" src="angular-modules/admin.js"></script>
-    <script type="text/javascript" src="angular-modules/signin.js"></script>
-    <script type="text/javascript" src="angular-modules/signup.js"></script>
-    <script type="text/javascript" src="angular-modules/profile.js"></script>
-    <script type="text/javascript" src="angular-modules/avatar.js"></script>
-    <script type="text/javascript" src="angular-modules/paymentDisclaimer.js"></script>
-    <script type="text/javascript" src="angular-modules/paymentNotRegistered.js"></script>
-    <script type="text/javascript" src="angular-modules/paymentCancel.js"></script>
-    <script type="text/javascript" src="angular-modules/paymentConfirmation.js"></script>
-    <script type="text/javascript" src="angular-modules/payment.js"></script>
-    <script type="text/javascript" src="angular-modules/faq.js"></script>
-    <script type="text/javascript" src="angular-modules/fitText.js"></script>
-    
+    <script type="text/javascript" src="js/utilities-service.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/modal.js"></script>
+    <script type="text/javascript" src="js/navbar.js"></script>
+    <script type="text/javascript" src="js/header.js"></script>
+    <script type="text/javascript" src="js/presentation.js"></script>
+    <script type="text/javascript" src="js/team.js"></script>
+    <script type="text/javascript" src="js/footer.js"></script>
+    <script type="text/javascript" src="js/courses.js"></script>
+    <script type="text/javascript" src="js/course.js"></script>
+    <script type="text/javascript" src="js/activities.js"></script>
+    <script type="text/javascript" src="js/media.js"></script>
+    <script type="text/javascript" src="js/contacts.js"></script>
+    <script type="text/javascript" src="js/infoWindow.js"></script>
+    <script type="text/javascript" src="js/register.js"></script>
+    <script type="text/javascript" src="js/exp.js"></script>
+    <script type="text/javascript" src="js/admin.js"></script>
+    <script type="text/javascript" src="js/signin.js"></script>
+    <script type="text/javascript" src="js/signup.js"></script>
+    <script type="text/javascript" src="js/profile.js"></script>
+    <script type="text/javascript" src="js/avatar.js"></script>
+    <script type="text/javascript" src="js/paymentDisclaimer.js"></script>
+    <script type="text/javascript" src="js/paymentNotRegistered.js"></script>
+    <script type="text/javascript" src="js/paymentCancel.js"></script>
+    <script type="text/javascript" src="js/paymentConfirmation.js"></script>
+    <script type="text/javascript" src="js/payment.js"></script>
+    <script type="text/javascript" src="js/faq.js"></script>
+    <script type="text/javascript" src="js/fitText.js"></script>
+    <script type="text/javascript" src="js/gridsterResizer.js"></script>
     
     <!-- Grunt Plugins -->
-    <!--<script type="text/javascript" src="angular-modules/templates.js"></script>-->
+    <!--<script type="text/javascript" src="js/templates.js"></script>-->
+    
     
     <!-- Angular Perfect Scrollbar -->
-    <script src="bower_components/perfect-scrollbar/src/perfect-scrollbar.js"></script>
+    <link rel="stylesheet" href="bower_components/perfect-scrollbar/min/perfect-scrollbar.min.css"/>
+    <script src="bower_components/perfect-scrollbar/min/perfect-scrollbar.min.js"></script>
     <script src="bower_components/angular-perfect-scrollbar/src/angular-perfect-scrollbar.js"></script>
+    
+<!--     jQuery Scrollbar -->
+<!-- 	<link rel="stylesheet" href="js/jqueryScrollbar/jquery.scrollbar.css" /> -->
+<!-- 	<script src="js/jqueryScrollbar/jquery.scrollbar.js"></script> -->
     
     <!-- Angular Youtube -->
     <script src="https://www.youtube.com/iframe_api"></script>
@@ -129,6 +131,11 @@
     <!-- Angular File Upload -->
     <!--<script src="ng-file-upload.min.js"></script>-->
     <script src='bower_components/angular-upload/angular-upload.js'></script>
+    
+    <!-- Angular Inform -->
+    <link rel="stylesheet" href="bower_components/angular-inform/dist/angular-inform.min.css"/>
+    <script src="bower_components/angular-inform/dist/angular-inform.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
     
     <!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
     <script type="text/javascript">

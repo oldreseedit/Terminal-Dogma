@@ -10,7 +10,7 @@
         margin-bottom: 1vw;
     }
     
-    table, #lessonNote{
+     #lessonNote{
         .fa{
             padding-left: 0.5vw;
         }
@@ -45,4 +45,22 @@
     .fc-view-container{
         background-color: white;
     }
+    
+    .XP
+    {
+    	@extend .col-100;
+    	@extend .text-center;
+    	
+    	.fa ~ span
+    	{
+    		margin-left: 0;
+    	}
+    }
+    
+    .agendaButtons
+    {
+    	margin-bottom: 1vw;
+    	text-align: center;
+    }
+    
 }

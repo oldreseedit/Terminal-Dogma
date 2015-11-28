@@ -1932,12 +1932,12 @@ mark,
 }
 
 /* line 92, ../sass/bootstrap/_type.scss */
-.text-center, .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #navbar, #footer, #home #team, #singleCourse .course-panel-title, #singleCourse .course-icon, #register, #profile .profile-notifications, #profile .profile-achievements, #profile .profile-rewards {
+.text-center, .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #navbar, #footer, #home #team, #singleCourse .course-panel-title, #singleCourse .course-icon, #register, #register .XP, #profile .profile-notifications, #profile .profile-achievements, #profile .profile-rewards {
   text-align: center;
 }
 
 /* line 93, ../sass/bootstrap/_type.scss */
-.text-justify, .scrollbar-wrapper .scrollbar, #singleCourse .gridster-item, #activities #tiles-activities .tile .back, #media .media-panel .media-panel-main .media-navbar .media-navbar-right-content {
+.text-justify, #singleCourse .gridster-item, #activities #tiles-activities .tile .back, .scrollbar-wrapper .scrollbar {
   text-align: justify;
 }
 
@@ -9291,7 +9291,7 @@ button.close {
 }
 
 /* line 12, ../sass/_responsive.scss */
-.offset-5, #home #presentation #tiles-presentation .inside-tab, #home #presentation #tiles-presentation .inside-tab .title-wrapper, #media .media-panel .media-panel-main .media-navbar, #profile .profile-info .profile-name-level-xp {
+.offset-5, #home #presentation #tiles-presentation .inside-tab, #home #presentation #tiles-presentation .inside-tab .title-wrapper, #singleCourse .course-notification-text, #media .media-panel .media-panel-main .media-navbar, #profile .profile-info .profile-name-level-xp {
   margin-left: 5%;
 }
 
@@ -10240,7 +10240,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-65, #profile .profile-info .profile-name-level-xp {
+.col-65, #singleCourse .course-notification-text, #profile .profile-info .profile-name-level-xp {
   width: 65%;
   float: left;
 }
@@ -10320,7 +10320,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-70, .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #singleCourse .course-notification-text, #activities #tiles-activities .tile .back .back-title, #payment .paymentStep, #faqPage .faqStep {
+.col-70, .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #activities #tiles-activities .tile .back .back-title, #payment .paymentStep, #faqPage .faqStep {
   width: 70%;
   float: left;
 }
@@ -10800,7 +10800,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-100, .scrollbar-wrapper .scrollbar, #admin .admin-content, #navbar #navbar-logged, #footer, #footer #commercial-info, #home, #home #presentation #tiles-presentation, #home #presentation #tiles-presentation .inside-tab .tab-content, #home #team, #singleCourse .gridster-item, #singleCourse .course-panel-title, #singleCourse .course-panel-content, #singleCourse .teacher-name, #singleCourse .teacher-description, #singleCourse .course-description-introduction, #singleCourse .course-description-syllabus, #activities #tiles-activities, #activities #tiles-activities .tile .back .back-content, #media .media-panel, #media .media-panel .media-panel-title, #media .media-panel .media-panel-main, #media .media-panel .media-panel-main .media-navbar .media-navbar-right-content, #register, #payment .stepLine, #payment .stepContent, #faqPage .stepLine, #faqPage .stepContent, #profile .profile-info, #profile .profile-info .profile-name-level-xp .profile-xp, #profile .profile-notifications, #profile .profile-achievements, #profile .profile-rewards, .wrapper, .mini-header {
+.col-100, #admin .admin-content, #navbar #navbar-logged, #footer, #footer #commercial-info, #home, #home #presentation #tiles-presentation, #home #presentation #tiles-presentation .inside-tab .tab-content, #home #team, #singleCourse .gridster-item, #singleCourse .course-panel-title, #singleCourse .course-panel-content, #singleCourse .teacher-name, #singleCourse .teacher-description, #singleCourse .course-description-introduction, #singleCourse .course-description-syllabus, #activities #tiles-activities, #activities #tiles-activities .tile .back .back-content, #media .media-panel, #media .media-panel .media-panel-title, #media .media-panel .media-panel-main, #register, #register .XP, #payment .stepLine, #payment .stepContent, #faqPage .stepLine, #faqPage .stepContent, #profile .profile-info, #profile .profile-info .profile-name-level-xp .profile-xp, #profile .profile-notifications, #profile .profile-achievements, #profile .profile-rewards, .scrollbar-wrapper .scrollbar, .wrapper, .mini-header {
   width: 100%;
   float: left;
 }
@@ -19319,13 +19319,29 @@ button.close {
   vertical-align: middle;
 }
 
+/*  Trick for equal height columns - Apply to all columns */
 /* line 56, ../sass/_tricks.scss */
 .equal-height, #admin .tab {
   margin-bottom: -99999px;
   padding-bottom: 99999px;
 }
 
-/* line 61, ../sass/_tricks.scss */
+/* Trick for centering vertically a div -> to put in sequence <outer><inner> */
+/* line 63, ../sass/_tricks.scss */
+.outer {
+  display: table;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+/* line 70, ../sass/_tricks.scss */
+.inner {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/* line 75, ../sass/_tricks.scss */
 .clearfix:before,
 .clearfix:after {
   content: " ";
@@ -19334,17 +19350,17 @@ button.close {
   /* 2 */
 }
 
-/* line 67, ../sass/_tricks.scss */
+/* line 81, ../sass/_tricks.scss */
 .clearfix:after {
   clear: both;
 }
 
-/* line 71, ../sass/_tricks.scss */
+/* line 85, ../sass/_tricks.scss */
 .clearfix {
   *zoom: 1;
 }
 
-/* line 75, ../sass/_tricks.scss */
+/* line 89, ../sass/_tricks.scss */
 .noselect {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -19355,29 +19371,29 @@ button.close {
   cursor: default;
 }
 
-/* line 85, ../sass/_tricks.scss */
+/* line 99, ../sass/_tricks.scss */
 .clickable {
   cursor: pointer;
 }
 
-/* line 89, ../sass/_tricks.scss */
+/* line 103, ../sass/_tricks.scss */
 .first {
   margin-left: 0 !important;
 }
 
-/* line 93, ../sass/_tricks.scss */
+/* line 107, ../sass/_tricks.scss */
 .circle-img, #navbar #navbar-profile .navbar-avatar {
   width: 100%;
   height: 100%;
   border-radius: 50%;
 }
 
-/* line 99, ../sass/_tricks.scss */
+/* line 113, ../sass/_tricks.scss */
 .square, #courses #tiles-courses .tile, #activities #tiles-activities .tile {
   padding-top: 100%;
   position: relative;
 }
-/* line 103, ../sass/_tricks.scss */
+/* line 117, ../sass/_tricks.scss */
 .square .square-content, #courses #tiles-courses .tile .square-content, #activities #tiles-activities .tile .square-content {
   position: absolute;
   top: 0;
@@ -19386,12 +19402,12 @@ button.close {
   right: 0;
 }
 
-/* line 112, ../sass/_tricks.scss */
+/* line 126, ../sass/_tricks.scss */
 .square-only {
   padding-bottom: 100%;
 }
 
-/* line 117, ../sass/_tricks.scss */
+/* line 131, ../sass/_tricks.scss */
 .container {
   width: auto;
   height: inherit;
@@ -19400,40 +19416,23 @@ button.close {
   padding: 0;
 }
 
-/* line 125, ../sass/_tricks.scss */
+/* line 139, ../sass/_tricks.scss */
 .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper {
   margin-bottom: 3vw;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 125, ../sass/_tricks.scss */
+  /* line 139, ../sass/_tricks.scss */
   .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper {
     width: 80%;
     margin-left: 10%;
   }
 }
 @media all and (max-device-width: 539px) {
-  /* line 125, ../sass/_tricks.scss */
+  /* line 139, ../sass/_tricks.scss */
   .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper {
     width: 96%;
     margin-left: 2%;
   }
-}
-
-/* line 142, ../sass/_tricks.scss */
-.scrollbar-wrapper {
-  width: 100%;
-  height: 100%;
-  overflow-y: hidden;
-  position: relative;
-}
-/* line 148, ../sass/_tricks.scss */
-.scrollbar-wrapper .scrollbar {
-  padding-right: 26px;
-}
-
-/* line 155, ../sass/_tricks.scss */
-.fa ~ span {
-  margin-left: 0.5em;
 }
 
 /*** MIXINS ***/
@@ -19963,20 +19962,24 @@ body {
   }
 }
 /* line 32, ../sass/_navbar.scss */
+#navbar .fa ~ span {
+  margin-left: 0.5em;
+}
+/* line 36, ../sass/_navbar.scss */
 #navbar a {
   text-decoration: none;
   color: inherit;
 }
-/* line 35, ../sass/_navbar.scss */
+/* line 39, ../sass/_navbar.scss */
 #navbar a:hover {
   color: #b2e528;
 }
-/* line 40, ../sass/_navbar.scss */
+/* line 44, ../sass/_navbar.scss */
 #navbar .macrotab {
   line-height: 2.5;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 52, ../sass/_navbar.scss */
+  /* line 56, ../sass/_navbar.scss */
   #navbar #navbar-tabs {
     width: 45%;
     float: left;
@@ -19984,34 +19987,34 @@ body {
   }
 }
 @media all and (max-device-width: 1079px) {
-  /* line 61, ../sass/_navbar.scss */
+  /* line 65, ../sass/_navbar.scss */
   #navbar #navbar-profile {
     width: 25%;
     float: left;
     margin-left: 5%;
   }
 }
-/* line 69, ../sass/_navbar.scss */
+/* line 73, ../sass/_navbar.scss */
 #navbar #navbar-profile a {
   margin-right: 0.5em;
 }
-/* line 74, ../sass/_navbar.scss */
+/* line 78, ../sass/_navbar.scss */
 #navbar #navbar-profile .fa-question {
   font-size: 2.5em;
 }
-/* line 79, ../sass/_navbar.scss */
+/* line 83, ../sass/_navbar.scss */
 #navbar #navbar-profile .navbar-username {
   margin-left: 0.5em;
 }
-/* line 84, ../sass/_navbar.scss */
+/* line 88, ../sass/_navbar.scss */
 #navbar #navbar-profile .navbar-icons {
   margin-left: 1em;
 }
-/* line 89, ../sass/_navbar.scss */
+/* line 93, ../sass/_navbar.scss */
 #navbar #navbar-profile .navbar-avatar {
   display: inline;
 }
-/* line 102, ../sass/_navbar.scss */
+/* line 106, ../sass/_navbar.scss */
 #navbar #navbar-signin button, #navbar #navbar-signup button {
   width: 90%;
   font-weight: 400;
@@ -20019,12 +20022,12 @@ body {
   font-size: 21.177px;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 102, ../sass/_navbar.scss */
+  /* line 106, ../sass/_navbar.scss */
   #navbar #navbar-signin button, #navbar #navbar-signup button {
     font-size: 13.032px;
   }
 }
-/* line 123, ../sass/_navbar.scss */
+/* line 127, ../sass/_navbar.scss */
 #navbar #navbar-logged button {
   margin-right: 3em;
   width: 30%;
@@ -20033,7 +20036,7 @@ body {
   font-size: 21.177px;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 123, ../sass/_navbar.scss */
+  /* line 127, ../sass/_navbar.scss */
   #navbar #navbar-logged button {
     font-size: 13.032px;
   }
@@ -20282,6 +20285,10 @@ body {
   }
 }
 
+/* line 4, ../sass/_course.scss */
+#singleCourse .gridster-item {
+  /*         @extend .bg-lightest-grey; */
+}
 /* line 11, ../sass/_course.scss */
 #singleCourse .course-panel-title {
   font-variant: small-caps;
@@ -20294,6 +20301,11 @@ body {
 #singleCourse a {
   text-decoration: none;
   color: inherit;
+}
+/* line 73, ../sass/_course.scss */
+#singleCourse .agendaButtons {
+  margin-bottom: 1vw;
+  text-align: center;
 }
 
 /* line 1, ../sass/_activities.scss */
@@ -20342,17 +20354,6 @@ body {
 #media .media-panel .media-panel-main {
   padding: 5px;
 }
-/* line 33, ../sass/_media.scss */
-#media .media-panel .media-panel-main .media-navbar .media-navbar-scrollbar {
-  width: 100%;
-  height: 100%;
-  overflow-y: hidden;
-  position: relative;
-}
-/* line 40, ../sass/_media.scss */
-#media .media-panel .media-panel-main .media-navbar .media-navbar-right-content {
-  padding-right: 26px;
-}
 
 /* line 6, ../sass/_contacts.scss */
 #contacts .angular-google-map-container {
@@ -20387,7 +20388,7 @@ body {
   margin-bottom: 1vw;
 }
 /* line 14, ../sass/_register.scss */
-#register table .fa, #register #lessonNote .fa {
+#register #lessonNote .fa {
   padding-left: 0.5vw;
 }
 /* line 20, ../sass/_register.scss */
@@ -20406,6 +20407,15 @@ body {
 /* line 45, ../sass/_register.scss */
 #register .fc-view-container {
   background-color: white;
+}
+/* line 54, ../sass/_register.scss */
+#register .XP .fa ~ span {
+  margin-left: 0;
+}
+/* line 60, ../sass/_register.scss */
+#register .agendaButtons {
+  margin-bottom: 1vw;
+  text-align: center;
 }
 
 /* line 1, ../sass/_payment-disclaimer.scss */
@@ -20604,6 +20614,19 @@ body {
   position: relative;
 }
 
+/* line 8, ../sass/_scrollbar.scss */
+.scrollbar-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+  position: relative;
+}
+/* line 14, ../sass/_scrollbar.scss */
+.scrollbar-wrapper .scrollbar {
+  padding-right: 26px;
+  padding-left: 26px;
+}
+
 /* line 72, ../sass/_perfect-scrollbar.scss */
 .ps-container.ps-active-x > .ps-scrollbar-x-rail, .ps-container.ps-active-y > .ps-scrollbar-y-rail {
   display: block;
@@ -20790,7 +20813,7 @@ body {
   list-style: none;
   z-index: 2;
   position: absolute;
-  display: none;
+  /* 	display: none; */
 }
 
 /* line 28, ../sass/_angular-gridster.scss */
@@ -20815,7 +20838,7 @@ body {
 }
 /* line 47, ../sass/_angular-gridster.scss */
 .gridster-loaded .gridster-preview-holder {
-  display: none;
+  /* 		display: none; */
   z-index: 1;
   position: absolute;
   background-color: #ddd;
