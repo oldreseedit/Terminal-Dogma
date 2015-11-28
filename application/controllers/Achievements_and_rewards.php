@@ -1,8 +1,5 @@
 <?php
 
-// TODO: aggiungi punti exp automaticamente per le lezioni
-// TODO: aggiungi l'achievement per l'80% delle lezioni di un corso
-
 class Achievements_and_rewards extends CI_Controller {
 
 		const ACHIEVEMENT = "ACHIEVEMENT";
@@ -84,11 +81,11 @@ class Achievements_and_rewards extends CI_Controller {
         	$userID = $this->input->post('username');
         	if($userID == false)
         	{
-        		echo json_encode(array("error" => true, "description" => "Lo username è obbligatorio.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("username")));
+        		echo json_encode(array("error" => true, "description" => "Lo username Ã¨ obbligatorio.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("username")));
         		return;
         	}
-        	 
-        	echo json_encode($this->user_achievements_rewards_model->get($userID));
+
+        	echo json_encode($this->user_achievements_rewards_model->get_achievements_and_rewards($userID));
         }
 }
 ?>
