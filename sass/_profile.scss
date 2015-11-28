@@ -1,44 +1,47 @@
 #profile{
     @extend .in-main;
     
-    .profile-info{
-        @extend .col-100;
-        padding: 5%;
+    .gridster-item{
         
-        .profile-level-symbol{
-            @extend .col-30;
+        @extend .col-100;
+        @extend .text-justify;
+/*         @extend .bg-lightest-grey; */
+    }
+    
+    .profile-panel-title{
+        @extend .col-100;
+        @extend .text-center;
+        font-variant: small-caps;
+    }
+    
+    .profile-panel-content{
+        @extend .col-100;
+        
+        &>.container{
+            padding: 10px;
+        }
+    }
+    
+    .profile-level-symbol{
+    	@extend .col-20;
+    }
+        
+    .profile-name-level-xp{
+        @extend .col-75;
+        @extend .offset-5;
+        
+        .profile-xp{
+            @extend .col-100;
         }
         
-        .profile-name-level-xp{
-            @extend .col-65;
-            @extend .offset-5;
-            
-            .profile-xp{
-                @extend .col-100;
-            }
-            
-            p{
-                padding: 0;
-            }
+        p{
+            padding: 0;
         }
     }
     
-    .profile-notifications{
-        @extend .col-100;
-        @extend .text-center;
-        padding: 5%;
+    .profile-notifications
+    {
+		
     }
-    
-    .profile-achievements{
-        @extend .col-100;
-        @extend .text-center;
-        padding: 5%;
-    }
-    
-    .profile-rewards{
-        @extend .col-100;
-        @extend .text-center;
-        padding: 5%;
-    }
-    
+       
 }

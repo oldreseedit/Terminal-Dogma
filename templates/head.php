@@ -116,10 +116,6 @@
     <script src="bower_components/perfect-scrollbar/min/perfect-scrollbar.min.js"></script>
     <script src="bower_components/angular-perfect-scrollbar/src/angular-perfect-scrollbar.js"></script>
     
-<!--     jQuery Scrollbar -->
-<!-- 	<link rel="stylesheet" href="js/jqueryScrollbar/jquery.scrollbar.css" /> -->
-<!-- 	<script src="js/jqueryScrollbar/jquery.scrollbar.js"></script> -->
-    
     <!-- Angular Youtube -->
     <script src="https://www.youtube.com/iframe_api"></script>
     <script src="bower_components/angular-youtube-mb/src/angular-youtube-embed.js"></script>
@@ -129,7 +125,6 @@
     <script src="bower_components/angular-gridster/dist/angular-gridster.min.js"></script>
     
     <!-- Angular File Upload -->
-    <!--<script src="ng-file-upload.min.js"></script>-->
     <script src='bower_components/angular-upload/angular-upload.js'></script>
     
     <!-- Angular Inform -->

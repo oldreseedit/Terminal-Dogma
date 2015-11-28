@@ -17,9 +17,6 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     		calendar: {
     			lang : "it",
     			displayEventTime : false,
-//    			firstDay: '1',
-//    			monthNames: ['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'],
-//    			
     			minTime : '06:00:00',
     			maxTime : '21:00:00',
     			contentHeight : 'auto',
@@ -71,7 +68,6 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     
     $scope.gridsterItems = [
         {
-        	id: 'courseDescription',
             title: self.courseName,
             bgColour: 'bg-light-olive',
             templateUrl: 'templates/course-description.php',
@@ -85,7 +81,6 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
             }
         },
         {
-        	id: 'teacher',
             title: 'Docente',
             bgColour: 'bg-light-lawn',
             templateUrl: 'templates/course-teacher.php',
@@ -99,7 +94,6 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
             }
         },
         {
-        	id: 'calendar',
             title: 'Calendario e orari',
             bgColour: 'bg-light-green',
             templateUrl: 'templates/calendar.php',
@@ -113,7 +107,6 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
             }
         },
         {
-        	id: 'notifications',
             title: 'Avvisi',
             bgColour: 'bg-light-leaf',
             templateUrl: 'templates/course-notifications.php',
@@ -127,7 +120,6 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
             }
         },
         {
-        	id: 'materials',
             title: 'Materiale del corso',
             bgColour: 'bg-light-water',
             templateUrl: 'templates/course-material.php',
@@ -162,10 +154,6 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     
     self.buildDB();
 //    console.log($scope.events);
-    $scope.eventSources = [{events: $scope.events, color: 'green'}];    
-    
-    $timeout(function(){
-    	$scope.activateScrollbar = true;
-    },3000);
+    $scope.eventSources = [{events: $scope.events, color: 'green'}];
     
 }]);
