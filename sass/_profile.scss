@@ -22,9 +22,12 @@
         }
     }
     
+    .profile-level-symbol{
+    	@extend .col-20;
+    }
         
     .profile-name-level-xp{
-        @extend .col-65;
+        @extend .col-75;
         @extend .offset-5;
         
         .profile-xp{

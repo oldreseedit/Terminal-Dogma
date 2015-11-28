@@ -9520,7 +9520,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-20, #navbar #navbar-home, #footer #footer-logo {
+.col-20, #navbar #navbar-home, #footer #footer-logo, #profile .profile-level-symbol {
   width: 20%;
   float: left;
 }
@@ -10240,7 +10240,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-65, #singleCourse .course-notification-text, #profile .profile-name-level-xp {
+.col-65, #singleCourse .course-notification-text {
   width: 65%;
   float: left;
 }
@@ -10400,7 +10400,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-75, #singleCourse .course-description {
+.col-75, #singleCourse .course-description, #profile .profile-name-level-xp {
   width: 75%;
   float: left;
 }
@@ -20500,7 +20500,7 @@ body {
 #profile .profile-panel-content > .container {
   padding: 10px;
 }
-/* line 34, ../sass/_profile.scss */
+/* line 37, ../sass/_profile.scss */
 #profile .profile-name-level-xp p {
   padding: 0;
 }
