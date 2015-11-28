@@ -6,7 +6,8 @@ main.controller('profileController',['utilities','$scope','$http','$routeParams'
         return 'success';
     };
     self.notifications = $route.current.locals.notifications;
-    console.log(self.notifications);
+//    self.achievementsAndRewards = $route.current.local.achievementsAndRewards;
+//    console.log(self.achievementsAndRewards);
     
     $scope.gridsterItems = [
         {

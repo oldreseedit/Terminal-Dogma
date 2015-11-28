@@ -84,7 +84,7 @@ class Achievements_and_rewards extends CI_Controller {
         	$userID = $this->input->post('username');
         	if($userID == false)
         	{
-        		echo json_encode(array("error" => true, "description" => "Lo username è obbligatorio.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("username")));
+        		echo json_encode(array("error" => true, "description" => "Lo username Ã¨ obbligatorio.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("username")));
         		return;
         	}
         	 
