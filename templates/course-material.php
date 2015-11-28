@@ -2,7 +2,7 @@
     <tr ng-repeat="material in course.materials">
         <td>
             <div class="container" id="material{{material.materialID}}" size-on-scope>
-                <div class="material-title" ng-style="{'height':material{{material.materialID}}Height + 'px'}">
+                <div class="material-title" id="material{{material.materialID}}Title" size-on-scope ng-style="course.getMargin(material{{material.materialID}}Height,material{{material.materialID}}TitleHeight)">
                     <div class="container" id="materialContainer">
                         <a ng-href="{{material.fileURI}}">
                             <span class="middler"></span>
@@ -11,7 +11,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="material-content" ng-style="{'height':material{{material.materialID}}Height + 'px'}">
+                <div class="material-content" id="material{{material.materialID}}Content" size-on-scope ng-style="course.getMargin(material{{material.materialID}}Height,material{{material.materialID}}ContentHeight)">
                     <div class="container" ng-if="material.note">
                         <span ng-bind="material.note"></span>
                     </div>

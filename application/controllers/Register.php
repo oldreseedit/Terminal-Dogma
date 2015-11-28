@@ -7,12 +7,31 @@ class Register extends CI_Controller {
                 
                 $this->load->model('register_model');
                 $this->load->model('lessons_model');
+                
+                $this->load->model('users_model');
+                $this->load->model('admins_model');
 
                 $this->load->helper('url');
         }
 
         public function index()
         {
+        	$userID = $_COOKIE['username'];
+        	$token = $_COOKIE['token'];
+        	if(!$this->users_model->isLoggedIn($userID, $token))
+        	{
+        		echo json_encode(array("error" => true, "description" => "Non risulti essere iscritto a reSeed. Iscriviti!", "errorCode" => "ILLEGAL_ACCESS", "parameters" => array("username", "password")));
+        		return;
+        	}
+        	 
+        	$can_see = $this->admins_model->is_admin($userID);
+        	 
+        	if(!$can_see)
+        	{
+        		echo json_encode(array("error" => true, "description" => "Non sei autorizzato ad accedere al registro.", "errorCode" => "ILLEGAL_ACCESS", "parameters" => array("username")));
+        		return;
+        	}
+        	
             $data['title'] = 'Registro reSeed';
             $this->load->view('register/register', $data);
         }

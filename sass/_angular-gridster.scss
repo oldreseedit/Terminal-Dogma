@@ -22,7 +22,7 @@
 	list-style: none;
 	z-index: 2;
 	position: absolute;
-	display: none;
+/* 	display: none; */
 }
 
 .gridster-loaded {
@@ -45,7 +45,7 @@
 	}
 
 	.gridster-preview-holder {
-		display: none;
+/* 		display: none; */
 		z-index: 1;
 		position: absolute;
 		background-color: #ddd;

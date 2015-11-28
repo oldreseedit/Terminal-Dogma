@@ -5,7 +5,7 @@
         
         @extend .col-100;
         @extend .text-justify;
-        // @extend .bg-lightest-grey;
+/*         @extend .bg-lightest-grey; */
     }
     
     .course-panel-title{
@@ -44,7 +44,8 @@
     }
     
     .course-notification-text{
-        @extend .col-70;
+        @extend .col-65;
+        @extend .offset-5;
     }
     
     .teacher-avatar{
@@ -67,6 +68,12 @@
     
     .course-description{
         @extend .col-75;
+    }
+    
+    .agendaButtons
+    {
+    	margin-bottom: 1vw;
+    	text-align: center;
     }
     
 }
