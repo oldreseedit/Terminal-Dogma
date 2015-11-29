@@ -88,7 +88,7 @@ class Achievements_and_rewards extends CI_Controller {
         		return;
         	}
         	 
-        	echo json_encode($this->user_achievements_rewards_model->get($userID));
+        	echo json_encode($this->user_achievements_rewards_model->get_achievements_and_rewards($userID));
         }
 }
 ?>
