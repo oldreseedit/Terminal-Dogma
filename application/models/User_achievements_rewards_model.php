@@ -2,13 +2,11 @@
 
 class User_achievements_rewards_model extends CI_Model
 {
-        const table_name = "User_Achievements_Rewards";
+        const table_name = "user_achievements_rewards";
         
         public function __construct()
         {
                 $this->load->database();
-                
-                // $this->load->helper('url');
         }
         
         public function init()
@@ -16,11 +14,11 @@ class User_achievements_rewards_model extends CI_Model
                 $this->load->dbforge();
                 
                 $fields = array(
-                        'AchievementOrRewardID' => array(
+                        'achievementOrRewardID' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => 32
                         ),
-                        'Username' => array(
+                        'username' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => 30
                         ),
@@ -34,8 +32,8 @@ class User_achievements_rewards_model extends CI_Model
                 		),
                 );
                 
-                $this->dbforge->add_key('AchievementOrRewardID', TRUE);
-                $this->dbforge->add_key('Username', TRUE);
+                $this->dbforge->add_key('achievementOrRewardID', TRUE);
+                $this->dbforge->add_key('username', TRUE);
                 
                 $this->dbforge->add_field($fields);
                 
@@ -45,8 +43,8 @@ class User_achievements_rewards_model extends CI_Model
         public function add($userID, $achievementOrRewardID, $timestamp, $courseID = null)
         {
         	$data = array(
-        			'Username' => $userID,
-        			'AchievementOrRewardID' => $achievementOrRewardID,
+        			'username' => $userID,
+        			'achievementOrRewardID' => $achievementOrRewardID,
         			'publishingTimestamp' => $timestamp
         	);
         	if($courseID != null) $data['courseID'] = $courseID;
@@ -56,13 +54,13 @@ class User_achievements_rewards_model extends CI_Model
         
         public function delete($userID, $achievementOrRewardID)
         {
-        	$this->db->delete(self::table_name, array('Username' => $userID, 'AchievementOrRewardID' => $achievementOrRewardID));
+        	$this->db->delete(self::table_name, array('username' => $userID, 'achievementOrRewardID' => $achievementOrRewardID));
         }
         
 		public function get_achievements_and_rewards_obtained($userID)
         {
         	return $this->db
-        	->where('Username', $userID)
+        	->where('username', $userID)
         	->get(self::table_name)
         	->result_array();
         }
@@ -70,11 +68,11 @@ class User_achievements_rewards_model extends CI_Model
         public function get_achievements_and_rewards($userID)
         {
         	return $this->db
-        	->select('Type, AchievementRewardID, Description, Level, Username, publishingTimestamp, courseID')
+        	->select('type, achievementRewardID, description, level, username, publishingTimestamp, courseID')
         	->from(Achievements_and_rewards_model::table_name)
-        	->join(self::table_name, Achievements_and_rewards_model::table_name . "." . "AchievementRewardID" . "=" . self::table_name . "." . "AchievementOrRewardID", "left")
-        	->where('Username', $userID)
-        	->or_where('Username', null)
+        	->join(self::table_name, Achievements_and_rewards_model::table_name . "." . "achievementRewardID" . "=" . self::table_name . "." . "achievementOrRewardID", "left")
+        	->where('username', $userID)
+        	->or_where('username', null)
         	->get()
         	->result_array();
         }
