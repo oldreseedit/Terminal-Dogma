@@ -7,6 +7,7 @@ class User_achievements_rewards_model extends CI_Model
         public function __construct()
         {
                 $this->load->database();
+                
                 // $this->load->helper('url');
         }
         
@@ -58,11 +59,23 @@ class User_achievements_rewards_model extends CI_Model
         	$this->db->delete(self::table_name, array('Username' => $userID, 'AchievementOrRewardID' => $achievementOrRewardID));
         }
         
-		public function get_achievements_and_rewards($userID)
+		public function get_achievements_and_rewards_obtained($userID)
         {
         	return $this->db
         	->where('Username', $userID)
         	->get(self::table_name)
+        	->result_array();
+        }
+        
+        public function get_achievements_and_rewards($userID)
+        {
+        	return $this->db
+        	->select('Type, AchievementRewardID, Description, Level, Username, publishingTimestamp, courseID')
+        	->from(Achievements_and_rewards_model::table_name)
+        	->join(self::table_name, Achievements_and_rewards_model::table_name . "." . "AchievementRewardID" . "=" . self::table_name . "." . "AchievementOrRewardID", "left")
+        	->where('Username', $userID)
+        	->or_where('Username', null)
+        	->get()
         	->result_array();
         }
 }
