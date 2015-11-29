@@ -8,8 +8,9 @@ main.controller('profileController',['utilities','$scope','$http','$routeParams'
     self.notifications = $route.current.locals.notifications;
     self.achievementsAndRewards = $route.current.locals.achievementsAndRewards;
     self.rewards = self.achievementsAndRewards.filter(function(element){if(element.type==='REWARD') return element});
-    self.rewards = self.achievementsAndRewards.filter(function(element){if(element.type==='ACHIEVEMENT') return element});
-    console.log(self.achievementsAndRewards);
+    self.achievements = self.achievementsAndRewards.filter(function(element){if(element.type==='ACHIEVEMENT') return element});
+    console.log(self.achievements);
+    console.log(self.rewards);
     
     $scope.gridsterItems = [
         {
