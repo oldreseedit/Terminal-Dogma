@@ -37,14 +37,14 @@
                 <div id="navbar-logged" ng-if="userVerified">
                     <div class="container">
                     	<div class="navbar-profile-name">
-                    		<span class="noselect" fittext="0.9">
+                    		<span class="noselect" fittext="0.9" ng-controller="avatarController as avatar">
 	                            <span class="middler"></span>
-                    			<a class="clickable" ng-href="#!/profile/{{username}}" ng-if="navbar.getAvatar()">
+                    			<a class="clickable" ng-href="#!/profile/{{username}}" ng-if="avatar.getAvatar()">
 		                            <span class="fa-stack" >
-		                            	<img class="navbar-avatar" ng-src="{{navbar.getAvatar()}}">
+		                            	<img class="navbar-avatar" ng-src="{{avatar.getAvatar()}}">
 		                            </span>
 	                            </a>
-	                            <a  ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-click="navbar.changeAvatar()" ng-if="!navbar.getAvatar()">
+	                            <a  ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-click="avatar.changeAvatar()" ng-if="!avatar.getAvatar()">
 		                            <span class="fa-stack">
 		                            	<i class="fa fa-users fa-stack-2x"></i>
 		                            	<i class="fa fa-question fa-stack-1x" ng-class="{'white':hover, 'olive':!hover}"></i>

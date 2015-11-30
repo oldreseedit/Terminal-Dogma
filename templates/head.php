@@ -98,6 +98,7 @@
     <script type="text/javascript" src="js/signup.js"></script>
     <script type="text/javascript" src="js/profile.js"></script>
     <script type="text/javascript" src="js/avatar.js"></script>
+    <script type="text/javascript" src="js/avatarForm.js"></script>
     <script type="text/javascript" src="js/paymentDisclaimer.js"></script>
     <script type="text/javascript" src="js/paymentNotRegistered.js"></script>
     <script type="text/javascript" src="js/paymentCancel.js"></script>
