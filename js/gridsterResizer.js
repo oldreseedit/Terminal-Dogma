@@ -13,8 +13,8 @@ main.controller('gridsterResizeController',['$scope','$element','$timeout',funct
 		}
 		if(self.outerHeight < self.innerHeight + self.panelHeaderHeight)
 		{
-			scope = element.parents('[gridster-item]').scope();
-			$scope.gridsterItems[scope.index].measures.height++;
+			var scope = element.parents('[gridster-item]').scope();
+			if($scope.gridsterItems[scope.index].measures < 7) $scope.gridsterItems[scope.index].measures.height++;
 			self.timer = setTimeout(function(){self.deregisterWatchers();},500);
 		}
 		else return;
