@@ -44,12 +44,12 @@
 <!-- 		                            	<img class="navbar-avatar" ng-src="{{navbar.getAvatar()}}"> -->
 <!-- 		                            </span> -->
 <!-- 	                            </a> -->
-	                            <a  ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-click="navbar.changeAvatar()" ng-if="!navbar.getAvatar()">
-		                            <span class="fa-stack">
-		                            	<i class="fa fa-users fa-stack-2x"></i>
-		                            	<i class="fa fa-question fa-stack-1x" ng-class="{'white':hover, 'olive':!hover}"></i>
-		                            </span>
-		                         </a>
+<!-- 	                            <a  ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-click="navbar.changeAvatar()" ng-if="!navbar.getAvatar()"> -->
+<!-- 		                            <span class="fa-stack"> -->
+<!-- 		                            	<i class="fa fa-users fa-stack-2x"></i> -->
+<!-- 		                            	<i class="fa fa-question fa-stack-1x" ng-class="{'white':hover, 'olive':!hover}"></i> -->
+<!-- 		                            </span> -->
+<!-- 		                         </a> -->
 		                         
 		                         <a ng-href="#!/profile/{{username}}">
 	                            	<span class="middle navbar-username" ng-bind="username"></span>
