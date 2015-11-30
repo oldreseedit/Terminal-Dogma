@@ -50,7 +50,7 @@ class Course_block_positions_model extends CI_Model
         	if(count($this->get($userID, $courseID)) == 0) $this->add($userID, $courseID, $block_positions);
         	else $this->db
 					->where('username', $userID)
-	            	->and_where('courseID', $courseID)
+	            	->where('courseID', $courseID)
 	            	->update(self::table_name, array('block_positions' => $block_positions));
         }
         
@@ -58,7 +58,7 @@ class Course_block_positions_model extends CI_Model
         {
 			return $this->db
                 ->where('username', $userID)
-                ->and_where('courseID', $courseID)
+                ->where('courseID', $courseID)
                 ->get(self::table_name)->row_array();
         }
 }

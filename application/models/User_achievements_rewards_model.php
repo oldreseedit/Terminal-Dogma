@@ -67,14 +67,27 @@ class User_achievements_rewards_model extends CI_Model
         
         public function get_achievements_and_rewards($userID)
         {
-        	return $this->db
-        	->select('type, achievementRewardID, description, level, username, publishingTimestamp, courseID')
-        	->from(Achievements_and_rewards_model::table_name)
-        	->join(self::table_name, Achievements_and_rewards_model::table_name . "." . "achievementRewardID" . "=" . self::table_name . "." . "achievementOrRewardID", "left")
+        	$this->db
         	->where('username', $userID)
-        	->or_where('username', null)
+        	->from(self::table_name);
+        	
+        	$subquery = $this->db->_compile_select();
+        	$this->db->_reset_select();
+        	
+        	return $this->db->select('type, achievementRewardID, description, level, username, publishingTimestamp, courseID')
+        	->from(Achievements_and_rewards_model::table_name)
+        	->join("($subquery) t2", Achievements_and_rewards_model::table_name . "." . "achievementRewardID" . "=" . "t2" . "." . "achievementOrRewardID", "left")
         	->get()
         	->result_array();
+        	
+//         	return $this->db
+//         	->select('type, achievementRewardID, description, level, username, publishingTimestamp, courseID')
+//         	->from(Achievements_and_rewards_model::table_name)
+//         	->join(self::table_name, Achievements_and_rewards_model::table_name . "." . "achievementRewardID" . "=" . self::table_name . "." . "achievementOrRewardID", "left")
+//         	->where('username', $userID)
+//         	->or_where('username', null)
+//         	->get()
+//         	->result_array();
         }
 }
 ?>
