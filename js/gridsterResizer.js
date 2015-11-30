@@ -74,6 +74,14 @@ main.controller('gridsterResizeController',['$scope','$element','$timeout',funct
 			self.deregisterOuterHeight();
 			
 			$scope.registerMeasures();
+			
+
+			var content = $element.find('[gridster-content]');
+			var innerHeight = content[0].offsetHeight;
+			var panelHeaderHeight = $('.course-panel-title').height();
+			var outerHeight = $element[0].offsetHeight;
+			content.attr('style','height:'+(outerHeight-panelHeaderHeight)+'px');
+			content.perfectScrollbar('update');
 
 			$scope.$on('gridster-item-transition-end',
 				function()
