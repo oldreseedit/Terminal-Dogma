@@ -2232,7 +2232,7 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 	 * @param	bool	$select_override
 	 * @return	string
 	 */
-	protected function _compile_select($select_override = FALSE)
+	public function _compile_select($select_override = FALSE)
 	{
 		// Combine any cached components with the current statements
 		$this->_merge_cache();
@@ -2687,7 +2687,7 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 	 *
 	 * @return	void
 	 */
-	protected function _reset_select()
+	public function _reset_select()
 	{
 		$this->_reset_run(array(
 			'qb_select'		=> array(),
