@@ -316,6 +316,20 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
         			console.log(error);
         		}
         		);
+        	}],
+        	achievementsAndRewards : ['$http','$route', function($http,$route){
+        		var userID = $route.current.params.userID;
+        		
+        		return $http.post('achievements_and_rewards/get_achievements_and_rewards',{username: userID}).then(
+        		function(response)
+        		{
+        			return response.data;
+        		},
+        		function(error)
+        		{
+        			console.log(error);
+        		}
+        		);
         	}]
         }
     });
