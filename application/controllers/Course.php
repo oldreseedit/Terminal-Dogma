@@ -1,4 +1,5 @@
 <?php
+
 class Course extends CI_Controller {
 
         public function __construct()
@@ -7,6 +8,8 @@ class Course extends CI_Controller {
                 $this->load->model('users_model');
                 $this->load->model('admins_model');
                 $this->load->model('payment_model');
+                $this->load->model('course_block_positions_model');
+                
                 $this->load->helper('url');
         }
         
@@ -40,6 +43,57 @@ class Course extends CI_Controller {
                 }
         
                 $this->load->view('courses/course');
+        }
+        
+        public function save_block_positions()
+        {
+        	$userID = $this->input->post('username');
+        	if($userID == false)
+        	{
+        		echo json_encode(array("error" => true, "description" => "Il nome utente è obbligatorio.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("username")));
+        		return;
+        	}
+        	
+        	$courseID = $this->input->post('courseID');
+        	if($courseID == false)
+        	{
+        		echo json_encode(array("error" => true, "description" => "Il corso è obbligatorio.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("courseID")));
+        		return;
+        	}
+        	
+        	$blockPositions = $this->input->post('blockPositions');
+        	if($blockPositions == false)
+        	{
+        		echo json_encode(array("error" => true, "description" => "Le posizioni dei blocchi sono obbligatorie.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("blockPositions")));
+        		return;
+        	}
+        	
+        	$this->course_block_positions_model->update($userID, $courseID, $blockPositions);
+        }
+        
+        public function load_block_positions()
+        {
+        	$userID = $this->input->post('username');
+        	if($userID == false)
+        	{
+        		echo json_encode(array("error" => true, "description" => "Il nome utente è obbligatorio.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("username")));
+        		return;
+        	}
+        	 
+        	$courseID = $this->input->post('courseID');
+        	if($courseID == false)
+        	{
+        		echo json_encode(array("error" => true, "description" => "Il corso è obbligatorio.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("courseID")));
+        		return;
+        	}
+        	
+        	$block_positions = $this->course_block_positions_model->get($userID, $courseID);
+        	if(count($block_positions) == 1) echo json_encode($block_positions[0]['block_positions']);
+        }
+        
+        public function init_block_positions()
+        {
+        	$this->course_block_positions_model->init();
         }
 }
 ?>

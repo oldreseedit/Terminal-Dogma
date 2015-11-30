@@ -39,6 +39,43 @@ class Avatars extends CI_Controller {
             echo json_encode(array("error" => false, "description" => $_FILES['userfile']['tmp_name']));
         }
         
+        public function load_avatar()
+        {
+        	$userID = $this->input->post('username');
+        	if($userID == false)
+        	{
+        		echo json_encode(array("error" => true, "description" => "Specificare il nome utente.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("username")));
+        		return;
+        	}
+        	
+        	$tempURI = $this->input->post('avatar_temp_URI');
+        	if($tempURI == false)
+        	{
+        		echo json_encode(array("error" => true, "description" => "Specificare un URI temporaneo dove è stata salvata l'immagine.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("avatar_temp_URI")));
+        		return;
+        	}
+        	
+        	$fileURI = "uploads/profiles/" . $userID + "." . pathinfo($tempURI, PATHINFO_EXTENSION);
+        	$uploadDir = dirname($fileURI);
+        	
+        	// Check if directory already exists
+        	if(!file_exists($uploadDir))
+        	{
+        		// If it doesn't exist, create it
+        		if(!mkdir($uploadDir, 0777, true))
+        		{
+        			return array("error" => true, "description" => "Errore durante il caricamento del file. Non è stato possibile creare la cartella dei profili.", "errorCode" => "DIRECTORY_ERROR", "parameters" => array("file"));
+        		}
+        	}
+        	
+        	// Move the avatar file
+        	rename($tempURI, $fileURI);
+        	
+        	$this->userinfo_model->update(array('profilePicture', $fileURI));
+        	
+        	echo json_encode(array("error" => false, "description" => "Immagine del profilo aggiornata correttamente."));
+        }
+        
         public function file_OK()
         {
             $finfo = finfo_open(FILEINFO_MIME_TYPE);
