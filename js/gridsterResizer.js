@@ -26,7 +26,7 @@ main.controller('gridsterResizeController',['$scope','$element','$timeout',funct
 //		console.log(item);
 	});
 
-	if(!$scope.measures)
+	if(!$scope.measuresLoaded)
 	{
 
 		self.deregisterInnerHeight = 
@@ -72,6 +72,8 @@ main.controller('gridsterResizeController',['$scope','$element','$timeout',funct
 		{
 			self.deregisterInnerHeight();
 			self.deregisterOuterHeight();
+			
+			$scope.registerMeasures();
 
 			$scope.$on('gridster-item-transition-end',
 				function()
