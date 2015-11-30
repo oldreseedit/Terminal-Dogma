@@ -11,8 +11,8 @@
 	            	<i class="fa fa-question fa-stack-1x olive"></i>
 	            </span>
             	
-            	<input form="avatarForm" id="file" name="file" type="file" required></input>
-				<input class="modal-submit" type="submit" ng-class="{'btn-success' : avatarModal.avatarForm.$valid, 'btn-grey' : avatarModal.avatarForm.$invalid}" value="Invia" />
+            	<input form="avatarForm" type="file"  file-change="avatarModal.uploadTempAvatar()" required></input>
+				<input class="modal-submit" type="submit" ng-class="{'btn-success' : avatarForm.$valid, 'btn-grey' : avatarForm.$invalid}" value="Invia" />
             	<input class="modal-cancel" ng-click="avatarModal.dismiss()" value="Annulla" readonly/>
         	</form>
     	</div>

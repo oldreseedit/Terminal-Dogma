@@ -2,7 +2,17 @@ main.controller('gridsterResizeController',['$scope','$element','$timeout',funct
 	var self = this;
 
 	self.timer = setTimeout(function(){self.deregisterWatchers();},500);
-
+	
+	self.updateScrollbar = function()
+	{
+		var content = $element.find('[gridster-content]');
+		var innerHeight = content[0].offsetHeight;
+		var panelHeaderHeight = $('.course-panel-title').height();
+		var outerHeight = $element[0].offsetHeight;
+		content.attr('style','height:'+(outerHeight-panelHeaderHeight)+'px');
+		content.perfectScrollbar('update');
+	};
+	
 	self.resize = function(element)
 	{
 		if(element === undefined) return;
@@ -75,38 +85,24 @@ main.controller('gridsterResizeController',['$scope','$element','$timeout',funct
 			
 			$scope.registerMeasures();
 			
-
-			var content = $element.find('[gridster-content]');
-			var innerHeight = content[0].offsetHeight;
-			var panelHeaderHeight = $('.course-panel-title').height();
-			var outerHeight = $element[0].offsetHeight;
-			content.attr('style','height:'+(outerHeight-panelHeaderHeight)+'px');
-			content.perfectScrollbar('update');
+			self.updateScrollbar();
 
 			$scope.$on('gridster-item-transition-end',
 				function()
 				{
-					var content = $element.find('[gridster-content]');
-					var innerHeight = content[0].offsetHeight;
-					var panelHeaderHeight = $('.course-panel-title').height();
-					var outerHeight = $element[0].offsetHeight;
-					content.attr('style','height:'+(outerHeight-panelHeaderHeight)+'px');
-					content.perfectScrollbar('update');
+					self.updateScrollbar();
 				}
 			);
 		}	
 	}
 	else
 	{
+		self.updateScrollbar();
+		
 		$scope.$on('gridster-item-transition-end',
 			function()
 			{
-				var content = $element.find('[gridster-content]');
-				var innerHeight = content[0].offsetHeight;
-				var panelHeaderHeight = $('.course-panel-title').height();
-				var outerHeight = $element[0].offsetHeight;
-				content.attr('style','height:'+(outerHeight-panelHeaderHeight)+'px');
-				content.perfectScrollbar('update');
+				self.updateScrollbar();
 			}
 		);
 	}

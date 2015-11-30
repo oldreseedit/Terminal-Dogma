@@ -40,21 +40,16 @@ main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','
 		$scope.$dismiss();
 	}
 	
-	$scope.$watch(
-			function()
-			{
-				return angular.element('[name="file"]')[0].files;
-			},
-			function(newValue, oldValue)
-			{
-				if(newValue !== oldValue)
-					{
-						var data = self.avatarForm;
-				        data.file = angular.element('[name="file"]');
-//						Qui dovrò chiamare il metodo di titto per caricare l'avatar TEMPORANEAMENTE, per poi
-//						self.temp = URI;
-					}
-			}
-	);
+	self.uploadTempAvatar = function(event)
+	{
+		console.log(event);
+		if(event) 
+		{
+			var tempAvatar = event.target.files;
+			console.log(tempAvatar);
+//			Qui dovrò chiamare il metodo di titto per caricare l'avatar TEMPORANEAMENTE, per poi
+//			self.temp = URI;
+		}
+	};
 	
 }]);

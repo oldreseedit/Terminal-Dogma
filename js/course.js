@@ -74,6 +74,9 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     			if(response.data)
     			{
     				console.log(response.data);
+    				
+//    				$scope.gridsterItems = 
+    				
     				$scope.measuresLoaded = true;
     			}
     			else
