@@ -187,6 +187,7 @@ class Users extends CI_Controller {
             $token = password_hash($userID.$password, PASSWORD_BCRYPT);
             $this->users_model->addToken($userID, $token);
             
+            // Return the token to the user
             echo json_encode(array("error" => false, "description" => "Il login è stato effettuato correttamente.", "username" => $userID, "token" => $token, "expire" => time()+86400*self::COOKIE_DAYS));
         }
         
@@ -210,7 +211,7 @@ class Users extends CI_Controller {
                 return;
             }
             
-            echo json_encode(array("error" => false, "description" => "Il logout e stato effettuato correttamente."));
+            echo json_encode(array("error" => false, "description" => "Il logout è stato effettuato correttamente."));
         }
         
 		public function init_exp_events()
@@ -252,6 +253,33 @@ class Users extends CI_Controller {
         public function add_exp_to_user($userID, $exp, $courseID = null, $description = null)
         {
         	echo json_encode($this->experience->add_exp_to_user($userID, $exp, $courseID, $description));
+        }
+        
+        public function get_exp_info()
+        {
+        	$userID = $this->input->post('username');
+        	if($userID == false)
+        	{
+        		echo json_encode(array("error" => true, "description" => "Lo username è obbligatorio.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("username")));
+        		return;
+        	}
+        	
+        	// Get the current level and the current exp
+        	$exp_info = $this->userinfo_model->get_exp_info($userID);
+        	$level = $exp_info['level'];
+        	$currentExp = $exp_info['currentExp'];
+        	
+        	$missingExpForNextLevel = $this->experience->getMissingExpForNextLevel($level, $currentExp);
+        	$expForNextLevel = $this->experience->expForLevel($level+1);
+        	
+        	echo json_encode(array(
+        			"error" => false,
+        			'expInfo' => array(
+	        			"level" => $level,
+	        			"currentExperience" => $currentExp,
+	        			"expForNextLevel" => $expForNextLevel,
+	        			"missingExpForNextLevel" => $missingExpForNextLevel)
+        	));
         }
 }
 ?>

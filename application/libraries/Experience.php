@@ -2,6 +2,9 @@
 
 class Experience
 {
+	const a = 125;
+	const b = 875;
+	
 	public function __construct()
 	{
 		$this->CI =& get_instance();
@@ -90,12 +93,22 @@ class Experience
 	{
 		if($newExperience < 0) return 0;
 		
-		// exp(n) = 875n + 125n^2
-		// 750 + 250n (parziale, essendo al livello n-1)
-		$a = 125;
-		$b = 875;
-			
-		return floor((-$b + sqrt(pow($b, 2) + 4*$a*$newExperience))/(2*$a));
+		// exp(n) = 125n^2 + 875n
+		// 250n + 750 (parziale, essendo al livello n-1)
+
+		return floor((-$b + sqrt(pow(self::b, 2) + 4*self::a*$newExperience))/(2*self::a));
+	}
+	
+	public function expForLevel($level)
+	{
+		// exp(n) = 125n^2 + 875n 
+		return self::a * pow($level, 2) + self::b * $level;
+	}
+	
+	public function getMissingExpForNextLevel($level, $currentExperience)
+	{
+		$expForNextLevel = $this->expForLevel($level+1);
+		return $expForNextLevel - $currentExperience;
 	}
 }
 
