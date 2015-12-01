@@ -43,17 +43,17 @@ class Experience
 		$this->CI->notifications_model->add("Ti sono stati assegnati " . $exp . " punti esperienza.", $publishingTimestamp, array($userID), true, $courseID);
 		
 		// Get the achievements and rewards currently achieved by the user
-		$achievements_and_rewards_db = $this->CI->user_achievements_rewards_model->get_achievements_and_rewards($userID);
+		$achievements_and_rewards_db = $this->CI->user_achievements_rewards_model->get_achievements_and_rewards_obtained($userID);
 		$achievements_and_rewards = array();
 		foreach ($achievements_and_rewards_db as $achievement_or_reward)
 		{
-			$achievements_and_rewards[] = $achievement_or_reward['AchievementOrRewardID'];
+			$achievements_and_rewards[] = $achievement_or_reward['achievementOrRewardID'];
 		}
 		
 		if($newLevel != $level)
 		{
 			$event = $newLevel > $level ? "LEVEL_UP" : "LEVEL_DOWN";
-			 
+			
 			// Add the level-up notification in the experience events table and notify this to the GUI
 			$notifications[] = array("error" => false, "description" => $userID . " ha fatto level " . ($newLevel > $level ? "up" : "down") ."!", "errorCode" => "LEVEL_UPDATE_EVENT");
 			$this->CI->experience_events_model->add($userID, $event, $newLevel, $publishingTimestamp, null, $courseID);
@@ -66,18 +66,18 @@ class Experience
 				$all_achievements_and_rewards = $this->CI->achievements_and_rewards_model->get();
 				foreach ($all_achievements_and_rewards as $achievement_or_reward)
 				{
-					if($achievement_or_reward['Level'] != null && $achievement_or_reward['Level'] <= $newLevel)
+					if($achievement_or_reward['level'] != null && $achievement_or_reward['level'] <= $newLevel)
 					{
-						$achievement_or_rewardID = $achievement_or_reward['AchievementRewardID'];
+						$achievement_or_rewardID = $achievement_or_reward['achievementRewardID'];
 
 						// If the user hasn't already obtained that achievement/reward
 						if(in_array($achievement_or_rewardID, $achievements_and_rewards)) continue;
 	
-						$type = $achievement_or_reward['Type'];
+						$type = $achievement_or_reward['type'];
 	
-						$notifications[] = array("error" => false, "description" => $userID . " ha ottenuto " . $achievement_or_rewardID . ": " . $achievement_or_reward['Description'], "errorCode" => $type . "_EVENT");
+						$notifications[] = array("error" => false, "description" => $userID . " ha ottenuto " . $achievement_or_rewardID . ": " . $achievement_or_reward['description'], "errorCode" => $type . "_EVENT");
 						$this->CI->experience_events_model->add($userID, "REWARD", $achievement_or_rewardID, $publishingTimestamp, null, $courseID);
-						$this->CI->notifications_model->add("Hai ottenuto " . $achievement_or_rewardID . ": " . $achievement_or_reward['Description'], $publishingTimestamp, array($userID), true, $courseID);
+						$this->CI->notifications_model->add("Hai ottenuto " . $achievement_or_rewardID . ": " . $achievement_or_reward['description'], $publishingTimestamp, array($userID), true, $courseID);
 						$this->CI->user_achievements_rewards_model->add($userID, $achievement_or_rewardID, $publishingTimestamp, $courseID);
 					}
 				}
