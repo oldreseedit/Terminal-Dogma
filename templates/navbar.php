@@ -56,9 +56,9 @@
 	                            
 	                            <span class="navbar-icons">
 									<a ng-href="#!/profile/{{username}}">
-										<span class="fa-stack clickable"  ng-if="numberOfNotifications!==0">
+										<span class="fa-stack clickable" >
 	                            			<i class="fa fa-sticky-note-o fa-stack-2x"></i>
-                            				<i class="fa-stack-1x number-of-notifications" ng-bind="numberOfNotifications" fittext="2"></i>
+                            				<i class="fa-stack-1x number-of-notifications" ng-if="numberOfNotifications!==0"><span ng-bind="numberOfNotifications"  fittext="2"></span></i>
 	                            		</span>
 	                          		</a>
 	                        		<a  ng-click="navbar.signout()">
