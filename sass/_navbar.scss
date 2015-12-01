@@ -120,4 +120,13 @@ body {
             }
         }
     }
+    
+    .number-of-notifications{
+    	position: relative;
+    	top: -0.8em;
+    	right: 0.5em;
+    	@extend .bolder;
+    	font-size: 0.8em;
+    }
+    
 }

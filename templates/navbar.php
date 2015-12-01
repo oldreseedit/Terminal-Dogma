@@ -45,13 +45,14 @@
 		                            </span>
 	                            </a>
 	                            <a  ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-click="avatar.changeAvatar()" ng-if="!avatar.getAvatar()">
-	                            	<span class="fa-stack fa-lg clickable">
+	                            	<span class="fa-stack fa-sm clickable">
 	                            		<i class="fa fa-question-circle fa-stack-2x" ng-class="{'light-olive':hover, 'white':!hover}"></i>
 	                            	</span>
 		                         </a>
 		                         
 		                         <a ng-href="#!/profile/{{username}}">
 	                            	<span class="middle navbar-username" ng-bind="username"></span>
+                            		<span class="number-of-notifications" ng-bind="numberOfNotifications" ng-if="numberOfNotifications!==0"></span>
 	                            </a>
 	                            
 	                            <span class="navbar-icons">

@@ -1,4 +1,4 @@
-main.controller('profileController',['utilities','$scope','$http','$routeParams','$route',function(utilities,$scope,$http,$routeParams,$route){
+main.controller('profileController',['utilities','$scope','$http','$routeParams','$route','$timeout',function(utilities,$scope,$http,$routeParams,$route,$timeout){
     var self = this;
     
     self.username = $routeParams.userID;
@@ -10,8 +10,51 @@ main.controller('profileController',['utilities','$scope','$http','$routeParams'
     self.expInfo = $route.current.locals.expInfo;
     self.rewards = self.achievementsAndRewards.filter(function(element){if(element.type==='REWARD') return element});
     self.achievements = self.achievementsAndRewards.filter(function(element){if(element.type==='ACHIEVEMENT') return element});
-    
+    self.tempCourses = $route.current.locals.courses;
+    self.courses = [];
+   for(var i=0; i<self.tempCourses.length; i++)
+	{
+	   	self.courses[i] = {};
+	   	self.courses[i].courseID = self.tempCourses[i];
+    	self.courses[i].name = self.tempCourses[i].charAt(0).toUpperCase() + self.tempCourses[i].slice(1);
+    	self.courses[i].name = self.courses[i].name.split(/(?=[A-Z](?=[a-z]))/).join(" ");
+	}
+    self.lastAchievement = $route.current.locals.lastAchievement;
+    self.nextReward = $route.current.locals.nextReward;
+    console.log(self.lastAchievement);
+    console.log(self.nextReward);
     console.log(self.expInfo);
+    
+    var notificationIDs = [];
+    angular.forEach($scope.notifications,function(i)
+	    {
+    		notificationIDs.push(i.notificationID);
+	    }		
+    );
+    $timeout(function()
+    	{
+    		$http.post('notifications/update_seen',{notificationIDs : notificationIDs}).then(
+		    		function(response)
+		    		{
+		    			console.log(response);
+		    			$scope.getUnseenNotifications();
+		    		},
+		    		function(error)
+		    		{
+		    			console.log(error);
+		    		}
+		    );
+    	},2000
+    );
+    
+    self.isSeen = function(notification)
+    {
+    	for(var i=0; i<$scope.notifications.length; i++)
+    	{
+    		if($scope.notifications[i].notificationID === notification.notificationID) return false;
+    	}
+    	return true;
+    };
     
     $scope.registerMeasures = function()
     {
@@ -119,6 +162,18 @@ main.controller('profileController',['utilities','$scope','$http','$routeParams'
     	return title;
     };
     
-    
+    $scope.$watch(
+    		function()
+    		{
+    			if($('.profile-name-level-xp')) return $('.profile-name-level-xp').height(); 
+    		},
+    		function(newValue, oldValue)
+    		{
+    			if(newValue > 0)
+    			{
+    				$('.profile-level-symbol').height(newValue);
+    			}
+    		}
+    )
     
 }]);

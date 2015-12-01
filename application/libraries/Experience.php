@@ -96,7 +96,7 @@ class Experience
 		// exp(n) = 125n^2 + 875n
 		// 250n + 750 (parziale, essendo al livello n-1)
 
-		return floor((-$b + sqrt(pow(self::b, 2) + 4*self::a*$newExperience))/(2*self::a));
+		return floor((-self::b + sqrt(pow(self::b, 2) + 4*self::a*$newExperience))/(2*self::a));
 	}
 	
 	public function expForLevel($level)
