@@ -1,8 +1,5 @@
 <?php
 
-// TODO: role-based access control (offuscamento directory dei file)
-// TODO: nella add: gestire corso che non esiste, ID lezione
-
 // $this->db->error(); working?
 class Avatars extends CI_Controller {
 
@@ -17,54 +14,13 @@ class Avatars extends CI_Controller {
         
         public function load_temporary_avatar()
         {
-        	$userID = $this->input->post('username');
-        	if($userID == false)
-        	{
-        		echo json_encode(array("error" => true, "description" => "Specificare il nome utente.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("username")));
-        		return;
-        	}
-        	
-        	$file = count($_FILES) > 0;
-        	$uri = $this->input->post('avatarUri');
-
-        	// No file specified
-        	if(!$file && !uri)
-            {
-                echo json_encode(array("error" => true, "description" => "Errore durante il caricamento del file. Specificare un nome di file o un URI.", "errorCode" => "MISSING_FILE_ERROR", "parameters" => array("file")));
-                return;
-            }
+        	$temp_file = $this->get_temp_avatar();
+            if($temp_file == null) return;
             
-            $temp_file = null;
-            
-            if($file)
-            {
-	            if ($_FILES['file']['error'] !== UPLOAD_ERR_OK)
-	            {
-	                echo json_encode(array("error" => true, "description" => "Errore durante il caricamento del file. Dettagli: " . $_FILES['file']['error'], "errorCode" => "UPLOAD_ERROR", "parameters" => array("file")));
-	                return;
-	            }
-	            
-	            $temp_file = $_FILES['file']['tmp_name'];
-            }
-            else
-            {
-            	$temp_file = tempnam(sys_get_temp_dir(), $userID);
-            	copy($uri, $temp_file);
-            }
-            
-            // Check that the file is OK (real file type check, not based on mime)
-            $is_file_okay = $this->file_OK($temp_file);
-            if(!$is_file_okay)
-            {
-            	echo json_encode(array("error" => true, "description" => "Errore durante il caricamento del file. Tipo file non permesso.", "errorCode" => "FORBIDDEN_FILE_TYPE_ERROR"));
-            	return;
-            }
-            
-//             echo json_encode(array("error" => false, "description" => $temp_file));
-            echo json_encode(array("error" => false, "description" => "http://vignette3.wikia.nocookie.net/pokemon/images/1/16/025Pikachu_OS_anime_10.png/revision/20150102074354"));
+            echo json_encode(array("error" => false, "description" => $temp_file));
         }
         
-        public function load_avatar()
+        private function get_temp_avatar()
         {
         	$userID = $this->input->post('username');
         	if($userID == false)
@@ -72,22 +28,87 @@ class Avatars extends CI_Controller {
         		echo json_encode(array("error" => true, "description" => "Specificare il nome utente.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("username")));
         		return;
         	}
+
+        	$file = count($_FILES) > 0;
+        	$uri = $this->input->post('avatarUri');
         	
+        	// No file specified
+        	if(!$file && !$uri)
+        	{
+        		echo json_encode(array("error" => true, "description" => "Errore durante il caricamento del file. Specificare un nome di file o un URI.", "errorCode" => "MISSING_FILE_ERROR", "parameters" => array("file")));
+        		return null;
+        	}
+        	
+        	// Location of the temporary file where the avatar file will be stored
+        	$temp_file = null;
+        	
+        	if($file)
+        	{
+        		if ($_FILES['file']['error'] !== UPLOAD_ERR_OK)
+        		{
+        			echo json_encode(array("error" => true, "description" => "Errore durante il caricamento del file. Dettagli: " . $_FILES['file']['error'], "errorCode" => "UPLOAD_ERROR", "parameters" => array("file")));
+        			return null;
+        		}
+        		 
+        		$temp_file = $_FILES['file']['tmp_name'];
+        	}
+        	else
+        	{
+        		// Create a temporary file
+        		$temp_file = tempnam(sys_get_temp_dir(), $userID);
+        		copy($uri, $temp_file);
+        	}
+        	
+        	// Check that the file is OK (real file type check, not based on mime)
+        	$is_file_okay = $this->file_OK($temp_file);
+        	if(!$is_file_okay)
+        	{
+        		echo json_encode(array("error" => true, "description" => "Errore durante il caricamento del file. Tipo file non permesso.", "errorCode" => "FORBIDDEN_FILE_TYPE_ERROR"));
+        		return null;
+        	}
+        	
+        	// DEBUG: temporary avatar file
+        	copy($temp_file, "uploads/profiles/" . $userID . ".tmp");
+        	$temp_file = "uploads/profiles/" . $userID . ".tmp";
+        	
+        	return $temp_file;
+        }
+        
+        public function load_avatar()
+        {
+        	$userID = $this->input->post('username');
+        	if($userID == false)
+        	{	
+        		echo json_encode(array("error" => true, "description" => "Specificare il nome utente.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("username")));
+        		return;
+        	}
+        	
+        	// Get the temporary file avatar URI
         	$tempURI = $this->input->post('avatar_temp_URI');
-        	if($tempURI == false) $tempURI = $_FILES['file']['tmp_name'];
         	
+        	// If the user hasn't previously loaded a file
+        	if($tempURI == false)
+        	{
+        		$tempURI = $this->get_temp_avatar();
+        		if($tempURI == null) return;
+        	}
+        	
+        	// Detect the extension of the file, if present
         	$finfo = finfo_open(FILEINFO_MIME_TYPE);
         	$mime = finfo_file($finfo, $tempURI);
         	$extension = substr($mime, strpos($mime, "/")+1);
         	
-//         	$extension = pathinfo($tempURI, PATHINFO_EXTENSION);
-//         	if(empty($extension))
-//         	{
-//         		echo json_encode(array("error" => true, "description" => "Errore durante il caricamento del file. Non è stato possibile determinare l'estensione del file.", "errorCode" => "FORBIDDEN_FILE_TYPE_ERROR", "parameters" => array("file")));
-//         		return;
-//         	}
-
-        	$fileURI = "uploads/profiles/" . $userID . (empty($extension) ? "" : "." . $extension);
+        	// Define the final avatar destination file URI
+        	$fileURI = "uploads/profiles/" . uniqid($userID . "-", true) . "." . $extension;
+        	
+        	// Remove the old avatar image
+        	$previousAvatar = $this->userinfo_model->get($userID)[0]['profilePicture'];
+        	if(file_exists($previousAvatar)) unlink($previousAvatar);
+        	
+        	// Update the database with the new avatar URI
+        	$this->userinfo_model->update($userID, array('profilePicture' => $fileURI));
+        	
+        	// Get the destination directory
         	$uploadDir = dirname($fileURI);
         	
         	// Check if directory already exists
@@ -101,10 +122,9 @@ class Avatars extends CI_Controller {
         		}
         	}
         	
-        	// Move the avatar file
+        	// Move the temporary avatar file to the destination file
         	copy($tempURI, $fileURI);
-        	
-        	$this->userinfo_model->update($userID, array('profilePicture' => $fileURI));
+        	unlink($tempURI);
         	
         	echo json_encode(array("error" => false, "description" => "Immagine del profilo aggiornata correttamente."));
         }

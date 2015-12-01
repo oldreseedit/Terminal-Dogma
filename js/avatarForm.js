@@ -49,11 +49,14 @@ main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','
 				url: 'avatars/load_temporary_avatar',
 				method: 'POST',
 				data : {
-					file : angular.element('[type="file"]')
+					file : angular.element('[type="file"]'),
+					username : $cookies.get('username')
 				}
 			}).then(
 					function (response) {
 //						console.log(response.data.description);
+						console.log(response);
+						
 						if(response.data.error) angular.inform(response.data.description, {type: 'danger'});
 						else self.temp = response.data.description;
 						
@@ -107,5 +110,37 @@ main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','
 		}
 		
 	}
+	
+	self.loadTemporaryURI = function(URI)
+	{
+		$http.post('avatars/load_temporary_avatar',
+				{
+					username: $cookies.get('username'),
+					avatarUri: URI
+				}
+		).then
+		(
+				function(response)
+				{
+					console.log(response);
+					
+					if(response.data.error) angular.inform(response.data.description, {type: 'danger'});
+					else self.temp = response.data.description;
+				},
+				function(error)
+				{
+					console.log(error); 
+				}
+		);
+	};
+	
+	$scope.$watch(
+		function(){return self.avatarURI;},
+		function(newValue, oldValue)
+		{
+			if(!newValue) return;
+			self.loadTemporaryURI(newValue);
+		}
+	);
 	
 }]);
