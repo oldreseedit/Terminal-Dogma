@@ -1,8 +1,5 @@
 <?php
 
-// TODO: aggiungi punti exp automaticamente per le lezioni
-// TODO: aggiungi l'achievement per l'80% delle lezioni di un corso
-
 class Achievements_and_rewards extends CI_Controller {
 
 		const ACHIEVEMENT = "ACHIEVEMENT";
@@ -13,6 +10,7 @@ class Achievements_and_rewards extends CI_Controller {
                 parent::__construct();
                 $this->load->model('achievements_and_rewards_model');
                 $this->load->model('user_achievements_rewards_model');
+                $this->load->model('userinfo_model');
         }
         
         public function init()
@@ -88,9 +86,51 @@ class Achievements_and_rewards extends CI_Controller {
         		return;
         	}
 
-// 			$userID = "Titto";
-
         	echo json_encode($this->user_achievements_rewards_model->get_achievements_and_rewards($userID));
+        }
+        
+        public function get_last_achievement()
+        {
+        	$userID = $this->input->post('username');
+        	if($userID == false)
+        	{
+        		echo json_encode(array("error" => true, "description" => "Lo username è obbligatorio.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("username")));
+        		return;
+        	}
+
+        	$ar = $this->user_achievements_rewards_model->get_achievements_and_rewards_obtained($userID, "ACHIEVEMENT");
+        	if(count($ar) > 0)
+        	{
+        		$last = $ar[0];
+        		echo json_encode(array("error" => false, "last_achievement" => array('achievementID' => $last['achievementOrRewardID'], 'description' => $last['description'], 'timestamp' => $last['publishingTimestamp'])));
+        	}
+        	else
+        	{
+        		echo json_encode(array("error" => false, "last_achievement" => null));
+        	}
+        }
+        
+        public function get_next_reward()
+        {
+        	$userID = $this->input->post('username');
+			if($userID == false)
+			{
+				echo json_encode(array("error" => true, "description" => "Lo username è obbligatorio.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("username")));
+				return;
+			}
+			
+        	$exp_info = $this->userinfo_model->get_exp_info($userID);
+        	$level = $exp_info['level'];
+        	
+        	$rewards = $this->achievements_and_rewards_model->get("REWARD", $level+1);
+        	if(count($rewards) > 0)
+        	{
+        		echo json_encode(array("error" => false, "next_reward" => $rewards[0]['description']));
+        	}
+        	else
+        	{
+        		echo json_encode(array("error" => false, "next_reward" => null));
+        	}
         }
 }
 ?>
