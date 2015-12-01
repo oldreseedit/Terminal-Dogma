@@ -202,17 +202,17 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
         templateUrl : 'courses'
     });
     
-    // Activities
-    
-    $routeProvider.when('/activities',{
-        templateUrl : 'activities'
-    });
-    
-    // Media
-    
-    $routeProvider.when('/media',{
-        templateUrl : 'media'
-    });
+//    // Activities
+//    
+//    $routeProvider.when('/activities',{
+//        templateUrl : 'activities'
+//    });
+//    
+//    // Media
+//    
+//    $routeProvider.when('/media',{
+//        templateUrl : 'media'
+//    });
     
     // Contacts
     
