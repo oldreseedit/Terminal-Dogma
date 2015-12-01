@@ -14,7 +14,7 @@
         font-variant: small-caps;
     }
     
-    .profile-panel-content{
+    .panel-content{
         @extend .col-100;
         
         &>.container{
@@ -55,7 +55,7 @@
 	
 	.profile-notification
 	{
-		@extend .list-group-item;
+/* 		@extend .list-group-item; */
 	}
        
 }

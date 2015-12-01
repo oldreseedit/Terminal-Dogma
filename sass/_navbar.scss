@@ -72,7 +72,15 @@ body {
         
         .navbar-icons
         {
-        	margin-left: 1.5em;
+        	margin-left: 1em;
+        	.fa-stack
+        	{
+        		font-size: 0.9em;
+        	}
+        	a
+        	{
+        		margin-left: 0.2em;
+        	}
         }
         
         .navbar-avatar
@@ -122,11 +130,9 @@ body {
     }
     
     .number-of-notifications{
-    	position: relative;
-    	top: -0.8em;
-    	right: 0.5em;
     	@extend .bolder;
-    	font-size: 0.8em;
+    	top: -0.1em;
+    	left: -0.1em;
     }
     
 }

@@ -36,8 +36,7 @@ main.controller('profileController',['utilities','$scope','$http','$routeParams'
     		$http.post('notifications/update_seen',{notificationIDs : notificationIDs}).then(
 		    		function(response)
 		    		{
-		    			console.log(response);
-		    			$scope.getUnseenNotifications();
+		    			if(!response.data.error) $scope.getUnseenNotifications();
 		    		},
 		    		function(error)
 		    		{

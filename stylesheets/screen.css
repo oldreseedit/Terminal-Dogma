@@ -6732,16 +6732,16 @@ a.label:hover, a.label:focus {
   padding: 1px 5px;
 }
 /* line 41, ../sass/bootstrap/_badges.scss */
-.list-group-item.active > .badge, #profile .active.profile-notification > .badge, .nav-pills > .active > a > .badge {
+.list-group-item.active > .badge, .nav-pills > .active > a > .badge {
   color: #337ab7;
   background-color: #fff;
 }
 /* line 47, ../sass/bootstrap/_badges.scss */
-.list-group-item > .badge, #profile .profile-notification > .badge {
+.list-group-item > .badge {
   float: right;
 }
 /* line 51, ../sass/bootstrap/_badges.scss */
-.list-group-item > .badge + .badge, #profile .profile-notification > .badge + .badge {
+.list-group-item > .badge + .badge {
   margin-right: 5px;
 }
 /* line 55, ../sass/bootstrap/_badges.scss */
@@ -7124,7 +7124,7 @@ a.thumbnail.active {
 }
 
 /* line 21, ../sass/bootstrap/_list-group.scss */
-.list-group-item, #profile .profile-notification {
+.list-group-item {
   position: relative;
   display: block;
   padding: 10px 15px;
@@ -7133,85 +7133,75 @@ a.thumbnail.active {
   border: 1px solid #ddd;
 }
 /* line 31, ../sass/bootstrap/_list-group.scss */
-.list-group-item:first-child, #profile .profile-notification:first-child {
+.list-group-item:first-child {
   border-top-right-radius: 4px;
   border-top-left-radius: 4px;
 }
 /* line 34, ../sass/bootstrap/_list-group.scss */
-.list-group-item:last-child, #profile .profile-notification:last-child {
+.list-group-item:last-child {
   margin-bottom: 0;
   border-bottom-right-radius: 4px;
   border-bottom-left-radius: 4px;
 }
 
 /* line 46, ../sass/bootstrap/_list-group.scss */
-a.list-group-item, #profile a.profile-notification,
-button.list-group-item,
-#profile button.profile-notification {
+a.list-group-item,
+button.list-group-item {
   color: #555;
 }
 /* line 50, ../sass/bootstrap/_list-group.scss */
-a.list-group-item .list-group-item-heading, #profile a.profile-notification .list-group-item-heading,
-button.list-group-item .list-group-item-heading,
-#profile button.profile-notification .list-group-item-heading {
+a.list-group-item .list-group-item-heading,
+button.list-group-item .list-group-item-heading {
   color: #333;
 }
 /* line 55, ../sass/bootstrap/_list-group.scss */
-a.list-group-item:hover, #profile a.profile-notification:hover, a.list-group-item:focus, #profile a.profile-notification:focus,
+a.list-group-item:hover, a.list-group-item:focus,
 button.list-group-item:hover,
-#profile button.profile-notification:hover,
-button.list-group-item:focus,
-#profile button.profile-notification:focus {
+button.list-group-item:focus {
   text-decoration: none;
   color: #555;
   background-color: #f5f5f5;
 }
 
 /* line 63, ../sass/bootstrap/_list-group.scss */
-button.list-group-item, #profile button.profile-notification {
+button.list-group-item {
   width: 100%;
   text-align: left;
 }
 
 /* line 70, ../sass/bootstrap/_list-group.scss */
-.list-group-item.disabled, #profile .disabled.profile-notification, .list-group-item.disabled:hover, #profile .disabled.profile-notification:hover, .list-group-item.disabled:focus, #profile .disabled.profile-notification:focus {
+.list-group-item.disabled, .list-group-item.disabled:hover, .list-group-item.disabled:focus {
   background-color: #eeeeee;
   color: #777777;
   cursor: not-allowed;
 }
 /* line 78, ../sass/bootstrap/_list-group.scss */
-.list-group-item.disabled .list-group-item-heading, #profile .disabled.profile-notification .list-group-item-heading, .list-group-item.disabled:hover .list-group-item-heading, #profile .disabled.profile-notification:hover .list-group-item-heading, .list-group-item.disabled:focus .list-group-item-heading, #profile .disabled.profile-notification:focus .list-group-item-heading {
+.list-group-item.disabled .list-group-item-heading, .list-group-item.disabled:hover .list-group-item-heading, .list-group-item.disabled:focus .list-group-item-heading {
   color: inherit;
 }
 /* line 81, ../sass/bootstrap/_list-group.scss */
-.list-group-item.disabled .list-group-item-text, #profile .disabled.profile-notification .list-group-item-text, .list-group-item.disabled:hover .list-group-item-text, #profile .disabled.profile-notification:hover .list-group-item-text, .list-group-item.disabled:focus .list-group-item-text, #profile .disabled.profile-notification:focus .list-group-item-text {
+.list-group-item.disabled .list-group-item-text, .list-group-item.disabled:hover .list-group-item-text, .list-group-item.disabled:focus .list-group-item-text {
   color: #777777;
 }
 /* line 87, ../sass/bootstrap/_list-group.scss */
-.list-group-item.active, #profile .active.profile-notification, .list-group-item.active:hover, #profile .active.profile-notification:hover, .list-group-item.active:focus, #profile .active.profile-notification:focus {
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
   z-index: 2;
   color: #fff;
   background-color: #337ab7;
   border-color: #337ab7;
 }
 /* line 96, ../sass/bootstrap/_list-group.scss */
-.list-group-item.active .list-group-item-heading, #profile .active.profile-notification .list-group-item-heading,
+.list-group-item.active .list-group-item-heading,
 .list-group-item.active .list-group-item-heading > small,
-#profile .active.profile-notification .list-group-item-heading > small,
-.list-group-item.active .list-group-item-heading > .small,
-#profile .active.profile-notification .list-group-item-heading > .small, .list-group-item.active:hover .list-group-item-heading, #profile .active.profile-notification:hover .list-group-item-heading,
+.list-group-item.active .list-group-item-heading > .small, .list-group-item.active:hover .list-group-item-heading,
 .list-group-item.active:hover .list-group-item-heading > small,
-#profile .active.profile-notification:hover .list-group-item-heading > small,
-.list-group-item.active:hover .list-group-item-heading > .small,
-#profile .active.profile-notification:hover .list-group-item-heading > .small, .list-group-item.active:focus .list-group-item-heading, #profile .active.profile-notification:focus .list-group-item-heading,
+.list-group-item.active:hover .list-group-item-heading > .small, .list-group-item.active:focus .list-group-item-heading,
 .list-group-item.active:focus .list-group-item-heading > small,
-#profile .active.profile-notification:focus .list-group-item-heading > small,
-.list-group-item.active:focus .list-group-item-heading > .small,
-#profile .active.profile-notification:focus .list-group-item-heading > .small {
+.list-group-item.active:focus .list-group-item-heading > .small {
   color: inherit;
 }
 /* line 101, ../sass/bootstrap/_list-group.scss */
-.list-group-item.active .list-group-item-text, #profile .active.profile-notification .list-group-item-text, .list-group-item.active:hover .list-group-item-text, #profile .active.profile-notification:hover .list-group-item-text, .list-group-item.active:focus .list-group-item-text, #profile .active.profile-notification:focus .list-group-item-text {
+.list-group-item.active .list-group-item-text, .list-group-item.active:hover .list-group-item-text, .list-group-item.active:focus .list-group-item-text {
   color: #c7ddef;
 }
 
@@ -7426,39 +7416,33 @@ button.list-group-item-danger.active:focus {
   margin-bottom: 0;
 }
 /* line 67, ../sass/bootstrap/_panels.scss */
-.panel > .list-group .list-group-item, .panel > .list-group #profile .profile-notification, #profile .panel > .list-group .profile-notification,
-.panel > .panel-collapse > .list-group .list-group-item,
-.panel > .panel-collapse > .list-group #profile .profile-notification,
-#profile .panel > .panel-collapse > .list-group .profile-notification {
+.panel > .list-group .list-group-item,
+.panel > .panel-collapse > .list-group .list-group-item {
   border-width: 1px 0;
   border-radius: 0;
 }
 /* line 74, ../sass/bootstrap/_panels.scss */
-.panel > .list-group:first-child .list-group-item:first-child, .panel > .list-group:first-child #profile .profile-notification:first-child, #profile .panel > .list-group:first-child .profile-notification:first-child,
-.panel > .panel-collapse > .list-group:first-child .list-group-item:first-child,
-.panel > .panel-collapse > .list-group:first-child #profile .profile-notification:first-child,
-#profile .panel > .panel-collapse > .list-group:first-child .profile-notification:first-child {
+.panel > .list-group:first-child .list-group-item:first-child,
+.panel > .panel-collapse > .list-group:first-child .list-group-item:first-child {
   border-top: 0;
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
 }
 /* line 82, ../sass/bootstrap/_panels.scss */
-.panel > .list-group:last-child .list-group-item:last-child, .panel > .list-group:last-child #profile .profile-notification:last-child, #profile .panel > .list-group:last-child .profile-notification:last-child,
-.panel > .panel-collapse > .list-group:last-child .list-group-item:last-child,
-.panel > .panel-collapse > .list-group:last-child #profile .profile-notification:last-child,
-#profile .panel > .panel-collapse > .list-group:last-child .profile-notification:last-child {
+.panel > .list-group:last-child .list-group-item:last-child,
+.panel > .panel-collapse > .list-group:last-child .list-group-item:last-child {
   border-bottom: 0;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
 }
 /* line 89, ../sass/bootstrap/_panels.scss */
-.panel > .panel-heading + .panel-collapse > .list-group .list-group-item:first-child, .panel > .panel-heading + .panel-collapse > .list-group #profile .profile-notification:first-child, #profile .panel > .panel-heading + .panel-collapse > .list-group .profile-notification:first-child {
+.panel > .panel-heading + .panel-collapse > .list-group .list-group-item:first-child {
   border-top-right-radius: 0;
   border-top-left-radius: 0;
 }
 
 /* line 96, ../sass/bootstrap/_panels.scss */
-.panel-heading + .list-group .list-group-item:first-child, .panel-heading + .list-group #profile .profile-notification:first-child, #profile .panel-heading + .list-group .profile-notification:first-child {
+.panel-heading + .list-group .list-group-item:first-child {
   border-top-width: 0;
 }
 
@@ -9124,11 +9108,9 @@ button.close {
 }
 
 /* line 248, ../sass/bootstrap/_theme.scss */
-.list-group-item.active, #profile .active.profile-notification,
+.list-group-item.active,
 .list-group-item.active:hover,
-#profile .active.profile-notification:hover,
-.list-group-item.active:focus,
-#profile .active.profile-notification:focus {
+.list-group-item.active:focus {
   text-shadow: 0 -1px 0 #286090;
   background-image: -webkit-linear-gradient(top, #337ab7 0%, #2b669a 100%);
   background-image: -o-linear-gradient(top, #337ab7 0%, #2b669a 100%);
@@ -9138,11 +9120,9 @@ button.close {
   border-color: #2b669a;
 }
 /* line 255, ../sass/bootstrap/_theme.scss */
-.list-group-item.active .badge, #profile .active.profile-notification .badge,
+.list-group-item.active .badge,
 .list-group-item.active:hover .badge,
-#profile .active.profile-notification:hover .badge,
-.list-group-item.active:focus .badge,
-#profile .active.profile-notification:focus .badge {
+.list-group-item.active:focus .badge {
   text-shadow: none;
 }
 
@@ -10820,7 +10800,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-100, #admin .admin-content, #navbar #navbar-logged, #footer, #footer #commercial-info, #home, #home #presentation #tiles-presentation, #home #presentation #tiles-presentation .inside-tab .tab-content, #home #team, #singleCourse .gridster-item, #singleCourse .course-panel-title, #singleCourse .course-panel-content, #singleCourse .teacher-name, #singleCourse .teacher-description, #singleCourse .course-description-introduction, #singleCourse .course-description-syllabus, #activities #tiles-activities, #activities #tiles-activities .tile .back .back-content, #media .media-panel, #media .media-panel .media-panel-title, #media .media-panel .media-panel-main, #register, #register .XP, #payment .stepLine, #payment .stepContent, #faqPage .stepLine, #faqPage .stepContent, #profile .gridster-item, #profile .profile-panel-title, #profile .profile-panel-content, #profile .profile-name-level-xp .profile-xp, #profile .profile-info, .scrollbar-wrapper .scrollbar, .wrapper, .mini-header {
+.col-100, #admin .admin-content, #navbar #navbar-logged, #footer, #footer #commercial-info, #home, #home #presentation #tiles-presentation, #home #presentation #tiles-presentation .inside-tab .tab-content, #home #team, #singleCourse .gridster-item, #singleCourse .course-panel-title, #singleCourse .panel-content, #singleCourse .teacher-name, #singleCourse .teacher-description, #singleCourse .course-description-introduction, #singleCourse .course-description-syllabus, #activities #tiles-activities, #activities #tiles-activities .tile .back .back-content, #media .media-panel, #media .media-panel .media-panel-title, #media .media-panel .media-panel-main, #register, #register .XP, #payment .stepLine, #payment .stepContent, #faqPage .stepLine, #faqPage .stepContent, #profile .gridster-item, #profile .profile-panel-title, #profile .panel-content, #profile .profile-name-level-xp .profile-xp, #profile .profile-info, .scrollbar-wrapper .scrollbar, .wrapper, .mini-header {
   width: 100%;
   float: left;
 }
@@ -20016,13 +19996,21 @@ body {
 }
 /* line 73, ../sass/_navbar.scss */
 #navbar #navbar-profile .navbar-icons {
-  margin-left: 1.5em;
+  margin-left: 1em;
 }
-/* line 78, ../sass/_navbar.scss */
+/* line 76, ../sass/_navbar.scss */
+#navbar #navbar-profile .navbar-icons .fa-stack {
+  font-size: 0.9em;
+}
+/* line 80, ../sass/_navbar.scss */
+#navbar #navbar-profile .navbar-icons a {
+  margin-left: 0.2em;
+}
+/* line 86, ../sass/_navbar.scss */
 #navbar #navbar-profile .navbar-avatar {
   display: inline;
 }
-/* line 91, ../sass/_navbar.scss */
+/* line 99, ../sass/_navbar.scss */
 #navbar #navbar-signin button, #navbar #navbar-signup button {
   width: 90%;
   font-weight: 400;
@@ -20030,12 +20018,12 @@ body {
   font-size: 21.177px;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 91, ../sass/_navbar.scss */
+  /* line 99, ../sass/_navbar.scss */
   #navbar #navbar-signin button, #navbar #navbar-signup button {
     font-size: 13.032px;
   }
 }
-/* line 112, ../sass/_navbar.scss */
+/* line 120, ../sass/_navbar.scss */
 #navbar #navbar-logged button {
   margin-right: 3em;
   width: 30%;
@@ -20044,17 +20032,15 @@ body {
   font-size: 21.177px;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 112, ../sass/_navbar.scss */
+  /* line 120, ../sass/_navbar.scss */
   #navbar #navbar-logged button {
     font-size: 13.032px;
   }
 }
-/* line 124, ../sass/_navbar.scss */
+/* line 132, ../sass/_navbar.scss */
 #navbar .number-of-notifications {
-  position: relative;
-  top: -0.8em;
-  right: 0.5em;
-  font-size: 0.8em;
+  top: -0.1em;
+  left: -0.1em;
 }
 
 /* line 1, ../sass/_header.scss */
@@ -20309,7 +20295,7 @@ body {
   font-variant: small-caps;
 }
 /* line 20, ../sass/_course.scss */
-#singleCourse .course-panel-content > .container {
+#singleCourse .panel-content > .container {
   padding: 10px;
 }
 /* line 25, ../sass/_course.scss */
@@ -20512,7 +20498,7 @@ body {
   font-variant: small-caps;
 }
 /* line 20, ../sass/_profile.scss */
-#profile .profile-panel-content > .container {
+#profile .panel-content > .container {
   padding: 10px;
 }
 /* line 38, ../sass/_profile.scss */
@@ -20523,6 +20509,10 @@ body {
 #profile .profile-info a {
   color: inherit;
   text-decoration: none;
+}
+/* line 56, ../sass/_profile.scss */
+#profile .profile-notification {
+  /* 		@extend .list-group-item; */
 }
 
 /* line 1, ../sass/_modal.scss */
