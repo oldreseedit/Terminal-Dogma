@@ -158,7 +158,6 @@ main.controller('adminController',['utilities','$http','$timeout','$sce','$scope
           data: data
         }).then(
           function (response) {
-              
             console.log(response.data); 
           },
           function (response) {

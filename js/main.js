@@ -6,7 +6,7 @@ var main = angular.module('Main',[
     'ngAnimate', // For animating purposes
     'ui.calendar', // For register calendar
     'ui.bootstrap', // For all bootstrap functions and for ui.calendar
-    'angularShamSpinner', // For pre-loading spinner
+//    'angularShamSpinner', // For pre-loading spinner
     'monospaced.elastic', // For text-area auto-resizing
     'uiGmapgoogle-maps', // For Google Maps integration
     'perfect_scrollbar', // For scrollbar in single div
@@ -614,3 +614,17 @@ main.directive('bootstrapTextarea',['$timeout','$filter',function($timeout,$filt
         }
     };
 }]);
+
+main.directive('fileChange', function() {
+	return {
+		restrict: 'A',
+		scope: {
+			method : '&fileChange'
+		},
+		link: function (scope, element, attrs) {
+			element.on('change', function(event){
+				 scope.method({file:event.target.files});
+			});
+		}
+	};
+});

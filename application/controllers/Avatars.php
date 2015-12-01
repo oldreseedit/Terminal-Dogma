@@ -36,7 +36,7 @@ class Avatars extends CI_Controller {
             	return;
             }
             
-            echo json_encode(array("error" => false, "description" => $_FILES['userfile']['tmp_name']));
+            echo json_encode(array("error" => false, "description" => $_FILES['file']['tmp_name']));
         }
         
         public function load_avatar()
@@ -55,7 +55,7 @@ class Avatars extends CI_Controller {
         		return;
         	}
         	
-        	$fileURI = "uploads/profiles/" . $userID + "." . pathinfo($tempURI, PATHINFO_EXTENSION);
+        	$fileURI = "uploads/profiles/" . $userID . "." . pathinfo($tempURI, PATHINFO_EXTENSION);
         	$uploadDir = dirname($fileURI);
         	
         	// Check if directory already exists
