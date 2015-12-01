@@ -55,7 +55,7 @@ class Avatars extends CI_Controller {
         		return;
         	}
         	
-        	$fileURI = "uploads/profiles/" . $userID + "." . pathinfo($tempURI, PATHINFO_EXTENSION);
+        	$fileURI = "uploads/profiles/" . $userID . "." . pathinfo($tempURI, PATHINFO_EXTENSION);
         	$uploadDir = dirname($fileURI);
         	
         	// Check if directory already exists

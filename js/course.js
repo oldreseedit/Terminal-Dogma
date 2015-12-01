@@ -66,14 +66,29 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     
     /* PROPER OBJECTS AND METHODS */
     
+    $scope.registerMeasures = function()
+    {
+    	$http.post('course/save_block_positions',{username: $cookies.get('username'), courseID: self.courseID, blockPositions: JSON.stringify($scope.gridsterItems)}).then(
+    			function(response)
+    			{
+//    				console.log(response);
+    			},
+    			function(error)
+    			{
+    				console.log(error);
+    			}
+    	);
+    }
+    
     $http.post('course/load_block_positions',{username : $cookies.get('username'), courseID : self.courseID}).then(
     		function(response)
     		{
-    			console.log(response);
+//    			console.log(response);
     			
     			if(response.data)
     			{
-    				console.log(response.data);
+    				$scope.gridsterItems = JSON.parse(JSON.parse(response.data));
+    				
     				$scope.measuresLoaded = true;
     			}
     			else
@@ -114,7 +129,7 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
 	                             height: 1,
 	                             position: {
 	                                 x : 0,
-	                                 y : 2
+	                                 y : 7
 	                             }
 	                         }
 	                     },
@@ -127,7 +142,7 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
 	                             height: 1,
 	                             position: {
 	                                 x : 7,
-	                                 y : 2
+	                                 y : 7
 	                             }
 	                         }
 	                     },
@@ -140,7 +155,7 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
 	                             height: 1,
 	                             position: {
 	                                 x : 0,
-	                                 y : 3
+	                                 y : 14
 	                             }
 	                         }
 	                     }

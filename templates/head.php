@@ -41,6 +41,7 @@
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!--     <script src="js/bootstrap.min.js"></script> -->
     
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="js/ie10-viewport-bug-workaround.js"></script>
@@ -66,7 +67,7 @@
     <script type="text/javascript" src="bower_components/fullcalendar/dist/gcal.js"></script>
     
     <!-- Angular Sham Spinner -->
-    <script src="bower_components/angular-sham-spinner/angular-sham-spinner.js"></script>
+<!--     <script src="bower_components/angular-sham-spinner/angular-sham-spinner.js"></script> -->
     
     <!-- Angular Google Maps -->
     <script type="text/javascript" src="bower_components/lodash/lodash.min.js"></script>
@@ -98,6 +99,7 @@
     <script type="text/javascript" src="js/signup.js"></script>
     <script type="text/javascript" src="js/profile.js"></script>
     <script type="text/javascript" src="js/avatar.js"></script>
+    <script type="text/javascript" src="js/avatarForm.js"></script>
     <script type="text/javascript" src="js/paymentDisclaimer.js"></script>
     <script type="text/javascript" src="js/paymentNotRegistered.js"></script>
     <script type="text/javascript" src="js/paymentCancel.js"></script>
