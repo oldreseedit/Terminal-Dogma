@@ -53,9 +53,14 @@ class Achievements_and_rewards_model extends CI_Model
         	$this->db->insert(self::table_name, $data);
         }
         
-        public function get()
+        public function get($type = null, $level = null)
         {
-        	return $this->db->get(self::table_name)->result_array();
+        	$constraints = array();
+        	if($type != null) $constraints['type'] = $type;
+        	if($level != null) $constraints['level'] = $level;
+        	
+        	if(count($constraints) == 0) return $this->db->get(self::table_name)->result_array();
+        	else return $this->db->where($constraints)->get(self::table_name)->result_array();
         }
 }
 ?>
