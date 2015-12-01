@@ -36,7 +36,7 @@ class Avatars extends CI_Controller {
             	return;
             }
             
-            echo json_encode(array("error" => false, "description" => $_FILES['userfile']['tmp_name']));
+            echo json_encode(array("error" => false, "description" => $_FILES['file']['tmp_name']));
         }
         
         public function load_avatar()
@@ -73,7 +73,7 @@ class Avatars extends CI_Controller {
         	
         	$this->userinfo_model->update(array('profilePicture', $fileURI));
         	
-        	echo json_encode(array("error" => false, "description" => "Immagine del profilo aggiornata correttamente."));
+        	echo json_encode(array("error" => false, "description" => $fileURI));
         }
         
         public function file_OK()
