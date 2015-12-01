@@ -269,6 +269,7 @@ class Users extends CI_Controller {
         	$level = $exp_info['level'];
         	$currentExp = $exp_info['currentExp'];
         	
+        	$expForThisLevel = $this->experience->expForLevel($level);
         	$missingExpForNextLevel = $this->experience->getMissingExpForNextLevel($level, $currentExp);
         	$expForNextLevel = $this->experience->expForLevel($level+1);
         	
@@ -277,6 +278,7 @@ class Users extends CI_Controller {
         			'expInfo' => array(
 	        			"level" => $level,
 	        			"currentExperience" => $currentExp,
+        				"partialExperience" => $expForThisLevel,
 	        			"expForNextLevel" => $expForNextLevel,
 	        			"missingExpForNextLevel" => $missingExpForNextLevel)
         	));
