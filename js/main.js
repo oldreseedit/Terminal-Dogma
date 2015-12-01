@@ -618,9 +618,13 @@ main.directive('bootstrapTextarea',['$timeout','$filter',function($timeout,$filt
 main.directive('fileChange', function() {
 	return {
 		restrict: 'A',
+		scope: {
+			method : '&fileChange'
+		},
 		link: function (scope, element, attrs) {
-			var onChangeHandler = scope.$eval(attrs.fileChange);
-			element.bind('change', onChangeHandler);
+			element.on('change', function(event){
+				 scope.method({file:event.target.files});
+			});
 		}
 	};
 });

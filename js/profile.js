@@ -19,7 +19,7 @@ main.controller('profileController',['utilities','$scope','$http','$routeParams'
     	$http.post('profile/save_block_positions',{username: self.username, blockPositions: JSON.stringify($scope.gridsterItems)}).then(
     			function(response)
     			{
-    				console.log(response);
+//    				console.log('save_block_positions: ',response);
     			},
     			function(error)
     			{
@@ -31,13 +31,11 @@ main.controller('profileController',['utilities','$scope','$http','$routeParams'
     $http.post('profile/load_block_positions',{username: self.username}).then(
     		function(response)
     		{
-    			console.log(response);
+//    			console.log('load_block_positions: ', response);
     			
     			if(response.data)
     			{
-    				console.log(response.data);
-    				
-//    				$scope.gridsterItems = 
+    				$scope.gridsterItems = JSON.parse(JSON.parse(response.data));
     				
     				$scope.measuresLoaded = true;
     			}
@@ -79,7 +77,7 @@ main.controller('profileController',['utilities','$scope','$http','$routeParams'
 		                      height: 1,
 		                      position: {
 		                          x : 0,
-		                          y : 2
+		                          y : 7
 		                      }
 		                  }
 		              },
@@ -92,7 +90,7 @@ main.controller('profileController',['utilities','$scope','$http','$routeParams'
 		                      height: 1,
 		                      position: {
 		                          x : 7,
-		                          y : 2
+		                          y : 7
 		                      }
 		                  }
 		              }

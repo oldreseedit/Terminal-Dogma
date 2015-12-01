@@ -1,4 +1,4 @@
-main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','$window',function($scope,$http,$timeout,$cookies,$window){
+main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','$window','upload',function($scope,$http,$timeout,$cookies,$window,upload){
 	var self = this;
 	
 	self.avatarForm = {};
@@ -40,16 +40,72 @@ main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','
 		$scope.$dismiss();
 	}
 	
-	self.uploadTempAvatar = function(event)
+	self.uploadTempAvatar = function(file)
 	{
-		console.log(event);
-		if(event) 
-		{
-			var tempAvatar = event.target.files;
-			console.log(tempAvatar);
-//			Qui dovrò chiamare il metodo di titto per caricare l'avatar TEMPORANEAMENTE, per poi
-//			self.temp = URI;
-		}
+//			console.log(file);
+//			var oldFile = file[0].name;
+			
+			upload({
+				url: 'avatars/load_temporary_avatar',
+				method: 'POST',
+				data : {
+					file : angular.element('[type="file"]')
+				}
+			}).then(
+					function (response) {
+//						console.log(response.data.description);
+						if(response.data.error) angular.inform(response.data.description, {type: 'danger'});
+						else self.temp = response.data.description;
+						
+						// TODO: create a new input and set file input with opacity=0, then copy all data to the old one 
+						
+//						$('[type="file"]').val(oldFile);
+//						console.log($('[type="file"]').prop('files'));
+					},
+					function (response) {
+						console.error(response); 
+					}
+			);
 	};
+	
+	self.submit = function()
+	{
+		if(self.temp)
+		{
+			$http.post('avatars/load_avatar',{username: $cookies.get('username'), avatar_temp_URI : self.temp}).then(
+					function(response)
+					{
+						console.log(response);
+						if(response.data.error) angular.inform(response.data.description, {type: 'danger'});
+					},
+					function(error)
+					{
+						console.log(error);
+					}
+			)
+		}
+		else
+		{
+			upload({
+				url: 'avatars/load_avatar',
+				method: 'POST',
+				data : {
+					file : angular.element('[type="file"]'),
+					username: $cookies.get('username')
+				}
+			}).then(
+					function (response)
+					{
+						console.log(response)
+						if(response.data.error) angular.inform(response.data.description, {type: 'danger'});
+					},
+					function (error)
+					{
+						console.log(error); 
+					}
+			);
+		}
+		
+	}
 	
 }]);

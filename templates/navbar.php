@@ -45,10 +45,9 @@
 		                            </span>
 	                            </a>
 	                            <a  ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-click="avatar.changeAvatar()" ng-if="!avatar.getAvatar()">
-		                            <span class="fa-stack">
-		                            	<i class="fa fa-users fa-stack-2x"></i>
-		                            	<i class="fa fa-question fa-stack-1x" ng-class="{'white':hover, 'olive':!hover}"></i>
-		                            </span>
+	                            	<span class="fa-stack fa-lg clickable">
+	                            		<i class="fa fa-question-circle fa-stack-2x" ng-class="{'light-olive':hover, 'white':!hover}"></i>
+	                            	</span>
 		                         </a>
 		                         
 		                         <a ng-href="#!/profile/{{username}}">

@@ -5,6 +5,6 @@
 	</tr>
 	<tr ng-repeat="reward in profile.rewards">
 		<td ng-bind="reward.level"></td>
-		<td ng-bind="reward.content"></td>
+		<td ng-bind="reward.description"></td>
 	</tr>
 </table>

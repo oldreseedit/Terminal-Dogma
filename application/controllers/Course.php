@@ -88,7 +88,7 @@ class Course extends CI_Controller {
         	}
         	
         	$block_positions = $this->course_block_positions_model->get($userID, $courseID);
-        	if(count($block_positions) == 1) echo json_encode($block_positions[0]['block_positions']);
+        	if(count($block_positions) > 0) echo json_encode($block_positions['block_positions']);
         }
         
         public function init_block_positions()
