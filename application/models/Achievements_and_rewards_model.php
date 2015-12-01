@@ -14,26 +14,26 @@ class Achievements_and_rewards_model extends CI_Model
                 $this->load->dbforge();
                 
                 $fields = array(
-                        'AchievementRewardID' => array(
+                        'achievementRewardID' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => 32
                         ),
-                		'Type' => array(
+                		'type' => array(
                 				'type' => 'VARCHAR',
                 				'constraint' => 15
                 		),
-                        'Description' => array(
+                        'description' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => 256
                         ),
-                        'Level' => array(
+                        'level' => array(
                                 'type' => 'INT',
                         		'unsigned' => TRUE,
                         		'null' => TRUE,
                         )
                 );
                 
-                $this->dbforge->add_key('AchievementRewardID', TRUE);
+                $this->dbforge->add_key('achievementRewardID', TRUE);
                 
                 $this->dbforge->add_field($fields);
                 
@@ -43,12 +43,12 @@ class Achievements_and_rewards_model extends CI_Model
         public function add($type, $achievementID, $description, $level = null)
         {
         	$data = array(
-        			'Type' => $type,
-        			'AchievementRewardID' => $achievementID,
-        			'Description' => $description,
+        			'type' => $type,
+        			'achievementRewardID' => $achievementID,
+        			'description' => $description,
         	);
         	
-        	if($level != null) $data['Level'] = $level;
+        	if($level != null) $data['level'] = $level;
         
         	$this->db->insert(self::table_name, $data);
         }

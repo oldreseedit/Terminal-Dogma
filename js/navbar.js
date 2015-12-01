@@ -76,29 +76,4 @@ main.controller('navbarController',['utilities','$timeout','$window','$uibModal'
     	$window.location.reload();
     };
     
-    self.getAvatar = function()
-    {
-    	var avatarURI = $cookies.get('avatarURI');
-//    	avatarURI = 'imgs/team/Alessandro.jpg';
-    	return avatarURI;
-    };
-    
-    self.changeAvatar = function()
-    {
-    	var modalInstance = $uibModal.open({
-            templateUrl: 'templates/change-avatar-modal.php',
-            controller: 'avatarController as avatar',
-            animation: true,
-            backdrop: 'static',
-            size: 'lg',
-            
-        });
-        
-        modalInstance.result.then(function(){
-            
-        },function(){
-            
-        });
-    }
-    
 }]);

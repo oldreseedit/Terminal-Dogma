@@ -1,4 +1,4 @@
-main.controller('courseController',['utilities','$scope','$http','$routeParams','uiCalendarConfig','$timeout','$route',function(utilities,$scope,$http,$routeParams,uiCalendarConfig,$timeout,$route){
+main.controller('courseController',['utilities','$scope','$http','$routeParams','uiCalendarConfig','$timeout','$route','$cookies',function(utilities,$scope,$http,$routeParams,uiCalendarConfig,$timeout,$route,$cookies){
     var self = this;
     
     /* CONFIG */
@@ -17,9 +17,6 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     		calendar: {
     			lang : "it",
     			displayEventTime : false,
-//    			firstDay: '1',
-//    			monthNames: ['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'],
-//    			
     			minTime : '06:00:00',
     			maxTime : '21:00:00',
     			contentHeight : 'auto',
@@ -69,78 +66,108 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     
     /* PROPER OBJECTS AND METHODS */
     
-    $scope.gridsterItems = [
-        {
-        	id: 'courseDescription',
-            title: self.courseName,
-            bgColour: 'bg-light-olive',
-            templateUrl: 'templates/course-description.php',
-            measures: {
-                width: 8,
-                height: 0,
-                position: {
-                    x : 0,
-                    y : 0
-                }
-            }
-        },
-        {
-        	id: 'teacher',
-            title: 'Docente',
-            bgColour: 'bg-light-lawn',
-            templateUrl: 'templates/course-teacher.php',
-            measures: {
-                width: 4,
-                height: 0,
-                position: {
-                    x : 9,
-                    y : 0
-                }
-            }
-        },
-        {
-        	id: 'calendar',
-            title: 'Calendario e orari',
-            bgColour: 'bg-light-green',
-            templateUrl: 'templates/calendar.php',
-            measures: {
-                width: 6,
-                height: 0,
-                position: {
-                    x : 0,
-                    y : 5
-                }
-            }
-        },
-        {
-        	id: 'notifications',
-            title: 'Avvisi',
-            bgColour: 'bg-light-leaf',
-            templateUrl: 'templates/course-notifications.php',
-            measures: {
-                width: 6,
-                height: 0,
-                position: {
-                    x : 7,
-                    y : 5
-                }
-            }
-        },
-        {
-        	id: 'materials',
-            title: 'Materiale del corso',
-            bgColour: 'bg-light-water',
-            templateUrl: 'templates/course-material.php',
-            measures: {
-                width: 12,
-                height: 0,
-                position: {
-                    x : 0,
-                    y : 12
-                }
-            }
-        }
-    ];
+    $scope.registerMeasures = function()
+    {
+    	$http.post('course/save_block_positions',{username: $cookies.get('username'), courseID: self.courseID, blockPositions: JSON.stringify($scope.gridsterItems)}).then(
+    			function(response)
+    			{
+//    				console.log(response);
+    			},
+    			function(error)
+    			{
+    				console.log(error);
+    			}
+    	);
+    }
+    
+    $http.post('course/load_block_positions',{username : $cookies.get('username'), courseID : self.courseID}).then(
+    		function(response)
+    		{
+//    			console.log(response);
+    			
+    			if(response.data)
+    			{
+    				$scope.gridsterItems = JSON.parse(JSON.parse(response.data));
+    				
+    				$scope.measuresLoaded = true;
+    			}
+    			else
+    			{
+    				 $scope.gridsterItems = [
+	                     {
+	                         title: self.courseName,
+	                         bgColour: 'bg-light-olive',
+	                         templateUrl: 'templates/course-description.php',
+	                         measures: {
+	                             width: 8,
+	                             height: 1,
+	                             position: {
+	                                 x : 0,
+	                                 y : 0
+	                             }
+	                         }
+	                     },
+	                     {
+	                         title: 'Docente',
+	                         bgColour: 'bg-light-lawn',
+	                         templateUrl: 'templates/course-teacher.php',
+	                         measures: {
+	                             width: 4,
+	                             height: 1,
+	                             position: {
+	                                 x : 9,
+	                                 y : 0
+	                             }
+	                         }
+	                     },
+	                     {
+	                         title: 'Calendario e orari',
+	                         bgColour: 'bg-light-green',
+	                         templateUrl: 'templates/calendar.php',
+	                         measures: {
+	                             width: 6,
+	                             height: 1,
+	                             position: {
+	                                 x : 0,
+	                                 y : 7
+	                             }
+	                         }
+	                     },
+	                     {
+	                         title: 'Avvisi',
+	                         bgColour: 'bg-light-leaf',
+	                         templateUrl: 'templates/course-notifications.php',
+	                         measures: {
+	                             width: 6,
+	                             height: 1,
+	                             position: {
+	                                 x : 7,
+	                                 y : 7
+	                             }
+	                         }
+	                     },
+	                     {
+	                         title: 'Materiale del corso',
+	                         bgColour: 'bg-light-water',
+	                         templateUrl: 'templates/course-material.php',
+	                         measures: {
+	                             width: 12,
+	                             height: 1,
+	                             position: {
+	                                 x : 0,
+	                                 y : 14
+	                             }
+	                         }
+	                     }
+	                 ];
+    			}
+    			
+    		},
+    		function(error)
+    		{
+    			console.log(error);
+    		}
+    );
     
     self.customItemMap = {
         sizeX: 'item.measures.width',
@@ -162,10 +189,6 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     
     self.buildDB();
 //    console.log($scope.events);
-    $scope.eventSources = [{events: $scope.events, color: 'green'}];    
-    
-    $timeout(function(){
-    	$scope.activateScrollbar = true;
-    },3000);
+    $scope.eventSources = [{events: $scope.events, color: 'green'}];
     
 }]);

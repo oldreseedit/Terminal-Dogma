@@ -6,7 +6,7 @@ var main = angular.module('Main',[
     'ngAnimate', // For animating purposes
     'ui.calendar', // For register calendar
     'ui.bootstrap', // For all bootstrap functions and for ui.calendar
-    'angularShamSpinner', // For pre-loading spinner
+//    'angularShamSpinner', // For pre-loading spinner
     'monospaced.elastic', // For text-area auto-resizing
     'uiGmapgoogle-maps', // For Google Maps integration
     'perfect_scrollbar', // For scrollbar in single div
@@ -189,14 +189,6 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
         templateUrl : 'activities'
     });
     
-    // Profile
-    
-    $routeProvider.when('/profile/:userID',{
-//        templateUrl : 'profile',
-    	templateUrl: function(parameters){return 'profile/index/'+parameters.userID;},
-        controller : 'profileController as user'
-    });
-    
     // Media
     
     $routeProvider.when('/media',{
@@ -299,6 +291,46 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
                     console.log(error);
                 });
             }]
+        }
+    });
+    
+
+    
+    // Profile
+    
+    $routeProvider.when('/profile/:userID',{
+//        templateUrl : 'profile',
+    	templateUrl: function(parameters){return 'profile/index/'+parameters.userID;},
+        controller : 'profileController as profile',
+        resolve : {
+        	notifications : ['$http','$route', function($http,$route){
+        		var userID = $route.current.params.userID;
+        		
+        		return $http.post('notifications/get_user_notifications',{username: userID}).then(
+        		function(response)
+        		{
+        			return response.data;
+        		},
+        		function(error)
+        		{
+        			console.log(error);
+        		}
+        		);
+        	}],
+        	achievementsAndRewards : ['$http','$route', function($http,$route){
+        		var userID = $route.current.params.userID;
+        		
+        		return $http.post('achievements_and_rewards/get_achievements_and_rewards',{username: userID}).then(
+        		function(response)
+        		{
+        			return response.data;
+        		},
+        		function(error)
+        		{
+        			console.log(error);
+        		}
+        		);
+        	}]
         }
     });
     
@@ -582,3 +614,17 @@ main.directive('bootstrapTextarea',['$timeout','$filter',function($timeout,$filt
         }
     };
 }]);
+
+main.directive('fileChange', function() {
+	return {
+		restrict: 'A',
+		scope: {
+			method : '&fileChange'
+		},
+		link: function (scope, element, attrs) {
+			element.on('change', function(event){
+				 scope.method({file:event.target.files});
+			});
+		}
+	};
+});
