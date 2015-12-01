@@ -126,7 +126,7 @@ class Avatars extends CI_Controller {
         	copy($tempURI, $fileURI);
         	unlink($tempURI);
         	
-        	echo json_encode(array("error" => false, "description" => "Immagine del profilo aggiornata correttamente."));
+        	echo json_encode(array("error" => false, "description" => $fileURI));
         }
         
         public function file_OK($file)
