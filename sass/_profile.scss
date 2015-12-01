@@ -14,7 +14,7 @@
         font-variant: small-caps;
     }
     
-    .profile-panel-content{
+    .panel-content{
         @extend .col-100;
         
         &>.container{
@@ -24,6 +24,7 @@
     
     .profile-level-symbol{
     	@extend .col-20;
+    	@extend .text-center;
     }
         
     .profile-name-level-xp{
@@ -38,10 +39,23 @@
             padding: 0;
         }
     }
-    
-    .profile-notifications
-    {
+
+	.profile-info{
+		@extend .col-100;
 		
-    }
+		a{
+			color: inherit;
+			text-decoration: none;
+			&:hover{
+				@extend .green;
+			}
+		}
+		
+	}
+	
+	.profile-notification
+	{
+/* 		@extend .list-group-item; */
+	}
        
 }
