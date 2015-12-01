@@ -6,13 +6,12 @@ main.controller('profileController',['utilities','$scope','$http','$routeParams'
         return 'success';
     };
     self.notifications = $route.current.locals.notifications;
-//    console.log(self.notifications);
     self.achievementsAndRewards = $route.current.locals.achievementsAndRewards;
-//    console.log('risposta dal server: ',self.achievementsAndRewards);
+    self.expInfo = $route.current.locals.expInfo;
     self.rewards = self.achievementsAndRewards.filter(function(element){if(element.type==='REWARD') return element});
     self.achievements = self.achievementsAndRewards.filter(function(element){if(element.type==='ACHIEVEMENT') return element});
-//    console.log(self.achievements);
-//    console.log(self.rewards);
+    
+    console.log(self.expInfo);
     
     $scope.registerMeasures = function()
     {

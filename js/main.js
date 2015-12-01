@@ -330,7 +330,22 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
         			console.log(error);
         		}
         		);
-        	}]
+        	}],
+        	expInfo : ['$http','$route', function($http,$route)
+	        	{
+        			var userID = $route.current.params.userID;
+		        	return $http.post('users/get_exp_info',{username: userID}).then(
+		        			function(response)
+		        			{
+		        				return response.data;
+		        			},
+		        			function(error)
+		        			{
+		        				console.log(error);
+		        			}
+		        	);
+	        	}
+    		]
         }
     });
     
