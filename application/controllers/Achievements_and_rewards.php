@@ -102,11 +102,11 @@ class Achievements_and_rewards extends CI_Controller {
         	if(count($ar) > 0)
         	{
         		$last = $ar[0];
-        		echo json_encode(array("error" => false, "last_achievement" => array('achievementID' => $last['achievementOrRewardID'], 'description' => $last['description'], 'timestamp' => $last['publishingTimestamp'])));
+        		echo json_encode(array("error" => false, "lastAchievement" => array('achievementID' => $last['achievementOrRewardID'], 'description' => $last['description'], 'timestamp' => $last['publishingTimestamp'])));
         	}
         	else
         	{
-        		echo json_encode(array("error" => false, "last_achievement" => null));
+        		echo json_encode(array("error" => false, "lastAchievement" => null));
         	}
         }
         
@@ -125,11 +125,11 @@ class Achievements_and_rewards extends CI_Controller {
         	$rewards = $this->achievements_and_rewards_model->get("REWARD", $level+1);
         	if(count($rewards) > 0)
         	{
-        		echo json_encode(array("error" => false, "next_reward" => $rewards[0]['description']));
+        		echo json_encode(array("error" => false, "nextReward" => $rewards[0]['description']));
         	}
         	else
         	{
-        		echo json_encode(array("error" => false, "next_reward" => null));
+        		echo json_encode(array("error" => false, "nextReward" => null));
         	}
         }
 }
