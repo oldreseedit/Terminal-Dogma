@@ -19,10 +19,8 @@ main.controller('profileController',['utilities','$scope','$http','$routeParams'
     	self.courses[i].name = self.tempCourses[i].charAt(0).toUpperCase() + self.tempCourses[i].slice(1);
     	self.courses[i].name = self.courses[i].name.split(/(?=[A-Z](?=[a-z]))/).join(" ");
 	}
-    self.lastAchievement = $route.current.locals.lastAchievement;
+    self.lastAchievement = $route.current.locals.lastAchievement ? $route.current.locals.lastAchievement.description : $route.current.locals.lastAchievement;
     self.nextReward = $route.current.locals.nextReward;
-    console.log(self.lastAchievement);
-    console.log(self.expInfo);
     
     var notificationIDs = [];
     angular.forEach($scope.notifications,function(i)
@@ -38,7 +36,7 @@ main.controller('profileController',['utilities','$scope','$http','$routeParams'
             		$http.post('notifications/update',{notificationID : notification.notificationID, seen : true}).then(
         		    		function(response)
         		    		{
-        		    			console.log(response);
+//        		    			console.log(response);
         		    			if(!response.data.error) $scope.getUnseenNotifications();
         		    		},
         		    		function(error)
@@ -168,15 +166,15 @@ main.controller('profileController',['utilities','$scope','$http','$routeParams'
     $scope.$watch(
     		function()
     		{
-    			if($('.profile-name-level-xp')) return $('.profile-name-level-xp').height(); 
+    			if($('.profile-level-symbol')) return $('.profile-level-symbol').height(); 
     		},
     		function(newValue, oldValue)
     		{
     			if(newValue > 0)
     			{
-    				$('.profile-level-symbol').height(newValue);
+    				$('.profile-name-level-xp').height(newValue);
     			}
     		}
-    )
+    );
     
 }]);

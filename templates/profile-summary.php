@@ -1,9 +1,11 @@
 <div class="profile-level-symbol">
-	<img ng-src="{{getAvatar(profile)}}" class="resp-img" ng-class="{'circle-img':thereIsAvatar()}"  ng-controller="avatarController as avatar" ng-click="thereIsAvatar() || avatar.changeAvatar()" />
+<span class="fa-stack fa-stack-10x">
+	<img ng-src="{{getAvatar(profile)}}" ng-class="{'avatar':thereIsAvatar()}"  ng-controller="avatarController as avatar" ng-click="avatar.changeAvatar()" />
+</span>
 </div>
 <div class="profile-name-level-xp">
 	<span ng-bind="profile.username" fittext="0.8"></span>
-	<p class="seed-level">
+	<p class="seed-level" fittext="0.5">
 		Seed Level: <span ng-bind="profile.expInfo.level"></span>
 	</p>
 	<div class="profile-xp">

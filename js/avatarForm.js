@@ -71,6 +71,7 @@ main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','
 					{
 						console.log(response);
 						if(response.data.error) angular.inform(response.data.description, {type: 'danger'});
+						else $cookies.put('avatarURI',response.data.description,{path:'/'});
 					},
 					function(error)
 					{

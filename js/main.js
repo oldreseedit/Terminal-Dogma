@@ -75,7 +75,7 @@ main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$rou
     
 	$rootScope.thereIsAvatar = function()
     {
-    	return $cookies.get('avatar') ? true : false;
+    	return $cookies.get('avatarURI') ? true : false;
     }
 	
 	$rootScope.getAvatar = function(where)
