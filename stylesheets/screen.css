@@ -1937,7 +1937,7 @@ mark,
 }
 
 /* line 93, ../sass/bootstrap/_type.scss */
-.text-justify, #singleCourse .gridster-item, #activities #tiles-activities .tile .back, #profile .gridster-item, .scrollbar-wrapper .scrollbar {
+.text-justify, #singleCourse .gridster-item, #singleCourse .teacher-description, #activities #tiles-activities .tile .back, #profile .gridster-item, .scrollbar-wrapper .scrollbar {
   text-align: justify;
 }
 
@@ -20294,11 +20294,11 @@ body {
 #singleCourse .panel-title {
   font-variant: small-caps;
 }
-/* line 20, ../sass/_course.scss */
-#singleCourse .panel-content > .container {
+/* line 17, ../sass/_course.scss */
+#singleCourse .panel-content {
   padding: 26px 10px 26px 10px;
 }
-/* line 26, ../sass/_course.scss */
+/* line 22, ../sass/_course.scss */
 #singleCourse a {
   text-decoration: none;
   color: inherit;
@@ -20382,38 +20382,43 @@ body {
   margin-top: 2em;
 }
 
-/* line 7, ../sass/_register.scss */
+/* line 1, ../sass/_register.scss */
+#register {
+  /*     // padding-bottom: 3vw; */
+  margin-bottom: 2px;
+}
+/* line 8, ../sass/_register.scss */
 #register #lessonNote {
   height: 2vw;
   line-height: 2vw;
   margin-bottom: 1vw;
 }
-/* line 14, ../sass/_register.scss */
+/* line 15, ../sass/_register.scss */
 #register #lessonNote .fa {
   padding-left: 0.5vw;
 }
-/* line 20, ../sass/_register.scss */
+/* line 21, ../sass/_register.scss */
 #register #timepickers table {
   display: inline-block;
   margin: 0 1vw;
 }
-/* line 37, ../sass/_register.scss */
+/* line 38, ../sass/_register.scss */
 #register #saveLesson {
   margin-bottom: 1vw;
 }
-/* line 41, ../sass/_register.scss */
+/* line 42, ../sass/_register.scss */
 #register .fc-title {
   color: white;
 }
-/* line 45, ../sass/_register.scss */
+/* line 46, ../sass/_register.scss */
 #register .fc-view-container {
   background-color: white;
 }
-/* line 54, ../sass/_register.scss */
+/* line 55, ../sass/_register.scss */
 #register .XP .fa ~ span {
   margin-left: 0;
 }
-/* line 60, ../sass/_register.scss */
+/* line 61, ../sass/_register.scss */
 #register .agendaButtons {
   margin-bottom: 1vw;
   text-align: center;
@@ -20499,7 +20504,7 @@ body {
 }
 /* line 20, ../sass/_profile.scss */
 #profile .panel-content > .container {
-  padding: 26px 10px 26px 10px;
+  margin: 26px 10px 26px 10px;
 }
 /* line 34, ../sass/_profile.scss */
 #profile .profile-name-level-xp .seed-level {

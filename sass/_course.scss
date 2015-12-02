@@ -16,11 +16,7 @@
     
     .panel-content{
         @extend .col-100;
-        
-        &>.container{
-            padding: 26px 10px 26px 10px;
-			
-        }
+        padding: 26px 10px 26px 10px;
     }
     
     a{
@@ -56,6 +52,10 @@
     
     .teacher-name, .teacher-description{
         @extend .col-100;
+    }
+    
+    .teacher-description{
+    	@extend .text-justify;
     }
     
     .course-description-introduction, .course-description-syllabus{
