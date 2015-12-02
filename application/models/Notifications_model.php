@@ -22,7 +22,8 @@ class Notifications_model extends CI_Model
                                 'constraint' => 4096
                         ),
                         'publishingTimestamp' => array(
-                                'type' => 'DATETIME'
+                                'type' => 'DATETIME',
+                				'constraint' => 6
                         ),
                         'username' => array(
                                 'type' => 'VARCHAR',

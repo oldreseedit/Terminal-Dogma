@@ -37,7 +37,8 @@ class Experience_events_model extends CI_Model
 								'null' => TRUE,
                         ),
                         'publishingTimestamp' => array(
-                                'type' => 'DATETIME'
+                                'type' => 'DATETIME',
+                				'constraint' => 6
                         ),
                         'username' => array(
                                 'type' => 'VARCHAR',

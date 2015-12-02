@@ -23,7 +23,8 @@ class User_achievements_rewards_model extends CI_Model
                                 'constraint' => 30
                         ),
                 		'publishingTimestamp' => array(
-                				'type' => 'DATETIME'
+                				'type' => 'DATETIME',
+                				'constraint' => 6
                 		),
                 		'courseID' => array(
                 				'type' => 'VARCHAR',
