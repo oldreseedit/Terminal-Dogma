@@ -11,7 +11,9 @@
 	<div class="profile-xp">
 		<div class="container">
 			<uib-progressbar class="progress-striped active" value="profile.expInfo.partialExperience" max="profile.expInfo.missingExpForNextLevel"  title="Esperienza">
-				<span ng-if="profile.expInfo.partialExperience/profile.expInfo.missingExpForNextLevel > 0.1"><span class="middler"></span><span class="middle" ng-bind="profile.expInfo.partialExperience"></span>/<span class="middle" ng-bind="profile.expInfo.missingExpForNextLevel"></span></span>
+				<span ng-if="profile.expInfo.partialExperience/profile.expInfo.missingExpForNextLevel > 0.1">
+					<span class="middler"></span><span class="middle" ng-bind="profile.expInfo.partialExperience"></span>/<span class="middle" ng-bind="profile.expInfo.missingExpForNextLevel"></span>
+				</span>
 			</uib-progressbar>
 		</div>
 	</div>
