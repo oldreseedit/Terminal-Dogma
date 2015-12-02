@@ -73,9 +73,40 @@ function imOnMaxi(){
 /*** RUN PHASE ***/
 main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$route','gridsterConfig',function($rootScope, $location, $timeout, $http, $cookies, $window, $route, gridsterConfig) {
     
+	$rootScope.thereIsAvatar = function()
+    {
+    	return $cookies.get('avatar') ? true : false;
+    }
+	
+	$rootScope.getAvatar = function(where)
+    {
+    	var avatarURI = $cookies.get('avatarURI');
+    	if(avatarURI) return avatarURI;    
+    	return "imgs/leaf.png";
+    }
+	
+	$rootScope.getUnseenNotifications = function()
+	{
+		$http.post('notifications/get_unseen_user_notifications',{username: $rootScope.username}).then(
+        		function(response)
+        		{
+        			if(response.data)
+        			{
+            			$rootScope.notifications = response.data;
+            			$rootScope.numberOfNotifications = $rootScope.notifications.length;        				
+        			}
+        		},
+        		function(error)
+        		{
+        			console.log(error);
+        		}
+        );
+	};
+	
     if($cookies.get('verified') === '1'){
         $rootScope.userVerified = true;
         $rootScope.username = $cookies.get('username');
+        $rootScope.getUnseenNotifications();
     }
     else $rootScope.userVerified = false;
     
@@ -183,17 +214,17 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
         templateUrl : 'courses'
     });
     
-    // Activities
-    
-    $routeProvider.when('/activities',{
-        templateUrl : 'activities'
-    });
-    
-    // Media
-    
-    $routeProvider.when('/media',{
-        templateUrl : 'media'
-    });
+//    // Activities
+//    
+//    $routeProvider.when('/activities',{
+//        templateUrl : 'activities'
+//    });
+//    
+//    // Media
+//    
+//    $routeProvider.when('/media',{
+//        templateUrl : 'media'
+//    });
     
     // Contacts
     
@@ -321,16 +352,76 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
         		var userID = $route.current.params.userID;
         		
         		return $http.post('achievements_and_rewards/get_achievements_and_rewards',{username: userID}).then(
-        		function(response)
-        		{
-        			return response.data;
-        		},
-        		function(error)
-        		{
-        			console.log(error);
-        		}
+	        		function(response)
+	        		{
+	        			return response.data;
+	        		},
+	        		function(error)
+	        		{
+	        			console.log(error);
+	        		}
         		);
-        	}]
+        	}],
+        	expInfo : ['$http','$route', function($http,$route)
+	        	{
+        			var userID = $route.current.params.userID;
+		        	return $http.post('users/get_exp_info',{username: userID}).then(
+	        			function(response)
+	        			{
+	        				return response.data.expInfo;
+	        			},
+	        			function(error)
+	        			{
+	        				console.log(error);
+	        			}
+		        	);
+	        	}
+    		],
+    		courses : ['$http','$route', function($http,$route)
+	           {
+	    			var userID = $route.current.params.userID;
+		        	return $http.post('payment_interface/get_courses',{username: userID}).then(
+	        			function(response)
+	        			{
+	        				return response.data;
+	        			},
+	        			function(error)
+	        			{
+	        				console.log(error);
+	        			}
+		        	);
+	           }
+    		],
+    		lastAchievement : ['$http','$route', function($http,$route)
+	           {
+	    			var userID = $route.current.params.userID;
+		        	return $http.post('achievements_and_rewards/get_last_achievement',{username: userID}).then(
+	        			function(response)
+	        			{
+	        				return response.data.lastAchievement;
+	        			},
+	        			function(error)
+	        			{
+	        				console.log(error);
+	        			}
+		        	);
+	           }
+    		],
+    		nextReward : ['$http','$route', function($http,$route)
+	           {
+	    			var userID = $route.current.params.userID;
+		        	return $http.post('achievements_and_rewards/get_next_reward',{username: userID}).then(
+	        			function(response)
+	        			{
+	        				return response.data.nextReward;
+	        			},
+	        			function(error)
+	        			{
+	        				console.log(error);
+	        			}
+		        	);
+	           }
+			]
         }
     });
     

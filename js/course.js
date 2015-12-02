@@ -156,7 +156,8 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
 	                             position: {
 	                                 x : 0,
 	                                 y : 14
-	                             }
+	                             },
+	                             minWidth: 6
 	                         }
 	                     }
 	                 ];

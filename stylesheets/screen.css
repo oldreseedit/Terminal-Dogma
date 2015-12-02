@@ -1932,12 +1932,12 @@ mark,
 }
 
 /* line 92, ../sass/bootstrap/_type.scss */
-.text-center, .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #navbar, #footer, #home #team, #singleCourse .course-panel-title, #singleCourse .course-icon, #register, #register .XP, #profile .profile-panel-title {
+.text-center, .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #navbar, #footer, #home #team, #singleCourse .panel-title, #singleCourse .course-icon, #register, #register .XP, #profile .panel-title, #profile .profile-level-symbol {
   text-align: center;
 }
 
 /* line 93, ../sass/bootstrap/_type.scss */
-.text-justify, #singleCourse .gridster-item, #activities #tiles-activities .tile .back, #profile .gridster-item, .scrollbar-wrapper .scrollbar {
+.text-justify, #singleCourse .gridster-item, #singleCourse .teacher-description, #activities #tiles-activities .tile .back, #profile .gridster-item, .scrollbar-wrapper .scrollbar {
   text-align: justify;
 }
 
@@ -10800,7 +10800,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-100, #admin .admin-content, #navbar #navbar-logged, #footer, #footer #commercial-info, #home, #home #presentation #tiles-presentation, #home #presentation #tiles-presentation .inside-tab .tab-content, #home #team, #singleCourse .gridster-item, #singleCourse .course-panel-title, #singleCourse .course-panel-content, #singleCourse .teacher-name, #singleCourse .teacher-description, #singleCourse .course-description-introduction, #singleCourse .course-description-syllabus, #activities #tiles-activities, #activities #tiles-activities .tile .back .back-content, #media .media-panel, #media .media-panel .media-panel-title, #media .media-panel .media-panel-main, #register, #register .XP, #payment .stepLine, #payment .stepContent, #faqPage .stepLine, #faqPage .stepContent, #profile .gridster-item, #profile .profile-panel-title, #profile .profile-panel-content, #profile .profile-name-level-xp .profile-xp, .scrollbar-wrapper .scrollbar, .wrapper, .mini-header {
+.col-100, #admin .admin-content, #navbar #navbar-logged, #footer, #footer #commercial-info, #home, #home #presentation #tiles-presentation, #home #presentation #tiles-presentation .inside-tab .tab-content, #home #team, #singleCourse .gridster-item, #singleCourse .panel-title, #singleCourse .panel-content, #singleCourse .teacher-name, #singleCourse .teacher-description, #singleCourse .course-description-introduction, #singleCourse .course-description-syllabus, #activities #tiles-activities, #activities #tiles-activities .tile .back .back-content, #media .media-panel, #media .media-panel .media-panel-title, #media .media-panel .media-panel-main, #register, #register .XP, #payment .stepLine, #payment .stepContent, #faqPage .stepLine, #faqPage .stepContent, #profile .gridster-item, #profile .panel-title, #profile .panel-content, #profile .profile-name-level-xp .profile-xp, #profile .profile-info, .scrollbar-wrapper .scrollbar, .wrapper, .mini-header {
   width: 100%;
   float: left;
 }
@@ -19448,7 +19448,7 @@ body, p {
 
 /* line 9, ../sass/_fonts.scss */
 p, h1, h2, h3, h4, h5, h6 {
-  padding: 0.5vw;
+  padding: 0.3em;
   margin: 0;
 }
 
@@ -19473,7 +19473,7 @@ h1 {
 }
 
 /* line 49, ../sass/_fonts.scss */
-.bolder {
+.bolder, #navbar .number-of-notifications, #profile .profile-name-level-xp .seed-level {
   font-weight: 900;
 }
 
@@ -19494,7 +19494,7 @@ h1 {
 }
 
 /* line 6, ../sass/_palette.scss */
-.green, #singleCourse a:hover {
+.green, #singleCourse a:hover, #profile .profile-info a:hover {
   color: #0fa82d;
 }
 
@@ -19549,7 +19549,7 @@ h1 {
 }
 
 /* line 18, ../sass/_palette.scss */
-.light-water, #payment #paymentThirdStep .stepLine {
+.light-water, #payment #paymentThirdStep .stepLine, #profile .profile-name-level-xp .seed-level span {
   color: #1cdcba;
 }
 
@@ -19675,7 +19675,7 @@ h1 {
 }
 
 /* line 49, ../sass/_palette.scss */
-.bg-water {
+.bg-water, #profile .profile-name-level-xp .profile-xp .progress-bar {
   background-color: #0c9e84;
 }
 
@@ -19796,7 +19796,7 @@ h1 {
 
 /* line 76, ../sass/_palette.scss */
 .bg-darkest-grey {
-  color: #252525;
+  background-color: #252525;
 }
 
 /* line 77, ../sass/_palette.scss */
@@ -19996,13 +19996,21 @@ body {
 }
 /* line 73, ../sass/_navbar.scss */
 #navbar #navbar-profile .navbar-icons {
-  margin-left: 1.5em;
+  margin-left: 1em;
 }
-/* line 78, ../sass/_navbar.scss */
+/* line 76, ../sass/_navbar.scss */
+#navbar #navbar-profile .navbar-icons .fa-stack {
+  font-size: 0.8em;
+}
+/* line 80, ../sass/_navbar.scss */
+#navbar #navbar-profile .navbar-icons a {
+  margin-left: 0.2em;
+}
+/* line 86, ../sass/_navbar.scss */
 #navbar #navbar-profile .navbar-avatar {
   display: inline;
 }
-/* line 91, ../sass/_navbar.scss */
+/* line 99, ../sass/_navbar.scss */
 #navbar #navbar-signin button, #navbar #navbar-signup button {
   width: 90%;
   font-weight: 400;
@@ -20010,12 +20018,12 @@ body {
   font-size: 21.177px;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 91, ../sass/_navbar.scss */
+  /* line 99, ../sass/_navbar.scss */
   #navbar #navbar-signin button, #navbar #navbar-signup button {
     font-size: 13.032px;
   }
 }
-/* line 112, ../sass/_navbar.scss */
+/* line 120, ../sass/_navbar.scss */
 #navbar #navbar-logged button {
   margin-right: 3em;
   width: 30%;
@@ -20024,10 +20032,15 @@ body {
   font-size: 21.177px;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 112, ../sass/_navbar.scss */
+  /* line 120, ../sass/_navbar.scss */
   #navbar #navbar-logged button {
     font-size: 13.032px;
   }
+}
+/* line 132, ../sass/_navbar.scss */
+#navbar .number-of-notifications {
+  top: -0.8em;
+  left: -1.3em;
 }
 
 /* line 1, ../sass/_header.scss */
@@ -20278,19 +20291,19 @@ body {
   /*         @extend .bg-lightest-grey; */
 }
 /* line 11, ../sass/_course.scss */
-#singleCourse .course-panel-title {
+#singleCourse .panel-title {
   font-variant: small-caps;
 }
-/* line 20, ../sass/_course.scss */
-#singleCourse .course-panel-content > .container {
-  padding: 10px;
+/* line 17, ../sass/_course.scss */
+#singleCourse .panel-content {
+  padding: 26px 10px 26px 10px;
 }
-/* line 25, ../sass/_course.scss */
+/* line 22, ../sass/_course.scss */
 #singleCourse a {
   text-decoration: none;
   color: inherit;
 }
-/* line 73, ../sass/_course.scss */
+/* line 74, ../sass/_course.scss */
 #singleCourse .agendaButtons {
   margin-bottom: 1vw;
   text-align: center;
@@ -20369,38 +20382,43 @@ body {
   margin-top: 2em;
 }
 
-/* line 7, ../sass/_register.scss */
+/* line 1, ../sass/_register.scss */
+#register {
+  /*     // padding-bottom: 3vw; */
+  margin-bottom: 2px;
+}
+/* line 8, ../sass/_register.scss */
 #register #lessonNote {
   height: 2vw;
   line-height: 2vw;
   margin-bottom: 1vw;
 }
-/* line 14, ../sass/_register.scss */
+/* line 15, ../sass/_register.scss */
 #register #lessonNote .fa {
   padding-left: 0.5vw;
 }
-/* line 20, ../sass/_register.scss */
+/* line 21, ../sass/_register.scss */
 #register #timepickers table {
   display: inline-block;
   margin: 0 1vw;
 }
-/* line 37, ../sass/_register.scss */
+/* line 38, ../sass/_register.scss */
 #register #saveLesson {
   margin-bottom: 1vw;
 }
-/* line 41, ../sass/_register.scss */
+/* line 42, ../sass/_register.scss */
 #register .fc-title {
   color: white;
 }
-/* line 45, ../sass/_register.scss */
+/* line 46, ../sass/_register.scss */
 #register .fc-view-container {
   background-color: white;
 }
-/* line 54, ../sass/_register.scss */
+/* line 55, ../sass/_register.scss */
 #register .XP .fa ~ span {
   margin-left: 0;
 }
-/* line 60, ../sass/_register.scss */
+/* line 61, ../sass/_register.scss */
 #register .agendaButtons {
   margin-bottom: 1vw;
   text-align: center;
@@ -20481,16 +20499,37 @@ body {
   /*         @extend .bg-lightest-grey; */
 }
 /* line 11, ../sass/_profile.scss */
-#profile .profile-panel-title {
+#profile .panel-title {
   font-variant: small-caps;
 }
-/* line 20, ../sass/_profile.scss */
-#profile .profile-panel-content > .container {
-  padding: 10px;
+/* line 17, ../sass/_profile.scss */
+#profile .panel-content {
+  padding: 26px 10px 26px 10px;
 }
-/* line 37, ../sass/_profile.scss */
+/* line 31, ../sass/_profile.scss */
+#profile .profile-name-level-xp .seed-level {
+  font-size: 1.4em;
+}
+/* line 43, ../sass/_profile.scss */
+#profile .profile-name-level-xp .profile-xp .progress-bar {
+  font-size: 1em;
+}
+/* line 49, ../sass/_profile.scss */
+#profile .profile-name-level-xp .profile-xp .progress-striped, #profile .profile-name-level-xp .profile-xp .progress-bar {
+  height: 30px;
+}
+/* line 54, ../sass/_profile.scss */
 #profile .profile-name-level-xp p {
   padding: 0;
+}
+/* line 62, ../sass/_profile.scss */
+#profile .profile-info a {
+  color: inherit;
+  text-decoration: none;
+}
+/* line 72, ../sass/_profile.scss */
+#profile .profile-notification {
+  /* 		@extend .list-group-item; */
 }
 
 /* line 1, ../sass/_modal.scss */

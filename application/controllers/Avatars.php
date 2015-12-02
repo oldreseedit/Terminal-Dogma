@@ -54,8 +54,14 @@ class Avatars extends CI_Controller {
         	}
         	else
         	{
+        		if(substr(get_headers($uri)[0], 9, 3) != "200")
+        		{
+        			echo json_encode(array("error" => true, "description" => "URI inesistente: " . $uri, "errorCode" => "MISSING_FILE_ERROR", "parameters" => array("avatarUri")));
+        			return null;
+        		}
+        		
         		// Create a temporary file
-        		$temp_file = tempnam(sys_get_temp_dir(), $userID);
+        		$temp_file = tempnam(sys_get_temp_dir(), "profile-");
         		copy($uri, $temp_file);
         	}
         	
@@ -67,11 +73,27 @@ class Avatars extends CI_Controller {
         		return null;
         	}
         	
-        	// DEBUG: temporary avatar file
-        	copy($temp_file, "uploads/profiles/" . $userID . ".tmp");
-        	$temp_file = "uploads/profiles/" . $userID . ".tmp";
+        	$temp_user_dir = "uploads/profiles/tmp/";
+        	$files = glob($temp_user_dir . '*', GLOB_MARK);
+        	foreach ($files as $file) unlink($file);
         	
-        	return $temp_file;
+        	// DEBUG: temporary avatar file
+        	// Get the destination directory
+        	$final_file = $temp_user_dir . uniqid("", true);
+        	 
+        	// Check if directory already exists
+        	if(!file_exists($temp_user_dir))
+        	{
+        		// If it doesn't exist, create it
+        		if(!mkdir($temp_user_dir, 0777, true))
+        		{
+        			echo json_encode(array("error" => true, "description" => "Errore durante il caricamento del file. Non è stato possibile creare la cartella dei profili.", "errorCode" => "DIRECTORY_ERROR", "parameters" => array("file")));
+        			return;
+        		}
+        	}
+        	copy($temp_file, $final_file);
+        	
+        	return $final_file;
         }
         
         public function load_avatar()
@@ -99,7 +121,7 @@ class Avatars extends CI_Controller {
         	$extension = substr($mime, strpos($mime, "/")+1);
         	
         	// Define the final avatar destination file URI
-        	$fileURI = "uploads/profiles/" . uniqid($userID . "-", true) . "." . $extension;
+        	$fileURI = "uploads/profiles/" . uniqid("", true) . "." . $extension;
         	
         	// Remove the old avatar image
         	$previousAvatar = $this->userinfo_model->get($userID)[0]['profilePicture'];
@@ -126,6 +148,10 @@ class Avatars extends CI_Controller {
         	copy($tempURI, $fileURI);
         	unlink($tempURI);
         	
+        	$temp_user_dir = "uploads/profiles/tmp/";
+        	$files = glob($temp_user_dir . '*', GLOB_MARK);
+        	foreach ($files as $file) unlink($file);
+        	
         	echo json_encode(array("error" => false, "description" => $fileURI));
         }
         
@@ -144,6 +170,83 @@ class Avatars extends CI_Controller {
             }
             
             return true;
+        }
+        
+        public function get_avatar()
+        {
+        	$userID = $this->input->post('username');
+        	if($userID == false)
+        	{
+        		echo json_encode(array("error" => true, "description" => "Specificare il nome utente.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("username")));
+        		return;
+        	}
+        	
+        	$avatar = $this->userinfo_model->get($userID)[0]['profilePicture'];
+        	
+        	echo json_encode(array("error" => false, "avatar" => $avatar));
+        }
+        
+        public function crop($centered = true)
+        {
+        	$uri = "http://www.barnesandnoble.com/blog/barnesy/wp-content/uploads/2013/08/country_western.jpg";
+//         	$uri = "http://npg.si.edu/exhibit/feature/images/schoeller_full.jpg";
+
+			$info = getimagesize($uri);
+			$image_type = $info['mime'];
+        	
+        	// Load the image
+        	$image = null;
+	        switch ($image_type)
+			{
+			    case 'image/jpeg':
+			        $image = imagecreatefromjpeg($uri);
+			    break;
+			    case 'image/gif':
+			        $image = imagecreatefromgif($uri);
+			    break;
+			    case 'image/png':
+			        $image = imagecreatefrompng($uri);
+			    break;
+			    default:
+		    	{
+		    		echo json_encode(array("error" => true, "description" => "Errore durante il caricamento del file. Tipo file non permesso.", "errorCode" => "FORBIDDEN_FILE_TYPE_ERROR"));
+		    		return;
+		    	}
+			}
+			
+			// Create the cropping info
+			$width = $info[0];
+			$height = $info[1];
+			$crop_measure = min($width, $height);
+			$x = 0;
+			$y = 0;
+			if($centered)
+			{
+				$x = ($width - $crop_measure)/2;
+				$y = ($height - $crop_measure)/2;
+			}
+			
+			$to_crop_array = array('x' => $x , 'y' => $y, 'width' => $crop_measure, 'height'=> $crop_measure);
+			
+			// Crop the image
+        	$thumb_im = imagecrop($image, $to_crop_array);
+        	
+        	// Print it or save it
+        	header('Content-Type: ' . $image_type);
+        	switch ($image_type)
+        	{
+        		case 'image/jpeg':
+        			$image = imagejpeg($thumb_im);
+        			break;
+        		case 'image/gif':
+        			$image = imagegif($thumb_im);
+        			break;
+        		case 'image/png':
+        			$image = imagepng($thumb_im);
+        			break;
+        		default:
+        			break;
+        	}
         }
 }
 ?>

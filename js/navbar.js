@@ -10,10 +10,10 @@ main.controller('navbarController',['utilities','$timeout','$window','$uibModal'
         //     url : 'activities',
         //     content : 'Servizi'
         // },
-        {
-            url : 'media',
-            content : 'Media'
-        },
+//        {
+//            url : 'media',
+//            content : 'Media'
+//        },
         {
             url : 'contacts',
             content : 'Contatti'

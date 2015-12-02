@@ -3,11 +3,11 @@ main.controller('gridsterResizeController',['$scope','$element','$timeout','$htt
 	
 	self.updateScrollbar = function()
 	{
-		var content = $element.find('[gridster-content]');
-		var innerHeight = content[0].offsetHeight;
-		var panelHeaderHeight = $('.course-panel-title').height();
-		var outerHeight = $element[0].offsetHeight;
+		var content = $element.find('.panel-content');
+		var panelHeaderHeight = $('.panel-title').height() ;
+		var outerHeight = $element.height();
 		content.attr('style','height:'+(outerHeight-panelHeaderHeight)+'px');
+		content.find('.scrollbar-wrapper').attr('style','height:'+content.height()+'px');
 		content.perfectScrollbar('update');
 	};
 	
@@ -56,7 +56,7 @@ main.controller('gridsterResizeController',['$scope','$element','$timeout','$htt
 						{
 							clearTimeout(self.timer);
 //							console.log('Il contenuto è stato caricato');
-							self.panelHeaderHeight = $('.course-panel-title').height();
+							self.panelHeaderHeight = $('.panel-title').height();
 							self.innerHeight = newHeight;
 							self.content = $element.find('[gridster-content]');
 							self.outerHeight = $element[0].offsetHeight;
@@ -103,19 +103,10 @@ main.controller('gridsterResizeController',['$scope','$element','$timeout','$htt
 		{
 			self.deregisterInnerHeight();
 			self.deregisterOuterHeight();
-//			
-//			console.log('Sono ', $scope.gridsterItems[$scope.index]);
-//			for(var i=0; i<$scope.gridsterItems.length; i++)
-//			{
-//				var thisItem = $scope.gridsterItems[i];
-//				console.log('', thisItem, ' \t ', thisItem.measures.position.x, thisItem.measures.position.y );				
-//			}
-			
-//			self.setProperPositions();
 			
 			$scope.registerMeasures();
 			
-			self.updateScrollbar();
+			$timeout(function(){self.updateScrollbar();});
 
 			$scope.$on('gridster-item-transition-end',
 				function()
@@ -164,47 +155,4 @@ main.controller('gridsterResizeController',['$scope','$element','$timeout','$htt
 		);
 	}
 	
-	self.setProperPositions = function()
-	{
-		var row = [];
-		var temp=0;
-		var oldY = 1;
-		var counter = 0;
-		var items = $scope.gridsterItems;
-		for(var i = 0; i < items.length; i++)
-		{
-			var width =  items[i].measures.width;
-			if(temp + width <= 12)
-			{
-				row.push(items[i]);
-				temp += width;
-			}
-			if(temp === 12)
-			{
-				console.log(row);
-				
-				if(counter === 0) for(j=0; j < row.length; j++) row[j].measures.position.y = 0; 
-				
-				var heights = [];
-				for(var j=0; j < row.length; j++) heights.push(row[j].measures.height); 
-				
-				var maxHeight = Math.max.apply(null,heights);
-				
-				console.log(maxHeight);
-				
-				var newY =  maxHeight + oldY;
-				
-				console.log(newY);
-				
-				for(j=0; j < row.length; j++) row[j].measures.position.y = newY; 
-				
-				oldY = newY;
-				counter++;
-				temp = 0;
-				row = [];
-			}			
-		}
-	}
-
-
 }]);

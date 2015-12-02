@@ -8,18 +8,15 @@
 /*         @extend .bg-lightest-grey; */
     }
     
-    .course-panel-title{
+    .panel-title{
         @extend .col-100;
         @extend .text-center;
         font-variant: small-caps;
     }
     
-    .course-panel-content{
+    .panel-content{
         @extend .col-100;
-        
-        &>.container{
-            padding: 10px;
-        }
+        padding: 26px 10px 26px 10px;
     }
     
     a{
@@ -55,6 +52,10 @@
     
     .teacher-name, .teacher-description{
         @extend .col-100;
+    }
+    
+    .teacher-description{
+    	@extend .text-justify;
     }
     
     .course-description-introduction, .course-description-syllabus{

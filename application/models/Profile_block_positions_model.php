@@ -41,8 +41,9 @@ class Profile_block_positions_model extends CI_Model
         
         public function update($userID, $block_positions)
         {
-        	if(count($this->get($userID)) == 0) $this->add($userID, $block_positions);
-        	else $this->db
+//         	if(count($this->get($userID)) == 0) $this->add($userID, $block_positions);
+//         	else
+        		$this->db
 					->where('username', $userID)
 	            	->update(self::table_name, array('block_positions' => $block_positions));
         }
