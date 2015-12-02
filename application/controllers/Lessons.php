@@ -14,6 +14,7 @@ class Lessons extends CI_Controller {
                 $this->load->model('user_achievements_rewards_model');
                 
                 $this->load->library('experience');
+                $this->load->library('time');
                 
                 $this->load->helper('url');
         }
@@ -202,7 +203,7 @@ class Lessons extends CI_Controller {
         		{
         			$eighty_percent_achievement_prototype = $all_achievements_and_rewards[$arID];
         	
-        			$publishingTimestamp = date("Y-m-d H:i:s");
+        			$publishingTimestamp = $this->time->get_timestamp();
         			$notifications[] = array("error" => false, "description" => "Hai ottenuto " . $arID . ": " . $eighty_percent_achievement_prototype['Description'], "errorCode" => "ACHIEVEMENT_EVENT");
         			$this->experience_events_model->add($userID, "ACHIEVEMENT", $arID, $publishingTimestamp, null, $courseID);
         			$this->notifications_model->add("Hai ottenuto " . $arID . ": " . $eighty_percent_achievement_prototype['Description'], $publishingTimestamp, array($userID), true, $courseID);
@@ -218,7 +219,7 @@ class Lessons extends CI_Controller {
         	
         			if(strcmp($eighty_percent_achievement['courseID'], $courseID) == 0)
         			{
-        				$publishingTimestamp = date("Y-m-d H:i:s");
+        				$publishingTimestamp = $this->time->get_timestamp();
         				$notifications[] = array("error" => false, "description" => "E' stato tolto " . $arID, "errorCode" => "ACHIEVEMENT_EVENT");
         				$this->experience_events_model->add($userID, "ACHIEVEMENT_LOST", $arID, $publishingTimestamp, null, $courseID);
         				$this->notifications_model->add("Hai perso " . $arID, $publishingTimestamp, array($userID), true, $courseID);
@@ -236,7 +237,7 @@ class Lessons extends CI_Controller {
         		{
         			$one_hundred_percent_achievement_prototype = $all_achievements_and_rewards[$arID];
         	
-        			$publishingTimestamp = date("Y-m-d H:i:s");
+        			$publishingTimestamp = $this->time->get_timestamp();
         			$notifications[] = array("error" => false, "description" => "Hai ottenuto " . $arID . ": " . $one_hundred_percent_achievement_prototype['Description'], "errorCode" => "ACHIEVEMENT_EVENT");
         			$this->experience_events_model->add($userID, "ACHIEVEMENT", $arID, $publishingTimestamp, null, $courseID);
         			$this->notifications_model->add("Hai ottenuto " . $arID . ": " . $one_hundred_percent_achievement_prototype['Description'], $publishingTimestamp, array($userID), true, $courseID);
@@ -252,7 +253,7 @@ class Lessons extends CI_Controller {
         	
         			if(strcmp($one_hundred_percent_achievement['courseID'], $courseID) == 0)
         			{
-        				$publishingTimestamp = date("Y-m-d H:i:s");
+        				$publishingTimestamp = $this->time->get_timestamp();
         				$notifications[] = array("error" => false, "description" => "E' stato tolto " . $arID, "errorCode" => "ACHIEVEMENT_EVENT");
         				$this->experience_events_model->add($userID, "ACHIEVEMENT_LOST", $arID, $publishingTimestamp, null, $courseID);
         				$this->notifications_model->add("Hai perso " . $arID, $publishingTimestamp, array($userID), true, $courseID);
