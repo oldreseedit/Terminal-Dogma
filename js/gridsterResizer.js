@@ -39,8 +39,7 @@ main.controller('gridsterResizeController',['$scope','$element','$timeout','$htt
 		
 	});
 
-//	if(!$scope.measuresLoaded)
-	if(true)
+	if(!$scope.measuresLoaded)
 	{
 		
 		self.timer = setTimeout(function(){self.deregisterWatchers();},500);
