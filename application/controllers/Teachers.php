@@ -18,7 +18,7 @@ class Teachers extends CI_Controller {
 
             $name = "Lorenzo";            
             $description = "Lorenzo si è laureato in informatica magistrale con specializzazione in intelligenza artificiale, interazione uomo-macchina e user interfaces.
-                            Da diversi anni lavora come grafico 3D e come sviluppatore indipendente \"One-Man-Band\" di videogiochi. Curiosità: suona la chitarra in strada.";
+                            Da diversi anni lavora come grafico 3D e come sviluppatore indipendente \"One-Man-Band\" di videogiochi.<br/><br/>Curiosità: suona la chitarra in strada.";
             $avatar_URL = "imgs/team/Lorenzo.jpg";
             
             $teacher = array('name' => $name, 'description' => $description, 'avatarURL' => $avatar_URL);
