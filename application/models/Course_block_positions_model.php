@@ -47,8 +47,9 @@ class Course_block_positions_model extends CI_Model
         
         public function update($userID, $courseID, $block_positions)
         {
-        	if(count($this->get($userID, $courseID)) == 0) $this->add($userID, $courseID, $block_positions);
-        	else $this->db
+//         	if(count($this->get($userID, $courseID)) == 0) $this->add($userID, $courseID, $block_positions);
+//         	else
+        		$this->db
 					->where('username', $userID)
 	            	->where('courseID', $courseID)
 	            	->update(self::table_name, array('block_positions' => $block_positions));

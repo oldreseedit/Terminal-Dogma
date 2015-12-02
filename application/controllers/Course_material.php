@@ -1,8 +1,5 @@
 <?php
 
-// TODO: role-based access control (offuscamento directory dei file)
-// TODO: nella add: gestire corso che non esiste, ID lezione
-
 // $this->db->error(); working?
 class Course_material extends CI_Controller {
 
@@ -14,6 +11,9 @@ class Course_material extends CI_Controller {
                 $this->load->model('course_material_model');
                 $this->load->model('payment_model');
                 $this->load->model('notifications_model');
+                
+                $this->load->library('permissions');
+                
                 $this->load->helper('url');
                 $this->load->helper('file');
         }
@@ -235,6 +235,12 @@ class Course_material extends CI_Controller {
         
         public function get_all()
         {
+        	if(!$this->permissions->canSee())
+        	{
+        		echo json_encode(array());
+        		return;
+        	}
+        	
             $courseID = $this->input->post('courseID');
             if($courseID == false) $courseID = null;
             

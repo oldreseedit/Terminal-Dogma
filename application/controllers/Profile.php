@@ -15,8 +15,10 @@ class Profile extends CI_Controller {
         
 	public function index($profileName)
 	{
-		$userID = $_COOKIE['username'];
-		$token = $_COOKIE['token'];
+		$userID = null;
+		$token = null;
+		if(isset($_COOKIE['username'])) $userID = $_COOKIE['username'];
+		if(isset($_COOKIE['token'])) $token = $_COOKIE['token'];
 		if(!$this->users_model->isLoggedIn($userID, $token))
 		{
 			echo json_encode(array("error" => true, "description" => "Non risulti essere iscritto a reSeed. Iscriviti!", "errorCode" => "ILLEGAL_ACCESS", "parameters" => array("username", "password")));
