@@ -273,15 +273,18 @@ class Users extends CI_Controller {
         	$expForThisLevel = $this->experience->expForLevel($level);
         	$missingExpForNextLevel = $this->experience->getMissingExpForNextLevel($level, $currentExp);
         	$expForNextLevel = $this->experience->expForLevel($level+1);
+        	$partialExperience = $currentExp - $expForThisLevel;
         	
         	echo json_encode(array(
         			"error" => false,
         			'expInfo' => array(
 	        			"level" => $level,
 	        			"currentExperience" => $currentExp,
-        				"partialExperience" => $expForThisLevel,
+        				"expForThisLevel" => $expForThisLevel,
 	        			"expForNextLevel" => $expForNextLevel,
-	        			"missingExpForNextLevel" => $missingExpForNextLevel)
+	        			"missingExpForNextLevel" => $missingExpForNextLevel,
+        				"partialExperience" => $partialExperience
+        			)
         	));
         }
         
