@@ -171,5 +171,82 @@ class Avatars extends CI_Controller {
             
             return true;
         }
+        
+        public function get_avatar()
+        {
+        	$userID = $this->input->post('username');
+        	if($userID == false)
+        	{
+        		echo json_encode(array("error" => true, "description" => "Specificare il nome utente.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("username")));
+        		return;
+        	}
+        	
+        	$avatar = $this->userinfo_model->get($userID)[0]['profilePicture'];
+        	
+        	echo json_encode(array("error" => false, "avatar" => $avatar));
+        }
+        
+        public function crop($centered = true)
+        {
+        	$uri = "http://www.barnesandnoble.com/blog/barnesy/wp-content/uploads/2013/08/country_western.jpg";
+//         	$uri = "http://npg.si.edu/exhibit/feature/images/schoeller_full.jpg";
+
+			$info = getimagesize($uri);
+			$image_type = $info['mime'];
+        	
+        	// Load the image
+        	$image = null;
+	        switch ($image_type)
+			{
+			    case 'image/jpeg':
+			        $image = imagecreatefromjpeg($uri);
+			    break;
+			    case 'image/gif':
+			        $image = imagecreatefromgif($uri);
+			    break;
+			    case 'image/png':
+			        $image = imagecreatefrompng($uri);
+			    break;
+			    default:
+		    	{
+		    		echo json_encode(array("error" => true, "description" => "Errore durante il caricamento del file. Tipo file non permesso.", "errorCode" => "FORBIDDEN_FILE_TYPE_ERROR"));
+		    		return;
+		    	}
+			}
+			
+			// Create the cropping info
+			$width = $info[0];
+			$height = $info[1];
+			$crop_measure = min($width, $height);
+			$x = 0;
+			$y = 0;
+			if($centered)
+			{
+				$x = ($width - $crop_measure)/2;
+				$y = ($height - $crop_measure)/2;
+			}
+			
+			$to_crop_array = array('x' => $x , 'y' => $y, 'width' => $crop_measure, 'height'=> $crop_measure);
+			
+			// Crop the image
+        	$thumb_im = imagecrop($image, $to_crop_array);
+        	
+        	// Print it or save it
+        	header('Content-Type: ' . $image_type);
+        	switch ($image_type)
+        	{
+        		case 'image/jpeg':
+        			$image = imagejpeg($thumb_im);
+        			break;
+        		case 'image/gif':
+        			$image = imagegif($thumb_im);
+        			break;
+        		case 'image/png':
+        			$image = imagepng($thumb_im);
+        			break;
+        		default:
+        			break;
+        	}
+        }
 }
 ?>
