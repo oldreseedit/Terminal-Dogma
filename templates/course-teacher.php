@@ -6,6 +6,6 @@
         <h5 ng-bind="course.teacher.name"></h5>
     </div>
     <div class="teacher-description">
-        <p><span ng-bind="course.teacher.description"></span></p>
+        <p><span ng-bind-html="course.teacher.description"></span></p>
     </div>
 </div>
