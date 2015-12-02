@@ -116,6 +116,8 @@ class Notifications extends CI_Controller {
             
             $seen = $this->input->post('seen');
             if(!isset($_POST['seen'])) $seen = null;
+            if(strcmp($seen, "true") == 0) $seen = true;
+            else $seen = false;
             
             $text = $this->input->post('text');
             if($text == false) $text = null;
