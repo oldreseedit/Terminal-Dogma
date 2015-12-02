@@ -5,7 +5,7 @@ main.controller('gridsterResizeController',['$scope','$element','$timeout','$htt
 	{
 		var content = $element.find('[gridster-content]');
 		var innerHeight = content[0].offsetHeight;
-		var panelHeaderHeight = $('.course-panel-title').height();
+		var panelHeaderHeight = $('.panel-title').height() ;
 		var outerHeight = $element[0].offsetHeight;
 		content.attr('style','height:'+(outerHeight-panelHeaderHeight)+'px');
 		content.perfectScrollbar('update');
@@ -56,7 +56,7 @@ main.controller('gridsterResizeController',['$scope','$element','$timeout','$htt
 						{
 							clearTimeout(self.timer);
 //							console.log('Il contenuto è stato caricato');
-							self.panelHeaderHeight = $('.course-panel-title').height();
+							self.panelHeaderHeight = $('.panel-title').height();
 							self.innerHeight = newHeight;
 							self.content = $element.find('[gridster-content]');
 							self.outerHeight = $element[0].offsetHeight;

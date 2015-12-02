@@ -1932,7 +1932,7 @@ mark,
 }
 
 /* line 92, ../sass/bootstrap/_type.scss */
-.text-center, .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #navbar, #footer, #home #team, #singleCourse .course-panel-title, #singleCourse .course-icon, #register, #register .XP, #profile .profile-panel-title {
+.text-center, .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #navbar, #footer, #home #team, #singleCourse .course-panel-title, #singleCourse .course-icon, #register, #register .XP, #profile .profile-panel-title, #profile .profile-level-symbol {
   text-align: center;
 }
 
@@ -10800,7 +10800,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-100, #admin .admin-content, #navbar #navbar-logged, #footer, #footer #commercial-info, #home, #home #presentation #tiles-presentation, #home #presentation #tiles-presentation .inside-tab .tab-content, #home #team, #singleCourse .gridster-item, #singleCourse .course-panel-title, #singleCourse .course-panel-content, #singleCourse .teacher-name, #singleCourse .teacher-description, #singleCourse .course-description-introduction, #singleCourse .course-description-syllabus, #activities #tiles-activities, #activities #tiles-activities .tile .back .back-content, #media .media-panel, #media .media-panel .media-panel-title, #media .media-panel .media-panel-main, #register, #register .XP, #payment .stepLine, #payment .stepContent, #faqPage .stepLine, #faqPage .stepContent, #profile .gridster-item, #profile .profile-panel-title, #profile .profile-panel-content, #profile .profile-name-level-xp .profile-xp, .scrollbar-wrapper .scrollbar, .wrapper, .mini-header {
+.col-100, #admin .admin-content, #navbar #navbar-logged, #footer, #footer #commercial-info, #home, #home #presentation #tiles-presentation, #home #presentation #tiles-presentation .inside-tab .tab-content, #home #team, #singleCourse .gridster-item, #singleCourse .course-panel-title, #singleCourse .panel-content, #singleCourse .teacher-name, #singleCourse .teacher-description, #singleCourse .course-description-introduction, #singleCourse .course-description-syllabus, #activities #tiles-activities, #activities #tiles-activities .tile .back .back-content, #media .media-panel, #media .media-panel .media-panel-title, #media .media-panel .media-panel-main, #register, #register .XP, #payment .stepLine, #payment .stepContent, #faqPage .stepLine, #faqPage .stepContent, #profile .gridster-item, #profile .profile-panel-title, #profile .panel-content, #profile .profile-name-level-xp .profile-xp, #profile .profile-info, .scrollbar-wrapper .scrollbar, .wrapper, .mini-header {
   width: 100%;
   float: left;
 }
@@ -19473,7 +19473,7 @@ h1 {
 }
 
 /* line 49, ../sass/_fonts.scss */
-.bolder {
+.bolder, #navbar .number-of-notifications {
   font-weight: 900;
 }
 
@@ -19494,7 +19494,7 @@ h1 {
 }
 
 /* line 6, ../sass/_palette.scss */
-.green, #singleCourse a:hover {
+.green, #singleCourse a:hover, #profile .profile-info a:hover {
   color: #0fa82d;
 }
 
@@ -19796,7 +19796,7 @@ h1 {
 
 /* line 76, ../sass/_palette.scss */
 .bg-darkest-grey {
-  color: #252525;
+  background-color: #252525;
 }
 
 /* line 77, ../sass/_palette.scss */
@@ -19996,13 +19996,21 @@ body {
 }
 /* line 73, ../sass/_navbar.scss */
 #navbar #navbar-profile .navbar-icons {
-  margin-left: 1.5em;
+  margin-left: 1em;
 }
-/* line 78, ../sass/_navbar.scss */
+/* line 76, ../sass/_navbar.scss */
+#navbar #navbar-profile .navbar-icons .fa-stack {
+  font-size: 0.9em;
+}
+/* line 80, ../sass/_navbar.scss */
+#navbar #navbar-profile .navbar-icons a {
+  margin-left: 0.2em;
+}
+/* line 86, ../sass/_navbar.scss */
 #navbar #navbar-profile .navbar-avatar {
   display: inline;
 }
-/* line 91, ../sass/_navbar.scss */
+/* line 99, ../sass/_navbar.scss */
 #navbar #navbar-signin button, #navbar #navbar-signup button {
   width: 90%;
   font-weight: 400;
@@ -20010,12 +20018,12 @@ body {
   font-size: 21.177px;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 91, ../sass/_navbar.scss */
+  /* line 99, ../sass/_navbar.scss */
   #navbar #navbar-signin button, #navbar #navbar-signup button {
     font-size: 13.032px;
   }
 }
-/* line 112, ../sass/_navbar.scss */
+/* line 120, ../sass/_navbar.scss */
 #navbar #navbar-logged button {
   margin-right: 3em;
   width: 30%;
@@ -20024,10 +20032,15 @@ body {
   font-size: 21.177px;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 112, ../sass/_navbar.scss */
+  /* line 120, ../sass/_navbar.scss */
   #navbar #navbar-logged button {
     font-size: 13.032px;
   }
+}
+/* line 132, ../sass/_navbar.scss */
+#navbar .number-of-notifications {
+  top: -0.1em;
+  left: -0.1em;
 }
 
 /* line 1, ../sass/_header.scss */
@@ -20282,7 +20295,7 @@ body {
   font-variant: small-caps;
 }
 /* line 20, ../sass/_course.scss */
-#singleCourse .course-panel-content > .container {
+#singleCourse .panel-content > .container {
   padding: 10px;
 }
 /* line 25, ../sass/_course.scss */
@@ -20485,12 +20498,21 @@ body {
   font-variant: small-caps;
 }
 /* line 20, ../sass/_profile.scss */
-#profile .profile-panel-content > .container {
+#profile .panel-content > .container {
   padding: 10px;
 }
-/* line 37, ../sass/_profile.scss */
+/* line 38, ../sass/_profile.scss */
 #profile .profile-name-level-xp p {
   padding: 0;
+}
+/* line 46, ../sass/_profile.scss */
+#profile .profile-info a {
+  color: inherit;
+  text-decoration: none;
+}
+/* line 56, ../sass/_profile.scss */
+#profile .profile-notification {
+  /* 		@extend .list-group-item; */
 }
 
 /* line 1, ../sass/_modal.scss */

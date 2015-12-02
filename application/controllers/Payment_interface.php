@@ -92,7 +92,7 @@ class Payment_interface extends CI_Controller {
             $courses = array();
             foreach($result as $course)
             {
-                array_push($courses, $course['CourseID']);
+                $courses[] = $course['CourseID'];
             }
             echo json_encode($courses);
         }

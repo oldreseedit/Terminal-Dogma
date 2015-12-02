@@ -69,11 +69,9 @@ class Userinfo_model extends CI_Model
                 $this->db->insert(self::table_name, $data);
         }
         
-        public function update($data)
+        public function update($userID, $data)
         {
-                $data = array();
-                
-                $this->db->where('userID', $data['userID']);
+                $this->db->where('userID', $userID);
                 $this->db->update(self::table_name, $data);
         }
         
