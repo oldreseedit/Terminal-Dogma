@@ -1,4 +1,4 @@
-main.controller('profileController',['utilities','$scope','$http','$routeParams','$route','$timeout',function(utilities,$scope,$http,$routeParams,$route,$timeout){
+main.controller('profileController',['utilities','$scope','$http','$routeParams','$route','$timeout','$cookies',function(utilities,$scope,$http,$routeParams,$route,$timeout,$cookies){
     var self = this;
     
     self.username = $routeParams.userID;
@@ -21,8 +21,6 @@ main.controller('profileController',['utilities','$scope','$http','$routeParams'
 	}
     self.lastAchievement = $route.current.locals.lastAchievement;
     self.nextReward = $route.current.locals.nextReward;
-    console.log(self.lastAchievement);
-    console.log(self.nextReward);
     console.log(self.expInfo);
     
     var notificationIDs = [];

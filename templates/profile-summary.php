@@ -1,5 +1,5 @@
 <div class="profile-level-symbol">
-	<img src="imgs/leaf.png" class="resp-img" />
+	<img ng-src="{{getAvatar(profile)}}" class="resp-img" ng-class="{'circle-img':thereIsAvatar()}"  ng-controller="avatarController as avatar" ng-click="thereIsAvatar() || avatar.changeAvatar()" />
 </div>
 <div class="profile-name-level-xp">
 	<span ng-bind="profile.username" fittext="0.8"></span>
@@ -17,7 +17,7 @@
 <div class="profile-info">
 	<div class="container">
 		<p ng-if="profile.lastAchievement || profile.nextReward">
-			<span class="bold" ng-if="profile.lastAchievement">Ultimo Achievement: </span><span ng-bind="profile.lastAchievement"></span><br />
+			<span class="bold" ng-if="profile.lastAchievement">Ultimo Achievement: </span><span ng-bind="profile.lastAchievement"></span><br ng-if="profile.lastAchievement"/>
 			<span class="bold" ng-if="profile.nextReward">Prossima Reward: </span><span ng-bind="profile.nextReward"></span><br />
 		</p>
 		<p ng-if="profile.courses">

@@ -73,6 +73,18 @@ function imOnMaxi(){
 /*** RUN PHASE ***/
 main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$route','gridsterConfig',function($rootScope, $location, $timeout, $http, $cookies, $window, $route, gridsterConfig) {
     
+	$rootScope.thereIsAvatar = function()
+    {
+    	return $cookies.get('avatar') ? true : false;
+    }
+	
+	$rootScope.getAvatar = function(where)
+    {
+    	var avatarURI = $cookies.get('avatarURI');
+    	if(avatarURI) return avatarURI;    
+    	return "imgs/leaf.png";
+    }
+	
 	$rootScope.getUnseenNotifications = function()
 	{
 		$http.post('notifications/get_unseen_user_notifications',{username: $rootScope.username}).then(
