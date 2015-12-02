@@ -287,14 +287,12 @@ class Users extends CI_Controller {
         
         public function get_total_discount()
         {
-//         	$userID = $this->input->post('username');
-//         	if($userID == false)
-//         	{
-//         		echo json_encode(array("error" => true, "description" => "Lo username è obbligatorio.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("username")));
-//         		return;
-//         	}
-
-			$userID = "Arcana";
+        	$userID = $this->input->post('username');
+        	if($userID == false)
+        	{
+        		echo json_encode(array("error" => true, "description" => "Lo username è obbligatorio.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("username")));
+        		return;
+        	}
         	
         	$total_discount = 0;
         	$rewards = $this->user_achievements_rewards_model->get_achievements_and_rewards_obtained($userID, "REWARD", "DISCOUNT");
