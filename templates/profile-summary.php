@@ -3,14 +3,13 @@
 </div>
 <div class="profile-name-level-xp">
 	<span ng-bind="profile.username" fittext="0.8"></span>
-	<p>
+	<p class="seed-level">
 		Seed Level: <span ng-bind="profile.expInfo.level"></span>
 	</p>
 	<div class="profile-xp">
 		<div class="container">
-			<uib-progressbar class="progress-striped active" type="success" value="profile.expInfo.partialExperience" max="profile.expInfo.missingExpForNextLevel"
-				type="profile.xpBarTypes()" title="Esperienza"> <span
-				ng-bind="profile.expInfo.partialExperience"></span>/<span ng-bind="profile.expInfo.missingExpForNextLevel"></span>
+			<uib-progressbar class="progress-striped active" value="profile.expInfo.partialExperience" max="profile.expInfo.missingExpForNextLevel"  title="Esperienza">
+				<span class="middler"></span><span class="middle" ng-bind="profile.expInfo.partialExperience"></span>/<span class="middle" ng-bind="profile.expInfo.missingExpForNextLevel"></span>
 			</uib-progressbar>
 		</div>
 	</div>

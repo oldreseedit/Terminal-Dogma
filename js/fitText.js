@@ -137,6 +137,27 @@
               $timeout(function(){resizer();});
             }
           );
+          
+          if(attrs.fittextReference)
+    	  {
+        	  scope.$watch(
+	            function(){
+	              if($('#'+attrs.fittextReference)) return $('#'+attrs.fittextReference).width();
+	            },
+	            function() {
+	              $timeout(function(){resizer();});
+	            }
+	          );
+        	  scope.$watch(
+  	            function(){
+  	              if($('#'+attrs.fittextReference)) return $('#'+attrs.fittextReference).height();
+  	            },
+  	            function() {
+  	              $timeout(function(){resizer();});
+  	            }
+  	          );
+    	  }
+          
         }
       };
     }])
@@ -212,6 +233,7 @@
               $timeout(function(){resizer();});
             }
           );
+          
         }
       };
     }]);

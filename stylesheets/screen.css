@@ -19473,7 +19473,7 @@ h1 {
 }
 
 /* line 49, ../sass/_fonts.scss */
-.bolder, #navbar .number-of-notifications {
+.bolder, #navbar .number-of-notifications, #profile .profile-name-level-xp .seed-level {
   font-weight: 900;
 }
 
@@ -19549,7 +19549,7 @@ h1 {
 }
 
 /* line 18, ../sass/_palette.scss */
-.light-water, #payment #paymentThirdStep .stepLine {
+.light-water, #payment #paymentThirdStep .stepLine, #profile .profile-name-level-xp .seed-level span {
   color: #1cdcba;
 }
 
@@ -19675,7 +19675,7 @@ h1 {
 }
 
 /* line 49, ../sass/_palette.scss */
-.bg-water {
+.bg-water, #profile .profile-name-level-xp .profile-xp .progress-bar {
   background-color: #0c9e84;
 }
 
@@ -20499,19 +20499,30 @@ body {
 }
 /* line 20, ../sass/_profile.scss */
 #profile .panel-content > .container {
-  padding: 10px;
-  margin-top: 16px;
+  padding: 26px 10px 26px 10px;
 }
-/* line 39, ../sass/_profile.scss */
+/* line 34, ../sass/_profile.scss */
+#profile .profile-name-level-xp .seed-level {
+  font-size: 1.4em;
+}
+/* line 46, ../sass/_profile.scss */
+#profile .profile-name-level-xp .profile-xp .progress-bar {
+  font-size: 1em;
+}
+/* line 52, ../sass/_profile.scss */
+#profile .profile-name-level-xp .profile-xp .progress-striped, #profile .profile-name-level-xp .profile-xp .progress-bar {
+  height: 30px;
+}
+/* line 57, ../sass/_profile.scss */
 #profile .profile-name-level-xp p {
   padding: 0;
 }
-/* line 47, ../sass/_profile.scss */
+/* line 65, ../sass/_profile.scss */
 #profile .profile-info a {
   color: inherit;
   text-decoration: none;
 }
-/* line 57, ../sass/_profile.scss */
+/* line 75, ../sass/_profile.scss */
 #profile .profile-notification {
   /* 		@extend .list-group-item; */
 }
