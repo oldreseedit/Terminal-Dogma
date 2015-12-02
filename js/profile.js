@@ -30,20 +30,25 @@ main.controller('profileController',['utilities','$scope','$http','$routeParams'
     		notificationIDs.push(i.notificationID);
 	    }		
     );
-    $timeout(function()
-    	{
-    		$http.post('notifications/update_seen',{notificationIDs : notificationIDs}).then(
-		    		function(response)
-		    		{
-		    			if(!response.data.error) $scope.getUnseenNotifications();
-		    		},
-		    		function(error)
-		    		{
-		    			console.log(error);
-		    		}
-		    );
-    	},2000
-    );
+    
+    self.seeNotification = function(notification)
+    {
+        $timeout(function()
+            	{
+            		$http.post('notifications/update',{notificationID : notification.notificationID, seen : true}).then(
+        		    		function(response)
+        		    		{
+        		    			console.log(response);
+        		    			if(!response.data.error) $scope.getUnseenNotifications();
+        		    		},
+        		    		function(error)
+        		    		{
+        		    			console.log(error);
+        		    		}
+        		    );
+            	},250
+            );    	
+    }
     
     self.isSeen = function(notification)
     {
