@@ -20000,7 +20000,7 @@ body {
 }
 /* line 76, ../sass/_navbar.scss */
 #navbar #navbar-profile .navbar-icons .fa-stack {
-  font-size: 0.9em;
+  font-size: 0.8em;
 }
 /* line 80, ../sass/_navbar.scss */
 #navbar #navbar-profile .navbar-icons a {
@@ -20039,8 +20039,8 @@ body {
 }
 /* line 132, ../sass/_navbar.scss */
 #navbar .number-of-notifications {
-  top: -0.1em;
-  left: -0.1em;
+  top: -0.8em;
+  left: -1.3em;
 }
 
 /* line 1, ../sass/_header.scss */

@@ -21,6 +21,7 @@ main.controller('profileController',['utilities','$scope','$http','$routeParams'
 	}
     self.lastAchievement = $route.current.locals.lastAchievement;
     self.nextReward = $route.current.locals.nextReward;
+    console.log(self.lastAchievement);
     console.log(self.expInfo);
     
     var notificationIDs = [];

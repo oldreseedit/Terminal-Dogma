@@ -3,7 +3,11 @@
         <div id="navbar-home">
             <div class="container">
                 <div class="macrotab">
-                    <a href="#!/"><span class="middler"></span><span class="fa fa-home middle"></span><span class="middle">Home</span></a>
+                    <a href="#!/"><span class="middler"></span>
+                    <span class="fa-stack middle">
+                    	<i class="fa fa-home fa-stack-2x"></i>
+                    </span>
+                    <span class="middle">Home</span></a>
                 </div>
             </div>
         </div>
@@ -57,8 +61,8 @@
 	                            <span class="navbar-icons">
 									<a ng-href="#!/profile/{{username}}">
 										<span class="fa-stack clickable" >
-	                            			<i class="fa fa-sticky-note-o fa-stack-2x"></i>
-                            				<i class="fa-stack-1x number-of-notifications" ng-if="numberOfNotifications!==0"><span ng-bind="numberOfNotifications"  fittext="2"></span></i>
+	                            			<i class="fa fa-bell-o fa-stack-2x"></i>
+                            				<i class="fa-stack-1x number-of-notifications" ng-if="numberOfNotifications!==0"><span ng-bind="numberOfNotifications" ></span></i>
 	                            		</span>
 	                          		</a>
 	                        		<a  ng-click="navbar.signout()">
