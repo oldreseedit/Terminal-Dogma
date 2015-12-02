@@ -83,13 +83,6 @@ body {
         	}
         }
         
-        .navbar-avatar
-        {
-        	@extend .resp-img;
-        	@extend .circle-img;
-        	display: inline;
-        }
-        
     }
     
     #navbar-signin, #navbar-signup{

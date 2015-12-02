@@ -19269,7 +19269,7 @@ button.close {
 }
 
 /* line 11, ../sass/_tricks.scss */
-.resp-img, #navbar #navbar-profile .navbar-avatar {
+.resp-img, .avatar {
   max-width: 90%;
   max-height: 90%;
 }
@@ -19382,7 +19382,7 @@ button.close {
 }
 
 /* line 107, ../sass/_tricks.scss */
-.circle-img, #navbar #navbar-profile .navbar-avatar {
+.circle-img, .avatar {
   width: 100%;
   height: 100%;
   border-radius: 50%;
@@ -20006,11 +20006,7 @@ body {
 #navbar #navbar-profile .navbar-icons a {
   margin-left: 0.2em;
 }
-/* line 86, ../sass/_navbar.scss */
-#navbar #navbar-profile .navbar-avatar {
-  display: inline;
-}
-/* line 99, ../sass/_navbar.scss */
+/* line 92, ../sass/_navbar.scss */
 #navbar #navbar-signin button, #navbar #navbar-signup button {
   width: 90%;
   font-weight: 400;
@@ -20018,12 +20014,12 @@ body {
   font-size: 21.177px;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 99, ../sass/_navbar.scss */
+  /* line 92, ../sass/_navbar.scss */
   #navbar #navbar-signin button, #navbar #navbar-signup button {
     font-size: 13.032px;
   }
 }
-/* line 120, ../sass/_navbar.scss */
+/* line 113, ../sass/_navbar.scss */
 #navbar #navbar-logged button {
   margin-right: 3em;
   width: 30%;
@@ -20032,12 +20028,12 @@ body {
   font-size: 21.177px;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 120, ../sass/_navbar.scss */
+  /* line 113, ../sass/_navbar.scss */
   #navbar #navbar-logged button {
     font-size: 13.032px;
   }
 }
-/* line 132, ../sass/_navbar.scss */
+/* line 125, ../sass/_navbar.scss */
 #navbar .number-of-notifications {
   top: -0.8em;
   left: -1.3em;
@@ -20207,7 +20203,7 @@ body {
   padding-bottom: 3vw;
 }
 /* line 12, ../sass/_team.scss */
-#home #team #team-wrapper .circle-img, #home #team #team-wrapper #navbar #navbar-profile .navbar-avatar, #navbar #navbar-profile #home #team #team-wrapper .navbar-avatar {
+#home #team #team-wrapper .circle-img, #home #team #team-wrapper .avatar {
   width: 50%;
   height: 50%;
 }
@@ -20548,6 +20544,11 @@ body {
 /* line 23, ../sass/_modal.scss */
 .modal-wrapper form .modal-cancel {
   margin-top: 5em;
+}
+
+/* line 1, ../sass/_avatar.scss */
+.avatar {
+  display: inline;
 }
 
 /* @import "sham-spinner"; */

@@ -31,15 +31,6 @@ main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','
 //		$window.location.reload();
 	}
 	
-	self.dismiss = function()
-	{
-//		Qui dovrò chiamare il metodo di titto per eliminare l'avatar
-//		$http.post()
-//		$cookies.remove('tempAvatar');
-//		self.temp = false;
-		$scope.$dismiss();
-	}
-	
 	self.uploadTempAvatar = function(file)
 	{
 //			console.log(file);
@@ -86,6 +77,7 @@ main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','
 						console.log(error);
 					}
 			)
+			$scope.$dismiss();
 		}
 		else
 		{

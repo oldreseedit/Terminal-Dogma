@@ -45,7 +45,7 @@
 	                            <span class="middler"></span>
                     			<a class="clickable" ng-href="#!/profile/{{username}}" ng-if="thereIsAvatar()">
 		                            <span class="fa-stack" >
-		                            	<img class="navbar-avatar" ng-src="{{getAvatar()}}">
+		                            	<img class="avatar" ng-src="{{getAvatar()}}">
 		                            </span>
 	                            </a>
 	                            <a  ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-click="avatar.changeAvatar()" ng-if="!thereIsAvatar()"  ng-controller="avatarController as avatar">

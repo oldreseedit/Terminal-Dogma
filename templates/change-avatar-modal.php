@@ -4,11 +4,10 @@
             <h2>Seleziona il  tuo nuovo avatar</h2>
             <form id="avatarForm" name="avatarForm" ng-submit="avatarModal.submit()" novalidate>
 				<span class="fa-stack fa-5x" ng-if="avatarModal.temp">
-	            	<img class="navbar-avatar" ng-src="{{avatarModal.temp}}">
+	            	<img class="avatar" ng-src="{{avatarModal.temp}}">
 	            </span>
             	<span class="fa-stack fa-5x" ng-if="!avatarModal.temp">
-	            	<i class="fa fa-users fa-stack-2x"></i>
-	            	<i class="fa fa-question fa-stack-1x olive"></i>
+	            	<i class="fa fa-question-circle fa-stack-2x"></i>
 	            </span>
             	
             	<input form="avatarForm" type="file"  file-change="avatarModal.uploadTempAvatar(file)"></input>
