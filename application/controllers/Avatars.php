@@ -54,8 +54,14 @@ class Avatars extends CI_Controller {
         	}
         	else
         	{
+        		if(substr(get_headers($uri)[0], 9, 3) != "200")
+        		{
+        			echo json_encode(array("error" => true, "description" => "URI inesistente: " . $uri, "errorCode" => "MISSING_FILE_ERROR", "parameters" => array("avatarUri")));
+        			return null;
+        		}
+        		
         		// Create a temporary file
-        		$temp_file = tempnam(sys_get_temp_dir(), $userID);
+        		$temp_file = tempnam(sys_get_temp_dir(), "profile-");
         		copy($uri, $temp_file);
         	}
         	
@@ -67,11 +73,27 @@ class Avatars extends CI_Controller {
         		return null;
         	}
         	
-        	// DEBUG: temporary avatar file
-        	copy($temp_file, "uploads/profiles/" . $userID . ".tmp");
-        	$temp_file = "uploads/profiles/" . $userID . ".tmp";
+        	$temp_user_dir = "uploads/profiles/tmp/";
+        	$files = glob($temp_user_dir . '*', GLOB_MARK);
+        	foreach ($files as $file) unlink($file);
         	
-        	return $temp_file;
+        	// DEBUG: temporary avatar file
+        	// Get the destination directory
+        	$final_file = $temp_user_dir . uniqid("", true);
+        	 
+        	// Check if directory already exists
+        	if(!file_exists($temp_user_dir))
+        	{
+        		// If it doesn't exist, create it
+        		if(!mkdir($temp_user_dir, 0777, true))
+        		{
+        			echo json_encode(array("error" => true, "description" => "Errore durante il caricamento del file. Non è stato possibile creare la cartella dei profili.", "errorCode" => "DIRECTORY_ERROR", "parameters" => array("file")));
+        			return;
+        		}
+        	}
+        	copy($temp_file, $final_file);
+        	
+        	return $final_file;
         }
         
         public function load_avatar()
@@ -99,7 +121,7 @@ class Avatars extends CI_Controller {
         	$extension = substr($mime, strpos($mime, "/")+1);
         	
         	// Define the final avatar destination file URI
-        	$fileURI = "uploads/profiles/" . uniqid($userID . "-", true) . "." . $extension;
+        	$fileURI = "uploads/profiles/" . uniqid("", true) . "." . $extension;
         	
         	// Remove the old avatar image
         	$previousAvatar = $this->userinfo_model->get($userID)[0]['profilePicture'];
@@ -125,6 +147,10 @@ class Avatars extends CI_Controller {
         	// Move the temporary avatar file to the destination file
         	copy($tempURI, $fileURI);
         	unlink($tempURI);
+        	
+        	$temp_user_dir = "uploads/profiles/tmp/";
+        	$files = glob($temp_user_dir . '*', GLOB_MARK);
+        	foreach ($files as $file) unlink($file);
         	
         	echo json_encode(array("error" => false, "description" => $fileURI));
         }
