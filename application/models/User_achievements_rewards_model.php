@@ -83,6 +83,7 @@ class User_achievements_rewards_model extends CI_Model
         	return $this->db->select('type, achievementRewardID, description, level, username, publishingTimestamp, courseID')
         	->from(Achievements_and_rewards_model::table_name)
         	->join("($subquery) t2", Achievements_and_rewards_model::table_name . "." . "achievementRewardID" . "=" . "t2" . "." . "achievementOrRewardID", "left")
+        	->order_by('order', 'asc')
         	->get()
         	->result_array();
         }

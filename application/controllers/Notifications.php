@@ -114,10 +114,8 @@ class Notifications extends CI_Controller {
             $courseID = $this->input->post('courseID');
             if($courseID == false) $courseID = null;
             
-            $seen = $this->input->post('seen');
-            if(!isset($_POST['seen'])) $seen = null;
-            if(strcmp($seen, "true") == 0) $seen = true;
-            else $seen = false;
+            $seen = false;
+            if(isset($_POST['seen'])) $seen = $this->input->post('seen') === "true";
             
             $text = $this->input->post('text');
             if($text == false) $text = null;

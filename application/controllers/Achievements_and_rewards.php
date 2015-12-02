@@ -59,6 +59,13 @@ class Achievements_and_rewards extends CI_Controller {
         		return;
         	}
         	
+        	$order = $this->input->post('order');
+        	if($order == false)
+        	{
+        		echo json_encode(array("error" => true, "description" => "Specificare un ordine", "errorCode" => "MANDATORY_FIELD", "parameters" => array("description")));
+        		return;
+        	}
+        	
         	$description = $this->input->post('description');
         	if($description == false)
         	{
@@ -66,7 +73,7 @@ class Achievements_and_rewards extends CI_Controller {
 				return;
         	}
 
-        	$this->achievements_and_rewards_model->add(self::ACHIEVEMENT, $achievementID, urldecode($description));
+        	$this->achievements_and_rewards_model->add(self::ACHIEVEMENT, $achievementID, urldecode($description), $order);
             
         	echo json_encode(array("error" => false, "description" => "Achievement memorizzato con successo."));
         	return;

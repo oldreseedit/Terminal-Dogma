@@ -30,7 +30,12 @@ class Achievements_and_rewards_model extends CI_Model
                                 'type' => 'INT',
                         		'unsigned' => TRUE,
                         		'null' => TRUE,
-                        )
+                        ),
+                		'order' => array(
+                				'type' => 'INT',
+                				'unsigned' => TRUE,
+                				'null' => TRUE,
+                		)
                 );
                 
                 $this->dbforge->add_key('achievementRewardID', TRUE);
@@ -40,7 +45,7 @@ class Achievements_and_rewards_model extends CI_Model
                 $this->dbforge->create_table(self::table_name);
         }
         
-        public function add($type, $achievementID, $description, $level = null)
+        public function add($type, $achievementID, $description, $order = null, $level = null)
         {
         	$data = array(
         			'type' => $type,
@@ -48,6 +53,7 @@ class Achievements_and_rewards_model extends CI_Model
         			'description' => $description,
         	);
         	
+        	if($order != null) $data['order'] = $order;
         	if($level != null) $data['level'] = $level;
         
         	$this->db->insert(self::table_name, $data);
@@ -59,8 +65,8 @@ class Achievements_and_rewards_model extends CI_Model
         	if($type != null) $constraints['type'] = $type;
         	if($level != null) $constraints['level'] = $level;
         	
-        	if(count($constraints) == 0) return $this->db->get(self::table_name)->result_array();
-        	else return $this->db->where($constraints)->get(self::table_name)->result_array();
+        	if(count($constraints) == 0) return $this->db->order_by('order', 'asc')->get(self::table_name)->result_array();
+        	else return $this->db->where($constraints)->order_by('order', 'asc')->get(self::table_name)->result_array();
         }
 }
 ?>
