@@ -10,6 +10,8 @@ class Notifications extends CI_Controller {
                 $this->load->model('notifications_model');
                 $this->load->model('payment_model');
                 $this->load->helper('url');
+                
+                $this->load->library('time');
         }
         
         public function init()
@@ -32,7 +34,7 @@ class Notifications extends CI_Controller {
             $courseID = $this->input->post('courseID');
             if($courseID == false) $courseID = null;
             
-            $publishing_timestamp = date("Y-m-d H:i:s");
+            $publishing_timestamp = $this->time->get_timestamp();
             
             $users = array();
             foreach($this->payment_model->get_subscribers_names($courseID) as $subscription)
@@ -62,7 +64,7 @@ class Notifications extends CI_Controller {
             $courseID = $this->input->post('courseID');
             if($courseID == false) $courseID = null;
             
-            $publishing_timestamp = date("Y-m-d H:i:s");
+            $publishing_timestamp = $this->time->get_timestamp();
             
             $users = $this->input->post('users');
             if($users == false)
@@ -154,7 +156,11 @@ class Notifications extends CI_Controller {
         public function get()
         {
             $courseID = $this->input->post('courseID');
-            if($courseID == false) $courseID = null;
+            if($courseID == false)
+            {
+            	echo json_encode(array("error" => true, "description" => "Specificare un corso.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("courseID")));
+            	return;
+            }
 
             echo json_encode($this->notifications_model->get_notifications($courseID));
             return;
