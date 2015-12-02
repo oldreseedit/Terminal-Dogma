@@ -16,10 +16,7 @@
     
     .panel-content{
         @extend .col-100;
-        
-        &>.container{
-            margin: 26px 10px 26px 10px;
-        }
+        padding: 26px 10px 26px 10px;
     }
     
     .profile-level-symbol{

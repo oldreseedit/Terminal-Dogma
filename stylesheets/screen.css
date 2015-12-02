@@ -20502,32 +20502,32 @@ body {
 #profile .panel-title {
   font-variant: small-caps;
 }
-/* line 20, ../sass/_profile.scss */
-#profile .panel-content > .container {
-  margin: 26px 10px 26px 10px;
+/* line 17, ../sass/_profile.scss */
+#profile .panel-content {
+  padding: 26px 10px 26px 10px;
 }
-/* line 34, ../sass/_profile.scss */
+/* line 31, ../sass/_profile.scss */
 #profile .profile-name-level-xp .seed-level {
   font-size: 1.4em;
 }
-/* line 46, ../sass/_profile.scss */
+/* line 43, ../sass/_profile.scss */
 #profile .profile-name-level-xp .profile-xp .progress-bar {
   font-size: 1em;
 }
-/* line 52, ../sass/_profile.scss */
+/* line 49, ../sass/_profile.scss */
 #profile .profile-name-level-xp .profile-xp .progress-striped, #profile .profile-name-level-xp .profile-xp .progress-bar {
   height: 30px;
 }
-/* line 57, ../sass/_profile.scss */
+/* line 54, ../sass/_profile.scss */
 #profile .profile-name-level-xp p {
   padding: 0;
 }
-/* line 65, ../sass/_profile.scss */
+/* line 62, ../sass/_profile.scss */
 #profile .profile-info a {
   color: inherit;
   text-decoration: none;
 }
-/* line 75, ../sass/_profile.scss */
+/* line 72, ../sass/_profile.scss */
 #profile .profile-notification {
   /* 		@extend .list-group-item; */
 }
