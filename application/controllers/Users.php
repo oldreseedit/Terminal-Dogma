@@ -11,6 +11,7 @@ class Users extends CI_Controller {
                 $this->load->model('users_model');
                 $this->load->model('userinfo_model');
                 $this->load->model('notifications_model');
+                $this->load->model('user_achievements_rewards_model');
                 
                 $this->load->helper('url');
                 $this->load->helper('email');
@@ -282,6 +283,27 @@ class Users extends CI_Controller {
 	        			"expForNextLevel" => $expForNextLevel,
 	        			"missingExpForNextLevel" => $missingExpForNextLevel)
         	));
+        }
+        
+        public function get_total_discount()
+        {
+//         	$userID = $this->input->post('username');
+//         	if($userID == false)
+//         	{
+//         		echo json_encode(array("error" => true, "description" => "Lo username è obbligatorio.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("username")));
+//         		return;
+//         	}
+
+			$userID = "Arcana";
+        	
+        	$total_discount = 0;
+        	$rewards = $this->user_achievements_rewards_model->get_achievements_and_rewards_obtained($userID, "REWARD", "DISCOUNT");
+        	foreach ($rewards as $reward)
+        	{
+        		$total_discount = $total_discount + $reward['data'];
+        	}
+        	
+        	echo json_encode(array("error" => false, "discount" => $total_discount));
         }
 }
 ?>

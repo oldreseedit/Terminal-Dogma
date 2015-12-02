@@ -58,10 +58,11 @@ class User_achievements_rewards_model extends CI_Model
         	$this->db->delete(self::table_name, array('username' => $userID, 'achievementOrRewardID' => $achievementOrRewardID));
         }
         
-		public function get_achievements_and_rewards_obtained($userID, $type = null)
+		public function get_achievements_and_rewards_obtained($userID, $type = null, $category = null)
         {
 			$data = array('username' => $userID);
 			if($type != null) $data['type'] = $type;
+			if($category != null) $data['category'] = $category;
         	
         	return $this->db
         	->join(Achievements_and_rewards_model::table_name, Achievements_and_rewards_model::table_name . "." . "achievementRewardID" . "=" . self::table_name . "." . "achievementOrRewardID")
