@@ -22,6 +22,15 @@ class Achievements_and_rewards_model extends CI_Model
                 				'type' => 'VARCHAR',
                 				'constraint' => 15
                 		),
+                		'category' => array(
+                				'type' => 'VARCHAR',
+                				'constraint' => 30,
+                				'null' => true
+                		),
+                		'data' => array(
+                				'type' => 'VARCHAR',
+                				'constraint' => 30
+                		),
                         'description' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => 256
@@ -45,7 +54,7 @@ class Achievements_and_rewards_model extends CI_Model
                 $this->dbforge->create_table(self::table_name);
         }
         
-        public function add($type, $achievementID, $description, $order = null, $level = null)
+        public function add($type, $achievementID, $description, $order = null, $level = null, $category = null, $data)
         {
         	$data = array(
         			'type' => $type,
@@ -53,17 +62,20 @@ class Achievements_and_rewards_model extends CI_Model
         			'description' => $description,
         	);
         	
+        	if($category != null) $data['category'] = $category;
+        	if($data != null) $data['data'] = $data;
         	if($order != null) $data['order'] = $order;
         	if($level != null) $data['level'] = $level;
         
         	$this->db->insert(self::table_name, $data);
         }
         
-        public function get($type = null, $level = null)
+        public function get($type = null, $level = null, $category = null)
         {
         	$constraints = array();
         	if($type != null) $constraints['type'] = $type;
         	if($level != null) $constraints['level'] = $level;
+        	if($category != null) $constraints['category'] = $category;
         	
         	if(count($constraints) == 0) return $this->db->order_by('order', 'asc')->get(self::table_name)->result_array();
         	else return $this->db->where($constraints)->order_by('order', 'asc')->get(self::table_name)->result_array();

@@ -44,7 +44,16 @@ class Achievements_and_rewards extends CI_Controller {
             	return;
             }
             
-            $this->achievements_and_rewards_model->add(self::REWARD, $rewardID, urldecode($description), $level);
+            $order = $this->input->post('order');
+            if($order == false) $order = $level;
+            
+            $category = $this->input->post('category');
+            if($category == false) $category = null;
+            
+            $data = $this->input->post('data');
+            if($data == false) $data = null;
+            
+            $this->achievements_and_rewards_model->add(self::REWARD, $rewardID, urldecode($description), $order, $level, $category, $data);
             
             echo json_encode(array("error" => false, "description" => "Reward memorizzata con successo."));
             return;
@@ -73,7 +82,7 @@ class Achievements_and_rewards extends CI_Controller {
 				return;
         	}
 
-        	$this->achievements_and_rewards_model->add(self::ACHIEVEMENT, $achievementID, urldecode($description), $order);
+        	$this->achievements_and_rewards_model->add(self::ACHIEVEMENT, $achievementID, urldecode($description), $order, null, null);
             
         	echo json_encode(array("error" => false, "description" => "Achievement memorizzato con successo."));
         	return;
