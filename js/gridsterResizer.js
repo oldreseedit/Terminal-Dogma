@@ -123,32 +123,7 @@ main.controller('gridsterResizeController',['$scope','$element','$timeout','$htt
 		$scope.$on('gridster-item-transition-end', 
 			function()
 			{
-				if($route.current.params.hasOwnProperty('courseID'))
-				{
-					$http.post('course/save_block_positions',{username: $cookies.get('username'), courseID: $route.current.params.courseID, blockPositions: JSON.stringify($scope.gridsterItems)}).then(
-			    			function(response)
-			    			{
-//			    				console.log(response);
-			    			},
-			    			function(error)
-			    			{
-			    				console.log(error);
-			    			}
-			    	);
-				}
-				if($route.current.params.hasOwnProperty('userID'))
-				{
-					$http.post('profile/save_block_positions',{username: $cookies.get('username'), blockPositions: JSON.stringify($scope.gridsterItems)}).then(
-			    			function(response)
-			    			{
-//			    				console.log(response);
-			    			},
-			    			function(error)
-			    			{
-			    				console.log(error);
-			    			}
-			    	);
-				}
+				$scope.registerMeasures();
 			
 				self.updateScrollbar();				
 			}
