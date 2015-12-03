@@ -168,7 +168,7 @@ main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$rou
                                 if(current) {if(current.$$route) $timeout(function(){$location.path(current.$$route.templateUrl);});}
                                 else $timeout(function(){$location.path('/');});
                             }
-                             console.log(response);
+//                             console.log(response);
                         },function(error){
                             console.log(error);
                         });                 

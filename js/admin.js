@@ -1,4 +1,4 @@
-main.controller('adminController',['utilities','$http','$timeout','$sce','$scope','upload',function(utilities, $http, $timeout, $sce, $scope, upload){
+main.controller('adminController',['utilities','$http','$timeout','$sce','$scope','upload','inform',function(utilities, $http, $timeout, $sce, $scope, upload,inform){
     var self = this;
     
     self.addCourseMaterialForm = {};
@@ -148,6 +148,23 @@ main.controller('adminController',['utilities','$http','$timeout','$sce','$scope
     
     self.addCourseMaterial = function(){
         
+    	if(!self.addCourseMaterialForm.courseID)
+    	{
+    		inform.add('Non hai selezionato il corso!',{type: 'danger'});
+    		return;
+    	}
+    	if(!self.addCourseMaterialForm.lessonID)
+    	{
+    		inform.add('Non hai selezionato la lezione di riferimento!',{type: 'danger'});
+    		return;
+    	}
+    	if(!self.addCourseMaterialForm.note)
+    	{
+    		inform.add('Non hai scritto alcuna descrizione!',{type: 'danger'});
+    		return;
+    	}
+    	
+    	
         var data = self.addCourseMaterialForm;
         data.file = angular.element('[name="file"]');
         // console.log(data);
@@ -158,7 +175,9 @@ main.controller('adminController',['utilities','$http','$timeout','$sce','$scope
           data: data
         }).then(
           function (response) {
-            console.log(response.data); 
+          	if(response.data.error) inform.add(response.data.description,{type: 'danger'});
+          	else inform.add('Materiale del corso aggiunto correttamente!');
+//            console.log(response.data); 
           },
           function (response) {
               console.error(response); 
@@ -197,7 +216,19 @@ main.controller('adminController',['utilities','$http','$timeout','$sce','$scope
     };
     
     self.modifyCourseMaterial = function(){
-        
+    	
+
+    	if(!self.modifyCourseMaterialForm.courseID)
+    	{
+    		inform.add('Non hai selezionato il corso!',{type: 'danger'});
+    		return;
+    	}
+    	if(!self.modifyCourseMaterialForm.materialID)
+    	{
+    		inform.add('Non hai selezionato il materiale da cambiare!',{type: 'danger'});
+    		return;
+    	}
+    	
         var data = self.modifyCourseMaterialForm;
         data.file = angular.element('[name="file"]');
         // console.log(data);
@@ -208,28 +239,32 @@ main.controller('adminController',['utilities','$http','$timeout','$sce','$scope
           data: data
         }).then(
           function (response) {
-            console.log(response.data); 
+        	if(response.data.error) inform.add(response.data.description,{type: 'danger'});
+          	else inform.add('Materiale del corso modificato correttamente!');
+//            console.log(response.data); 
           },
           function (response) {
               console.error(response); 
           }
         );
         
-        console.log(self.modifyCourseMaterialForm);
+//        console.log(self.modifyCourseMaterialForm);
     };
     
     self.deleteCourseMaterial = function(){
         
         $http.post('course_material/delete',self.deleteCourseMaterialForm).then(
             function(response) {
-               console.log(response); 
+            	if(response.data.error) inform.add(response.data.description,{type: 'danger'});
+              	else inform.add('Materiale del corso eliminato correttamente!');
+//               console.log(response); 
             },
             function(error) {
                 console.log(error);
             }
         );
         
-        console.log(self.deleteCourseMaterialForm);
+//        console.log(self.deleteCourseMaterialForm);
     };
     
     self.getNotifications = function(courseID){
