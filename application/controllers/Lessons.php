@@ -44,6 +44,8 @@ class Lessons extends CI_Controller {
             $note = $this->input->post('note');
             if($note == false) $note = null;
             
+            $this->db->trans_start();
+            
             $lessonId = $this->add_private($startingDate, $endingDate, $courseId, $note);
             
             $subscriptions = $this->payment_model->get_subscribers($courseId);
@@ -52,12 +54,14 @@ class Lessons extends CI_Controller {
             {
                 $this->register_model->add($lessonId, $subscriber['UserID'], false, urldecode(null));
             }
+            
+            $this->db->trans_complete();
         }
         
         /*
         Date format: YYYY-MM-DD HH:MI:SS
         */
-        public function add_private($startingDate, $endingDate, $courseId, $note = null)
+        private function add_private($startingDate, $endingDate, $courseId, $note = null)
         {
             // Temporal check
             if($startingDate >= $endingDate) show_error('La data di inizio non può essere posteriore alla data di fine. Per favore, controlla le date di inizio e fine della tua lezione.');
@@ -344,7 +348,12 @@ class Lessons extends CI_Controller {
             $lessonId = $this->input->post('lessonID');
             if($lessonId == false) $lessonId = null;
             
+            $this->db->trans_start();
+            
             $this->lessons_model->delete($lessonId);
+            $this->register_model->delete_lesson($lessonId);
+            
+            $this->db->trans_complete();
         }
         
         // public function get_lessons($courseId = null, $start_time = null, $end_time = null, $lessonId = null)

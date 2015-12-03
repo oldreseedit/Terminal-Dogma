@@ -71,6 +71,11 @@ main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','
 					{
 						console.log(response);
 						if(response.data.error) angular.inform(response.data.description, {type: 'danger'});
+						else
+						{
+							var expires = moment().add(1,'year').toDate();
+							$cookies.put('avatarURI',response.data.avatar, {path: '/', expires: expires});
+						}
 					},
 					function(error)
 					{

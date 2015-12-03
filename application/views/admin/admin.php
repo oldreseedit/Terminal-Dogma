@@ -9,9 +9,9 @@
                         </div>
                         <div class="panel-body">
                             <div class="container">
-                                <button class="btn btn-lg btn-success" ng-class="admin.spacedButtons(0)" ng-bind="tab.add.title" ng-click="admin.select(index,'add')"></button>
-                                <button class="btn btn-lg btn-warning" ng-class="admin.spacedButtons(1)" ng-bind="tab.modify.title" ng-click="admin.select(index,'modify')"></button>
-                                <button class="btn btn-lg btn-danger" ng-class="admin.spacedButtons(2)" ng-bind="tab.remove.title" ng-click="admin.select(index,'remove')"></button>
+                                <button class="btn btn-lg btn-success" ng-class="admin.spacedButtons(0,tab)" ng-bind="tab.add.title" ng-click="admin.select(index,'add')" ng-if="tab.add"></button>
+                                <button class="btn btn-lg btn-warning" ng-class="admin.spacedButtons(1,tab)" ng-bind="tab.modify.title" ng-click="admin.select(index,'modify')" ng-if="tab.modify"></button>
+                                <button class="btn btn-lg btn-danger" ng-class="admin.spacedButtons(2,tab)" ng-bind="tab.remove.title" ng-click="admin.select(index,'remove')" ng-if="tab.remove"></button>
                                 <div class="admin-content" ng-if="admin.selectedTab === index">
                                     <div class="container" ng-include="admin.tabs[admin.selectedTab][admin.selectedFunction].content">
                                         

@@ -352,11 +352,17 @@ main.controller('Register',['$http','inform','$route','$scope','$compile','uiCal
         then(function(response){
         	
         	notifies = response.data;
+        	var error = false;
 			angular.forEach(notifies,function(notify)
 				{
-					inform.add(notify.description,{type: (notify.error ? 'danger' : 'success')});
+					if(notify.error)
+					{
+						inform.add(notify.description,{type: 'danger' });
+						error = true;
+					}
 				}		
-			)
+			);
+			if(!error) inform.add('Cambiamenti memorizzati con successo!');			
         	
             // Replaces original values with current ones
             self.db[self.selectedLessonID].originalLessonNote = self.db[self.selectedLessonID].lessonNote;
@@ -369,7 +375,6 @@ main.controller('Register',['$http','inform','$route','$scope','$compile','uiCal
             self.removeChanges();
             
         }, function(error) {
-        	console.log("CIAO2");
             console.log(error);
             
         });
@@ -402,6 +407,9 @@ main.controller('Register',['$http','inform','$route','$scope','$compile','uiCal
             
             // console.log(response);
             
+        	if(response.data.error) inform.add(response.data.description,{type: 'danger'});
+        	else inform.add('Lezione aggiunta con successo!');
+        	
             // Adds lesson to DB
             var keys = Object.keys(self.db);
             var lastLessonID = Number(keys[keys.length-1]) +1;
@@ -444,6 +452,8 @@ main.controller('Register',['$http','inform','$route','$scope','$compile','uiCal
                 $http.post('lessons/delete',{lessonID : self.selectedLessonID}).
                 then(function(response){
                     
+                	if(response.data.error) inform.add(response.data.description,{type:'danger'});
+                	else inform.add('Lezione rimossa con successo');
                     delete self.db[self.selectedLessonID];
                     
                     // Removes from $scope.events and self.events (TODO)

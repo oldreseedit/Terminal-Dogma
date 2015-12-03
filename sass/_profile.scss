@@ -20,12 +20,12 @@
     }
     
     .profile-level-symbol{
-    	@extend .col-20;
+    	@extend .col-30;
     	@extend .text-center;
     }
         
     .profile-name-level-xp{
-        @extend .col-75;
+        @extend .col-65;
         @extend .offset-5;
         
         .seed-level{

@@ -9520,7 +9520,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-20, #navbar #navbar-home, #footer #footer-logo, #profile .profile-level-symbol {
+.col-20, #navbar #navbar-home, #footer #footer-logo {
   width: 20%;
   float: left;
 }
@@ -9680,7 +9680,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-30, #singleCourse .course-notification-date, #activities #tiles-activities .tile .back .back-symbol, #contacts #contact-form #contacts-submit, #payment-disclaimer-modal form #payment-disclaimer-submit, #payment-disclaimer-modal form #payment-disclaimer-cancel, .modal-wrapper form .modal-submit, .modal-wrapper form .modal-cancel {
+.col-30, #singleCourse .course-notification-date, #activities #tiles-activities .tile .back .back-symbol, #contacts #contact-form #contacts-submit, #payment-disclaimer-modal form #payment-disclaimer-submit, #payment-disclaimer-modal form #payment-disclaimer-cancel, #profile .profile-level-symbol, .modal-wrapper form .modal-submit, .modal-wrapper form .modal-cancel {
   width: 30%;
   float: left;
 }
@@ -10240,7 +10240,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-65, #singleCourse .course-notification-text {
+.col-65, #singleCourse .course-notification-text, #profile .profile-name-level-xp {
   width: 65%;
   float: left;
 }
@@ -10400,7 +10400,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-75, #singleCourse .course-description, #profile .profile-name-level-xp {
+.col-75, #singleCourse .course-description {
   width: 75%;
   float: left;
 }
@@ -20928,4 +20928,14 @@ body {
 /* line 53, ../sass/_reseed.scss */
 .mini-header img {
   width: 100%;
+}
+
+/* line 72, ../sass/_reseed.scss */
+.fa-stack-10x {
+  position: relative;
+  display: inline-block;
+  width: 10em;
+  height: 10em;
+  line-height: 10em;
+  vertical-align: middle;
 }

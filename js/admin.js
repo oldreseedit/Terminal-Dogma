@@ -1,4 +1,4 @@
-main.controller('adminController',['utilities','$http','$timeout','$sce','$scope','upload',function(utilities, $http, $timeout, $sce, $scope, upload){
+main.controller('adminController',['utilities','$http','$timeout','$sce','$scope','upload','inform',function(utilities, $http, $timeout, $sce, $scope, upload,inform){
     var self = this;
     
     self.addCourseMaterialForm = {};
@@ -9,55 +9,58 @@ main.controller('adminController',['utilities','$http','$timeout','$sce','$scope
     self.modifyNotificationForm = {};
     self.deleteNotificationForm = {};
     
+    self.xpAddForm = {};
+    self.xpDeleteForm = {};
+    
     self.tabs = [
-        {
-            id: 'admin-courses',
-            title: 'GESTIONE CORSI',
-            add: {
-                title : 'Aggiungi',
-                content : 'Beh, qui compariranno le info per aggiungere un nuovo corso'
-            },
-            modify: {
-                title : 'Modifica',
-                content : 'Beh, qui compariranno le info per modificare un corso esistente'
-            },
-            remove: {
-                title : 'Elimina',
-                content : 'Beh, qui compariranno le info per rimuovere un corso esistente'
-            }
-        },
-        {
-            id: 'admin-news',
-            title: 'GESTIONE NEWS',
-            add: {
-                title : 'Aggiungi',
-                content : 'Beh, qui compariranno le info per aggiungere una nuova news'
-            },
-            modify: {
-                title : 'Modifica',
-                content : 'Beh, qui compariranno le info per modificare una news esistente'
-            },
-            remove: {
-                title : 'Elimina',
-                content : 'Beh, qui compariranno le info per rimuovere una news esistente'
-            }
-        },
-        {
-            id: 'admin-events',
-            title: 'GESTIONE EVENTI',
-            add: {
-                title : 'Aggiungi',
-                content : 'Beh, qui compariranno le info per aggiungere un nuovo evento'
-            },
-            modify: {
-                title : 'Modifica',
-                content : 'Beh, qui compariranno le info per modificare un evento esistente'
-            },
-            remove: {
-                title : 'Elimina',
-                content : 'Beh, qui compariranno le info per rimuovere un evento esistente'
-            }
-        },
+//        {
+//            id: 'admin-courses',
+//            title: 'GESTIONE CORSI',
+//            add: {
+//                title : 'Aggiungi',
+//                content : 'Beh, qui compariranno le info per aggiungere un nuovo corso'
+//            },
+//            modify: {
+//                title : 'Modifica',
+//                content : 'Beh, qui compariranno le info per modificare un corso esistente'
+//            },
+//            remove: {
+//                title : 'Elimina',
+//                content : 'Beh, qui compariranno le info per rimuovere un corso esistente'
+//            }
+//        },
+//        {
+//            id: 'admin-news',
+//            title: 'GESTIONE NEWS',
+//            add: {
+//                title : 'Aggiungi',
+//                content : 'Beh, qui compariranno le info per aggiungere una nuova news'
+//            },
+//            modify: {
+//                title : 'Modifica',
+//                content : 'Beh, qui compariranno le info per modificare una news esistente'
+//            },
+//            remove: {
+//                title : 'Elimina',
+//                content : 'Beh, qui compariranno le info per rimuovere una news esistente'
+//            }
+//        },
+//        {
+//            id: 'admin-events',
+//            title: 'GESTIONE EVENTI',
+//            add: {
+//                title : 'Aggiungi',
+//                content : 'Beh, qui compariranno le info per aggiungere un nuovo evento'
+//            },
+//            modify: {
+//                title : 'Modifica',
+//                content : 'Beh, qui compariranno le info per modificare un evento esistente'
+//            },
+//            remove: {
+//                title : 'Elimina',
+//                content : 'Beh, qui compariranno le info per rimuovere un evento esistente'
+//            }
+//        },
         {
             id: 'admin-material',
             title: 'GESTIONE MATERIALE DEL CORSO',
@@ -89,6 +92,14 @@ main.controller('adminController',['utilities','$http','$timeout','$sce','$scope
                 title : 'Elimina',
                 content : 'templates/notificationsDelete.php'
             }
+        },
+        {
+        	id: 'admin-xp',
+        	title: 'GESTIONE XP',
+        	add: {
+        		title: 'Aggiungi/Sottrai',
+        		content : 'templates/xpAdd.php'
+        	}
         }
     ];
     
@@ -112,14 +123,16 @@ main.controller('adminController',['utilities','$http','$timeout','$sce','$scope
     self.checkIfTabExists = function(index){
         return index < self.tabs.length;
     };
-    
+
     self.sizes = utilities.spacedSizes(2);
-    self.sizesOfButtons = utilities.spacedSizes(3);
+    
     self.spaced = function($index){
         if($index % 2 === 0) return "col-" + self.sizes.elementsWidth + " offset-" + self.sizes.outerWidth;
         else return "col-" + self.sizes.elementsWidth + " offset-" + self.sizes.spacerWidth;
     };
-    self.spacedButtons = function($index){
+    self.spacedButtons = function($index,tab){
+    	var numberOfButtons = (tab.add ? 1 : 0) + (tab.modify ? 1 : 0) + (tab.remove ? 1 : 0);
+        self.sizesOfButtons = utilities.spacedSizes(numberOfButtons);
         if($index === 0) return "col-" + self.sizesOfButtons.elementsWidth + " offset-" + self.sizesOfButtons.outerWidth;
         else return "col-" + self.sizesOfButtons.elementsWidth + " offset-" + self.sizesOfButtons.spacerWidth;
     };
@@ -148,6 +161,23 @@ main.controller('adminController',['utilities','$http','$timeout','$sce','$scope
     
     self.addCourseMaterial = function(){
         
+    	if(!self.addCourseMaterialForm.courseID)
+    	{
+    		inform.add('Non hai selezionato il corso!',{type: 'danger'});
+    		return;
+    	}
+    	if(!self.addCourseMaterialForm.lessonID)
+    	{
+    		inform.add('Non hai selezionato la lezione di riferimento!',{type: 'danger'});
+    		return;
+    	}
+    	if(!self.addCourseMaterialForm.note)
+    	{
+    		inform.add('Non hai scritto alcuna descrizione!',{type: 'danger'});
+    		return;
+    	}
+    	
+    	
         var data = self.addCourseMaterialForm;
         data.file = angular.element('[name="file"]');
         // console.log(data);
@@ -158,7 +188,9 @@ main.controller('adminController',['utilities','$http','$timeout','$sce','$scope
           data: data
         }).then(
           function (response) {
-            console.log(response.data); 
+          	if(response.data.error) inform.add(response.data.description,{type: 'danger'});
+          	else inform.add('Materiale del corso aggiunto correttamente!');
+//            console.log(response.data); 
           },
           function (response) {
               console.error(response); 
@@ -197,7 +229,19 @@ main.controller('adminController',['utilities','$http','$timeout','$sce','$scope
     };
     
     self.modifyCourseMaterial = function(){
-        
+    	
+
+    	if(!self.modifyCourseMaterialForm.courseID)
+    	{
+    		inform.add('Non hai selezionato il corso!',{type: 'danger'});
+    		return;
+    	}
+    	if(!self.modifyCourseMaterialForm.materialID)
+    	{
+    		inform.add('Non hai selezionato il materiale da cambiare!',{type: 'danger'});
+    		return;
+    	}
+    	
         var data = self.modifyCourseMaterialForm;
         data.file = angular.element('[name="file"]');
         // console.log(data);
@@ -208,28 +252,32 @@ main.controller('adminController',['utilities','$http','$timeout','$sce','$scope
           data: data
         }).then(
           function (response) {
-            console.log(response.data); 
+        	if(response.data.error) inform.add(response.data.description,{type: 'danger'});
+          	else inform.add('Materiale del corso modificato correttamente!');
+//            console.log(response.data); 
           },
           function (response) {
               console.error(response); 
           }
         );
         
-        console.log(self.modifyCourseMaterialForm);
+//        console.log(self.modifyCourseMaterialForm);
     };
     
     self.deleteCourseMaterial = function(){
         
         $http.post('course_material/delete',self.deleteCourseMaterialForm).then(
             function(response) {
-               console.log(response); 
+            	if(response.data.error) inform.add(response.data.description,{type: 'danger'});
+              	else inform.add('Materiale del corso eliminato correttamente!');
+//               console.log(response); 
             },
             function(error) {
                 console.log(error);
             }
         );
         
-        console.log(self.deleteCourseMaterialForm);
+//        console.log(self.deleteCourseMaterialForm);
     };
     
     self.getNotifications = function(courseID){
@@ -275,6 +323,48 @@ main.controller('adminController',['utilities','$http','$timeout','$sce','$scope
         
         console.log(self.deleteCourseMaterialForm);
     };
+    
+    self.getUsers = function()
+    {
+    	$http.post('users/get_all').then(
+    			function(response)
+    			{
+    				self.users = response.data;
+//    				console.log(response);
+    			},
+    			function(error)
+    			{
+    				console.log(error);
+    			}
+    	)
+    }
+    
+    self.addXP = function()
+    {
+    	if(!self.xpAddForm.username)
+    	{
+    		inform.add('Non hai selezionato lo studente!',{type: 'danger'});
+    		return;
+    	}
+    	if(!self.xpAddForm.exp || self.xpAddForm.exp === 0)
+    	{
+    		inform.add('Stai aggiungendo 0 exp!',{type: 'danger'});
+    		return;
+    	}
+    	
+    	$http.post('users/add_exp',self.xpAddForm).then(
+    			function(response)
+    			{
+    				if(response.data[0].error) inform.add(response.data[0].description,{type:'danger'});
+    				else inform.add(response.data[0].description);
+    			},
+    			function(error)
+    			{
+    				console.log(error);
+    			}
+    	)
+    	
+    }
     
     
 }]);

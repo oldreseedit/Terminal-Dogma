@@ -1,15 +1,19 @@
 <div class="profile-level-symbol">
-	<img ng-src="{{getAvatar(profile)}}" class="resp-img" ng-class="{'circle-img':thereIsAvatar()}"  ng-controller="avatarController as avatar" ng-click="thereIsAvatar() || avatar.changeAvatar()" />
+<span class="fa-stack fa-stack-10x">
+	<img ng-src="{{getAvatar(profile)}}" ng-class="{'avatar':thereIsAvatar()}"  ng-controller="avatarController as avatar" ng-click="avatar.changeAvatar()" />
+</span>
 </div>
 <div class="profile-name-level-xp">
 	<span ng-bind="profile.username" fittext="0.8"></span>
-	<p class="seed-level">
+	<p class="seed-level" fittext="0.5">
 		Seed Level: <span ng-bind="profile.expInfo.level"></span>
 	</p>
 	<div class="profile-xp">
 		<div class="container">
 			<uib-progressbar class="progress-striped active" value="profile.expInfo.partialExperience" max="profile.expInfo.missingExpForNextLevel"  title="Esperienza">
-				<span ng-if="profile.expInfo.partialExperience/profile.expInfo.missingExpForNextLevel > 0.1"><span class="middler"></span><span class="middle" ng-bind="profile.expInfo.partialExperience"></span>/<span class="middle" ng-bind="profile.expInfo.missingExpForNextLevel"></span></span>
+				<span ng-if="profile.expInfo.partialExperience/profile.expInfo.missingExpForNextLevel > 0.1">
+					<span class="middler"></span><span class="middle" ng-bind="profile.expInfo.partialExperience"></span>/<span class="middle" ng-bind="profile.expInfo.missingExpForNextLevel"></span>
+				</span>
 			</uib-progressbar>
 		</div>
 	</div>
