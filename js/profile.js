@@ -59,16 +59,23 @@ main.controller('profileController',['utilities','$scope','$http','$routeParams'
     
     $scope.registerMeasures = function()
     {
-    	$http.post('profile/save_block_positions',{username: self.username, blockPositions: JSON.stringify($scope.gridsterItems)}).then(
-    			function(response)
-    			{
-//    				console.log('save_block_positions: ',response);
-    			},
-    			function(error)
-    			{
-    				console.log(error);
-    			}
-    	);
+    	if($scope.measuresLoaded)
+    	{
+    		
+    	}
+    	else
+    	{
+        	$http.post('profile/save_block_positions',{username: self.username, blockPositions: JSON.stringify($scope.gridsterItems)}).then(
+        			function(response)
+        			{
+//        				console.log('save_block_positions: ',response);
+        			},
+        			function(error)
+        			{
+        				console.log(error);
+        			}
+        	);    		
+    	}
     }
     
     $http.post('profile/load_block_positions',{username: self.username}).then(
