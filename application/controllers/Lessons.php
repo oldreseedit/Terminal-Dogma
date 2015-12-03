@@ -183,11 +183,11 @@ class Lessons extends CI_Controller {
         	}
         	if(count($lessons) > 0) $attendance_ratio /= count($lessons);
         	
-        	// Get all the achievements and reward obtained by the user
+        	// Get all the achievements and rewards
         	$all_achievements_and_rewards = array();
         	foreach ($this->achievements_and_rewards_model->get() as $achievement_or_reward)
         	{
-        		$all_achievements_and_rewards[$achievement_or_reward['AchievementRewardID']] = $achievement_or_reward; 
+        		$all_achievements_and_rewards[$achievement_or_reward['achievementRewardID']] = $achievement_or_reward; 
         	}
 
         	// Check if it is the case to assign achievements regarding the % of the total lessons
@@ -195,7 +195,7 @@ class Lessons extends CI_Controller {
         	$obtained_rewards_and_achievements = array();
         	foreach ($achievements_and_rewards_db as $achievement_or_reward)
         	{
-        		$obtained_rewards_and_achievements[$achievement_or_reward['AchievementOrRewardID']] = $achievement_or_reward;
+        		$obtained_rewards_and_achievements[$achievement_or_reward['achievementOrRewardID']] = $achievement_or_reward;
         	}
         	
         	$arID = 'ACHV_80_PERCENT';
@@ -292,7 +292,7 @@ class Lessons extends CI_Controller {
             $subscribers = array();
             foreach($subscription as $member){
                 
-                if(!array_key_exists($member['CourseID'], $subscribers)) $subscribers[$member['CourseID']] = array();
+                if(!array_key_exists($member['CourseID'], $subscribers)) $subscribers[$member['courseID']] = array();
                 $subscribers[$member['CourseID']][$member['userID']] = array('name' => $member['name'], 'surname' => $member['surname']);
             }
             
