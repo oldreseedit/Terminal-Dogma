@@ -72,16 +72,15 @@ function imOnMaxi(){
 
 /*** RUN PHASE ***/
 main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$route','gridsterConfig',function($rootScope, $location, $timeout, $http, $cookies, $window, $route, gridsterConfig) {
-    
+
 	$rootScope.thereIsAvatar = function()
     {
-    	return $cookies.get('avatarURI') ? true : false;
+    	return $rootScope.avatarURI ? true : false;
     }
 	
 	$rootScope.getAvatar = function(where)
     {
-    	var avatarURI = $cookies.get('avatarURI');
-    	if(avatarURI) return avatarURI;    
+    	if($rootScope.avatarURI) return $rootScope.avatarURI;    
     	return "imgs/leaf.png";
     }
 	
@@ -102,7 +101,20 @@ main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$rou
         		}
         );
 	};
-	
+    
+    $rootScope.miniHeader = function(){
+        if($location.path() !== '/') return true;
+        else return false;
+    };
+    
+
+    $rootScope.logout = function(){
+        $cookies.remove('username',{path:'/'});
+        $cookies.remove('token',{path:'/'});
+        $cookies.remove('verified',{path:'/'});
+        $timeout(function(){$window.location.reload();});
+    };
+
     if($cookies.get('verified') === '1'){
         $rootScope.userVerified = true;
         $rootScope.username = $cookies.get('username');
@@ -110,17 +122,27 @@ main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$rou
     }
     else $rootScope.userVerified = false;
     
-    $rootScope.logout = function(){
-        $cookies.remove('username',{path:'/'});
-        $cookies.remove('token',{path:'/'});
-        $cookies.remove('verified',{path:'/'});
-        $timeout(function(){$window.location.reload();});
-    };
+	if(!$cookies.get('avatarURI'))
+	{
+		$http.post('avatars/get_avatar', {username: $rootScope.username}).then(
+				function(response)
+				{
+					if(response.data)
+					{
+						var expires = moment().add(1,'year').toDate();
+						$cookies.put('avatarURI',response.data.avatar, {path: '/', expires: expires});
+						$rootScope.avatarURI = $cookies.get('avatarURI');
+					}						
+				},
+				function(error)
+				{
+					console.log(error);
+				}
+		)
+	}
+	else $rootScope.avatarURI = $cookies.get('avatarURI');
     
-    $rootScope.miniHeader = function(){
-        if($location.path() !== '/') return true;
-        else return false;
-    };
+	/* ROUTES */
     
     var routesForbidden = ['admin','register'];
     $rootScope.$on("$routeChangeStart", function (event, next, current) {
