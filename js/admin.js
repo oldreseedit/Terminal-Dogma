@@ -176,10 +176,7 @@ main.controller('adminController',['utilities','$http','$timeout','$sce','$scope
         }).then(
           function (response) {
           	if(response.data.error) inform.add(response.data.description,{type: 'danger'});
-          	else
-          	{
-          		inform.add('Materiale del corso aggiunto correttamente!');
-          	}
+          	else inform.add('Materiale del corso aggiunto correttamente!');
 //            console.log(response.data); 
           },
           function (response) {
@@ -243,11 +240,7 @@ main.controller('adminController',['utilities','$http','$timeout','$sce','$scope
         }).then(
           function (response) {
         	if(response.data.error) inform.add(response.data.description,{type: 'danger'});
-          	else
-          	{
-          		inform.add('Materiale del corso modificato correttamente!');
-            	self.getMaterials(self.modifyCourseMaterialForm.courseID);
-          	}
+          	else inform.add('Materiale del corso modificato correttamente!');
 //            console.log(response.data); 
           },
           function (response) {
@@ -259,26 +252,11 @@ main.controller('adminController',['utilities','$http','$timeout','$sce','$scope
     };
     
     self.deleteCourseMaterial = function(){
-
-    	if(!self.deleteCourseMaterialForm.courseID)
-    	{
-    		inform.add('Non hai selezionato il corso!',{type: 'danger'});
-    		return;
-    	}
-    	if(!self.deleteCourseMaterialForm.materialID)
-    	{
-    		inform.add('Non hai selezionato il materiale da cambiare!',{type: 'danger'});
-    		return;
-    	}
-    	
+        
         $http.post('course_material/delete',self.deleteCourseMaterialForm).then(
             function(response) {
             	if(response.data.error) inform.add(response.data.description,{type: 'danger'});
-              	else
-              	{
-              		inform.add('Materiale del corso eliminato correttamente!');
-                	self.getMaterials(self.deleteCourseMaterialForm.courseID);
-              	}
+              	else inform.add('Materiale del corso eliminato correttamente!');
 //               console.log(response); 
             },
             function(error) {
