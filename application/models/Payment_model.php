@@ -28,11 +28,11 @@ class Payment_model extends CI_Model
                 $this->dbforge->create_table(self::table_name);
         }
         
-        public function add($userID, $courseID, $paymentChoice, $rate, $paymentDate)
+        public function add($userID, $courseIDs, $paymentChoice, $rate, $paymentDate)
         {
                 $data = array();
                 
-                foreach($courseID as $course)
+                foreach($courseIDs as $course)
                         array_push($data,
                                 array(
                                    'userID' => $userID,
@@ -77,7 +77,7 @@ class Payment_model extends CI_Model
                 
                 $this->db->distinct();
                 $query = $this->db->select('CourseID');
-                $query = $this->db->from('Payment');
+                $query = $this->db->from(self::table_name);
                 
                 if($userID != null) $this->db->where('userID', $userID);
                 
@@ -90,10 +90,10 @@ class Payment_model extends CI_Model
                 $courses = array();
                 
                 $this->db->distinct();
-                $query = $this->db->select('CourseID, UserID');
+                $query = $this->db->select('courseID, userID');
                 $query = $this->db->from('Payment');
                 
-                if($courseID != null) $this->db->where('CourseID', $courseID);
+                if($courseID != null) $this->db->where('courseID', $courseID);
                 
                 $query = $this->db->get();
                 return $query->result_array();
@@ -104,11 +104,11 @@ class Payment_model extends CI_Model
                 $courses = array();
                 
                 $this->db->distinct();
-                $query = $this->db->select('CourseID, InfoUtenti.userID, InfoUtenti.name, InfoUtenti.surname');
+                $query = $this->db->select('courseID, InfoUtenti.userID, InfoUtenti.name, InfoUtenti.surname');
                 $query = $this->db->from('Payment');
                 $this->db->join('InfoUtenti', 'InfoUtenti.userID = Payment.userID');
                 
-                if($courseID != null) $this->db->where('CourseID', $courseID);
+                if($courseID != null) $this->db->where('courseID', $courseID);
                 
                 $query = $this->db->get();
                 return $query->result_array();
