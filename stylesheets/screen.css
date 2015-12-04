@@ -20518,14 +20518,19 @@ body {
 #profile .profile-name-level-xp p {
   padding: 0;
 }
-/* line 62, ../sass/_profile.scss */
+/* line 59, ../sass/_profile.scss */
+#profile .profile-info {
+  padding-top: 1em;
+}
+/* line 63, ../sass/_profile.scss */
 #profile .profile-info a {
   color: inherit;
   text-decoration: none;
 }
-/* line 72, ../sass/_profile.scss */
-#profile .profile-notification {
-  /* 		@extend .list-group-item; */
+/* line 74, ../sass/_profile.scss */
+#profile .profile-rewards .fa-stack-1x {
+  top: -0.5em;
+  font-size: 0.6em;
 }
 
 /* line 1, ../sass/_modal.scss */

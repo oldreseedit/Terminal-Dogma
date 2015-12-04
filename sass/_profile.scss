@@ -58,6 +58,7 @@
 
 	.profile-info{
 		@extend .col-100;
+		padding-top: 1em;
 		
 		a{
 			color: inherit;
@@ -68,10 +69,12 @@
 		}
 		
 	}
-	
-	.profile-notification
-	{
-/* 		@extend .list-group-item; */
+
+	.profile-rewards{
+		.fa-stack-1x{
+			top: -0.5em;
+			font-size: 0.6em;
+		}
 	}
        
 }

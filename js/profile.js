@@ -8,7 +8,7 @@ main.controller('profileController',['utilities','$scope','$http','$routeParams'
     self.notifications = $route.current.locals.notifications;
     self.achievementsAndRewards = $route.current.locals.achievementsAndRewards;
     self.expInfo = $route.current.locals.expInfo;
-    self.rewards = self.achievementsAndRewards.filter(function(element){if(element.type==='REWARD') return element});
+    self.tempRewards = self.achievementsAndRewards.filter(function(element){if(element.type==='REWARD') return element});
     self.achievements = self.achievementsAndRewards.filter(function(element){if(element.type==='ACHIEVEMENT') return element});
     self.tempCourses = $route.current.locals.courses;
     self.courses = [];
@@ -21,6 +21,19 @@ main.controller('profileController',['utilities','$scope','$http','$routeParams'
 	}
     self.lastAchievement = $route.current.locals.lastAchievement ? $route.current.locals.lastAchievement.description : $route.current.locals.lastAchievement;
     self.nextReward = $route.current.locals.nextReward;
+    
+    var lastRewardIndex= 0;
+    for(i=0; i < self.tempRewards.length; i++)
+    {
+    	if(self.tempRewards[i].username) lastRewardIndex++;
+    }
+    self.rewards = [];
+    for(i=0; i < self.tempRewards.length; i++)
+    {
+    	if(i<=lastRewardIndex+2) self.rewards.push(self.tempRewards[i]);
+    }
+    
+    
     
     var notificationIDs = [];
     angular.forEach($scope.notifications,function(i)

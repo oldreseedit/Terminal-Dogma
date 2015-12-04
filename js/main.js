@@ -435,6 +435,7 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
 		        	return $http.post('achievements_and_rewards/get_next_reward',{username: userID}).then(
 	        			function(response)
 	        			{
+//	        				console.log(response);
 	        				return response.data.nextReward;
 	        			},
 	        			function(error)
