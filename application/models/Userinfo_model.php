@@ -6,29 +6,12 @@ class Userinfo_model extends CI_Model
         public function __construct()
         {
                 $this->load->database();
-                // $this->load->helper('url');
         }
         
         public function init()
         {
                 $this->load->dbforge();
                 
-                // Email
-                // + Data di registrazione
-                // +(opt) Nome
-                // +(opt) Cognome
-                // +(opt) Età
-                // +(opt) Foto profilo (url)
-                // +(opt) Professione
-                // +(opt) Scuola
-                // +(opt) Facolta'/Classe
-                // +(opt) Indirizzo (indirizzo google “verboso”)
-                // +(opt) Telefono
-                // +(opt) Telefono cellulare
-                // +(opt) Come sei venuto a conoscenza di reSeed
-                // Current exp
-                // Previous exp
-                // Level
                 $fields = array(
                         'userID' => array('type' => 'VARCHAR', 'constraint' => 30),
                         'email' => array('type' => 'VARCHAR', 'constraint' => 30),
@@ -102,25 +85,5 @@ class Userinfo_model extends CI_Model
         {
                 $this->db->where('userID', $userID)->update(self::table_name, array('currentExp' => $newExp, 'previousExp' => $oldExp, 'level' => $level));
         }
-        
-        // public function get_experience($userID)
-        // {
-        //         return $this->db->select('currentExp')->where('userID', $userID)->from(self::table_name)->row_array()['currentExp'];
-        // }
-        
-        // public function update_experience($userID, $oldExp, $newExp)
-        // {
-        //         $this->db->where('userID', $userID)->update(self::table_name, array('currentExp' => $newExp, 'previousExp' => $oldExp));
-        // }
-        
-        // public function get_level($userID)
-        // {
-        //         return $this->db->select('level')->where('userID', $userID)->from(self::table_name)->row_array()['level'];
-        // }        
-        
-        // public function update_level($userID, $newLevel)
-        // {
-        //         $this->db->where('userID', $userID)->update(self::table_name, array('level' => $newLevel));
-        // }
 }
 ?>

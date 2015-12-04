@@ -75,8 +75,8 @@ class Users extends CI_Controller {
             }
             
             $registration_timestamp = date("Y-m-d H:i:s");
-            
-            // TODO: transaction
+
+            $this->db->trans_start();
             
             // Store the user's ID and password
             $this->users_model->add($userID, $password);
@@ -85,14 +85,14 @@ class Users extends CI_Controller {
             $this->userinfo_model->add($userID, $mail, $name, $surname, $registration_timestamp);
             
             $this->login();
+            
+            $this->db->trans_complete();
         }
         
         public function add_private($userID, $password, $mail, $name, $surname)
         {
             $registration_timestamp = date("Y-m-d H:i:s");
          
-            // TODO: transaction
-            
             $this->users_model->add($userID, $password);
             if($this->addExtraInfo($userID, $mail, $name, $surname, $registration_timestamp) == -1)
                 echo json_encode(array("error" => true, "description" => "Errore durante l'aggiunta dell'utente.", "errorCode" => "GENERIC_ERROR"));
@@ -127,14 +127,12 @@ class Users extends CI_Controller {
             $userID = $this->input->post('username');
             if($userID == false) $userID = null;
             
+            $this->db->trans_start();
+            
             $this->users_model->delete($userID);
             $this->userinfo_model->delete($userID);
-        }
-        
-        public function delete_private($userID)
-        {
-            $this->users_model->delete($userID);
-            $this->userinfo_model->delete($userID);
+            
+            $this->db->trans_complete();
         }
         
         public function exists()

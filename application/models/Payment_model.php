@@ -6,6 +6,7 @@ class Payment_model extends CI_Model
         public function __construct()
         {
                 $this->load->database();
+                $this->load->model('userinfo_model');
         }
         
         public function init()
@@ -54,8 +55,6 @@ class Payment_model extends CI_Model
         
         public function get_payment($userID, $courseID)
         {
-                // $this->db->where('userID', $userID);
-                
                 $var = "";
                 for($i=0; $i<count($courseID); $i++)
                 {
@@ -64,8 +63,6 @@ class Payment_model extends CI_Model
                 }
                 
                 $this->db->where('userID = ' . '"' . $userID . '"' . ' AND (' . $var . ')');
-                // foreach($courseID as $course)
-                //$this->db->or_where('courseID', $course);
                         
                 $query = $this->db->get(self::table_name);
                 return $query->result_array();
@@ -76,7 +73,7 @@ class Payment_model extends CI_Model
                 $courses = array();
                 
                 $this->db->distinct();
-                $query = $this->db->select('CourseID');
+                $query = $this->db->select('courseID');
                 $query = $this->db->from(self::table_name);
                 
                 if($userID != null) $this->db->where('userID', $userID);
@@ -91,7 +88,7 @@ class Payment_model extends CI_Model
                 
                 $this->db->distinct();
                 $query = $this->db->select('courseID, userID');
-                $query = $this->db->from('Payment');
+                $query = $this->db->from(self::table_name);
                 
                 if($courseID != null) $this->db->where('courseID', $courseID);
                 
@@ -103,10 +100,12 @@ class Payment_model extends CI_Model
         {
                 $courses = array();
                 
+                $user_info_table = Userinfo_model::table_name;
+                
                 $this->db->distinct();
-                $query = $this->db->select('courseID, InfoUtenti.userID, InfoUtenti.name, InfoUtenti.surname');
-                $query = $this->db->from('Payment');
-                $this->db->join('InfoUtenti', 'InfoUtenti.userID = Payment.userID');
+                $query = $this->db->select('courseID, '.$user_info_table.'.userID, '.$user_info_table.'.name, '.$user_info_table.'.surname');
+                $query = $this->db->from(self::table_name);
+                $this->db->join($user_info_table, $user_info_table . '.userID = ' . self::table_name . '.userID');
                 
                 if($courseID != null) $this->db->where('courseID', $courseID);
                 

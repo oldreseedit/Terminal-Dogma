@@ -7,7 +7,7 @@ class Experience_events_model extends CI_Model
         {
                 $this->load->database();
         }
-		
+        
 		public function drop()
 		{
 			$this->load->dbforge();

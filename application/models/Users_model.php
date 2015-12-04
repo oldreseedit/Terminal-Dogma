@@ -37,9 +37,7 @@ class Users_model extends CI_Model
         
         public function add($userID, $password)
         {
-                // print("Want to save userID=" . $userID . " with password=" . $password);
                 $encrypted_password = password_hash($password, PASSWORD_BCRYPT);
-                // print("Encrypted password => " . $encrypted_password);
                 
                 $data = array(
                    'Username' => $userID,

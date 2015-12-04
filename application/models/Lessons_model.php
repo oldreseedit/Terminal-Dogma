@@ -85,43 +85,6 @@ class Lessons_model extends CI_Model
                 $this->db->delete(self::table_name, $data);
         }
         
-        // public function get_running_courses()
-        // {
-        //         $this->db->distinct();
-        //         $this->db->select('courseID');
-        //         $query = $this->db->get(self::table_name);
-        //         return $query->result_array();
-        // }
-        
-        // public function get($start_time = null, $end_time = null, $courseId = null, $lessonId = null)
-        // {
-        //         // print "start time: " . $start_time;
-        //         // print "end time: " . $end_time;
-        //         // print "course ID: " . $courseId;
-                
-        //         if ($lessonId == null && $start_time == null && $end_time == null && $courseId == null)
-        //         {
-        //                 $query = $this->db->get(self::table_name);
-        //                 return $query->result_array();
-        //         }
-        //         else
-        //         {
-        //                 $this->db->from(self::table_name);
-                        
-        //                 if($start_time == null && $end_time == null && $lessonId != null) $this->db->where('lessonID =', $lessonId);
-        //                 else
-        //                 {
-        //                         if($start_time != null) $this->db->where('startingDate >=', $start_time);
-        //                         if($end_time != null) $this->db->where('endingDate <=', $end_time);
-        //                 }
-                        
-        //                 if($courseId != null) $this->db->where('courseID =', $courseId);
-                        
-        //                 $query = $this->db->get();
-        //                 return $query->result_array();
-        //         }
-        // }
-        
         public function get($start_time = null, $end_time = null, $courseId = null, $lessonId = null, $sorted = true)
         {
                 $costraints = array();

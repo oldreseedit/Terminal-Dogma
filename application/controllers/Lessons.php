@@ -52,7 +52,7 @@ class Lessons extends CI_Controller {
             
             foreach($subscriptions as $subscriber)
             {
-                $this->register_model->add($lessonId, $subscriber['UserID'], false, urldecode(null));
+                $this->register_model->add($lessonId, $subscriber['userID'], false, urldecode(null));
             }
             
             $this->db->trans_complete();
@@ -208,9 +208,9 @@ class Lessons extends CI_Controller {
         			$eighty_percent_achievement_prototype = $all_achievements_and_rewards[$arID];
         	
         			$publishingTimestamp = $this->time->get_timestamp();
-        			$notifications[] = array("error" => false, "description" => "Hai ottenuto " . $arID . ": " . $eighty_percent_achievement_prototype['Description'], "errorCode" => "ACHIEVEMENT_EVENT");
+        			$notifications[] = array("error" => false, "description" => "Hai ottenuto " . $arID . ": " . $eighty_percent_achievement_prototype['description'], "errorCode" => "ACHIEVEMENT_EVENT");
         			$this->experience_events_model->add($userID, "ACHIEVEMENT", $arID, $publishingTimestamp, null, $courseID);
-        			$this->notifications_model->add("Hai ottenuto " . $arID . ": " . $eighty_percent_achievement_prototype['Description'], $publishingTimestamp, array($userID), true, $courseID);
+        			$this->notifications_model->add("Hai ottenuto " . $arID . ": " . $eighty_percent_achievement_prototype['description'], $publishingTimestamp, array($userID), true, $courseID);
         			$this->user_achievements_rewards_model->add($userID, $arID, $publishingTimestamp, $courseID);
         		}
         	}
@@ -242,9 +242,9 @@ class Lessons extends CI_Controller {
         			$one_hundred_percent_achievement_prototype = $all_achievements_and_rewards[$arID];
         	
         			$publishingTimestamp = $this->time->get_timestamp();
-        			$notifications[] = array("error" => false, "description" => "Hai ottenuto " . $arID . ": " . $one_hundred_percent_achievement_prototype['Description'], "errorCode" => "ACHIEVEMENT_EVENT");
+        			$notifications[] = array("error" => false, "description" => "Hai ottenuto " . $arID . ": " . $one_hundred_percent_achievement_prototype['description'], "errorCode" => "ACHIEVEMENT_EVENT");
         			$this->experience_events_model->add($userID, "ACHIEVEMENT", $arID, $publishingTimestamp, null, $courseID);
-        			$this->notifications_model->add("Hai ottenuto " . $arID . ": " . $one_hundred_percent_achievement_prototype['Description'], $publishingTimestamp, array($userID), true, $courseID);
+        			$this->notifications_model->add("Hai ottenuto " . $arID . ": " . $one_hundred_percent_achievement_prototype['description'], $publishingTimestamp, array($userID), true, $courseID);
         			$this->user_achievements_rewards_model->add($userID, $arID, $publishingTimestamp, $courseID);
         		}
         	}
@@ -296,8 +296,6 @@ class Lessons extends CI_Controller {
                 $subscribers[$member['courseID']][$member['userID']] = array('name' => $member['name'], 'surname' => $member['surname']);
             }
             
-            // print_r($subscribers);
-            
             // Creating array of objects of lessons
             
             $db = array();
@@ -322,7 +320,7 @@ class Lessons extends CI_Controller {
                     $newStudent['originalNote'] = $newStudent['note'];
                     $newStudent['originalAttendance'] = $newStudent['attendance'];
                     
-                    array_push($db[$row['lessonID']]['studentList'],$newStudent);
+                    $db[$row['lessonID']]['studentList'] = $newStudent;
                 }
             }
             
@@ -355,11 +353,6 @@ class Lessons extends CI_Controller {
             
             $this->db->trans_complete();
         }
-        
-        // public function get_lessons($courseId = null, $start_time = null, $end_time = null, $lessonId = null)
-        // {
-        //     echo json_encode($this->lessons_model->get($start_time, $end_time, $courseId, $lessonId));
-        // }
         
         public function get_lessons_by_course()
         {
