@@ -1,7 +1,7 @@
 <?php
 class Admins_model extends CI_Model
 {
-        const table_name = "Admins";
+        const table_name = "admins";
         
         public function __construct()
         {

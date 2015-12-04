@@ -1,7 +1,7 @@
 <?php
 class Payment_model extends CI_Model
 {
-        const table_name = "Payment";
+        const table_name = "payment";
         
         public function __construct()
         {

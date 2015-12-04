@@ -1,7 +1,7 @@
 <?php
 class Course_material_model extends CI_Model
 {
-        const table_name = "Course_material";
+        const table_name = "course_material";
         
         public function __construct()
         {

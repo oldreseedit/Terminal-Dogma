@@ -1,7 +1,7 @@
 <?php
 class Register_model extends CI_Model
 {
-        const table_name = "Register";
+        const table_name = "register";
         
         public function __construct()
         {

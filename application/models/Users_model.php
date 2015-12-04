@@ -2,12 +2,11 @@
 
 class Users_model extends CI_Model
 {
-        const table_name = "Utenti";
+        const table_name = "users";
         
         public function __construct()
         {
                 $this->load->database();
-                // $this->load->helper('url');
         }
         
         public function init()

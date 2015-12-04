@@ -1,7 +1,7 @@
 <?php
 class Experience_events_model extends CI_Model
 {
-        const table_name = "Experience_events";
+        const table_name = "experience_events";
         
         public function __construct()
         {

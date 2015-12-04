@@ -1,7 +1,7 @@
 <?php
 class Userinfo_model extends CI_Model
 {
-        const table_name = "InfoUtenti";
+        const table_name = "users_info";
         
         public function __construct()
         {

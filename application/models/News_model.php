@@ -1,7 +1,7 @@
 <?php
 class News_model extends CI_Model
 {
-        const table_name = "News";
+        const table_name = "news";
         
         public function __construct()
         {

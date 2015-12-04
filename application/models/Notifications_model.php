@@ -1,7 +1,7 @@
 <?php
 class Notifications_model extends CI_Model
 {
-        const table_name = "Notifications";
+        const table_name = "notifications";
         
         public function __construct()
         {
