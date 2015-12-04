@@ -1,4 +1,4 @@
-main.controller('navbarController',['utilities','$timeout','$window','$uibModal','$rootScope','$cookies',function(utilities,$timeout,$window,$uibModal,$rootScope,$cookies){
+main.controller('navbarController',['utilities','$timeout','$window','$uibModal','$rootScope','$cookies','$location', function(utilities,$timeout,$window,$uibModal,$rootScope,$cookies,$location){
     var self = this;
     
     self.tabs = [
@@ -73,6 +73,7 @@ main.controller('navbarController',['utilities','$timeout','$window','$uibModal'
     	$cookies.remove('username',{path:'/'});
     	$cookies.remove('verified',{path:'/'});
     	$cookies.remove('token',{path:'/'});
+    	$location.path('/');
     	$window.location.reload();
     };
     
