@@ -68,34 +68,17 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     
     $scope.registerMeasures = function()
     {
-    	if($scope.measuresLoaded)
-    	{
-    		$http.post('course/update_block_positions',{username: $cookies.get('username'), courseID: self.courseID, blockPositions: JSON.stringify($scope.gridsterItems)}).then(
-        			function(response)
-        			{
+		$http.post('course/update_block_positions',{username: $cookies.get('username'), courseID: self.courseID, blockPositions: JSON.stringify($scope.gridsterItems)}).then(
+    			function(response)
+    			{
 //        				console.log(response);
-        			},
-        			function(error)
-        			{
-        				console.log(error);
-        			}
-        	);	
-    	}
-    	else
-    	{
-			$scope.measuresLoaded = true;
-    		$http.post('course/add_block_positions',{username: $cookies.get('username'), courseID: self.courseID, blockPositions: JSON.stringify($scope.gridsterItems)}).then(
-        			function(response)
-        			{
-//        				console.log(response);
-        			},
-        			function(error)
-        			{
-        				console.log(error);
-        			}
-        	);	
-    	}
-    }
+    			},
+    			function(error)
+    			{
+    				console.log(error);
+    			}
+    	);
+    };
     
     $http.post('course/load_block_positions',{username : $cookies.get('username'), courseID : self.courseID}).then(
     		function(response)
