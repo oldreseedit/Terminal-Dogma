@@ -1,5 +1,5 @@
 <div class="profile-level-symbol">
-<span class="fa-stack fa-stack-10x">
+<span class="fa-stack fa-stack-10x" fittext>
 	<img ng-src="{{getAvatar(profile)}}" ng-class="{'avatar':thereIsAvatar()}"  ng-controller="avatarController as avatar" ng-click="avatar.changeAvatar()" />
 </span>
 </div>
