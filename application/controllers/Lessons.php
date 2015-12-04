@@ -292,8 +292,8 @@ class Lessons extends CI_Controller {
             $subscribers = array();
             foreach($subscription as $member){
                 
-                if(!array_key_exists($member['CourseID'], $subscribers)) $subscribers[$member['courseID']] = array();
-                $subscribers[$member['CourseID']][$member['userID']] = array('name' => $member['name'], 'surname' => $member['surname']);
+                if(!array_key_exists($member['courseID'], $subscribers)) $subscribers[$member['courseID']] = array();
+                $subscribers[$member['courseID']][$member['userID']] = array('name' => $member['name'], 'surname' => $member['surname']);
             }
             
             // print_r($subscribers);

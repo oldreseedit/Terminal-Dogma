@@ -36,25 +36,6 @@ class Profile extends CI_Controller {
 		$this->load->view('profile/profile');
 	}
 	
-	public function add_block_positions()
-	{
-		$userID = $this->input->post('username');
-		if($userID == false)
-		{
-			echo json_encode(array("error" => true, "description" => "Il nome utente è obbligatorio.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("username")));
-			return;
-		}
-		 
-		$blockPositions = $this->input->post('blockPositions');
-		if($blockPositions == false)
-		{
-			echo json_encode(array("error" => true, "description" => "Le posizioni dei blocchi sono obbligatorie.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("blockPositions")));
-			return;
-		}
-		 
-		$this->profile_block_positions_model->add($userID, $blockPositions);
-	}
-	
 	public function update_block_positions()
 	{
 		$userID = $this->input->post('username');
@@ -71,7 +52,9 @@ class Profile extends CI_Controller {
 			return;
 		}
 			
-		$this->profile_block_positions_model->update($userID, $blockPositions);
+		$data = $this->profile_block_positions_model->get($userID);
+		if($data == null) $this->profile_block_positions_model->add($userID, $blockPositions);
+		else $this->profile_block_positions_model->update($userID, $blockPositions);
 	}
 	
 	public function load_block_positions()
