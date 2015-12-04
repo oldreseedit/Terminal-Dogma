@@ -86,6 +86,7 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     		$http.post('course/add_block_positions',{username: $cookies.get('username'), courseID: self.courseID, blockPositions: JSON.stringify($scope.gridsterItems)}).then(
         			function(response)
         			{
+        				$scope.measuresLoaded = true;
 //        				console.log(response);
         			},
         			function(error)

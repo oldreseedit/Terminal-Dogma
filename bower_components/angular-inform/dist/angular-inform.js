@@ -165,7 +165,7 @@ angular.module('inform-http-exception', ['inform'])
     function interceptor(rejection) {
       try {
         var msg = 'Network error (' + rejection.status + '): ' + rejection.statusText;
-        inform.add(msg, { type: 'danger', ttl: 0});
+        inform.add(msg, { type: 'danger', ttl: 4000});
       } catch(ex) {
         console.log('$httpProvider', ex);
       }
