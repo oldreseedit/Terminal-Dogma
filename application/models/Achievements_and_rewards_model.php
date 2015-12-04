@@ -74,7 +74,7 @@ class Achievements_and_rewards_model extends CI_Model
         {
         	$constraints = array();
         	if($type != null) $constraints['type'] = $type;
-        	if($level != null) $constraints['level'] = $level;
+        	if($level != null) $constraints['level >='] = $level;
         	if($category != null) $constraints['category'] = $category;
         	
         	if(count($constraints) == 0) return $this->db->order_by('order', 'asc')->get(self::table_name)->result_array();

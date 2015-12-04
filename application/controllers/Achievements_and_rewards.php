@@ -134,11 +134,12 @@ class Achievements_and_rewards extends CI_Controller {
 				echo json_encode(array("error" => true, "description" => "Lo username è obbligatorio.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("username")));
 				return;
 			}
-			
+
         	$exp_info = $this->userinfo_model->get_exp_info($userID);
         	$level = $exp_info['level'];
         	
         	$rewards = $this->achievements_and_rewards_model->get("REWARD", $level+1);
+        	
         	if(count($rewards) > 0)
         	{
         		echo json_encode(array("error" => false, "nextReward" => $rewards[0]['description']));
