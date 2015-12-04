@@ -57,7 +57,6 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
             
             i.startingDate = moment(i.startingDate);
             i.endingDate = moment(i.endingDate);
-            
             var newLesson = {lessonID: i.lessonID, title: i.courseID, start: i.startingDate, end: i.endingDate, note: i.lessonNote, stick: true};
             if(self.indexOfByKey('lessonID',i.lessonID,$scope.events) < 0) $scope.events.push(newLesson);
             

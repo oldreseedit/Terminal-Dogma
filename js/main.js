@@ -338,7 +338,7 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
                 
                 return $http.post('lessons/get',{courseID: courseID}).
                 then(function(response){
-                    // console.log(data);
+//                     console.log(response);
                     return response.data;
                 }, function(error){
                     console.log(error);
