@@ -283,6 +283,7 @@ class Users extends CI_Controller {
         				"expForThisLevel" => $expForThisLevel,
 	        			"expForNextLevel" => $expForNextLevel,
 	        			"missingExpForNextLevel" => $missingExpForNextLevel,
+        				"experienceDifference" => ($expForNextLevel-$expForThisLevel),
         				"partialExperience" => $partialExperience
         			)
         	));
