@@ -3,6 +3,8 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     
     /* CONFIG */
     
+    self.username = $cookies.get('username');
+    
     self.courseName = $routeParams.courseID.charAt(0).toUpperCase() + $routeParams.courseID.slice(1);
     self.courseName = self.courseName.split(/(?=[A-Z](?=[a-z]))/).join(" ");
     
@@ -67,10 +69,10 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     
     $scope.registerMeasures = function()
     {
-		$http.post('course/update_block_positions',{username: $cookies.get('username'), courseID: self.courseID, blockPositions: JSON.stringify($scope.gridsterItems)}).then(
+		$http.post('course/update_block_positions',{username: self.username, courseID: self.courseID, blockPositions: JSON.stringify($scope.gridsterItems)}).then(
     			function(response)
     			{
-//        				console.log(response);
+//        			console.log(response);
     			},
     			function(error)
     			{
@@ -79,12 +81,12 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     	);
     };
     
-    $http.post('course/load_block_positions',{username : $cookies.get('username'), courseID : self.courseID}).then(
+    $http.post('course/load_block_positions',{username : self.username, courseID : self.courseID}).then(
     		function(response)
     		{
 //    			console.log(response);
     			
-    			if(!response.data.error)
+    			if(response.data)
     			{
     				$scope.gridsterItems = JSON.parse(JSON.parse(response.data));
     				
@@ -161,7 +163,6 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
 	                     }
 	                 ];
     			}
-    			
     		},
     		function(error)
     		{

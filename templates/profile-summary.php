@@ -1,7 +1,7 @@
 <div class="profile-level-symbol">
-<span class="fa-stack fa-stack-10x" fittext>
-	<img ng-src="{{getAvatar(profile)}}" ng-class="{'avatar':thereIsAvatar()}"  ng-controller="avatarController as avatar" ng-click="avatar.changeAvatar()" />
-</span>
+	<span class="fa-stack fa-stack-10x clickable" fittext ng-click="avatar.changeAvatar()" ng-controller="avatarController as avatar">
+		<img ng-src="{{profile.avatar}}" class="avatar" />
+	</span>
 </div>
 <div class="profile-name-level-xp">
 	<span ng-bind="profile.username" fittext="0.8"></span>

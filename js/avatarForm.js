@@ -1,9 +1,10 @@
-main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','$window','upload',function($scope,$http,$timeout,$cookies,$window,upload){
+main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','$window','upload','inform',function($scope,$http,$timeout,$cookies,$window,upload,inform){
 	var self = this;
 	
 	self.avatarForm = {};
 	
-	self.temp = $cookies.get('avatarURI');
+//	self.temp = $cookies.get('avatarURI');
+	self.temp = $scope.avatarURI;
 	
 	self.submit = function()
 	{
@@ -46,7 +47,7 @@ main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','
 			}).then(
 					function (response) {
 //						console.log(response.data.description);
-						console.log(response);
+//						console.log(response);
 						
 						if(response.data.error) angular.inform(response.data.description, {type: 'danger'});
 						else self.temp = response.data.description;
@@ -56,8 +57,8 @@ main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','
 //						$('[type="file"]').val(oldFile);
 //						console.log($('[type="file"]').prop('files'));
 					},
-					function (response) {
-						console.error(response); 
+					function (error) {
+						console.log(error); 
 					}
 			);
 	};
@@ -69,12 +70,15 @@ main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','
 			$http.post('avatars/load_avatar',{username: $cookies.get('username'), avatar_temp_URI : self.temp}).then(
 					function(response)
 					{
-						console.log(response);
+//						console.log(response);
+						
 						if(response.data.error) angular.inform(response.data.description, {type: 'danger'});
 						else
 						{
-							var expires = moment().add(1,'year').toDate();
-							$cookies.put('avatarURI',response.data.avatar, {path: '/', expires: expires});
+							inform.add("Nuovo avatar caricato con successo!", {type: 'success'});
+							$scope.avatarURI = response.data.avatar;
+//							var expires = moment().add(1,'year').toDate();
+							// $cookies.put('avatarURI',response.data.avatar, {path: '/', expires: expires});
 						}
 					},
 					function(error)
@@ -96,7 +100,6 @@ main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','
 			}).then(
 					function (response)
 					{
-						console.log(response)
 						if(response.data.error) angular.inform(response.data.description, {type: 'danger'});
 					},
 					function (error)
@@ -106,6 +109,7 @@ main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','
 			);
 		}
 		
+//		$timeout(function(){$window.location.reload();});
 	}
 	
 	self.loadTemporaryURI = function(URI)
@@ -119,8 +123,6 @@ main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','
 		(
 				function(response)
 				{
-					console.log(response);
-					
 					if(response.data.error) angular.inform(response.data.description, {type: 'danger'});
 					else self.temp = response.data.description;
 				},

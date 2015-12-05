@@ -20,12 +20,12 @@ class Mailer extends CI_Controller {
         
         public function send_mail()
         {
-                $who = $this->input->post('from');
-                if($who == false)
-                {
-                        echo json_encode(array("error" => true, "description" => "L'indirizzo del mittente è obbligatorio.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("from")));
-                        return;
-                }
+//                 $who = $this->input->post('from');
+//                 if($who == false)
+//                 {
+//                         echo json_encode(array("error" => true, "description" => "L'indirizzo del mittente è obbligatorio.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("from")));
+//                         return;
+//                 }
 
                 $from = 'info@reseed.it';
                 
@@ -41,10 +41,10 @@ class Mailer extends CI_Controller {
                         echo json_encode(array("error" => true, "description" => "Fornire un indirizzo e-mail valido.", "errorCode" => "INVALID_FIELD", "parameters" => array("from")));
                         return;
                 }
-                $this->email->from($from);
+                $this->email->from($from, 'reSeed.it');
                 
                 // TODO: handle multiple addresses
-                $this->email->to("info@reseed.it");
+                $this->email->to($from);
                 
                 $cc = $this->input->post('cc');
                 if($cc) $this->email->cc($cc);

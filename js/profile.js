@@ -2,6 +2,7 @@ main.controller('profileController',['utilities','$scope','$http','$routeParams'
     var self = this;
     
     self.username = $routeParams.userID;
+    self.avatar = $route.current.locals.avatar;
     self.xpBarTypes = function(){        
         return 'success';
     };
@@ -12,7 +13,7 @@ main.controller('profileController',['utilities','$scope','$http','$routeParams'
     self.achievements = self.achievementsAndRewards.filter(function(element){if(element.type==='ACHIEVEMENT') return element});
     self.tempCourses = $route.current.locals.courses;
     self.courses = [];
-   for(var i=0; i<self.tempCourses.length; i++)
+    for(var i=0; i<self.tempCourses.length; i++)
 	{
 	   	self.courses[i] = {};
 	   	self.courses[i].courseID = self.tempCourses[i];
@@ -38,8 +39,8 @@ main.controller('profileController',['utilities','$scope','$http','$routeParams'
     var notificationIDs = [];
     angular.forEach($scope.notifications,function(i)
 	    {
-    		notificationIDs.push(i.notificationID);
-	    }		
+			notificationIDs.push(i.notificationID);
+	    }
     );
     
     self.seeNotification = function(notification)
@@ -59,7 +60,7 @@ main.controller('profileController',['utilities','$scope','$http','$routeParams'
         		    );
             	},250
             );    	
-    }
+    };
     
     self.isSeen = function(notification)
     {
@@ -82,7 +83,7 @@ main.controller('profileController',['utilities','$scope','$http','$routeParams'
     				console.log(error);
     			}
     	);  
-    }
+    };
     
     $http.post('profile/load_block_positions',{username: self.username}).then(
     		function(response)

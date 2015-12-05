@@ -65,7 +65,7 @@ class Profile extends CI_Controller {
 			echo json_encode(array("error" => true, "description" => "Il nome utente è obbligatorio.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("username")));
 			return;
 		}
-	
+
 		$block_positions = $this->profile_block_positions_model->get($userID);
 		if(count($block_positions) > 0) echo json_encode($block_positions['block_positions']);
 	}

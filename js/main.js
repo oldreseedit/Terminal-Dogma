@@ -80,7 +80,7 @@ main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$rou
 	
 	$rootScope.getAvatar = function(where)
     {
-    	if($rootScope.avatarURI) return $rootScope.avatarURI;    
+    	if($rootScope.avatarURI) return $rootScope.avatarURI;
     	return "imgs/leaf.png";
     }
 	
@@ -122,25 +122,39 @@ main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$rou
     }
     else $rootScope.userVerified = false;
     
-	if(!$cookies.get('avatarURI'))
-	{
-		$http.post('avatars/get_avatar', {username: $rootScope.username}).then(
-				function(response)
+    $http.post('avatars/get_avatar', {username: $rootScope.username}).then(
+			function(response)
+			{
+				if(response.data)
 				{
-					if(response.data)
-					{
-						var expires = moment().add(1,'year').toDate();
-						$cookies.put('avatarURI',response.data.avatar, {path: '/', expires: expires});
-						$rootScope.avatarURI = $cookies.get('avatarURI');
-					}						
-				},
-				function(error)
-				{
-					console.log(error);
-				}
-		)
-	}
-	else $rootScope.avatarURI = $cookies.get('avatarURI');
+					$rootScope.avatarURI = response.data.avatar;
+				}						
+			},
+			function(error)
+			{
+				console.log(error);
+			}
+	);
+    
+//	if(!$cookies.get('avatarURI'))
+//	{
+//		$http.post('avatars/get_avatar', {username: $rootScope.username}).then(
+//				function(response)
+//				{
+//					if(response.data)
+//					{
+//						var expires = moment().add(1,'year').toDate();
+//						$cookies.put('avatarURI',response.data.avatar, {path: '/', expires: expires});
+//						$rootScope.avatarURI = $cookies.get('avatarURI');
+//					}						
+//				},
+//				function(error)
+//				{
+//					console.log(error);
+//				}
+//		)
+//	}
+//	else $rootScope.avatarURI = $cookies.get('avatarURI');
     
 	/* ROUTES */
     
@@ -356,6 +370,21 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     	templateUrl: function(parameters){return 'profile/index/'+parameters.userID;},
         controller : 'profileController as profile',
         resolve : {
+        	avatar : ['$http','$route', function($http,$route){
+        		var userID = $route.current.params.userID;
+        		return $http.post('avatars/get_avatar',{username: userID}).then(
+        		function(response)
+        		{
+        			if(response.data.avatar) return response.data.avatar;
+        			else return "imgs/leaf.png";
+        		},
+        		function(error)
+        		{
+        			console.log(error);
+        			return "imgs/leaf.png";
+        		}
+        		);
+        	}],
         	notifications : ['$http','$route', function($http,$route){
         		var userID = $route.current.params.userID;
         		

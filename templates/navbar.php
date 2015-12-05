@@ -43,17 +43,26 @@
                     	<div class="navbar-profile-name">
                     		<span class="noselect" fittext="0.9">
 	                            <span class="middler"></span>
-                    			<a class="clickable" ng-href="#!/profile/{{username}}" ng-if="thereIsAvatar()">
-		                            <span class="fa-stack" >
-		                            	<img class="avatar" ng-src="{{getAvatar()}}">
-		                            </span>
-	                            </a>
-	                            <a  ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-click="avatar.changeAvatar()" ng-if="!thereIsAvatar()"  ng-controller="avatarController as avatar">
-	                            	<span class="fa-stack fa-sm clickable">
+<!--                     			<a class="clickable" ng-href="#!/profile/{{username}}" ng-if="thereIsAvatar()"> -->
+<!-- 		                            <span class="fa-stack" > -->
+<!-- 		                            	<img class="avatar" ng-src="{{getAvatar()}}"> -->
+<!-- 		                            </span> -->
+<!-- 	                            </a> -->
+<!-- 	                            <a  ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-click="avatar.changeAvatar()" ng-if="!thereIsAvatar()"  ng-controller="avatarController as avatar"> -->
+<!-- 	                            	<span class="fa-stack fa-sm clickable"> -->
+<!-- 	                            		<i class="fa fa-question-circle fa-stack-2x" ng-class="{'light-olive':hover, 'white':!hover}"></i> -->
+<!-- 	                            	</span> -->
+<!-- 		                         </a> -->
+	                             <a ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-click="avatar.changeAvatar()" ng-controller="avatarController as avatar">
+	                            	<span class="fa-stack fa-sm clickable" ng-if="thereIsAvatar()">
+	                            		<span class="fa-stack" >
+		                            		<img class="avatar" ng-src="{{getAvatar()}}">
+		                            	</span>
+	                            	</span>
+	                            	<span class="fa-stack fa-sm clickable" ng-if="!thereIsAvatar()">
 	                            		<i class="fa fa-question-circle fa-stack-2x" ng-class="{'light-olive':hover, 'white':!hover}"></i>
 	                            	</span>
 		                         </a>
-		                         
 		                         <a ng-href="#!/profile/{{username}}">
 	                            	<span class="middle navbar-username" ng-bind="username"></span>
 	                            </a>
