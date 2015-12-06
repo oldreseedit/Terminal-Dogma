@@ -84,81 +84,69 @@ main.controller('profileController',['utilities','$scope','$http','$routeParams'
     			}
     	);  
     };
-    
-    $http.post('profile/load_block_positions',{username: self.username}).then(
-    		function(response)
-    		{
-//    			console.log('load_block_positions: ', response);
-    			
-    			if(response.data)
-    			{
-    				$scope.gridsterItems = JSON.parse(JSON.parse(response.data));
-    				
-    				$scope.measuresLoaded = true;
-    			}
-    			else
-    			{
-	    			$scope.gridsterItems = self.items || [
-		              {
-		              	title: 'Sommario',
-		                  bgColour: 'bg-light-olive',
-		                  templateUrl: 'templates/profile-summary.php',
-		                  measures: {
-		                      width: 6,
-		                      height: 1,
-		                      position: {
-		                          x : 0,
-		                          y : 0
-		                      }
-		                  }
-		              },
-		              {
-		              	title: 'Notifiche',
-		                  bgColour: 'bg-light-lawn',
-		                  templateUrl: 'templates/profile-notifications.php',
-		                  measures: {
-		                      width: 6,
-		                      height: 1,
-		                      position: {
-		                          x : 7,
-		                          y : 0
-		                      }
-		                  }
-		              },
-		              {
-		              	title: 'Achievements',
-		                  bgColour: 'bg-light-green',
-		                  templateUrl: 'templates/profile-achievements.php',
-		                  measures: {
-		                      width: 6,
-		                      height: 1,
-		                      position: {
-		                          x : 0,
-		                          y : 7
-		                      }
-		                  }
-		              },
-		              {
-		              	title: 'Rewards',
-		                  bgColour: 'bg-light-leaf',
-		                  templateUrl: 'templates/profile-rewards.php',
-		                  measures: {
-		                      width: 6,
-		                      height: 1,
-		                      position: {
-		                          x : 7,
-		                          y : 7
-		                      }
-		                  }
-		              }
-		          ];
-	    		}
-    		},
-    		function(error)
-    		{
-    			console.log(error);
-    		}
-    );
+
+    $scope.gridsterItems = $route.current.locals.blockPositions;
+    if(!$scope.gridsterItems)
+    {
+    	$scope.gridsterItems = self.items || [
+	      {
+	      	title: 'Sommario',
+	          bgColour: 'bg-light-olive',
+	          templateUrl: 'templates/profile-summary.php',
+	          measures: {
+	              width: 6,
+	              height: 1,
+	              position: {
+	                  x : 0,
+	                  y : 0
+	              }
+	          }
+	      },
+	      {
+	      	title: 'Notifiche',
+	          bgColour: 'bg-light-lawn',
+	          templateUrl: 'templates/profile-notifications.php',
+	          measures: {
+	              width: 6,
+	              height: 1,
+	              position: {
+	                  x : 7,
+	                  y : 0
+	              }
+	          }
+	      },
+	      {
+	      	title: 'Achievements',
+	          bgColour: 'bg-light-green',
+	          templateUrl: 'templates/profile-achievements.php',
+	          measures: {
+	              width: 6,
+	              height: 1,
+	              position: {
+	                  x : 0,
+	                  y : 7
+	              }
+	          }
+	      },
+	      {
+	      	title: 'Rewards',
+	          bgColour: 'bg-light-leaf',
+	          templateUrl: 'templates/profile-rewards.php',
+	          measures: {
+	              width: 6,
+	              height: 1,
+	              position: {
+	                  x : 7,
+	                  y : 7
+	              }
+	          }
+	      }
+	     ];
+    }
+    else // If measures are loaded
+    {
+    	$scope.measuresLoaded = true;
+    }
     
     self.customItemMap = {
         sizeX: 'item.measures.width',
@@ -190,5 +178,25 @@ main.controller('profileController',['utilities','$scope','$http','$routeParams'
     			}
     		}
     );
+    
+    $scope.$watch(
+    		function()
+    		{
+    			return self.notifications;
+    		},
+    		function(newValue)
+    		{
+    			console.log(newValue);
+    			var indexOfNotifications;
+    			if(newValue !== undefined && newValue !== null)
+    			{
+    				for(var i=0; i< $scope.gridsterItems.length; i++)
+    				{
+    					if($scope.gridsterItems[i].title === 'Notifiche') indexOfNotifications = i;
+    				}
+    				$scope.gridsterItems[indexOfNotifications].minHeight = 2;
+    			}
+    		}
+    )
     
 }]);

@@ -104,8 +104,6 @@ main.controller('gridsterResizeController',['$scope','$element','$timeout','$htt
 			self.deregisterInnerHeight();
 			self.deregisterOuterHeight();
 			
-			$scope.registerMeasures();
-			
 			$timeout(function(){self.updateScrollbar();});
 
 			$scope.$on('gridster-item-transition-end',
@@ -116,7 +114,7 @@ main.controller('gridsterResizeController',['$scope','$element','$timeout','$htt
 			);
 		}	
 	}
-	else
+	else // If measures are loaded
 	{
 		$timeout(function(){self.updateScrollbar();});
 		

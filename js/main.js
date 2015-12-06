@@ -375,6 +375,20 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     	templateUrl: function(parameters){return 'profile/index/'+parameters.userID;},
         controller : 'profileController as profile',
         resolve : {
+        	blockPositions : ['$http','$route',function($http,$route){
+        		return $http.post('profile/load_block_positions',{username: $route.current.params.userID}).then(
+                		function(response)
+                		{
+                			console.log(response);
+                			if(response.data.error) inform.add(response.data.description,{type:'danger'});
+                			else if(response.data) return JSON.parse(JSON.parse(response.data));
+                		},
+                		function(error)
+                		{
+                			console.log(error);
+                		}
+        		);
+        	}],
         	avatar : ['$http','$route', function($http,$route){
         		var userID = $route.current.params.userID;
         		return $http.post('avatars/get_avatar',{username: userID}).then(
