@@ -320,7 +320,7 @@ class Lessons extends CI_Controller {
                     $newStudent['originalNote'] = $newStudent['note'];
                     $newStudent['originalAttendance'] = $newStudent['attendance'];
                     
-                    $db[$row['lessonID']]['studentList'] = $newStudent;
+                    $db[$row['lessonID']]['studentList'][] = $newStudent;
                 }
             }
             
