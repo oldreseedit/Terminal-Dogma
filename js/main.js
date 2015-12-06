@@ -307,6 +307,23 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
         templateUrl : function(parameters){return 'course/index/'+parameters.courseID;},
         controller : 'courseController as course',
         resolve: {
+        	exists : ['$http','$route',function($http,$route){
+//        		console.log($route);
+        		var courseID = $route.current.params.courseID;
+        		$http.post('courses/exists',{courseID:courseID}).then(
+        				function(response)
+        				{
+        					if(!response.data)
+        					{
+        						window.history.back();
+        					}
+        				},
+        				function(error)
+        				{
+        					console.log(error);
+        				}
+        		)
+        	}],
         	courseDescription : ['$http','$route',function($http,$route){
         		var courseID = $route.current.params.courseID;
         		return $http.post('courses/get',{courseID : courseID}).then(function(response) {
@@ -385,6 +402,24 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     	templateUrl: function(parameters){return 'profile/index/'+parameters.userID;},
         controller : 'profileController as profile',
         resolve : {
+        	exists : ['$http','$route','inform',function($http,$route,inform){
+//        		console.log($route);
+        		var userID = $route.current.params.userID;
+        		$http.post('users/exists',{username: userID}).then(
+        				function(response)
+        				{
+        					if(response.data === 'false')
+        					{
+        						window.history.back();
+        						inform.add('L\'utente cercato non esiste!',{type: 'warning'});
+        					}
+        				},
+        				function(error)
+        				{
+        					console.log(error);
+        				}
+        		)
+        	}],
         	blockPositions : ['$http','$route',function($http,$route){
         		return $http.post('profile/load_block_positions',{username: $route.current.params.userID}).then(
                 		function(response)

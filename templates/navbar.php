@@ -43,16 +43,6 @@
                     	<div class="navbar-profile-name">
                     		<span class="noselect" fittext="0.9">
 	                            <span class="middler"></span>
-<!--                     			<a class="clickable" ng-href="#!/profile/{{username}}" ng-if="thereIsAvatar()"> -->
-<!-- 		                            <span class="fa-stack" > -->
-<!-- 		                            	<img class="avatar" ng-src="{{getAvatar()}}"> -->
-<!-- 		                            </span> -->
-<!-- 	                            </a> -->
-<!-- 	                            <a  ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-click="avatar.changeAvatar()" ng-if="!thereIsAvatar()"  ng-controller="avatarController as avatar"> -->
-<!-- 	                            	<span class="fa-stack fa-sm clickable"> -->
-<!-- 	                            		<i class="fa fa-question-circle fa-stack-2x" ng-class="{'light-olive':hover, 'white':!hover}"></i> -->
-<!-- 	                            	</span> -->
-<!-- 		                         </a> -->
 	                             <a ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-click="avatar.changeAvatar(username,avatarURI)" ng-controller="avatarController as avatar">
 	                            	<span class="fa-stack fa-sm clickable" ng-if="thereIsAvatar()">
 	                            		<span class="fa-stack" >
@@ -68,6 +58,16 @@
 	                            </a>
 	                            
 	                            <span class="navbar-icons">
+	                            	<a ng-href="#!/admin" ng-if="admin">
+	                            		<span class="fa-stack clickable">
+	                            			<i class="fa fa-cog fa-stack-2x"></i>
+	                            		</span>
+	                            	</a>
+	                            	<a ng-href="#!/register" ng-if="admin">
+	                            		<span class="fa-stack clickable">
+	                            			<i class="fa fa-calendar fa-stack-2x"></i>
+	                            		</span>
+	                            	</a>
 									<a ng-href="#!/profile/{{username}}">
 										<span class="fa-stack clickable" >
 	                            			<i class="fa fa-bell-o fa-stack-2x"></i>
