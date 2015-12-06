@@ -1,55 +1,31 @@
-main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','$window','upload','inform',function($scope,$http,$timeout,$cookies,$window,upload,inform){
+main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','$window','upload','inform','$route','items',function($scope,$http,$timeout,$cookies,$window,upload,inform,$route,items){
 	var self = this;
 	
 	self.avatarForm = {};
-	
-//	self.temp = $cookies.get('avatarURI');
-	self.temp = $scope.avatarURI;
-	
-	self.submit = function()
-	{
-		var data = self.avatarForm;
-        data.file = angular.element('[name="file"]');
+	self.username = items.username;
+	self.temp = items.avatar;
 
-//		Qui dovrò chiamare il metodo di titto per caricare l'avatar
-        
-//        upload({
-//          url: 'course_material/modify',
-//          method: 'POST',
-//          data: data
-//        }).then(
-//          function (response) {
-
-//				var expireDate = moment.unix(response.data.expire).toDate();
-//				$cookies.put('avatarURI',avatarURI,{path: '/',expires: expireDate});
-//            console.log(response.data); 
-//          },
-//          function (response) {
-//              console.error(response); 
-//          }
-//        );
-		
-//		$window.location.reload();
-	}
-	
+    self.isDefaultAvatar = function()
+    {
+//    	console.log(self.temp);
+    	return self.temp === 'imgs/leaf.png';
+    };    
+    
 	self.uploadTempAvatar = function(file)
-	{
-//			console.log(file);
-//			var oldFile = file[0].name;
-			
+	{			
 			upload({
 				url: 'avatars/load_temporary_avatar',
 				method: 'POST',
 				data : {
 					file : angular.element('[type="file"]'),
-					username : $cookies.get('username')
+					username : self.username
 				}
 			}).then(
 					function (response) {
 //						console.log(response.data.description);
 //						console.log(response);
 						
-						if(response.data.error) angular.inform(response.data.description, {type: 'danger'});
+						if(response.data.error) inform.add(response.data.description, {type: 'danger'});
 						else self.temp = response.data.description;
 						
 						// TODO: create a new input and set file input with opacity=0, then copy all data to the old one 
@@ -67,18 +43,16 @@ main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','
 	{
 		if(self.temp)
 		{
-			$http.post('avatars/load_avatar',{username: $cookies.get('username'), avatar_temp_URI : self.temp}).then(
+			$http.post('avatars/load_avatar',{username: self.username, avatar_temp_URI : self.temp}).then(
 					function(response)
 					{
-//						console.log(response);
 						
 						if(response.data.error) angular.inform(response.data.description, {type: 'danger'});
 						else
 						{
 							inform.add("Nuovo avatar caricato con successo!", {type: 'success'});
-							$scope.avatarURI = response.data.avatar;
-//							var expires = moment().add(1,'year').toDate();
-							// $cookies.put('avatarURI',response.data.avatar, {path: '/', expires: expires});
+							$scope.setAvatar();
+							$scope.$close(response.data.description);
 						}
 					},
 					function(error)
@@ -86,7 +60,6 @@ main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','
 						console.log(error);
 					}
 			)
-			$scope.$dismiss();
 		}
 		else
 		{
@@ -95,7 +68,7 @@ main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','
 				method: 'POST',
 				data : {
 					file : angular.element('[type="file"]'),
-					username: $cookies.get('username')
+					username: self.username
 				}
 			}).then(
 					function (response)
@@ -116,7 +89,7 @@ main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','
 	{
 		$http.post('avatars/load_temporary_avatar',
 				{
-					username: $cookies.get('username'),
+					username: self.username,
 					avatarUri: URI
 				}
 		).then
@@ -134,7 +107,10 @@ main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','
 	};
 	
 	$scope.$watch(
-		function(){return self.avatarURI;},
+		function()
+		{
+			return self.avatarURI;
+		},
 		function(newValue, oldValue)
 		{
 			if(!newValue) return;

@@ -19269,7 +19269,7 @@ button.close {
 }
 
 /* line 11, ../sass/_tricks.scss */
-.resp-img, .avatar {
+.resp-img, .avatar, .avatar-leaf {
   max-width: 90%;
   max-height: 90%;
 }
@@ -20504,7 +20504,7 @@ body {
 }
 /* line 31, ../sass/_profile.scss */
 #profile .profile-name-level-xp .seed-level {
-  font-size: 1.4em;
+  /*         	font-size: 1.4em; */
 }
 /* line 43, ../sass/_profile.scss */
 #profile .profile-name-level-xp .profile-xp .progress-bar {
@@ -20553,6 +20553,11 @@ body {
 
 /* line 1, ../sass/_avatar.scss */
 .avatar {
+  display: inline;
+}
+
+/* line 6, ../sass/_avatar.scss */
+.avatar-leaf {
   display: inline;
 }
 

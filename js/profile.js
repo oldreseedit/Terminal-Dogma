@@ -2,6 +2,7 @@ main.controller('profileController',['utilities','$scope','$http','$routeParams'
     var self = this;
     
     self.username = $routeParams.userID;
+    $route.current.locals.username = self.username; // For modal
     self.avatar = $route.current.locals.avatar;
     self.xpBarTypes = function(){        
         return 'success';
@@ -35,6 +36,10 @@ main.controller('profileController',['utilities','$scope','$http','$routeParams'
     }
     
     
+    self.isDefaultAvatar = function()
+    {
+    	return self.avatar === 'imgs/leaf.png';
+    };    
     
     var notificationIDs = [];
     angular.forEach($scope.notifications,function(i)
@@ -165,16 +170,21 @@ main.controller('profileController',['utilities','$scope','$http','$routeParams'
     	return title;
     };
     
+    $scope.changeAvatar = function(URI)
+    {
+    	self.avatar = URI;
+    };
+    
     $scope.$watch(
     		function()
     		{
-    			if($('.profile-level-symbol')) return $('.profile-level-symbol').height(); 
+    			if($('.profile-name-level-xp')) return $('.profile-name-level-xp').height(); 
     		},
     		function(newValue, oldValue)
     		{
     			if(newValue > 0)
     			{
-    				$('.profile-name-level-xp').height(newValue);
+    				$('.profile-level-symbol').height(newValue);
     			}
     		}
     );
@@ -186,7 +196,7 @@ main.controller('profileController',['utilities','$scope','$http','$routeParams'
     		},
     		function(newValue)
     		{
-    			console.log(newValue);
+//    			console.log(newValue);
     			var indexOfNotifications;
     			if(newValue !== undefined && newValue !== null)
     			{
@@ -197,6 +207,6 @@ main.controller('profileController',['utilities','$scope','$http','$routeParams'
     				$scope.gridsterItems[indexOfNotifications].minHeight = 2;
     			}
     		}
-    )
+    );
     
 }]);

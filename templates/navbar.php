@@ -53,10 +53,10 @@
 <!-- 	                            		<i class="fa fa-question-circle fa-stack-2x" ng-class="{'light-olive':hover, 'white':!hover}"></i> -->
 <!-- 	                            	</span> -->
 <!-- 		                         </a> -->
-	                             <a ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-click="avatar.changeAvatar()" ng-controller="avatarController as avatar">
+	                             <a ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-click="avatar.changeAvatar(username,avatarURI)" ng-controller="avatarController as avatar">
 	                            	<span class="fa-stack fa-sm clickable" ng-if="thereIsAvatar()">
 	                            		<span class="fa-stack" >
-		                            		<img class="avatar" ng-src="{{getAvatar()}}">
+		                            		<img class="avatar" ng-src="{{avatarURI}}">
 		                            	</span>
 	                            	</span>
 	                            	<span class="fa-stack fa-sm clickable" ng-if="!thereIsAvatar()">

@@ -487,6 +487,8 @@ main.controller('Register',['$http','inform','$route','$scope','$compile','uiCal
     self.raw = $route.current.locals.raw.data;
     self.headings = ['Nome','Presente','Note','XP']; // headings for right panel
     
+    console.log(self.raw);
+    
     self.buildDB();
 //    console.log($scope.events);
     $scope.eventSources = [{events: $scope.events, color: 'green'}];

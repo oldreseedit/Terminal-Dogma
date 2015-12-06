@@ -15,7 +15,6 @@ var main = angular.module('Main',[
     'gridster', // For draggable/resizable divs
     'lr.upload', // For uploading purposes
     'inform', // For notifier purposes
-    'inform-http-exception' // For http exceptions handlers
     ], function($httpProvider) {
 
     // FOR CI
@@ -71,18 +70,39 @@ function imOnMaxi(){
 }
 
 /*** RUN PHASE ***/
-main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$route','gridsterConfig',function($rootScope, $location, $timeout, $http, $cookies, $window, $route, gridsterConfig) {
+main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$route','gridsterConfig','inform',function($rootScope, $location, $timeout, $http, $cookies, $window, $route, gridsterConfig,inform) {
 	
 	$rootScope.thereIsAvatar = function()
     {
     	return $rootScope.avatarURI ? true : false;
     }
 	
-	$rootScope.getAvatar = function(where)
+	$rootScope.getAvatar = function()
     {
     	if($rootScope.avatarURI) return $rootScope.avatarURI;
     	return "imgs/leaf.png";
     }
+	
+	$rootScope.setAvatar = function()
+	{
+		$http.post('avatars/get_avatar', {username: $rootScope.username}).then(
+    			function(response)
+    			{
+    				if(response.data.error)
+    				{
+    					inform.add(response.data.description,{type:'danger'});
+    				}
+    				if(response.data)
+    				{
+    					$rootScope.avatarURI = response.data.avatar;
+    				}						
+    			},
+    			function(error)
+    			{
+    				console.log(error);
+    			}
+    	);
+	}
 	
 	$rootScope.getUnseenNotifications = function()
 	{
@@ -91,9 +111,8 @@ main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$rou
         		{
         			if(response.data)
         			{
-//        				console.log(response.data);
             			$rootScope.notifications = response.data;
-            			$rootScope.numberOfNotifications = $rootScope.notifications.length;        				
+            			$rootScope.numberOfNotifications = $rootScope.notifications.length;
         			}
         		},
         		function(error)
@@ -102,13 +121,11 @@ main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$rou
         		}
         );
 	};
-	setInterval(function(){$rootScope.getUnseenNotifications()},5000);
     
     $rootScope.miniHeader = function(){
         if($location.path() !== '/') return true;
         else return false;
-    };
-    
+    };    
 
     $rootScope.logout = function(){
         $cookies.remove('username',{path:'/'});
@@ -119,80 +136,75 @@ main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$rou
     };
 
     if($cookies.get('verified') === '1'){
+    	
         $rootScope.userVerified = true;
         $rootScope.username = $cookies.get('username');
+        
         $rootScope.getUnseenNotifications();
+        
+        $rootScope.setAvatar();
+        
+        $http.post('admins/is_admin',{username: $rootScope.username}).then(
+        		function(response)
+        		{
+        			if(response.data) $rootScope.admin = true;
+        			else $rootScope.admin = false;
+        		},
+        		function(error)
+        		{
+        			console.log(error);
+        		}
+        )        
+
+    	setInterval(function(){$rootScope.getUnseenNotifications()},10000);
     }
     else $rootScope.userVerified = false;
     
-    $http.post('avatars/get_avatar', {username: $rootScope.username}).then(
-			function(response)
-			{
-				if(response.data)
-				{
-					$rootScope.avatarURI = response.data.avatar;
-				}						
-			},
-			function(error)
-			{
-				console.log(error);
-			}
-	);
     
-//	if(!$cookies.get('avatarURI'))
-//	{
-//		$http.post('avatars/get_avatar', {username: $rootScope.username}).then(
-//				function(response)
-//				{
-//					if(response.data)
-//					{
-//						var expires = moment().add(1,'year').toDate();
-//						$cookies.put('avatarURI',response.data.avatar, {path: '/', expires: expires});
-//						$rootScope.avatarURI = $cookies.get('avatarURI');
-//					}						
-//				},
-//				function(error)
-//				{
-//					console.log(error);
-//				}
-//		)
-//	}
-//	else $rootScope.avatarURI = $cookies.get('avatarURI');
+	/* ROUTES AND PRIVILEGES  */
+
     
-	/* ROUTES */
+    var routesAdmin = ['admin','register'];
+    var routesUser = ['payment'];
     
-    var routesForbidden = ['admin','register'];
     $rootScope.$on("$routeChangeStart", function (event, next, current) {
-        if(next){
-            if(next.$$route){
-                if(next.$$route.templateUrl === 'payment'){
-                    if(!$rootScope.userVerified) {
-                        event.preventDefault();
-                        $timeout(function(){$location.path('/paymentNotRegistered')});
-                    }
-                }
-            }
-        }
-        angular.forEach(routesForbidden,function(route){
+    	
+    	angular.forEach(routesUser,function(route){
+	        if(next){
+	            if(next.$$route){
+	                if(next.$$route.templateUrl === route){
+	                    if(!$rootScope.userVerified) {
+	                        event.preventDefault();
+	                        if(current)
+                        	{
+                        		if(current.$$route) $timeout(function(){ $location.path(current.$$route.templateUrl); });
+                        	}
+                        	else $timeout(function(){$location.path('/');});
+	                    }
+	                }
+	            }
+	        }
+    	});
+        
+        angular.forEach(routesAdmin,function(route){
             if(next) {
                 if(next.$$route){
                     if(next.$$route.templateUrl === route){
                         
-                        // CONTROLLO SU SERVER SE L'UTENTE IN COOKIE E' EFFETTIVAMENTE CONNESSO / LA PASSWORD IN COOKIE COINCIDE
-                        $http.post('admins/is_admin',{username: $cookies.get('username')}).then(function(response){
-                            if(response.data !== 'true'){
-                                event.preventDefault();
-                                if(current) {if(current.$$route) $timeout(function(){$location.path(current.$$route.templateUrl);});}
-                                else $timeout(function(){$location.path('/');});
-                            }
-//                             console.log(response);
-                        },function(error){
-                            console.log(error);
-                        });                 
+                        if(!$rootScope.admin)
+                    	{
+                        	event.preventDefault();
+                        	if(current)
+                        	{
+                        		if(current.$$route) $timeout(function(){ $location.path(current.$$route.templateUrl); });
+                        	}
+                        	else $timeout(function(){$location.path('/');});
+                    	}              
                     }
                 }
             }
         });
+        
     });
     
     /* ANGULAR GRIDSTER */
@@ -201,8 +213,6 @@ main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$rou
     gridsterConfig.mobileBreakPoint = 600;
     // gridsterConfig.rowHeight = '*3.236';
     gridsterConfig.columns = 12;
-    
-	
     
 }]);
 
@@ -379,7 +389,7 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
         		return $http.post('profile/load_block_positions',{username: $route.current.params.userID}).then(
                 		function(response)
                 		{
-                			console.log(response);
+//                			console.log(response);
                 			if(response.data.error) inform.add(response.data.description,{type:'danger'});
                 			else if(response.data) return JSON.parse(JSON.parse(response.data));
                 		},
@@ -789,4 +799,81 @@ main.directive('fileChange', function() {
 			});
 		}
 	};
+});
+
+main.directive('centered',function() {
+	return {
+		restrict: 'A',
+		scope: true,
+		link: function(scope, element, attrs) {
+			
+			var height, parentHeight, parentPadding;
+			
+			var measure = function()
+			{
+				height = element[0].offsetHeight;
+				parentHeight = element.parent().outerHeight();
+				parentPadding = parseInt(element.parent().css('padding-top'),10);
+			}			
+			
+			var center = function()
+			{
+				element[0].style.top =((parentHeight-height)/2 - parentPadding) + 'px';
+			}
+
+			element[0].style.position = 'relative';
+			measure();
+			center();
+			
+			scope.$watch(
+					function()
+					{
+						return element.parent().height();
+					},
+					function()
+					{
+						measure();
+						center();				
+					}
+			);
+			
+			scope.$watch(
+					function()
+					{
+						return element.parent().width();
+					},
+					function()
+					{
+						measure();
+						center();				
+					}
+			);
+			
+			scope.$watch(
+					function()
+					{
+						return element[0].offsetHeight;
+					},
+					function()
+					{
+						measure();
+						center();				
+					}
+			);
+			
+			scope.$watch(
+					function()
+					{
+						return element[0].offsetWidth;
+					},
+					function(newValues)
+					{
+						measure();
+						center();				
+					}
+			);
+			
+			
+		}
+	}
 });

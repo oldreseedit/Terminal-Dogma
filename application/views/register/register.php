@@ -61,7 +61,9 @@
                             <table class="table table-striped" ng-controller="expController as xp">
                                 <tr><th class="text-center" ng-repeat="heading in register.headings" ng-bind="heading"></th></tr>
                                 <tr class="noselect" ng-repeat="student in register.getStudentList()" ng-init="index = $index">
-                                    <td ng-bind="student.name + ' ' + student.surname"></td>
+                                    <td>
+                                    	<span ng-bind="student.name + ' ' + student.surname"></span>
+                                    </td>
                                     <td>
                                         <span class="fa fa-lg clickable" ng-class="student.attendance ? 'fa-check light-green' : 'fa-times text-danger'" ng-click="register.toggleAttendance(index)"></span>
                                     </td>

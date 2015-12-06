@@ -12,6 +12,6 @@
 			</span>
 		</td>
 		<td><span class="middler"></span><span class="middle" ng-bind="reward.level"></span></td>
-		<td><span class="middler"></span><span class="middle" ng-bind="reward.description"></span></td>
+		<td><span ng-bind="reward.description" centered></span></td>
 	</tr>
 </table>
