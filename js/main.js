@@ -313,9 +313,10 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
         		$http.post('courses/exists',{courseID:courseID}).then(
         				function(response)
         				{
-        					if(!response.data)
+        					if(response.data === 'false')
         					{
         						window.history.back();
+        						inform.add('Il corso cercato non esiste!',{type: 'warning'});
         					}
         				},
         				function(error)
@@ -418,7 +419,7 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
         				{
         					console.log(error);
         				}
-        		)
+        		);
         	}],
         	blockPositions : ['$http','$route',function($http,$route){
         		return $http.post('profile/load_block_positions',{username: $route.current.params.userID}).then(
