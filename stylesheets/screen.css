@@ -19435,6 +19435,11 @@ button.close {
   }
 }
 
+/* line 157, ../sass/_tricks.scss */
+.fa-stack img {
+  vertical-align: baseline;
+}
+
 /*** MIXINS ***/
 /* line 1, ../sass/_fonts.scss */
 h1, h2, h3, h4, h5, h6 {

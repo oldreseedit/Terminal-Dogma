@@ -129,8 +129,4 @@ main.controller('coursesController',['utilities','$timeout','$location',function
         return utilities.getColours(i, self.categories.length);
     };
     
-    self.route = function(url){
-        $location.path('courses/'+url);
-    };
-    
 }]);

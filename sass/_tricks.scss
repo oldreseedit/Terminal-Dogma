@@ -153,6 +153,12 @@
     }
 }
 
+.fa-stack{
+	img{
+		vertical-align: baseline;
+	}
+}
+
 /*** MIXINS ***/
 
 @mixin container{

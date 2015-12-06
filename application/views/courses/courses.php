@@ -12,31 +12,31 @@
                         </div>
                     </div>
                     <div ng-repeat="tile in category.tiles" ng-style="courses.getVerticalOffset(category)">
-                        
-                        <div class="tile" ng-click="courses.route(tile.url)" ng-class="{'routePossible':(tile.url ? true : false)}">
+                        <a ng-href="#!/courses/{{tile.url}}">
+                        <div class="tile" ng-class="{'routePossible':(tile.url ? true : false)}">
                             
                             <div class="square-content responsive-hide" ng-class="courses.getStyle(indexOfCategory,flipped)" ng-mouseenter="flipped=true" ng-mouseleave="flipped=false">
                                 <flipper flipped="flipped" horizontal >
                                     <front>
                                         <div class="title noselect" ng-style="courses.getTileTitle()">
-                                            <span class="middler"></span><span class="middle noselect" ng-bind="tile.title" fittext="0.9" fittext-multiple="titles"></span>
+                                            <span class="middler"></span><span class="middle noselect clickable" ng-bind="tile.title" fittext="0.9" fittext-multiple="titles"></span>
                                         </div>
                                         <div class="content" ng-style="courses.getTileContent()">
-                                            <span class="middler"></span><span class="middle" ng-class="courses.getIconClass(tile)" fittext="0.9"></span>
+                                            <span class="middler"></span><span class="middle clickable" ng-class="courses.getIconClass(tile)" fittext="0.9"></span>
                                         </div>
                                     </front>
                                     <back>
                                         <div class="back-title" ng-style="courses.getTileTitle()">
-                                            <span class="middler"></span><span class="middle noselect back-title-icon" ng-class="courses.getIconClass(tile)" fittext fittext-multiple="backIcons"></span><span class="middle noselect" ng-bind="tile.title" fittext="0.7" fittext-multiple="backTitles"></span>
+                                            <span class="middler"></span><span class="middle noselect back-title-icon clickable" ng-class="courses.getIconClass(tile)" fittext fittext-multiple="backIcons"></span><span class="middle noselect clickable" ng-bind="tile.title" fittext="0.7" fittext-multiple="backTitles"></span>
                                         </div>
                                         <div class="back-content" ng-style="courses.getTileContent()">
-                                            <span class="noselect" ng-bind="tile.contentFlipped" fittext-long="0.9"></span>
+                                            <span class="noselect clickable" ng-bind="tile.contentFlipped" fittext-long="0.9"></span>
                                         </div>
                                     </back>
                                 </flipper>
                             </div>
                         </div>
-
+					  	</a>
                     </div>
                 </div>
             </div>
