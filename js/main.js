@@ -72,7 +72,7 @@ function imOnMaxi(){
 
 /*** RUN PHASE ***/
 main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$route','gridsterConfig',function($rootScope, $location, $timeout, $http, $cookies, $window, $route, gridsterConfig) {
-
+	
 	$rootScope.thereIsAvatar = function()
     {
     	return $rootScope.avatarURI ? true : false;
@@ -91,6 +91,7 @@ main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$rou
         		{
         			if(response.data)
         			{
+//        				console.log(response.data);
             			$rootScope.notifications = response.data;
             			$rootScope.numberOfNotifications = $rootScope.notifications.length;        				
         			}
@@ -101,6 +102,7 @@ main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$rou
         		}
         );
 	};
+	setInterval(function(){$rootScope.getUnseenNotifications()},5000);
     
     $rootScope.miniHeader = function(){
         if($location.path() !== '/') return true;
@@ -112,7 +114,8 @@ main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$rou
         $cookies.remove('username',{path:'/'});
         $cookies.remove('token',{path:'/'});
         $cookies.remove('verified',{path:'/'});
-        $timeout(function(){$window.location.reload();});
+        $location.path('/');
+        $window.location.reload();
     };
 
     if($cookies.get('verified') === '1'){
@@ -198,6 +201,8 @@ main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$rou
     gridsterConfig.mobileBreakPoint = 600;
     // gridsterConfig.rowHeight = '*3.236';
     gridsterConfig.columns = 12;
+    
+	
     
 }]);
 
