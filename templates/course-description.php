@@ -11,10 +11,6 @@
     </div>
     <h5>Programma</h5>
     <div class="course-description-syllabus">
-        <ul>
-            <li ng-repeat="item in course.courseDescription.syllabus">
-                <span ng-bind-html="item"></span>
-            </li>
-        </ul>
+    	<span ng-bind-html="course.courseDescription.syllabus"></span>
     </div>
 </div>

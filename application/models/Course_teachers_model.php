@@ -7,6 +7,7 @@ class Course_teachers_model extends CI_Model
         {
                 $this->load->database();
                 $this->load->model('teachers_model');
+                $this->load->model('userinfo_model');
         }
         
         public function init()
@@ -66,6 +67,7 @@ class Course_teachers_model extends CI_Model
         {
         	return $this->db->where('courseID', $courseID)
         	->join(Teachers_model::table_name, Teachers_model::table_name . ".teacherID" . " = " . self::table_name . ".teacherID")
+        	->join(Userinfo_model::table_name, Userinfo_model::table_name . ".userID" . " = " . self::table_name . ".teacherID")
         	->get(self::table_name)->result_array();
         }
 }
