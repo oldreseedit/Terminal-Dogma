@@ -186,6 +186,7 @@ main.controller('Register',['$http','inform','$route','$scope','$compile','uiCal
     self.buildDB = function()
     {
         self.db = self.raw;
+        
         self.changes = { studentsChanges : [] };
         self.coursesList = [];
         
@@ -487,7 +488,7 @@ main.controller('Register',['$http','inform','$route','$scope','$compile','uiCal
     self.raw = $route.current.locals.raw.data;
     self.headings = ['Nome','Presente','Note','XP']; // headings for right panel
     
-    console.log(self.raw);
+//    console.log(self.raw);
     
     self.buildDB();
 //    console.log($scope.events);
