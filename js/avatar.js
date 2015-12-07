@@ -64,25 +64,27 @@ main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','
 
 		if(FileReader)
 		{
-			$scope.current = 0;
-			$scope.loading = true;
-			
-			$scope.$evalAsync(self.fr.readAsDataURL(file[0]));
-
-			self.fr.onloadstart = function(event)
-			{
-//				console.log(event);
-				$scope.total = event.total;
-			};
-			
-			self.fr.onprogress = function(event){
-//				console.log(event);
-				$scope.current = event.loaded;
-			};
+//			$scope.current = 0;
+//			$scope.loading = true;
+//			
+			$scope.$evalAsync( function(){
+				self.fr.readAsDataURL(file[0]);
+			});
+//			
+//			self.fr.onloadstart = function(event)
+//			{
+////				console.log(event);
+//				$scope.total = event.total;
+//			};
+//			
+//			self.fr.onprogress = function(event){
+////				console.log(event);
+//				$scope.current = event.loaded;
+//			};
 			
 			self.fr.onloadend = function(){
 				self.temp = self.fr.result;
-			};
+			};	
 			
 		}
 		else // if on Opera Mini or IE<=9 -> generates "no file selected" bug
