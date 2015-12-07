@@ -70,7 +70,7 @@ function imOnMaxi(){
 }
 
 /*** RUN PHASE ***/
-main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$route','gridsterConfig','inform',function($rootScope, $location, $timeout, $http, $cookies, $window, $route, gridsterConfig,inform) {
+main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$route','gridsterConfig','inform','$cookies',function($rootScope, $location, $timeout, $http, $cookies, $window, $route, gridsterConfig,inform,$cookies) {
 	
 	$rootScope.thereIsAvatar = function()
     {
@@ -149,7 +149,6 @@ main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$rou
         		{
         			if(response.data === 'false') $rootScope.admin = false;
         			else $rootScope.admin = true;
-        			console.log($rootScope.admin);
         		},
         		function(error)
         		{
@@ -159,54 +158,7 @@ main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$rou
 
     	setInterval(function(){$rootScope.getUnseenNotifications()},10000);
     }
-    else $rootScope.userVerified = false;
-    
-    
-	/* ROUTES AND PRIVILEGES  */
-
-    
-    var routesAdmin = ['admin','register'];
-    var routesUser = ['payment'];
-    
-    $rootScope.$on("$routeChangeStart", function (event, next, current) {
-    	
-    	angular.forEach(routesUser,function(route){
-	        if(next){
-	            if(next.$$route){
-	                if(next.$$route.templateUrl === route){
-	                    if(!$rootScope.userVerified) {
-	                        event.preventDefault();
-	                        if(current)
-                        	{
-                        		if(current.$$route) $timeout(function(){ $location.path(current.$$route.templateUrl); });
-                        	}
-                        	else $timeout(function(){$location.path('/');});
-	                    }
-	                }
-	            }
-	        }
-    	});
-        
-        angular.forEach(routesAdmin,function(route){
-            if(next) {
-                if(next.$$route){
-                    if(next.$$route.templateUrl === route){
-                        
-                        if(!$rootScope.admin)
-                    	{
-                        	event.preventDefault();
-                        	if(current)
-                        	{
-                        		if(current.$$route) $timeout(function(){ $location.path(current.$$route.templateUrl); });
-                        	}
-                        	else $timeout(function(){$location.path('/');});
-                    	}              
-                    }
-                }
-            }
-        });
-        
-    });
+    else $rootScope.userVerified = false;    
     
     /* ANGULAR GRIDSTER */
     
@@ -214,6 +166,128 @@ main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$rou
     gridsterConfig.mobileBreakPoint = 600;
     // gridsterConfig.rowHeight = '*3.236';
     gridsterConfig.columns = 12;
+    
+    
+	/* ROUTES AND PRIVILEGES  */
+    
+    var routesAdmin = ['admin','register'];
+    var routesUser = ['payment'];
+
+	var watchers = [];
+	var stopWatcher = [];
+    angular.forEach(routesUser,function(route){
+    	
+    	watchers[route] = function()
+    	{
+    		stopWatcher[route] = $rootScope.$on("$routeChangeStart", function (event, next, current) {
+            	if(next){
+    	            if(next.$$route){
+    	                if(next.$$route.templateUrl === route){
+    	                	
+    	                	event.preventDefault();
+        	    			$http.post('users/im_user').then(
+        	    					function(response)
+        	    					{
+        	    						if(response.data === 'false')
+        	    						{
+            	    	    				if(!current)
+            	    	                	{
+            	    	                		$location.path('/');
+            	    	                	}
+        	    							inform.add('Per visitare questa pagina devi essere iscritto a reSeed!',{type:'warning'});
+        	    						}
+        	    						else
+        	    						{
+        	    							stopWatcher[route]();
+        	    							$location.path('/'+route);
+        	    							$timeout(function(){watchers[route]});
+        	    						}
+        	    					}
+        	    			);
+    	                }
+    	            }
+    	        }
+    		});
+    	};
+    	watchers[route]();
+	});
+    
+    angular.forEach(routesAdmin,function(route){
+    	
+    	watchers[route] = function()
+    	{
+    		stopWatcher[route] = $rootScope.$on("$routeChangeStart", function (event, next, current) {
+    	        if(next){
+    	            if(next.$$route){
+    	                if(next.$$route.templateUrl === route){
+    	                	
+    	                	event.preventDefault();
+        	    			$http.post('users/im_admin').then(
+        	    					function(response)
+        	    					{
+        	    						if(response.data === 'false')
+        	    						{
+            	    	    				if(!current)
+            	    	                	{
+            	    	                		$location.path('/');
+            	    	                	}
+        	    							inform.add('Non hai i privilegi necessari per visitare questa pagina!',{type:'warning'});
+        	    						}
+        	    						else
+        	    						{
+        	    							stopWatcher[route]();
+        	    							$location.path('/'+route);
+        	    							$timeout(function(){watchers[route]});
+        	    						}
+        	    					}
+        	    			);
+    	                }
+    	            }
+    	        }
+    		});
+    	};
+    	watchers[route]();
+	});
+    
+    /* Profile */
+    var watchProfile = function()
+    {
+    	var profileOff = $rootScope.$on('$routeChangeStart',function(event,next,current){
+    		if(next) {
+    	    	if(next.$$route){
+    	    		if(next.$$route.originalPath === '/profile/:userID')
+    	    		{
+//    	    			console.log(next);
+    	    			var userID = next.params.userID;
+    	    			event.preventDefault();
+    	    			$http.post('users/exists',{username : userID}).then(
+    	    					function(response)
+    	    					{
+    	    						if(response.data === 'false')
+    	    						{
+        	    	    				if(!current)
+        	    	                	{
+        	    	                		$location.path('/');
+        	    	                	}
+    	    							inform.add('L\'utente cercato non esiste!',{type:'warning'});
+    	    						}
+    	    						else
+    	    						{
+    	    							profileOff();
+    	    							$location.path('/profile/'+userID);
+    	    							$route.reload();
+    	    							$timeout(function(){watchProfile();});
+    	    						}
+    	    					}
+    	    			);				
+    				}
+    	    	}
+    	    }
+        });
+    };
+    watchProfile();
+	   
+    	
     
 }]);
 
@@ -308,24 +382,6 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
         templateUrl : function(parameters){return 'course/index/'+parameters.courseID;},
         controller : 'courseController as course',
         resolve: {
-        	exists : ['$http','$route',function($http,$route){
-//        		console.log($route);
-        		var courseID = $route.current.params.courseID;
-        		$http.post('courses/exists',{courseID:courseID}).then(
-        				function(response)
-        				{
-        					if(response.data === 'false')
-        					{
-        						window.history.back();
-        						inform.add('Il corso cercato non esiste!',{type: 'warning'});
-        					}
-        				},
-        				function(error)
-        				{
-        					console.log(error);
-        				}
-        		)
-        	}],
         	courseDescription : ['$http','$route',function($http,$route){
         		var courseID = $route.current.params.courseID;
         		return $http.post('courses/get',{courseID : courseID}).then(function(response) {
@@ -404,17 +460,13 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     	templateUrl: function(parameters){return 'profile/index/'+parameters.userID;},
         controller : 'profileController as profile',
         resolve : {
-        	exists : ['$http','$route','inform',function($http,$route,inform){
-//        		console.log($route);
-        		var userID = $route.current.params.userID;
-        		$http.post('users/exists',{username: userID}).then(
+        	exists : ['$http','$route',function($http,$route){
+        		return $http.post('users/exists',{username: $route.current.params.userID}).then(
         				function(response)
         				{
-        					if(response.data === 'false')
-        					{
-        						window.history.back();
-        						inform.add('L\'utente cercato non esiste!',{type: 'warning'});
-        					}
+        					if(response.data.error) inform.add(response.data.description,{type:'danger'});
+        					else if(response.data === 'false') return false;
+        					else return true;
         				},
         				function(error)
         				{

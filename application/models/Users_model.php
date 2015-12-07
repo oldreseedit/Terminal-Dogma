@@ -77,6 +77,29 @@ class Users_model extends CI_Model
                 return strcmp($token, $token_in_db) == 0;
         }
         
+        public function isAdmin($userID, $token)
+        {
+        	$this->db->select('Username, Token');
+        	$this->db->from(self::table_name);
+        	$this->db->where(array('Username' => $userID));
+        	$this->db->join('admins','admins.userID = ' . self::table_name . '.Username','inner');
+        	$query = $this->db->get();
+        	$result = $query->row_array();
+            $token_in_db = $result['Token'];
+            return strcmp($token, $token_in_db) == 0;
+        }
+        
+        public function isUser($userID,$token)
+        {
+        	$this->db->select('Username, Token');
+        	$this->db->from(self::table_name);
+        	$this->db->where(array('Username' => $userID));
+        	$query = $this->db->get();
+        	$result = $query->row_array();
+        	$token_in_db = $result['Token'];
+        	return strcmp($token, $token_in_db) == 0;
+        }
+        
         public function delete($userID)
         {
                 $this->db->delete(self::table_name, array('Username' => $userID));

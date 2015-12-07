@@ -3,7 +3,7 @@ main.controller('avatarController',['$http','$scope','$uibModal','$route','infor
     
     self.changeAvatar = function(username,avatar)
     {
-    	if($route.current.locals.username === $scope.username || $scope.admin)
+    	if(username === $scope.username || $scope.admin)
     	{
     		var modalInstance = $uibModal.open({
                 templateUrl: 'templates/change-avatar-modal.php',

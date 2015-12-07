@@ -213,6 +213,24 @@ class Users extends CI_Controller {
             echo json_encode(array("error" => false, "description" => "Il logout è stato effettuato correttamente."));
         }
         
+
+        public function im_admin()
+        {
+        	$userID = $_COOKIE['username'];
+        	$token = $_COOKIE['token'];
+        	echo json_encode($this->users_model->isAdmin($userID,$token));
+        	 
+        	return;
+        }
+        public function im_user()
+        {
+        	$userID = $_COOKIE['username'];
+        	$token = $_COOKIE['token'];
+        	echo json_encode($this->users_model->isUser($userID,$token));
+        	 
+        	return;
+        }
+        
 		public function init_exp_events()
 		{
 			$this->experience_events_model->init();

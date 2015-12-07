@@ -5,6 +5,7 @@ class Admins extends CI_Controller {
         {
                 parent::__construct();
                 $this->load->model('admins_model');
+                $this->load->model('users_model');
                 $this->load->helper('url');
         }
         
