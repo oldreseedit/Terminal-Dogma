@@ -32,13 +32,13 @@ class Profile extends CI_Controller {
 			return;
 		}
 		
-		$can_see = $this->admins_model->is_admin($userID) || strcmp($userID, $profileName) == 0;
+// 		$can_see = $this->admins_model->is_admin($userID) || strcmp($userID, $profileName) == 0;
 		
-		if(!$can_see)
-		{
-			echo json_encode(array("error" => true, "description" => "Non sei autorizzato a visitare questo profilo.", "errorCode" => "ILLEGAL_ACCESS", "parameters" => array("username")));
-			return;
-		}
+// 		if(!$can_see)
+// 		{
+// 			echo json_encode(array("error" => true, "description" => "Non sei autorizzato a visitare questo profilo.", "errorCode" => "ILLEGAL_ACCESS", "parameters" => array("username")));
+// 			return;
+// 		}
 		
 		$this->load->view('profile/profile');
 	}

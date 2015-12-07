@@ -1,4 +1,4 @@
-main.controller('profileController',['utilities','$scope','$http','$routeParams','$route','$timeout','$cookies',function(utilities,$scope,$http,$routeParams,$route,$timeout,$cookies){
+main.controller('profileController',['$scope','$http','$routeParams','$route','$timeout',function($scope,$http,$routeParams,$route,$timeout){
     var self = this;
     
     self.username = $routeParams.userID;
@@ -35,6 +35,10 @@ main.controller('profileController',['utilities','$scope','$http','$routeParams'
     	if(i<=lastRewardIndex+2) self.rewards.push(self.tempRewards[i]);
     }
     
+    self.isMyProfile = function()
+    {
+    	return (self.username === $scope.username || $scope.admin );
+    }
     
     self.isDefaultAvatar = function()
     {

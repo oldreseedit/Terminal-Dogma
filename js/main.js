@@ -147,8 +147,9 @@ main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$rou
         $http.post('admins/is_admin',{username: $rootScope.username}).then(
         		function(response)
         		{
-        			if(response.data) $rootScope.admin = true;
-        			else $rootScope.admin = false;
+        			if(response.data === 'false') $rootScope.admin = false;
+        			else $rootScope.admin = true;
+        			console.log($rootScope.admin);
         		},
         		function(error)
         		{

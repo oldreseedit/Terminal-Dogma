@@ -121,7 +121,7 @@ main.controller('gridsterResizeController',['$scope','$element','$timeout','$htt
 		$scope.$on('gridster-item-transition-end', 
 			function()
 			{
-				$scope.registerMeasures();
+				if($route.current.locals.username === $scope.username || $scope.admin) $scope.registerMeasures();
 			
 				self.updateScrollbar();				
 			}
