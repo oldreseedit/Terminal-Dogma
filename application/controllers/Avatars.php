@@ -106,7 +106,7 @@ class Avatars extends CI_Controller {
         	}
         	
         	// Get the temporary file avatar URI
-        	$tempURI = $this->input->post('avatar_temp_URI');
+        	$tempURI = $this->input->post('avatarUri');
         	
         	// If the user hasn't previously loaded a file
         	if($tempURI == false)

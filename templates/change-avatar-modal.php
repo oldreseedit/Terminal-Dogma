@@ -13,6 +13,7 @@
             	<div class="container">
 	            	<label for="file">Carica un file</label>
 	            	<input id="file" form="avatarForm" type="file"  file-change="avatarModal.uploadTempAvatar(file)"></input>
+	            	<uib-progressbar ng-if="loading" value="current" max="total" type="success" ><span ng-bind="avatarModal.getPercent()"></span></uib-progressbar>
 	            	<label for="uri">o incolla un URI</label>
 	            	<input id="uri" form="avatarForm" type="text" ng-model="avatarModal.avatarURI"></input>
 					<input class="modal-submit" type="submit" ng-class="{'btn-success' : avatarForm.$valid, 'btn-grey' : avatarForm.$invalid}" value="Salva" />
