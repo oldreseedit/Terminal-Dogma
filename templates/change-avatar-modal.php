@@ -15,7 +15,7 @@
 	            	<input id="file" form="avatarForm" type="file"  file-change="avatarModal.uploadTempAvatar(file)"></input>
 	            	<label for="uri">o incolla un URI</label>
 	            	<input id="uri" form="avatarForm" type="text" ng-model="avatarModal.avatarURI"></input>
-					<input class="modal-submit" type="submit" ng-class="{'btn-success' : avatarForm.$valid, 'btn-grey' : avatarForm.$invalid}" value="Invia" />
+					<input class="modal-submit" type="submit" ng-class="{'btn-success' : avatarForm.$valid, 'btn-grey' : avatarForm.$invalid}" value="Salva" />
 	            	<input class="modal-cancel" ng-click="$dismiss()" value="Annulla" readonly/>
 	            </div>
         	</form>
