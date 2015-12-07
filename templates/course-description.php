@@ -13,7 +13,7 @@
     <div class="course-description-syllabus">
         <ul>
             <li ng-repeat="item in course.courseDescription.syllabus">
-                <span ng-bind="item"></span>
+                <span ng-bind-html="item"></span>
             </li>
         </ul>
     </div>
