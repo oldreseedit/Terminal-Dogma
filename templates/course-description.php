@@ -5,7 +5,7 @@
                 <span ng-class="'icon-{{course.courseDescription.icon}}'" fittext></span>
             </div>
             <div class="course-description">
-                <span ng-bind="course.courseDescription.description"></span>
+                <span ng-bind-html="course.courseDescription.description"></span>
             </div>
         </div>
     </div>
