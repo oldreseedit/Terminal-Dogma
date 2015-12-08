@@ -5,8 +5,9 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     
     self.username = $cookies.get('username');
     
-    self.courseName = $routeParams.courseID.charAt(0).toUpperCase() + $routeParams.courseID.slice(1);
-    self.courseName = self.courseName.split(/(?=[A-Z](?=[a-z]))/).join(" ");
+//    self.courseName = $routeParams.courseID.charAt(0).toUpperCase() + $routeParams.courseID.slice(1);
+//    self.courseName = self.courseName.split(/(?=[A-Z](?=[a-z]))/).join(" ");
+    self.courseName = $route.current.locals.courseDescription.name;
     
     self.courseID = $routeParams.courseID;
     self.courseDescription = $route.current.locals.courseDescription;
@@ -72,7 +73,7 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
 		$http.post('course/update_block_positions',{username: self.username, courseID: self.courseID, blockPositions: JSON.stringify($scope.gridsterItems)}).then(
     			function(response)
     			{
-//        			console.log(response);
+        			console.log(response);
     			},
     			function(error)
     			{
