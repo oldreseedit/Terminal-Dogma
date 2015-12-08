@@ -1,7 +1,7 @@
 <?php
-class Courses_model extends CI_Model
+class Activities_model extends CI_Model
 {
-        const table_name = "courses";
+        const table_name = "activities";
         
         public function __construct()
         {
@@ -13,7 +13,7 @@ class Courses_model extends CI_Model
                 $this->load->dbforge();
                 
                 $fields = array(
-                        'courseID' => array(
+                        'activityID' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => 30,
                         ),
@@ -26,7 +26,12 @@ class Courses_model extends CI_Model
                                 'constraint' => 4096,
                         		'null' => true
                         ),
-                		'syllabus' => array(
+                		'otj_description' => array(
+                				'type' => 'VARCHAR',
+                				'constraint' => 4096,
+                				'null' => true
+                		),
+                		'who' => array(
                 				'type' => 'VARCHAR',
                 				'constraint' => 4096,
                 				'null' => true
@@ -38,52 +43,54 @@ class Courses_model extends CI_Model
                 		),
                 );
                 
-                $this->dbforge->add_key('courseID', TRUE);
+                $this->dbforge->add_key('activityID', TRUE);
                 
                 $this->dbforge->add_field($fields);
                 $this->dbforge->create_table(self::table_name);
         }
         
-        public function add($courseID, $name, $description = null, $syllabus = null, $iconURI = null)
+        public function add($activityID, $name, $description = null, $otj = null, $who = null, $iconURI = null)
         {
                 $data = array(
-                   'courseID' => $courseID,
+                   'activityID' => $activityID,
                    'name' => $name,
                 );
                 
                 if($description != null) $data['description'] = $description;
-                if($syllabus != null) $data['syllabus'] = $syllabus;
+                if($otj != null) $data['otj_description'] = $otj;
+                if($who != null) $data['who'] = $who;
                 if($iconURI != null) $data['icon'] = $iconURI;
                 
                 $this->db->insert(self::table_name, $data);
                 return $this->db->insert_id();
         }
         
-        public function delete($courseID)
+        public function delete($activityID)
         {
-                $data = array('courseID' => $courseID);
+                $data = array('activityID' => $activityID);
 
                 return $this->db->delete(self::table_name, $data);
         }
         
-        public function update($courseID, $name = null, $description = null, $syllabus = null, $iconURI = null)
+        public function update($activityID, $name = null, $description = null, $otj = null, $who = null, $iconURI = null)
         {
                 $data = array();
                 
                 if($name != null) $data['name'] = $name;
                 if($description != null) $data['description'] = $description;
-                if($syllabus != null) $data['syllabus'] = $syllabus;
+                if($otj != null) $data['otj_description'] = $otj;
+                if($who != null) $data['who'] = $who;
                 if($iconURI != null) $data['icon'] = $iconURI;
                 
                 if(count($data) == 0) return false;
                 
-                $this->db->where('courseID', $courseID)->update(self::table_name, $data);
+                $this->db->where('activityID', $activityID)->update(self::table_name, $data);
                 return true;
         }
         
-        public function get($courseID)
+        public function get($activityID)
         {
-                return $this->db->where('courseID', $courseID)->get(self::table_name)->row_array();
+                return $this->db->where('activityID', $activityID)->get(self::table_name)->row_array();
         }
 }
 ?>
