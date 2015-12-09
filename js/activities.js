@@ -5,17 +5,20 @@ main.controller('activitiesController',['utilities',function(utilities){
         {
             title: 'Siti web',
             iconName: '',
-            contentFlipped: 'Creiamo il sito perfetto per le tue esigenze e quelle dei tuoi clienti, presente sui motori di ricerca e progettato secondo le corrette regole di user experience.'
+            contentFlipped: 'Creiamo il sito perfetto per le tue esigenze e quelle dei tuoi clienti, presente sui motori di ricerca e progettato secondo le corrette regole di user experience.',
+            url: 'websites'
         },
         {
             title: 'Advergaming',
             iconName: '',
-            contentFlipped: 'Progettiamo assieme a te e realizziamo il videogioco perfetto per pubblicizzare il tuo prodotto su piattaforme Android, iOS, social e web.'
+            contentFlipped: 'Progettiamo assieme a te e realizziamo il videogioco perfetto per pubblicizzare il tuo prodotto su piattaforme Android, iOS, social e web.',
+            url: 'advergaming'
         },
         {
             title: 'Ripetizioni',
             iconName: '',
-            contentFlipped: 'Ripetizioni professionali e assistenza allo studio a domicilio per universitari e studenti delle scuole superiori in Matematica, Fisica, Informatica e molto altro.'
+            contentFlipped: 'Ripetizioni professionali e assistenza allo studio a domicilio per universitari e studenti delle scuole superiori in Matematica, Fisica, Informatica e molto altro.',
+            url: 'reps'
         },
     ];
     
