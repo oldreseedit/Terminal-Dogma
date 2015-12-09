@@ -1,4 +1,4 @@
-main.controller('Register',['$http','inform','$route','$scope','$compile','uiCalendarConfig','$uibModal',function($http,inform,$route,$scope,$compile,uiCalendarConfig,$modal){
+main.controller('Register',['$http','inform','$route','$scope','uiCalendarConfig','$uibModal',function($http,inform,$route,$scope,uiCalendarConfig,$modal){
     
     var self = this;
     

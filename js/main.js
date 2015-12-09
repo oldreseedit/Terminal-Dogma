@@ -148,7 +148,6 @@ main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$rou
         		function(response)
         		{
         			if(response.data === 'false') $rootScope.admin = false;
-        			else $rootScope.admin = true;
         		},
         		function(error)
         		{
@@ -200,7 +199,7 @@ main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$rou
         	    						{
         	    							stopWatcher[route]();
         	    							$location.path('/'+route);
-        	    							$timeout(function(){watchers[route]});
+        	    							$timeout(function(){watchers[route]();});
         	    						}
         	    					}
         	    			);
@@ -237,7 +236,7 @@ main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$rou
         	    						{
         	    							stopWatcher[route]();
         	    							$location.path('/'+route);
-        	    							$timeout(function(){watchers[route]});
+        	    							$timeout(function(){watchers[route]();});
         	    						}
         	    					}
         	    			);
@@ -340,11 +339,11 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
         templateUrl : 'courses'
     });
     
-//    // Activities
-//    
-//    $routeProvider.when('/activities',{
-//        templateUrl : 'activities'
-//    });
+    // Activities
+    
+    $routeProvider.when('/activities',{
+        templateUrl : 'activities'
+    });
 //    
 //    // Media
 //    

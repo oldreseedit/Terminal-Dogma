@@ -7,46 +7,22 @@ main.controller('activitiesController',['utilities',function(utilities){
             iconName: 'mat1',
             contentFlipped: 'No, no, seriamente; è fica.'
         },
-        {
-            title: 'Informatica 2',
-            iconName: 'info3',
-            contentFlipped: 'No, no, seriamente; è fica.'
-        },
-        {
-            title: 'Matematica 3',
-            iconName: 'mat3',
-            contentFlipped: 'No, no, seriamente; è fica.'
-        },
-        {
-            title: 'Informatica 4',
-            iconName: 'info1',
-            contentFlipped: 'No, no, seriamente; è fica.'
-        },
-        {
-            title: 'Matematica 5',
-            iconName: 'mat5',
-            contentFlipped: 'No, no, seriamente; è fica.'
-        },
-        {
-            title: 'Matematica 6',
-            iconName: 'mat6',
-            contentFlipped: 'No, no, seriamente; è fica.'
-        },
-        {
-            title: 'Fisica 7',
-            iconName: 'fis1',
-            contentFlipped: 'No, no, seriamente; è fica.'
-        }
     ];
     
     var numOfCol = imOnResponsive ? 3 : 6;
         
-    self.sizesTiles = utilities.spacedSizes(numOfCol);
+    self.sizesTiles = utilities.sizesWithSpacer(0.75,numOfCol);
     
-    self.spacedTiles = function($index){
-        
-        if($index % numOfCol == 0) return ["col-" + self.sizesTiles.elementsWidth, "offset-" + self.sizesTiles.outerWidth];
-        else return ["col-" + self.sizesTiles.elementsWidth, "offset-" + self.sizesTiles.spacerWidth];
+    self.spacedTiles = function(index){
+        if(index % numOfCol === 0) return {
+            'width': self.sizesTiles.elementsWidth*100 + '%',
+            'padding-bottom' : self.tilesActivitiesWidth*self.sizesTiles.spacerWidth/100 + 'px',
+        };
+        else return {
+            'width': self.sizesTiles.elementsWidth*100 + '%',
+            'margin-left': self.sizesTiles.spacerWidth + '%',
+            'padding-bottom' : self.tilesActivitiesWidth*self.sizesTiles.spacerWidth/100 + 'px',
+        };
     };
     
     self.getIconClass = function(tile){
@@ -59,7 +35,7 @@ main.controller('activitiesController',['utilities',function(utilities){
     };
     
     self.getTileWidth = function(){
-        return self.activitiesWidth*self.sizesTiles.elementsWidth/100;
+        return self.tilesActivitiesWidth*self.sizesTiles.elementsWidth;
     };
     
     self.getTileTitle = function(){

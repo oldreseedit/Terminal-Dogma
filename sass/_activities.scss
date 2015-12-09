@@ -5,16 +5,17 @@
     padding-bottom: 3vw;
     
     #tiles-activities{
-        @extend .col-100;
+        @extend .col-76;
+        @extend .offset-12;
         margin-top: 3vw;
         
         @include responsive {
-            width: 100%;
-            margin-left: 0;
+            @include col(100);
+            @include offset(0);
         }
-        
-        .tile-wrapper{
-            padding-bottom: 2%;
+            
+        .routePossible{
+            cursor: pointer;
         }
         
         .tile{
@@ -29,20 +30,24 @@
             }
             
             .back{
-                @extend .text-justify;
-                padding: 5%;
+                @extend .text-left;
                 
-                .back-symbol{
-                    @extend .col-30;
+                .back-title-icon{
+                    margin-right: 0.2em;
                 }
                 
                 .back-title{
-                    @extend .col-70;
+                    padding-left: 5%;
+                    padding-right: 5%;
                 }
                 
                 .back-content{
-                    @extend .col-100;
+                    padding: 2% 5% 5% 5%;
+                    @include responsive {
+                        padding: 2%;
+                    }
                 }
+                
             }
         }
         
