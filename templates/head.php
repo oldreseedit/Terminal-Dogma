@@ -111,7 +111,7 @@
     <script type="text/javascript" src="js/privacy.js"></script>
     
     <!-- Grunt Plugins -->
-    <!--<script type="text/javascript" src="js/templates.js"></script>-->
+    <script type="text/javascript" src="js/templates.js"></script>
     
     
     <!-- Angular Perfect Scrollbar -->
