@@ -11,6 +11,15 @@ main.controller('activityController',['utilities','$scope','$http','$routeParams
     self.activityID = $routeParams.activityID;
     self.activityDescription = $route.current.locals.activityDescription;
     
+    $scope.gridsterOpts = {
+    	resizable : {
+    		enabled : false
+    	},
+    	draggable : {
+    		enabled: false
+    	}
+    };
+    
     /* METHODS */
     
     /* PROPER OBJECTS AND METHODS */
