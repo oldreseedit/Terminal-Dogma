@@ -361,7 +361,7 @@ main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$rou
     	    						else
     	    						{
     	    							activityOff();
-    	    							$location.path('/courses/'+activityID);
+    	    							$location.path('/activities/'+activityID);
     	    							$route.reload();
     	    							$timeout(function(){watchActivity();});
     	    						}
