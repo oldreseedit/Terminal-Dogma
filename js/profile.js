@@ -2,7 +2,7 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
     var self = this;
     
     self.username = $routeParams.userID;
-    $route.current.locals.username = self.username; // For modal
+    $route.current.locals.username = self.username; // For modal and GridsterResizer
     self.avatar = $route.current.locals.avatar;
     self.xpBarTypes = function(){        
         return 'success';

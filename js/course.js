@@ -4,6 +4,7 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     /* CONFIG */
     
     self.username = $cookies.get('username');
+    $route.current.locals.username = self.username; // For modal and GridsterResizer
     
 //    self.courseName = $routeParams.courseID.charAt(0).toUpperCase() + $routeParams.courseID.slice(1);
 //    self.courseName = self.courseName.split(/(?=[A-Z](?=[a-z]))/).join(" ");
