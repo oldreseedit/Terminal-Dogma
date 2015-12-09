@@ -3,13 +3,23 @@ main.controller('activitiesController',['utilities',function(utilities){
     
     self.tiles = [
         {
-            title: 'Matematica 1',
-            iconName: 'mat1',
-            contentFlipped: 'No, no, seriamente; è fica.'
+            title: 'Siti web',
+            iconName: '',
+            contentFlipped: 'Creiamo il sito perfetto per le tue esigenze e quelle dei tuoi clienti, presente sui motori di ricerca e progettato secondo le corrette regole di user experience.'
+        },
+        {
+            title: 'Advergaming',
+            iconName: '',
+            contentFlipped: 'Progettiamo assieme a te e realizziamo il videogioco perfetto per pubblicizzare il tuo prodotto su piattaforme Android, iOS, social e web.'
+        },
+        {
+            title: 'Ripetizioni',
+            iconName: '',
+            contentFlipped: 'Ripetizioni professionali e assistenza allo studio a domicilio per universitari e studenti delle scuole superiori in Matematica, Fisica, Informatica e molto altro.'
         },
     ];
     
-    var numOfCol = imOnResponsive ? 3 : 6;
+    var numOfCol = imOnResponsive ? 3 : (self.tiles.length > 6 ? 6 : self.tiles.length);
         
     self.sizesTiles = utilities.sizesWithSpacer(0.75,numOfCol);
     
