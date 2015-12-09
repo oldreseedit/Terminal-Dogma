@@ -284,9 +284,84 @@ main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$rou
     	    }
         });
     };
-    watchProfile();
 	   
-    	
+    /* Course */
+    var watchCourse = function()
+    {
+    	var courseOff = $rootScope.$on('$routeChangeStart',function(event,next,current){
+    		if(next) {
+    	    	if(next.$$route){
+    	    		if(next.$$route.originalPath === '/courses/:courseID')
+    	    		{
+//    	    			console.log(next);
+    	    			var courseID = next.params.courseID;
+    	    			event.preventDefault();
+    	    			$http.post('courses/exists',{courseID : courseID}).then(
+    	    					function(response)
+    	    					{
+    	    						if(response.data === 'false')
+    	    						{
+        	    	    				if(!current)
+        	    	                	{
+        	    	                		$location.path('/');
+        	    	                	}
+    	    							inform.add('Il corso cercato non esiste!',{type:'warning'});
+    	    						}
+    	    						else
+    	    						{
+    	    							courseOff();
+    	    							$location.path('/courses/'+courseID);
+    	    							$route.reload();
+    	    							$timeout(function(){watchCourse();});
+    	    						}
+    	    					}
+    	    			);				
+    				}
+    	    	}
+    	    }
+        });
+    };
+    
+    /* Activity*/
+    var watchActivity = function()
+    {
+    	var activityOff = $rootScope.$on('$routeChangeStart',function(event,next,current){
+    		if(next) {
+    	    	if(next.$$route){
+    	    		if(next.$$route.originalPath === '/activities/:activityID')
+    	    		{
+//    	    			console.log(next);
+    	    			var activityID = next.params.activityID;
+    	    			event.preventDefault();
+    	    			$http.post('activities/exists',{activityID : activityID}).then(
+    	    					function(response)
+    	    					{
+    	    						if(response.data === 'false')
+    	    						{
+        	    	    				if(!current)
+        	    	                	{
+        	    	                		$location.path('/');
+        	    	                	}
+    	    							inform.add('Il servizio cercato non esiste!',{type:'warning'});
+    	    						}
+    	    						else
+    	    						{
+    	    							activityOff();
+    	    							$location.path('/courses/'+activityID);
+    	    							$route.reload();
+    	    							$timeout(function(){watchActivity();});
+    	    						}
+    	    					}
+    	    			);				
+    				}
+    	    	}
+    	    }
+        });
+    };
+    
+    watchProfile();
+    watchCourse();
+    watchActivity();
     
 }]);
 
@@ -451,6 +526,22 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     });
     
 
+    // Activity
+    
+    $routeProvider.when('/activities/:activityID',{
+        templateUrl : function(parameters){return 'activity/index/'+parameters.activityID;},
+        controller : 'activityController as activity',
+        resolve: {
+        	activityDescription : ['$http','$route',function($http,$route){
+        		var courseID = $route.current.params.courseID;
+        		return $http.post('activities/get',{activityID : activityID}).then(function(response) {
+        	        return response.data;
+        	    },function(error) {
+        	        console.log(error);
+        	    });
+        	}],
+        }
+    });
     
     // Profile
     
@@ -459,20 +550,6 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     	templateUrl: function(parameters){return 'profile/index/'+parameters.userID;},
         controller : 'profileController as profile',
         resolve : {
-        	exists : ['$http','$route',function($http,$route){
-        		return $http.post('users/exists',{username: $route.current.params.userID}).then(
-        				function(response)
-        				{
-        					if(response.data.error) inform.add(response.data.description,{type:'danger'});
-        					else if(response.data === 'false') return false;
-        					else return true;
-        				},
-        				function(error)
-        				{
-        					console.log(error);
-        				}
-        		);
-        	}],
         	blockPositions : ['$http','$route',function($http,$route){
         		return $http.post('profile/load_block_positions',{username: $route.current.params.userID}).then(
                 		function(response)

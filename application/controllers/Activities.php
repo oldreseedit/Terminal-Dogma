@@ -39,8 +39,7 @@ class Activities extends CI_Controller {
 		{
 			echo json_encode(array("error" => true, "description" => "Specificare un corso.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("activityID")));
 			return;
-		}
-	
+		}	
 		echo json_encode($this->activities_model->get($activityID));
 	}
 }
