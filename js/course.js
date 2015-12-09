@@ -74,7 +74,7 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
 		$http.post('course/update_block_positions',{username: self.username, courseID: self.courseID, blockPositions: JSON.stringify($scope.gridsterItems)}).then(
     			function(response)
     			{
-        			console.log(response);
+//        			console.log(response);
     			},
     			function(error)
     			{
