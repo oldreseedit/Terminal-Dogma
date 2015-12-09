@@ -1,4 +1,4 @@
-<div id="singleCourse">
+<div id="singleActivity">
     <div class="container">
         <div gridster="gridsterOpts">
             <div class="gridster-item bg-light-grey" gridster-item="course.customItemMap" ng-repeat="item in gridsterItems" ng-init="index = $index" ng-controller="gridsterResizeController">

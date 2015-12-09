@@ -147,7 +147,9 @@ main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$rou
         $http.post('admins/is_admin',{username: $rootScope.username}).then(
         		function(response)
         		{
+        			console.log(response);
         			if(response.data === 'false') $rootScope.admin = false;
+        			else $rootScope.admin = true;
         		},
         		function(error)
         		{
@@ -168,6 +170,18 @@ main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$rou
     
     
 	/* ROUTES AND PRIVILEGES  */
+    
+    // For scrolling at top when view changes
+    
+    $rootScope.$on('$routeChangeStart', function(event,next)
+		{
+    		if(next){
+    			if(next.$$route){
+    				$(window).scrollTop(0);
+    			}
+    		}
+		}
+    );    
     
     var routesAdmin = ['admin','register'];
     var routesUser = ['payment'];

@@ -1,0 +1,30 @@
+#singleActivity{
+    @extend .in-main;
+    
+    .gridster-item{
+        
+        @extend .col-100;
+        @extend .text-justify;
+/*         @extend .bg-lightest-grey; */
+    }
+    
+    .panel-title{
+        @extend .col-100;
+        @extend .text-center;
+        font-variant: small-caps;
+    }
+    
+    .panel-content{
+        @extend .col-100;
+        padding: 26px 10px 26px 10px;
+    }
+    
+    a{
+        text-decoration: none;
+        color: inherit;
+        &:hover{
+            @extend .green;
+        }
+    }
+    
+}
