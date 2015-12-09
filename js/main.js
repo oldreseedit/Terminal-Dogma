@@ -547,7 +547,7 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
         controller : 'activityController as activity',
         resolve: {
         	activityDescription : ['$http','$route',function($http,$route){
-        		var courseID = $route.current.params.courseID;
+        		var activityID = $route.current.params.activityID;
         		return $http.post('activities/get',{activityID : activityID}).then(function(response) {
         	        return response.data;
         	    },function(error) {

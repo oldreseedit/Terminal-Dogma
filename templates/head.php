@@ -89,6 +89,7 @@
     <script type="text/javascript" src="js/courses.js"></script>
     <script type="text/javascript" src="js/course.js"></script>
     <script type="text/javascript" src="js/activities.js"></script>
+    <script type="text/javascript" src="js/activity.js"></script>
     <script type="text/javascript" src="js/media.js"></script>
     <script type="text/javascript" src="js/contacts.js"></script>
     <script type="text/javascript" src="js/infoWindow.js"></script>

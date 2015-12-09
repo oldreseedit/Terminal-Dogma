@@ -8,11 +8,13 @@ class Activities extends CI_Controller {
             $this->load->helper('url');
             
             $this->load->model('activities_model');
+            $this->load->model('activity_block_positions_model');
     }
     
     public function init()
     {
     	$this->activities_model->init();
+    	$this->activity_block_positions_model->init();
     }
         
 	public function index()
@@ -28,7 +30,7 @@ class Activities extends CI_Controller {
 			echo json_encode(array("error" => true, "description" => "Specificare un corso.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("activityID")));
 			return;
 		}
-		 
+
 		return count($this->activities_model->get($activityID)) > 0;
 	}
 	
