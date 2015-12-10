@@ -276,6 +276,7 @@ main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$rou
     	    			$http.post('users/exists',{username : userID}).then(
     	    					function(response)
     	    					{
+    	    						console.log('exists');
     	    						if(response.data === 'false')
     	    						{
         	    	    				if(!current)
@@ -568,7 +569,7 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
         		return $http.post('profile/load_block_positions',{username: $route.current.params.userID}).then(
                 		function(response)
                 		{
-//                			console.log(response);
+                			console.log('blockPositions');
                 			if(response.data.error) inform.add(response.data.description,{type:'danger'});
                 			else if(response.data) return JSON.parse(JSON.parse(response.data));
                 		},
@@ -583,6 +584,7 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
         		return $http.post('avatars/get_avatar',{username: userID}).then(
         		function(response)
         		{
+        			console.log('avatar');
         			if(response.data.avatar) return response.data.avatar;
         			else return "imgs/leaf.png";
         		},
@@ -599,6 +601,7 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
         		return $http.post('notifications/get_user_notifications',{username: userID}).then(
         		function(response)
         		{
+        			console.log('notifications');
         			return response.data;
         		},
         		function(error)
@@ -613,6 +616,7 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
         		return $http.post('achievements_and_rewards/get_achievements_and_rewards',{username: userID}).then(
 	        		function(response)
 	        		{
+	        			console.log('achievementsAndRewards');
 	        			return response.data;
 	        		},
 	        		function(error)
@@ -627,6 +631,7 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
 		        	return $http.post('users/get_exp_info',{username: userID}).then(
 	        			function(response)
 	        			{
+	        				console.log('expInfo');
 	        				return response.data.expInfo;
 	        			},
 	        			function(error)
@@ -642,6 +647,7 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
 		        	return $http.post('payment_interface/get_courses',{username: userID}).then(
 	        			function(response)
 	        			{
+	        				console.log('courses');
 	        				return response.data;
 	        			},
 	        			function(error)
@@ -657,6 +663,7 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
 		        	return $http.post('achievements_and_rewards/get_last_achievement',{username: userID}).then(
 	        			function(response)
 	        			{
+	        				console.log('lastAchievement');
 	        				return response.data.lastAchievement;
 	        			},
 	        			function(error)
@@ -672,7 +679,7 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
 		        	return $http.post('achievements_and_rewards/get_next_reward',{username: userID}).then(
 	        			function(response)
 	        			{
-//	        				console.log(response);
+	        				console.log('nextReward');
 	        				return response.data.nextReward;
 	        			},
 	        			function(error)
