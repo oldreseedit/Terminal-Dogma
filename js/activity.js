@@ -45,7 +45,7 @@ main.controller('activityController',['utilities','$scope','$http','$routeParams
     			
     			if(!response.data.error)
     			{
-    				$scope.gridsterItems = JSON.parse(JSON.parse(response.data));
+    				$scope.gridsterItems = JSON.parse(response.data.blockPositions);
     				
     				$scope.measuresLoaded = true;
     			}

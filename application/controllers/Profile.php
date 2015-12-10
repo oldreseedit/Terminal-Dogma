@@ -73,7 +73,13 @@ class Profile extends CI_Controller {
 		}
 
 		$block_positions = $this->profile_block_positions_model->get($userID);
-		if(count($block_positions) > 0) echo json_encode($block_positions['block_positions']);
+		if(count($block_positions) == 0)
+		{
+			echo json_encode(array("error" => true, "description" => "Nessuna posizione memorizzata per questo utente.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("username")));
+			return;
+		}
+		
+		echo json_encode(array("error" => false, "blockPositions" => $block_positions['block_positions']));
 	}
 	
 	public function init_block_positions()

@@ -6,8 +6,6 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     self.username = $cookies.get('username');
     $route.current.locals.username = self.username; // For modal and GridsterResizer
     
-//    self.courseName = $routeParams.courseID.charAt(0).toUpperCase() + $routeParams.courseID.slice(1);
-//    self.courseName = self.courseName.split(/(?=[A-Z](?=[a-z]))/).join(" ");
     self.courseName = $route.current.locals.courseDescription.name;
     
     self.courseID = $routeParams.courseID;
@@ -74,7 +72,7 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
 		$http.post('course/update_block_positions',{username: self.username, courseID: self.courseID, blockPositions: JSON.stringify($scope.gridsterItems)}).then(
     			function(response)
     			{
-//        			console.log(response);
+        			console.log(response);
     			},
     			function(error)
     			{
@@ -86,11 +84,11 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     $http.post('course/load_block_positions',{username : self.username, courseID : self.courseID}).then(
     		function(response)
     		{
-//    			console.log(response);
+    			console.log(response);
     			
     			if(!response.data.error)
     			{
-    				$scope.gridsterItems = JSON.parse(JSON.parse(response.data));
+    				$scope.gridsterItems = JSON.parse(response.data.blockPositions);
     				
     				$scope.measuresLoaded = true;
     			}

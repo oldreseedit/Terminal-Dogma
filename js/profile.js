@@ -54,7 +54,7 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
 		$http.post('profile/update_block_positions',{username: self.username, blockPositions: JSON.stringify($scope.gridsterItems)}).then(
     			function(response)
     			{
-//        				console.log('update_block_positions: ',response);
+        				console.log('update_block_positions: ',response);
     			},
     			function(error)
     			{
@@ -103,7 +103,7 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
     		{
 //    			console.log('loadBlockPositions')
     			if(response.data.error) inform.add(response.data.description,{type:'danger'});
-    			else if(response.data) $scope.gridsterItems = JSON.parse(JSON.parse(response.data));
+    			else if(response.data) $scope.gridsterItems = JSON.parse(response.data.blockPositions);
     			
     			if(!$scope.gridsterItems)
     		    {
