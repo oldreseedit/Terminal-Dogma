@@ -59,6 +59,11 @@ class Courses_model extends CI_Model
                 return $this->db->insert_id();
         }
         
+        public function exists($courseID)
+        {
+        	return count($this->db->where('courseID', $courseID)->get(self::table_name)->row_array()) > 0;
+        }
+        
         public function delete($courseID)
         {
                 $data = array('courseID' => $courseID);

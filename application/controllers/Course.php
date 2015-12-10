@@ -5,8 +5,10 @@ class Course extends CI_Controller {
         public function __construct()
         {
                 parent::__construct();
+                
                 $this->load->model('course_block_positions_model');
-
+                $this->load->model('courses_model');
+                
                 $this->load->library('permissions');
                 
                 $this->load->helper('url');
@@ -14,7 +16,13 @@ class Course extends CI_Controller {
         
         public function index($courseID)
         {
-                $this->load->view('courses/course');
+        	if(!$this->courses_model->exists($courseID))
+        	{
+        		$this->load->view("errors/html/error_404.php", array('heading' => "Errore", 'message' => "Corso inesistente."));
+        		return;
+        	}
+        	
+			$this->load->view('courses/course');
         }
         
         public function update_block_positions()
@@ -58,7 +66,7 @@ class Course extends CI_Controller {
 //         		echo json_encode(array());
 //         		return;
 //         	}
-        	
+
         	$userID = $this->input->post('username');
         	if($userID == false)
         	{

@@ -33,6 +33,13 @@ class Users extends CI_Controller {
                 echo json_encode(array("error" => true, "description" => "Nome utente già esistente.", "errorCode" => "USERNAME_TAKEN", "parameters" => array("username")));
                 return;
             }
+			
+            $special_chars_found = array();
+            if(preg_match('/[@$&£#"]/', $userID, $special_chars_found) > 0)
+            {
+            	echo json_encode(array("error" => true, "description" => "Il nome utente non può contenere il seguente carattere speciale: " . implode($special_chars_found), "errorCode" => "INVALID_FIELD", "parameters" => array("username")));
+            	return;
+            }
             
             $password = $this->input->post('password');
             if($password == false)

@@ -15,12 +15,11 @@ class Profile extends CI_Controller {
         
 	public function index($profileName)
 	{
-// 		if(!$this->users_model->exists($profileName))
-// 		{
-// 			$data = array('heading' => "Errore", 'message' => "Utente inesistente.");
-// // 			$this->load->view("errors/cli/error_404.php", $data);
-// 			return;
-// 		}
+		if(!$this->users_model->exists($profileName))
+		{
+			$this->load->view("errors/html/error_404.php", array('heading' => "Errore", 'message' => "Utente inesistente."));
+			return;
+		}
 		
 		$userID = null;
 		$token = null;

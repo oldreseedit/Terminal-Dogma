@@ -72,6 +72,11 @@ class Activities_model extends CI_Model
                 return $this->db->delete(self::table_name, $data);
         }
         
+        public function exists($activityID)
+        {
+        	return count($this->db->where('activityID', $activityID)->get(self::table_name)->row_array()) > 0;
+        }
+        
         public function update($activityID, $name = null, $description = null, $otj = null, $who = null, $iconURI = null)
         {
                 $data = array();
