@@ -241,6 +241,7 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
     
     // Loading Exp Info
     
+    self.expInfo = {partialExperience: 0};
     $http.post('users/get_exp_info',{username: self.username}).then(
 		function(response)
 		{
