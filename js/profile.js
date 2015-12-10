@@ -3,37 +3,6 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
     
     self.username = $routeParams.userID;
     $route.current.locals.username = self.username; // For modal and GridsterResizer
-    self.avatar = $route.current.locals.avatar;
-    self.xpBarTypes = function(){        
-        return 'success';
-    };
-    self.notifications = $route.current.locals.notifications;
-    self.achievementsAndRewards = $route.current.locals.achievementsAndRewards;
-    self.expInfo = $route.current.locals.expInfo;
-    self.tempRewards = self.achievementsAndRewards.filter(function(element){if(element.type==='REWARD') return element});
-    self.achievements = self.achievementsAndRewards.filter(function(element){if(element.type==='ACHIEVEMENT') return element});
-    self.tempCourses = $route.current.locals.courses;
-    self.courses = [];
-    for(var i=0; i<self.tempCourses.length; i++)
-	{
-	   	self.courses[i] = {};
-	   	self.courses[i].courseID = self.tempCourses[i];
-    	self.courses[i].name = self.tempCourses[i].charAt(0).toUpperCase() + self.tempCourses[i].slice(1);
-    	self.courses[i].name = self.courses[i].name.split(/(?=[A-Z](?=[a-z]))/).join(" ");
-	}
-    self.lastAchievement = $route.current.locals.lastAchievement ? $route.current.locals.lastAchievement.description : $route.current.locals.lastAchievement;
-    self.nextReward = $route.current.locals.nextReward;
-    
-    var lastRewardIndex= 0;
-    for(i=0; i < self.tempRewards.length; i++)
-    {
-    	if(self.tempRewards[i].username) lastRewardIndex++;
-    }
-    self.rewards = [];
-    for(i=0; i < self.tempRewards.length; i++)
-    {
-    	if(i<=lastRewardIndex+2) self.rewards.push(self.tempRewards[i]);
-    }
     
     self.isMyProfile = function()
     {
@@ -93,69 +62,6 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
     			}
     	);  
     };
-
-    $scope.gridsterItems = $route.current.locals.blockPositions;
-    if(!$scope.gridsterItems)
-    {
-    	$scope.gridsterItems = self.items || [
-	      {
-	      	title: 'Sommario',
-	          bgColour: 'bg-light-olive',
-	          templateUrl: 'templates/profile-summary.php',
-	          measures: {
-	              width: 6,
-	              height: 1,
-	              position: {
-	                  x : 0,
-	                  y : 0
-	              }
-	          }
-	      },
-	      {
-	      	title: 'Notifiche',
-	          bgColour: 'bg-light-lawn',
-	          templateUrl: 'templates/profile-notifications.php',
-	          measures: {
-	              width: 6,
-	              height: 1,
-	              position: {
-	                  x : 7,
-	                  y : 0
-	              }
-	          }
-	      },
-	      {
-	      	title: 'Achievements',
-	          bgColour: 'bg-light-green',
-	          templateUrl: 'templates/profile-achievements.php',
-	          measures: {
-	              width: 6,
-	              height: 1,
-	              position: {
-	                  x : 0,
-	                  y : 7
-	              }
-	          }
-	      },
-	      {
-	      	title: 'Rewards',
-	          bgColour: 'bg-light-leaf',
-	          templateUrl: 'templates/profile-rewards.php',
-	          measures: {
-	              width: 6,
-	              height: 1,
-	              position: {
-	                  x : 7,
-	                  y : 7
-	              }
-	          }
-	      }
-	     ];
-    }
-    else // If measures are loaded
-    {
-    	$scope.measuresLoaded = true;
-    }
     
     self.customItemMap = {
         sizeX: 'item.measures.width',
@@ -166,13 +72,215 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
         minSizeY: 'item.measures.minHeight'
     };
     
-    /* METHODS */
-    
     self.getTitleOfNotification = function(notification)
     {
     	var title = notification.courseID || 'reSeed';
     	return title;
     };
+    
+    
+
+    // Loading Avatar 
+    
+    $http.post('avatars/get_avatar',{username: self.username}).then(
+		function(response)
+		{
+//			console.log('avatar');
+			if(response.data.avatar) self.avatar = response.data.avatar;
+			else self.avatar = "imgs/leaf.png";
+		},
+		function(error)
+		{
+			console.log(error);
+			return "imgs/leaf.png";
+		}
+	);
+    
+    // Loading Positions
+    
+    $http.post('profile/load_block_positions',{username: self.username}).then(
+    		function(response)
+    		{
+//    			console.log('loadBlockPositions')
+    			if(response.data.error) inform.add(response.data.description,{type:'danger'});
+    			else if(response.data) $scope.gridsterItems = JSON.parse(JSON.parse(response.data));
+    			
+    			if(!$scope.gridsterItems)
+    		    {
+    		    	$scope.gridsterItems = self.items || [
+    			      {
+    			      	title: 'Sommario',
+    			          bgColour: 'bg-light-olive',
+    			          templateUrl: 'templates/profile-summary.php',
+    			          measures: {
+    			              width: 6,
+    			              height: 1,
+    			              position: {
+    			                  x : 0,
+    			                  y : 0
+    			              }
+    			          }
+    			      },
+    			      {
+    			      	title: 'Notifiche',
+    			          bgColour: 'bg-light-lawn',
+    			          templateUrl: 'templates/profile-notifications.php',
+    			          measures: {
+    			              width: 6,
+    			              height: 1,
+    			              position: {
+    			                  x : 7,
+    			                  y : 0
+    			              }
+    			          }
+    			      },
+    			      {
+    			      	title: 'Achievements',
+    			          bgColour: 'bg-light-green',
+    			          templateUrl: 'templates/profile-achievements.php',
+    			          measures: {
+    			              width: 6,
+    			              height: 1,
+    			              position: {
+    			                  x : 0,
+    			                  y : 7
+    			              }
+    			          }
+    			      },
+    			      {
+    			      	title: 'Rewards',
+    			          bgColour: 'bg-light-leaf',
+    			          templateUrl: 'templates/profile-rewards.php',
+    			          measures: {
+    			              width: 6,
+    			              height: 1,
+    			              position: {
+    			                  x : 7,
+    			                  y : 7
+    			              }
+    			          }
+    			      }
+    			     ];
+    		    }
+    		    else // If measures are loaded
+    		    {
+    		    	$scope.measuresLoaded = true;
+    		    }
+    			
+    		},
+    		function(error)
+    		{
+    			console.log(error);
+    		}
+	);
+    
+    // Loading notifications
+    
+    $http.post('notifications/get_user_notifications',{username: self.username}).then(
+		function(response)
+		{
+//			console.log('notifications');
+			if(response.data.error) inform.add(response.data.description,{type:'danger'});
+			else if(response.data) self.notifications = response.data;
+		},
+		function(error)
+		{
+			console.log(error);
+		}
+	);
+    
+    // Loading A&R
+    
+    $http.post('achievements_and_rewards/get_achievements_and_rewards',{username: self.username}).then(
+		function(response)
+		{
+//			console.log('achievementsAndRewards');
+			if(response.data.error) inform.add(response.data.description,{type:'danger'});
+			else if(response.data)
+			{
+				self.achievementsAndRewards = response.data;
+			    self.tempRewards = self.achievementsAndRewards.filter(function(element){if(element.type==='REWARD') return element});
+//			    console.log(self.tempRewards);
+			    var lastRewardIndex= 0;
+			    for(i=0; i < self.tempRewards.length; i++)
+			    {
+			    	if(self.tempRewards[i].username) lastRewardIndex++;
+			    }
+			    self.rewards = [];
+			    for(i=0; i < self.tempRewards.length; i++)
+			    {
+			    	if(i==lastRewardIndex+1) self.nextReward = self.tempRewards[i].description;
+			    	if(i<=lastRewardIndex+2) self.rewards.push(self.tempRewards[i]);
+			    }			    
+
+			    self.achievements = self.achievementsAndRewards.filter(function(element){if(element.type==='ACHIEVEMENT') return element});
+//			    console.log(self.achievements);
+			    var lastAchievementIndex= 0;
+			    var last;
+			    for(i=0; i < self.achievements.length; i++)
+			    {
+			    	if(self.achievements[i].username)
+			    	{
+				    	var thisTime = moment(self.achievements[i].publishingTimestamp);
+				    	if(!last || last.isBefore(thisTime))
+				    	{
+				    		last = thisTime;
+				    		lastAchievementIndex = i;
+				    	}
+			    	}
+			    }
+			    self.lastAchievement = self.achievements[lastAchievementIndex].description;
+			    
+			}
+		},
+		function(error)
+		{
+			console.log(error);
+		}
+	);
+    
+    // Loading Exp Info
+    
+    $http.post('users/get_exp_info',{username: self.username}).then(
+		function(response)
+		{
+//			console.log('expInfo');
+			if(response.data.error) inform.add(response.data.description,{type:'danger'});
+			else if(response.data) self.expInfo = response.data.expInfo;
+		},
+		function(error)
+		{
+			console.log(error);
+		}
+	);
+    
+    // Loading Courses
+    
+    $http.post('payment_interface/get_courses',{username: self.username}).then(
+		function(response)
+		{
+//			console.log('courses');
+			if(response.data.error) inform.add(response.data.description,{type:'danger'});
+			else if(response.data)
+			{
+				self.tempCourses = response.data;
+				self.courses = [];
+			    for(var i=0; i<self.tempCourses.length; i++)
+				{
+				   	self.courses[i] = {};
+				   	self.courses[i].courseID = self.tempCourses[i];
+			    	self.courses[i].name = self.tempCourses[i].charAt(0).toUpperCase() + self.tempCourses[i].slice(1);
+			    	self.courses[i].name = self.courses[i].name.split(/(?=[A-Z](?=[a-z]))/).join(" ");
+				}
+			}
+		},
+		function(error)
+		{
+			console.log(error);
+		}
+	);
+    
+    // Watchers
     
     $scope.changeAvatar = function(URI)
     {
@@ -204,11 +312,14 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
     			var indexOfNotifications;
     			if(newValue !== undefined && newValue !== null)
     			{
-    				for(var i=0; i< $scope.gridsterItems.length; i++)
+    				if($scope.gridsterItems)
     				{
-    					if($scope.gridsterItems[i].title === 'Notifiche') indexOfNotifications = i;
+        				for(var i=0; i< $scope.gridsterItems.length; i++)
+        				{
+        					if($scope.gridsterItems[i].title === 'Notifiche') indexOfNotifications = i;
+        				}
+        				$scope.gridsterItems[indexOfNotifications].minHeight = 2;    					
     				}
-    				$scope.gridsterItems[indexOfNotifications].minHeight = 2;
     			}
     		}
     );

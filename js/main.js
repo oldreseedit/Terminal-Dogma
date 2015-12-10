@@ -263,42 +263,42 @@ main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$rou
 	});
     
     /* Profile */
-    var watchProfile = function()
-    {
-    	var profileOff = $rootScope.$on('$routeChangeStart',function(event,next,current){
-    		if(next) {
-    	    	if(next.$$route){
-    	    		if(next.$$route.originalPath === '/profile/:userID')
-    	    		{
-//    	    			console.log(next);
-    	    			var userID = next.params.userID;
-    	    			event.preventDefault();
-    	    			$http.post('users/exists',{username : userID}).then(
-    	    					function(response)
-    	    					{
-    	    						console.log('exists');
-    	    						if(response.data === 'false')
-    	    						{
-        	    	    				if(!current)
-        	    	                	{
-        	    	                		$location.path('/');
-        	    	                	}
-    	    							inform.add('L\'utente cercato non esiste!',{type:'warning'});
-    	    						}
-    	    						else
-    	    						{
-    	    							profileOff();
-    	    							$location.path('/profile/'+userID);
-    	    							$route.reload();
-    	    							$timeout(function(){watchProfile();});
-    	    						}
-    	    					}
-    	    			);				
-    				}
-    	    	}
-    	    }
-        });
-    };
+//    var watchProfile = function()
+//    {
+//    	var profileOff = $rootScope.$on('$routeChangeStart',function(event,next,current){
+//    		if(next) {
+//    	    	if(next.$$route){
+//    	    		if(next.$$route.originalPath === '/profile/:userID')
+//    	    		{
+////    	    			console.log(next);
+//    	    			var userID = next.params.userID;
+//    	    			event.preventDefault();
+//    	    			$http.post('users/exists',{username : userID}).then(
+//    	    					function(response)
+//    	    					{
+//    	    						console.log('exists');
+//    	    						if(response.data === 'false')
+//    	    						{
+//        	    	    				if(!current)
+//        	    	                	{
+//        	    	                		$location.path('/');
+//        	    	                	}
+//    	    							inform.add('L\'utente cercato non esiste!',{type:'warning'});
+//    	    						}
+//    	    						else
+//    	    						{
+//    	    							profileOff();
+//    	    							$location.path('/profile/'+userID);
+//    	    							$route.reload();
+//    	    							$timeout(function(){watchProfile();});
+//    	    						}
+//    	    					}
+//    	    			);				
+//    				}
+//    	    	}
+//    	    }
+//        });
+//    };
 	   
     /* Course */
     var watchCourse = function()
@@ -563,133 +563,7 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     $routeProvider.when('/profile/:userID',{
 //        templateUrl : 'profile',
     	templateUrl: function(parameters){return 'profile/index/'+parameters.userID;},
-        controller : 'profileController as profile',
-        resolve : {
-        	blockPositions : ['$http','$route',function($http,$route){
-        		return $http.post('profile/load_block_positions',{username: $route.current.params.userID}).then(
-                		function(response)
-                		{
-                			console.log('blockPositions');
-                			if(response.data.error) inform.add(response.data.description,{type:'danger'});
-                			else if(response.data) return JSON.parse(JSON.parse(response.data));
-                		},
-                		function(error)
-                		{
-                			console.log(error);
-                		}
-        		);
-        	}],
-        	avatar : ['$http','$route', function($http,$route){
-        		var userID = $route.current.params.userID;
-        		return $http.post('avatars/get_avatar',{username: userID}).then(
-        		function(response)
-        		{
-        			console.log('avatar');
-        			if(response.data.avatar) return response.data.avatar;
-        			else return "imgs/leaf.png";
-        		},
-        		function(error)
-        		{
-        			console.log(error);
-        			return "imgs/leaf.png";
-        		}
-        		);
-        	}],
-        	notifications : ['$http','$route', function($http,$route){
-        		var userID = $route.current.params.userID;
-        		
-        		return $http.post('notifications/get_user_notifications',{username: userID}).then(
-        		function(response)
-        		{
-        			console.log('notifications');
-        			return response.data;
-        		},
-        		function(error)
-        		{
-        			console.log(error);
-        		}
-        		);
-        	}],
-        	achievementsAndRewards : ['$http','$route', function($http,$route){
-        		var userID = $route.current.params.userID;
-        		
-        		return $http.post('achievements_and_rewards/get_achievements_and_rewards',{username: userID}).then(
-	        		function(response)
-	        		{
-	        			console.log('achievementsAndRewards');
-	        			return response.data;
-	        		},
-	        		function(error)
-	        		{
-	        			console.log(error);
-	        		}
-        		);
-        	}],
-        	expInfo : ['$http','$route', function($http,$route)
-	        	{
-        			var userID = $route.current.params.userID;
-		        	return $http.post('users/get_exp_info',{username: userID}).then(
-	        			function(response)
-	        			{
-	        				console.log('expInfo');
-	        				return response.data.expInfo;
-	        			},
-	        			function(error)
-	        			{
-	        				console.log(error);
-	        			}
-		        	);
-	        	}
-    		],
-    		courses : ['$http','$route', function($http,$route)
-	           {
-	    			var userID = $route.current.params.userID;
-		        	return $http.post('payment_interface/get_courses',{username: userID}).then(
-	        			function(response)
-	        			{
-	        				console.log('courses');
-	        				return response.data;
-	        			},
-	        			function(error)
-	        			{
-	        				console.log(error);
-	        			}
-		        	);
-	           }
-    		],
-    		lastAchievement : ['$http','$route', function($http,$route)
-	           {
-	    			var userID = $route.current.params.userID;
-		        	return $http.post('achievements_and_rewards/get_last_achievement',{username: userID}).then(
-	        			function(response)
-	        			{
-	        				console.log('lastAchievement');
-	        				return response.data.lastAchievement;
-	        			},
-	        			function(error)
-	        			{
-	        				console.log(error);
-	        			}
-		        	);
-	           }
-    		],
-    		nextReward : ['$http','$route', function($http,$route)
-	           {
-	    			var userID = $route.current.params.userID;
-		        	return $http.post('achievements_and_rewards/get_next_reward',{username: userID}).then(
-	        			function(response)
-	        			{
-	        				console.log('nextReward');
-	        				return response.data.nextReward;
-	        			},
-	        			function(error)
-	        			{
-	        				console.log(error);
-	        			}
-		        	);
-	           }
-			]
-        }
+        controller : 'profileController as profile'
     });
     
     // Register - Restricted
