@@ -43,7 +43,7 @@ main.controller('activityController',['utilities','$scope','$http','$routeParams
     		{
 //    			console.log(response);
     			
-    			if(response.data)
+    			if(!response.data.error)
     			{
     				$scope.gridsterItems = JSON.parse(JSON.parse(response.data));
     				
