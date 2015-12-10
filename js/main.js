@@ -374,7 +374,7 @@ main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$rou
         });
     };
     
-    watchProfile();
+//    watchProfile();
     watchCourse();
     watchActivity();
     
