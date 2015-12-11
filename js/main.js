@@ -297,14 +297,9 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
         controller : 'Register as register'
     });
     
-    
-    // Error 500
-    
-    $routeProvider.when('/500',{
-        templateUrl : '500',
+    $routeProvider.otherwise({
+    	templateUrl: 'blumblum'
     });
-    
-    $routeProvider.otherwise({redirectTo:'/500'});
     
 }]);
 
