@@ -98,7 +98,7 @@ main.controller('gridsterResizeController',['$scope','$element','$timeout','$htt
 				self.deregisterInnerHeight();
 				self.deregisterOuterHeight();
 				
-	//			if($route.current.locals.username === $scope.username || $scope.admin) $scope.registerMeasures();
+				if($route.current.locals.username === $scope.username || $scope.admin) $scope.registerMeasures();
 				
 				$timeout(function(){self.updateScrollbar();});
 	

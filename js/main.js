@@ -168,9 +168,6 @@ main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$rou
     // gridsterConfig.rowHeight = '*3.236';
     gridsterConfig.columns = 12;
     
-    
-	/* ROUTES AND PRIVILEGES  */
-    
     // For scrolling at top when view changes
     
     $rootScope.$on('$routeChangeStart', function(event,next)
@@ -182,201 +179,6 @@ main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$rou
     		}
 		}
     );    
-    
-    var routesAdmin = ['admin','register'];
-    var routesUser = ['payment'];
-
-	var watchers = [];
-	var stopWatcher = [];
-    angular.forEach(routesUser,function(route){
-    	
-    	watchers[route] = function()
-    	{
-    		stopWatcher[route] = $rootScope.$on("$routeChangeStart", function (event, next, current) {
-            	if(next){
-    	            if(next.$$route){
-    	                if(next.$$route.templateUrl === route){
-    	                	
-    	                	event.preventDefault();
-        	    			$http.post('users/im_user').then(
-        	    					function(response)
-        	    					{
-        	    						if(response.data === 'false')
-        	    						{
-            	    	    				if(!current)
-            	    	                	{
-            	    	                		$location.path('/');
-            	    	                	}
-        	    							inform.add('Per visitare questa pagina devi essere iscritto a reSeed!',{type:'warning'});
-        	    						}
-        	    						else
-        	    						{
-        	    							stopWatcher[route]();
-        	    							$location.path('/'+route);
-        	    							$timeout(function(){watchers[route]();});
-        	    						}
-        	    					}
-        	    			);
-    	                }
-    	            }
-    	        }
-    		});
-    	};
-    	watchers[route]();
-	});
-    
-    angular.forEach(routesAdmin,function(route){
-    	
-    	watchers[route] = function()
-    	{
-    		stopWatcher[route] = $rootScope.$on("$routeChangeStart", function (event, next, current) {
-    	        if(next){
-    	            if(next.$$route){
-    	                if(next.$$route.templateUrl === route){
-    	                	
-    	                	event.preventDefault();
-        	    			$http.post('users/im_admin').then(
-        	    					function(response)
-        	    					{
-        	    						if(response.data === 'false')
-        	    						{
-            	    	    				if(!current)
-            	    	                	{
-            	    	                		$location.path('/');
-            	    	                	}
-        	    							inform.add('Non hai i privilegi necessari per visitare questa pagina!',{type:'warning'});
-        	    						}
-        	    						else
-        	    						{
-        	    							stopWatcher[route]();
-        	    							$location.path('/'+route);
-        	    							$timeout(function(){watchers[route]();});
-        	    						}
-        	    					}
-        	    			);
-    	                }
-    	            }
-    	        }
-    		});
-    	};
-    	watchers[route]();
-	});
-    
-    /* Profile */
-//    var watchProfile = function()
-//    {
-//    	var profileOff = $rootScope.$on('$routeChangeStart',function(event,next,current){
-//    		if(next) {
-//    	    	if(next.$$route){
-//    	    		if(next.$$route.originalPath === '/profile/:userID')
-//    	    		{
-////    	    			console.log(next);
-//    	    			var userID = next.params.userID;
-//    	    			event.preventDefault();
-//    	    			$http.post('users/exists',{username : userID}).then(
-//    	    					function(response)
-//    	    					{
-//    	    						console.log('exists');
-//    	    						if(response.data === 'false')
-//    	    						{
-//        	    	    				if(!current)
-//        	    	                	{
-//        	    	                		$location.path('/');
-//        	    	                	}
-//    	    							inform.add('L\'utente cercato non esiste!',{type:'warning'});
-//    	    						}
-//    	    						else
-//    	    						{
-//    	    							profileOff();
-//    	    							$location.path('/profile/'+userID);
-//    	    							$route.reload();
-//    	    							$timeout(function(){watchProfile();});
-//    	    						}
-//    	    					}
-//    	    			);				
-//    				}
-//    	    	}
-//    	    }
-//        });
-//    };
-	   
-    /* Course */
-    var watchCourse = function()
-    {
-    	var courseOff = $rootScope.$on('$routeChangeStart',function(event,next,current){
-    		if(next) {
-    	    	if(next.$$route){
-    	    		if(next.$$route.originalPath === '/courses/:courseID')
-    	    		{
-//    	    			console.log(next);
-    	    			var courseID = next.params.courseID;
-    	    			event.preventDefault();
-    	    			$http.post('courses/exists',{courseID : courseID}).then(
-    	    					function(response)
-    	    					{
-    	    						if(response.data === 'false')
-    	    						{
-        	    	    				if(!current)
-        	    	                	{
-        	    	                		$location.path('/');
-        	    	                	}
-    	    							inform.add('Il corso cercato non esiste!',{type:'warning'});
-    	    						}
-    	    						else
-    	    						{
-    	    							courseOff();
-    	    							$location.path('/courses/'+courseID);
-    	    							$route.reload();
-    	    							$timeout(function(){watchCourse();});
-    	    						}
-    	    					}
-    	    			);				
-    				}
-    	    	}
-    	    }
-        });
-    };
-    
-    /* Activity*/
-    var watchActivity = function()
-    {
-    	var activityOff = $rootScope.$on('$routeChangeStart',function(event,next,current){
-    		if(next) {
-    	    	if(next.$$route){
-    	    		if(next.$$route.originalPath === '/activities/:activityID')
-    	    		{
-//    	    			console.log(next);
-    	    			var activityID = next.params.activityID;
-    	    			event.preventDefault();
-    	    			$http.post('activities/exists',{activityID : activityID}).then(
-    	    					function(response)
-    	    					{
-    	    						if(response.data === 'false')
-    	    						{
-        	    	    				if(!current)
-        	    	                	{
-        	    	                		$location.path('/');
-        	    	                	}
-    	    							inform.add('Il servizio cercato non esiste!',{type:'warning'});
-    	    						}
-    	    						else
-    	    						{
-    	    							activityOff();
-    	    							$location.path('/activities/'+activityID);
-    	    							$route.reload();
-    	    							$timeout(function(){watchActivity();});
-    	    						}
-    	    					}
-    	    			);				
-    				}
-    	    	}
-    	    }
-        });
-    };
-    
-//    watchProfile();
-    watchCourse();
-    watchActivity();
     
 }]);
 
@@ -470,74 +272,6 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     $routeProvider.when('/courses/:courseID',{
         templateUrl : function(parameters){return 'course/index/'+parameters.courseID;},
         controller : 'courseController as course',
-        resolve: {
-        	courseDescription : ['$http','$route',function($http,$route){
-        		var courseID = $route.current.params.courseID;
-        		return $http.post('courses/get',{courseID : courseID}).then(function(response) {
-        	        return response.data;
-        	    },function(error) {
-        	        console.log(error);
-        	    });
-        	}],
-        	teacher : ['$http','$route',function($http,$route){
-        		var courseID = $route.current.params.courseID;
-        		return $http.post('teachers/get',{courseID : courseID}).then(function(response) {
-        	        return response.data;
-        	    },function(error) {
-        	        console.log(error);
-        	    });
-        	}],
-        	notifications : ['$http','$route',function($http,$route){
-        		var courseID = $route.current.params.courseID;
-        		return $http.post('notifications/get',{courseID : courseID}).then(function(response) {
-        	        return response.data;
-        	    },function(error) {
-        	        console.log(error);
-        	    });
-        	}],
-        	materials : ['$http','$route',function($http,$route){
-        		var courseID = $route.current.params.courseID;
-        		return $http.post('course_material/get_all',{courseID : courseID}).then(function(response) {
-        	        var data = response.data;
-        	        angular.forEach(data,function(m){
-	    	            m.getFA = function(){
-	    	                var fileExtension = m.fileURI.split('.');
-	    	                fileExtension = fileExtension[fileExtension.length-1];
-	    	                if(fileExtension === 'jpg' || fileExtension === 'jpeg' || fileExtension === 'png' || fileExtension === 'gif') fileExtension = 'image';
-	    	                if(fileExtension === 'doc' || fileExtension === 'docx') fileExtension = 'word';
-	    	                if(fileExtension === 'ppt' || fileExtension === 'pptx') fileExtension = 'powerpoint';
-	    	                if(fileExtension === 'xls' || fileExtension === 'xlsx') fileExtension = 'excel';
-	    	                if(fileExtension === 'rar') fileExtension = 'zip';
-	    	                if(fileExtension === 'c' || fileExtension === 'java' || fileExtension === 'php' || fileExtension === 'js' || fileExtension === 'html') fileExtension = 'code';
-	    	                return 'fa-file-' + fileExtension + '-o';
-	    	            };
-	    	            m.getTitle = function(){
-	    	                var title = m.fileURI.split('/');
-	    	                title = title[title.length-1].split('.');
-	    	                title = title[0];
-	    	                title = title.replace(/_/g,' ');
-	    	                // console.log(title);
-	    	                return title;
-	    	            };
-        	        });
-        	        return data;
-        	    },function(error) {
-        	        console.log(error);
-        	    });
-        	}],
-        	lessons : ['$http','$route',function($http,$route){
-                
-        		var courseID = $route.current.params.courseID;
-                
-                return $http.post('lessons/get',{courseID: courseID}).
-                then(function(response){
-//                     console.log(response);
-                    return response.data;
-                }, function(error){
-                    console.log(error);
-                });
-            }]
-        }
     });
     
 
@@ -545,17 +279,7 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     
     $routeProvider.when('/activities/:activityID',{
         templateUrl : function(parameters){return 'activity/index/'+parameters.activityID;},
-        controller : 'activityController as activity',
-        resolve: {
-        	activityDescription : ['$http','$route',function($http,$route){
-        		var activityID = $route.current.params.activityID;
-        		return $http.post('activities/get',{activityID : activityID}).then(function(response) {
-        	        return response.data;
-        	    },function(error) {
-        	        console.log(error);
-        	    });
-        	}],
-        }
+        controller : 'activityController as activity'
     });
     
     // Profile
@@ -570,32 +294,7 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     
     $routeProvider.when('/register',{
         templateUrl : 'register',
-        controller : 'Register as register',
-        resolve : {
-            raw : ['$http',function($http){
-                
-                    var date = new Date();
-                    
-                    var startingDate = moment(date).startOf('year');
-                    var endingDate = angular.copy(startingDate).add(365,'days');
-                    var startOfMonth = angular.copy(endingDate).startOf('month');
-                    startingDate.subtract(startingDate.weekday(),'days');
-                    endingDate.add(7-endingDate.weekday(),'days');
-                    startOfMonth.subtract(startOfMonth.weekday(),'days');
-                    if(endingDate.diff(startOfMonth,'days') < 42) endingDate.add(7,'days');
-                    
-                    startingDate = startingDate.format('YYYY-MM-DD HH:mm:ss');
-                    endingDate = endingDate.format('YYYY-MM-DD HH:mm:ss');
-                    
-                    return $http.post('lessons/get',{'startingDate': startingDate, 'endingDate': endingDate}).
-                    then(function(data){
-                        // console.log(data);
-                        return data;
-                    }, function(error){
-                        console.log(error);
-                    });
-                }]
-        }
+        controller : 'Register as register'
     });
     
     

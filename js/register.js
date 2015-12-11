@@ -43,7 +43,7 @@ main.controller('Register',['$http','inform','$route','$scope','uiCalendarConfig
             dayClick: function(date, jsEvent, view){
                 if(self.changes.studentsChanges.length || self.changes.lessonNote !== undefined)
                 {
-                    alert('Ci sono cambiamenti nella lezione selezionata. Prima di cambiare lezione, salvare i cambiamenti.');
+                    inform.add("Ci sono cambiamenti nella lezione selezionata. Prima di cambiare lezione, salvare i cambiamenti.",{type:'warning'});
                     return;
                 }
                 else{
@@ -55,7 +55,7 @@ main.controller('Register',['$http','inform','$route','$scope','uiCalendarConfig
                 
                 if(self.changes.studentsChanges.length || self.changes.lessonNote !== undefined)
                 {
-                    alert('Ci sono cambiamenti nella lezione selezionata. Prima di cambiare lezione, salvare i cambiamenti.');
+                    inform.add("Ci sono cambiamenti nella lezione selezionata. Prima di cambiare lezione, salvare i cambiamenti.",{type:'warning'});
                     return;
                 }
                 
@@ -68,9 +68,9 @@ main.controller('Register',['$http','inform','$route','$scope','uiCalendarConfig
             },
             viewRender : function(view, element){
                 
-                if(self.changes.studentsChanges.length || self.changes.lessonNote !== undefined)
+                if( self.changes && (self.changes.studentsChanges.length || self.changes.lessonNote !== undefined))
                 {
-                    alert("Ci sono cambiamenti nella lezione selezionata. Prima di cambiare lezione, salvare i cambiamenti.");
+                    inform.add("Ci sono cambiamenti nella lezione selezionata. Prima di cambiare lezione, salvare i cambiamenti.",{type:'warning'});
                     return;
                 }
                 
@@ -123,7 +123,7 @@ main.controller('Register',['$http','inform','$route','$scope','uiCalendarConfig
     $scope.changeView = function(viewName){
         if(self.changes.studentsChanges.length || self.changes.lessonNote !== undefined)
         {
-            alert('Ci sono cambiamenti nella lezione selezionata. Prima di cambiare lezione, salvare i cambiamenti.');
+            inform.add("Ci sono cambiamenti nella lezione selezionata. Prima di cambiare lezione, salvare i cambiamenti.",{type:'warning'});
             return;
         }
         uiCalendarConfig.calendars['register'].fullCalendar('changeView',viewName);
@@ -485,14 +485,31 @@ main.controller('Register',['$http','inform','$route','$scope','uiCalendarConfig
     
     /* MAIN */
     
-    self.raw = $route.current.locals.raw.data;
     self.headings = ['Nome','Presente','Note','XP']; // headings for right panel
     
-//    console.log(self.raw);
-    
-    self.buildDB();
-//    console.log($scope.events);
+    $scope.events = [];
     $scope.eventSources = [{events: $scope.events, color: 'green'}];
+    
+    var date = new Date();
+    
+    var startingDate = moment(date).startOf('year');
+    var endingDate = angular.copy(startingDate).add(365,'days');
+    var startOfMonth = angular.copy(endingDate).startOf('month');
+    startingDate.subtract(startingDate.weekday(),'days');
+    endingDate.add(7-endingDate.weekday(),'days');
+    startOfMonth.subtract(startOfMonth.weekday(),'days');
+    if(endingDate.diff(startOfMonth,'days') < 42) endingDate.add(7,'days');
+    
+    startingDate = startingDate.format('YYYY-MM-DD HH:mm:ss');
+    endingDate = endingDate.format('YYYY-MM-DD HH:mm:ss');
+    
+    $http.post('lessons/get',{'startingDate': startingDate, 'endingDate': endingDate}).
+    then(function(response){
+    	self.raw = response.data;
+        self.buildDB();
+    }, function(error){
+        console.log(error);
+    });
     
     self.init = function(){
         // var coursesList = ['studioMax','gameDesign','gameMaker'];

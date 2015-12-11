@@ -6,10 +6,18 @@ main.controller('activityController',['utilities','$scope','$http','$routeParams
     self.username = $cookies.get('username');
     $route.current.locals.username = self.username; // For modal and GridsterResizer
     
-    self.activityName = $route.current.locals.activityDescription.name;
-    
     self.activityID = $routeParams.activityID;
-    self.activityDescription = $route.current.locals.activityDescription;
+    
+    $http.post('activities/get',{activityID : self.activityID}).then(function(response) {
+        if(response.data.error) inform.add(response.data.description,{type:'danger'});
+        else if(response.data)
+        {
+        	self.activityDescription = response.data;
+        	self.activityName = self.activityDescription.name;
+        }
+    },function(error) {
+        console.log(error);
+    });
     
     $scope.gridsterOpts = {
     	resizable : {
