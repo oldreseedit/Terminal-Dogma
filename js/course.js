@@ -7,6 +7,7 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     $route.current.locals.username = self.username; // For modal and GridsterResizer
     
     self.courseID = $routeParams.courseID;
+//    self.courseName = courseID
     
     $scope.events = [];
     $scope.eventSources = [{events: $scope.events, color: 'green'}];
@@ -187,7 +188,6 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
         else if(response.data)
         {
         	self.courseDescription = response.data;
-            self.courseName = self.courseDescription.name;
         }
     },function(error) {
         console.log(error);

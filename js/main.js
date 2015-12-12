@@ -298,7 +298,7 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     });
     
     $routeProvider.otherwise({
-    	templateUrl: 'blumblum'
+    	templateUrl: 'error'
     });
     
 }]);
