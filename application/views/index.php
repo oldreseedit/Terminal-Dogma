@@ -11,8 +11,6 @@
     <?php include_once("templates/analyticstracking.php"); ?>
     
     <div class="container">
-        <!-- Spinner for XHR Requests -->
-        <sham-spinner></sham-spinner>
         
         <?php include_once("templates/navbar.php"); ?>
         
