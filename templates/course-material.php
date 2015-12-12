@@ -1,3 +1,6 @@
+<div class="container text-center" ng-if="course.materials.length == 0">
+	<p class="">Iscriviti al corso per vedere il nostro materiale!</p>
+</div>
 <table class="table table-striped">
     <tr ng-repeat="material in course.materials">
         <td>
