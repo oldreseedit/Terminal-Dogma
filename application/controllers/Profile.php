@@ -64,10 +64,10 @@ class Profile extends CI_Controller {
         		return;
         	}
         	 
-        	$panel_measures = $this->input->post('panelMeasures');
+        	$panel_measures = $this->input->post('measures');
         	if($panel_measures == false)
         	{
-        		echo json_encode(array("error" => true, "description" => "Le informazioni sul singolo blocco sono obbligatorie.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("panelMeasures")));
+        		echo json_encode(array("error" => true, "description" => "Le informazioni sul singolo blocco sono obbligatorie.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("measures")));
         		return;
         	}
         	
@@ -85,20 +85,20 @@ class Profile extends CI_Controller {
         		return;
         	}
         	 
-        	$panel_measures = $this->profile_block_positions_model->get($userID, $courseID);
-        	if(count($panel_measure) == 0)
+        	$panel_measures = $this->profile_block_positions_model->get($userID);
+        	if(count($panel_measures) == 0)
         	{
         		echo json_encode(array("error" => true, "description" => "Nessuna posizione memorizzata per questo utente.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("username")));
         		return;
         	}
         	
-        	$info = array();
-        	foreach ($panel_measures as $panel_measure)
-        	{
-        		$info[$panel_measure['panelID']] = $panel_measure['panel_measure'];
-        	}
+//         	$info = array();
+//         	foreach ($panel_measures as $panel_measure)
+//         	{
+//         		$info[$panel_measure['panelID']] = $panel_measure['panel_measure'];
+//         	}
         	
-        	echo json_encode(array("error" => false, "panelMeasures" => $info));
+        	echo json_encode(array("error" => false, "panelMeasures" => $panel_measures));
         }
         
         public function init_block_positions()

@@ -105,7 +105,7 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
 //    			if(response.data.error) inform.add(response.data.description,{type:'danger'});
 //    			else if(response.data) $scope.gridsterItems = JSON.parse(response.data.blockPositions);
     			
-    			if(!response.data.error) $scope.gridsterItems = JSON.parse(response.data.blockPositions);
+    			if(!response.data.error) $scope.gridsterItems = JSON.parse(response.data.panelMeasures);
     			
     			if(!$scope.gridsterItems)
     		    {

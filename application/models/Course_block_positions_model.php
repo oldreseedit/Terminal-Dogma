@@ -30,7 +30,7 @@ class Course_block_positions_model extends CI_Model
                 	'constraint' => 1024,
                 	)
 			);
-                
+
 			$this->dbforge->add_key('username', TRUE);
 			$this->dbforge->add_key('courseID', TRUE);
 			$this->dbforge->add_key('panelID', TRUE);

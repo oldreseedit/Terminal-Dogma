@@ -84,7 +84,7 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     		{    			
     			if(!response.data.error)
     			{
-    				$scope.gridsterItems = JSON.parse(response.data.blockPositions);
+    				$scope.gridsterItems = JSON.parse(response.data.panelMeasures);
     				
     				$scope.measuresLoaded = true;
     			}
