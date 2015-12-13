@@ -1,4 +1,4 @@
-main.controller('courseController',['utilities','$scope','$http','$routeParams','uiCalendarConfig','$timeout','$route','$cookies',function(utilities,$scope,$http,$routeParams,uiCalendarConfig,$timeout,$route,$cookies){
+main.controller('courseController',['utilities','$scope','$http','$routeParams','uiCalendarConfig','$timeout','$route','$cookies','inform',function(utilities,$scope,$http,$routeParams,uiCalendarConfig,$timeout,$route,$cookies,inform){
     var self = this;
     
     /* CONFIG */
@@ -7,6 +7,7 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     $route.current.locals.username = self.username; // For modal and GridsterResizer
     
     self.courseID = $routeParams.courseID;
+    self.subscribed = false;
 //    self.courseName = courseID
     
     $scope.events = [];
@@ -214,7 +215,10 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     });
     
     $http.post('course_material/get_all',{courseID : self.courseID}).then(function(response) {
-	   	 if(response.data.error) inform.add(response.data.description,{type:'danger'});
+	   	 if(response.data.error)
+	   	 {
+	   		 inform.add(response.data.description,{type:'danger'});
+	   	 }
 	     else if(response.data)
 	     {
 	        var data = response.data;
@@ -256,5 +260,23 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     }, function(error){
         console.log(error);
     });
+    
+    $http.post('payment_interface/get_courses',{username: self.username}).then(
+    		function(response)
+    		{
+    			if(response.data.error) inform.add(response.data.description,{type:'danger'});
+    			else if(response.data)
+    			{
+    				self.tempCourses = response.data;
+    			    for(var i=0; i<self.tempCourses.length; i++)
+    				   	if(self.tempCourses[i] === self.courseID)
+    				   		self.subscribed = true;
+    			}
+    		},
+    		function(error)
+    		{
+    			console.log(error);
+    		}
+    	);
     
 }]);

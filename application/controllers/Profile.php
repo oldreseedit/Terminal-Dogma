@@ -12,7 +12,7 @@ class Profile extends CI_Controller {
 		
 		$this->load->helper('url');
 	}
-        
+
 	public function index($profileName)
 	{
 		if(!$this->users_model->exists($profileName))
@@ -42,50 +42,69 @@ class Profile extends CI_Controller {
 		$this->load->view('profile/profile');
 	}
 	
-	public function update_block_positions()
-	{
-		$userID = $this->input->post('username');
-		if($userID == false)
-		{
-			echo json_encode(array("error" => true, "description" => "Il nome utente è obbligatorio.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("username")));
-			return;
-		}
-			
-		$blockPositions = $this->input->post('blockPositions');
-		if($blockPositions == false)
-		{
-			echo json_encode(array("error" => true, "description" => "Le posizioni dei blocchi sono obbligatorie.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("blockPositions")));
-			return;
-		}
-			
-		$data = $this->profile_block_positions_model->get($userID);
-		if($data == null) $this->profile_block_positions_model->add($userID, $blockPositions);
-		else $this->profile_block_positions_model->update($userID, $blockPositions);
-	}
-	
-	public function load_block_positions()
-	{
-		$userID = $this->input->post('username');
-		if($userID == false)
-		{
-			echo json_encode(array("error" => true, "description" => "Il nome utente è obbligatorio.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("username")));
-			return;
-		}
-
-		$block_positions = $this->profile_block_positions_model->get($userID);
-		if(count($block_positions) == 0)
-		{
-			echo json_encode(array("error" => true, "description" => "Nessuna posizione memorizzata per questo utente.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("username")));
-			return;
-		}
-		
-		echo json_encode(array("error" => false, "blockPositions" => $block_positions['block_positions']));
-	}
-	
-	public function init_block_positions()
-	{
-		$this->profile_block_positions_model->init();
-	}
+		public function update_block_positions()
+        {
+        	if(!$this->permissions->canSee())
+        	{
+        		echo json_encode(array("error" => true, "description" => "Non si dispone dei diritti necessari a salvare la posizione dei blocchi"));
+        		return;
+        	}
+        	 
+        	$userID = $this->input->post('username');
+        	if($userID == false)
+        	{
+        		echo json_encode(array("error" => true, "description" => "Il nome utente è obbligatorio.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("username")));
+        		return;
+        	}
+        	 
+        	$panelID = $this->input->post('panelID');
+        	if($courseID == false)
+        	{
+        		echo json_encode(array("error" => true, "description" => "Specificare un ID pannello.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("panelID")));
+        		return;
+        	}
+        	 
+        	$panel_measures = $this->input->post('panelMeasures');
+        	if($panel_measures == false)
+        	{
+        		echo json_encode(array("error" => true, "description" => "Le informazioni sul singolo blocco sono obbligatorie.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("panelMeasures")));
+        		return;
+        	}
+        	
+        	$data = $this->profile_block_positions_model->get($userID, $panelID);
+        	if($data == null) $this->profile_block_positions_model->add($userID, $panelID, $panel_measures);
+        	else $this->profile_block_positions_model->update($userID, $panelID, $panel_measures);
+        }
+        
+        public function load_block_positions()
+        {
+        	$userID = $this->input->post('username');
+        	if($userID == false)
+        	{
+        		echo json_encode(array("error" => true, "description" => "Il nome utente è obbligatorio.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("username")));
+        		return;
+        	}
+        	 
+        	$panel_measures = $this->profile_block_positions_model->get($userID, $courseID);
+        	if(count($panel_measure) == 0)
+        	{
+        		echo json_encode(array("error" => true, "description" => "Nessuna posizione memorizzata per questo utente.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("username")));
+        		return;
+        	}
+        	
+        	$info = array();
+        	foreach ($panel_measures as $panel_measure)
+        	{
+        		$info[$panel_measure['panelID']] = $panel_measure['panel_measure'];
+        	}
+        	
+        	echo json_encode(array("error" => false, "panelMeasures" => $info));
+        }
+        
+        public function init_block_positions()
+        {
+        	$this->profile_block_positions_model->init();
+        }
 }
 
 ?>

@@ -21,7 +21,11 @@ class Course_block_positions_model extends CI_Model
                 	'type' => 'VARCHAR',
                     'constraint' => 30,
                     ),
-                'block_positions' => array(
+				'panelID' => array(
+							'type' => 'VARCHAR',
+							'constraint' => 30,
+					),
+                'panel_measure' => array(
                 	'type' => 'VARCHAR',
                 	'constraint' => 1024,
                 	)
@@ -29,28 +33,31 @@ class Course_block_positions_model extends CI_Model
                 
 			$this->dbforge->add_key('username', TRUE);
 			$this->dbforge->add_key('courseID', TRUE);
+			$this->dbforge->add_key('panelID', TRUE);
                 
 			$this->dbforge->add_field($fields);
 			$this->dbforge->create_table(self::table_name);
         }
         
-        public function add($userID, $courseID, $block_positions)
+        public function add($userID, $courseID, $panelID, $panel_measure)
         {
 			$data = array(
             	'username' => $userID,
                 'courseID' => $courseID,
-                'block_positions' => $block_positions,
+				'panelID' => $panelID,
+                'panel_measure' => $panel_measure,
 			);
 
 			$this->db->insert(self::table_name, $data);
         }
         
-        public function update($userID, $courseID, $block_positions)
+        public function update($userID, $courseID, $panelID, $panel_measure)
         {
 			$this->db
 				->where('username', $userID)
 	            ->where('courseID', $courseID)
-	            ->update(self::table_name, array('block_positions' => $block_positions));
+	            ->where('panelID', $panelID)
+	            ->update(self::table_name, array('panel_measure' => $panel_measure));
         }
         
         public function get($userID, $courseID)
@@ -58,7 +65,7 @@ class Course_block_positions_model extends CI_Model
 			return $this->db
                 ->where('username', $userID)
                 ->where('courseID', $courseID)
-                ->get(self::table_name)->row_array();
+                ->get(self::table_name)->result_array();
         }
 }
 ?>
