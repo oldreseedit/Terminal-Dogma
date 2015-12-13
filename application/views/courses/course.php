@@ -1,5 +1,24 @@
+<style>
+.banner {
+  line-height: 5vw;
+  margin: 0 12px;
+}
+
+.banner p {
+	color: black;
+	font-weight: bold;
+}
+
+.banner emph {
+	color: white;
+}
+</style>
+
 <div id="singleCourse">
     <div class="container">
+    	<div class="container banner bg-dark-water">
+    		<p>Il corso <emph>non</emph> è ancora partito.</p>
+    	</div>
         <div gridster>
             <div class="gridster-item bg-light-grey" gridster-item ng-repeat="item in gridsterItems" gridster-auto-resize ng-init="index = $index">
                 <div class="container">
