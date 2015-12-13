@@ -1,7 +1,7 @@
 <div id="singleCourse">
     <div class="container">
         <div gridster>
-            <div class="gridster-item bg-light-grey" gridster-item="course.customItemMap" ng-repeat="item in gridsterItems" gridster-auto-resize  ng-init="index = $index">
+            <div class="gridster-item bg-light-grey" gridster-item ng-repeat="item in gridsterItems" gridster-auto-resize ng-init="index = $index">
                 <div class="container">
                     <div class="panel-title" ng-class="item.bgColour">
                         <h4 ng-bind="item.title"></h4>

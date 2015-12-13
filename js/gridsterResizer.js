@@ -3,6 +3,8 @@ main.directive('gridsterAutoResize',['$timeout',function($timeout){
 		restrict: 'A',
 		link: function($scope,$element,$attr)
 		{
+			if($scope.measuresLoaded) return;
+			
 			var finished = false;
 
 			var content = $element.find('.panel-content');
@@ -41,7 +43,7 @@ main.directive('gridsterAutoResize',['$timeout',function($timeout){
 						var img = $element.find('img');
 						if(img.length > 0)
 						{
-							console.log(img);
+//							console.log(img);
 							img.load(function(){
 								finished = true;
 							});
@@ -50,7 +52,13 @@ main.directive('gridsterAutoResize',['$timeout',function($timeout){
 							finished = true;
 						}
 						
-						if(finished) $timeout(updateScrollbar());
+						if(finished) $timeout(function(){
+							var item = {};
+							item.measures = gridsterItem.toJSON();
+							item.id = $scope.gridsterItems[$scope.index].id;
+							updateScrollbar();
+							$scope.registerMeasures(JSON.stringify(item));
+						});
 					});
 				}
 			};

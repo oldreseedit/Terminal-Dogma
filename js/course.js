@@ -30,6 +30,8 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     		}
     };
     
+    $scope.gridsterItems = [];
+    
     /* METHODS */
     
     $scope.changeView = function(viewName){
@@ -64,9 +66,9 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     
     /* PROPER OBJECTS AND METHODS */
     
-    $scope.registerMeasures = function()
+    $scope.registerMeasures = function(item)
     {
-		$http.post('course/update_block_positions',{username: self.username, courseID: self.courseID, blockPositions: JSON.stringify($scope.gridsterItems)}).then(
+		$http.post('course/update_block_positions',{username: self.username, activityID: self.courseID, panelID: item.id, measure : item.measures}).then(
     			function(response)
     			{
 //        			console.log(response);
@@ -83,7 +85,8 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     		{    			
     			if(!response.data.error)
     			{
-    				$scope.gridsterItems = JSON.parse(response.data.blockPositions);
+    				console.log(response.data);
+//    				$scope.gridsterItems = JSON.parse(response.data.blockPositions);
     				
     				$scope.measuresLoaded = true;
     			}
@@ -91,70 +94,54 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     			{
     				 $scope.gridsterItems = [
 	                     {
+	                    	 id: 'courseDescription',
 	                         title: self.courseName,
 	                         bgColour: 'bg-light-olive',
 	                         templateUrl: 'templates/course-description.php',
-	                         measures: {
-	                             width: 8,
-	                             height: 1,
-	                             position: {
-	                                 x : 0,
-	                                 y : 0
-	                             }
-	                         }
+	                         sizeX: 8,
+	                         sizeY: 1,
+	                         row : 0,
+	                         col: 0
 	                     },
 	                     {
+	                    	 id: 'courseTeacher',
 	                         title: 'Docente',
 	                         bgColour: 'bg-light-lawn',
 	                         templateUrl: 'templates/course-teacher.php',
-	                         measures: {
-	                             width: 4,
-	                             height: 1,
-	                             position: {
-	                                 x : 9,
-	                                 y : 0
-	                             }
-	                         }
+	                         sizeX: 4,
+	                         sizeY: 1,
+	                         col : 9,
+	                         row: 0
 	                     },
 	                     {
+	                    	 id: 'calendar',
 	                         title: 'Calendario e orari',
 	                         bgColour: 'bg-light-green',
 	                         templateUrl: 'templates/calendar.php',
-	                         measures: {
-	                             width: 6,
-	                             height: 1,
-	                             position: {
-	                                 x : 0,
-	                                 y : 7
-	                             }
-	                         }
+	                         sizeX: 6,
+	                         sizeY: 1,
+	                         col : 0,
+	                         row: 7
 	                     },
 	                     {
+	                    	 id: 'courseNotifications',
 	                         title: 'Avvisi',
 	                         bgColour: 'bg-light-leaf',
 	                         templateUrl: 'templates/course-notifications.php',
-	                         measures: {
-	                             width: 6,
-	                             height: 1,
-	                             position: {
-	                                 x : 7,
-	                                 y : 7
-	                             }
-	                         }
+	                         sizeX: 6,
+	                         sizeY: 1,
+	                         col : 7,
+	                         row: 7
 	                     },
 	                     {
+	                    	 id: 'courseMaterials',
 	                         title: 'Materiale del corso',
 	                         bgColour: 'bg-light-water',
-	                         templateUrl: 'templates/course-material.php',
-	                         measures: {
-	                             width: 12,
-	                             height: 1,
-	                             position: {
-	                                 x : 0,
-	                                 y : 14
-	                             },
-	                             minWidth: 6
-	                         }
+	                         templateUrl: 'templates/course-materials.php',
+	                         sizeX: 12,
+	                         sizeY: 1,
+	                         col : 0,
+	                         row: 14
 	                     }
 	                 ];
     			}
@@ -164,22 +151,6 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     			console.log(error);
     		}
     );
-    
-    self.customItemMap = {
-        sizeX: 'item.measures.width',
-        sizeY: 'item.measures.height',
-        row: 'item.measures.position.y',
-        col: 'item.measures.position.x',
-        minSizeX: 'item.measures.minWidth',
-        minSizeY: 'item.measures.minHeight'
-    };
-    
-    self.getMargin = function(a,b)
-    {
-    	return {
-    		'margin-top' : (a-b)/2 + 'px'
-    	};
-    };
     
      // MAIN
     
