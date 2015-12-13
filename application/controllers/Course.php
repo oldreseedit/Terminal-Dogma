@@ -41,32 +41,37 @@ class Course extends CI_Controller {
         	}
         	 
         	$courseID = $this->input->post('courseID');
-        	if($courseID == false)
+        	$activityID = $this->input->post('activityID');
+        	if($courseID == false && $activityID == false)
         	{
-        		echo json_encode(array("error" => true, "description" => "Il corso è obbligatorio.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("courseID")));
-        		return;
-        	}
-        	 
-        	$blockPositions = $this->input->post('blockPositions');
-        	if($blockPositions == false)
-        	{
-        		echo json_encode(array("error" => true, "description" => "Le posizioni dei blocchi sono obbligatorie.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("blockPositions")));
+        		echo json_encode(array("error" => true, "description" => "Specificare il codice di un corso o attività.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("courseID")));
         		return;
         	}
         	
-        	$data = $this->course_block_positions_model->get($userID, $courseID);
-        	if($data == null) $this->course_block_positions_model->add($userID, $courseID, $blockPositions);
-        	else $this->course_block_positions_model->update($userID, $courseID, $blockPositions);
+        	$categoryID = $courseID;
+        	if($categoryID == false) $categoryID = $activityID;
+        	
+        	$panelID = $this->input->post('panelID');
+        	if($courseID == false)
+        	{
+        		echo json_encode(array("error" => true, "description" => "Specificare un ID pannello.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("panelID")));
+        		return;
+        	}
+        	 
+        	$panel_measures = $this->input->post('measures');
+        	if($panel_measures == false)
+        	{
+        		echo json_encode(array("error" => true, "description" => "Le informazioni sul singolo blocco sono obbligatorie.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("measures")));
+        		return;
+        	}
+        	
+        	$data = $this->course_block_positions_model->get($userID, $categoryID, $panelID);
+        	if($data == null) $this->course_block_positions_model->add($userID, $categoryID, $panelID, $panel_measures);
+        	else $this->course_block_positions_model->update($userID, $categoryID, $panelID, $panel_measures);
         }
         
         public function load_block_positions()
         {
-//         	if(!$this->canSee())
-//         	{
-//         		echo json_encode(array());
-//         		return;
-//         	}
-
         	$userID = $this->input->post('username');
         	if($userID == false)
         	{
@@ -75,20 +80,30 @@ class Course extends CI_Controller {
         	}
         	 
         	$courseID = $this->input->post('courseID');
-        	if($courseID == false)
+        	$activityID = $this->input->post('activityID');
+        	if($courseID == false && $activityID == false)
         	{
-        		echo json_encode(array("error" => true, "description" => "Il corso è obbligatorio.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("courseID")));
+        		echo json_encode(array("error" => true, "description" => "Specificare il codice di un corso o attività.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("courseID")));
         		return;
         	}
+        	
+        	$categoryID = $courseID;
+        	if($categoryID == false) $categoryID = $activityID;
 
-        	$block_positions = $this->course_block_positions_model->get($userID, $courseID);
-        	if(count($block_positions) == 0)
+        	$block_infos = $this->course_block_positions_model->get($userID, $categoryID);
+        	if(count($block_infos) == 0)
         	{
         		echo json_encode(array("error" => true, "description" => "Nessuna posizione memorizzata per questo utente.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("username")));
         		return;
         	}
         	
-        	echo json_encode(array("error" => false, "blockPositions" => $block_positions['block_positions']));
+//         	$info = array();
+//         	foreach ($block_infos as $block_info)
+//         	{
+//         		$info[$block_info['panelID']] = $block_info['panel_measure'];
+//         	}
+        	
+        	echo json_encode(array("error" => false, "panelMeasures" => $block_infos));
         }
         
         public function init_block_positions()

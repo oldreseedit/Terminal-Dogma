@@ -1,5 +1,9 @@
-<div class="container text-center" ng-if="course.materials.length == 0">
-	<p class="">Iscriviti al corso per vedere il nostro materiale!</p>
+<div class="container text-center" ng-if="self.subscribed && course.materials.length == 0">
+	<p>Questo corso non ha ancora materiale disponibile.</p>
+</div>
+<!-- <div class="container text-center" ng-if="course.courses.indexOf(course.courseID) != -1"> -->
+<div class="container text-center" ng-if="!self.subscribed">
+	<p>Iscriviti al corso per vedere il nostro materiale!</p>
 </div>
 <table class="table table-striped">
     <tr ng-repeat="material in course.materials">
