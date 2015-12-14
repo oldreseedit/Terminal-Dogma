@@ -1,6 +1,8 @@
 main.controller('courseController',['utilities','$scope','$http','$routeParams','uiCalendarConfig','$timeout','$route','$cookies','inform',function(utilities,$scope,$http,$routeParams,uiCalendarConfig,$timeout,$route,$cookies,inform){
     var self = this;
     
+    $scope.Math = window.Math;
+    
     /* CONFIG */
     
     self.username = $cookies.get('username');
@@ -52,6 +54,8 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     {
         self.db = self.lessons;
         
+        self.firstLesson = self.db.length > 0 ? moment(self.db[Object.keys(self.db)[0]].startingDate).format("dddd D MMMM") : null;
+        
         if(!$scope.events) $scope.events = [];
         $scope.events.splice(0,$scope.events.length);
         
@@ -61,7 +65,6 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
             i.endingDate = moment(i.endingDate);
             var newLesson = {lessonID: i.lessonID, title: i.courseID, start: i.startingDate, end: i.endingDate, note: i.lessonNote, stick: true};
             if(self.indexOfByKey('lessonID',i.lessonID,$scope.events) < 0) $scope.events.push(newLesson);
-            
         });
     };
     
@@ -142,7 +145,15 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
 	                         sizeY: 1,
 	                         col : 0,
 	                         row: 14
-	                     }
+	                     },
+	                     {
+							id: 'banner',
+//							templateUrl: 'templates/course-banner.php',
+						    sizeX: 12,
+						    sizeY: 1,
+						    row : 17,
+						    col: 0
+						}
 	                 ];
     			}
     		},
@@ -159,6 +170,11 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
         else if(response.data)
         {
         	self.courseDescription = response.data;
+//        	self.courseDescription.startingDate = moment().subtract(2, 'hours');
+//        	alert(self.courseDescription.startingDate);
+//        	self.courseDescription.startingDate = new Date();// 	moment();
+//        	self.courseDescription.startingDate.setHours(self.courseDescription.startingDate.getHours() - 2);
+        	self.courseHasStarted = moment().isAfter(moment(response.data.startingDate));
         }
     },function(error) {
         console.log(error);

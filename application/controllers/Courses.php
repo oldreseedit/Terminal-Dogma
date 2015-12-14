@@ -33,6 +33,8 @@ class Courses extends CI_Controller {
         public function get()
         {
             $courseID = $this->input->post('courseID');
+//             $courseID = "java";
+            
             if($courseID == false)
             {
                 echo json_encode(array("error" => true, "description" => "Specificare un corso.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("courseID")));

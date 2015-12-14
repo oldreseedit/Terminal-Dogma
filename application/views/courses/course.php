@@ -1,26 +1,23 @@
-<style>
-.banner {
-  line-height: 5vw;
-  margin: 0 12px;
-}
-
-.banner p {
-	color: black;
-	font-weight: bold;
-}
-
-.banner emph {
-	color: white;
-}
-</style>
-
 <div id="singleCourse">
     <div class="container">
-    	<div class="container banner bg-dark-water">
-    		<p>Il corso <emph>non</emph> è ancora partito.</p>
-    	</div>
         <div gridster>
-            <div class="gridster-item bg-light-grey" gridster-item ng-repeat="item in gridsterItems" gridster-auto-resize ng-init="index = $index">
+		<div class="gridster-item bg-light-grey" gridster-item="item" ng-repeat="item in gridsterItems" gridster-auto-resize ng-init="index = $index">
+				<div ng-if="item.id === 'banner'" class="container banner bg-dark-water text-center">
+<!-- 					<div ng-include="item.templateUrl"></div> -->
+						<p centered>
+							<span><span ng-bind="course.courseDescription.duration"></span> ore, </span>
+							<span><emph><span ng-bind="Math.round(100 * course.courseDescription.price/course.courseDescription.duration)/100"></span> €</emph> l'ora.</span>
+							<span>Il corso </span>
+							<span ng-if="course.courseHasStarted">è partito </span>
+							<span ng-if="!course.courseHasStarted">partirà </span>
+							<emph><time title="precisamente: il {{course.courseDescription.startingDate | amCalendar}}" am-time-ago="course.courseDescription.startingDate"></time></emph>
+							<span>.</span>
+							<span ng-if="!course.courseHasStarted && course.firstLesson">La prima lezione si terrà 
+								<emph><time ng-bind="course.firstLesson"></time></emph>
+							</span>
+							<span ng-if="!course.courseHasStarted && !course.firstLesson">La data della prima lezione non è stata ancora decisa.</span>
+						</p>
+				</div>
                 <div class="container">
                     <div class="panel-title" ng-class="item.bgColour">
                         <h4 ng-bind="item.title"></h4>

@@ -20309,6 +20309,15 @@ body {
   margin-bottom: 1vw;
   text-align: center;
 }
+/* line 83, ../sass/_course.scss */
+#singleCourse .banner p {
+  color: black;
+  font-weight: bold;
+}
+/* line 88, ../sass/_course.scss */
+#singleCourse .banner emph {
+  color: white;
+}
 
 /* line 1, ../sass/_activities.scss */
 #activities {
