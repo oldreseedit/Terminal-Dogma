@@ -36,6 +36,21 @@ class Courses_model extends CI_Model
                 				'constraint' => 2000,
                 				'null' => true
                 		),
+                		'startingDate' => array(
+                				'type' => 'DATETIME'
+                		),
+                		'endingDate' => array(
+                				'type' => 'DATETIME'
+                		),
+                		'price' => array(
+                				'type' => 'DECIMAL',
+                				'constraint' => '7,2',
+                				'unsigned' => true
+                		),
+                		'duration' => array(
+                				'type' => 'INT',
+                				'unsigned' => true
+                		)
                 );
                 
                 $this->dbforge->add_key('courseID', TRUE);

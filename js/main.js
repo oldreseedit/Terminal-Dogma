@@ -15,6 +15,7 @@ var main = angular.module('Main',[
     'gridster', // For draggable/resizable divs
     'lr.upload', // For uploading purposes
     'inform', // For notifier purposes
+    'angularMoment'
     ], function($httpProvider) {
 
     // FOR CI
