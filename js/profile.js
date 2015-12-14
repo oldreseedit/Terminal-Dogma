@@ -47,38 +47,7 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
     		if($scope.notifications[i].notificationID === notification.notificationID) return false;
     	}
     	return true;
-    };
-    
-    $scope.registerMeasures = function()
-    {
-		$http.post('profile/update_block_positions',{username: self.username, blockPositions: JSON.stringify($scope.gridsterItems)}).then(
-    			function(response)
-    			{
-        				console.log('update_block_positions: ',response);
-    			},
-    			function(error)
-    			{
-    				console.log(error);
-    			}
-    	);  
-    };
-    
-    self.customItemMap = {
-        sizeX: 'item.measures.width',
-        sizeY: 'item.measures.height',
-        row: 'item.measures.position.y',
-        col: 'item.measures.position.x',
-        minSizeX: 'item.measures.minWidth',
-        minSizeY: 'item.measures.minHeight'
-    };
-    
-    self.getTitleOfNotification = function(notification)
-    {
-    	var title = notification.courseID || 'reSeed';
-    	return title;
-    };
-    
-    
+    };   
 
     // Loading Avatar 
     
@@ -98,83 +67,113 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
     
     // Loading Positions
     
-    $http.post('profile/load_block_positions',{username: self.username}).then(
+
+    self.setStaticProperties = function(item)
+    {	
+		switch(item.id)
+		{
+			case 'profile-summary':
+				item.title = 'Sommario';
+				item.bgColour = 'bg-light-olive';
+            	item.templateUrl = 'templates/profile-summary.php';
+				break;
+			case 'profile-notifications':
+				item.title = 'Notifiche';
+				item.bgColour = 'bg-light-lawn';
+            	item.templateUrl = 'templates/profile-notifications.php';
+				break;
+			case 'profile-achievements':
+				item.title = 'Achievements';
+				item.bgColour = 'bg-light-green';
+            	item.templateUrl = 'templates/profile-achievements.php';
+				break;
+			case 'profile-rewards':
+				item.title = 'Rewards';
+				item.bgColour = 'bg-light-leaf';
+            	item.templateUrl = 'templates/profile-rewards.php';
+				break;
+		}
+    }
+    
+    /* PROPER OBJECTS AND METHODS */
+    
+    $scope.gridsterItems = [];
+    
+    $scope.registerMeasures = function(item)
+    {
+		$http.post('course/update_block_positions',{username: self.username, activityID: self.courseID, panelID: item.id, measures : item.measures}).then(
+    			function(response)
+    			{
+//        			console.log(response);
+    			},
+    			function(error)
+    			{
+    				console.log(error);
+    			}
+    	);
+    };
+    
+    $http.post('profile/load_block_positions',{username : self.username, courseID : self.courseID}).then(
     		function(response)
-    		{
-//    			console.log('loadBlockPositions')
-//    			if(response.data.error) inform.add(response.data.description,{type:'danger'});
-//    			else if(response.data) $scope.gridsterItems = JSON.parse(response.data.blockPositions);
-    			
-    			if(!response.data.error) $scope.gridsterItems = JSON.parse(response.data.panelMeasures);
-    			
-    			if(!$scope.gridsterItems)
-    		    {
-    		    	$scope.gridsterItems = self.items || [
-    			      {
-    			      	title: 'Sommario',
-    			          bgColour: 'bg-light-olive',
-    			          templateUrl: 'templates/profile-summary.php',
-    			          measures: {
-    			              width: 6,
-    			              height: 1,
-    			              position: {
-    			                  x : 0,
-    			                  y : 0
-    			              }
-    			          }
-    			      },
-    			      {
-    			      	title: 'Notifiche',
-    			          bgColour: 'bg-light-lawn',
-    			          templateUrl: 'templates/profile-notifications.php',
-    			          measures: {
-    			              width: 6,
-    			              height: 1,
-    			              position: {
-    			                  x : 7,
-    			                  y : 0
-    			              }
-    			          }
-    			      },
-    			      {
-    			      	title: 'Achievements',
-    			          bgColour: 'bg-light-green',
-    			          templateUrl: 'templates/profile-achievements.php',
-    			          measures: {
-    			              width: 6,
-    			              height: 1,
-    			              position: {
-    			                  x : 0,
-    			                  y : 7
-    			              }
-    			          }
-    			      },
-    			      {
-    			      	title: 'Rewards',
-    			          bgColour: 'bg-light-leaf',
-    			          templateUrl: 'templates/profile-rewards.php',
-    			          measures: {
-    			              width: 6,
-    			              height: 1,
-    			              position: {
-    			                  x : 7,
-    			                  y : 7
-    			              }
-    			          }
-    			      }
-    			     ];
-    		    }
-    		    else // If measures are loaded
-    		    {
-    		    	$scope.measuresLoaded = true;
-    		    }
-    			
+    		{    			
+    			if(!response.data.error)
+    			{
+    				console.log(response.data);
+    				var items = response.data.panelMeasures;
+    				angular.forEach(items, function(m)
+    				{
+        				m.block_positions = JSON.parse(m.block_positions);
+    				});
+    			}
+    			else
+    			{
+    				 var items = [
+						{
+							id:"profile-summary",
+							sizeX : 6,
+							sizeY: 1,
+							col: 0,
+							row: 0
+					  },
+					  {
+							id:"profile-notifications",
+							sizeX : 6,
+							sizeY: 1,
+							col: 6,
+							row: 0
+					  },
+					  {
+							id:"profile-achievements",
+							sizeX : 6,
+							sizeY: 1,
+							col: 0,
+							row: 10
+					  },
+					  {
+							id:"profile-rewards",
+							sizeX : 6,
+							sizeY: 1,
+							col: 6,
+							row: 10
+					  }
+	                 ];
+
+ 					$timeout(function(){
+ 						$scope.$broadcast('firstLoad');
+ 					});
+    			}
+
+				angular.forEach(items,function(item){
+					self.setStaticProperties(item);
+					
+					$scope.gridsterItems.push(item);
+				});
     		},
     		function(error)
     		{
     			console.log(error);
     		}
-	);
+    );
     
     // Loading notifications
     
@@ -317,11 +316,14 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
     			{
     				if($scope.gridsterItems)
     				{
-        				for(var i=0; i< $scope.gridsterItems.length; i++)
-        				{
-        					if($scope.gridsterItems[i].title === 'Notifiche') indexOfNotifications = i;
-        				}
-        				$scope.gridsterItems[indexOfNotifications].minHeight = 2;    					
+    					if($scope.gridsterItems.length > 0)
+    					{
+            				for(var i=0; i< $scope.gridsterItems.length; i++)
+            				{
+            					if($scope.gridsterItems[i].id === 'profile-notifications') indexOfNotifications = i;
+            				}
+            				$scope.gridsterItems[indexOfNotifications].minHeight = 2;    						
+    					}				
     				}
     			}
     		}

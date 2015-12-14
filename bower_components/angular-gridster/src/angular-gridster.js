@@ -1596,8 +1596,10 @@
 						}
 
 						for (var h = 0, hl = $dragHandles.length; h < hl; ++h) {
-							unifiedInputs[h] = new GridsterTouch($dragHandles[h], mouseDown, mouseMove, mouseUp);
-							unifiedInputs[h].enable();
+							if(itemOptions.draggable !== false) { // CUSTOM
+								unifiedInputs[h] = new GridsterTouch($dragHandles[h], mouseDown, mouseMove, mouseUp);
+								unifiedInputs[h].enable();								
+							}  // CUSTOM
 						}
 					});
 				};
@@ -1910,7 +1912,7 @@
 			var enabled = false;
 
 			for (var c = 0, l = handlesOpts.length; c < l; c++) {
-				handles.push(new ResizeHandle(handlesOpts[c]));
+				if(itemOptions.resizable !== false) handles.push(new ResizeHandle(handlesOpts[c]));
 			}
 
 			this.enable = function() {

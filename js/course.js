@@ -7,6 +7,8 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     $route.current.locals.username = self.username; // For modal and GridsterResizer
     
     self.courseID = $routeParams.courseID;
+    self.courseName = self.courseID.split(/([0-9]*[A-Z][a-z]*)/).join(' ');
+    self.courseName = self.courseName.charAt(0).toUpperCase() + self.courseName.slice(1);
     self.subscribed = false;
 //    self.courseName = courseID
     
@@ -65,11 +67,43 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
         });
     };
     
+    self.setStaticProperties = function(item)
+    {	
+		switch(item.id)
+		{
+			case 'courseDescription':
+				item.title = self.courseName;
+				item.bgColour = 'bg-light-olive';
+                	item.templateUrl = 'templates/course-description.php';
+				break;
+			case 'courseTeacher':
+				item.title = 'Docente';
+				item.bgColour = 'bg-light-lawn';
+                	item.templateUrl = 'templates/course-teacher.php';
+				break;
+			case 'calendar':
+				item.title = 'Calendario delle lezioni';
+				item.bgColour = 'bg-light-green';
+                	item.templateUrl = 'templates/calendar.php';
+				break;
+			case 'courseNotifications':
+				item.title = 'Avvisi';
+				item.bgColour = 'bg-light-leaf';
+                	item.templateUrl = 'templates/course-notifications.php';
+				break;
+			case 'courseMaterials':
+				item.title = 'Materiale del corso';
+				item.bgColour = 'bg-light-water';
+                	item.templateUrl = 'templates/course-materials.php';
+				break;
+		}
+    }
+    
     /* PROPER OBJECTS AND METHODS */
     
     $scope.registerMeasures = function(item)
     {
-		$http.post('course/update_block_positions',{username: self.username, activityID: self.courseID, panelID: item.id, measure : item.measures}).then(
+		$http.post('course/update_block_positions',{username: self.username, activityID: self.courseID, panelID: item.id, measures : item.measures}).then(
     			function(response)
     			{
 //        			console.log(response);
@@ -86,18 +120,18 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     		{    			
     			if(!response.data.error)
     			{
-    				$scope.gridsterItems = JSON.parse(response.data.panelMeasures);
-    				
-    				$scope.measuresLoaded = true;
+//    				console.log(response.data);
+    				var items = response.data.panelMeasures;
+    				angular.forEach(items, function(m)
+    				{
+        				m.block_positions = JSON.parse(m.block_positions);
+    				});
     			}
     			else
     			{
-    				 $scope.gridsterItems = [
+    				 var items = [
 	                     {
 	                    	 id: 'courseDescription',
-	                         title: self.courseName,
-	                         bgColour: 'bg-light-olive',
-	                         templateUrl: 'templates/course-description.php',
 	                         sizeX: 8,
 	                         sizeY: 1,
 	                         row : 0,
@@ -105,46 +139,43 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
 	                     },
 	                     {
 	                    	 id: 'courseTeacher',
-	                         title: 'Docente',
-	                         bgColour: 'bg-light-lawn',
-	                         templateUrl: 'templates/course-teacher.php',
 	                         sizeX: 4,
 	                         sizeY: 1,
-	                         col : 9,
+	                         col : 8,
 	                         row: 0
 	                     },
 	                     {
 	                    	 id: 'calendar',
-	                         title: 'Calendario e orari',
-	                         bgColour: 'bg-light-green',
-	                         templateUrl: 'templates/calendar.php',
 	                         sizeX: 6,
 	                         sizeY: 1,
 	                         col : 0,
-	                         row: 7
+	                         row: 10
 	                     },
 	                     {
 	                    	 id: 'courseNotifications',
-	                         title: 'Avvisi',
-	                         bgColour: 'bg-light-leaf',
-	                         templateUrl: 'templates/course-notifications.php',
 	                         sizeX: 6,
 	                         sizeY: 1,
-	                         col : 7,
-	                         row: 7
+	                         col : 6,
+	                         row: 10
 	                     },
 	                     {
 	                    	 id: 'courseMaterials',
-	                         title: 'Materiale del corso',
-	                         bgColour: 'bg-light-water',
-	                         templateUrl: 'templates/course-materials.php',
 	                         sizeX: 12,
 	                         sizeY: 1,
 	                         col : 0,
-	                         row: 14
+	                         row: 20
 	                     }
 	                 ];
+
+					$timeout(function(){
+						$scope.$broadcast('firstLoad');
+					});
     			}
+				angular.forEach(items,function(item){
+					self.setStaticProperties(item);
+					
+					$scope.gridsterItems.push(item);
+				});;
     		},
     		function(error)
     		{

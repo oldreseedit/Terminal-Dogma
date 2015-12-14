@@ -52,7 +52,7 @@ class Course extends CI_Controller {
         	if($categoryID == false) $categoryID = $activityID;
         	
         	$panelID = $this->input->post('panelID');
-        	if($courseID == false)
+        	if($panelID == false)
         	{
         		echo json_encode(array("error" => true, "description" => "Specificare un ID pannello.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("panelID")));
         		return;

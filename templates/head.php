@@ -125,7 +125,7 @@
     
     <!-- Angular Gridster -->
     <script src="bower_components/javascript-detect-element-resize/jquery.resize.js"></script>
-    <script src="bower_components/angular-gridster/dist/angular-gridster.min.js"></script>
+    <script src="bower_components/angular-gridster/src/angular-gridster.js"></script>
     
     <!-- Angular File Upload -->
     <script src='bower_components/angular-upload/angular-upload.js'></script>
