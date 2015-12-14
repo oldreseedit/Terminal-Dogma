@@ -28,7 +28,9 @@
     "angular-upload": "~1.0.12",
     "angular-inform": "~0.0.18",
     "angular-animate": "~1.4.8",
-    "ng-scrollbar": "~0.0.8"
+    "ng-scrollbar": "~0.0.8",
+    "angular-moment": "~0.10.3",
+    "moment": "~2.10.6"
   },
   "resolutions": {
     "angular": "~1.4.8"

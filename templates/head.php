@@ -67,10 +67,7 @@
     <script type="text/javascript" src="bower_components/fullcalendar/dist/gcal.js"></script>
     
     <!-- Angular moment -->
-    <script type="text/javascript" src="node_modules/angular-moment/angular-moment.js"></script>
-    
-    <!-- Angular Sham Spinner -->
-<!--     <script src="bower_components/angular-sham-spinner/angular-sham-spinner.js"></script> -->
+    <script type="text/javascript" src="bower_components/angular-moment/angular-moment.js"></script>
     
     <!-- Angular Google Maps -->
     <script type="text/javascript" src="bower_components/lodash/lodash.min.js"></script>
