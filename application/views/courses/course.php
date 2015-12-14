@@ -6,7 +6,7 @@
 <!-- 					<div ng-include="item.templateUrl"></div> -->
 						<p centered>
 							<span><span ng-bind="course.courseDescription.duration"></span> ore, </span>
-							<span><emph><span ng-bind="Math.round(100 * course.courseDescription.price/course.courseDescription.duration)/100"></span> €</emph> l'ora.</span>
+							<span><emph><span ng-bind="course.hourPrice"></span> €</emph> l'ora.</span>
 							<span>Il corso </span>
 							<span ng-if="course.courseHasStarted">è partito </span>
 							<span ng-if="!course.courseHasStarted">partirà </span>

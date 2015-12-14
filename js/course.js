@@ -1,7 +1,7 @@
 main.controller('courseController',['utilities','$scope','$http','$routeParams','uiCalendarConfig','$timeout','$route','$cookies','inform',function(utilities,$scope,$http,$routeParams,uiCalendarConfig,$timeout,$route,$cookies,inform){
     var self = this;
     
-    $scope.Math = window.Math;
+//    $scope.Math = window.Math;
     
     /* CONFIG */
     
@@ -201,11 +201,8 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
         else if(response.data)
         {
         	self.courseDescription = response.data;
-//        	self.courseDescription.startingDate = moment().subtract(2, 'hours');
-//        	alert(self.courseDescription.startingDate);
-//        	self.courseDescription.startingDate = new Date();// 	moment();
-//        	self.courseDescription.startingDate.setHours(self.courseDescription.startingDate.getHours() - 2);
         	self.courseHasStarted = moment().isAfter(moment(response.data.startingDate));
+        	self.hourPrice = Math.round(100 * self.courseDescription.price/self.courseDescription.duration)/100;
         }
     },function(error) {
         console.log(error);
