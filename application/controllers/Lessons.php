@@ -282,47 +282,62 @@ class Lessons extends CI_Controller {
             
             $courseId = $this->input->post('courseID');
             if($courseId == false) $courseId = null;
-            
-            $lessons = $this->lessons_model->get($start_time, $end_time, $courseId, $lessonId);
-            $register = $this->register_model->get($lessonId);
+//         	$start_time = null; $end_time = null; $lessonId = null;
+// 			$courseId = "mobileApp";
             
             // Creating list of subscribers
             $subscription = $this->payment_model->get_subscribers_names();
+//             print("PAYMENT:"); print_r($subscription);
             
             $subscribers = array();
             foreach($subscription as $member){
                 
                 if(!array_key_exists($member['courseID'], $subscribers)) $subscribers[$member['courseID']] = array();
-                $subscribers[$member['courseID']][$member['userID']] = array('name' => $member['name'], 'surname' => $member['surname']);
+                $course = $member['courseID'];
+                $userID = $member['userID'];
+                $subscribers[$course][$userID] = array('name' => $member['name'], 'surname' => $member['surname']);
             }
+//             print("SUBSCRIBERS"); print_r($subscribers);
             
             // Creating array of objects of lessons
-            
             $db = array();
             
+            $lessons = $this->lessons_model->get($start_time, $end_time, $courseId, $lessonId);
             foreach($lessons as $row){
                 $db[$row['lessonID']] = $row;
                 $db[$row['lessonID']]['lessonID'] = (int)$db[$row['lessonID']]['lessonID'];
                 $db[$row['lessonID']]['originalLessonNote'] = $row['lessonNote'];
                 $db[$row['lessonID']]['studentList'] = array();
             }
+//             print("DB1"); print_r($db);
             
             // Populating studentLists
-            
+            $register = $this->register_model->get($lessonId);
+//             print("REGISTER"); print_r($register);
             foreach($register as $row){
-                if(array_key_exists($row['lessonID'],$db)){
+            	$lessonID = $row['lessonID'];
+            	
+                if(!array_key_exists($lessonID,$db)) continue;
+                	
+                	$course = $db[$lessonID]['courseID'];
+                	
+                	// Check that this user has been inserted in the lessons
+                	if(!array_key_exists($course, $subscribers)) continue;
+
                     $newStudent = $row;
-                    $newStudent['name'] = $subscribers[$db[$row['lessonID']]['courseID']][$row['userID']]['name'];
-                    $newStudent['surname'] = $subscribers[$db[$row['lessonID']]['courseID']][$row['userID']]['surname'];
+                    
+                    $userID = $row['userID'];
+                    $newStudent['name'] = $subscribers[$course][$userID]['name'];
+                    $newStudent['surname'] = $subscribers[$course][$userID]['surname'];
                     $newStudent['attendance'] = (int)$newStudent['attendance'];
                     $newStudent['attendanceID'] = (int)$newStudent['attendanceID'];
                     unset($newStudent['lessonID']);
                     $newStudent['originalNote'] = $newStudent['note'];
                     $newStudent['originalAttendance'] = $newStudent['attendance'];
                     
-                    $db[$row['lessonID']]['studentList'][] = $newStudent;
-                }
+                    $db[$lessonID]['studentList'][] = $newStudent;
             }
+//             print("DB2"); print_r($db);
             
             echo json_encode($db);
         }
