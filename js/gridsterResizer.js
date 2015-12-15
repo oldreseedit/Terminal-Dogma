@@ -4,6 +4,7 @@ main.directive('gridsterAutoResize',['$timeout',function($timeout){
 		link: function($scope,$element,$attr)
 		{
 			var itemID = $scope.gridsterItems[$scope.index].id;
+			$scope.id = itemID;
 			var event;
 			switch(itemID)
 			{
@@ -25,98 +26,111 @@ main.directive('gridsterAutoResize',['$timeout',function($timeout){
 				case 'courseBanner':
 					event = 'courses';
 					break;
+				case 'profileSummary':
+					event = 'summary';
+					break;
+				case 'profileNotifications':
+					event = 'notifications';
+					break;
+				case 'profileAchievements':
+					event = 'achievements';
+					break;
+				case 'profileRewards':
+					event = 'rewards';
+					break;
 			}
+			
+			/* Sets perfectScrollbar to panel */
+			var scrollbarCreated = false;
+			var updateScrollbar = function()
+			{
+				var container = $element.children('.container');
+				var panel = $element.find('.panel-title');				
+				$element.find('.scrollbar-wrapper').height(container.height() - panel.height() - 20);
+				
+				var scrollbar = $element.find('.scrollbar');
+				if(!scrollbarCreated)
+				{
+					scrollbar.perfectScrollbar({
+						suppressScrollX: true
+					});
+					scrollbarCreated = true;
+				}
+				else
+				{
+					scrollbar.perfectScrollbar('update');
+				}
+			};
 			
 			
 			$scope.$on(event,function()
 			{
-				var finished = false;
 
 				var content = $element.find('.panel-content');
-				if(!content) console.log('Couldn\'t find element with class panel-content inside gridster');
 				var panelHeader = $element.find('.panel-title');
-				if(!panelHeader) console.log('Couldn\'t find element with class panel-content inside gridster');
 				
-				var innerHeight = content.height();
+				var innerHeight = content.innerHeight();
 				var panelHeaderHeight = panelHeader.height();
-				var outerHeight = $element.height();
-				
-				/* Sets perfectScrollbar to panel */
-				var updateScrollbar = function()
-				{
-					var innerHeight = content.height();
-					var panelHeaderHeight = panelHeader.height();
-					var outerHeight = $element.height();
-					content.attr('style','height:'+(outerHeight-panelHeaderHeight)+'px');
-					content.find('.scrollbar-wrapper').attr('style','height:'+innerHeight+'px');
-					content.perfectScrollbar('update');
-				};
 				
 				/* Resize Gridster item to fit its content */
 				var resize = function()
 				{
+//					console.log(itemID + ' - Resize : sono stato chiamato');
 					var gridsterItem = $scope.gridsterItem;
 					if(!gridsterItem) return;
-					var exactRows = Math.min(gridsterItem.gridster.pixelsToRows(innerHeight+panelHeaderHeight,true),6);
+					var exactRows = Math.min(gridsterItem.gridster.pixelsToRows(innerHeight+panelHeaderHeight+40,true),6);
 	//				console.log(exactRows);
 					gridsterItem.setSizeY(exactRows);
 							
-					if(finished) $timeout(function(){
+					$timeout(function(){
 						var item = {};
-//							console.log(gridsterItem);
 						item.measures = JSON.stringify(gridsterItem.toJSON());
 						item.id = $scope.gridsterItems[$scope.index].id;
-						updateScrollbar();
+						$scope.$on('gridster-item-transition-end',updateScrollbar());
 						$scope.registerMeasures(item);
+						$scope.measuresLoaded = true;
 					});
 				};
-				
-				/* Watches if gridster has been initialized */ 
-				$scope.$on('gridster-item-initialized',function(item){
-					resize();
-				});
-				
-				/* Watchers */
 				
 				$scope.$watch(
 					function()
 					{
 						if(content) return content.height(); 
 					},
-					function(newValue)
+					function(newValue, oldValue)
 					{
 						innerHeight = newValue;
-						if(!finished) resize();
-						else updateScrollbar();
+//						console.log(itemID + ' - watch Content : chiamo Resize con ',newValue, ' e ',oldValue);
+						resize();
 					}
 				);
 				
-				$scope.$watch(
-					function()
-					{
-						if(panelHeader) return panelHeader.height(); 
-					},
-					function(newValue)
-					{
-						panelHeaderHeight = newValue;
-						if(!finished) resize();
-						else updateScrollbar();
-					}
-				);
-				
-				$scope.$watch(
-					function()
-					{
-						return $element.height() 
-					},
-					function(newValue)
-					{
-						outerHeight = newValue;
-						if(!finished) resize();
-						else updateScrollbar();
-					}
-				);
 			});
+			
+			$scope.$watchCollection(
+				function()
+				{
+					return [$element[0].offsetHeight, $element[0].offsetWidth];
+				},
+				function()
+				{
+					$timeout(updateScrollbar());
+				}
+			);
+			
+			$scope.$on('measuresLoaded', function(){
+				$scope.measuresLoaded = true;
+			});
+
+			
+			/* Watches for user changes */
+			$scope.$on('gridster-item-transition-end',function(){
+				if($scope.measuresLoaded)
+				{
+					$scope.registerAllMeasures($scope.gridster.grid);
+				}
+			});
+			
 		}
 	}
 }]);

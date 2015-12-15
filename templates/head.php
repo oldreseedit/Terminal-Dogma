@@ -116,9 +116,9 @@
     
     
     <!-- Angular Perfect Scrollbar -->
-    <link rel="stylesheet" href="bower_components/perfect-scrollbar/min/perfect-scrollbar.min.css"/>
-    <script src="bower_components/perfect-scrollbar/min/perfect-scrollbar.min.js"></script>
-    <script src="bower_components/angular-perfect-scrollbar/src/angular-perfect-scrollbar.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.8/css/perfect-scrollbar.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.8/js/min/perfect-scrollbar.jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.8/js/min/perfect-scrollbar.min.js"></script>
     
     <!-- Angular Youtube -->
     <script src="https://www.youtube.com/iframe_api"></script>

@@ -117,6 +117,20 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     	);
     };
     
+    $scope.registerAllMeasures = function(grid)
+    {
+    	console.log(grid);
+    	angular.forEach(grid,function(items){
+    		angular.forEach(items,function(item){
+    			var data = {};
+				data.measures = JSON.stringify(item.toJSON());
+//				console.log(item.$element.scope());
+				data.id = item.$element.scope().id;
+				$scope.registerMeasures(data);
+    		});
+    	});
+    }
+    
     $http.post('course/load_block_positions',{username : self.username, courseID : self.courseID}).then(
     		function(response)
     		{
@@ -132,6 +146,9 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     					items.push(item);
     				});
     				
+    				$timeout(function(){
+        				$scope.$broadcast('measuresLoaded');    				
+    				});	    				
     			}
     			else
     			{
@@ -327,7 +344,10 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     		 },
     		 function(newValues)
     		 {
-    			 if(newValues[0] !== undefined && newValues[1] !== undefined) $scope.$on('firstLoad', function(){ $scope.$broadcast('courses');} );
+    			 if(newValues[0] !== undefined && newValues[1] !== undefined) 
+    				 $scope.$on('firstLoad', function(){
+    					 $timeout($scope.$broadcast('courses'));
+    				 });
     		 },
     		 true
     );

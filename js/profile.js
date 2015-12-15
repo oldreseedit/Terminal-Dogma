@@ -57,6 +57,8 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
 //			console.log('avatar');
 			if(response.data.avatar) self.avatar = response.data.avatar;
 			else self.avatar = "imgs/leaf.png";
+			
+			
 		},
 		function(error)
 		{
@@ -72,23 +74,23 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
     {	
 		switch(item.id)
 		{
-			case 'profile-summary':
+			case 'profileSummary':
 				item.title = 'Sommario';
 				item.bgColour = 'bg-light-olive';
             	item.templateUrl = 'templates/profile-summary.php';
 				break;
-			case 'profile-notifications':
+			case 'profileNotifications':
 				item.title = 'Notifiche';
 				item.bgColour = 'bg-light-lawn';
             	item.templateUrl = 'templates/profile-notifications.php';
             	item.minSizeY = 2;
 				break;
-			case 'profile-achievements':
+			case 'profileAchievements':
 				item.title = 'Achievements';
 				item.bgColour = 'bg-light-green';
             	item.templateUrl = 'templates/profile-achievements.php';
 				break;
-			case 'profile-rewards':
+			case 'profileRewards':
 				item.title = 'Rewards';
 				item.bgColour = 'bg-light-leaf';
             	item.templateUrl = 'templates/profile-rewards.php';
@@ -130,28 +132,28 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
     			{
     				 var items = [
 						{
-							id:"profile-summary",
+							id:"profileSummary",
 							sizeX : 6,
 							sizeY: 1,
 							col: 0,
 							row: 0
 					  },
 					  {
-							id:"profile-notifications",
+							id:"profileNotifications",
 							sizeX : 6,
 							sizeY: 1,
 							col: 6,
 							row: 0
 					  },
 					  {
-							id:"profile-achievements",
+							id:"profileAchievements",
 							sizeX : 6,
 							sizeY: 1,
 							col: 0,
 							row: 10
 					  },
 					  {
-							id:"profile-rewards",
+							id:"profileRewards",
 							sizeX : 6,
 							sizeY: 1,
 							col: 6,
@@ -183,7 +185,12 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
 		{
 //			console.log('notifications');
 			if(response.data.error) inform.add(response.data.description,{type:'danger'});
-			else if(response.data) self.notifications = response.data;
+			else if(response.data){
+				self.notifications = response.data;
+				$timeout(function(){
+					$scope.$broadcast('notifications');
+				});
+			}
 		},
 		function(error)
 		{
@@ -233,6 +240,11 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
 			    }
 			    self.lastAchievement = self.achievements[lastAchievementIndex].description;
 			    
+			    $timeout(function(){
+			    	$scope.$broadcast('achievements');
+			    	$scope.$broadcast('rewards');
+			    });
+			    
 			}
 		},
 		function(error)
@@ -266,15 +278,16 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
 			if(response.data.error) inform.add(response.data.description,{type:'danger'});
 			else if(response.data)
 			{
-				self.tempCourses = response.data;
-				self.courses = [];
-			    for(var i=0; i<self.tempCourses.length; i++)
-				{
-				   	self.courses[i] = {};
-				   	self.courses[i].courseID = self.tempCourses[i];
-			    	self.courses[i].name = self.tempCourses[i].charAt(0).toUpperCase() + self.tempCourses[i].slice(1);
-			    	self.courses[i].name = self.courses[i].name.split(/(?=[A-Z](?=[a-z]))/).join(" ");
-				}
+				console.log(response.data);
+//				self.tempCourses = response.data;
+//				self.courses = [];
+//			    for(var i=0; i<self.tempCourses.length; i++)
+//				{
+//				   	self.courses[i] = {};
+//				   	self.courses[i].courseID = self.tempCourses[i];
+//			    	self.courses[i].name = self.tempCourses[i].charAt(0).toUpperCase() + self.tempCourses[i].slice(1);
+//			    	self.courses[i].name = self.courses[i].name.split(/(?=[A-Z](?=[a-z]))/).join(" ");
+//				}
 			}
 		},
 		function(error)
@@ -303,5 +316,19 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
     			}
     		}
     );
+    
+    $scope.$watchCollection(
+   		 function(){
+   			 return [self.avatar,self.lastAchievement,self.nextReward,self.expInfo];
+   		 },
+   		 function(newValues)
+   		 {
+   			 if(newValues[0] !== undefined && newValues[1] !== undefined && newValues[2] !== undefined && newValues[3] !== undefined) 
+   				 $scope.$on('firstLoad', function(){
+   					 $timeout($scope.$broadcast('summary'));
+   				 });
+   		 },
+   		 true
+   );
     
 }]);

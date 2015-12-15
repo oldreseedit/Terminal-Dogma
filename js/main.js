@@ -9,7 +9,6 @@ var main = angular.module('Main',[
 //    'angularShamSpinner', // For pre-loading spinner
     'monospaced.elastic', // For text-area auto-resizing
     'uiGmapgoogle-maps', // For Google Maps integration
-    'perfect_scrollbar', // For scrollbar in single div
     'youtube-embed', // For embedding Youtube Videos
     'ngFitText', // My creation for perfectly centering text into div
     'gridster', // For draggable/resizable divs

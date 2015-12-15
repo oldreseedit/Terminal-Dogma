@@ -1,20 +1,13 @@
-.scroller {
-    white-space: pre-line;
-    max-height: 100px;
-    overflow-y: hidden;
-    position: relative;
-}
-
 .scrollbar-wrapper{
-    width: 100%;
-    height: 100%;
-    overflow-y: hidden;
-    position: relative;
+	@extend .col-100;
+	padding: 10px ;
 
     .scrollbar{
-        @extend .col-100;
+    	position: relative;
+    	overflow-y: hidden;
+    	width: 100%;
+    	height: 100%;
         @extend .text-justify;
-        padding-right: 26px;
-        padding-left: 26px;
+        padding: 16px;
     }
 }

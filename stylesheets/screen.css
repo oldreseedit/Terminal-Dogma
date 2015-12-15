@@ -10800,7 +10800,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-100, #admin .admin-content, #navbar #navbar-logged, #footer, #footer #commercial-info, #home, #home #presentation #tiles-presentation, #home #presentation #tiles-presentation .inside-tab .tab-content, #home #team, #singleCourse .gridster-item, #singleCourse .panel-title, #singleCourse .panel-content, #singleCourse .teacher-name, #singleCourse .teacher-description, #singleCourse .course-description-introduction, #singleCourse .course-description-syllabus, #singleActivity .gridster-item, #singleActivity .panel-title, #singleActivity .panel-content, #media .media-panel, #media .media-panel .media-panel-title, #media .media-panel .media-panel-main, #register, #register .XP, #payment .stepLine, #payment .stepContent, #faqPage .stepLine, #faqPage .stepContent, #profile .gridster-item, #profile .panel-title, #profile .panel-content, #profile .profile-name-level-xp .profile-xp, #profile .profile-info, .scrollbar-wrapper .scrollbar, .wrapper, .mini-header {
+.col-100, #admin .admin-content, #navbar #navbar-logged, #footer, #footer #commercial-info, #home, #home #presentation #tiles-presentation, #home #presentation #tiles-presentation .inside-tab .tab-content, #home #team, #singleCourse .gridster-item, #singleCourse .panel-title, #singleCourse .panel-content, #singleCourse .teacher-name, #singleCourse .teacher-description, #singleCourse .course-description-introduction, #singleCourse .course-description-syllabus, #singleActivity .gridster-item, #singleActivity .panel-title, #singleActivity .panel-content, #media .media-panel, #media .media-panel .media-panel-title, #media .media-panel .media-panel-main, #register, #register .XP, #payment .stepLine, #payment .stepContent, #faqPage .stepLine, #faqPage .stepContent, #profile .gridster-item, #profile .panel-title, #profile .panel-content, #profile .profile-name-level-xp .profile-xp, #profile .profile-info, .scrollbar-wrapper, .wrapper, .mini-header {
   width: 100%;
   float: left;
 }
@@ -20295,26 +20295,22 @@ body {
 #singleCourse .panel-title {
   font-variant: small-caps;
 }
-/* line 17, ../sass/_course.scss */
-#singleCourse .panel-content {
-  padding: 26px 10px 26px 10px;
-}
-/* line 22, ../sass/_course.scss */
+/* line 21, ../sass/_course.scss */
 #singleCourse a {
   text-decoration: none;
   color: inherit;
 }
-/* line 74, ../sass/_course.scss */
+/* line 73, ../sass/_course.scss */
 #singleCourse .agendaButtons {
   margin-bottom: 1vw;
   text-align: center;
 }
-/* line 83, ../sass/_course.scss */
+/* line 82, ../sass/_course.scss */
 #singleCourse .banner p {
   color: black;
   font-weight: bold;
 }
-/* line 88, ../sass/_course.scss */
+/* line 87, ../sass/_course.scss */
 #singleCourse .banner emph {
   color: white;
 }
@@ -20612,24 +20608,17 @@ body {
 /* @import "sham-spinner"; */
 /* @import "sham-setup"; */
 /* line 1, ../sass/_scrollbar.scss */
-.scroller {
-  white-space: pre-line;
-  max-height: 100px;
-  overflow-y: hidden;
-  position: relative;
-}
-
-/* line 8, ../sass/_scrollbar.scss */
 .scrollbar-wrapper {
+  height: calc(100%-3em);
+  padding: 10px;
+}
+/* line 6, ../sass/_scrollbar.scss */
+.scrollbar-wrapper .scrollbar {
+  position: relative;
+  overflow-y: hidden;
   width: 100%;
   height: 100%;
-  overflow-y: hidden;
-  position: relative;
-}
-/* line 14, ../sass/_scrollbar.scss */
-.scrollbar-wrapper .scrollbar {
-  padding-right: 26px;
-  padding-left: 26px;
+  padding: 16px;
 }
 
 /* line 72, ../sass/_perfect-scrollbar.scss */
