@@ -119,7 +119,7 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     
     $scope.registerAllMeasures = function(grid)
     {
-    	console.log(grid);
+//    	console.log(grid);
     	angular.forEach(grid,function(items){
     		angular.forEach(items,function(item){
     			var data = {};
