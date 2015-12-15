@@ -105,10 +105,11 @@
     <script type="text/javascript" src="js/paymentCancel.js"></script>
     <script type="text/javascript" src="js/paymentConfirmation.js"></script>
     <script type="text/javascript" src="js/payment.js"></script>
-    <script type="text/javascript" src="js/faq.js"></script>
     <script type="text/javascript" src="js/fitText.js"></script>
     <script type="text/javascript" src="js/gridsterResizer.js"></script>
+    <script type="text/javascript" src="js/faq.js"></script>
     <script type="text/javascript" src="js/privacy.js"></script>
+    <script type="text/javascript" src="js/disclaimer.js"></script>
     
     <!-- Grunt Plugins -->
     <script type="text/javascript" src="js/templates.js"></script>
