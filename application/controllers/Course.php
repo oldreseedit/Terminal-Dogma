@@ -66,7 +66,7 @@ class Course extends CI_Controller {
         	}
         	
         	$data = $this->course_block_positions_model->get($userID, $categoryID, $panelID);
-        	if($data == null) $this->course_block_positions_model->add($userID, $categoryID, $panelID, $panel_measures);
+        	if(empty($data)) $this->course_block_positions_model->add($userID, $categoryID, $panelID, $panel_measures);
         	else $this->course_block_positions_model->update($userID, $categoryID, $panelID, $panel_measures);
         }
         

@@ -60,12 +60,14 @@ class Course_block_positions_model extends CI_Model
 	            ->update(self::table_name, array('panel_measure' => $panel_measure));
         }
         
-        public function get($userID, $courseID)
+        public function get($userID, $courseID, $panelID = null)
         {
-			return $this->db
-                ->where('username', $userID)
-                ->where('courseID', $courseID)
-                ->get(self::table_name)->result_array();
+        	$data = array();
+        	$data['username'] = $userID;
+        	$data['courseID'] = $courseID;
+        	if($panelID != null) $data['panelID'] = $panelID;
+        	
+			return $this->db->where($data)->get(self::table_name)->result_array();
         }
 }
 ?>

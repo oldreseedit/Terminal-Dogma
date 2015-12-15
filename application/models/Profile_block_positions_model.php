@@ -53,11 +53,14 @@ class Profile_block_positions_model extends CI_Model
 	            ->update(self::table_name, array('panel_measure' => $panel_measure));
         }
         
-        public function get($userID)
+        public function get($userID, $panelID = null)
         {
-			return $this->db
-                ->where('username', $userID)
-                ->get(self::table_name)->result_array();
+        	$data = array();
+        	
+        	$data['username'] = $userID;
+        	if($panelID != null) $data['panelID'] = $panelID;
+        	
+			return $this->db->where($data)->get(self::table_name)->result_array();
         }
 }
 ?>
