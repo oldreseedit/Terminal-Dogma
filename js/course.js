@@ -88,11 +88,13 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
 				item.title = 'Avvisi';
 				item.bgColour = 'bg-light-leaf';
             	item.templateUrl = 'templates/course-notifications.php';
+            	item.minSizeY = 2;
 				break;
 			case 'courseMaterials':
 				item.title = 'Materiale del corso';
 				item.bgColour = 'bg-light-water';
             	item.templateUrl = 'templates/course-materials.php';
+            	item.minSizeY = 2;
 				break;
 			case 'courseBanner':
 				item.templateUrl = 'templates/course-banner.php';
@@ -117,7 +119,8 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     
     $http.post('course/load_block_positions',{username : self.username, courseID : self.courseID}).then(
     		function(response)
-    		{    			
+    		{
+//    			console.log(response.data);
     			if(!response.data.error)
     			{
 //    				console.log(response.data);
@@ -187,6 +190,9 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
 					
 					$scope.gridsterItems.push(item);
 				});
+				$timeout(function(){
+					$scope.$broadcast('gridsterItemsLoaded');
+				});
     		},
     		function(error)
     		{
@@ -204,10 +210,12 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
         	self.courseHasStarted = moment().isAfter(moment(response.data.startingDate));
         	self.hourPrice = Math.round(100 * self.courseDescription.price/self.courseDescription.duration)/100;
         	
-        	for(var i=0; i< $scope.gridsterItems.length; i++)
-        	{
-        		if($scope.gridsterItems[i].id === 'courseDescription') $scope.gridsterItems[i].title = response.data.name;
-        	}
+        	$scope.$on('gridsterItemsLoaded',function(){
+            	for(var i=0; i< $scope.gridsterItems.length; i++)
+            	{
+            		if($scope.gridsterItems[i].id === 'courseDescription') $scope.gridsterItems[i].title = response.data.name;
+            	}        		
+        	});
         }
     },function(error) {
         console.log(error);
@@ -218,8 +226,14 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
         else if(response.data)
         {
         	self.teacher = response.data;
-        	
-        	$scope.$on('firstLoad', function(){ $scope.$broadcast('teacher');} );
+        	$scope.$on('firstLoad', function(){ 
+	        	$timeout(function(){
+	            	var img = $('#singleCourse').find('img');
+	            	img.on('load',function(){
+	                	$scope.$broadcast('teacher');
+	                });        		
+	            });        		
+	        });
         }
     },function(error) {
         console.log(error);
@@ -267,7 +281,7 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
 	        });
 	        self.materials = data;
         	
-	        $scope.$on('firstLoad', function(){ $scope.$broadcast('material');} );
+	        $scope.$on('firstLoad', function(){ $scope.$broadcast('materials');} );
 	     }
     },function(error) {
     		console.log(error);

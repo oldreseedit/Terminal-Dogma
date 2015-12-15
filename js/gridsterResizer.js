@@ -3,9 +3,9 @@ main.directive('gridsterAutoResize',['$timeout',function($timeout){
 		restrict: 'A',
 		link: function($scope,$element,$attr)
 		{
-			var item = $scope.gridsterItems[$scope.index];
+			var itemID = $scope.gridsterItems[$scope.index].id;
 			var event;
-			switch(item.id)
+			switch(itemID)
 			{
 				case 'courseDescription':
 					event = 'courses';
@@ -60,32 +60,15 @@ main.directive('gridsterAutoResize',['$timeout',function($timeout){
 					var exactRows = Math.min(gridsterItem.gridster.pixelsToRows(innerHeight+panelHeaderHeight,true),6);
 	//				console.log(exactRows);
 					gridsterItem.setSizeY(exactRows);
-//					if(exactRows > 1)
-//					{
-						$timeout(function(){
 							
-							var img = $element.find('img');
-							if(img.length > 0)
-							{
-	//							console.log(img);
-								img.load(function(){
-									finished = true;
-								});
-							}
-							else{
-								finished = true;
-							}
-							
-							if(finished) $timeout(function(){
-								var item = {};
-	//							console.log(gridsterItem);
-								item.measures = JSON.stringify(gridsterItem.toJSON());
-								item.id = $scope.gridsterItems[$scope.index].id;
-								updateScrollbar();
-								$scope.registerMeasures(item);
-							});
-						});
-//					}
+					if(finished) $timeout(function(){
+						var item = {};
+//							console.log(gridsterItem);
+						item.measures = JSON.stringify(gridsterItem.toJSON());
+						item.id = $scope.gridsterItems[$scope.index].id;
+						updateScrollbar();
+						$scope.registerMeasures(item);
+					});
 				};
 				
 				/* Watches if gridster has been initialized */ 
@@ -136,21 +119,4 @@ main.directive('gridsterAutoResize',['$timeout',function($timeout){
 			});
 		}
 	}
-}]);
-			
-// TODO: sviluppa meglio
-
-main.directive('gridsterFixed',['$timeout',function($timeout){
-	return {
-		restrict: 'A',
-		link : function($scope,$element,$attrs)
-		{
-			var id = $scope.gridsterItems[$scope.index].id;
-			if($attrs.gridsterFixed === id)
-			{
-				$scope.gridsterItems[$scope.index].draggable = false;
-				$scope.gridsterItems[$scope.index].resizable = false;				
-			}
-		}
-	};
 }]);
