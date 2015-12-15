@@ -29,17 +29,13 @@ main.controller('signupController',['utilities','$scope','$http','$timeout','fir
                 });
             }
             else{
-                
-                var expireDate = moment.unix(response.data.expire).toDate();
-                $cookies.put('username',response.data.username,{path:'/',expires:expireDate});
-                $cookies.put('token',response.data.token,{path:'/',expires:expireDate});
-                $scope.$dismiss();
+                $scope.$close();
                 $timeout(function(){$window.location.reload();});
             }
             
             
         },function(error){
-            // console.log(error);
+             console.log(error);
         });
         
     };

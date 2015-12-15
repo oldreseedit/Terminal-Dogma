@@ -81,6 +81,7 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
 				item.title = 'Notifiche';
 				item.bgColour = 'bg-light-lawn';
             	item.templateUrl = 'templates/profile-notifications.php';
+            	item.minSizeY = 2;
 				break;
 			case 'profile-achievements':
 				item.title = 'Achievements';
@@ -299,32 +300,6 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
     			if(newValue > 0)
     			{
     				$('.profile-level-symbol').height(newValue);
-    			}
-    		}
-    );
-    
-    $scope.$watch(
-    		function()
-    		{
-    			return self.notifications;
-    		},
-    		function(newValue)
-    		{
-//    			console.log(newValue);
-    			var indexOfNotifications;
-    			if(newValue !== undefined && newValue !== null)
-    			{
-    				if($scope.gridsterItems)
-    				{
-    					if($scope.gridsterItems.length > 0)
-    					{
-            				for(var i=0; i< $scope.gridsterItems.length; i++)
-            				{
-            					if($scope.gridsterItems[i].id === 'profile-notifications') indexOfNotifications = i;
-            				}
-            				$scope.gridsterItems[indexOfNotifications].minHeight = 2;    						
-    					}				
-    				}
     			}
     		}
     );

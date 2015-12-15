@@ -1,17 +1,12 @@
 main.controller('courseController',['utilities','$scope','$http','$routeParams','uiCalendarConfig','$timeout','$route','$cookies','inform',function(utilities,$scope,$http,$routeParams,uiCalendarConfig,$timeout,$route,$cookies,inform){
     var self = this;
     
-//    $scope.Math = window.Math;
-    
     /* CONFIG */
     
     self.username = $cookies.get('username');
     $route.current.locals.username = self.username; // For modal and GridsterResizer
     
     self.courseID = $routeParams.courseID;
-    self.courseName = self.courseID.split(/([0-9]*[A-Z][a-z]*)/).join(' ');
-    self.courseName = self.courseName.charAt(0).toUpperCase() + self.courseName.slice(1);
-    self.subscribed = false;
 //    self.courseName = courseID
     
     $scope.events = [];
@@ -77,28 +72,30 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
 			case 'courseDescription':
 				item.title = self.courseName;
 				item.bgColour = 'bg-light-olive';
-                	item.templateUrl = 'templates/course-description.php';
+            	item.templateUrl = 'templates/course-description.php';
 				break;
 			case 'courseTeacher':
 				item.title = 'Docente';
 				item.bgColour = 'bg-light-lawn';
-                	item.templateUrl = 'templates/course-teacher.php';
+            	item.templateUrl = 'templates/course-teacher.php';
 				break;
 			case 'calendar':
 				item.title = 'Calendario delle lezioni';
 				item.bgColour = 'bg-light-green';
-                	item.templateUrl = 'templates/calendar.php';
+            	item.templateUrl = 'templates/calendar.php';
 				break;
 			case 'courseNotifications':
 				item.title = 'Avvisi';
 				item.bgColour = 'bg-light-leaf';
-                	item.templateUrl = 'templates/course-notifications.php';
+            	item.templateUrl = 'templates/course-notifications.php';
 				break;
 			case 'courseMaterials':
 				item.title = 'Materiale del corso';
 				item.bgColour = 'bg-light-water';
-                	item.templateUrl = 'templates/course-materials.php';
+            	item.templateUrl = 'templates/course-materials.php';
 				break;
+			case 'courseBanner':
+				item.templateUrl = 'templates/course-banner.php';
 		}
     }
     
@@ -124,11 +121,14 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     			if(!response.data.error)
     			{
 //    				console.log(response.data);
-    				var items = response.data.panelMeasures;
-    				angular.forEach(items, function(m)
+    				var items = [];
+    				angular.forEach(response.data.panelMeasures, function(m)
     				{
-        				m.block_positions = JSON.parse(m.block_positions);
+    					var item = JSON.parse(m.panel_measure);
+    					item.id = m.panelID;
+    					items.push(item);
     				});
+    				
     			}
     			else
     			{
@@ -169,7 +169,7 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
 	                         row: 20
 	                     },
 	                     {
-							id: 'banner',
+							id: 'courseBanner',
 //							templateUrl: 'templates/course-banner.php',
 						    sizeX: 12,
 						    sizeY: 1,
@@ -186,7 +186,7 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
 					self.setStaticProperties(item);
 					
 					$scope.gridsterItems.push(item);
-				});;
+				});
     		},
     		function(error)
     		{
@@ -203,6 +203,11 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
         	self.courseDescription = response.data;
         	self.courseHasStarted = moment().isAfter(moment(response.data.startingDate));
         	self.hourPrice = Math.round(100 * self.courseDescription.price/self.courseDescription.duration)/100;
+        	
+        	for(var i=0; i< $scope.gridsterItems.length; i++)
+        	{
+        		if($scope.gridsterItems[i].id === 'courseDescription') $scope.gridsterItems[i].title = response.data.name;
+        	}
         }
     },function(error) {
         console.log(error);
@@ -213,6 +218,8 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
         else if(response.data)
         {
         	self.teacher = response.data;
+        	
+        	$scope.$on('firstLoad', function(){ $scope.$broadcast('teacher');} );
         }
     },function(error) {
         console.log(error);
@@ -223,6 +230,8 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
          else if(response.data)
          {
          	self.notifications = response.data;
+        	
+        	$scope.$on('firstLoad', function(){ $scope.$broadcast('notifications');} );
          }
     },function(error) {
         console.log(error);
@@ -253,11 +262,12 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
 	                title = title[title.length-1].split('.');
 	                title = title[0];
 	                title = title.replace(/_/g,' ');
-	                // console.log(title);
 	                return title;
 	            };
 	        });
 	        self.materials = data;
+        	
+	        $scope.$on('firstLoad', function(){ $scope.$broadcast('material');} );
 	     }
     },function(error) {
     		console.log(error);
@@ -270,6 +280,8 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
 	     	self.lessons = response.data;
 	        
 	        self.buildDB();
+        	
+	        $scope.$on('firstLoad', function(){ $scope.$broadcast('calendar');} );
 	     }
     }, function(error){
         console.log(error);
@@ -282,9 +294,11 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     			else if(response.data)
     			{
     				self.tempCourses = response.data;
+    				self.subscribed = false;
     			    for(var i=0; i<self.tempCourses.length; i++)
-    				   	if(self.tempCourses[i] === self.courseID)
-    				   		self.subscribed = true;
+    			    {
+    				   	if(self.tempCourses[i] === self.courseID) self.subscribed = true;    			    	
+    			    }
     			}
     		},
     		function(error)
@@ -292,5 +306,16 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     			console.log(error);
     		}
     	);
+    
+    $scope.$watchCollection(
+    		 function(){
+    			 return [self.courseDescription,self.subscribed];
+    		 },
+    		 function(newValues)
+    		 {
+    			 if(newValues[0] !== undefined && newValues[1] !== undefined) $scope.$on('firstLoad', function(){ $scope.$broadcast('courses');} );
+    		 },
+    		 true
+    );
     
 }]);

@@ -58,6 +58,12 @@
 	                            </a>
 	                            
 	                            <span class="navbar-icons">
+									<a ng-href="#!/profile/{{username}}">
+										<span class="fa-stack clickable" >
+	                            			<i class="fa fa-bell-o fa-stack-2x"></i>
+                            				<i class="fa-stack-1x number-of-notifications" ng-if="numberOfNotifications!==0"><span ng-bind="numberOfNotifications" ></span></i>
+	                            		</span>
+	                          		</a>
 	                            	<a ng-href="#!/admin" ng-if="admin">
 	                            		<span class="fa-stack clickable">
 	                            			<i class="fa fa-cog fa-stack-2x"></i>
@@ -68,12 +74,6 @@
 	                            			<i class="fa fa-calendar fa-stack-2x"></i>
 	                            		</span>
 	                            	</a>
-									<a ng-href="#!/profile/{{username}}">
-										<span class="fa-stack clickable" >
-	                            			<i class="fa fa-bell-o fa-stack-2x"></i>
-                            				<i class="fa-stack-1x number-of-notifications" ng-if="numberOfNotifications!==0"><span ng-bind="numberOfNotifications" ></span></i>
-	                            		</span>
-	                          		</a>
 	                        		<a  ng-click="navbar.signout()">
 	                        			<span class="fa-stack clickable">
 	                        				<i class="fa fa-sign-out fa-stack-2x"></i>

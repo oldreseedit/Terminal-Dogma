@@ -446,7 +446,7 @@ main.directive('bootstrapInput',['$timeout','$filter',function($timeout,$filter)
             $scope.errorMessageFromServer = '';
             
             /* Setting validator for username in case I'm in signupController */
-            $scope.form[$scope.name].$validators.usernameTaken = function(modelValue, viewValue){
+            $scope.form[$scope.name].$asyncValidators.usernameTaken = function(modelValue, viewValue){
                 if($scope.errorMessageFromServer === 'USERNAME_TAKEN') return false;
                 else return true;
             };
@@ -457,13 +457,17 @@ main.directive('bootstrapInput',['$timeout','$filter',function($timeout,$filter)
                 else return true;
             };
             
-            /* Setting validator for invalid username in case I'm in signinController */
+            /* Setting validator for invalid username in case I'm in signup/signinController */
             $scope.form[$scope.name].$validators.invalidUsername = function(modelValue, viewValue){
-                if($scope.errorMessageFromServer === 'INVALID_FIELD') return false;
+                if($scope.name === 'username' && ($scope.form.$name === 'signupForm' || $scope.form.$name === 'signinForm') && modelValue)
+                {
+                	var check = modelValue.match(/[@$&£#"]/);
+                	if(check) return false;
+                }
                 else return true;
             };
             
-            /* Setting validator for password/repassword mismatch in case I'm in signupController */
+            /* Setting validator for password/repassword mismatch in case name of  */
             $scope.form[$scope.name].$validators.passwordMismatch = function(modelValue, viewValue){
                 if($scope.name === 'repassword' && modelValue !== angular.element('#signupFormPassword').scope().ngModel) return false;
                 else return true;

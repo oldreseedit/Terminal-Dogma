@@ -4,7 +4,7 @@
 <div class="container text-center" ng-if="!self.subscribed">
 	<p>Iscriviti al corso per vedere il nostro materiale!</p>
 </div>
-<table class="table table-striped">
+<table class="table table-striped" ng-if="self.subscribed && course.materials.length > 0">
     <tr ng-repeat="material in course.materials">
         <td>
             <div class="container" id="material{{material.materialID}}" size-on-scope>

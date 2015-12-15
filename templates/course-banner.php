@@ -1,7 +1,13 @@
 <p centered>
-	<span>{{course.courseDescription.duration}} ore, </span>
-	<span><emph>{{Math.round(100 * course.courseDescription.price/course.courseDescription.duration)/100}} €</emph> l'ora.</span>
-	<span ng-if="course.courseHasStarted"> Il corso <emph>non</emph> è ancora partito.</span>
-	<span ng-if="!course.courseHasStarted"> Il corso è iniziato </span>
-	<span am-time-ago="course.courseDescription.startingDate"></span>
+	<span><span ng-bind="course.courseDescription.duration"></span> ore, </span>
+	<span><emph><span ng-bind="course.hourPrice"></span> €</emph> l'ora.</span>
+	<span>Il corso </span>
+	<span ng-if="course.courseHasStarted">è partito </span>
+	<span ng-if="!course.courseHasStarted">partirà </span>
+	<emph><time title="precisamente: il {{course.courseDescription.startingDate | amCalendar}}" am-time-ago="course.courseDescription.startingDate"></time></emph>
+	<span>.</span>
+	<span ng-if="!course.courseHasStarted && course.firstLesson">La prima lezione si terrà 
+		<emph><time ng-bind="course.firstLesson"></time></emph>
+	</span>
+	<span ng-if="!course.courseHasStarted && !course.firstLesson">La data della prima lezione non è stata ancora decisa.</span>
 </p>

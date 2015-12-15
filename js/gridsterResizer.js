@@ -3,7 +3,32 @@ main.directive('gridsterAutoResize',['$timeout',function($timeout){
 		restrict: 'A',
 		link: function($scope,$element,$attr)
 		{
-			$scope.$on('firstLoad',function()
+			var item = $scope.gridsterItems[$scope.index];
+			var event;
+			switch(item.id)
+			{
+				case 'courseDescription':
+					event = 'courses';
+					break;
+				case 'courseTeacher':
+					event = 'teacher';
+					break;
+				case 'calendar':
+					event = 'calendar';
+					break;
+				case 'courseNotifications':
+					event = 'notifications';
+					break;
+				case 'courseMaterials':
+					event = 'materials';
+					break;
+				case 'courseBanner':
+					event = 'courses';
+					break;
+			}
+			
+			
+			$scope.$on(event,function()
 			{
 				var finished = false;
 
@@ -32,11 +57,11 @@ main.directive('gridsterAutoResize',['$timeout',function($timeout){
 				{
 					var gridsterItem = $scope.gridsterItem;
 					if(!gridsterItem) return;
-					var exactRows = Math.min(gridsterItem.gridster.pixelsToRows(innerHeight+panelHeaderHeight,true),7);
+					var exactRows = Math.min(gridsterItem.gridster.pixelsToRows(innerHeight+panelHeaderHeight,true),6);
 	//				console.log(exactRows);
 					gridsterItem.setSizeY(exactRows);
-					if(exactRows > 1)
-					{
+//					if(exactRows > 1)
+//					{
 						$timeout(function(){
 							
 							var img = $element.find('img');
@@ -60,7 +85,7 @@ main.directive('gridsterAutoResize',['$timeout',function($timeout){
 								$scope.registerMeasures(item);
 							});
 						});
-					}
+//					}
 				};
 				
 				/* Watches if gridster has been initialized */ 
