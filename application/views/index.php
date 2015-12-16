@@ -3,16 +3,16 @@
     
 <head>
     <!-- HEAD DECLARATION -->
-    <?php include_once("templates/head.php"); ?>
+    <?php include_once("basics/head.php"); ?>
 </head>
 
 <body ng-app="Main">
     <!-- Google Analytics Snippet -->
-    <?php include_once("templates/analyticstracking.php"); ?>
+    <?php include_once("basics/analyticstracking.php"); ?>
     
     <div class="container">
         
-        <?php include_once("templates/navbar.php"); ?>
+        <?php include_once("basics/navbar.php"); ?>
         
         <div class="mini-header" ng-if="miniHeader()">
             <div class="container">
@@ -24,7 +24,7 @@
             
         </div>
         
-        <?php include_once("templates/footer.php"); ?>
+        <?php include_once("basics/footer.php"); ?>
     </div>
     
     <div inform class="inform-shadow inform-fixed inform-center inform-animate"></div>
