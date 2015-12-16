@@ -2,6 +2,7 @@
 .externalToolBuilders/
 .settings/
 node_modules/
+bower_components/
 uploads/
 .project
 dist/

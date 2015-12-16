@@ -16,9 +16,16 @@
   "devDependencies": {
     "autoprefixer": "^6.1.2",
     "cssnano": "^3.3.2",
+    "grunt-bower-concat": "^0.6.0",
+    "grunt-contrib-clean": "^0.7.0",
+    "grunt-contrib-compass": "^1.0.4",
+    "grunt-contrib-copy": "^0.8.2",
     "grunt-html-snapshot": "^0.6.1",
     "grunt-postcss": "^0.7.1",
+    "grunt-purifycss": "^0.1.0",
     "grunt-svg-css": "^0.2.8",
+    "grunt-uncss": "^0.4.4",
+    "grunt-wiredep": "^2.0.0",
     "npm": "^3.5.1",
     "uglify": "^0.1.5"
   },
