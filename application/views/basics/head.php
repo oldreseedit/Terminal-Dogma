@@ -144,4 +144,8 @@
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.9/cookieconsent.min.js"></script>
     <!-- End Cookie Consent plugin -->
 
-    
+    <!-- bower:js -->
+	<!-- endbower -->
+	
+	<!-- bower:css -->
+	<!-- endbower -->

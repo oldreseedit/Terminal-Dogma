@@ -4,29 +4,73 @@ module.exports = function(grunt) {
     	
     	pkg: grunt.file.readJSON('package.json'),
 		
+    	ngtemplates:  {
+            app: 
+            {
+                src: 'templates/*.php',
+                dest: 'dist/js/templates.js',
+//                options: {
+//                    module: 'Main',
+//                    htmlmin:  { collapseWhitespace: true, collapseBooleanAttributes: true }
+//                }
+            }
+        },
+    	
+    	concat: {
+		  options: {
+		    separator: ';'
+		  },
+		  dist: {
+		    src: [ "js/elastic.js",
+		           "js/utilities-service.js",
+		           "js/main.js",
+		           "js/modal.js",
+		           "js/navbar.js",
+		           "js/header.js",
+		           "js/presentation.js",
+		           "js/team.js",
+		           "js/footer.js",
+		           "js/courses.js",
+		           "js/course.js",
+		           "js/activities.js",
+		           "js/activity.js",
+		           "js/media.js",
+		           "js/contacts.js",
+		           "js/infoWindow.js",
+		           "js/register.js",
+		           "js/exp.js",
+		           "js/admin.js",
+		           "js/signin.js",
+		           "js/signup.js",
+		           "js/profile.js",
+		           "js/avatar.js",
+		           "js/paymentDisclaimer.js",
+		           "js/paymentNotRegistered.js",
+		           "js/paymentCancel.js",
+		           "js/paymentConfirmation.js",
+		           "js/payment.js",
+		           "js/fitText.js",
+		           "js/gridsterResizer.js",
+		           "js/faq.js",
+		           "js/privacy.js",
+		           "js/disclaimer.js",
+		           "js/ui-bootstrap-tpls-0.14.3.min.js",
+		           'dist/js/templates.js'],
+		    dest: 'dist/js/<%= pkg.name %>.js'
+		  }
+		},
+    	
 		uglify: {
 		  options: {
 			banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
 			mangle: false
 		  },
 		  build: {
-			src: 'js/*.js',
+			src: 'dist/js/<%= pkg.name %>.js',
 			dest: 'dist/js/<%= pkg.name %>.min.js'
 		  }
 		},
 		
-		ngtemplates:  {
-            app: 
-            {
-                src: 'templates/*.php',
-                dest: 'dist/js/templates.js',
-                options: {
-                    module: 'Main',
-                    htmlmin:  { collapseWhitespace: true, collapseBooleanAttributes: true }
-                }
-            }
-        },
-        
         compass: {
             dev: {
                 options: {
@@ -75,21 +119,16 @@ module.exports = function(grunt) {
 			      {expand: true, src: ['.htaccess'], dest: 'dist/'},
 			      {expand: true, src: ['index.php'], dest: 'dist/'},
 			      {expand: true, src: ['php.ini'], dest: 'dist/'},
-			      {src: ['stylesheets/fontcustom.css'], dest: 'dist/'},
+			      {src: ['stylesheets/fontcustom*'], dest: 'dist/'},
 			      {src: ['stylesheets/awesome-bootstrap-checkbox.css'], dest: 'dist/'},
 			    ],
 			  },
-			  head: {
-				    files: [
-				      // includes files within path and its sub-directories 
-				      {src: ['templates/head.php'], dest: 'dist/head.html'},
-				    ],
-				  },
 		},
 		
 		clean: {
 			build: {
 				src: ["dist/stylesheets/screen.css",
+				      "dist/js/templates.js"
 //				      "dist/stylesheets/print.css",
 //				      "dist/stylesheets/ie.css",
 				      ]
@@ -156,7 +195,7 @@ module.exports = function(grunt) {
         	 
         	  task: {
         	    src: [
-        	      'dist/templates/head.php',
+        	      'dist/application/views/basics/head.php',
         	    ],
         	    options: {
 	        	    dependencies: true,
@@ -245,6 +284,7 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-angular-templates');
+    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-copy');
@@ -264,10 +304,6 @@ module.exports = function(grunt) {
 //  grunt.loadNpmTasks('grunt-contrib-jshint');
 //	grunt.loadNpmTasks('grunt-cssc');
 	
-    grunt.registerTask('default', ['uglify', 'ngtemplates', 'compass', 'cssmin', 'copy:website', 'clean', 'bower_concat']);
-//    grunt.registerTask('default', ['uglify', 'ngtemplates', 'compass', 'purifycss', 'cssmin', 'copy:website', 'clean', 'bower_concat']);
-//    grunt.registerTask('default', ['htmlSnapshot']);
-//    grunt.registerTask('default', ['bower_concat']);
-//    grunt.registerTask('default', ['wiredep']);
-    
+//    grunt.registerTask('default', ['ngtemplates', 'concat', 'uglify', 'compass', 'cssmin', 'copy', 'clean', 'bower_concat', 'wiredep']);
+    grunt.registerTask('default', ['ngtemplates', 'concat', 'compass', 'cssmin', 'copy', 'clean', 'bower_concat', 'wiredep']);
 };
