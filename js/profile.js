@@ -89,7 +89,7 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
 		$http.post('profile/update_block_positions',{username: self.username, panelID: item.id, measures : item.measures}).then(
     			function(response)
     			{
-        			console.log(response);
+//        			console.log(response);
     			},
     			function(error)
     			{
@@ -303,22 +303,23 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
     
     // Loading Courses
     
-    $http.post('payment_interface/get_courses',{username: self.username}).then(
+    $http.post('payment_interface/get_courses_with_info',{username: self.username}).then(
 		function(response)
 		{
 			if(response.data.error) inform.add(response.data.description,{type:'danger'});
 			else if(response.data)
 			{
-				console.log(response.data);
+//				console.log(response.data);
 //				self.tempCourses = response.data;
-//				self.courses = [];
-//			    for(var i=0; i<self.tempCourses.length; i++)
-//				{
-//				   	self.courses[i] = {};
-//				   	self.courses[i].courseID = self.tempCourses[i];
-//			    	self.courses[i].name = self.tempCourses[i].charAt(0).toUpperCase() + self.tempCourses[i].slice(1);
+				self.courses = [];
+			    for(var i=0; i<response.data.length; i++)
+				{
+				   	self.courses[i] = {};
+				   	self.courses[i].courseID = response.data[i].courseID;
+				   	self.courses[i].name = response.data[i].name;
+//			    	self.courses[i].name = response.data[i].charAt(0).toUpperCase() + self.tempCourses[i].slice(1);
 //			    	self.courses[i].name = self.courses[i].name.split(/(?=[A-Z](?=[a-z]))/).join(" ");
-//				}
+				}
 			}
 		},
 		function(error)

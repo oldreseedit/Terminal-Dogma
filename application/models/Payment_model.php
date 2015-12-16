@@ -7,6 +7,7 @@ class Payment_model extends CI_Model
         {
                 $this->load->database();
                 $this->load->model('userinfo_model');
+                $this->load->model('courses_model');
         }
         
         public function init()
@@ -80,6 +81,22 @@ class Payment_model extends CI_Model
                 
                 $query = $this->db->get();
                 return $query->result_array();
+        }
+        
+        public function get_courses_with_info($userID = null)
+        {
+        	$courses = array();
+        
+        	$this->db->distinct();
+        	$query = $this->db->select(self::table_name . '.courseID, name, paymentDate, icon, startingDate, price, duration');
+        	$query = $this->db->from(self::table_name);
+        
+        	if($userID != null) $this->db->where('userID', $userID);
+        
+        	$query = $this->db->
+        	join(Courses_model::table_name, Courses_model::table_name . "." . "courseID" . " = " . self::table_name . "." . "courseID")->
+        	get();
+        	return $query->result_array();
         }
         
         public function get_subscribers($courseID = null)

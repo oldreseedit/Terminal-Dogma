@@ -10,6 +10,8 @@ class Profile extends CI_Controller {
 		
 		$this->load->model('profile_block_positions_model');
 		
+		$this->load->library('permissions');
+		
 		$this->load->helper('url');
 	}
 	
@@ -59,7 +61,7 @@ class Profile extends CI_Controller {
         	}
         	 
         	$panelID = $this->input->post('panelID');
-        	if($courseID == false)
+        	if($panelID == false)
         	{
         		echo json_encode(array("error" => true, "description" => "Specificare un ID pannello.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("panelID")));
         		return;

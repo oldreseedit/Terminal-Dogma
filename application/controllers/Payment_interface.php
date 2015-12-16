@@ -181,6 +181,23 @@ class Payment_interface extends CI_Controller {
             echo json_encode($courses);
         }
         
+        public function get_courses_with_info()
+        {
+        	$userID = $this->input->post('username');
+        	if($userID == false) $userID = null;
+//         	$userID = "Titto";
+        
+        	$result = $this->payment_model->get_courses_with_info($userID);
+        
+        	$courses = array();
+        	foreach($result as $course)
+        	{
+        		// $courses[] = array('courseID' => $course['courseID'], 'courseName' => $course['name']);
+        		$courses[] = $course;
+        	}
+        	echo json_encode($courses);
+        }
+        
         public function get_subscribers()
         {
             $requestedCourseID = $this->input->post('courseID');
