@@ -415,7 +415,7 @@ main.directive("back", function() {
 /* bootstrap-input and bootstrap-textarea tag MUST contain 'form' and 'name' attributes. Bootstrap-input obviously needs 'type' too for proper behavior. Other parameters are optional. */
 /* NOTE: for 'required' tag to work, it must be written in XHTML syntax as required="required" */
 
-main.directive('bootstrapInput',['$timeout','$filter',function($timeout,$filter){
+main.directive('bootstrapInput',['$timeout','$filter','$http','$q',function($timeout,$filter,$http,$q){
     return {
         restrict: "E",
         require: 'ngModel',
@@ -443,11 +443,30 @@ main.directive('bootstrapInput',['$timeout','$filter',function($timeout,$filter)
             
             $scope.thereAreErrors = false;
             $scope.errorMessageFromServer = '';
+
+        	if($scope.name === 'username' && $scope.form.$name === 'signupForm')
+        	{
+	            $scope.form[$scope.name].$asyncValidators.usernameTakenAsync = function(modelValue,viewValue)
+	            {
+            		return $http.post('users/exists',{username: viewValue}).then(
+                			function(response)
+                			{
+//                				console.log($scope.form[$scope.name]);
+                				if(response.data === 'true') return $q.reject('username esistente');
+                				else return true;
+                			},
+                			function(error)
+                			{
+                				console.log(error);
+                			}
+                	);
+            	}
+        	}
             
             /* Setting validator for username in case I'm in signupController */
-            $scope.form[$scope.name].$asyncValidators.usernameTaken = function(modelValue, viewValue){
+            $scope.form[$scope.name].$validators.usernameTaken = function(modelValue, viewValue){
                 if($scope.errorMessageFromServer === 'USERNAME_TAKEN') return false;
-                else return true;
+                return true;
             };
             
             /* Setting validator for username/password mismatch in case I'm in signinController */
@@ -458,12 +477,12 @@ main.directive('bootstrapInput',['$timeout','$filter',function($timeout,$filter)
             
             /* Setting validator for invalid username in case I'm in signup/signinController */
             $scope.form[$scope.name].$validators.invalidUsername = function(modelValue, viewValue){
-                if($scope.name === 'username' && ($scope.form.$name === 'signupForm' || $scope.form.$name === 'signinForm') && modelValue)
+                if($scope.name === 'username' && ($scope.form.$name === 'signupForm' || $scope.form.$name === 'signinForm') && viewValue)
                 {
-                	var check = modelValue.match(/[@$&£#"]/);
+                	var check = viewValue.match(/[@$&£#"]/);
                 	if(check) return false;
                 }
-                else return true;
+                return true;
             };
             
             /* Setting validator for password/repassword mismatch in case name of  */

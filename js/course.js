@@ -243,13 +243,17 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
         else if(response.data)
         {
         	self.teacher = response.data;
-        	$scope.$on('firstLoad', function(){ 
-	        	$timeout(function(){
-	            	var img = $('#singleCourse').find('img');
-	            	img.on('load',function(){
-	                	$scope.$broadcast('teacher');
-	                });        		
-	            });        		
+        	$scope.$on('firstLoad', function(){
+            	
+            	$scope.$watch(
+            		function(){
+            			return  $('#singleCourse').find('img')[0].complete;
+            		},
+            		function(newValue){
+            			if(newValue === true) $scope.$broadcast('teacher');
+            		}
+            		
+            	);    		
 	        });
         }
     },function(error) {

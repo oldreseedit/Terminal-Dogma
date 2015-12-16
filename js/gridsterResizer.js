@@ -4,7 +4,6 @@ main.directive('gridsterAutoResize',['$timeout',function($timeout){
 		link: function($scope,$element,$attr)
 		{
 			var itemID = $scope.gridsterItems[$scope.index].id;
-			$scope.id = itemID;
 			var event;
 			switch(itemID)
 			{
@@ -65,7 +64,6 @@ main.directive('gridsterAutoResize',['$timeout',function($timeout){
 			
 			$scope.$on(event,function()
 			{
-
 				var content = $element.find('.panel-content');
 				var panelHeader = $element.find('.panel-title');
 				
@@ -86,7 +84,7 @@ main.directive('gridsterAutoResize',['$timeout',function($timeout){
 						var item = {};
 						item.measures = JSON.stringify(gridsterItem.toJSON());
 						item.id = $scope.gridsterItems[$scope.index].id;
-						$scope.$on('gridster-item-transition-end',updateScrollbar());
+						updateScrollbar();
 						$scope.registerMeasures(item);
 						$scope.measuresLoaded = true;
 					});
