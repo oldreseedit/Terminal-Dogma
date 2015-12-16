@@ -660,3 +660,26 @@ main.directive('centered',function() {
 		}
 	}
 });
+
+main.directive('equalSpans',function(){
+	return {
+		restrict: 'A',
+		link: function($scope, $element, $attrs)
+		{
+			var width = $element.innerWidth();
+			var singleWidths =
+			console.log(width, $element, singleWidths);
+			
+			$scope.$watch(
+					function(){
+						return  $element.find('a');
+					},
+					function(newValue)
+					{
+						console.log(newValue);
+					}, true
+			);
+		}
+	};
+});
+

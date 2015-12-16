@@ -245,7 +245,7 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
             	
             	$scope.$watch(
             		function(){
-            			return  $('#singleCourse').find('img')[0].complete;
+            			if($('#singleCourse').find('img').length > 0) return  $('#singleCourse').find('img')[0].complete;
             		},
             		function(newValue){
             			if(newValue === true) $scope.$broadcast('teacher');

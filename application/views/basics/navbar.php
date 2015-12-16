@@ -14,8 +14,8 @@
         
         <div id="navbar-tabs">
             <div class="container">
-                <div class="macrotab" ng-repeat="tab in navbar.tabs" ng-class="navbar.spaced($first)">
-                    <a ng-href="#!/{{tab.url}}"><span class="middler"></span><span class="middle" ng-bind="tab.content"></span></a>
+                <div class="macrotab" equal-spans>
+                    <a ng-repeat="tab in navbar.tabs" ng-href="#!/{{tab.url}}"><span class="middler"></span><span class="middle" ng-bind="tab.content"></span></a>
                 </div> 
             </div>
         </div>

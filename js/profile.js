@@ -317,8 +317,6 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
 				   	self.courses[i] = {};
 				   	self.courses[i].courseID = response.data[i].courseID;
 				   	self.courses[i].name = response.data[i].name;
-//			    	self.courses[i].name = response.data[i].charAt(0).toUpperCase() + self.tempCourses[i].slice(1);
-//			    	self.courses[i].name = self.courses[i].name.split(/(?=[A-Z](?=[a-z]))/).join(" ");
 				}
 			}
 		},

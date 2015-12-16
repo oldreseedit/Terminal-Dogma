@@ -7,18 +7,8 @@ main.controller('activityController',['utilities','$scope','$http','$routeParams
     $route.current.locals.username = self.username; // For modal and GridsterResizer
     
     self.activityID = $routeParams.activityID;
-	self.activityName = self.activityID.split(/([0-9]*[A-Z][a-z]*)/).join(' ');
-    self.activityName = self.activityName.charAt(0).toUpperCase() + self.activityName.slice(1);;
     
-    $http.post('activities/get',{activityID : self.activityID}).then(function(response) {
-        if(response.data.error) inform.add(response.data.description,{type:'danger'});
-        else if(response.data)
-        {
-        	self.activityDescription = response.data;
-        }
-    },function(error) {
-        console.log(error);
-    });
+    $scope.gridsterItems = [];
     
     $scope.gridsterOpts = {
     	resizable : {
@@ -29,16 +19,27 @@ main.controller('activityController',['utilities','$scope','$http','$routeParams
     	}
     }
     
-    $scope.gridsterItems = [];
-    
     self.setStaticProperties = function(item)
     {	
 		switch(item.id)
 		{
-			case 'activity-description':
-				item.title = 'Sommario';
+			case 'activityDescription':
 				item.bgColour = 'bg-light-olive';
             	item.templateUrl = 'templates/activity-description.php';
+				break;
+			case 'activityOtj':
+				item.title = 'ReSeed On-The-Job-Training';
+				item.bgColour = 'bg-light-olive';
+            	item.templateUrl = 'templates/activity-otj.php';
+				break;
+			case 'activityPriceList':
+				item.title = 'Listino';
+				item.bgColour = 'bg-light-olive';
+            	item.templateUrl = 'templates/activity-price-list.php';
+				break;
+			case 'activityTeam':
+				item.bgColour = 'bg-light-olive';
+            	item.templateUrl = 'templates/activity-team.php';
 				break;
 		}
     }
@@ -106,5 +107,17 @@ main.controller('activityController',['utilities','$scope','$http','$routeParams
     );
     
     /* MAIN */
+    
+
+    $http.post('activities/get',{activityID : self.activityID}).then(function(response) {
+        if(response.data.error) inform.add(response.data.description,{type:'danger'});
+        else if(response.data)
+        {
+        	self.activityDescription = response.data;
+        }
+    },function(error) {
+        console.log(error);
+    });
+    
     
 }]);
