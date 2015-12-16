@@ -36,7 +36,7 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
         		    			console.log(error);
         		    		}
         		    );
-            	},250
+            	}, 250
             );    	
     };
     
@@ -48,25 +48,7 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
     	}
     	return true;
     };   
-
-    // Loading Avatar 
-    
-    $http.post('avatars/get_avatar',{username: self.username}).then(
-		function(response)
-		{
-//			console.log('avatar');
-			if(response.data.avatar) self.avatar = response.data.avatar;
-			else self.avatar = "imgs/leaf.png";
-			
-			
-		},
-		function(error)
-		{
-			console.log(error);
-			return "imgs/leaf.png";
-		}
-	);
-    
+   
     // Loading Positions
     
 
@@ -104,10 +86,10 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
     
     $scope.registerMeasures = function(item)
     {
-		$http.post('course/update_block_positions',{username: self.username, activityID: self.courseID, panelID: item.id, measures : item.measures}).then(
+		$http.post('profile/update_block_positions',{username: self.username, panelID: item.id, measures : item.measures}).then(
     			function(response)
     			{
-//        			console.log(response);
+        			console.log(response);
     			},
     			function(error)
     			{
@@ -116,17 +98,37 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
     	);
     };
     
-    $http.post('profile/load_block_positions',{username : self.username, courseID : self.courseID}).then(
+    $scope.registerAllMeasures = function(grid)
+    {
+//    	console.log(grid);
+    	angular.forEach(grid,function(items){
+    		angular.forEach(items,function(item){
+    			var data = {};
+				data.measures = JSON.stringify(item.toJSON());
+//				console.log(item.$element.scope());
+				data.id = item.$element.scope().id;
+				$scope.registerMeasures(data);
+    		});
+    	});
+    }
+    
+    $http.post('profile/load_block_positions',{username : self.username}).then(
     		function(response)
     		{    			
     			if(!response.data.error)
     			{
-    				console.log(response.data);
-    				var items = response.data.panelMeasures;
-    				angular.forEach(items, function(m)
+//    				console.log(response.data);
+    				var items = [];
+    				angular.forEach(response.data.panelMeasures, function(m)
     				{
-        				m.block_positions = JSON.parse(m.block_positions);
+    					var item = JSON.parse(m.panel_measure);
+    					item.id = m.panelID;
+    					items.push(item);
     				});
+    				
+    				$timeout(function(){
+        				$scope.$broadcast('measuresLoaded');    				
+    				});	    
     			}
     			else
     			{
@@ -171,13 +173,44 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
 					
 					$scope.gridsterItems.push(item);
 				});
+//				$timeout(function(){
+//					$scope.$broadcast('gridsterItemsLoaded');
+//				});
     		},
     		function(error)
     		{
     			console.log(error);
     		}
     );
+
+    // Loading Avatar 
     
+    $http.post('avatars/get_avatar',{username: self.username}).then(
+		function(response)
+		{
+//			console.log('avatar');
+			if(response.data.avatar) self.avatar = response.data.avatar;
+			else self.avatar = "imgs/leaf.png";
+			
+			$scope.$on('firstLoad', function(){
+            	
+            	$scope.$watch(
+            		function(){
+            			return  $('#profile').find('img')[0].complete;
+            		},
+            		function(newValue){
+            			if(newValue === true) $scope.$broadcast('teacher');
+            		}
+            		
+            	);    		
+	        });
+		},
+		function(error)
+		{
+			console.log(error);
+		}
+	);
+ 
     // Loading notifications
     
     $http.post('notifications/get_user_notifications',{username: self.username}).then(
@@ -187,9 +220,8 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
 			if(response.data.error) inform.add(response.data.description,{type:'danger'});
 			else if(response.data){
 				self.notifications = response.data;
-				$timeout(function(){
-					$scope.$broadcast('notifications');
-				});
+				
+				$scope.$on('firstLoad', function(){ $scope.$broadcast('notifications');} );
 			}
 		},
 		function(error)
@@ -240,7 +272,7 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
 			    }
 			    self.lastAchievement = self.achievements[lastAchievementIndex].description;
 			    
-			    $timeout(function(){
+			    $scope.$on('firstLoad', function(){
 			    	$scope.$broadcast('achievements');
 			    	$scope.$broadcast('rewards');
 			    });
@@ -274,7 +306,6 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
     $http.post('payment_interface/get_courses',{username: self.username}).then(
 		function(response)
 		{
-//			console.log('courses');
 			if(response.data.error) inform.add(response.data.description,{type:'danger'});
 			else if(response.data)
 			{
@@ -319,14 +350,18 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
     
     $scope.$watchCollection(
    		 function(){
-   			 return [self.avatar,self.lastAchievement,self.nextReward,self.expInfo];
+   			 return [self.avatar,self.lastAchievement,self.nextReward,self.expInfo, self.courses];
    		 },
    		 function(newValues)
    		 {
-   			 if(newValues[0] !== undefined && newValues[1] !== undefined && newValues[2] !== undefined && newValues[3] !== undefined) 
+   			 var check = true;
+   			 angular.forEach(newValues,function(value){
+   				 if(value === undefined) check = false;
+   			 });
+   			 if(check) 
    				 $scope.$on('firstLoad', function(){
-   					 $timeout($scope.$broadcast('summary'));
-   				 });
+   					$timeout(function(){ $scope.$broadcast('summary'); });
+   				});
    		 },
    		 true
    );

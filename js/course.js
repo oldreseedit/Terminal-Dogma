@@ -7,7 +7,6 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
     $route.current.locals.username = self.username; // For modal and GridsterResizer
     
     self.courseID = $routeParams.courseID;
-//    self.courseName = courseID
     
     $scope.events = [];
     $scope.eventSources = [{events: $scope.events, color: 'green'}];
@@ -137,7 +136,6 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
 //    			console.log(response.data);
     			if(!response.data.error)
     			{
-//    				console.log(response.data);
     				var items = [];
     				angular.forEach(response.data.panelMeasures, function(m)
     				{
