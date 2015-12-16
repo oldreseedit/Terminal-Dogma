@@ -661,25 +661,65 @@ main.directive('centered',function() {
 	}
 });
 
-main.directive('equalSpans',function(){
+main.directive('equalSpans',[function(){
 	return {
 		restrict: 'A',
 		link: function($scope, $element, $attrs)
 		{
 			var width = $element.innerWidth();
-			var singleWidths =
-			console.log(width, $element, singleWidths);
 			
-			$scope.$watch(
-					function(){
-						return  $element.find('a');
-					},
-					function(newValue)
+			var separate = function(){
+				
+				var singleWidths = [];
+				var elements = $element.find('a'); 
+				elements.each(function(){
+					singleWidths.push($(this).width());
+				});
+				
+				var check = true;
+				var sum = 0;
+				angular.forEach(singleWidths,function(singleWidth){
+					if(singleWidth < 2) check = false;
+					else sum+=singleWidth;
+				});
+				
+				if(check)
+				{
+//					console.log(singleWidths);
+					for(var i=0; i<elements.length-1; i++)
 					{
-						console.log(newValue);
-					}, true
+						var correctMargin = (width-sum)/(elements.length-1) -1;
+						$(elements[i]).css('margin-right',correctMargin + 'px');
+//						console.log($(elements[i]));
+					}
+				}
+				
+			};	
+			
+			$scope.$on('separate',function(){
+				separate();
+			});
+		}
+	};
+}]);
+
+main.directive('equalSpan',[function(){
+	return {
+		restrict: 'A',
+		link: function($scope,$element,$attrs)
+		{
+			$scope.$watch(
+				function()
+				{
+					return $element[0].offsetWidth;
+				},
+				function(newValue, oldValue)
+				{
+//					console.log(newValue);
+					if(newValue > 0) $scope.$emit('separate');
+				}
 			);
 		}
 	};
-});
+}]);
 
