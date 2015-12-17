@@ -14,7 +14,8 @@ var main = angular.module('Main',[
     'gridster', // For draggable/resizable divs
     'lr.upload', // For uploading purposes
     'inform', // For notifier purposes
-    'angularMoment' // For inline moment
+    'angularMoment', // For inline moment
+    
     ], function($httpProvider) {
 
     // FOR CI
@@ -51,7 +52,25 @@ config(function(informProvider) {
     };
 
     informProvider.defaults(myDefaults);
-});;
+});
+
+main.config(['$httpProvider', function($httpProvider){
+	var id;
+	$httpProvider.interceptors.push(['$rootScope',function($rootScope){
+		return {
+			'request': function(config){
+				id = config.url + JSON.stringify(config.data);
+				console.log(id);
+				$rootScope.$broadcast('ajaxStart', id);
+				return config;
+			},
+			'response': function(response){
+				$rootScope.$broadcast('ajaxEnd', id);
+				return response;
+			}
+		};
+	}]);
+}]);
 
 /* Check if you are on "responsive" devices */
 imOnResponsive = (window.innerWidth > 0) ? (window.innerWidth < 1080) : (screen.width < 1080);
@@ -721,5 +740,30 @@ main.directive('equalSpan',[function(){
 			);
 		}
 	};
+}]);
+
+main.directive('spinner',[function(){
+	return {
+		restrict: 'A',
+		scope: {
+			ajax : '=spinner'
+		},
+		link : function($scope, $element, $attrs){
+			
+			$scope.$on('ajaxStart',function(event,id){
+				console.log($scope.ajax.id, id)
+				if($scope.ajax.id === id)
+				{
+					console.log('Catch \'em all!');
+				}
+			});
+			$scope.$on('ajaxEnd',function(event,id){
+				if($scope.ajax.id === id)
+				{
+					console.log('Catched \'em all!');
+				}
+			});
+		}
+	}
 }]);
 

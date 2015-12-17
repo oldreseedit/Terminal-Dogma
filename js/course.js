@@ -1,4 +1,4 @@
-main.controller('courseController',['utilities','$scope','$http','$routeParams','uiCalendarConfig','$timeout','$route','$cookies','inform',function(utilities,$scope,$http,$routeParams,uiCalendarConfig,$timeout,$route,$cookies,inform){
+main.controller('courseController',['utilities','$scope','$http','$server','$routeParams','uiCalendarConfig','$timeout','$route','$cookies','inform',function(utilities,$scope,$http,$server,$routeParams,uiCalendarConfig,$timeout,$route,$cookies,inform){
     var self = this;
     
     /* CONFIG */
@@ -236,12 +236,34 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
         console.log(error);
     });
     
-    $http.post('teachers/get',{courseID : self.courseID}).then(function(response) {
-        if(response.data.error) inform.add(response.data.description,{type:'danger'});
-        else if(response.data)
-        {
-        	self.teacher = response.data;
-        	$scope.$on('firstLoad', function(){
+//    self.teacherAjax = $http.post('teachers/get',{courseID : self.courseID}).then(function(response) {
+//        if(response.data.error) inform.add(response.data.description,{type:'danger'});
+//        else if(response.data)
+//        {
+//        	self.teacher = response.data;
+//        	$scope.$on('firstLoad', function(){
+//            	
+//            	$scope.$watch(
+//            		function(){
+//            			if($('#singleCourse').find('img').length > 0) return  $('#singleCourse').find('img')[0].complete;
+//            		},
+//            		function(newValue){
+//            			if(newValue === true) $scope.$broadcast('teacher');
+//            		}
+//            		
+//            	);    		
+//	        });
+//        }
+//    },function(error) {
+//        console.log(error);
+//    });
+    
+    self.teacherAjax = $server.post('teachers/get',{courseID : self.courseID}).then(
+		function(response)
+		{
+//			console.log(response);
+			self.teacher = response.data;
+			$scope.$on('firstLoad', function(){
             	
             	$scope.$watch(
             		function(){
@@ -253,10 +275,8 @@ main.controller('courseController',['utilities','$scope','$http','$routeParams',
             		
             	);    		
 	        });
-        }
-    },function(error) {
-        console.log(error);
-    });
+		}
+    );
     
     $http.post('notifications/get',{courseID : self.courseID}).then(function(response) {
     	 if(response.data.error) inform.add(response.data.description,{type:'danger'});

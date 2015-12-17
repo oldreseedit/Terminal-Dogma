@@ -80,6 +80,7 @@
     <!-- AngularJS Modules -->
     <script type="text/javascript" src="js/utilities-service.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/server.js"></script>
     <script type="text/javascript" src="js/modal.js"></script>
     <script type="text/javascript" src="js/navbar.js"></script>
     <script type="text/javascript" src="js/header.js"></script>
