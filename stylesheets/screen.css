@@ -1932,7 +1932,7 @@ mark,
 }
 
 /* line 92, ../sass/bootstrap/_type.scss */
-.text-center, .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #navbar, #footer, #home #team, #singleCourse .panel-title, #singleCourse .course-icon, #singleActivity .panel-title, #register, #register .XP, #profile .panel-title, #profile .profile-level-symbol {
+.text-center, .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #forum, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #navbar, #footer, #home #team, #singleCourse .panel-title, #singleCourse .course-icon, #singleActivity .panel-title, #register, #register .XP, #profile .panel-title, #profile .profile-level-symbol {
   text-align: center;
 }
 
@@ -9451,7 +9451,7 @@ button.close {
 }
 
 /* line 12, ../sass/_responsive.scss */
-.offset-15, .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #navbar #navbar-tabs, #navbar #navbar-profile, #payment .paymentStep, #faqPage .faqStep {
+.offset-15, .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #forum, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #navbar #navbar-tabs, #navbar #navbar-profile, #payment .paymentStep, #faqPage .faqStep {
   margin-left: 15%;
 }
 
@@ -10320,7 +10320,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-70, .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #payment .paymentStep, #faqPage .faqStep {
+.col-70, .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #forum, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #payment .paymentStep, #faqPage .faqStep {
   width: 70%;
   float: left;
 }
@@ -19417,19 +19417,19 @@ button.close {
 }
 
 /* line 139, ../sass/_tricks.scss */
-.in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper {
+.in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #forum, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper {
   margin-bottom: 3vw;
 }
 @media all and (max-device-width: 1079px) {
   /* line 139, ../sass/_tricks.scss */
-  .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper {
+  .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #forum, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper {
     width: 80%;
     margin-left: 10%;
   }
 }
 @media all and (max-device-width: 539px) {
   /* line 139, ../sass/_tricks.scss */
-  .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper {
+  .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #forum, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper {
     width: 96%;
     margin-left: 2%;
   }
@@ -19665,7 +19665,7 @@ h1 {
 }
 
 /* line 46, ../sass/_palette.scss */
-.bg-green {
+.bg-green, #forum .panel-default > .panel-heading {
   background-color: #0fa82d;
 }
 
@@ -20287,6 +20287,11 @@ body {
   }
 }
 
+/* line 4, ../sass/_forum.scss */
+#forum .panel-default > .panel-heading {
+  background-image: none;
+}
+
 /* line 4, ../sass/_course.scss */
 #singleCourse .gridster-item {
   /*         @extend .bg-lightest-grey; */
@@ -20609,10 +20614,9 @@ body {
 /* @import "sham-setup"; */
 /* line 1, ../sass/_scrollbar.scss */
 .scrollbar-wrapper {
-  height: calc(100%-3em);
   padding: 10px;
 }
-/* line 6, ../sass/_scrollbar.scss */
+/* line 5, ../sass/_scrollbar.scss */
 .scrollbar-wrapper .scrollbar {
   position: relative;
   overflow-y: hidden;
@@ -20963,21 +20967,21 @@ body {
   border: 1.5px solid #B3B2B3;
 }
 
-/* line 42, ../sass/_reseed.scss */
+/* line 43, ../sass/_reseed.scss */
 #main {
   width: 100%;
 }
 
-/* line 50, ../sass/_reseed.scss */
+/* line 51, ../sass/_reseed.scss */
 .mini-header {
   margin-bottom: 2em;
 }
-/* line 54, ../sass/_reseed.scss */
+/* line 55, ../sass/_reseed.scss */
 .mini-header img {
   width: 100%;
 }
 
-/* line 73, ../sass/_reseed.scss */
+/* line 74, ../sass/_reseed.scss */
 .fa-stack-10x {
   position: relative;
   display: inline-block;

@@ -1,0 +1,9 @@
+#forum{
+	@extend .in-main;
+    
+    .panel-default > .panel-heading
+	{
+		@extend .bg-green;
+		background-image: none;
+	}
+}

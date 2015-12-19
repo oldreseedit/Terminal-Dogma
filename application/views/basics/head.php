@@ -31,12 +31,6 @@
     <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic' rel='stylesheet' type='text/css' />
     <link href='https://fonts.googleapis.com/css?family=Raleway:700,400,300' rel='stylesheet' type='text/css' />
     
-<!-- PERSONAL CSS-->
-
-    <link href="stylesheets/screen.css" rel="stylesheet" type="text/css" />
-    <link href="stylesheets/fontcustom.css" rel="stylesheet" />
-    <link rel="stylesheet" href="stylesheets/awesome-bootstrap-checkbox.css" type="text/css" />
-    
 <!-- JQUERY FOR BOOTSTRAP -->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -144,6 +138,12 @@
     
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.9/cookieconsent.min.js"></script>
     <!-- End Cookie Consent plugin -->
+
+	<!-- PERSONAL CSS-->
+
+    <link href="stylesheets/screen.css" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/fontcustom.css" rel="stylesheet" />
+    <link rel="stylesheet" href="stylesheets/awesome-bootstrap-checkbox.css" type="text/css" />
 
     <!-- bower:js -->
 	<!-- endbower -->

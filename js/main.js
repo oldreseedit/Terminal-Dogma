@@ -54,23 +54,23 @@ config(function(informProvider) {
     informProvider.defaults(myDefaults);
 });
 
-main.config(['$httpProvider', function($httpProvider){
-	var id;
-	$httpProvider.interceptors.push(['$rootScope',function($rootScope){
-		return {
-			'request': function(config){
-				id = config.url + JSON.stringify(config.data);
-				console.log(id);
-				$rootScope.$broadcast('ajaxStart', id);
-				return config;
-			},
-			'response': function(response){
-				$rootScope.$broadcast('ajaxEnd', id);
-				return response;
-			}
-		};
-	}]);
-}]);
+//main.config(['$httpProvider', function($httpProvider){
+//	var id;
+//	$httpProvider.interceptors.push(['$rootScope',function($rootScope){
+//		return {
+//			'request': function(config){
+//				id = config.url + JSON.stringify(config.data);
+//				console.log(id);
+//				$rootScope.$broadcast('ajaxStart', id);
+//				return config;
+//			},
+//			'response': function(response){
+//				$rootScope.$broadcast('ajaxEnd', id);
+//				return response;
+//			}
+//		};
+//	}]);
+//}]);
 
 /* Check if you are on "responsive" devices */
 imOnResponsive = (window.innerWidth > 0) ? (window.innerWidth < 1080) : (screen.width < 1080);
@@ -315,6 +315,10 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
         templateUrl : 'register',
         controller : 'Register as register'
     });
+    
+    $routeProvider.when('/forum/',{
+	  	templateUrl: 'forum/index/',
+	  });
     
     $routeProvider.otherwise({
     	templateUrl: 'error'
@@ -680,90 +684,90 @@ main.directive('centered',function() {
 	}
 });
 
-main.directive('equalSpans',[function(){
-	return {
-		restrict: 'A',
-		link: function($scope, $element, $attrs)
-		{
-			var width = $element.innerWidth();
-			
-			var separate = function(){
-				
-				var singleWidths = [];
-				var elements = $element.find('a'); 
-				elements.each(function(){
-					singleWidths.push($(this).width());
-				});
-				
-				var check = true;
-				var sum = 0;
-				angular.forEach(singleWidths,function(singleWidth){
-					if(singleWidth < 2) check = false;
-					else sum+=singleWidth;
-				});
-				
-				if(check)
-				{
-//					console.log(singleWidths);
-					for(var i=0; i<elements.length-1; i++)
-					{
-						var correctMargin = (width-sum)/(elements.length-1) -1;
-						$(elements[i]).css('margin-right',correctMargin + 'px');
-//						console.log($(elements[i]));
-					}
-				}
-				
-			};	
-			
-			$scope.$on('separate',function(){
-				separate();
-			});
-		}
-	};
-}]);
+//main.directive('equalSpans',[function(){
+//	return {
+//		restrict: 'A',
+//		link: function($scope, $element, $attrs)
+//		{
+//			var width = $element.innerWidth();
+//			
+//			var separate = function(){
+//				
+//				var singleWidths = [];
+//				var elements = $element.find('a'); 
+//				elements.each(function(){
+//					singleWidths.push($(this).width());
+//				});
+//				
+//				var check = true;
+//				var sum = 0;
+//				angular.forEach(singleWidths,function(singleWidth){
+//					if(singleWidth < 2) check = false;
+//					else sum+=singleWidth;
+//				});
+//				
+//				if(check)
+//				{
+////					console.log(singleWidths);
+//					for(var i=0; i<elements.length-1; i++)
+//					{
+//						var correctMargin = (width-sum)/(elements.length-1) -1;
+//						$(elements[i]).css('margin-right',correctMargin + 'px');
+////						console.log($(elements[i]));
+//					}
+//				}
+//				
+//			};	
+//			
+//			$scope.$on('separate',function(){
+//				separate();
+//			});
+//		}
+//	};
+//}]);
+//
+//main.directive('equalSpan',[function(){
+//	return {
+//		restrict: 'A',
+//		link: function($scope,$element,$attrs)
+//		{
+//			$scope.$watch(
+//				function()
+//				{
+//					return $element[0].offsetWidth;
+//				},
+//				function(newValue, oldValue)
+//				{
+////					console.log(newValue);
+//					if(newValue > 0) $scope.$emit('separate');
+//				}
+//			);
+//		}
+//	};
+//}]);
 
-main.directive('equalSpan',[function(){
-	return {
-		restrict: 'A',
-		link: function($scope,$element,$attrs)
-		{
-			$scope.$watch(
-				function()
-				{
-					return $element[0].offsetWidth;
-				},
-				function(newValue, oldValue)
-				{
-//					console.log(newValue);
-					if(newValue > 0) $scope.$emit('separate');
-				}
-			);
-		}
-	};
-}]);
-
-main.directive('spinner',[function(){
-	return {
-		restrict: 'A',
-		scope: {
-			ajax : '=spinner'
-		},
-		link : function($scope, $element, $attrs){
-			
-			$scope.$on('ajaxStart',function(event,id){
-				console.log($scope.ajax.id, id)
-				if($scope.ajax.id === id)
-				{
-					console.log('Catch \'em all!');
-				}
-			});
-			$scope.$on('ajaxEnd',function(event,id){
-				if($scope.ajax.id === id)
-				{
-					console.log('Catched \'em all!');
-				}
-			});
-		}
-	}
-}]);
+//main.directive('spinner',[function(){
+//	return {
+//		restrict: 'A',
+//		scope: {
+//			ajax : '=spinner'
+//		},
+//		link : function($scope, $element, $attrs){
+//			
+//			$scope.$on('ajaxStart',function(event,id){
+//				console.log($scope.ajax.id, id)
+//				if($scope.ajax.id === id)
+//				{
+//					console.log('Catch \'em all!');
+//				}
+//			});
+//			$scope.$on('ajaxEnd',function(event,id){
+//				if($scope.ajax.id === id)
+//				{
+//					console.log('Catched \'em all!');
+//				}
+//			});
+//		}
+//	}
+//}]);
 
