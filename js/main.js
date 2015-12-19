@@ -54,23 +54,102 @@ config(function(informProvider) {
     informProvider.defaults(myDefaults);
 });
 
-//main.config(['$httpProvider', function($httpProvider){
-//	var id;
-//	$httpProvider.interceptors.push(['$rootScope',function($rootScope){
-//		return {
-//			'request': function(config){
-//				id = config.url + JSON.stringify(config.data);
-//				console.log(id);
-//				$rootScope.$broadcast('ajaxStart', id);
-//				return config;
-//			},
-//			'response': function(response){
-//				$rootScope.$broadcast('ajaxEnd', id);
-//				return response;
-//			}
-//		};
-//	}]);
-//}]);
+/* AJAX CALLS FOR SPINNERS */
+
+main.factory('ajaxEvents',function(){
+	var events = [];
+	
+	events.set = function(id, status)
+	{
+		this[id] = status;
+	};
+	
+	events.get = function(id)
+	{
+		return this[id];
+	};
+	
+	return events;
+	
+});
+
+main.config(['$httpProvider', function($httpProvider){
+	$httpProvider.interceptors.push(['$rootScope','ajaxEvents',function($rootScope,ajaxEvents){
+		return {
+			'request': function(config){
+				var id = config.url + JSON.stringify(config.data);
+				ajaxEvents.set(id,true);
+				return config;
+			},
+			'response': function(response){
+				var id = response.config.url + JSON.stringify(response.config.data);
+				ajaxEvents.set(id,false);
+				return response;
+			}
+		};
+	}]);
+}]);
+
+main.directive('spinner',['ajaxEvents',function(ajaxEvents){
+	return {
+		restrict: 'A',
+		scope: true,
+		link : function($scope, $element, $attrs){
+
+			var el = $element.find('spinner-place').length > 0 ? $element.find('spinner-place') : null;
+			var elToHide = $element.find('[spinner-final], .spinner-final').length > 0 ? $element.find('[spinner-final], .spinner-final') : null;
+			
+			$scope.pending = true;
+//			console.log(el,elToHide);
+			console.log($scope);
+			
+			// TODO: find a way to get attr as expression without having to bind it to scope
+			
+			$scope.$watch(
+					function()
+					{
+//						console.log(ajaxEvents);
+						return ajaxEvents.get($scope.ajax.id);
+					},
+					function(newValue)
+					{
+//						console.log(newValue);	
+						if(newValue !== undefined && elToHide.length>0 && el.length>0)
+						{
+//							$scope.pending = newValue;
+						}						
+					}
+			);
+		}
+	}
+}]);
+
+main.directive('spinnerPlace',[function(){
+	return {
+		restrict: 'E',
+		scope: true,
+		template : '<i class="fa fa-spinner fa-spin dark-green" ng-show="pending"></i><span ng-bind="pending"></span>',
+		link: function($scope, $element, $attrs)
+		{
+			console.log($scope);
+		}
+	}
+}]);
+
+main.directive('spinnerFinal',function(){
+	return {
+		restrict : 'AC',
+		scope : true,
+		link : function($scope, $element, $attrs)
+		{
+			console.log($scope, $scope.pending);
+			$attrs.ngShow = 'pending';
+//			$element.hide();
+		}
+	}
+});
+
+/* END OF SPINNERS */
 
 /* Check if you are on "responsive" devices */
 imOnResponsive = (window.innerWidth > 0) ? (window.innerWidth < 1080) : (screen.width < 1080);
@@ -90,6 +169,8 @@ function imOnMaxi(){
 
 /*** RUN PHASE ***/
 main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$route','gridsterConfig','inform','$cookies',function($rootScope, $location, $timeout, $http, $cookies, $window, $route, gridsterConfig,inform,$cookies) {
+	
+	$rootScope.ajaxEvents = [];
 	
 	$rootScope.thereIsAvatar = function()
     {
@@ -685,108 +766,64 @@ main.directive('centered',function() {
 	}
 });
 
-//main.directive('selectOnClick', ['$window', function ($window) {
-//    return {
-//        restrict: 'A',
-//        link: function (scope, element, attrs) {
-//            element.on('click', function () {
-//            	console.log($window.getSelection().toString());
-//            	
-////                if (!$window.getSelection().toString()) {
-////                    // Required for mobile Safari
-////                    this.setSelectionRange(0, this.value.length)
-////                }
-////                
-////                console.log(element, $window.getSelection());
-//            });
-//        }
-//    };
-//}]);
+main.directive('equalSpans',[function(){
+	return {
+		restrict: 'A',
+		link: function($scope, $element, $attrs)
+		{
+			var width = $element.innerWidth();
+			
+			var separate = function(){
+				
+				var singleWidths = [];
+				var elements = $element.find('a'); 
+				elements.each(function(){
+					singleWidths.push($(this).width());
+				});
+				
+				var check = true;
+				var sum = 0;
+				angular.forEach(singleWidths,function(singleWidth){
+					if(singleWidth < 2) check = false;
+					else sum+=singleWidth;
+				});
+				
+				if(check)
+				{
+//					console.log(singleWidths);
+					for(var i=0; i<elements.length-1; i++)
+					{
+						var correctMargin = (width-sum)/(elements.length-1) -1;
+						$(elements[i]).css('margin-right',correctMargin + 'px');
+//						console.log($(elements[i]));
+					}
+				}
+				
+			};	
+			
+			$scope.$on('separate',function(){
+				separate();
+			});
+		}
+	};
+}]);
 
-//main.directive('equalSpans',[function(){
-//	return {
-//		restrict: 'A',
-//		link: function($scope, $element, $attrs)
-//		{
-//			var width = $element.innerWidth();
-//			
-//			var separate = function(){
-//				
-//				var singleWidths = [];
-//				var elements = $element.find('a'); 
-//				elements.each(function(){
-//					singleWidths.push($(this).width());
-//				});
-//				
-//				var check = true;
-//				var sum = 0;
-//				angular.forEach(singleWidths,function(singleWidth){
-//					if(singleWidth < 2) check = false;
-//					else sum+=singleWidth;
-//				});
-//				
-//				if(check)
-//				{
-////					console.log(singleWidths);
-//					for(var i=0; i<elements.length-1; i++)
-//					{
-//						var correctMargin = (width-sum)/(elements.length-1) -1;
-//						$(elements[i]).css('margin-right',correctMargin + 'px');
-////						console.log($(elements[i]));
-//					}
-//				}
-//				
-//			};	
-//			
-//			$scope.$on('separate',function(){
-//				separate();
-//			});
-//		}
-//	};
-//}]);
-//
-//main.directive('equalSpan',[function(){
-//	return {
-//		restrict: 'A',
-//		link: function($scope,$element,$attrs)
-//		{
-//			$scope.$watch(
-//				function()
-//				{
-//					return $element[0].offsetWidth;
-//				},
-//				function(newValue, oldValue)
-//				{
-////					console.log(newValue);
-//					if(newValue > 0) $scope.$emit('separate');
-//				}
-//			);
-//		}
-//	};
-//}]);
-
-//main.directive('spinner',[function(){
-//	return {
-//		restrict: 'A',
-//		scope: {
-//			ajax : '=spinner'
-//		},
-//		link : function($scope, $element, $attrs){
-//			
-//			$scope.$on('ajaxStart',function(event,id){
-//				console.log($scope.ajax.id, id)
-//				if($scope.ajax.id === id)
-//				{
-//					console.log('Catch \'em all!');
-//				}
-//			});
-//			$scope.$on('ajaxEnd',function(event,id){
-//				if($scope.ajax.id === id)
-//				{
-//					console.log('Catched \'em all!');
-//				}
-//			});
-//		}
-//	}
-//}]);
-
+main.directive('equalSpan',[function(){
+	return {
+		restrict: 'A',
+		link: function($scope,$element,$attrs)
+		{
+			$scope.$watch(
+				function()
+				{
+					return $element[0].offsetWidth;
+				},
+				function(newValue, oldValue)
+				{
+//					console.log(newValue);
+					if(newValue > 0) $scope.$emit('separate');
+				}
+			);
+		}
+	};
+}]);
