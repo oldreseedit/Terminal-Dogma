@@ -20609,10 +20609,9 @@ body {
 /* @import "sham-setup"; */
 /* line 1, ../sass/_scrollbar.scss */
 .scrollbar-wrapper {
-  height: calc(100%-3em);
   padding: 10px;
 }
-/* line 6, ../sass/_scrollbar.scss */
+/* line 5, ../sass/_scrollbar.scss */
 .scrollbar-wrapper .scrollbar {
   position: relative;
   overflow-y: hidden;

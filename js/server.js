@@ -15,11 +15,10 @@ main.factory('$server',['$http','inform',function($http,inform){
 		successFn = successFn || null;
 		errorFn = errorFn || null;
 		this.promise.then(function(response){
-			
 			if(this.showInform){
 				if(response.data.error) inform.add(response.data.description,{type: 'danger'});
 			}
-			if(successFn) successFn(response);
+			if(response.data) if(successFn) successFn(response);
 			
 //			console.log(successFn);
 		},function(error){

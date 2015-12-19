@@ -261,7 +261,7 @@ main.controller('courseController',['utilities','$scope','$http','$server','$rou
     self.teacherAjax = $server.post('teachers/get',{courseID : self.courseID}).then(
 		function(response)
 		{
-//			console.log(response);
+			console.log(response);
 			self.teacher = response.data;
 			$scope.$on('firstLoad', function(){
             	
