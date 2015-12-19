@@ -15,7 +15,7 @@ var main = angular.module('Main',[
     'lr.upload', // For uploading purposes
     'inform', // For notifier purposes
     'angularMoment', // For inline moment
-    
+    'textAngular', // For textAngular text editor    
     ], function($httpProvider) {
 
     // FOR CI
@@ -318,6 +318,7 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     
     $routeProvider.when('/forum/',{
 	  	templateUrl: 'forum/index/',
+	  	controller : 'forumController as forum',
 	  });
     
     $routeProvider.otherwise({
@@ -683,6 +684,24 @@ main.directive('centered',function() {
 		}
 	}
 });
+
+//main.directive('selectOnClick', ['$window', function ($window) {
+//    return {
+//        restrict: 'A',
+//        link: function (scope, element, attrs) {
+//            element.on('click', function () {
+//            	console.log($window.getSelection().toString());
+//            	
+////                if (!$window.getSelection().toString()) {
+////                    // Required for mobile Safari
+////                    this.setSelectionRange(0, this.value.length)
+////                }
+////                
+////                console.log(element, $window.getSelection());
+//            });
+//        }
+//    };
+//}]);
 
 //main.directive('equalSpans',[function(){
 //	return {

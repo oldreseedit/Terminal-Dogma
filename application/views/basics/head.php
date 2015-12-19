@@ -105,6 +105,13 @@
     <script type="text/javascript" src="js/faq.js"></script>
     <script type="text/javascript" src="js/privacy.js"></script>
     <script type="text/javascript" src="js/disclaimer.js"></script>
+    <script type="text/javascript" src="js/forum.js"></script>
+    
+    <!-- For textAngular plugin -->
+    <link rel='stylesheet' href='bower_components/textAngular/dist/textAngular.css'>
+	<script src='bower_components/textAngular/dist/textAngular-rangy.min.js'></script>
+	<script src='bower_components/textAngular/dist/textAngular-sanitize.min.js'></script>
+	<script src='bower_components/textAngular/dist/textAngular.min.js'></script>
     
     <!-- Grunt Plugins -->
     <script type="text/javascript" src="js/templates.js"></script>
