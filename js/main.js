@@ -84,13 +84,14 @@ main.config(['$httpProvider', function($httpProvider){
 			'response': function(response){
 				var id = response.config.url + JSON.stringify(response.config.data);
 				ajaxEvents.set(id,false);
+//				console.log(ajaxEvents);
 				return response;
 			}
 		};
 	}]);
 }]);
 
-main.directive('spinner',['ajaxEvents',function(ajaxEvents){
+main.directive('spinner',['ajaxEvents','$timeout',function(ajaxEvents,$timeout){
 	return {
 		restrict: 'A',
 		scope: true,
@@ -98,25 +99,21 @@ main.directive('spinner',['ajaxEvents',function(ajaxEvents){
 
 			var el = $element.find('spinner-place').length > 0 ? $element.find('spinner-place') : null;
 			var elToHide = $element.find('[spinner-final], .spinner-final').length > 0 ? $element.find('[spinner-final], .spinner-final') : null;
+			var id = $scope.$eval($attrs.spinner).id;
 			
 			$scope.pending = true;
-//			console.log(el,elToHide);
-			console.log($scope);
-			
-			// TODO: find a way to get attr as expression without having to bind it to scope
 			
 			$scope.$watch(
 					function()
 					{
-//						console.log(ajaxEvents);
-						return ajaxEvents.get($scope.ajax.id);
+						return ajaxEvents.get(id);
 					},
 					function(newValue)
 					{
 //						console.log(newValue);	
 						if(newValue !== undefined && elToHide.length>0 && el.length>0)
 						{
-//							$scope.pending = newValue;
+							$scope.pending = newValue;
 						}						
 					}
 			);
@@ -128,23 +125,26 @@ main.directive('spinnerPlace',[function(){
 	return {
 		restrict: 'E',
 		scope: true,
-		template : '<i class="fa fa-spinner fa-spin dark-green" ng-show="pending"></i><span ng-bind="pending"></span>',
-		link: function($scope, $element, $attrs)
-		{
-			console.log($scope);
-		}
+		template : '<i class="fa fa-spinner fa-spin dark-green"></i>',
+		link : function($scope, $element, $attrs)
+		{			
+			$scope.$watch('pending',function(newValue){
+				if(newValue !== undefined) newValue ? $element.removeClass('ng-hide')  : $element.addClass('ng-hide');
+			});
+//			console.log($scope);
+		}		
 	}
 }]);
 
 main.directive('spinnerFinal',function(){
 	return {
 		restrict : 'AC',
-		scope : true,
+		scope : false,
 		link : function($scope, $element, $attrs)
-		{
-			console.log($scope, $scope.pending);
-			$attrs.ngShow = 'pending';
-//			$element.hide();
+		{			
+			$scope.$watch('pending',function(newValue){
+				if(newValue !== undefined) newValue ? $element.addClass('ng-hide') : $element.removeClass('ng-hide');
+			});
 		}
 	}
 });
@@ -427,15 +427,40 @@ main.directive('sizeOnController', ['$timeout','$window','$document',function($t
         link: function($scope, $element, $attrs) {
             var controller = $element.controller();
             
-            $timeout(function(){
-                controller[$attrs.$normalize($attrs.id) +'Width'] = $element.prop('offsetWidth');
-                controller[$attrs.$normalize($attrs.id) +'Height'] = $element.prop('offsetHeight');
-            });
+            var writer = function(){
+                
+                $timeout(function(){
+	                controller[$attrs.$normalize($attrs.id) +'Width'] = $element.prop('offsetWidth');
+	                controller[$attrs.$normalize($attrs.id) +'Height'] = $element.prop('offsetHeight');     
+                });       	
+            };
             
-            angular.element($window).bind('resize', function() {
-                controller[$attrs.$normalize($attrs.id) +'Width'] = $element.prop('offsetWidth');
-                controller[$attrs.$normalize($attrs.id) +'Height'] = $element.prop('offsetHeight');
+        	writer();
+
+
+            $scope.$watch(
+                function(scope){
+                    return $element.prop('offsetHeight');
+                }, 
+                function(newValue,oldValue,scope){
+                    writer();
+                }
+            );
+            
+            $scope.$watch(
+                function(scope){
+                    return $element.prop('offsetWidth');
+                }, 
+                function(newValue,oldValue,scope){
+                    writer();
+                }
+            );
+            
+            $(window).resize(function(){
+            	writer();
             });
+
+            
         }
     };
 }]);
@@ -474,8 +499,8 @@ main.directive('sizeOnScope', ['$timeout','$window','$document',function($timeou
                     writer();
                 }
             );
-            
-            angular.element($window).bind('resize', function() {
+
+            $(window).resize(function(){
                 writer();
             });
         }
@@ -761,17 +786,18 @@ main.directive('centered',function() {
 	}
 });
 
-main.directive('equalSpans',[function(){
+main.directive('equalSpans',['$window',function($window){
 	return {
 		restrict: 'A',
 		link: function($scope, $element, $attrs)
 		{
-			var width = $element.innerWidth();
 			
 			var separate = function(){
 				
+				var width = $element.innerWidth();
+				
 				var singleWidths = [];
-				var elements = $element.find('a'); 
+				var elements = $element.find('[equal-span]'); 
 				elements.each(function(){
 					singleWidths.push($(this).width());
 				});
@@ -788,9 +814,8 @@ main.directive('equalSpans',[function(){
 //					console.log(singleWidths);
 					for(var i=0; i<elements.length-1; i++)
 					{
-						var correctMargin = (width-sum)/(elements.length-1) -1;
+						var correctMargin = Math.floor((width-sum)/(elements.length-1));
 						$(elements[i]).css('margin-right',correctMargin + 'px');
-//						console.log($(elements[i]));
 					}
 				}
 				
@@ -799,6 +824,11 @@ main.directive('equalSpans',[function(){
 			$scope.$on('separate',function(){
 				separate();
 			});
+
+            $(window).resize(function(){
+				separate();
+			});
+			
 		}
 	};
 }]);
@@ -807,7 +837,7 @@ main.directive('equalSpan',[function(){
 	return {
 		restrict: 'A',
 		link: function($scope,$element,$attrs)
-		{
+		{			
 			$scope.$watch(
 				function()
 				{
@@ -816,7 +846,7 @@ main.directive('equalSpan',[function(){
 				function(newValue, oldValue)
 				{
 //					console.log(newValue);
-					if(newValue > 0) $scope.$emit('separate');
+					if(newValue > 0 && Math.abs(newValue - oldValue) > 2) $scope.$emit('separate');
 				}
 			);
 		}

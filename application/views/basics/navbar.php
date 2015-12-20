@@ -15,7 +15,7 @@
         <div id="navbar-tabs">
             <div class="container">
                 <div class="macrotab" equal-spans>
-                    <a ng-repeat="tab in navbar.tabs" equal-span ng-href="#!/{{tab.url}}"><span class="middler"></span><span class="middle" ng-bind="tab.content"></span></a>
+                    <a ng-repeat="tab in navbar.tabs" equal-span ng-href="#!/{{tab.url}}"><span class="middle" ng-bind="tab.content"></span></a>
                 </div> 
             </div>
         </div>

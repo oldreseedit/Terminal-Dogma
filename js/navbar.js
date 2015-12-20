@@ -6,10 +6,10 @@ main.controller('navbarController',['utilities','$timeout','$window','$uibModal'
             url : 'courses',
             content : 'Corsi'
         },
-         {
-             url : 'activities',
-             content : 'Servizi'
-         },
+//         {
+//             url : 'activities',
+//             content : 'Servizi'
+//         },
 //        {
 //            url : 'media',
 //            content : 'Media'

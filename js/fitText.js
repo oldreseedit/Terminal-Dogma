@@ -109,7 +109,7 @@
           var compressor = attrs.fittext || 1;
           
           $timeout(function(){resizer();});
-
+          
           scope.$watch(
             function(){
               return attrs.ngModel;
@@ -157,6 +157,10 @@
   	            }
   	          );
     	  }
+          
+          $(window).resize(function(){
+        	  resizer();
+          });
           
         }
       };
@@ -233,6 +237,10 @@
               $timeout(function(){resizer();});
             }
           );
+          
+          $(window).resize(function(){
+        	  resizer();
+          });
           
         }
       };
