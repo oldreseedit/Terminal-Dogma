@@ -1,4 +1,4 @@
-main.controller('profileController',['$scope','$http','$routeParams','$route','$timeout', 'inform',function($scope,$http,$routeParams,$route,$timeout,inform){
+main.controller('profileController',['$scope','$http','$routeParams','$route','$timeout', 'inform','$server',function($scope,$http,$routeParams,$route,$timeout,inform,$server){
     var self = this;
     
     self.username = $routeParams.userID;
@@ -112,7 +112,7 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
     	});
     }
     
-    $http.post('profile/load_block_positions',{username : self.username}).then(
+    self.positionsAjax = $server.post('profile/load_block_positions',{username : self.username}).then(
     		function(response)
     		{    			
     			if(!response.data.error)
@@ -173,19 +173,12 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
 					
 					$scope.gridsterItems.push(item);
 				});
-//				$timeout(function(){
-//					$scope.$broadcast('gridsterItemsLoaded');
-//				});
-    		},
-    		function(error)
-    		{
-    			console.log(error);
     		}
     );
 
     // Loading Avatar 
     
-    $http.post('avatars/get_avatar',{username: self.username}).then(
+    self.avatarAjax = $server.post('avatars/get_avatar',{username: self.username}).then(
 		function(response)
 		{
 //			console.log('avatar');
@@ -204,10 +197,6 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
             		
             	);    		
 	        });
-		},
-		function(error)
-		{
-			console.log(error);
 		}
 	);
  

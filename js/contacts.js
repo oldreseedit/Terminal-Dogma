@@ -1,4 +1,4 @@
-main.controller('contactsController',['utilities','uiGmapGoogleMapApi','$timeout','$http',function(utilities,uiGmapGoogleMapApi,$timeout,$http){
+main.controller('contactsController',['utilities','uiGmapGoogleMapApi','$timeout','$server','inform',function(utilities,uiGmapGoogleMapApi,$timeout,$server,inform){
     var self = this;
     
     self.sizes = utilities.spacedSizes(2);
@@ -65,17 +65,8 @@ main.controller('contactsController',['utilities','uiGmapGoogleMapApi','$timeout
         angular.copy(self.contactsForm, toServer);
         toServer.message = 'Messaggio inviato da: <b>' + toServer.name + '</b>.<br /><br /><i>' + toServer.message + '</i><br /><br />Rispondi a: ' + toServer.from; 
         
-        $http.post('mailer/send_mail',toServer).then(function(response){
-            if(response.data.error) {
-                self.alertMessage = 'C\'è stato un errore nell\'invio della mail. Contatta gli amministratori affinché il bug venga risolto!';
-                self.alertType = 'danger';
-            }
-            else {
-                self.alertMessage = 'E-mail inviata correttamente!';
-                self.alertType = 'success';
-            }
-        },function(error){
-           console.log(error); 
+        self.mailAjax = $server.post('mailer/send_mail',toServer).then(function(response){
+        	inform.add('E-mail inviata correttamente!');
         });
         
     };

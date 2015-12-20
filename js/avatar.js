@@ -34,7 +34,7 @@ main.controller('avatarController',['$http','$scope','$uibModal','$route','infor
 
 /* AVATAR FORM CONTROLLER */
 
-main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','$window','upload','inform','$route','items',function($scope,$http,$timeout,$cookies,$window,upload,inform,$route,items){
+main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','$window','upload','inform','$route','items','$server',function($scope,$http,$timeout,$cookies,$window,upload,inform,$route,items,$server){
 	var self = this;
 	
 	if(FileReader) self.fr = new FileReader();
@@ -69,12 +69,12 @@ main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','
 //			
 			$scope.$evalAsync( function(){
 				self.fr.readAsDataURL(file[0]);
+				self.loading = true;
 			});
 //			
 //			self.fr.onloadstart = function(event)
 //			{
 ////				console.log(event);
-//				$scope.total = event.total;
 //			};
 //			
 //			self.fr.onprogress = function(event){
@@ -83,6 +83,7 @@ main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','
 //			};
 			
 			self.fr.onloadend = function(){
+				self.loading = false;
 				self.temp = self.fr.result;
 			};	
 			
@@ -90,7 +91,7 @@ main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','
 		else // if on Opera Mini or IE<=9 -> generates "no file selected" bug
 		{
 			self.loading = true;
-			upload({
+			self.tempAvatarAjax = upload({
 				url: 'avatars/load_temporary_avatar',
 				method: 'POST',
 				data : {
@@ -112,6 +113,7 @@ main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','
 						console.log(error); 
 					}
 			);
+//			console.log(self.tempAvatarAjax);
 		}
 	};
 	
@@ -145,6 +147,7 @@ main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','
 							console.log(error); 
 						}
 				);
+				console.log(self.avatarAjax);
 			}
 			else if(state === 0) inform.add('Non hai caricato alcun file!',{type: 'warning'});
 			else if(state === 1) inform.add('Upload ancora in corso!',{type:'warning'});
@@ -153,19 +156,11 @@ main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','
 		{
 			if(self.readyToSubmit)
 			{
-				$http.post('avatars/load_avatar',{username: self.username, avatarUri: self.temp}).then(
+				$server.post('avatars/load_avatar',{username: self.username, avatarUri: self.temp}).then(
 						function(response)
 						{
-							if(response.data.error) inform.add(response.data.description, {type: 'danger'});
-							else
-							{
-								inform.add('Avatar caricato con successo!');
-								$scope.$close(response.data.description);								
-							}
-						},
-						function(error)
-						{
-							console.log(error); 
+							inform.add('Avatar caricato con successo!');
+							$scope.$close(response.data.description);
 						}
 				);
 			}
@@ -180,7 +175,7 @@ main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','
 	
 	self.loadTemporaryURI = function(URI)
 	{
-			$http.post('avatars/load_temporary_avatar',
+			self.tempUriAjax = $server.post('avatars/load_temporary_avatar',
 					{
 						username: self.username,
 						avatarUri: URI
@@ -189,17 +184,9 @@ main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','
 			(
 					function(response)
 					{
-						if(response.data.error) inform.add(response.data.description, {type: 'danger'});
-						else
-						{
-							self.temp = response.data.description;
-							self.readyToSubmit = true;
-							self.loading = false;
-						}
-					},
-					function(error)
-					{
-						console.log(error); 
+						self.temp = response.data.description;
+						self.readyToSubmit = true;
+						self.loading = false;
 					}
 			);		
 		

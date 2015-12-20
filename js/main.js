@@ -99,9 +99,24 @@ main.directive('spinner',['ajaxEvents','$timeout',function(ajaxEvents,$timeout){
 
 			var el = $element.find('spinner-place').length > 0 ? $element.find('spinner-place') : null;
 			var elToHide = $element.find('[spinner-final], .spinner-final').length > 0 ? $element.find('[spinner-final], .spinner-final') : null;
-			var id = $scope.$eval($attrs.spinner).id;
+//			console.log(el, elToHide);
+			var id;
 			
-			$scope.pending = true;
+			$scope.$watch(
+					function()
+					{
+						return $scope.$eval($attrs.spinner);
+					},
+					function(newValue)
+					{
+						if(newValue !== undefined)
+						{
+							id = $scope.$eval($attrs.spinner).id;
+						}
+					}
+			);
+			
+//			$scope.pending = true;
 			
 			$scope.$watch(
 					function()
@@ -111,7 +126,7 @@ main.directive('spinner',['ajaxEvents','$timeout',function(ajaxEvents,$timeout){
 					function(newValue)
 					{
 //						console.log(newValue);	
-						if(newValue !== undefined && elToHide.length>0 && el.length>0)
+						if(newValue !== undefined)
 						{
 							$scope.pending = newValue;
 						}						

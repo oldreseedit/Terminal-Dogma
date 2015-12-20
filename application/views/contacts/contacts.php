@@ -12,10 +12,9 @@
                             <bootstrap-input form="contactForm" type="email" name="from" placeholder="Indirizzo e-mail" ng-model="contacts.contactsForm.from" required="required"></bootstrap-input>
                             <bootstrap-input form="contactForm" type="text" name="subject" placeholder="Oggetto" ng-model="contacts.contactsForm.subject" ng-minlength="4" required="required"></bootstrap-input>
                             <bootstrap-textarea form="contactForm" rows="3" name="message" placeholder="Inserisci qui il tuo messaggio" ng-model="contacts.contactsForm.message" ng-minlength="10" ng-maxlength="1000" required="required"></bootstrap-textarea>
-                            <input type="submit" id="contacts-submit" ng-class="{'btn-success' : contactForm.$valid, 'btn-grey' : contactForm.$invalid}" value="Invia"/>
+                            <input type="submit" id="contacts-submit" class="btn-success" ng-disabled="contactForm.$invalid" value="Invia"/>
                         </form>
                     </div>
-                    <uib-alert class="distant" type="{{contacts.alertType}}" ng-bind="contacts.alertMessage" ng-if="contacts.alertMessage" close="contacts.closeAlertMessage()" dismiss-on-timeout="6000"></uib-alert>
                 </div>
             </div>
         </div>

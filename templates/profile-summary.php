@@ -1,6 +1,7 @@
 <div class="container">
-	<div class="profile-level-symbol" centered>
-		<span class="fa-stack fa-stack-10x clickable" fittext ng-click="avatar.changeAvatar(profile.username,profile.avatar)" ng-controller="avatarController as avatar">
+	<div class="profile-level-symbol" centered spinner="profile.avatarAjax">
+		<spinner-place class="fa-10x"></spinner-place>
+		<span class="fa-stack fa-stack-10x clickable" fittext ng-click="avatar.changeAvatar(profile.username,profile.avatar)" ng-controller="avatarController as avatar" spinner-final>
 			<img ng-src="{{profile.avatar}}" ng-class="{'avatar': !profile.isDefaultAvatar(), 'avatar-leaf' : profile.isDefaultAvatar() }" />
 		</span>
 	</div>
@@ -28,7 +29,7 @@
 			<span class="bold" ng-if="profile.lastAchievement">Ultimo Achievement: </span><span ng-bind="profile.lastAchievement"></span><br ng-if="profile.lastAchievement"/>
 			<span class="bold" ng-if="profile.nextReward">Prossima Reward: </span><span ng-bind="profile.nextReward"></span><br />
 		</p>
-		<p ng-if="profile.courses && profile.isMyProfile()" >
+		<p ng-if="profile.courses && profile.isMyProfile()">
 			<span class="bold">I tuoi corsi: </span><br />
 			<ul>
 				<li ng-repeat="course in profile.courses"><a ng-href="#!/courses/{{course.courseID}}"><span ng-bind="course.name"></span></a></li>

@@ -130,133 +130,101 @@ main.controller('courseController',['utilities','$scope','$http','$server','$rou
     	});
     }
     
-    $http.post('course/load_block_positions',{username : self.username, courseID : self.courseID}).then(
-    		function(response)
-    		{
+    self.positionsAjax = $server.post('course/load_block_positions',{username : self.username, courseID : self.courseID},false).then(
+		function(response)
+		{
 //    			console.log(response.data);
-    			if(!response.data.error)
-    			{
-    				var items = [];
-    				angular.forEach(response.data.panelMeasures, function(m)
-    				{
-    					var item = JSON.parse(m.panel_measure);
-    					item.id = m.panelID;
-    					items.push(item);
-    				});
-    				
-    				$timeout(function(){
-        				$scope.$broadcast('measuresLoaded');    				
-    				});	    				
-    			}
-    			else
-    			{
-    				 var items = [
-	                     {
-	                    	 id: 'courseDescription',
-	                         sizeX: 8,
-	                         sizeY: 1,
-	                         row : 0,
-	                         col: 0
-	                     },
-	                     {
-	                    	 id: 'courseTeacher',
-	                         sizeX: 4,
-	                         sizeY: 1,
-	                         col : 8,
-	                         row: 0
-	                     },
-	                     {
-	                    	 id: 'calendar',
-	                         sizeX: 6,
-	                         sizeY: 1,
-	                         col : 0,
-	                         row: 10
-	                     },
-	                     {
-	                    	 id: 'courseNotifications',
-	                         sizeX: 6,
-	                         sizeY: 1,
-	                         col : 6,
-	                         row: 10
-	                     },
-	                     {
-	                    	 id: 'courseMaterials',
-	                         sizeX: 12,
-	                         sizeY: 1,
-	                         col : 0,
-	                         row: 20
-	                     },
-	                     {
-							id: 'courseBanner',
-//							templateUrl: 'templates/course-banner.php',
-						    sizeX: 12,
-						    sizeY: 1,
-						    row : 30,
-						    col: 0
-						}
-	                 ];
-
-					$timeout(function(){
-						$scope.$broadcast('firstLoad');
-					});
-    			}
-				angular.forEach(items,function(item){
-					self.setStaticProperties(item);
-					
-					$scope.gridsterItems.push(item);
+			if(!response.data.error)
+			{
+				var items = [];
+				angular.forEach(response.data.panelMeasures, function(m)
+				{
+					var item = JSON.parse(m.panel_measure);
+					item.id = m.panelID;
+					items.push(item);
 				});
+				
 				$timeout(function(){
-					$scope.$broadcast('gridsterItemsLoaded');
+    				$scope.$broadcast('measuresLoaded');    				
+				});	    				
+			}
+			else
+			{
+				 var items = [
+                     {
+                    	 id: 'courseDescription',
+                         sizeX: 8,
+                         sizeY: 1,
+                         row : 0,
+                         col: 0
+                     },
+                     {
+                    	 id: 'courseTeacher',
+                         sizeX: 4,
+                         sizeY: 1,
+                         col : 8,
+                         row: 0
+                     },
+                     {
+                    	 id: 'calendar',
+                         sizeX: 6,
+                         sizeY: 1,
+                         col : 0,
+                         row: 10
+                     },
+                     {
+                    	 id: 'courseNotifications',
+                         sizeX: 6,
+                         sizeY: 1,
+                         col : 6,
+                         row: 10
+                     },
+                     {
+                    	 id: 'courseMaterials',
+                         sizeX: 12,
+                         sizeY: 1,
+                         col : 0,
+                         row: 20
+                     },
+                     {
+						id: 'courseBanner',
+//							templateUrl: 'templates/course-banner.php',
+					    sizeX: 12,
+					    sizeY: 1,
+					    row : 30,
+					    col: 0
+					}
+                 ];
+
+				$timeout(function(){
+					$scope.$broadcast('firstLoad');
 				});
-    		},
-    		function(error)
-    		{
-    			console.log(error);
-    		}
+			}
+			angular.forEach(items,function(item){
+				self.setStaticProperties(item);
+				
+				$scope.gridsterItems.push(item);
+			});
+			$timeout(function(){
+				$scope.$broadcast('gridsterItemsLoaded');
+			});
+		}
     );
     
      // MAIN
     
-    $http.post('courses/get',{courseID : self.courseID}).then(function(response) {
-        if(response.data.error) inform.add(response.data.description,{type:'danger'});
-        else if(response.data)
-        {
-        	self.courseDescription = response.data;
-        	self.courseHasStarted = moment().isAfter(moment(response.data.startingDate));
-        	self.hourPrice = Math.round(100 * self.courseDescription.price/self.courseDescription.duration)/100;
-        	
-        	$scope.$on('gridsterItemsLoaded',function(){
-            	for(var i=0; i< $scope.gridsterItems.length; i++)
-            	{
-            		if($scope.gridsterItems[i].id === 'courseDescription') $scope.gridsterItems[i].title = response.data.name;
-            	}        		
-        	});
-        }
-    },function(error) {
-        console.log(error);
+    self.coursesInfoAjax = $server.post('courses/get',{courseID : self.courseID}).then(function(response) {
+    	self.courseDescription = response.data;
+    	self.courseHasStarted = moment().isAfter(moment(response.data.startingDate));
+    	self.hourPrice = Math.round(100 * self.courseDescription.price/self.courseDescription.duration)/100;
+    	
+    	$scope.$on('gridsterItemsLoaded',function(){
+        	for(var i=0; i< $scope.gridsterItems.length; i++)
+        	{
+        		if($scope.gridsterItems[i].id === 'courseDescription') $scope.gridsterItems[i].title = response.data.name;
+        	}        		
+    	});
     });
-    
-//    self.teacherAjax = $http.post('teachers/get',{courseID : self.courseID}).then(function(response) {
-//        if(response.data.error) inform.add(response.data.description,{type:'danger'});
-//        else if(response.data)
-//        {
-//        	self.teacher = response.data;
-//        	$scope.$on('firstLoad', function(){
-//            	
-//            	$scope.$watch(
-//            		function(){
-//            			if($('#singleCourse').find('img').length > 0) return  $('#singleCourse').find('img')[0].complete;
-//            		},
-//            		function(newValue){
-//            			if(newValue === true) $scope.$broadcast('teacher');
-//            		}
-//            		
-//            	);    		
-//	        });
-//        }
-//    },function(error) {
-//        console.log(error);
-//    });
     
     self.teacherAjax = $server.post('teachers/get',{courseID : self.courseID}).then(
 		function(response)
@@ -278,85 +246,55 @@ main.controller('courseController',['utilities','$scope','$http','$server','$rou
 		}
     );
     
-    $http.post('notifications/get',{courseID : self.courseID}).then(function(response) {
-    	 if(response.data.error) inform.add(response.data.description,{type:'danger'});
-         else if(response.data)
-         {
-         	self.notifications = response.data;
-        	
-        	$scope.$on('firstLoad', function(){ $scope.$broadcast('notifications');} );
-         }
-    },function(error) {
-        console.log(error);
+    self.notificationsAjax = $server.post('notifications/get',{courseID : self.courseID}).then(function(response) {
+    	 self.notifications = response.data;
+    	$scope.$on('firstLoad', function(){ $scope.$broadcast('notifications');} );
     });
     
-    $http.post('course_material/get_all',{courseID : self.courseID}).then(function(response) {
-	   	 if(response.data.error)
-	   	 {
-	   		 inform.add(response.data.description,{type:'danger'});
-	   	 }
-	     else if(response.data)
-	     {
-	        var data = response.data;
-	        angular.forEach(data,function(m){
-	            m.getFA = function(){
-	                var fileExtension = m.fileURI.split('.');
-	                fileExtension = fileExtension[fileExtension.length-1];
-	                if(fileExtension === 'jpg' || fileExtension === 'jpeg' || fileExtension === 'png' || fileExtension === 'gif') fileExtension = 'image';
-	                if(fileExtension === 'doc' || fileExtension === 'docx') fileExtension = 'word';
-	                if(fileExtension === 'ppt' || fileExtension === 'pptx') fileExtension = 'powerpoint';
-	                if(fileExtension === 'xls' || fileExtension === 'xlsx') fileExtension = 'excel';
-	                if(fileExtension === 'rar') fileExtension = 'zip';
-	                if(fileExtension === 'c' || fileExtension === 'java' || fileExtension === 'php' || fileExtension === 'js' || fileExtension === 'html') fileExtension = 'code';
-	                return 'fa-file-' + fileExtension + '-o';
-	            };
-	            m.getTitle = function(){
-	                var title = m.fileURI.split('/');
-	                title = title[title.length-1].split('.');
-	                title = title[0];
-	                title = title.replace(/_/g,' ');
-	                return title;
-	            };
-	        });
-	        self.materials = data;
-        	
-	        $scope.$on('firstLoad', function(){ $scope.$broadcast('materials');} );
-	     }
-    },function(error) {
-    		console.log(error);
+    self.materialsAjax = $server.post('course_material/get_all',{courseID : self.courseID}).then(function(response) {
+        var data = response.data;
+        angular.forEach(data,function(m){
+            m.getFA = function(){
+                var fileExtension = m.fileURI.split('.');
+                fileExtension = fileExtension[fileExtension.length-1];
+                if(fileExtension === 'jpg' || fileExtension === 'jpeg' || fileExtension === 'png' || fileExtension === 'gif') fileExtension = 'image';
+                if(fileExtension === 'doc' || fileExtension === 'docx') fileExtension = 'word';
+                if(fileExtension === 'ppt' || fileExtension === 'pptx') fileExtension = 'powerpoint';
+                if(fileExtension === 'xls' || fileExtension === 'xlsx') fileExtension = 'excel';
+                if(fileExtension === 'rar') fileExtension = 'zip';
+                if(fileExtension === 'c' || fileExtension === 'java' || fileExtension === 'php' || fileExtension === 'js' || fileExtension === 'html') fileExtension = 'code';
+                return 'fa-file-' + fileExtension + '-o';
+            };
+            m.getTitle = function(){
+                var title = m.fileURI.split('/');
+                title = title[title.length-1].split('.');
+                title = title[0];
+                title = title.replace(/_/g,' ');
+                return title;
+            };
+        });
+        self.materials = data;
+    	
+        $scope.$on('firstLoad', function(){ $scope.$broadcast('materials');} );
     });
     
-    $http.post('lessons/get',{courseID: self.courseID}).then(function(response){
-	   	 if(response.data.error) inform.add(response.data.description,{type:'danger'});
-	     else if(response.data)
-	     {
-	     	self.lessons = response.data;
-	        
-	        self.buildDB();
-        	
-	        $scope.$on('firstLoad', function(){ $scope.$broadcast('calendar');} );
-	     }
-    }, function(error){
-        console.log(error);
+    self.lessonsAjax = $server.post('lessons/get',{courseID: self.courseID}).then(function(response){
+     	self.lessons = response.data;
+        
+        self.buildDB();
+    	
+        $scope.$on('firstLoad', function(){ $scope.$broadcast('calendar');} );
     });
     
-    $http.post('payment_interface/get_courses',{username: self.username}).then(
+    self.coursesAjax = $server.post('payment_interface/get_courses',{username: self.username}).then(
     		function(response)
     		{
-    			if(response.data.error) inform.add(response.data.description,{type:'danger'});
-    			else if(response.data)
-    			{
-    				self.tempCourses = response.data;
-    				self.subscribed = false;
-    			    for(var i=0; i<self.tempCourses.length; i++)
-    			    {
-    				   	if(self.tempCourses[i] === self.courseID) self.subscribed = true;    			    	
-    			    }
-    			}
-    		},
-    		function(error)
-    		{
-    			console.log(error);
+				self.tempCourses = response.data;
+				self.subscribed = false;
+			    for(var i=0; i<self.tempCourses.length; i++)
+			    {
+				   	if(self.tempCourses[i] === self.courseID) self.subscribed = true;    			    	
+			    }
     		}
     	);
     
