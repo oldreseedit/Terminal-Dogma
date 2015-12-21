@@ -64,23 +64,10 @@ main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','
 
 		if(FileReader)
 		{
-//			$scope.current = 0;
-//			$scope.loading = true;
-//			
 			$scope.$evalAsync( function(){
 				self.fr.readAsDataURL(file[0]);
 				self.loading = true;
 			});
-//			
-//			self.fr.onloadstart = function(event)
-//			{
-////				console.log(event);
-//			};
-//			
-//			self.fr.onprogress = function(event){
-////				console.log(event);
-//				$scope.current = event.loaded;
-//			};
 			
 			self.fr.onloadend = function(){
 				self.loading = false;
@@ -91,11 +78,10 @@ main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','
 		else // if on Opera Mini or IE<=9 -> generates "no file selected" bug
 		{
 			self.loading = true;
-			self.tempAvatarAjax = upload({
+			upload({
 				url: 'avatars/load_temporary_avatar',
 				method: 'POST',
 				data : {
-					file : angular.element('[type="file"]'),
 					username : self.username
 				}
 			}).then(
@@ -113,7 +99,6 @@ main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','
 						console.log(error); 
 					}
 			);
-//			console.log(self.tempAvatarAjax);
 		}
 	};
 	
@@ -126,28 +111,33 @@ main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','
 			if(state === 2)
 			{
 				upload({
-					url: 'avatars/load_avatar',
+					url: 'avatars/load_temporary_avatar',
 					method: 'POST',
 					data : {
-						file : angular.element('[type="file"]'),
-						username: self.username
+						file: angular.element('[type="file"]'),
+						username : self.username
 					}
 				}).then(
-						function (response)
-						{
+						function (response) {
+							
 							if(response.data.error) inform.add(response.data.description, {type: 'danger'});
 							else
 							{
-								inform.add('Avatar caricato con successo!');
-								$scope.$close(response.data.description);
+								var avatarUri = response.data.description;
+								
+								$server.post('avatars/load_avatar',{username: self.username, avatarUri: avatarUri}).then(
+										function(response)
+										{
+											inform.add('Avatar caricato con successo!');
+											$scope.$close(response.data.description);
+										}
+								);
 							}
 						},
-						function (error)
-						{
+						function (error) {
 							console.log(error); 
 						}
 				);
-				console.log(self.avatarAjax);
 			}
 			else if(state === 0) inform.add('Non hai caricato alcun file!',{type: 'warning'});
 			else if(state === 1) inform.add('Upload ancora in corso!',{type:'warning'});

@@ -192,7 +192,7 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
             	
             	$scope.$watch(
             		function(){
-            			return  $('#profile').find('img')[0].complete;
+            			if($('#profile').find('img').length > 0) return  $('#profile').find('img')[0].complete;
             		},
             		function(newValue){
             			if(newValue === true) $scope.$broadcast('teacher');
