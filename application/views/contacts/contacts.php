@@ -1,7 +1,7 @@
 <div id="contacts" ng-controller="contactsController as contacts">
     <div class="container">
         <h3>Contatti</h3>
-        <p>Hai bisogno di informazioni? Ti serve qualche chiarimento? Hai una voglia incontenibile di seguire un corso ma hai un dubbio? Per qualsiasi domanda non esitare a contattarci!</p>
+        <p class="introduction">Hai bisogno di informazioni? Ti serve qualche chiarimento? Hai una voglia incontenibile di seguire un corso ma hai un dubbio? Per qualsiasi domanda non esitare a contattarci!</p>
         <div id="contact-form-wrapper" ng-class="contacts.getClass(0)">
             <div class="container">
                 <h4>Contattaci</h4>

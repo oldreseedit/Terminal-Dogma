@@ -165,10 +165,6 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
 							row: 10
 					  }
 	                 ];
-
- 					$timeout(function(){
- 						$scope.$broadcast('firstLoad');
- 					});
     			}
 
 				angular.forEach(items,function(item){
@@ -187,19 +183,15 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
 //			console.log('avatar');
 			if(response.data.avatar) self.avatar = response.data.avatar;
 			else self.avatar = "imgs/leaf.png";
-			
-			$scope.$on('firstLoad', function(){
-            	
-            	$scope.$watch(
-            		function(){
-            			if($('#profile').find('img').length > 0) return  $('#profile').find('img')[0].complete;
-            		},
-            		function(newValue){
-            			if(newValue === true) $scope.$broadcast('teacher');
-            		}
-            		
-            	);    		
-	        });
+        	$scope.$watch(
+        		function(){
+        			if($('#profile').find('img').length > 0) return  $('#profile').find('img')[0].complete;
+        		},
+        		function(newValue){
+        			if(newValue === true) $timeout(function(){$scope.$broadcast('teacher');});
+        		}
+        		
+        	);
 		}
 	);
  
@@ -213,7 +205,7 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
 			else if(response.data){
 				self.notifications = response.data;
 				
-				$scope.$on('firstLoad', function(){ $scope.$broadcast('notifications');} );
+				$timeout( function(){ $scope.$broadcast('notifications');} );
 			}
 		},
 		function(error)
@@ -264,7 +256,7 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
 			    }
 			    self.lastAchievement = self.achievements[lastAchievementIndex].description;
 			    
-			    $scope.$on('firstLoad', function(){
+			    $timeout( function(){
 			    	$scope.$broadcast('achievements');
 			    	$scope.$broadcast('rewards');
 			    });
@@ -349,10 +341,7 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
    			 angular.forEach(newValues,function(value){
    				 if(value === undefined) check = false;
    			 });
-   			 if(check) 
-   				 $scope.$on('firstLoad', function(){
-   					$timeout(function(){ $scope.$broadcast('summary'); });
-   				});
+   			 if(check) $timeout(function(){ $scope.$broadcast('summary'); });
    		 },
    		 true
    );

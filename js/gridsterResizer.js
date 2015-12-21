@@ -88,7 +88,7 @@ main.directive('gridsterAutoResize',['$timeout',function($timeout){
 						item.measures = JSON.stringify(gridsterItem.toJSON());
 //						console.log($scope, $scope.gridsterItems, $scope.index);
 						item.id = $scope.gridsterItems[$scope.index].id;
-//						$scope.registerMeasures(item);
+						$scope.registerMeasures(item);
 						$timeout(function(){
 							$scope.measuresLoaded = true;
 						});
@@ -130,7 +130,7 @@ main.directive('gridsterAutoResize',['$timeout',function($timeout){
 				if($scope.measuresLoaded)
 				{
 					updateScrollbar();
-//					$scope.registerAllMeasures($scope.gridster.grid);
+					$scope.registerAllMeasures($scope.gridster.grid);
 				}
 			});
 			
