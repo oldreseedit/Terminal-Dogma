@@ -124,7 +124,10 @@ main.controller('courseController',['utilities','$scope','$http','$server','$rou
     			var data = {};
 				data.measures = JSON.stringify(item.toJSON());
 //				console.log(item.$element.scope());
-				data.id = item.$element.scope().id;
+				for(var i=0; i<$scope.gridsterItems.length; i++)
+				{
+					if(item.col === $scope.gridsterItems[i].col && item.row === $scope.gridsterItems[i].row) data.id = $scope.gridsterItems[i].id;
+				}
 				$scope.registerMeasures(data);
     		});
     	});

@@ -83,6 +83,7 @@ main.directive('gridsterAutoResize',['$timeout',function($timeout){
 					$timeout(function(){
 						var item = {};
 						item.measures = JSON.stringify(gridsterItem.toJSON());
+//						console.log($scope, $scope.gridsterItems, $scope.index);
 						item.id = $scope.gridsterItems[$scope.index].id;
 						updateScrollbar();
 						$scope.registerMeasures(item);
