@@ -147,9 +147,7 @@ main.controller('courseController',['utilities','$scope','$http','$server','$rou
 					items.push(item);
 				});
 				
-				$timeout(function(){
-    				$scope.$broadcast('measuresLoaded');    				
-				});	    				
+				$timeout(function(){ $scope.$broadcast('measuresLoaded'); });	    				
 			}
 			else
 			{
@@ -198,18 +196,11 @@ main.controller('courseController',['utilities','$scope','$http','$server','$rou
 					    col: 0
 					}
                  ];
-
-				$timeout(function(){
-					$scope.$broadcast('firstLoad');
-				});
 			}
 			angular.forEach(items,function(item){
 				self.setStaticProperties(item);
 				
 				$scope.gridsterItems.push(item);
-			});
-			$timeout(function(){
-				$scope.$broadcast('gridsterItemsLoaded');
 			});
 		}
     );
@@ -220,13 +211,7 @@ main.controller('courseController',['utilities','$scope','$http','$server','$rou
     	self.courseDescription = response.data;
     	self.courseHasStarted = moment().isAfter(moment(response.data.startingDate));
     	self.hourPrice = Math.round(100 * self.courseDescription.price/self.courseDescription.duration)/100;
-    	
-    	$scope.$on('gridsterItemsLoaded',function(){
-        	for(var i=0; i< $scope.gridsterItems.length; i++)
-        	{
-        		if($scope.gridsterItems[i].id === 'courseDescription') $scope.gridsterItems[i].title = response.data.name;
-        	}        		
-    	});
+		self.courseName = response.data.name;
     });
     
     self.teacherAjax = $server.post('teachers/get',{courseID : self.courseID}).then(
@@ -234,24 +219,21 @@ main.controller('courseController',['utilities','$scope','$http','$server','$rou
 		{
 //			console.log(response);
 			self.teacher = response.data;
-			$scope.$on('firstLoad', function(){
             	
-            	$scope.$watch(
-            		function(){
-            			if($('#singleCourse').find('img').length > 0) return  $('#singleCourse').find('img')[0].complete;
-            		},
-            		function(newValue){
-            			if(newValue === true) $scope.$broadcast('teacher');
-            		}
-            		
-            	);    		
-	        });
+        	$scope.$watch(
+        		function(){
+        			if($('#singleCourse').find('img').length > 0) return  $('#singleCourse').find('img')[0].complete;
+        		},
+        		function(newValue){
+        			if(newValue === true) $timeout(function(){ $scope.$broadcast('teacher'); });
+        		}
+        	); 
 		}
     );
     
     self.notificationsAjax = $server.post('notifications/get',{courseID : self.courseID}).then(function(response) {
     	 self.notifications = response.data;
-    	$scope.$on('firstLoad', function(){ $scope.$broadcast('notifications');} );
+    	$timeout(function(){ $scope.$broadcast('notifications'); });
     });
     
     self.materialsAjax = $server.post('course_material/get_all',{courseID : self.courseID}).then(function(response) {
@@ -278,7 +260,7 @@ main.controller('courseController',['utilities','$scope','$http','$server','$rou
         });
         self.materials = data;
     	
-        $scope.$on('firstLoad', function(){ $scope.$broadcast('materials');} );
+        $timeout(function(){ $scope.$broadcast('materials'); });
     });
     
     self.lessonsAjax = $server.post('lessons/get',{courseID: self.courseID}).then(function(response){
@@ -286,7 +268,7 @@ main.controller('courseController',['utilities','$scope','$http','$server','$rou
         
         self.buildDB();
     	
-        $scope.$on('firstLoad', function(){ $scope.$broadcast('calendar');} );
+        $timeout(function(){ $scope.$broadcast('calendar'); });
     });
     
     self.coursesAjax = $server.post('payment_interface/get_courses',{username: self.username}).then(
@@ -307,10 +289,7 @@ main.controller('courseController',['utilities','$scope','$http','$server','$rou
     		 },
     		 function(newValues)
     		 {
-    			 if(newValues[0] !== undefined && newValues[1] !== undefined) 
-    				 $scope.$on('firstLoad', function(){
-    					 $timeout($scope.$broadcast('courses'));
-    				 });
+    			 if(newValues[0] !== undefined && newValues[1] !== undefined) $timeout($scope.$broadcast('courses'));
     		 },
     		 true
     );
