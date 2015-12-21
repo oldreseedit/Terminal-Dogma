@@ -211,7 +211,18 @@ main.controller('courseController',['utilities','$scope','$http','$server','$rou
     	self.courseDescription = response.data;
     	self.courseHasStarted = moment().isAfter(moment(response.data.startingDate));
     	self.hourPrice = Math.round(100 * self.courseDescription.price/self.courseDescription.duration)/100;
+
 		self.courseName = response.data.name;
+    	if($scope.gridsterItems.length > 0)
+    	{
+        	for(var i=0; i< $scope.gridsterItems.length; i++)
+        	{
+        		if($scope.gridsterItems[i].id === 'courseDescription')
+        		{
+        			$scope.gridsterItems[i].title = response.data.name;
+        		}
+        	}        		
+    	}
     });
     
     self.teacherAjax = $server.post('teachers/get',{courseID : self.courseID}).then(
