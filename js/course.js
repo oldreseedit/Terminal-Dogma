@@ -1,4 +1,4 @@
-main.controller('courseController',['utilities','$scope','$http','$server','$routeParams','uiCalendarConfig','$timeout','$route','$cookies','inform',function(utilities,$scope,$http,$server,$routeParams,uiCalendarConfig,$timeout,$route,$cookies,inform){
+main.controller('courseController',['utilities','$scope','$http','$server','$routeParams','uiCalendarConfig','$timeout','$route','$cookies','inform','$rootScope',function(utilities,$scope,$http,$server,$routeParams,uiCalendarConfig,$timeout,$route,$cookies,inform,$rootScope){
     var self = this;
     
     /* CONFIG */
@@ -213,6 +213,7 @@ main.controller('courseController',['utilities','$scope','$http','$server','$rou
     	self.hourPrice = Math.round(100 * self.courseDescription.price/self.courseDescription.duration)/100;
 
 		self.courseName = response.data.name;
+		$rootScope.title = self.courseName;
     	if($scope.gridsterItems.length > 0)
     	{
         	for(var i=0; i< $scope.gridsterItems.length; i++)

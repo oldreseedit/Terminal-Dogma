@@ -300,6 +300,12 @@ main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$rou
 
 /*** ROUTES ***/
 
+main.run(['$rootScope', function($rootScope) {
+    $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
+        $rootScope.title = current.$$route.title;
+    });
+}]);
+
 main.config(['$routeProvider','$locationProvider',function($routeProvider,$locationProvider){
     
     $locationProvider.hashPrefix('!');
@@ -313,12 +319,14 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     // Admin Page - Restricted
     
     $routeProvider.when('/admin',{
+    	title : 'Pannello Admin',
         templateUrl : 'admin'
     });
     
     // Payment
     
     $routeProvider.when('/payment',{
+    	title : 'Pagamenti',
         templateUrl : 'payment'
     });
     
@@ -343,12 +351,14 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     // Courses
     
     $routeProvider.when('/courses',{
+    	title : 'Corsi',
         templateUrl : 'courses'
     });
     
     // Activities
     
     $routeProvider.when('/activities',{
+    	title : 'Servizi',
         templateUrl : 'activities'
     });
 //    
@@ -361,24 +371,28 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     // Contacts
     
     $routeProvider.when('/contacts',{
+    	title : 'Contatti',
         templateUrl : 'contacts'
     });
     
     // Disclaimer
     
     $routeProvider.when('/disclaimer',{
+    	title : 'Termini d\'Uso',
         templateUrl : 'disclaimer'
     });
     
     // FAQ
     
     $routeProvider.when('/faq',{
+    	title : 'FAQ',
         templateUrl : 'faq'
     });
     
     // Privacy
     
     $routeProvider.when('/privacy',{
+    	title : 'Privacy Policy',
         templateUrl : 'privacy'
     });
     
@@ -393,6 +407,7 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     // Activity
     
     $routeProvider.when('/activities/:activityID',{
+//    	title : function(parameters){return parameters.activityID},
         templateUrl : function(parameters){return 'activity/index/'+parameters.activityID;},
         controller : 'activityController as activity'
     });
@@ -401,6 +416,7 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     
     $routeProvider.when('/profile/:userID',{
 //        templateUrl : 'profile',
+    	title : 'Profilo',
     	templateUrl: function(parameters){return 'profile/index/'+parameters.userID;},
         controller : 'profileController as profile'
     });
@@ -408,6 +424,7 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     // Register - Restricted
     
     $routeProvider.when('/register',{
+    	title : 'Registro Elettronico',
         templateUrl : 'register',
         controller : 'Register as register'
     });
