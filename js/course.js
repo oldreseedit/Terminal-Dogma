@@ -167,34 +167,34 @@ main.controller('courseController',['utilities','$scope','$http','$server','$rou
                          row: 0
                      },
                      {
-                    	 id: 'calendar',
-                         sizeX: 6,
-                         sizeY: 1,
-                         col : 0,
-                         row: 10
-                     },
-                     {
-                    	 id: 'courseNotifications',
-                         sizeX: 6,
-                         sizeY: 1,
-                         col : 6,
-                         row: 10
-                     },
-                     {
-                    	 id: 'courseMaterials',
-                         sizeX: 12,
-                         sizeY: 1,
-                         col : 0,
-                         row: 20
-                     },
-                     {
-						id: 'courseBanner',
-//							templateUrl: 'templates/course-banner.php',
-					    sizeX: 12,
-					    sizeY: 1,
-					    row : 30,
-					    col: 0
-					}
+ 						id: 'courseBanner',
+// 							templateUrl: 'templates/course-banner.php',
+ 					    sizeX: 12,
+ 					    sizeY: 1,
+ 					    row :10,
+ 					    col: 0
+					},
+	                 {
+	                	 id: 'calendar',
+	                     sizeX: 6,
+	                     sizeY: 1,
+	                     col : 0,
+	                     row: 20
+	                 },
+	                 {
+	                	 id: 'courseNotifications',
+	                     sizeX: 6,
+	                     sizeY: 1,
+	                     col : 6,
+	                     row: 20
+	                 },
+	                 {
+	                	 id: 'courseMaterials',
+	                     sizeX: 12,
+	                     sizeY: 1,
+	                     col : 0,
+	                     row: 30
+	                 },
                  ];
 			}
 			angular.forEach(items,function(item){
@@ -285,6 +285,7 @@ main.controller('courseController',['utilities','$scope','$http','$server','$rou
     self.coursesAjax = $server.post('payment_interface/get_courses',{username: self.username}).then(
     		function(response)
     		{
+//    			console.log(response.data);
 				self.tempCourses = response.data;
 				self.subscribed = false;
 			    for(var i=0; i<self.tempCourses.length; i++)
