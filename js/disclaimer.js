@@ -12,7 +12,7 @@ main.controller('disclaimerController',['utilities',function(utilities){
         },
         {
             title : 'Usi consentiti',
-            content : 'È vietato l’utilizzo di questo sito Web se non per scopi di carattere privato e non commerciale. È altresì vietato l’utilizzo di qualsiasi sistema automatico o di applicazioni software volti ad estrarre dati a scopo commerciale (sceen scaping).'
+            content : 'È vietato l’utilizzo di questo sito Web se non per scopi di carattere privato e non commerciale. È altresì vietato l’utilizzo di qualsiasi sistema automatico o di applicazioni software volti ad estrarre dati a scopo commerciale (screen scaping).'
         },
         {
         	title : 'Diritti di proprietà intellettuale',

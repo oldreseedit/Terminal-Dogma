@@ -282,6 +282,7 @@ main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$rou
     gridsterConfig.mobileBreakPoint = 600;
     // gridsterConfig.rowHeight = '*3.236';
     gridsterConfig.columns = 12;
+    gridsterConfig.draggable.handle = '.panel-title';
     
     // For scrolling at top when view changes
     

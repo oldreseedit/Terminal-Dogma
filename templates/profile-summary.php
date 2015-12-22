@@ -26,14 +26,18 @@
 <div class="profile-info">
 	<div class="container">
 		<p ng-if="profile.lastAchievement || profile.nextReward">
-			<span class="bold" ng-if="profile.lastAchievement">Ultimo Achievement: </span><span ng-bind="profile.lastAchievement"></span><br ng-if="profile.lastAchievement"/>
+			<span class="bold" ng-if="profile.lastAchievement">Ultimo Achievement: </span><span ng-bind="profile.lastAchievement"></span><br ng-if="profile.nextReward"/>
 			<span class="bold" ng-if="profile.nextReward">Prossima Reward: </span><span ng-bind="profile.nextReward"></span><br />
 		</p>
-		<p ng-if="profile.courses && profile.isMyProfile()">
-			<span class="bold">I tuoi corsi: </span><br />
+		<div ng-if="profile.courses.length > 0 && profile.isMyProfile()">
+			<p class="bold">I tuoi corsi: </p>
 			<ul>
-				<li ng-repeat="course in profile.courses"><a ng-href="#!/courses/{{course.courseID}}"><span ng-bind="course.name"></span></a></li>
+				<li ng-repeat="course in profile.courses">
+					<a ng-href="#!/courses/{{course.courseID}}">
+						<span ng-bind="course.name"></span>
+					</a>
+				</li>
 			</ul>
-		</p>
+		</div>
 	</div>
 </div>

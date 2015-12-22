@@ -302,6 +302,7 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
 				   	self.courses[i].courseID = response.data[i].courseID;
 				   	self.courses[i].name = response.data[i].name;
 				}
+			    console.log(self.courses);
 			}
 		},
 		function(error)
