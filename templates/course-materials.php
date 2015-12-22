@@ -1,10 +1,10 @@
-<div centered class="text-center" ng-if="course.subscribed && course.materials.length == 0">
+<div centered class="text-center" ng-if="course.hasAccessToMaterial && course.materials.length == 0">
 	<p>Questo corso non ha ancora materiale disponibile.</p>
 </div>
-<div centered class="text-center" ng-if="!course.subscribed">
+<div centered class="text-center" ng-if="!course.hasAccessToMaterial">
 	<p>Iscriviti al corso per vedere il nostro materiale!</p>
 </div>
-<table class="table table-striped" ng-if="course.subscribed && course.materials.length > 0">
+<table class="table table-striped" ng-if="course.hasAccessToMaterial && course.materials.length > 0">
     <tr ng-repeat="material in course.materials">
         <td>
             <div class="container" id="material{{material.materialID}}" size-on-scope>

@@ -7,6 +7,10 @@ main.controller('courseController',['utilities','$scope','$http','$server','$rou
     $route.current.locals.username = self.username; // For modal and GridsterResizer
     
     self.courseID = $routeParams.courseID;
+    self.hasAccessToMaterial = false;
+    
+    // Role-based access
+    if($rootScope.admin == true) self.hasAccessToMaterial = true; 
     
     $scope.events = [];
     $scope.eventSources = [{events: $scope.events, color: 'green'}];
@@ -288,17 +292,17 @@ main.controller('courseController',['utilities','$scope','$http','$server','$rou
     		{
 //    			console.log(response.data);
 				self.tempCourses = response.data;
-				self.subscribed = false;
+				
 			    for(var i=0; i<self.tempCourses.length; i++)
 			    {
-				   	if(self.tempCourses[i] === self.courseID) self.subscribed = true;    			    	
+				   	if(self.tempCourses[i] === self.courseID) self.hasAccessToMaterial = true;
 			    }
     		}
     	);
     
     $scope.$watchCollection(
     		 function(){
-    			 return [self.courseDescription,self.subscribed];
+    			 return [self.courseDescription,self.hasAccessToMaterial];
     		 },
     		 function(newValues)
     		 {

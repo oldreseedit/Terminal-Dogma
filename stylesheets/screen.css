@@ -20402,7 +20402,7 @@ body {
 }
 /* line 10, ../sass/_contacts.scss */
 #contacts .introduction {
-  margin-bottom: 1em;
+  margin-bottom: 3em;
 }
 @media all and (min-device-width: 1080px) {
   /* line 14, ../sass/_contacts.scss */
