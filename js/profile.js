@@ -224,37 +224,21 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
 			else if(response.data)
 			{
 				self.achievementsAndRewards = response.data;
-			    self.tempRewards = self.achievementsAndRewards.filter(function(element){if(element.type==='REWARD') return element});
+			    self.rewards = self.achievementsAndRewards.filter(function(element){if(element.type==='REWARD') return element});
 //			    console.log(self.tempRewards);
-			    var lastRewardIndex= 0;
-			    for(i=0; i < self.tempRewards.length; i++)
-			    {
-			    	if(self.tempRewards[i].username) lastRewardIndex++;
-			    }
-			    self.rewards = [];
-			    for(i=0; i < self.tempRewards.length; i++)
-			    {
-			    	if(i==lastRewardIndex+1) self.nextReward = self.tempRewards[i].description;
-			    	if(i<=lastRewardIndex+2) self.rewards.push(self.tempRewards[i]);
-			    }			    
-
+			    
+			    var lastRewardIndex = -1;
+			    while(lastRewardIndex+1 < self.rewards.length && self.rewards[lastRewardIndex+1].username) lastRewardIndex++;
+			    if(lastRewardIndex+1 < self.rewards.length) self.nextReward = self.rewards[lastRewardIndex+1].description;
+			    
 			    self.achievements = self.achievementsAndRewards.filter(function(element){if(element.type==='ACHIEVEMENT') return element});
 //			    console.log(self.achievements);
-			    var lastAchievementIndex= 0;
 			    var last;
 			    for(i=0; i < self.achievements.length; i++)
-			    {
 			    	if(self.achievements[i].username)
-			    	{
-				    	var thisTime = moment(self.achievements[i].publishingTimestamp);
-				    	if(!last || last.isBefore(thisTime))
-				    	{
-				    		last = thisTime;
-				    		lastAchievementIndex = i;
-				    	}
-			    	}
-			    }
-			    self.lastAchievement = self.achievements[lastAchievementIndex].description;
+				    	if(!last || moment(last.publishingTimestamp).isBefore(moment(self.achievements[i].publishingTimestamp)))
+				    		last = self.achievements[i];
+			    if(last) self.lastAchievement = last.description;
 			    
 			    $timeout( function(){
 			    	$scope.$broadcast('achievements');
@@ -302,7 +286,7 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
 				   	self.courses[i].courseID = response.data[i].courseID;
 				   	self.courses[i].name = response.data[i].name;
 				}
-			    console.log(self.courses);
+//			    console.log(self.courses);
 			}
 		},
 		function(error)
