@@ -5,9 +5,8 @@
         
         <!--<img src="./imgs/header.png" id="header-img"></img>-->
         
-        <?php include_once("templates/presentation.php"); ?>
-        
-        <?php include_once("templates/team.php"); ?>
+        <ng-include src="'templates/presentation.php'"></ng-include>
+        <ng-include src="'templates/team.php'"></ng-include>
         
     </div>
 </div>

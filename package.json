@@ -1,5 +1,5 @@
 {
-  "name": "website",
+  "name": "reseed",
   "version": "1.0.0",
   "description": "reSeed official website",
   "main": "Gruntfile.js",
@@ -21,6 +21,7 @@
     "grunt-contrib-concat": "^0.5.1",
     "grunt-contrib-copy": "^0.8.2",
     "grunt-html-snapshot": "^0.6.1",
+    "grunt-injector": "^0.6.1",
     "grunt-postcss": "^0.7.1",
     "grunt-purifycss": "^0.1.0",
     "grunt-svg-css": "^0.2.8",

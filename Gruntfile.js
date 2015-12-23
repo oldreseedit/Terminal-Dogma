@@ -9,10 +9,10 @@ module.exports = function(grunt) {
             {
                 src: 'templates/*.php',
                 dest: 'dist/js/templates.js',
-//                options: {
-//                    module: 'Main',
+                options: {
+                    module: 'Main',
 //                    htmlmin:  { collapseWhitespace: true, collapseBooleanAttributes: true }
-//                }
+                }
             }
         },
     	
@@ -21,9 +21,12 @@ module.exports = function(grunt) {
 		    separator: ';'
 		  },
 		  dist: {
-		    src: [ "js/elastic.js",
+		    src: [ "js/ie10-viewport-bug-workaround.js",
+		           "js/ui-bootstrap-tpls-0.14.3.min.js",
+		           "js/elastic.js",
 		           "js/utilities-service.js",
 		           "js/main.js",
+		           "js/server.js",
 		           "js/modal.js",
 		           "js/navbar.js",
 		           "js/header.js",
@@ -54,7 +57,6 @@ module.exports = function(grunt) {
 		           "js/faq.js",
 		           "js/privacy.js",
 		           "js/disclaimer.js",
-		           "js/ui-bootstrap-tpls-0.14.3.min.js",
 		           'dist/js/templates.js'],
 		    dest: 'dist/js/<%= pkg.name %>.js'
 		  }
@@ -82,19 +84,18 @@ module.exports = function(grunt) {
             }
         },
         
-        purifycss: {
-	      target: {
-	        src: ['templates/head.php'], // Observe all html files
-	        css: ['stylesheets/*.css', 'bower_components/**/*.min.css'], // Take all css files into consideration
-	        dest: 'dist/stylesheets/screen.css' // Write to this path
-	      }
-	    },
+//        purifycss: {
+//	      target: {
+//	        src: ['dist/**/*.js'], // Observe all html files
+//	        css: ['dist/stylesheets/screen.css', 'stylesheets/awesome-bootstrap-checkbox.css', 'stylesheets/fontcustom.css'], // Take all css files into consideration
+//	        dest: 'dist/stylesheets/reseed.clean.css' // Write to this path
+//	      }
+//	    },
         
 	    cssmin: {
 			target: {
 				files: { // 'destination': 'source'
-                  'stylesheets/screen.min.css': 'dist/stylesheets/screen.css',
-                  'dist/stylesheets/screen.min.css': 'dist/stylesheets/screen.css',
+                  'dist/stylesheets/reseed.min.css': ['dist/stylesheets/screen.css', 'stylesheets/awesome-bootstrap-checkbox.css', 'stylesheets/fontcustom.css'],
               }
 			}
 		},
@@ -119,18 +120,23 @@ module.exports = function(grunt) {
 			      {expand: true, src: ['.htaccess'], dest: 'dist/'},
 			      {expand: true, src: ['index.php'], dest: 'dist/'},
 			      {expand: true, src: ['php.ini'], dest: 'dist/'},
-			      {src: ['stylesheets/fontcustom*'], dest: 'dist/'},
-			      {src: ['stylesheets/awesome-bootstrap-checkbox.css'], dest: 'dist/'},
+			      {expand: true, src: ['bower_components/**'], dest: 'dist/'},
+			      {src: ['stylesheets/fontcustom_*'], dest: 'dist/'},
 			    ],
 			  },
 		},
 		
 		clean: {
+			all: {
+				src: ["dist/"]
+			},
 			build: {
-				src: ["dist/stylesheets/screen.css",
-				      "dist/js/templates.js"
-//				      "dist/stylesheets/print.css",
-//				      "dist/stylesheets/ie.css",
+				src: [
+				      "dist/js/templates.js",
+				      "dist/js/reseed.js",
+				      "dist/stylesheets/screen.css",
+				      "dist/stylesheets/print.css",
+				      "dist/stylesheets/ie.css",
 				      ]
 			}
 		},
@@ -184,12 +190,12 @@ module.exports = function(grunt) {
             }
         },
         
-        bower_concat: {
-    	  all: {
-    	    dest: 'dist/js/bower.js',
-    	    cssDest: 'dist/stylesheets/bower.css',
-    	  }
-    	},
+//        bower_concat: {
+//    	  all: {
+//    	    dest: 'dist/js/bower.js',
+//    	    cssDest: 'dist/stylesheets/bower.css',
+//    	  }
+//    	},
         
     	wiredep: {
         	 
@@ -200,14 +206,27 @@ module.exports = function(grunt) {
         	    options: {
 	        	    dependencies: true,
 	        	    devDependencies: true,
-        	    }
+        	    },
+        	    exclude: [ 'bower_components/angular/', 'bower_components/jquery/' ],
         	  }
-    	}
-		
+    	},
+    	
+//    	injector: {
+//    	    options: {
+//    	    },
+//    	    local_dependencies: {
+//    	    	files:
+//    	    		{
+//    	    			src: ['js/reseed.min.js', 'stylesheets/reseed.min.css'],
+//    	    			dest: 'dist/application/views/basics/head.php'
+//    	    		}
+//    	    },
+//    	  },
+    	
 //		uncss: {
 //			  dist: {
 //			    files: {
-//			      'dist/stylesheets/tidy.css': ['dist/head.html']
+//			      'dist/stylesheets/reseed.clean.css': ['dist/**']
 //			    }
 //			  }
 //			}
@@ -289,21 +308,22 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-purifycss');
+//    grunt.loadNpmTasks('grunt-purifycss');
     grunt.loadNpmTasks('grunt-html-snapshot');
     grunt.loadNpmTasks('grunt-bower-concat');
     grunt.loadNpmTasks('grunt-wiredep');
+    grunt.loadNpmTasks('grunt-injector');
     
-//    grunt.loadNpmTasks('grunt-bower-install');
-//    grunt.loadNpmTasks('grunt-contrib-sass');
-//    grunt.loadNpmTasks('grunt-contrib-watch');
-//    grunt.loadNpmTasks('grunt-postcss');
-//	grunt.loadNpmTasks('grunt-svg-css');
-	
-  
-//  grunt.loadNpmTasks('grunt-contrib-jshint');
-//	grunt.loadNpmTasks('grunt-cssc');
-	
-//    grunt.registerTask('default', ['ngtemplates', 'concat', 'uglify', 'compass', 'cssmin', 'copy', 'clean', 'bower_concat', 'wiredep']);
-    grunt.registerTask('default', ['ngtemplates', 'concat', 'compass', 'cssmin', 'copy', 'clean', 'bower_concat', 'wiredep']);
+//		grunt.loadNpmTasks('grunt-bower-install');
+//		grunt.loadNpmTasks('grunt-contrib-sass');
+//		grunt.loadNpmTasks('grunt-contrib-watch');
+//		grunt.loadNpmTasks('grunt-postcss');
+//		grunt.loadNpmTasks('grunt-svg-css');
+//		grunt.loadNpmTasks('grunt-contrib-jshint');
+//		grunt.loadNpmTasks('grunt-cssc');
+
+//		grunt.registerTask('default', ['ngtemplates', 'concat', 'uglify', 'compass', 'cssmin', 'copy', 'clean', 'bower_concat', 'wiredep']);
+//    grunt.registerTask('default', ['ngtemplates', 'concat', 'compass', 'cssmin', 'copy', 'clean', 'bower_concat', 'wiredep']);
+    grunt.registerTask('default', ['clean:all', 'ngtemplates', 'concat', 'uglify', 'compass', 'cssmin', 'copy', 'clean:build', 'wiredep', 'injector']);
+//    grunt.registerTask('default', ['tags']);
 };

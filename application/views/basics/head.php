@@ -24,6 +24,9 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.9/cookieconsent.min.js"></script>
+    <!-- End Cookie Consent plugin -->
+    
     <!-- FONT-AWESOME -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
     
@@ -31,21 +34,14 @@
     <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic' rel='stylesheet' type='text/css' />
     <link href='https://fonts.googleapis.com/css?family=Raleway:700,400,300' rel='stylesheet' type='text/css' />
     
-<!-- PERSONAL CSS-->
-
-    <link href="stylesheets/screen.css" rel="stylesheet" type="text/css" />
-    <link href="stylesheets/fontcustom.css" rel="stylesheet" />
-    <link rel="stylesheet" href="stylesheets/awesome-bootstrap-checkbox.css" type="text/css" />
-    
 <!-- JQUERY FOR BOOTSTRAP -->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<!--     <script src="js/bootstrap.min.js"></script> -->
     
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="js/ie10-viewport-bug-workaround.js"></script>
-    
+<!-- YOUTUBE -->
+	<script src="https://www.youtube.com/iframe_api"></script>    
+
 <!-- ANGULAR JS -->
 
     <!-- AngularJS library -->
@@ -55,15 +51,19 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-sanitize.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-cookies.js"></script>
     
-    <!-- AngularJS Bootstrap UI -->
-    <script type="text/javascript" src="js/ui-bootstrap-tpls-0.14.3.min.js"></script>
+    <!-- Angular Perfect Scrollbar -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.8/css/perfect-scrollbar.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.8/js/min/perfect-scrollbar.jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.8/js/min/perfect-scrollbar.min.js"></script>
+    
+    <!-- bower:js -->
     
     <!-- AngularUI Calendar -->
     <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.css"/>
     <script type="text/javascript" src="bower_components/moment/min/moment.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-ui-calendar/src/calendar.js"></script>
     <script type="text/javascript" src="bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
-	<script ype="text/javascript" src='bower_components/fullcalendar/dist/lang/it.js'></script>
+	<script type="text/javascript" src='bower_components/fullcalendar/dist/lang/it.js'></script>
     <script type="text/javascript" src="bower_components/fullcalendar/dist/gcal.js"></script>
     
     <!-- Angular moment -->
@@ -73,6 +73,34 @@
     <script type="text/javascript" src="bower_components/lodash/lodash.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-simple-logger/dist/index.js"></script>
     <script type="text/javascript" src="bower_components/angular-google-maps/dist/angular-google-maps.min.js"></script>
+    
+    <!-- Angular Youtube -->
+    <script src="bower_components/angular-youtube-mb/src/angular-youtube-embed.js"></script>
+    
+    <!-- Angular Gridster -->
+    <script src="bower_components/javascript-detect-element-resize/jquery.resize.js"></script>
+    <script src="bower_components/angular-gridster/src/angular-gridster.js"></script>
+    
+    <!-- Angular File Upload -->
+    <script src='bower_components/angular-upload/angular-upload.js'></script>
+    
+    <!-- Angular Inform -->
+    <link rel="stylesheet" href="bower_components/angular-inform/dist/angular-inform.min.css"/>
+    <script src="bower_components/angular-inform/dist/angular-inform.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    
+    <!-- endbower -->
+	
+	<!-- bower:css -->
+	<!-- endbower -->
+    
+    <!-- injector:js -->
+    
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    
+    <!-- AngularJS Bootstrap UI -->
+    <script type="text/javascript" src="js/ui-bootstrap-tpls-0.14.3.min.js"></script>
     
     <!-- Angular monospaced elastic for textareas -->
     <script type="text/javascript" src="js/elastic.js"></script>
@@ -114,39 +142,17 @@
     
     <!-- Grunt Plugins -->
     <script type="text/javascript" src="js/templates.js"></script>
-    
-    
-    <!-- Angular Perfect Scrollbar -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.8/css/perfect-scrollbar.min.css"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.8/js/min/perfect-scrollbar.jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.8/js/min/perfect-scrollbar.min.js"></script>
-    
-    <!-- Angular Youtube -->
-    <script src="https://www.youtube.com/iframe_api"></script>
-    <script src="bower_components/angular-youtube-mb/src/angular-youtube-embed.js"></script>
-    
-    <!-- Angular Gridster -->
-    <script src="bower_components/javascript-detect-element-resize/jquery.resize.js"></script>
-    <script src="bower_components/angular-gridster/src/angular-gridster.js"></script>
-    
-    <!-- Angular File Upload -->
-    <script src='bower_components/angular-upload/angular-upload.js'></script>
-    
-    <!-- Angular Inform -->
-    <link rel="stylesheet" href="bower_components/angular-inform/dist/angular-inform.min.css"/>
-    <script src="bower_components/angular-inform/dist/angular-inform.min.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <!-- endinjector -->
+     
+    <!-- PERSONAL CSS-->
+
+	<!-- injector:css -->
+    <link href="stylesheets/screen.css" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/fontcustom.css" rel="stylesheet" />
+    <link rel="stylesheet" href="stylesheets/awesome-bootstrap-checkbox.css" type="text/css" />
+    <!-- endinjector -->
     
     <!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
     <script type="text/javascript">
         window.cookieconsent_options = {"message":"Questo sito utilizza i cookie per garantire la miglior esperienza di navigazione possibile.","dismiss":"Ok, ok. Ora togliti.","learnMore":"Maggiori informazioni","link":"#!/privacy","theme":"dark-floating"};
     </script>
-    
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.9/cookieconsent.min.js"></script>
-    <!-- End Cookie Consent plugin -->
-
-    <!-- bower:js -->
-	<!-- endbower -->
-	
-	<!-- bower:css -->
-	<!-- endbower -->
