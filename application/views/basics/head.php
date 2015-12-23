@@ -44,7 +44,7 @@
 <!--     <script src="js/bootstrap.min.js"></script> -->
     
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script src="js/controllers/ie10-viewport-bug-workaround.js"></script>
     
 <!-- ANGULAR JS -->
 
@@ -56,7 +56,7 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-cookies.js"></script>
     
     <!-- AngularJS Bootstrap UI -->
-    <script type="text/javascript" src="js/ui-bootstrap-tpls-0.14.3.min.js"></script>
+    <script type="text/javascript" src="js/controllers/ui-bootstrap-tpls-0.14.3.min.js"></script>
     
     <!-- AngularUI Calendar -->
     <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.css"/>
@@ -75,42 +75,56 @@
     <script type="text/javascript" src="bower_components/angular-google-maps/dist/angular-google-maps.min.js"></script>
     
     <!-- Angular monospaced elastic for textareas -->
-    <script type="text/javascript" src="js/elastic.js"></script>
+    <script type="text/javascript" src="js/directives/elastic.js"></script>
     
     <!-- AngularJS Modules -->
-    <script type="text/javascript" src="js/utilities-service.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
-    <script type="text/javascript" src="js/server.js"></script>
-    <script type="text/javascript" src="js/modal.js"></script>
-    <script type="text/javascript" src="js/navbar.js"></script>
-    <script type="text/javascript" src="js/header.js"></script>
-    <script type="text/javascript" src="js/presentation.js"></script>
-    <script type="text/javascript" src="js/team.js"></script>
-    <script type="text/javascript" src="js/footer.js"></script>
-    <script type="text/javascript" src="js/courses.js"></script>
-    <script type="text/javascript" src="js/course.js"></script>
-    <script type="text/javascript" src="js/activities.js"></script>
-    <script type="text/javascript" src="js/activity.js"></script>
-    <script type="text/javascript" src="js/media.js"></script>
-    <script type="text/javascript" src="js/contacts.js"></script>
-    <script type="text/javascript" src="js/infoWindow.js"></script>
-    <script type="text/javascript" src="js/register.js"></script>
-    <script type="text/javascript" src="js/exp.js"></script>
-    <script type="text/javascript" src="js/admin.js"></script>
-    <script type="text/javascript" src="js/signin.js"></script>
-    <script type="text/javascript" src="js/signup.js"></script>
-    <script type="text/javascript" src="js/profile.js"></script>
-    <script type="text/javascript" src="js/avatar.js"></script>
-    <script type="text/javascript" src="js/paymentDisclaimer.js"></script>
-    <script type="text/javascript" src="js/paymentNotRegistered.js"></script>
-    <script type="text/javascript" src="js/paymentCancel.js"></script>
-    <script type="text/javascript" src="js/paymentConfirmation.js"></script>
-    <script type="text/javascript" src="js/payment.js"></script>
-    <script type="text/javascript" src="js/fitText.js"></script>
-    <script type="text/javascript" src="js/gridsterResizer.js"></script>
-    <script type="text/javascript" src="js/faq.js"></script>
-    <script type="text/javascript" src="js/privacy.js"></script>
-    <script type="text/javascript" src="js/disclaimer.js"></script>
+    <script type="text/javascript" src="js/filters/firstCapitalized.js"></script>
+    <script type="text/javascript" src="js/factories/utilities.js"></script>
+    <script type="text/javascript" src="js/factories/ajaxEvents.js"></script>
+    <script type="text/javascript" src="js/factories/server.js"></script>
+    <script type="text/javascript" src="js/config/elasticConfig.js"></script>
+    <script type="text/javascript" src="js/config/gridsterConfig.js"></script>
+    <script type="text/javascript" src="js/config/httpInterceptors.js"></script>
+    <script type="text/javascript" src="js/config/informConfig.js"></script>
+    <script type="text/javascript" src="js/config/routesConfig.js"></script>
+    <script type="text/javascript" src="js/directives/bootstrapInput.js"></script>
+    <script type="text/javascript" src="js/directives/centered.js"></script>
+    <script type="text/javascript" src="js/directives/elastic.js"></script>
+    <script type="text/javascript" src="js/directives/equalSpans.js"></script>
+    <script type="text/javascript" src="js/directives/fitText.js"></script>
+    <script type="text/javascript" src="js/directives/flipper.js"></script>
+    <script type="text/javascript" src="js/directives/gridsterResizer.js"></script>
+    <script type="text/javascript" src="js/directives/sizeOn.js"></script>
+    <script type="text/javascript" src="js/directives/spinner.js"></script>
+    <script type="text/javascript" src="js/controllers/modal.js"></script>
+    <script type="text/javascript" src="js/controllers/navbar.js"></script>
+    <script type="text/javascript" src="js/controllers/header.js"></script>
+    <script type="text/javascript" src="js/controllers/presentation.js"></script>
+    <script type="text/javascript" src="js/controllers/team.js"></script>
+    <script type="text/javascript" src="js/controllers/footer.js"></script>
+    <script type="text/javascript" src="js/controllers/courses.js"></script>
+    <script type="text/javascript" src="js/controllers/course.js"></script>
+    <script type="text/javascript" src="js/controllers/activities.js"></script>
+    <script type="text/javascript" src="js/controllers/activity.js"></script>
+    <script type="text/javascript" src="js/controllers/media.js"></script>
+    <script type="text/javascript" src="js/controllers/contacts.js"></script>
+    <script type="text/javascript" src="js/controllers/infoWindow.js"></script>
+    <script type="text/javascript" src="js/controllers/register.js"></script>
+    <script type="text/javascript" src="js/controllers/exp.js"></script>
+    <script type="text/javascript" src="js/controllers/admin.js"></script>
+    <script type="text/javascript" src="js/controllers/signin.js"></script>
+    <script type="text/javascript" src="js/controllers/signup.js"></script>
+    <script type="text/javascript" src="js/controllers/profile.js"></script>
+    <script type="text/javascript" src="js/controllers/avatar.js"></script>
+    <script type="text/javascript" src="js/controllers/paymentDisclaimer.js"></script>
+    <script type="text/javascript" src="js/controllers/paymentNotRegistered.js"></script>
+    <script type="text/javascript" src="js/controllers/paymentCancel.js"></script>
+    <script type="text/javascript" src="js/controllers/paymentConfirmation.js"></script>
+    <script type="text/javascript" src="js/controllers/payment.js"></script>
+    <script type="text/javascript" src="js/controllers/faq.js"></script>
+    <script type="text/javascript" src="js/controllers/privacy.js"></script>
+    <script type="text/javascript" src="js/controllers/disclaimer.js"></script>
     
     <!-- Grunt Plugins -->
     <script type="text/javascript" src="js/templates.js"></script>
