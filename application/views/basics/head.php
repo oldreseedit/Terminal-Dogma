@@ -97,13 +97,13 @@
     <!-- injector:js -->
     
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script src="js/controllers/ie10-viewport-bug-workaround.js"></script>
     
     <!-- AngularJS Bootstrap UI -->
-    <script type="text/javascript" src="js/ui-bootstrap-tpls-0.14.3.min.js"></script>
+    <script type="text/javascript" src="js/controllers/ui-bootstrap-tpls-0.14.3.min.js"></script>
     
     <!-- Angular monospaced elastic for textareas -->
-    <script type="text/javascript" src="js/elastic.js"></script>
+    <script type="text/javascript" src="js/directives/elastic.js"></script>
     
     <!-- AngularJS Modules -->
     <script type="text/javascript" src="js/main.js"></script>
