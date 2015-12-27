@@ -1,4 +1,4 @@
-function utilities(){
+main.factory('utilities',function(){
     
     // Implementazione dell'algoritmo euclideo esteso - costruisce l'identità di Bezout.
     
@@ -193,6 +193,20 @@ function utilities(){
         return colour;
     };
     
-}
+    return {
+    	bezout : this.bezout,
+    	gcd : this.gcd,
+    	spacedSizes : this.spacedSizes,
+    	centeredSizes : this.centeredSizes,
+    	normalSizes : this.normalSizes,
+    	sizesWithSpacer : this.sizesWithSpacer,
+    	printCentered : this.printCentered,
+    	printSpaced : this.printSpaced,
+    	printNormal : this.printNormal,
+    	getColours: this.getColours
+    	
+    }
+    
+});
 
 
