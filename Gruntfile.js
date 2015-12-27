@@ -17,11 +17,16 @@ module.exports = function(grunt) {
         },
     	
     	concat: {
-		  options: {
-		    separator: ';'
-		  },
 		  dist: {
-			  'dist/js/<%= pkg.name %>.js' : ['dist/js/main.js', 'dist/js/config/**', 'dist/js/controllers/**', 'dist/js/directives/**', 'dist/js/factories/**', 'dist/js/filters/**']
+			  src : [
+	                  'js/main.js',
+	                  'js/config/*.js',
+	                  'js/controllers/*.js',
+	                  'js/directives/*.js',
+	                  'js/factories/*.js',
+	                  'js/filters/*.js',
+	                  'dist/js/templates.js'],
+	          dest: 'dist/js/<%= pkg.name %>.js'
 		  }
 		},
     	
@@ -175,17 +180,17 @@ module.exports = function(grunt) {
         	  }
     	},
     	
-//    	injector: {
-//    	    options: {
-//    	    },
-//    	    local_dependencies: {
-//    	    	files:
-//    	    		{
-//    	    			src: ['js/reseed.min.js', 'stylesheets/reseed.min.css'],
-//    	    			dest: 'dist/application/views/basics/head.php'
-//    	    		}
-//    	    },
-//    	  },
+    	injector: {
+    	    options: {
+    	    },
+    	    local_dependencies: {
+    	    	files:
+    	    		{
+    	    			src: ['dist/js/reseed.min.js', 'dist/stylesheets/reseed.min.css'],
+    	    			dest: 'dist/application/views/basics/head.php'
+    	    		}
+    	    },
+    	  },
     	
 //		uncss: {
 //			  dist: {
@@ -289,5 +294,5 @@ module.exports = function(grunt) {
 //		grunt.registerTask('default', ['ngtemplates', 'concat', 'uglify', 'compass', 'cssmin', 'copy', 'clean', 'bower_concat', 'wiredep']);
 //    grunt.registerTask('default', ['ngtemplates', 'concat', 'compass', 'cssmin', 'copy', 'clean', 'bower_concat', 'wiredep']);
     grunt.registerTask('default', ['clean:all', 'ngtemplates', 'concat', 'uglify', 'compass', 'cssmin', 'copy', 'clean:build', 'wiredep', 'injector']);
-//    grunt.registerTask('default', ['tags']);
+//    grunt.registerTask('default', ['clean:all', 'ngtemplates', 'concat']);    
 };

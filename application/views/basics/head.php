@@ -156,6 +156,7 @@
     
     <!-- Grunt Plugins -->
     <script type="text/javascript" src="js/templates.js"></script>
+    
     <!-- endinjector -->
      
     <!-- PERSONAL CSS-->
