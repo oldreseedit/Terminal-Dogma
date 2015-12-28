@@ -133,7 +133,7 @@ module.exports = function(grunt) {
 		
 		clean: {
 			all: {
-				src: ["dist/"]
+				src: ["dist/js/", "dist/stylesheets/"]
 			},
 			build: {
 				src: [
@@ -214,16 +214,74 @@ module.exports = function(grunt) {
         	  }
     	},
     	
-    	injector: {
-    	    options: {
-    	    },
-    	    local_dependencies: {
-    	    	files:
-    	    		{
-    	    			'dist/application/views/basics/head.php': ['dist/js/reseed.min.js', 'dist/stylesheets/reseed.min.css']
-    	    		}
-    	    },
-    	  },
+    	filerev: {
+		    options: {
+		      algorithm: 'md5',
+		      length: 8
+		    },
+		    images: {
+		      src: ['dist/stylesheets/reseed.min.css', 'dist/js/reseed.min.js']
+		    }
+    	},
+		  
+		injector: {
+			    options: {
+			    	addRootSlash: false,
+			    	ignorePath: "dist/"
+			    },
+			    local_dependencies: {
+			    	files:
+			    		{
+			    			'dist/application/views/basics/head.php': ['dist/js/reseed.min.*.js', 'dist/stylesheets/reseed.min.*.css']
+		    		}
+		    },
+		},
+		
+		'ftp-deploy': {
+			  build: {
+			    auth: {
+			      host: 'reseed.it',
+			      port: 21,
+			      authKey: 'reseedKey'
+			    },
+			    src: 'dist/',
+			    dest: 'public_html/reseed/',
+//			    exclusions: ['path/to/source/folder/**/.DS_Store', 'path/to/source/folder/**/Thumbs.db', 'path/to/dist/tmp']
+			  }
+			}
+		
+//		rsync: {
+//		    options: {
+//		        args: ["--verbose"],
+////		        exclude: [".git*","*.scss","node_modules"],
+//		        recursive: true
+//		    },
+//		    dist: {
+//		        options: {
+//		            src: "dist/",
+//		            dest: "/home/tflati/public_html/reseed/",
+//		            host: "tflati@reseed.it",
+//		            dryRun: true
+//		        }
+//		    },
+//		}
+		
+//		scp: {
+//		    options: {
+//		        host: 'www.reseed.it',
+//		        username: 'tflati',
+//		        password: 'arc0bal3n0'
+//		    },
+//		    your_target: {
+//		        files: [{
+//		            cwd: 'dist/',
+//		            src: '**',
+////		            filter: 'isFile',
+//		            // path on the server 
+//		            dest: 'public_html/reseed/'
+//		        }]
+//		    },
+//		}
     	
 //		uncss: {
 //			  dist: {
@@ -310,22 +368,15 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-clean');
-//    grunt.loadNpmTasks('grunt-purifycss');
     grunt.loadNpmTasks('grunt-html-snapshot');
     grunt.loadNpmTasks('grunt-bower-concat');
     grunt.loadNpmTasks('grunt-wiredep');
     grunt.loadNpmTasks('grunt-injector');
     grunt.loadNpmTasks('grunt-autoprefixer');
-    
-//		grunt.loadNpmTasks('grunt-bower-install');
-//		grunt.loadNpmTasks('grunt-contrib-sass');
-//		grunt.loadNpmTasks('grunt-contrib-watch');
-//		grunt.loadNpmTasks('grunt-postcss');
-//		grunt.loadNpmTasks('grunt-svg-css');
-//		grunt.loadNpmTasks('grunt-contrib-jshint');
-//		grunt.loadNpmTasks('grunt-cssc');
+    grunt.loadNpmTasks('grunt-filerev');
+    grunt.loadNpmTasks('grunt-ftp-deploy');
+//    grunt.loadNpmTasks("grunt-rsync")
+//    grunt.loadNpmTasks('grunt-scp');
 
-//		grunt.registerTask('default', ['ngtemplates', 'concat', 'uglify', 'compass', 'cssmin', 'copy', 'clean', 'bower_concat', 'wiredep']);
-//    grunt.registerTask('default', ['ngtemplates', 'concat', 'compass', 'cssmin', 'copy', 'clean', 'bower_concat', 'wiredep']);
-    grunt.registerTask('default', ['clean:all', 'ngtemplates', 'bower_concat', 'concat:javascript', 'uglify', 'compass', 'concat:css', 'autoprefixer', 'cssmin', 'copy', 'clean:build', 'injector']);
+    grunt.registerTask('default', ['clean:all', 'ngtemplates', 'bower_concat', 'concat:javascript', 'uglify', 'compass', 'concat:css', 'autoprefixer', 'cssmin', 'copy', 'clean:build', 'filerev', 'injector']);
 };
