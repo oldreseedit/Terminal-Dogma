@@ -15,18 +15,44 @@ module.exports = function(grunt) {
                 }
             }
         },
+        
+        bower_concat: {
+    	  all: {
+    	    dest: 'dist/js/bower.js',
+    	    cssDest: 'dist/stylesheets/bower.css',
+    	    includeDev: true,
+    	    exclude: ['angular', 'font-awesome'],
+			mainFiles: {
+				'fullcalendar': ['dist/fullcalendar.js', 'dist/lang/it.js', 'dist/gcal.js', 'dist/fullcalendar.css']
+			},
+    	  }
+    	},
     	
     	concat: {
-		  dist: {
+		  javascript: {
 			  src : [
+			          'dist/js/bower.js',
+			          'js/controllers/ui-bootstrap-tpls-0.14.3.min.js',
+			          'js/controllers/ie10-viewport-bug-workaround.js',
+			          'js/directives/fitText.js',
+			          'js/directives/elastic.js',
 	                  'js/main.js',
-	                  'js/config/*.js',
-	                  'js/controllers/*.js',
-	                  'js/directives/*.js',
-	                  'js/factories/*.js',
 	                  'js/filters/*.js',
+	                  'js/factories/*.js',
+	                  'js/config/*.js',
+	                  'js/directives/*.js',
+	                  'js/controllers/*.js',
 	                  'dist/js/templates.js'],
 	          dest: 'dist/js/<%= pkg.name %>.js'
+		  },
+		  css: {
+			  src : [
+			        'dist/stylesheets/bower.css',
+					'dist/stylesheets/screen.css',
+					'stylesheets/fontcustom.css',
+					'stylesheets/awesome-bootstrap-checkbox.css',
+					],
+	          dest: 'dist/stylesheets/reseed.css'
 		  }
 		},
     	
@@ -60,10 +86,21 @@ module.exports = function(grunt) {
 //	      }
 //	    },
         
+        autoprefixer: {
+        	options: {
+        		browsers: ['last 10 versions', 'ie 8', 'ie 9'],
+//        		diff: true
+        	},
+            build: {
+            	src: 'dist/stylesheets/reseed.css',
+            	dest: 'dist/stylesheets/reseed.autoprefixed.css'
+            },
+        },
+        
 	    cssmin: {
 			target: {
 				files: { // 'destination': 'source'
-                  'dist/stylesheets/reseed.min.css': ['dist/stylesheets/screen.css', 'stylesheets/awesome-bootstrap-checkbox.css', 'stylesheets/fontcustom.css'],
+                  'dist/stylesheets/reseed.min.css': ['dist/stylesheets/reseed.autoprefixed.css'],
               }
 			}
 		},
@@ -88,7 +125,7 @@ module.exports = function(grunt) {
 			      {expand: true, src: ['.htaccess'], dest: 'dist/'},
 			      {expand: true, src: ['index.php'], dest: 'dist/'},
 			      {expand: true, src: ['php.ini'], dest: 'dist/'},
-			      {expand: true, src: ['bower_components/**'], dest: 'dist/'},
+//			      {expand: true, src: ['bower_components/**'], dest: 'dist/'},
 			      {src: ['stylesheets/fontcustom_*'], dest: 'dist/'},
 			    ],
 			  },
@@ -102,9 +139,13 @@ module.exports = function(grunt) {
 				src: [
 				      "dist/js/templates.js",
 				      "dist/js/reseed.js",
+				      "dist/js/bower.js",
+				      "dist/stylesheets/bower.css",
 				      "dist/stylesheets/screen.css",
 				      "dist/stylesheets/print.css",
 				      "dist/stylesheets/ie.css",
+				      "dist/stylesheets/reseed.css",
+				      "dist/stylesheets/*autoprefixed.css",
 				      ]
 			}
 		},
@@ -158,13 +199,6 @@ module.exports = function(grunt) {
             }
         },
         
-//        bower_concat: {
-//    	  all: {
-//    	    dest: 'dist/js/bower.js',
-//    	    cssDest: 'dist/stylesheets/bower.css',
-//    	  }
-//    	},
-        
     	wiredep: {
         	 
         	  task: {
@@ -186,8 +220,7 @@ module.exports = function(grunt) {
     	    local_dependencies: {
     	    	files:
     	    		{
-    	    			src: ['dist/js/reseed.min.js', 'dist/stylesheets/reseed.min.css'],
-    	    			dest: 'dist/application/views/basics/head.php'
+    	    			'dist/application/views/basics/head.php': ['dist/js/reseed.min.js', 'dist/stylesheets/reseed.min.css']
     	    		}
     	    },
     	  },
@@ -282,6 +315,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-bower-concat');
     grunt.loadNpmTasks('grunt-wiredep');
     grunt.loadNpmTasks('grunt-injector');
+    grunt.loadNpmTasks('grunt-autoprefixer');
     
 //		grunt.loadNpmTasks('grunt-bower-install');
 //		grunt.loadNpmTasks('grunt-contrib-sass');
@@ -293,6 +327,5 @@ module.exports = function(grunt) {
 
 //		grunt.registerTask('default', ['ngtemplates', 'concat', 'uglify', 'compass', 'cssmin', 'copy', 'clean', 'bower_concat', 'wiredep']);
 //    grunt.registerTask('default', ['ngtemplates', 'concat', 'compass', 'cssmin', 'copy', 'clean', 'bower_concat', 'wiredep']);
-    grunt.registerTask('default', ['clean:all', 'ngtemplates', 'concat', 'uglify', 'compass', 'cssmin', 'copy', 'clean:build', 'wiredep', 'injector']);
-//    grunt.registerTask('default', ['clean:all', 'ngtemplates', 'concat']);    
+    grunt.registerTask('default', ['clean:all', 'ngtemplates', 'bower_concat', 'concat:javascript', 'uglify', 'compass', 'concat:css', 'autoprefixer', 'cssmin', 'copy', 'clean:build', 'injector']);
 };

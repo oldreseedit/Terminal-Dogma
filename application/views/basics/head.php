@@ -56,7 +56,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.8/js/min/perfect-scrollbar.jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.8/js/min/perfect-scrollbar.min.js"></script>
     
-    <!-- bower:js -->
+    <!-- injector:js -->
     
     <!-- AngularUI Calendar -->
     <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.css"/>
@@ -88,13 +88,6 @@
     <link rel="stylesheet" href="bower_components/angular-inform/dist/angular-inform.min.css"/>
     <script src="bower_components/angular-inform/dist/angular-inform.min.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
-    
-    <!-- endbower -->
-	
-	<!-- bower:css -->
-	<!-- endbower -->
-    
-    <!-- injector:js -->
     
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="js/controllers/ie10-viewport-bug-workaround.js"></script>
@@ -153,9 +146,6 @@
     <script type="text/javascript" src="js/controllers/faq.js"></script>
     <script type="text/javascript" src="js/controllers/privacy.js"></script>
     <script type="text/javascript" src="js/controllers/disclaimer.js"></script>
-    
-    <!-- Grunt Plugins -->
-    <script type="text/javascript" src="js/templates.js"></script>
     
     <!-- endinjector -->
      

@@ -18,7 +18,7 @@ main.factory('$server',['$http','inform',function($http,inform){
 			if(this.showInform){
 				if(response.data.error) inform.add(response.data.description,{type: 'danger'});
 			}
-			if(response.data) if(successFn) successFn(response);
+			if(response) if(successFn) successFn(response);
 			
 //			console.log(successFn);
 		},function(error){

@@ -55,7 +55,6 @@ main.controller('paymentController',['utilities','$uibModal','$sce','$cookies','
         },function(error){
             console.log(error);
         });
-        
     };
     
     self.alreadyPaid = function(course){

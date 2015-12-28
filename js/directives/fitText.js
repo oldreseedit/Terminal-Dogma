@@ -25,10 +25,12 @@
             var elementWidth = 0;
             var elementHeight = 0;
             
-            // console.log(group);
+//            console.log(group);
             
             for(var i=0; i<group.length; i++){
-              var item = group[i] instanceof jQuery ? group[i][0] : group[i];
+            	
+              var item = $(group[i])[0];
+//              console.log(item, item.style);
               item.style.display = 'inline-block';
               item.style.fontSize = '10px';
               elementHeight = Math.max(item.offsetHeight, elementHeight);
@@ -61,7 +63,6 @@
               var group = ($(multiple[i]).attr('fittext-group') ? $('[fittext-group="'+$(multiple[i]).attr('fittext-group')+'"]') : [multiple[i]]);
               
               // console.log('group:',group);
-              // console.log(group[0] instanceof jQuery);
               
               var step = getStep(group);
               
@@ -69,7 +70,7 @@
               
               /* TO ASK: group can be NOT adjacent? */
               
-              var parent = (group[0] instanceof jQuery ? group[0][0].parentNode : group[0].parentNode);
+              var parent = $(group[0])[0].parentNode;
               if(attrs.fittextReference) parent = angular.element('#'+attrs.fittextReference)[0];
               
               // console.log('parent:',parent);
@@ -84,7 +85,7 @@
               
               if(fss.length === 1) {
                 for(var j=0; j<group.length; j++){
-                  item = group[j] instanceof jQuery ? group[j][0] : group[j];
+                  item = $(group[j])[0];
                   item.style.fontSize = fss[0]*0.95*compressor + 'px';
                 }
               }
@@ -100,7 +101,7 @@
             // console.log('fs:',fs);
             
             for(i=0; i<multiple.length; i++){
-              item = multiple[i] instanceof jQuery ? multiple[i][0] : multiple[i];
+              item = $(multiple[i])[0];
               item.style.fontSize = fs*0.95*compressor + 'px';
             }
             
@@ -182,7 +183,7 @@
             
             for(var i=0; i<multiple.length; i++)
             {
-              var el = ( multiple[i] instanceof jQuery ? multiple[i][0] : multiple[i] );
+              var el = $(multiple[i])[0];
               var parentHeight = el.parentNode.offsetHeight;
               
               // console.log(el);
@@ -201,7 +202,7 @@
             // console.log(fss);
             var fs = Math.min.apply(Math,fss);
             for(i=0;i<multiple.length;i++){
-              el = ( multiple[i] instanceof jQuery ? multiple[i][0] : multiple[i]);
+              el = $(multiple[i])[0];
               // console.log(fs);
               // console.log(el);
               // console.log(el.style.fontSize);
