@@ -19504,7 +19504,7 @@ h1 {
 }
 
 /* line 7, ../sass/_palette.scss */
-.leaf {
+.leaf, #forum .table a {
   color: #0da84e;
 }
 
@@ -19665,7 +19665,7 @@ h1 {
 }
 
 /* line 46, ../sass/_palette.scss */
-.bg-green, #forum .panel-default > .panel-heading {
+.bg-green {
   background-color: #0fa82d;
 }
 
@@ -20287,8 +20287,22 @@ body {
   }
 }
 
-/* line 4, ../sass/_forum.scss */
-#forum .panel-default > .panel-heading {
+/* line 10, ../sass/_forum.scss */
+#forum .forum-message {
+  text-align: left;
+}
+/* line 14, ../sass/_forum.scss */
+#forum .forum-description {
+  text-align: left;
+}
+/* line 18, ../sass/_forum.scss */
+#forum .table td, #forum th {
+  vertical-align: middle;
+  text-align: center;
+}
+
+/* line 28, ../sass/_forum.scss */
+.background-image-none {
   background-image: none;
 }
 

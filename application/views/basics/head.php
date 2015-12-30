@@ -93,13 +93,16 @@
     <link rel='stylesheet' href='/bower_components/textAngular/dist/textAngular.css'>
 	<script src='/bower_components/textAngular/dist/textAngular-rangy.min.js'></script>
 	<script src='/bower_components/textAngular/dist/textAngular-sanitize.min.js'></script>
-	<script src='/bower_components/textAngular/dist/textAngular.min.js'></script>
+	<script src='/bower_components/textAngular/dist/textAngular.js'></script>
+	<script src='/bower_components/textAngular/dist/textAngularSetup.js'></script>
+	<script src='/bower_components/textAngular/dist/textAngular-sanitize.js'></script>
     
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="js/controllers/ie10-viewport-bug-workaround.js"></script>
     
     <!-- AngularJS Bootstrap UI -->
     <script type="text/javascript" src="js/controllers/ui-bootstrap-tpls-0.14.3.min.js"></script>
+<!-- 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"></script> -->
     
     <!-- Angular monospaced elastic for textareas -->
     <script type="text/javascript" src="js/directives/elastic.js"></script>

@@ -1,9 +1,30 @@
 #forum{
 	@extend .in-main;
     
-    .panel-default > .panel-heading
-	{
-		@extend .bg-green;
-		background-image: none;
+    //.panel-default > .panel-heading
+	//{
+	//	@extend .bg-green;
+	//	background-image: none;
+	//}
+	
+	.forum-message{
+		text-align: left;
 	}
+	
+	.forum-description{
+		text-align: left;
+	}
+	
+	.table td, th {
+		vertical-align: middle;
+		text-align: center;
+	}
+	
+	.table a {
+		@extend .leaf;
+	}
+}
+
+.background-image-none{
+	background-image: none;
 }
