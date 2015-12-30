@@ -127,6 +127,14 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
         controller : 'Register as register'
     });
     
+    // Forum
+    
+    $routeProvider.when('/forum',{
+    	title : 'Forum',
+        templateUrl : 'forum',
+        controller : 'forumController as forum'
+    });
+    
     $routeProvider.otherwise({
     	templateUrl: 'error'
     });

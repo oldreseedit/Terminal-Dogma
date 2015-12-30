@@ -89,6 +89,12 @@
     <script src="bower_components/angular-inform/dist/angular-inform.min.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     
+    <!-- Text Angular -->
+    <link rel='stylesheet' href='/bower_components/textAngular/dist/textAngular.css'>
+	<script src='/bower_components/textAngular/dist/textAngular-rangy.min.js'></script>
+	<script src='/bower_components/textAngular/dist/textAngular-sanitize.min.js'></script>
+	<script src='/bower_components/textAngular/dist/textAngular.min.js'></script>
+    
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="js/controllers/ie10-viewport-bug-workaround.js"></script>
     
@@ -146,6 +152,7 @@
     <script type="text/javascript" src="js/controllers/faq.js"></script>
     <script type="text/javascript" src="js/controllers/privacy.js"></script>
     <script type="text/javascript" src="js/controllers/disclaimer.js"></script>
+    <script type="text/javascript" src="js/controllers/forum.js"></script>
     
     <!-- endinjector -->
      

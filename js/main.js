@@ -15,7 +15,7 @@ var main = angular.module('Main',[
     'lr.upload', // For uploading purposes
     'inform', // For notifier purposes
     'angularMoment', // For inline moment
-    
+    'textAngular' // For textAngular forum
     ], function($httpProvider) {
 
     // FOR CI
