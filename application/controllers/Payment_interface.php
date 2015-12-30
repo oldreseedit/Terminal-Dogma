@@ -169,7 +169,11 @@ class Payment_interface extends CI_Controller {
         public function get_courses()
         {
             $userID = $this->input->post('username');
-            if($userID == false) $userID = null;
+            if($userID == false)
+            {
+            	echo json_encode(array("error" => true, "description" => "Il nome utente è obbligatorio.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("username")));
+            	return;
+            }
             
             $result = $this->payment_model->get_courses($userID);
             

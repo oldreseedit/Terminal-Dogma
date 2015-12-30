@@ -7,6 +7,10 @@
         height: 20em;
     }
     
+    .introduction{
+    	margin-bottom: 3em;
+    }
+    
     #contact-form-wrapper, #how-to-map-wrapper{
         @extend .bg-light-grey;
         @extend .well;

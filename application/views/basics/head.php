@@ -8,7 +8,7 @@
     <!-- Personal meta settings -->
     <meta name="description" content="Impara. Crea. Pubblica.">
     <link rel="icon" type="image/jpeg" href="imgs/favicon-alpha.png"/>
-    <title>reSeed</title>
+    <title ng-bind="(title ? (title + ' - ' ) : '' ) + 'reSeed'")></title>
 
     <!-- FB -->
         <meta property="og:image" content="assets/img/header_bg.jpg" />
@@ -24,6 +24,9 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.9/cookieconsent.min.js"></script>
+    <!-- End Cookie Consent plugin -->
+    
     <!-- FONT-AWESOME -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
     
@@ -35,11 +38,10 @@
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<!--     <script src="js/bootstrap.min.js"></script> -->
     
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="js/ie10-viewport-bug-workaround.js"></script>
-    
+<!-- YOUTUBE -->
+	<script src="https://www.youtube.com/iframe_api"></script>    
+
 <!-- ANGULAR JS -->
 
     <!-- AngularJS library -->
@@ -49,15 +51,19 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-sanitize.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-cookies.js"></script>
     
-    <!-- AngularJS Bootstrap UI -->
-    <script type="text/javascript" src="js/ui-bootstrap-tpls-0.14.3.min.js"></script>
+    <!-- Angular Perfect Scrollbar -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.8/css/perfect-scrollbar.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.8/js/min/perfect-scrollbar.jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.8/js/min/perfect-scrollbar.min.js"></script>
+    
+    <!-- injector:js -->
     
     <!-- AngularUI Calendar -->
     <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.css"/>
     <script type="text/javascript" src="bower_components/moment/min/moment.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-ui-calendar/src/calendar.js"></script>
     <script type="text/javascript" src="bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
-	<script ype="text/javascript" src='bower_components/fullcalendar/dist/lang/it.js'></script>
+	<script type="text/javascript" src='bower_components/fullcalendar/dist/lang/it.js'></script>
     <script type="text/javascript" src="bower_components/fullcalendar/dist/gcal.js"></script>
     
     <!-- Angular moment -->
@@ -68,62 +74,7 @@
     <script type="text/javascript" src="bower_components/angular-simple-logger/dist/index.js"></script>
     <script type="text/javascript" src="bower_components/angular-google-maps/dist/angular-google-maps.min.js"></script>
     
-    <!-- Angular monospaced elastic for textareas -->
-    <script type="text/javascript" src="js/elastic.js"></script>
-    
-    <!-- AngularJS Modules -->
-    <script type="text/javascript" src="js/utilities-service.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
-    <script type="text/javascript" src="js/server.js"></script>
-    <script type="text/javascript" src="js/modal.js"></script>
-    <script type="text/javascript" src="js/navbar.js"></script>
-    <script type="text/javascript" src="js/header.js"></script>
-    <script type="text/javascript" src="js/presentation.js"></script>
-    <script type="text/javascript" src="js/team.js"></script>
-    <script type="text/javascript" src="js/footer.js"></script>
-    <script type="text/javascript" src="js/courses.js"></script>
-    <script type="text/javascript" src="js/course.js"></script>
-    <script type="text/javascript" src="js/activities.js"></script>
-    <script type="text/javascript" src="js/activity.js"></script>
-    <script type="text/javascript" src="js/media.js"></script>
-    <script type="text/javascript" src="js/contacts.js"></script>
-    <script type="text/javascript" src="js/infoWindow.js"></script>
-    <script type="text/javascript" src="js/register.js"></script>
-    <script type="text/javascript" src="js/exp.js"></script>
-    <script type="text/javascript" src="js/admin.js"></script>
-    <script type="text/javascript" src="js/signin.js"></script>
-    <script type="text/javascript" src="js/signup.js"></script>
-    <script type="text/javascript" src="js/profile.js"></script>
-    <script type="text/javascript" src="js/avatar.js"></script>
-    <script type="text/javascript" src="js/paymentDisclaimer.js"></script>
-    <script type="text/javascript" src="js/paymentNotRegistered.js"></script>
-    <script type="text/javascript" src="js/paymentCancel.js"></script>
-    <script type="text/javascript" src="js/paymentConfirmation.js"></script>
-    <script type="text/javascript" src="js/payment.js"></script>
-    <script type="text/javascript" src="js/fitText.js"></script>
-    <script type="text/javascript" src="js/gridsterResizer.js"></script>
-    <script type="text/javascript" src="js/faq.js"></script>
-    <script type="text/javascript" src="js/privacy.js"></script>
-    <script type="text/javascript" src="js/disclaimer.js"></script>
-    <script type="text/javascript" src="js/forum.js"></script>
-    
-    <!-- For textAngular plugin -->
-    <link rel='stylesheet' href='bower_components/textAngular/dist/textAngular.css'>
-	<script src='bower_components/textAngular/dist/textAngular-rangy.min.js'></script>
-	<script src='bower_components/textAngular/dist/textAngular-sanitize.min.js'></script>
-	<script src='bower_components/textAngular/dist/textAngular.min.js'></script>
-    
-    <!-- Grunt Plugins -->
-    <script type="text/javascript" src="js/templates.js"></script>
-    
-    
-    <!-- Angular Perfect Scrollbar -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.8/css/perfect-scrollbar.min.css"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.8/js/min/perfect-scrollbar.jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.8/js/min/perfect-scrollbar.min.js"></script>
-    
     <!-- Angular Youtube -->
-    <script src="https://www.youtube.com/iframe_api"></script>
     <script src="bower_components/angular-youtube-mb/src/angular-youtube-embed.js"></script>
     
     <!-- Angular Gridster -->
@@ -138,22 +89,75 @@
     <script src="bower_components/angular-inform/dist/angular-inform.min.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/controllers/ie10-viewport-bug-workaround.js"></script>
+    
+    <!-- AngularJS Bootstrap UI -->
+    <script type="text/javascript" src="js/controllers/ui-bootstrap-tpls-0.14.3.min.js"></script>
+    
+    <!-- Angular monospaced elastic for textareas -->
+    <script type="text/javascript" src="js/directives/elastic.js"></script>
+    
+    <!-- AngularJS Modules -->
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/filters/firstCapitalized.js"></script>
+    <script type="text/javascript" src="js/factories/utilities.js"></script>
+    <script type="text/javascript" src="js/factories/ajaxEvents.js"></script>
+    <script type="text/javascript" src="js/factories/server.js"></script>
+    <script type="text/javascript" src="js/config/elasticConfig.js"></script>
+    <script type="text/javascript" src="js/config/gridsterConfig.js"></script>
+    <script type="text/javascript" src="js/config/httpInterceptors.js"></script>
+    <script type="text/javascript" src="js/config/informConfig.js"></script>
+    <script type="text/javascript" src="js/config/routesConfig.js"></script>
+    <script type="text/javascript" src="js/directives/bootstrapInput.js"></script>
+    <script type="text/javascript" src="js/directives/centered.js"></script>
+    <script type="text/javascript" src="js/directives/elastic.js"></script>
+    <script type="text/javascript" src="js/directives/equalSpans.js"></script>
+    <script type="text/javascript" src="js/directives/fitText.js"></script>
+    <script type="text/javascript" src="js/directives/flipper.js"></script>
+    <script type="text/javascript" src="js/directives/gridsterResizer.js"></script>
+    <script type="text/javascript" src="js/directives/sizeOn.js"></script>
+    <script type="text/javascript" src="js/directives/spinner.js"></script>
+    <script type="text/javascript" src="js/controllers/modal.js"></script>
+    <script type="text/javascript" src="js/controllers/navbar.js"></script>
+    <script type="text/javascript" src="js/controllers/header.js"></script>
+    <script type="text/javascript" src="js/controllers/presentation.js"></script>
+    <script type="text/javascript" src="js/controllers/team.js"></script>
+    <script type="text/javascript" src="js/controllers/footer.js"></script>
+    <script type="text/javascript" src="js/controllers/courses.js"></script>
+    <script type="text/javascript" src="js/controllers/course.js"></script>
+    <script type="text/javascript" src="js/controllers/activities.js"></script>
+    <script type="text/javascript" src="js/controllers/activity.js"></script>
+    <script type="text/javascript" src="js/controllers/media.js"></script>
+    <script type="text/javascript" src="js/controllers/contacts.js"></script>
+    <script type="text/javascript" src="js/controllers/infoWindow.js"></script>
+    <script type="text/javascript" src="js/controllers/register.js"></script>
+    <script type="text/javascript" src="js/controllers/exp.js"></script>
+    <script type="text/javascript" src="js/controllers/admin.js"></script>
+    <script type="text/javascript" src="js/controllers/signin.js"></script>
+    <script type="text/javascript" src="js/controllers/signup.js"></script>
+    <script type="text/javascript" src="js/controllers/profile.js"></script>
+    <script type="text/javascript" src="js/controllers/avatar.js"></script>
+    <script type="text/javascript" src="js/controllers/paymentDisclaimer.js"></script>
+    <script type="text/javascript" src="js/controllers/paymentNotRegistered.js"></script>
+    <script type="text/javascript" src="js/controllers/paymentCancel.js"></script>
+    <script type="text/javascript" src="js/controllers/paymentConfirmation.js"></script>
+    <script type="text/javascript" src="js/controllers/payment.js"></script>
+    <script type="text/javascript" src="js/controllers/faq.js"></script>
+    <script type="text/javascript" src="js/controllers/privacy.js"></script>
+    <script type="text/javascript" src="js/controllers/disclaimer.js"></script>
+    
+    <!-- endinjector -->
+     
+    <!-- PERSONAL CSS-->
+
+	<!-- injector:css -->
+    <link href="stylesheets/screen.css" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/fontcustom.css" rel="stylesheet" />
+    <link rel="stylesheet" href="stylesheets/awesome-bootstrap-checkbox.css" type="text/css" />
+    <!-- endinjector -->
+    
     <!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
     <script type="text/javascript">
         window.cookieconsent_options = {"message":"Questo sito utilizza i cookie per garantire la miglior esperienza di navigazione possibile.","dismiss":"Ok, ok. Ora togliti.","learnMore":"Maggiori informazioni","link":"#!/privacy","theme":"dark-floating"};
     </script>
-    
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.9/cookieconsent.min.js"></script>
-    <!-- End Cookie Consent plugin -->
-
-	<!-- PERSONAL CSS-->
-
-    <link href="stylesheets/screen.css" rel="stylesheet" type="text/css" />
-    <link href="stylesheets/fontcustom.css" rel="stylesheet" />
-    <link rel="stylesheet" href="stylesheets/awesome-bootstrap-checkbox.css" type="text/css" />
-
-    <!-- bower:js -->
-	<!-- endbower -->
-	
-	<!-- bower:css -->
-	<!-- endbower -->

@@ -1,7 +1,7 @@
 <div id="contacts" ng-controller="contactsController as contacts">
     <div class="container">
         <h3>Contatti</h3>
-        <p>Hai bisogno di informazioni? Ti serve qualche chiarimento? Hai una voglia incontenibile di seguire un corso ma hai un dubbio? Per qualsiasi domanda non esitare a contattarci!</p>
+        <p class="introduction">Hai bisogno di informazioni? Ti serve qualche chiarimento? Hai una voglia incontenibile di seguire un corso ma hai un dubbio? Per qualsiasi domanda non esitare a contattarci!</p>
         <div id="contact-form-wrapper" ng-class="contacts.getClass(0)">
             <div class="container">
                 <h4>Contattaci</h4>
@@ -12,10 +12,9 @@
                             <bootstrap-input form="contactForm" type="email" name="from" placeholder="Indirizzo e-mail" ng-model="contacts.contactsForm.from" required="required"></bootstrap-input>
                             <bootstrap-input form="contactForm" type="text" name="subject" placeholder="Oggetto" ng-model="contacts.contactsForm.subject" ng-minlength="4" required="required"></bootstrap-input>
                             <bootstrap-textarea form="contactForm" rows="3" name="message" placeholder="Inserisci qui il tuo messaggio" ng-model="contacts.contactsForm.message" ng-minlength="10" ng-maxlength="1000" required="required"></bootstrap-textarea>
-                            <input type="submit" id="contacts-submit" ng-class="{'btn-success' : contactForm.$valid, 'btn-grey' : contactForm.$invalid}" value="Invia"/>
+                            <input type="submit" id="contacts-submit" class="btn-success" ng-disabled="contactForm.$invalid" value="Invia"/>
                         </form>
                     </div>
-                    <uib-alert class="distant" type="{{contacts.alertType}}" ng-bind="contacts.alertMessage" ng-if="contacts.alertMessage" close="contacts.closeAlertMessage()" dismiss-on-timeout="6000"></uib-alert>
                 </div>
             </div>
         </div>

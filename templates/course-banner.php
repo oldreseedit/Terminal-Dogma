@@ -1,4 +1,4 @@
-<p centered>
+<h5 centered class="black">
 	<span><span ng-bind="course.courseDescription.duration"></span> ore, </span>
 	<span><emph><span ng-bind="course.hourPrice"></span> €</emph> l'ora.</span>
 	<span>Il corso </span>
@@ -10,4 +10,4 @@
 		<emph><time ng-bind="course.firstLesson"></time></emph>
 	</span>
 	<span ng-if="!course.courseHasStarted && !course.firstLesson">La data della prima lezione non è stata ancora decisa.</span>
-</p>
+</h5>

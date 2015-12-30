@@ -20405,24 +20405,28 @@ body {
 #contacts .angular-google-map-container {
   height: 20em;
 }
+/* line 10, ../sass/_contacts.scss */
+#contacts .introduction {
+  margin-bottom: 3em;
+}
 @media all and (min-device-width: 1080px) {
-  /* line 10, ../sass/_contacts.scss */
+  /* line 14, ../sass/_contacts.scss */
   #contacts #contact-form-wrapper, #contacts #how-to-map-wrapper {
     margin-bottom: -99999px;
     padding-bottom: 99999px;
   }
 }
 @media all and (max-device-width: 1079px) {
-  /* line 19, ../sass/_contacts.scss */
+  /* line 23, ../sass/_contacts.scss */
   #contacts #contact-form-wrapper {
     margin-top: 3vw;
   }
 }
-/* line 39, ../sass/_contacts.scss */
+/* line 43, ../sass/_contacts.scss */
 #contacts #contacts-map {
   margin-bottom: 19px;
 }
-/* line 43, ../sass/_contacts.scss */
+/* line 47, ../sass/_contacts.scss */
 #contacts .distant {
   margin-top: 2em;
 }

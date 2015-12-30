@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#"  ng-app="Main">
     
 <head>
     <!-- HEAD DECLARATION -->
     <?php include_once("basics/head.php"); ?>
 </head>
 
-<body ng-app="Main">
+<body>
     <!-- Google Analytics Snippet -->
     <?php include_once("basics/analyticstracking.php"); ?>
     

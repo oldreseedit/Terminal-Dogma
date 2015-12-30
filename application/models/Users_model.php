@@ -51,7 +51,7 @@ class Users_model extends CI_Model
         {
                 $this->db->select('Password');
                 $this->db->from(self::table_name);
-                $this->db->where(array('Username' => $userID));
+                $this->db->where("Username LIKE BINARY ", $userID);
                 $query = $this->db->get();
                 $result = $query->row_array();
                 $encrypted_password = $result['Password'];

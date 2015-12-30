@@ -237,7 +237,7 @@ class Course_material extends CI_Controller {
         {
         	if(!$this->permissions->canSee())
         	{
-//         		echo json_encode(array("error" => true, "description" => "Non risulti essere iscritto a questo corso.", "errorCode" => "ILLEGAL_ACCESS", "parameters" => array("username")));
+        		echo json_encode(array("error" => true, "description" => "Non risulti essere iscritto a questo corso.", "errorCode" => "ILLEGAL_ACCESS", "parameters" => array("username")));
         		return;
         	}
         	
