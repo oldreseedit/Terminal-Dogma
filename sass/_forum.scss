@@ -23,6 +23,32 @@
 	.table a {
 		@extend .leaf;
 	}
+	
+	.thread
+	{
+		div {
+			text-align: left;
+		}
+		
+		.message-author {
+		
+			.avatar {
+				width: 64px;
+			}	
+		}
+		
+		.thread-message-publication {
+			text-align: right;
+			border-bottom: 1px solid;
+		}
+		
+		.thread-message {
+			@extend .bg-lightest-grey;
+			border-radius: 10px;
+    		padding: 20px;
+			margin-bottom: 15px;
+		}
+	}
 }
 
 .background-image-none{

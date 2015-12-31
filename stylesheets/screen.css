@@ -19765,7 +19765,7 @@ h1 {
 }
 
 /* line 69, ../sass/_palette.scss */
-.bg-lightest-grey, .table-striped > tbody > tr:nth-of-type(even) {
+.bg-lightest-grey, #forum .thread .thread-message, .table-striped > tbody > tr:nth-of-type(even) {
   background-color: #f7f7f7;
 }
 
@@ -20300,8 +20300,27 @@ body {
   vertical-align: middle;
   text-align: center;
 }
+/* line 29, ../sass/_forum.scss */
+#forum .thread div {
+  text-align: left;
+}
+/* line 35, ../sass/_forum.scss */
+#forum .thread .message-author .avatar {
+  width: 64px;
+}
+/* line 40, ../sass/_forum.scss */
+#forum .thread .thread-message-publication {
+  text-align: right;
+  border-bottom: 1px solid;
+}
+/* line 45, ../sass/_forum.scss */
+#forum .thread .thread-message {
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 15px;
+}
 
-/* line 28, ../sass/_forum.scss */
+/* line 54, ../sass/_forum.scss */
 .background-image-none {
   background-image: none;
 }
