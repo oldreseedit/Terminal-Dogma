@@ -8,7 +8,7 @@ main.directive('gridsterAutoResize',['$timeout',function($timeout){
 			switch(itemID)
 			{
 				case 'courseDescription':
-					event = 'courses';
+					event = 'course';
 					break;
 				case 'courseTeacher':
 					event = 'teacher';
@@ -23,7 +23,7 @@ main.directive('gridsterAutoResize',['$timeout',function($timeout){
 					event = 'materials';
 					break;
 				case 'courseBanner':
-					event = 'courses';
+					event = 'course';
 					break;
 				case 'profileSummary':
 					event = 'summary';

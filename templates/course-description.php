@@ -1,10 +1,10 @@
 <div class="container">
     <div class="course-description-introduction">
-        <div class="container" id="course-description-introduction-container" size-on-scope>
-            <div class="course-icon" ng-style="{'height':courseDescriptionIntroductionContainerHeight + 'px'}">
-                <span ng-class="'icon-{{course.courseDescription.icon}}'" fittext></span>
+        <div class="container">
+            <div class="course-icon equal-height">
+                <span ng-class="'icon-'+course.courseDescription.icon" fittext="0.8"></span>
             </div>
-            <div class="course-description">
+            <div class="course-description equal-height">
                 <span ng-bind-html="course.courseDescription.description"></span>
             </div>
         </div>

@@ -211,7 +211,7 @@ main.controller('courseController',['utilities','$scope','$http','$server','$rou
     
      // MAIN
     
-    self.coursesInfoAjax = $server.post('courses/get',{courseID : self.courseID}).then(function(response) {
+    self.courseInfoAjax = $server.post('courses/get',{courseID : self.courseID}).then(function(response) {
     	self.courseDescription = response.data;
     	self.courseHasStarted = moment().isAfter(moment(response.data.startingDate));
     	self.hourPrice = Math.round(100 * self.courseDescription.price/self.courseDescription.duration)/100;
@@ -224,7 +224,7 @@ main.controller('courseController',['utilities','$scope','$http','$server','$rou
         	{
         		if($scope.gridsterItems[i].id === 'courseDescription')
         		{
-        			$scope.gridsterItems[i].title = response.data.name;
+        			$scope.gridsterItems[i].title = self.courseName;
         		}
         	}        		
     	}
@@ -311,7 +311,7 @@ main.controller('courseController',['utilities','$scope','$http','$server','$rou
     		 },
     		 function(newValues)
     		 {
-    			 if(newValues[0] !== undefined && newValues[1] !== undefined) $timeout($scope.$broadcast('courses'));
+    			 if(newValues[0] !== undefined && newValues[1] !== undefined) $timeout(function(){ $scope.$broadcast('course'); });
     		 },
     		 true
     );
