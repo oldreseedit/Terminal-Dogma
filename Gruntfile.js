@@ -356,6 +356,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-ftp-deploy');
     grunt.loadNpmTasks('grunt-webfont');
 
-//    grunt.registerTask('default', ['clean:all', 'ngtemplates', 'bower_concat', 'concat:javascript', 'uglify', 'compass', 'concat:css', 'autoprefixer', 'cssmin', 'copy', 'clean:build', 'filerev', 'injector']);
-      grunt.registerTask('default', ['webfont']);
+    grunt.registerTask('default', ['clean:all', 'webfont', 'ngtemplates', 'bower_concat', 'concat:javascript', 'uglify', 'compass', 'concat:css', 'autoprefixer', 'cssmin', 'copy', 'clean:build', 'filerev', 'injector']);
 };
