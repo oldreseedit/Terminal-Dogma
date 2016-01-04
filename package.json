@@ -29,6 +29,7 @@
     "grunt-purifycss": "^0.1.0",
     "grunt-svg-css": "^0.2.8",
     "grunt-uncss": "^0.4.4",
+    "grunt-webfont": "^1.1.0",
     "grunt-wiredep": "^2.0.0",
     "npm": "^3.5.1",
     "uglify": "^0.1.5"

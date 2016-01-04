@@ -22,7 +22,7 @@
                                             <span class="middler"></span><span class="middle noselect clickable" ng-bind="tile.title" fittext="0.9" fittext-multiple="titles"></span>
                                         </div>
                                         <div class="content" ng-style="courses.getTileContent()">
-                                            <span class="middler"></span><span class="middle clickable" ng-class="courses.getIconClass(tile)" fittext="0.9"></span>
+                                            <span class="clickable" ng-class="courses.getIconClass(tile)" fittext="0.9"></span>
                                         </div>
                                     </front>
                                     <back>

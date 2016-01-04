@@ -4,6 +4,18 @@ module.exports = function(grunt) {
     	
     	pkg: grunt.file.readJSON('package.json'),
 		
+    	webfont: {
+    		icons: {
+    			src: 'stylesheets/vectors/*.svg',
+    			dest: 'stylesheets/',
+    			options: {
+    				fontFilename: 'icon-{hash}',
+    				font: 'fontcustom',
+    				syntax: 'bootstrap'
+    			}
+    		}
+    	},
+    	
     	ngtemplates:  {
             app: 
             {
@@ -126,7 +138,7 @@ module.exports = function(grunt) {
 			      {expand: true, src: ['index.php'], dest: 'dist/'},
 			      {expand: true, src: ['php.ini'], dest: 'dist/'},
 //			      {expand: true, src: ['bower_components/**'], dest: 'dist/'},
-			      {src: ['stylesheets/fontcustom_*'], dest: 'dist/'},
+			      {src: ['stylesheets/icon-*'], dest: 'dist/'},
 			    ],
 			  },
 		},
@@ -250,39 +262,6 @@ module.exports = function(grunt) {
 			  }
 			}
 		
-//		rsync: {
-//		    options: {
-//		        args: ["--verbose"],
-////		        exclude: [".git*","*.scss","node_modules"],
-//		        recursive: true
-//		    },
-//		    dist: {
-//		        options: {
-//		            src: "dist/",
-//		            dest: "/home/tflati/public_html/reseed/",
-//		            host: "tflati@reseed.it",
-//		            dryRun: true
-//		        }
-//		    },
-//		}
-		
-//		scp: {
-//		    options: {
-//		        host: 'www.reseed.it',
-//		        username: 'tflati',
-//		        password: 'arc0bal3n0'
-//		    },
-//		    your_target: {
-//		        files: [{
-//		            cwd: 'dist/',
-//		            src: '**',
-////		            filter: 'isFile',
-//		            // path on the server 
-//		            dest: 'public_html/reseed/'
-//		        }]
-//		    },
-//		}
-    	
 //		uncss: {
 //			  dist: {
 //			    files: {
@@ -375,8 +354,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-autoprefixer');
     grunt.loadNpmTasks('grunt-filerev');
     grunt.loadNpmTasks('grunt-ftp-deploy');
-//    grunt.loadNpmTasks("grunt-rsync")
-//    grunt.loadNpmTasks('grunt-scp');
+    grunt.loadNpmTasks('grunt-webfont');
 
-    grunt.registerTask('default', ['clean:all', 'ngtemplates', 'bower_concat', 'concat:javascript', 'uglify', 'compass', 'concat:css', 'autoprefixer', 'cssmin', 'copy', 'clean:build', 'filerev', 'injector']);
+//    grunt.registerTask('default', ['clean:all', 'ngtemplates', 'bower_concat', 'concat:javascript', 'uglify', 'compass', 'concat:css', 'autoprefixer', 'cssmin', 'copy', 'clean:build', 'filerev', 'injector']);
+      grunt.registerTask('default', ['webfont']);
 };
