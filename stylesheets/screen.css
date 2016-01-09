@@ -19411,31 +19411,32 @@ button.close {
 .container {
   width: auto;
   height: inherit;
+  max-height: inherit;
   overflow: hidden;
   margin: 0;
   padding: 0;
 }
 
-/* line 139, ../sass/_tricks.scss */
+/* line 140, ../sass/_tricks.scss */
 .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper {
   margin-bottom: 3vw;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 139, ../sass/_tricks.scss */
+  /* line 140, ../sass/_tricks.scss */
   .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper {
     width: 80%;
     margin-left: 10%;
   }
 }
 @media all and (max-device-width: 539px) {
-  /* line 139, ../sass/_tricks.scss */
+  /* line 140, ../sass/_tricks.scss */
   .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper {
     width: 96%;
     margin-left: 2%;
   }
 }
 
-/* line 157, ../sass/_tricks.scss */
+/* line 158, ../sass/_tricks.scss */
 .fa-stack img {
   vertical-align: baseline;
 }
@@ -20292,25 +20293,34 @@ body {
   /*         @extend .bg-lightest-grey; */
 }
 /* line 11, ../sass/_course.scss */
+#singleCourse .no-gridster-item {
+  margin-bottom: 1em;
+  max-height: 50vh;
+}
+/* line 16, ../sass/_course.scss */
 #singleCourse .panel-title {
   font-variant: small-caps;
 }
-/* line 21, ../sass/_course.scss */
+/* line 26, ../sass/_course.scss */
 #singleCourse a {
   text-decoration: none;
   color: inherit;
 }
-/* line 73, ../sass/_course.scss */
+/* line 78, ../sass/_course.scss */
 #singleCourse .agendaButtons {
   margin-bottom: 1vw;
   text-align: center;
 }
-/* line 82, ../sass/_course.scss */
+/* line 84, ../sass/_course.scss */
+#singleCourse .banner {
+  padding: 1em 0;
+}
+/* line 88, ../sass/_course.scss */
 #singleCourse .banner p {
   color: black;
   font-weight: bold;
 }
-/* line 87, ../sass/_course.scss */
+/* line 93, ../sass/_course.scss */
 #singleCourse .banner emph {
   color: white;
 }

@@ -7,10 +7,10 @@ main.controller('courseController',['utilities','$scope','$http','$server','$rou
     $route.current.locals.username = self.username; // For modal and GridsterResizer
     
     self.courseID = $routeParams.courseID;
-    self.hasAccessToMaterial = false;
     
     // Role-based access
     if($rootScope.admin == true) self.hasAccessToMaterial = true; 
+    else self.hasAccessToMaterial = false;
     
     $scope.events = [];
     $scope.eventSources = [{events: $scope.events, color: 'green'}];
@@ -33,7 +33,7 @@ main.controller('courseController',['utilities','$scope','$http','$server','$rou
     		}
     };
     
-    $scope.gridsterItems = [];
+    var scrollbarsCreated = false;
     
     /* METHODS */
     
@@ -68,146 +68,56 @@ main.controller('courseController',['utilities','$scope','$http','$server','$rou
         });
     };
     
-    self.setStaticProperties = function(item)
-    {	
-		switch(item.id)
-		{
-			case 'courseDescription':
-				item.title = self.courseName;
-				item.bgColour = 'bg-light-olive';
-            	item.templateUrl = 'templates/course-description.php';
-				break;
-			case 'courseTeacher':
-				item.title = 'Docente';
-				item.bgColour = 'bg-light-lawn';
-            	item.templateUrl = 'templates/course-teacher.php';
-				break;
-			case 'calendar':
-				item.title = 'Calendario delle lezioni';
-				item.bgColour = 'bg-light-green';
-            	item.templateUrl = 'templates/calendar.php';
-				break;
-			case 'courseNotifications':
-				item.title = 'Avvisi';
-				item.bgColour = 'bg-light-leaf';
-            	item.templateUrl = 'templates/course-notifications.php';
-            	item.minSizeY = 2;
-				break;
-			case 'courseMaterials':
-				item.title = 'Materiale del corso';
-				item.bgColour = 'bg-light-water';
-            	item.templateUrl = 'templates/course-materials.php';
-            	item.minSizeY = 2;
-				break;
-			case 'courseBanner':
-				item.templateUrl = 'templates/course-banner.php';
-		}
-    }
+    self.items = [
+          {
+                id : 'courseDescription',
+                title: self.courseName,
+                bgColour: 'bg-light-olive',
+                templateUrl: 'templates/course-description.php',
+                width: 60
+          },
+          {
+              id : 'courseTeacher',
+              title: 'Docente',
+              bgColour: 'bg-light-lawn',
+              templateUrl: 'templates/course-teacher.php',
+              width: 39,
+              offset: 1
+          },
+          {
+        	  id: 'courseBanner',
+        	  templateUrl: 'templates/course-banner.php',
+              width: 100
+          },
+          {
+              id : 'calendar',
+              title: 'Calendario delle lezioni',
+              bgColour: 'bg-light-green',
+              templateUrl: 'templates/calendar.php',
+              width: 40,
+              noMaxHeight: true
+          },
+          {
+              id : 'courseNotifications',
+              title: 'Avvisi',
+              bgColour: 'bg-light-leaf',
+              templateUrl: 'templates/course-notifications.php',
+              width: 59,
+              offset: 1              	  
+          },
+          {
+              id : 'courseMaterials',
+              title: 'Materiale del corso',
+              bgColour: 'bg-light-water',
+              templateUrl: 'templates/course-materials.php',
+              width: 100                	  
+          }
+	];
     
-    /* PROPER OBJECTS AND METHODS */
-    
-    $scope.registerMeasures = function(item)
+    self.getItemClass = function(item)
     {
-		$http.post('course/update_block_positions',{username: self.username, activityID: self.courseID, panelID: item.id, measures : item.measures}).then(
-    			function(response)
-    			{
-//        			console.log(response);
-    			},
-    			function(error)
-    			{
-    				console.log(error);
-    			}
-    	);
+    	return 'col-' + item.width + (item.offset ? ' offset-'+item.offset : '') ;
     };
-    
-    $scope.registerAllMeasures = function(grid)
-    {
-//    	console.log(grid);
-    	angular.forEach(grid,function(items){
-    		angular.forEach(items,function(item){
-    			var data = {};
-				data.measures = JSON.stringify(item.toJSON());
-//				console.log(item.$element.scope());
-				for(var i=0; i<$scope.gridsterItems.length; i++)
-				{
-					if(item.col === $scope.gridsterItems[i].col && item.row === $scope.gridsterItems[i].row) data.id = $scope.gridsterItems[i].id;
-				}
-				$scope.registerMeasures(data);
-    		});
-    	});
-    }
-    
-    self.positionsAjax = $server.post('course/load_block_positions',{username : self.username, courseID : self.courseID},false).then(
-		function(response)
-		{
-//    			console.log(response.data);
-			if(!response.data.error)
-			{
-				var items = [];
-				angular.forEach(response.data.panelMeasures, function(m)
-				{
-					var item = JSON.parse(m.panel_measure);
-					item.id = m.panelID;
-					items.push(item);
-				});
-				
-				$timeout(function(){ $scope.$broadcast('measuresLoaded'); });	    				
-			}
-			else
-			{
-				 var items = [
-                     {
-                    	 id: 'courseDescription',
-                         sizeX: 8,
-                         sizeY: 1,
-                         row : 0,
-                         col: 0
-                     },
-                     {
-                    	 id: 'courseTeacher',
-                         sizeX: 4,
-                         sizeY: 1,
-                         col : 8,
-                         row: 0
-                     },
-                     {
- 						id: 'courseBanner',
-// 							templateUrl: 'templates/course-banner.php',
- 					    sizeX: 12,
- 					    sizeY: 1,
- 					    row :10,
- 					    col: 0
-					},
-	                 {
-	                	 id: 'calendar',
-	                     sizeX: 6,
-	                     sizeY: 1,
-	                     col : 0,
-	                     row: 20
-	                 },
-	                 {
-	                	 id: 'courseNotifications',
-	                     sizeX: 6,
-	                     sizeY: 1,
-	                     col : 6,
-	                     row: 20
-	                 },
-	                 {
-	                	 id: 'courseMaterials',
-	                     sizeX: 12,
-	                     sizeY: 1,
-	                     col : 0,
-	                     row: 30
-	                 },
-                 ];
-			}
-			angular.forEach(items,function(item){
-				self.setStaticProperties(item);
-				
-				$scope.gridsterItems.push(item);
-			});
-		}
-    );
     
      // MAIN
     
@@ -218,38 +128,24 @@ main.controller('courseController',['utilities','$scope','$http','$server','$rou
 
 		self.courseName = response.data.name;
 		$rootScope.title = self.courseName;
-    	if($scope.gridsterItems.length > 0)
+    	for(var i=0; i< self.items.length; i++)
     	{
-        	for(var i=0; i< $scope.gridsterItems.length; i++)
-        	{
-        		if($scope.gridsterItems[i].id === 'courseDescription')
-        		{
-        			$scope.gridsterItems[i].title = self.courseName;
-        		}
-        	}        		
+    		if(self.items[i].id === 'courseDescription')
+    		{
+    			self.items[i].title = self.courseName;
+    		}
     	}
     });
     
     self.teacherAjax = $server.post('teachers/get',{courseID : self.courseID}).then(
 		function(response)
 		{
-//			console.log(response);
 			self.teacher = response.data;
-            	
-        	$scope.$watch(
-        		function(){
-        			if($('#singleCourse').find('img').length > 0) return  $('#singleCourse').find('img')[0].complete;
-        		},
-        		function(newValue){
-        			if(newValue === true) $timeout(function(){ $scope.$broadcast('teacher'); });
-        		}
-        	); 
 		}
     );
     
     self.notificationsAjax = $server.post('notifications/get',{courseID : self.courseID}).then(function(response) {
     	 self.notifications = response.data;
-    	$timeout(function(){ $scope.$broadcast('notifications'); });
     });
     
     self.materialsAjax = $server.post('course_material/get_all',{courseID : self.courseID}, false).then(function(response) {
@@ -281,39 +177,93 @@ main.controller('courseController',['utilities','$scope','$http','$server','$rou
 	        self.materials = data;
         }
         else self.materials = [];
-    	
-        $timeout(function(){ $scope.$broadcast('materials'); });
     });
     
     self.lessonsAjax = $server.post('lessons/get',{courseID: self.courseID}).then(function(response){
      	self.lessons = response.data;
         
         self.buildDB();
-    	
-        $timeout(function(){ $scope.$broadcast('calendar'); });
     });
     
     self.coursesAjax = $server.post('payment_interface/get_courses',{username: self.username}).then(
-    		function(response)
-    		{
-				self.tempCourses = response.data;
-				
-			    for(var i=0; i<self.tempCourses.length; i++)
-			    {
-				   	if(self.tempCourses[i] === self.courseID) self.hasAccessToMaterial = true;
-			    }
-    		}
-    	);
+		function(response)
+		{
+			self.tempCourses = response.data;
+			
+		    for(var i=0; i<self.tempCourses.length; i++)
+		    {
+			   	if(self.tempCourses[i] === self.courseID) self.hasAccessToMaterial = true;
+		    }
+		}
+	);
     
     $scope.$watchCollection(
-    		 function(){
-    			 return [self.courseDescription,self.hasAccessToMaterial];
-    		 },
-    		 function(newValues)
-    		 {
-    			 if(newValues[0] !== undefined && newValues[1] !== undefined) $timeout(function(){ $scope.$broadcast('course'); });
-    		 },
-    		 true
+    		function()
+    		{
+    			var ajaxes = [self.coursesAjax, self.teacherAjax, self.courseInfoAjax, self.lessonsAjax, self.notificationsAjax, self.materialsAjax];
+    			var states = [];
+    			var allDefined = true;
+    			for(var i=0; i<ajaxes.length;i++)
+    			{
+    				if(!ajaxes[i].$$state) allDefined = false;
+    				else states[i] = ajaxes[i].$$state.status;
+    			}
+    			return states;
+    		},
+    		function(newValues){
+    			
+    			var allReady = true;
+    			
+    			for(var i = 0; i < newValues.length; i++)
+    			{
+    				if(!newValues[i]) allReady=false;
+    			}
+    			
+    			if(allReady)
+    			{
+    				$timeout(function(){
+    					
+    					$scope.$watchCollection(
+    							function(){
+    				    			if($('.no-gridster-item').length > 0)
+    				    			{
+    				    				var items = $('.no-gridster-item');
+    				    				var heights = [];
+    				    				items.each(function(){
+    				    					heights.push($(this).height());
+    				    				});
+    				    				return heights;
+    				    			}
+    							},
+    							function(){
+    		    					
+    		    	    			$('.no-gridster-item').each(function(){
+    		    	    				$(this).find('.scrollbar-wrapper').height(
+    		    	    						$(this).height() - $(this).find('.panel-title').height() - 20
+    		    	    				);
+    		    	    			});
+    		    	    			
+    		    	    			scrollbars = $('.no-gridster-item').find('.scrollbar');
+    		    	    			
+    		    	    			if(!scrollbarsCreated)
+    		    					{
+    		    						scrollbars.perfectScrollbar({
+    		    							suppressScrollX: true
+    		    						});
+    		    						scrollbarsCreated = true;
+    		    					}
+    		    					else
+    		    					{
+    		    						scrollbars.perfectScrollbar('update');
+    		    					}
+    								
+    							}
+    					);	
+    				});
+    			}
+    		}
     );
+    
+    
     
 }]);
