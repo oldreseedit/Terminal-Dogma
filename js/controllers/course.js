@@ -243,7 +243,7 @@ main.controller('courseController',['utilities','$scope','$http','$server','$rou
     		    	    				);
     		    	    			});
     		    	    			
-    		    	    			scrollbars = $('.no-gridster-item').find('.scrollbar');
+    		    	    			var scrollbars = $('.no-gridster-item').find('.scrollbar');
     		    	    			
     		    	    			if(!scrollbarsCreated)
     		    					{

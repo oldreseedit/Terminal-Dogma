@@ -20553,39 +20553,44 @@ body {
   /*         @extend .bg-lightest-grey; */
 }
 /* line 11, ../sass/_profile.scss */
+#profile .no-gridster-item {
+  margin-bottom: 1em;
+  max-height: 50vh;
+}
+/* line 16, ../sass/_profile.scss */
 #profile .panel-title {
   font-variant: small-caps;
 }
-/* line 17, ../sass/_profile.scss */
+/* line 22, ../sass/_profile.scss */
 #profile .panel-content {
   padding: 26px 10px 26px 10px;
 }
-/* line 31, ../sass/_profile.scss */
+/* line 36, ../sass/_profile.scss */
 #profile .profile-name-level-xp .seed-level {
   /*         	font-size: 1.4em; */
 }
-/* line 43, ../sass/_profile.scss */
+/* line 48, ../sass/_profile.scss */
 #profile .profile-name-level-xp .profile-xp .progress-bar {
   font-size: 1em;
 }
-/* line 49, ../sass/_profile.scss */
+/* line 54, ../sass/_profile.scss */
 #profile .profile-name-level-xp .profile-xp .progress-striped, #profile .profile-name-level-xp .profile-xp .progress-bar {
   height: 30px;
 }
-/* line 54, ../sass/_profile.scss */
+/* line 59, ../sass/_profile.scss */
 #profile .profile-name-level-xp p {
   padding: 0;
 }
-/* line 59, ../sass/_profile.scss */
+/* line 64, ../sass/_profile.scss */
 #profile .profile-info {
   padding-top: 1em;
 }
-/* line 63, ../sass/_profile.scss */
+/* line 68, ../sass/_profile.scss */
 #profile .profile-info a {
   color: inherit;
   text-decoration: none;
 }
-/* line 74, ../sass/_profile.scss */
+/* line 79, ../sass/_profile.scss */
 #profile .profile-rewards .fa-stack-1x {
   top: -0.5em;
   font-size: 0.6em;
