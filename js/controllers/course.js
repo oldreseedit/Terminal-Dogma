@@ -119,6 +119,17 @@ main.controller('courseController',['utilities','$scope','$http','$server','$rou
     	return 'col-' + item.width + (item.offset ? ' offset-'+item.offset : '') ;
     };
     
+    self.isNewRow = function(index)
+    {
+    	var sum = 0;
+    	for(var i=0; i<index; i++)
+    	{
+    		sum += self.items[i].width + (self.items[i].offset ? self.items[i].offset : 0);
+    	}
+    	if(sum%100 === 0) return true;
+    	else return false;
+    }
+    
      // MAIN
     
     self.courseInfoAjax = $server.post('courses/get',{courseID : self.courseID}).then(function(response) {

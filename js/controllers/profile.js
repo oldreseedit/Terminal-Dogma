@@ -51,30 +51,30 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
         	  title: 'Sommario',
         	  bgColour: 'bg-light-olive',
         	  templateUrl : 'templates/profile-summary.php',
-        	  width: '50'
+        	  width: 50
           },
           {
         	  id : 'profileNotifications',
         	  title: 'Notifiche',
         	  bgColour: 'bg-light-lawn',
         	  templateUrl : 'templates/profile-notifications.php',
-        	  width: '49',
-        	  offset: '1'
+        	  width: 49,
+        	  offset: 1
           },
           {
         	  id : 'profileAchievements',
         	  title: 'Achievements',
         	  bgColour: 'bg-light-green',
         	  templateUrl : 'templates/profile-achievements.php',
-        	  width: '50'
+        	  width: 50
           },
           {
         	  id : 'profileRewards',
         	  title: 'Rewards',
         	  bgColour: 'bg-light-leaf',
         	  templateUrl : 'templates/profile-rewards.php',
-        	  width: '49',
-        	  offset: '1'
+        	  width: 49,
+        	  offset: 1
           },
 	];
     
@@ -82,6 +82,17 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
     {
     	return 'col-' + item.width + (item.offset ? ' offset-'+item.offset : '') ;
     };
+    
+    self.isNewRow = function(index)
+    {
+    	var sum = 0;
+    	for(var i=0; i<index; i++)
+    	{
+    		sum += self.items[i].width + (self.items[i].offset ? self.items[i].offset : 0);
+    	}
+    	if(sum%100 === 0) return true;
+    	else return false;
+    }
     
     /* PROPER OBJECTS AND METHODS */
 
