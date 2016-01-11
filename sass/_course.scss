@@ -67,12 +67,16 @@
     }
     
     .course-icon{
-        @extend .col-25;
-        @extend .text-center;
+		width: 10em;
+/*     	padding-top: 0.6em; */
+    	float: left;
+    	padding: 0.6em;
+    	padding-right: 1.5em;
+    	padding-bottom: 0.8em;
     }
     
     .course-description{
-        @extend .col-75;
+        @extend .col-100;
     }
     
     .agendaButtons

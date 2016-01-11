@@ -237,7 +237,8 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
     		    	    			if(!scrollbarsCreated)
     		    					{
     		    						scrollbars.perfectScrollbar({
-    		    							suppressScrollX: true
+    		    							suppressScrollX: true,
+    		    							useSelectionScroll: true
     		    						});
     		    						scrollbarsCreated = true;
     		    					}

@@ -259,7 +259,8 @@ main.controller('courseController',['utilities','$scope','$http','$server','$rou
     		    	    			if(!scrollbarsCreated)
     		    					{
     		    						scrollbars.perfectScrollbar({
-    		    							suppressScrollX: true
+    		    							suppressScrollX: true,
+    		    							useSelectionScroll: true
     		    						});
     		    						scrollbarsCreated = true;
     		    					}

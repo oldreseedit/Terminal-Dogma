@@ -1,10 +1,8 @@
 <div class="container">
     <div class="course-description-introduction">
         <div class="container">
-            <div class="course-icon equal-height">
-                <span ng-class="'icon-'+course.courseDescription.icon" fittext="0.8"></span>
-            </div>
-            <div class="course-description equal-height">
+            <div class="course-description">
+				<img alt="{{course.courseID}}" src="imgs/{{course.courseID}}.png" class="course-icon">
                 <span ng-bind-html="course.courseDescription.description"></span>
             </div>
         </div>
