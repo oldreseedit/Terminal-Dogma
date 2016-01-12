@@ -33,6 +33,8 @@ class Foreign_keys_model extends CI_Model
 		if($this->exists("user_achievements_rewards_ibfk_3")) $this->db->query("ALTER TABLE `user_achievements_rewards` DROP FOREIGN KEY `user_achievements_rewards_ibfk_3`;");
 		if($this->exists("users_info_ibfk_1")) $this->db->query("ALTER TABLE `users_info` DROP FOREIGN KEY `users_info_ibfk_1`;");
 		if($this->exists("notifications_ibfk_1")) $this->db->query("ALTER TABLE `notifications` DROP FOREIGN KEY `notifications_ibfk_1`;");
+		if($this->exists("course_graph_ibfk_1")) $this->db->query("ALTER TABLE `course_graph` DROP FOREIGN KEY `course_graph_ibfk_1`;");
+		if($this->exists("course_graph_ibfk_2")) $this->db->query("ALTER TABLE `course_graph` DROP FOREIGN KEY `course_graph_ibfk_2`;");
 		
 		$this->db->trans_complete();
 	}
@@ -61,6 +63,8 @@ class Foreign_keys_model extends CI_Model
 		$this->db->query("ALTER TABLE `user_achievements_rewards` ADD FOREIGN KEY (`achievementOrRewardID`) REFERENCES `tflati_reseed`.`achievements_and_rewards`(`achievementRewardID`) ON DELETE CASCADE ON UPDATE CASCADE;");
 		$this->db->query("ALTER TABLE `users_info` ADD FOREIGN KEY (`userID`) REFERENCES `tflati_reseed`.`users`(`Username`) ON DELETE CASCADE ON UPDATE CASCADE;");
 		$this->db->query("ALTER TABLE `notifications` ADD FOREIGN KEY (`username`) REFERENCES `tflati_reseed`.`users`(`Username`) ON DELETE CASCADE ON UPDATE CASCADE;");
+		$this->db->query("ALTER TABLE `course_graph` ADD FOREIGN KEY (`courseID`) REFERENCES `tflati_reseed`.`courses`(`courseID`) ON DELETE CASCADE ON UPDATE CASCADE;");
+		$this->db->query("ALTER TABLE `course_graph` ADD FOREIGN KEY (`nextCourseID`) REFERENCES `tflati_reseed`.`courses`(`courseID`) ON DELETE CASCADE ON UPDATE CASCADE;");
 		
 		$this->db->trans_complete();
 	}

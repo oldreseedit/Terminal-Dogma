@@ -6,6 +6,7 @@ class Courses extends CI_Controller {
                 parent::__construct();
                 $this->load->helper('url');
                 $this->load->model('courses_model');
+                $this->load->model('course_graph_model');
         }
         
         public function index()
@@ -16,6 +17,7 @@ class Courses extends CI_Controller {
         public function init()
         {
         	$this->courses_model->init();
+        	$this->course_graph_model->init();
         }
         
         public function exists()
@@ -33,15 +35,48 @@ class Courses extends CI_Controller {
         public function get()
         {
             $courseID = $this->input->post('courseID');
-//             $courseID = "java";
-            
             if($courseID == false)
             {
                 echo json_encode(array("error" => true, "description" => "Specificare un corso.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("courseID")));
                 return;
             }
+// 			$courseID = "3DStudioMax";
             
-            echo json_encode($this->courses_model->get($courseID));
+            $data = $this->courses_model->get($courseID);
+            $data['next'] = $this->get_next($courseID);
+            
+            echo json_encode($data);
+        }
+        
+        public function add_next()
+        {
+        	$courseID = $this->input->post('courseID');
+        	if($courseID == false)
+        	{
+        		echo json_encode(array("error" => true, "description" => "Specificare un corso.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("courseID")));
+        		return;
+        	}
+        	
+        	$nextCourseID = $this->input->post('nextCourseID');
+        	if($nextCourseID == false)
+        	{
+        		echo json_encode(array("error" => true, "description" => "Specificare il prossimo corso.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("nextCourseID")));
+        		return;
+        	}
+        
+        	echo json_encode($this->course_graph_model->add($courseID, $nextCourseID));
+        }
+        
+        public function get_next($courseID)
+        {
+        	$data = array();
+        	
+        	foreach($this->course_graph_model->get($courseID) as $next)
+        	{
+        		$data[] = $this->courses_model->get($next['nextCourseID']);
+        	}
+        	
+        	return $data;
         }
 }
 ?>

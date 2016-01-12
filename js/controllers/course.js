@@ -133,8 +133,10 @@ main.controller('courseController',['utilities','$scope','$http','$server','$rou
      // MAIN
     
     self.courseInfoAjax = $server.post('courses/get',{courseID : self.courseID}).then(function(response) {
+    	
     	self.courseDescription = response.data;
     	self.courseHasStarted = moment().isAfter(moment(response.data.startingDate));
+    	self.next = response.data.next ? response.data.next[0] : null;
     	self.hourPrice = Math.round(100 * self.courseDescription.price/self.courseDescription.duration)/100;
 
 		self.courseName = response.data.name;
