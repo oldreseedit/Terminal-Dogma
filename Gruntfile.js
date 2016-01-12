@@ -33,7 +33,7 @@ module.exports = function(grunt) {
     	    dest: 'dist/js/bower.js',
     	    cssDest: 'dist/stylesheets/bower.css',
     	    includeDev: true,
-    	    exclude: ['angular', 'font-awesome'],
+    	    exclude: ['angular', 'font-awesome', 'jquery'],
 			mainFiles: {
 				'fullcalendar': ['dist/fullcalendar.js', 'dist/lang/it.js', 'dist/gcal.js', 'dist/fullcalendar.css']
 			},

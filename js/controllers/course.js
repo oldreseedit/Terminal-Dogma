@@ -94,7 +94,7 @@ main.controller('courseController',['utilities','$scope','$http','$server','$rou
               title: 'Calendario delle lezioni',
               bgColour: 'bg-light-green',
               templateUrl: 'templates/calendar.php',
-              width: 40,
+              width: 60,
               noMaxHeight: true
           },
           {
@@ -102,7 +102,7 @@ main.controller('courseController',['utilities','$scope','$http','$server','$rou
               title: 'Avvisi',
               bgColour: 'bg-light-leaf',
               templateUrl: 'templates/course-notifications.php',
-              width: 59,
+              width: 39,
               offset: 1              	  
           },
           {

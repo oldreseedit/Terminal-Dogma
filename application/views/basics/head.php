@@ -8,7 +8,7 @@
     <!-- Personal meta settings -->
     <meta name="description" content="Impara. Crea. Pubblica.">
     <link rel="icon" type="image/jpeg" href="imgs/favicon-alpha.png"/>
-    <title ng-bind="(title ? (title + ' - ' ) : '' ) + 'reSeed'")></title>
+    <title ng-bind="(title ? (title + ' - ' ) : '' ) + 'reSeed'"></title>
 
     <!-- FB -->
         <meta property="og:image" content="assets/img/header_bg.jpg" />

@@ -10,6 +10,7 @@ class Avatars extends CI_Controller {
                 
                 $this->load->helper('url');
                 $this->load->helper('file');
+                $this->load->library('experience');
         }
         
         public function load_temporary_avatar()
@@ -56,7 +57,7 @@ class Avatars extends CI_Controller {
         	{
         		if(substr(get_headers($uri)[0], 9, 3) != "200")
         		{
-        			echo json_encode(array("error" => true, "description" => "URI inesistente: " . $uri, "errorCode" => "MISSING_FILE_ERROR", "parameters" => array("avatarUri")));
+        			echo json_encode(array("error" => true, "description" => get_headers($uri)[0], "errorCode" => "MISSING_FILE_ERROR", "parameters" => array("avatarUri")));
         			return null;
         		}
         		
@@ -105,6 +106,8 @@ class Avatars extends CI_Controller {
         		return;
         	}
         	
+        	$notifications = array();
+        	
         	// Get the temporary file avatar URI
         	$tempURI = $this->input->post('avatarUri');
         	
@@ -130,6 +133,13 @@ class Avatars extends CI_Controller {
         	// Update the database with the new avatar URI
         	$this->userinfo_model->update($userID, array('profilePicture' => $fileURI));
         	
+        	if(empty($previousAvatar))
+        	{
+        		$exp_notifications = $this->experience->add_exp_to_user($userID, 500, null, " per aver aggiunto per la prima volta un avatar al tuo profilo.");
+        		foreach($exp_notifications as $exp_notification)
+        			$notifications[] = $exp_notification;
+        	}
+        	
         	// Get the destination directory
         	$uploadDir = dirname($fileURI);
         	
@@ -152,7 +162,9 @@ class Avatars extends CI_Controller {
         	$files = glob($temp_user_dir . '*', GLOB_MARK);
         	foreach ($files as $file) unlink($file);
         	
-        	echo json_encode(array("error" => false, "description" => $fileURI));
+        	$notifications[] = array("error" => false, "finalAvatarURI" => $fileURI);
+        	
+        	echo json_encode($notifications);
         }
         
         public function file_OK($file)

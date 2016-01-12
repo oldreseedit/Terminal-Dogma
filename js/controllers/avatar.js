@@ -86,7 +86,6 @@ main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','
 				}
 			}).then(
 					function (response) {
-						
 						if(response.data.error) inform.add(response.data.description, {type: 'danger'});
 						else
 						{
@@ -119,7 +118,6 @@ main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','
 					}
 				}).then(
 						function (response) {
-							
 							if(response.data.error) inform.add(response.data.description, {type: 'danger'});
 							else
 							{
@@ -149,8 +147,22 @@ main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','
 				$server.post('avatars/load_avatar',{username: self.username, avatarUri: self.temp}).then(
 						function(response)
 						{
-							inform.add('Avatar caricato con successo!');
-							$scope.$close(response.data.description);
+							for(var i=0; i<response.data.length; i++)
+							{
+								if(!response.data[i].error)
+								{
+									if(response.data[i].finalAvatarURI)
+									{
+										inform.add('Avatar caricato con successo!');
+										$scope.$close(response.data[i].finalAvatarURI);
+									}
+									else inform.add(response.data[i].description);
+								}
+								else
+								{
+									inform.add(response.data[i].description, {type: 'warning'});
+								}
+							}
 						}
 				);
 			}
@@ -174,9 +186,18 @@ main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','
 			(
 					function(response)
 					{
-						self.temp = response.data.description;
-						self.readyToSubmit = true;
-						self.loading = false;
+						// Per visualizzare un msg di errore quando la risposta del server che contiene l'immagine
+						// è diversa da 200. Ad esempio se si inserisce il seguente URI: http://www.missbenessere.net/wp-content/uploads/2015/09/minions_film_recensione.jpg
+						if(response.data.error)
+						{
+							inform.add(response.data.description,{type: 'warning'});
+						}
+						else
+						{
+							self.temp = response.data.description;
+							self.readyToSubmit = true;
+							self.loading = false;
+						}
 					}
 			);		
 		

@@ -21,6 +21,8 @@ class Experience
 	
 	public function add_exp_to_user($userID, $exp, $courseID = null, $description = null)
 	{
+		$user_logged_in = $_COOKIE["username"];
+		
 		// Get the user's exp information
 		$exp_info = $this->CI->userinfo_model->get_exp_info($userID);
 		 
@@ -39,9 +41,10 @@ class Experience
 		 
 		// Add the notification in the experience events table and notify this to the GUI
 		$publishingTimestamp = $this->CI->time->get_timestamp();
-		$notifications[] = array("error" => false, "description" => "Sono stati assegnati " . $exp . " punti esperienza a " . $userID . ".", "errorCode" => "EXPERIENCE_UPDATE_EVENT");
+		if(strcmp($user_logged_in, $userID) === 0) $notifications[] = array("error" => false, "description" => "Ti sono stati assegnati " . $exp . " punti esperienza" . $description, "errorCode" => "EXPERIENCE_UPDATE_EVENT");
+		else $notifications[] = array("error" => false, "description" => "Sono stati assegnati " . $exp . " punti esperienza a " . $userID . $description, "errorCode" => "EXPERIENCE_UPDATE_EVENT");
 		$this->CI->experience_events_model->add($userID, "EXP_POINTS", $exp, $publishingTimestamp, $description, $courseID);
-		$this->CI->notifications_model->add("Ti sono stati assegnati " . $exp . " punti esperienza.", $publishingTimestamp, array($userID), true, $courseID);
+		$this->CI->notifications_model->add("Ti sono stati assegnati " . $exp . " punti esperienza" . $description, $publishingTimestamp, array($userID), true, $courseID);
 		
 		// Get the achievements and rewards currently achieved by the user
 		$achievements_and_rewards_db = $this->CI->user_achievements_rewards_model->get_achievements_and_rewards_obtained($userID);
@@ -57,7 +60,10 @@ class Experience
 			
 			// Add the level-up notification in the experience events table and notify this to the GUI
 			$publishingTimestamp = $this->CI->time->get_timestamp();
-			$notifications[] = array("error" => false, "description" => $userID . " ha fatto level " . ($newLevel > $level ? "up" : "down") ."!", "errorCode" => "LEVEL_UPDATE_EVENT");
+			
+			if(strcmp($user_logged_in, $userID) === 0) $notifications[] = array("error" => false, "description" => "Hai fatto level " . ($newLevel > $level ? "up" : "down") ."!", "errorCode" => "LEVEL_UPDATE_EVENT");
+			else $notifications[] = array("error" => false, "description" => $userID . " ha fatto level " . ($newLevel > $level ? "up" : "down") ."!", "errorCode" => "LEVEL_UPDATE_EVENT");
+			
 			$this->CI->experience_events_model->add($userID, $event, $newLevel, $publishingTimestamp, null, $courseID);
 			$this->CI->notifications_model->add("Hai fatto level-".($newLevel > $level ? "up" : "down")."! Nuovo livello raggiunto: " . $newLevel, $publishingTimestamp, array($userID), true, $courseID);
 			 
@@ -78,7 +84,10 @@ class Experience
 						$type = $achievement_or_reward['type'];
 	
 						$publishingTimestamp = $this->CI->time->get_timestamp();
-						$notifications[] = array("error" => false, "description" => $userID . " ha ottenuto " . $achievement_or_rewardID . ": " . $achievement_or_reward['description'], "errorCode" => $type . "_EVENT");
+						
+						if(strcmp($user_logged_in, $userID) === 0) $notifications[] = array("error" => false, "description" => "Hai ottenuto " . $achievement_or_rewardID . ": " . $achievement_or_reward['description'], "errorCode" => $type . "_EVENT");
+						else $notifications[] = array("error" => false, "description" => $userID . " ha ottenuto " . $achievement_or_rewardID . ": " . $achievement_or_reward['description'], "errorCode" => $type . "_EVENT");
+						
 						$this->CI->experience_events_model->add($userID, "REWARD", $achievement_or_rewardID, $publishingTimestamp, null, $courseID);
 						$this->CI->notifications_model->add("Hai ottenuto " . $achievement_or_rewardID . ": " . $achievement_or_reward['description'], $publishingTimestamp, array($userID), true, $courseID);
 						$this->CI->user_achievements_rewards_model->add($userID, $achievement_or_rewardID, $publishingTimestamp, $courseID);

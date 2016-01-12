@@ -234,6 +234,8 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
     		    	    			
     		    	    			var scrollbars = $('.no-gridster-item').find('.scrollbar');
     		    	    			
+//    		    	    			if(!scrollbars.perfectScrollbar) scrollbars.perfectScrollbar('update');
+    		    	    			
     		    	    			if(!scrollbarsCreated)
     		    					{
     		    						scrollbars.perfectScrollbar({
