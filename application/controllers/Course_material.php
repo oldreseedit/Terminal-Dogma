@@ -12,6 +12,9 @@ class Course_material extends CI_Controller {
                 $this->load->model('payment_model');
                 $this->load->model('notifications_model');
                 
+                $this->load->model('notification_rights_model');
+                $this->load->model('userinfo_model');
+                
                 $this->load->library('permissions');
                 
                 $this->load->helper('url');
@@ -73,9 +76,20 @@ class Course_material extends CI_Controller {
             $users = array();
             foreach($this->payment_model->get_subscribers_names($courseID) as $subscription)
             {
-                array_push($users, $subscription['userID']);
+                $users[] = $subscription['userID'];
             }
             $this->notifications_model->add("E' stato caricato un nuovo file", $uploadDate, $users, false, $courseID);
+            
+            foreach($users as $userID)
+            {
+	            // Setup sending email permission
+	            $email = null;
+	            // Get the email of the target user
+	            $rights = $this->CI->notification_rights_model->get($userID);
+	            // If he agreed to receive emails, send him an email with the notification
+	            if($rights && $rights['info']) $email = $this->CI->userinfo_model->get($userID)['email'];
+	            if($email) $this->CI->mailer->send_mail($email, "Novità sui corsi che frequenti a reSeed", "Il corso " . $courseId . " ha del nuovo materiale." . ($note ? $note : ""));
+            }
             
             echo json_encode($result);
             return;

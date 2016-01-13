@@ -8,13 +8,17 @@ class Lessons extends CI_Controller {
                 $this->load->model('payment_model');
                 $this->load->model('register_model');
                 
+                $this->load->model('userinfo_model');
+                
                 $this->load->model('notifications_model');
+                $this->load->model('notification_rights_model');
                 $this->load->model('experience_events_model');
                 $this->load->model('achievements_and_rewards_model');
                 $this->load->model('user_achievements_rewards_model');
                 
                 $this->load->library('experience');
                 $this->load->library('time');
+                $this->load->library('mailer');
                 
                 $this->load->helper('url');
         }
@@ -94,6 +98,17 @@ class Lessons extends CI_Controller {
             if($note == false) $note = null;
             
             $this->lessons_model->update($lessonId, $startingDate, $endingDate, $courseId, $lessonNote);
+            
+            if($startingDate || $endingDate)
+            {
+            	// Setup sending email permission
+            	$email = null;
+            	// Get the email of the target user
+            	$rights = $this->CI->notification_rights_model->get($userID);
+            	// If he agreed to receive emails, send him an email with the notification
+            	if($rights && $rights['info']) $email = $this->CI->userinfo_model->get($userID)['email'];
+            	if($email) $this->CI->mailer->send_mail($email, "Novità sui corsi che frequenti a reSeed", "Una lezione di " . $courseId . " ha subìto cambiamenti d'orario. Nuovo orario: " . $startingDate . " - " . $endingDate);
+            }
         }
         
         public function update_batch()
@@ -114,6 +129,17 @@ class Lessons extends CI_Controller {
             if($lessonNote == false) $lessonNote = null;
             
             $this->db->trans_start();
+            
+            if($startingDate || $endingDate)
+            {
+            	// Setup sending email permission
+            	$email = null;
+            	// Get the email of the target user
+            	$rights = $this->CI->notification_rights_model->get($userID);
+            	// If he agreed to receive emails, send him an email with the notification
+            	if($rights && $rights['info']) $email = $this->CI->userinfo_model->get($userID)['email'];
+            	if($email) $this->CI->mailer->send_mail($email, "Novità sui corsi che frequenti a reSeed", "Una lezione di " . $courseId . " ha subìto cambiamenti d'orario. Nuovo orario: " . $startingDate . " - " . $endingDate);
+            }
             
             $notifications = array();
             
@@ -161,6 +187,13 @@ class Lessons extends CI_Controller {
         
         private function assign_attendance_exp($userID, $courseID, $attendance)
         {
+        	// Setup sending email permission
+        	$email = null;
+        	// Get the email of the target user
+        	$rights = $this->CI->notification_rights_model->get($userID);
+        	// If he agreed to receive emails, send him an email with the notification
+        	if($rights && $rights['exp']) $email = $this->CI->userinfo_model->get($userID)['email'];
+        	
         	$notifications = array();
         	
         	// Update the exp to account for the attendance at this lesson
@@ -212,6 +245,7 @@ class Lessons extends CI_Controller {
         			$this->experience_events_model->add($userID, "ACHIEVEMENT", $arID, $publishingTimestamp, null, $courseID);
         			$this->notifications_model->add("Hai ottenuto " . $arID . ": " . $eighty_percent_achievement_prototype['description'], $publishingTimestamp, array($userID), true, $courseID);
         			$this->user_achievements_rewards_model->add($userID, $arID, $publishingTimestamp, $courseID);
+        			if($email) $this->CI->mailer->send_mail($email, "Novità sui tuoi reward o achievement a reSeed", "Hai ottenuto " . $arID . ": " . $eighty_percent_achievement_prototype['description']);
         		}
         	}
         	else
@@ -228,6 +262,7 @@ class Lessons extends CI_Controller {
         				$this->experience_events_model->add($userID, "ACHIEVEMENT_LOST", $arID, $publishingTimestamp, null, $courseID);
         				$this->notifications_model->add("Hai perso " . $arID, $publishingTimestamp, array($userID), true, $courseID);
         				$this->user_achievements_rewards_model->delete($userID, $arID);
+        				if($email) $this->CI->mailer->send_mail($email, "Novità sui tuoi reward o achievement a reSeed", "Hai perso " . $arID);
         			}
         		}
         	}
@@ -246,6 +281,7 @@ class Lessons extends CI_Controller {
         			$this->experience_events_model->add($userID, "ACHIEVEMENT", $arID, $publishingTimestamp, null, $courseID);
         			$this->notifications_model->add("Hai ottenuto " . $arID . ": " . $one_hundred_percent_achievement_prototype['description'], $publishingTimestamp, array($userID), true, $courseID);
         			$this->user_achievements_rewards_model->add($userID, $arID, $publishingTimestamp, $courseID);
+        			if($email) $this->CI->mailer->send_mail($email, "Novità sui tuoi reward o achievement a reSeed", "Hai ottenuto " . $arID . ": " . $one_hundred_percent_achievement_prototype['description']);
         		}
         	}
         	else
@@ -262,6 +298,7 @@ class Lessons extends CI_Controller {
         				$this->experience_events_model->add($userID, "ACHIEVEMENT_LOST", $arID, $publishingTimestamp, null, $courseID);
         				$this->notifications_model->add("Hai perso " . $arID, $publishingTimestamp, array($userID), true, $courseID);
         				$this->user_achievements_rewards_model->delete($userID, $arID);
+        				if($email) $this->CI->mailer->send_mail($email, "Novità sui tuoi reward o achievement a reSeed", "Hai perso " . $arID);
         			}
         		}
         	}
@@ -349,7 +386,7 @@ class Lessons extends CI_Controller {
             $courses = array();
             foreach($result as $course)
             {
-                array_push($courses, $course['courseID']);
+                $courses[] = $course['courseID'];
             }
             
             echo json_encode($courses);

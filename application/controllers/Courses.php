@@ -40,12 +40,33 @@ class Courses extends CI_Controller {
                 echo json_encode(array("error" => true, "description" => "Specificare un corso.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("courseID")));
                 return;
             }
-// 			$courseID = "3DStudioMax";
             
             $data = $this->courses_model->get($courseID);
             $data['next'] = $this->get_next($courseID);
             
             echo json_encode($data);
+        }
+        
+        public function get_all()
+        {
+        	$data = $this->courses_model->get_all();
+        	foreach($data as $course)
+        	{
+        		$course['next'] = $this->get_next($course['courseID']);
+        	}
+        
+        	echo json_encode($data);
+        }
+        
+        public function get_all_courseIDs()
+        {
+        	$data = array();
+        	foreach($this->courses_model->get_all() as $course)
+        	{
+        		$data[] = $course['courseID'];
+        	}
+        
+        	echo json_encode($data);
         }
         
         public function add_next()

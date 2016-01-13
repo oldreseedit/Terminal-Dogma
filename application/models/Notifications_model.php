@@ -66,10 +66,11 @@ class Notifications_model extends CI_Model
                         
                         if($courseID != null) $userData['courseID'] = $courseID;
                         
-                        array_push($data, $userData);
+                        $data[] = $userData;
                 }
                 
-                $this->db->insert_batch(self::table_name, $data);
+                if($data)
+                	$this->db->insert_batch(self::table_name, $data);
         }
         
         public function delete($notificationID)

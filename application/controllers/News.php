@@ -8,6 +8,9 @@ class News extends CI_Controller {
                 parent::__construct();
                 $this->load->model('news_model');
                 $this->load->model('user_notifications_model');
+                $this->load->model('notification_rights_model');
+                $this->load->model('userinfo_model');
+                
                 $this->load->helper('url');
         }
         
@@ -30,15 +33,20 @@ class News extends CI_Controller {
             
             $publishing_timestamp = date("Y-m-d H:i:s");
             
-            // $users = $this->input->post('users');
-            // if($users == false) $users = null;
-            
-            // // CHECK: count su una variabile che cosa torna?
-            // if(count($users) == 1)
-            // {
-            //     $users = array();
-            //     array_push($users, $this->input->post('users'));
-            // }
+            // Get all the users
+           	$users_info = $this->userinfo_model->get_all();
+           	foreach($users_info as $user_info)
+           	{
+           		$userID = $user_info['userID'];
+           		
+           		// Setup sending email permission
+           		$email = null;
+           		// Get the email of the target user
+           		$rights = $this->CI->notification_rights_model->get($userID);
+           		// If he agreed to receive emails, send him an email with the notification
+           		if($rights && $rights['news']) $email = $user_info['email'];
+           		if($email) $this->CI->mailer->send_mail($email, "Novità su reSeed", $text);
+           	}
             
             // TODO: transaction
             

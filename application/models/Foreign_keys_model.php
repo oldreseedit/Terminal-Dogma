@@ -35,6 +35,7 @@ class Foreign_keys_model extends CI_Model
 		if($this->exists("notifications_ibfk_1")) $this->db->query("ALTER TABLE `notifications` DROP FOREIGN KEY `notifications_ibfk_1`;");
 		if($this->exists("course_graph_ibfk_1")) $this->db->query("ALTER TABLE `course_graph` DROP FOREIGN KEY `course_graph_ibfk_1`;");
 		if($this->exists("course_graph_ibfk_2")) $this->db->query("ALTER TABLE `course_graph` DROP FOREIGN KEY `course_graph_ibfk_2`;");
+		if($this->exists("notifications_rights_ibfk_1")) $this->db->query("ALTER TABLE `notifications_rights` DROP FOREIGN KEY `notifications_rights_ibfk_1`;");
 		
 		$this->db->trans_complete();
 	}
@@ -65,6 +66,7 @@ class Foreign_keys_model extends CI_Model
 		$this->db->query("ALTER TABLE `notifications` ADD FOREIGN KEY (`username`) REFERENCES `tflati_reseed`.`users`(`Username`) ON DELETE CASCADE ON UPDATE CASCADE;");
 		$this->db->query("ALTER TABLE `course_graph` ADD FOREIGN KEY (`courseID`) REFERENCES `tflati_reseed`.`courses`(`courseID`) ON DELETE CASCADE ON UPDATE CASCADE;");
 		$this->db->query("ALTER TABLE `course_graph` ADD FOREIGN KEY (`nextCourseID`) REFERENCES `tflati_reseed`.`courses`(`courseID`) ON DELETE CASCADE ON UPDATE CASCADE;");
+		$this->db->query("ALTER TABLE `notifications_rights` ADD FOREIGN KEY (`userID`) REFERENCES `tflati_reseed`.`users`(`Username`) ON DELETE CASCADE ON UPDATE CASCADE;");
 		
 		$this->db->trans_complete();
 	}

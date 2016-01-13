@@ -105,5 +105,10 @@ class Courses_model extends CI_Model
         {
                 return $this->db->where('courseID', $courseID)->get(self::table_name)->row_array();
         }
+        
+        public function get_all()
+        {
+        	return $this->db->get(self::table_name)->result_array();
+        }
 }
 ?>

@@ -151,7 +151,7 @@ main.controller('adminController',['utilities','$http','$timeout','$sce','$scope
     };
     
     self.getCourses = function(){
-        $http.post('lessons/get_courses').then(function(response){
+        $http.post('courses/get_all_courseIDs').then(function(response){
             console.log(response);
             self.courses = response.data;
         },function(error){
@@ -295,6 +295,10 @@ main.controller('adminController',['utilities','$http','$timeout','$sce','$scope
         
         $http.post('notifications/add',self.addNotificationForm).then(function(response){
             console.log(response);
+            
+            if(response.data.error) inform.add(response.data.description,{type: 'danger'});
+            else inform.add(response.data.description);
+            
         },function(error){
             console.log(error);
         });
@@ -355,8 +359,11 @@ main.controller('adminController',['utilities','$http','$timeout','$sce','$scope
     	$http.post('users/add_exp',self.xpAddForm).then(
     			function(response)
     			{
-    				if(response.data[0].error) inform.add(response.data[0].description,{type:'danger'});
-    				else inform.add(response.data[0].description);
+    				for(var i=0; i<response.data.length; i++)
+    				{
+    					if(response.data[i].error) inform.add(response.data[i].description,{type:'danger'});
+        				else inform.add(response.data[i].description);
+    				}
     			},
     			function(error)
     			{

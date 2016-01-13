@@ -227,6 +227,7 @@ class Payment_interface extends CI_Controller {
         {
             $requestedCourseID = $this->input->post('courseID');
             if($requestedCourseID == false) $requestedCourseID = null;
+//             $requestedCourseID = "3DStudioMax";
             
             $result = $this->payment_model->get_subscribers_names($requestedCourseID);
 

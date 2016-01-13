@@ -62,7 +62,7 @@ class Userinfo_model extends CI_Model
         {
                 $this->db->where('userID', $userID);
                 $query = $this->db->get(self::table_name);
-                return $query->result_array();
+                return $query->row_array();
         }
         
         public function get_all()

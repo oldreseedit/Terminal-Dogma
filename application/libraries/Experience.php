@@ -15,8 +15,10 @@ class Experience
 		$this->CI->load->model('experience_events_model');
 		$this->CI->load->model('achievements_and_rewards_model');
 		$this->CI->load->model('user_achievements_rewards_model');
+		$this->CI->load->model('notification_rights_model');
 		
 		$this->CI->load->library('time');
+		$this->CI->load->library('mailer');
 	}
 	
 	public function add_exp_to_user($userID, $exp, $courseID = null, $description = null)
@@ -45,6 +47,29 @@ class Experience
 		else $notifications[] = array("error" => false, "description" => "Sono stati assegnati " . $exp . " punti esperienza a " . $userID . $description, "errorCode" => "EXPERIENCE_UPDATE_EVENT");
 		$this->CI->experience_events_model->add($userID, "EXP_POINTS", $exp, $publishingTimestamp, $description, $courseID);
 		$this->CI->notifications_model->add("Ti sono stati assegnati " . $exp . " punti esperienza" . $description, $publishingTimestamp, array($userID), true, $courseID);
+
+		// Setup sending email permission
+		$email = null;
+		// Get the email of the target user
+		$rights = $this->CI->notification_rights_model->get($userID);
+		// If he agreed to receive emails, send him an email with the notification
+		if($rights && $rights['exp']) $email = $this->CI->userinfo_model->get($userID)['email'];
+		
+// 		$notifications[] = array("error" => false, "description" => "Diritti utente: " . implode(",", $rights));
+// 		$notifications[] = array("error" => false, "description" => "E-mail utente: " . $email);
+		
+		if($email)
+		{
+			$status = $this->CI->mailer->send_mail($email, "Novità sui tuoi punti esperienza a reSeed", "Hai ricevuto " . $exp . " punti esperienza" . $description);
+// 			if(strcmp($status, "OK") == 0)
+// 			{
+// 				$notifications[] = array("error" => false, "description" => "MAIL INVIATA CORRETTAMENTE A " . $email);
+// 			}
+// 			else
+// 			{
+// 				$notifications[] = array("error" => true, "description" => "ERRORE DURANTE L'INVIO DELLA MAIL A " . $email . ". Errore: " . $status, "errorCode" => "MAIL_ERROR");
+// 			}
+		}
 		
 		// Get the achievements and rewards currently achieved by the user
 		$achievements_and_rewards_db = $this->CI->user_achievements_rewards_model->get_achievements_and_rewards_obtained($userID);
@@ -66,6 +91,7 @@ class Experience
 			
 			$this->CI->experience_events_model->add($userID, $event, $newLevel, $publishingTimestamp, null, $courseID);
 			$this->CI->notifications_model->add("Hai fatto level-".($newLevel > $level ? "up" : "down")."! Nuovo livello raggiunto: " . $newLevel, $publishingTimestamp, array($userID), true, $courseID);
+			if($email) $this->CI->mailer->send_mail($email, "Novità sui tuoi punti esperienza a reSeed", "Hai fatto level-".($newLevel > $level ? "up" : "down")."! Nuovo livello raggiunto: " . $newLevel);
 			 
 			// Assign new achievements and rewards
 			if($newLevel > $level)
@@ -91,11 +117,12 @@ class Experience
 						$this->CI->experience_events_model->add($userID, "REWARD", $achievement_or_rewardID, $publishingTimestamp, null, $courseID);
 						$this->CI->notifications_model->add("Hai ottenuto " . $achievement_or_rewardID . ": " . $achievement_or_reward['description'], $publishingTimestamp, array($userID), true, $courseID);
 						$this->CI->user_achievements_rewards_model->add($userID, $achievement_or_rewardID, $publishingTimestamp, $courseID);
+						if($email) $this->CI->mailer->send_mail($email, "Novità sui tuoi punti esperienza a reSeed", "Hai ottenuto " . $achievement_or_rewardID . ": " . $achievement_or_reward['description']);
 					}
 				}
 			}
 		}
-
+		
 		$this->CI->db->trans_complete();
 		
 		return $notifications;

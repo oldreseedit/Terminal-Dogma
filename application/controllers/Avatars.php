@@ -127,7 +127,7 @@ class Avatars extends CI_Controller {
         	$fileURI = "uploads/profiles/" . uniqid("", true) . "." . $extension;
         	
         	// Remove the old avatar image
-        	$previousAvatar = $this->userinfo_model->get($userID)[0]['profilePicture'];
+        	$previousAvatar = $this->userinfo_model->get($userID)['profilePicture'];
         	if(file_exists($previousAvatar)) unlink($previousAvatar);
         	
         	// Update the database with the new avatar URI
@@ -193,7 +193,7 @@ class Avatars extends CI_Controller {
         		return;
         	}
         	
-        	$avatar = $this->userinfo_model->get($userID)[0]['profilePicture'];
+        	$avatar = $this->userinfo_model->get($userID)['profilePicture'];
         	
         	echo json_encode(array("error" => false, "avatar" => $avatar));
         }

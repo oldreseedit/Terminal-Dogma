@@ -11,6 +11,9 @@ class Notifications extends CI_Controller {
                 $this->load->model('payment_model');
                 $this->load->helper('url');
                 
+                $this->load->model('notification_rights_model');
+                $this->load->model('userinfo_model');
+                
                 $this->load->library('time');
         }
         
@@ -39,7 +42,24 @@ class Notifications extends CI_Controller {
             $users = array();
             foreach($this->payment_model->get_subscribers_names($courseID) as $subscription)
             {
-                array_push($users, $subscription['userID']);
+                $users[] = $subscription['userID'];
+            }
+            
+            if(!$users)
+            {
+            	echo json_encode(array("error" => true, "description" => "Non esistono utenti iscritti a questo corso. Non sono state perciò generate alcune notifiche.", "errorCode" => "MANDATORY_FIELD", "parameters" => array()));
+            	return;
+            }
+            
+            foreach($users as $userID)
+            {
+            	// Setup sending email permission
+            	$email = null;
+            	// Get the email of the target user
+            	$rights = $this->CI->notification_rights_model->get($userID);
+            	// If he agreed to receive emails, send him an email with the notification
+            	if($rights && $rights['info']) $email = $this->CI->userinfo_model->get($userID)['email'];
+            	if($email) $this->CI->mailer->send_mail($email, "Novità sui corsi che frequenti a reSeed", "Il corso " . $courseId . " ha un nuovo avviso: " . $text);
             }
             
             // Store the notification
