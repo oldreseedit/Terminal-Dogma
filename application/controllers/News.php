@@ -45,10 +45,10 @@ class News extends CI_Controller {
            		// Setup sending email permission
            		$email = null;
            		// Get the email of the target user
-           		$rights = $this->CI->notification_rights_model->get($userID);
+           		$rights = $this->notification_rights_model->get($userID);
            		// If he agreed to receive emails, send him an email with the notification
            		if($rights && $rights['news']) $email = $user_info['email'];
-           		if($email) $this->CI->mailer->send_mail($email, "Novità su reSeed", $title . ": " . $description);
+           		if($email) $this->mailer->send_mail($email, "Novità su reSeed", $title . ": " . $description);
            	}
             
             // Store the news itself

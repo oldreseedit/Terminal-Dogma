@@ -104,10 +104,10 @@ class Lessons extends CI_Controller {
             	// Setup sending email permission
             	$email = null;
             	// Get the email of the target user
-            	$rights = $this->CI->notification_rights_model->get($userID);
+            	$rights = $this->notification_rights_model->get($userID);
             	// If he agreed to receive emails, send him an email with the notification
-            	if($rights && $rights['info']) $email = $this->CI->userinfo_model->get($userID)['email'];
-            	if($email) $this->CI->mailer->send_mail($email, "Novità sui corsi che frequenti a reSeed", "Una lezione di " . $courseId . " ha subìto cambiamenti d'orario. Nuovo orario: " . $startingDate . " - " . $endingDate);
+            	if($rights && $rights['info']) $email = $this->userinfo_model->get($userID)['email'];
+            	if($email) $this->mailer->send_mail($email, "Novità sui corsi che frequenti a reSeed", "Una lezione di " . $courseId . " ha subìto cambiamenti d'orario. Nuovo orario: " . $startingDate . " - " . $endingDate);
             }
         }
         
@@ -135,10 +135,10 @@ class Lessons extends CI_Controller {
             	// Setup sending email permission
             	$email = null;
             	// Get the email of the target user
-            	$rights = $this->CI->notification_rights_model->get($userID);
+            	$rights = $this->notification_rights_model->get($userID);
             	// If he agreed to receive emails, send him an email with the notification
-            	if($rights && $rights['info']) $email = $this->CI->userinfo_model->get($userID)['email'];
-            	if($email) $this->CI->mailer->send_mail($email, "Novità sui corsi che frequenti a reSeed", "Una lezione di " . $courseId . " ha subìto cambiamenti d'orario. Nuovo orario: " . $startingDate . " - " . $endingDate);
+            	if($rights && $rights['info']) $email = $this->userinfo_model->get($userID)['email'];
+            	if($email) $this->mailer->send_mail($email, "Novità sui corsi che frequenti a reSeed", "Una lezione di " . $courseId . " ha subìto cambiamenti d'orario. Nuovo orario: " . $startingDate . " - " . $endingDate);
             }
             
             $notifications = array();
@@ -190,9 +190,9 @@ class Lessons extends CI_Controller {
         	// Setup sending email permission
         	$email = null;
         	// Get the email of the target user
-        	$rights = $this->CI->notification_rights_model->get($userID);
+        	$rights = $this->notification_rights_model->get($userID);
         	// If he agreed to receive emails, send him an email with the notification
-        	if($rights && $rights['exp']) $email = $this->CI->userinfo_model->get($userID)['email'];
+        	if($rights && $rights['exp']) $email = $this->userinfo_model->get($userID)['email'];
         	
         	$notifications = array();
         	
@@ -245,7 +245,7 @@ class Lessons extends CI_Controller {
         			$this->experience_events_model->add($userID, "ACHIEVEMENT", $arID, $publishingTimestamp, null, $courseID);
         			$this->notifications_model->add("Hai ottenuto " . $arID . ": " . $eighty_percent_achievement_prototype['description'], $publishingTimestamp, array($userID), true, $courseID);
         			$this->user_achievements_rewards_model->add($userID, $arID, $publishingTimestamp, $courseID);
-        			if($email) $this->CI->mailer->send_mail($email, "Novità sui tuoi reward o achievement a reSeed", "Hai ottenuto " . $arID . ": " . $eighty_percent_achievement_prototype['description']);
+        			if($email) $this->mailer->send_mail($email, "Novità sui tuoi reward o achievement a reSeed", "Hai ottenuto " . $arID . ": " . $eighty_percent_achievement_prototype['description']);
         		}
         	}
         	else
@@ -262,7 +262,7 @@ class Lessons extends CI_Controller {
         				$this->experience_events_model->add($userID, "ACHIEVEMENT_LOST", $arID, $publishingTimestamp, null, $courseID);
         				$this->notifications_model->add("Hai perso " . $arID, $publishingTimestamp, array($userID), true, $courseID);
         				$this->user_achievements_rewards_model->delete($userID, $arID);
-        				if($email) $this->CI->mailer->send_mail($email, "Novità sui tuoi reward o achievement a reSeed", "Hai perso " . $arID);
+        				if($email) $this->mailer->send_mail($email, "Novità sui tuoi reward o achievement a reSeed", "Hai perso " . $arID);
         			}
         		}
         	}
@@ -281,7 +281,7 @@ class Lessons extends CI_Controller {
         			$this->experience_events_model->add($userID, "ACHIEVEMENT", $arID, $publishingTimestamp, null, $courseID);
         			$this->notifications_model->add("Hai ottenuto " . $arID . ": " . $one_hundred_percent_achievement_prototype['description'], $publishingTimestamp, array($userID), true, $courseID);
         			$this->user_achievements_rewards_model->add($userID, $arID, $publishingTimestamp, $courseID);
-        			if($email) $this->CI->mailer->send_mail($email, "Novità sui tuoi reward o achievement a reSeed", "Hai ottenuto " . $arID . ": " . $one_hundred_percent_achievement_prototype['description']);
+        			if($email) $this->mailer->send_mail($email, "Novità sui tuoi reward o achievement a reSeed", "Hai ottenuto " . $arID . ": " . $one_hundred_percent_achievement_prototype['description']);
         		}
         	}
         	else
@@ -298,7 +298,7 @@ class Lessons extends CI_Controller {
         				$this->experience_events_model->add($userID, "ACHIEVEMENT_LOST", $arID, $publishingTimestamp, null, $courseID);
         				$this->notifications_model->add("Hai perso " . $arID, $publishingTimestamp, array($userID), true, $courseID);
         				$this->user_achievements_rewards_model->delete($userID, $arID);
-        				if($email) $this->CI->mailer->send_mail($email, "Novità sui tuoi reward o achievement a reSeed", "Hai perso " . $arID);
+        				if($email) $this->mailer->send_mail($email, "Novità sui tuoi reward o achievement a reSeed", "Hai perso " . $arID);
         			}
         		}
         	}
