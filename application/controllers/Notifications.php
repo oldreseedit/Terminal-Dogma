@@ -32,7 +32,7 @@ class Notifications extends CI_Controller {
             }
             
             $private = $this->input->post('private');
-            if(!isset($_POST['seen'])) $private = false;
+            if(!isset($_POST['private'])) $private = false;
             
             $courseID = $this->input->post('courseID');
             if($courseID == false) $courseID = null;

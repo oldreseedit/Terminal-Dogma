@@ -1,17 +1,14 @@
 <?php
 class News extends CI_Controller {
 
-        const TOP_N_NEWS = 10;
+        const TOP_N_EVENTS = 10;
         
         public function __construct()
         {
                 parent::__construct();
                 $this->load->model('news_model');
-                $this->load->model('user_notifications_model');
                 $this->load->model('notification_rights_model');
                 $this->load->model('userinfo_model');
-                
-                $this->load->helper('url');
         }
         
         public function init()
@@ -21,17 +18,23 @@ class News extends CI_Controller {
         
         public function add()
         {
-            $text = $this->input->post('text');
-            if($text == false)
+            $title = $this->input->post('title');
+            if($title == false)
             {
-                echo json_encode(array("error" => true, "description" => "Specificare il testo della news o notifica.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("text")));
+                echo json_encode(array("error" => true, "description" => "Specificare il titolo della news.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("title")));
                 return;
             }
             
-            $courseID = $this->input->post('courseID');
-            if($courseID == false) $courseID = null;
+            $description = $this->input->post('description');
+            if($description == false)
+            {
+            	echo json_encode(array("error" => true, "description" => "Specificare la descrizione della news.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("description")));
+            	return;
+            }
             
             $publishing_timestamp = date("Y-m-d H:i:s");
+            
+            $this->db->trans_start();
             
             // Get all the users
            	$users_info = $this->userinfo_model->get_all();
@@ -45,19 +48,15 @@ class News extends CI_Controller {
            		$rights = $this->CI->notification_rights_model->get($userID);
            		// If he agreed to receive emails, send him an email with the notification
            		if($rights && $rights['news']) $email = $user_info['email'];
-           		if($email) $this->CI->mailer->send_mail($email, "Novità su reSeed", $text);
+           		if($email) $this->CI->mailer->send_mail($email, "Novità su reSeed", $title . ": " . $description);
            	}
             
-            // TODO: transaction
-            
             // Store the news itself
-            $newsID = $this->news_model->add($text, $publishing_timestamp, $courseID);
+            $this->news_model->add($title, $description, $publishing_timestamp);
             
-            // Associate the news to each user
-            // if($users != null) $this->user_notifications_model->add($newsID, $users);
+            $this->db->trans_complete();
             
             echo json_encode(array("error" => false, "description" => "News memorizzata con successo."));
-            return;
         }
         
         public function delete()
@@ -66,7 +65,6 @@ class News extends CI_Controller {
             if($newsID == false) $newsID = null;
             
             $this->news_model->delete($newsID);
-            // $this->user_notifications_model->delete($newsID);
         }
         
         public function get()
@@ -78,23 +76,6 @@ class News extends CI_Controller {
             return;
         }
         
-        // public function get_news_status()
-        // {
-        //     $newsID = $this->input->post('newsID');
-        //     if($newsID == false) $newsID = null;
-            
-        //     $data = $this->user_notifications_model->get($newsID);
-            
-        //     $result = array();
-        //     foreach($data as $userData)
-        //     {
-        //         $result[$userData['username']] = $userData['seen'];
-        //     }
-            
-        //     echo json_encode($result);
-        //     return;
-        // }
-        
         public function get_latest_news()
         {
             $top = $this->input->post('top');
@@ -104,31 +85,31 @@ class News extends CI_Controller {
             return;
         }
         
-        public function get_latest_user_notifications()
-        {
-            $username = $this->input->post('username');
-            if($username == false) $username = null;
+//         public function get_latest_user_notifications()
+//         {
+//             $username = $this->input->post('username');
+//             if($username == false) $username = null;
             
-            $courseID = $this->input->post('courseID');
-            if($courseID == false) $courseID = null;
+//             $courseID = $this->input->post('courseID');
+//             if($courseID == false) $courseID = null;
 
-            $result = array();
-            $db_result = $this->user_notifications_model->get_latest_user_notifications($username);
-            foreach($db_result as $userNotification)
-            {
-                $filteredUserNotification = array();
+//             $result = array();
+//             $db_result = $this->user_notifications_model->get_latest_user_notifications($username);
+//             foreach($db_result as $userNotification)
+//             {
+//                 $filteredUserNotification = array();
                 
-                foreach($userNotification as $key => $value)
-                {
-                    if(strcmp($key, "username") == 0) continue;
-                    $filteredUserNotification[$key] = $value;
-                }
+//                 foreach($userNotification as $key => $value)
+//                 {
+//                     if(strcmp($key, "username") == 0) continue;
+//                     $filteredUserNotification[$key] = $value;
+//                 }
                 
-                array_push($result, $filteredUserNotification);
-            }
+//                 array_push($result, $filteredUserNotification);
+//             }
             
-            echo json_encode($result);
-            return;
-        }
+//             echo json_encode($result);
+//             return;
+//         }
 }
 ?>

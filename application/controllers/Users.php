@@ -10,7 +10,6 @@ class Users extends CI_Controller {
                 
                 $this->load->model('users_model');
                 $this->load->model('userinfo_model');
-                $this->load->model('notifications_model');
                 $this->load->model('user_achievements_rewards_model');
                 
                 $this->load->helper('url');
