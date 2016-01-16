@@ -7,7 +7,7 @@
 	</div>
 	<div class="profile-name-level-xp">
 		<p fittext="0.8">
-			<span ng-bind="profile.username"></span>
+			<span class="water" ng-bind="profile.username"></span>
 		</p><br />
 		<p class="seed-level" fittext="0.5">
 			Seed Level: <span ng-bind="profile.expInfo.level"></span>

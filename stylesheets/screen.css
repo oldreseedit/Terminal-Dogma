@@ -19520,7 +19520,7 @@ h1 {
 }
 
 /* line 9, ../sass/_palette.scss */
-.water {
+.water, #profile .profile-name-level-xp .seed-level span {
   color: #0c9e84;
 }
 
@@ -19560,7 +19560,7 @@ h1 {
 }
 
 /* line 18, ../sass/_palette.scss */
-.light-water, #payment #paymentThirdStep .stepLine, #profile .profile-name-level-xp .seed-level span {
+.light-water, #payment #paymentThirdStep .stepLine {
   color: #1cdcba;
 }
 

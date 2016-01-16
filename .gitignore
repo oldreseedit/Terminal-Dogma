@@ -8,3 +8,5 @@ uploads/
 dist/
 *.scssc
 .ftppass
+js/controllers/Copy of profile.js
+application/views/profile/profile2.php
