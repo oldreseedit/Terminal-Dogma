@@ -16,7 +16,7 @@ class Activities extends CI_Controller {
     	$this->activities_model->init();
     	$this->activity_block_positions_model->init();
     }
-        
+
 	public function index()
 	{
 		$this->load->view('activities/activities');
@@ -27,7 +27,7 @@ class Activities extends CI_Controller {
 		$activityID = $this->input->post('activityID');
 		if($activityID == false)
 		{
-			echo json_encode(array("error" => true, "description" => "Specificare un corso.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("activityID")));
+			echo json_encode(array("error" => true, "description" => "Specificare un codice attività.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("activityID")));
 			return;
 		}
 
@@ -39,9 +39,75 @@ class Activities extends CI_Controller {
 		$activityID = $this->input->post('activityID');
 		if($activityID == false)
 		{
-			echo json_encode(array("error" => true, "description" => "Specificare un corso.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("activityID")));
+			echo json_encode(array("error" => true, "description" => "Specificare un codice attività.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("activityID")));
 			return;
 		}	
 		echo json_encode($this->activities_model->get($activityID));
+	}
+	
+	public function add()
+	{
+		$activityID = $this->input->post('activityID');
+		if($activityID == false)
+		{
+			echo json_encode(array("error" => true, "description" => "Specificare un codice attività.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("activityID")));
+			return;
+		}
+		
+		$name = $this->input->post('name');
+		if($name == false) $name = null;
+		
+		$description = $this->input->post('description');
+		if($description == false) $description = null;
+		
+		$otj_description = $this->input->post('otj_description');
+		if($otj_description == false) $otj_description = null;
+		
+		$who = $this->input->post('who');
+		if($who == false) $who = null;
+		
+		$prices = $this->input->post('prices');
+		if($prices == false) $prices = null;
+		
+		$icon = $this->input->post('icon');
+		if($icon == false) $icon = null;
+		
+		$this->activities_model->add($name, $description, $otj, $who, $prices, $iconURI);
+		
+		echo json_encode(array("error" => false, "description" => "Attività aggiunta con successo."));
+		return;
+	}
+	
+	public function update()
+	{
+		$activityID = $this->input->post('activityID');
+		if($activityID == false)
+		{
+			echo json_encode(array("error" => true, "description" => "Specificare un codice attività.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("activityID")));
+			return;
+		}
+		
+		$name = $this->input->post('name');
+		if($name == false) $name = null;
+	
+		$description = $this->input->post('description');
+		if($description == false) $description = null;
+	
+		$otj_description = $this->input->post('otj_description');
+		if($otj_description == false) $otj_description = null;
+	
+		$who = $this->input->post('who');
+		if($who == false) $who = null;
+	
+		$prices = $this->input->post('prices');
+		if($prices == false) $prices = null;
+	
+		$icon = $this->input->post('icon');
+		if($icon == false) $icon = null;
+	
+		$this->activities_model->update($activityID, $name, $description, $otj, $who, $prices, $iconURI);
+	
+		echo json_encode(array("error" => false, "description" => "Attività modificata con successo."));
+		return;
 	}
 }

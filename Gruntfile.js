@@ -173,20 +173,20 @@ module.exports = function(grunt) {
                 //or your base URL. Currently the task does not use it's own 
                 //webserver. So if your site needs a webserver to be fully 
                 //functional configure it here. 
-                sitePath: 'http://localhost/',
+                sitePath: 'http://localhost/dist/',
                 //you can choose a prefix for your snapshots 
                 //by default it's 'snapshot_' 
-                fileNamePrefix: 'sp_',
+                 fileNamePrefix: '',
                 //by default the task waits 500ms before fetching the html. 
                 //this is to give the page enough time to to assemble itself. 
                 //if your page needs more time, tweak here. 
-                msWaitForPages: 1000,
+                msWaitForPages: 5000,
                 //sanitize function to be used for filenames. Converts '#!/' to '_' as default 
                 //has a filename argument, must have a return that is a sanitized string 
                 sanitize: function (requestUri) {
-                	if(/#!/.test(requestUri))
+                	if(/#!\//.test(requestUri))
                 	{
-                		requestUri = requestUri.substr(2);
+                		requestUri = requestUri.substr(3);
                 	}
                 	if(/\/$/.test(requestUri))
                 	{
@@ -204,8 +204,19 @@ module.exports = function(grunt) {
                 bodyAttr: 'data-prerendered',
                 //here goes the list of all urls that should be fetched 
                 urls: [
-                  '#!/courses/',
-                  '#!/course/gameDesign'
+                  '#!/courses',
+                  '#!/contacts',
+                  '#!/faq',
+                  '#!/privacy',
+                  '#!/disclaimer',
+                  '#!/courses/java',
+                  '#!/courses/mobileApp',
+                  '#!/courses/HCJS',
+                  '#!/courses/MVCDevelopment',
+                  '#!/courses/gameDesign',
+                  '#!/courses/gameMaker',
+                  '#!/courses/gamesForDummies',
+                  '#!/courses/3DStudioMax',
                 ]
               }
             }

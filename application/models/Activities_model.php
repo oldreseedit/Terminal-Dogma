@@ -19,7 +19,8 @@ class Activities_model extends CI_Model
                         ),
                 		'name' => array(
                 				'type' => 'VARCHAR',
-                				'constraint' => 30
+                				'constraint' => 30,
+                				'null' => true
                 		),
                         'description' => array(
                                 'type' => 'VARCHAR',
@@ -32,6 +33,11 @@ class Activities_model extends CI_Model
                 				'null' => true
                 		),
                 		'who' => array(
+                				'type' => 'VARCHAR',
+                				'constraint' => 4096,
+                				'null' => true
+                		),
+                		'prices' => array(
                 				'type' => 'VARCHAR',
                 				'constraint' => 4096,
                 				'null' => true
@@ -49,16 +55,17 @@ class Activities_model extends CI_Model
                 $this->dbforge->create_table(self::table_name);
         }
         
-        public function add($activityID, $name, $description = null, $otj = null, $who = null, $iconURI = null)
+        public function add($activityID, $name = null, $description = null, $otj = null, $who = null, $prices = null, $iconURI = null)
         {
                 $data = array(
                    'activityID' => $activityID,
-                   'name' => $name,
                 );
                 
+                if($name != null) $data['name'] = $name;
                 if($description != null) $data['description'] = $description;
                 if($otj != null) $data['otj_description'] = $otj;
                 if($who != null) $data['who'] = $who;
+                if($prices != null) $data['prices'] = $prices;
                 if($iconURI != null) $data['icon'] = $iconURI;
                 
                 $this->db->insert(self::table_name, $data);
@@ -77,7 +84,7 @@ class Activities_model extends CI_Model
         	return count($this->db->where('activityID', $activityID)->get(self::table_name)->row_array()) > 0;
         }
         
-        public function update($activityID, $name = null, $description = null, $otj = null, $who = null, $iconURI = null)
+        public function update($activityID, $name = null, $description = null, $otj = null, $who = null, $prices = null, $iconURI = null)
         {
                 $data = array();
                 
@@ -85,6 +92,7 @@ class Activities_model extends CI_Model
                 if($description != null) $data['description'] = $description;
                 if($otj != null) $data['otj_description'] = $otj;
                 if($who != null) $data['who'] = $who;
+                if($prices != null) $data['prices'] = $prices;
                 if($iconURI != null) $data['icon'] = $iconURI;
                 
                 if(count($data) == 0) return false;
