@@ -46,6 +46,7 @@
 
     <!-- AngularJS library -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+	<script type="text/javascript" src="http://code.angularjs.org/1.4.7/i18n/angular-locale_it-it.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-messages.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-sanitize.min.js"></script>
@@ -146,6 +147,8 @@
     <script type="text/javascript" src="js/controllers/faq.js"></script>
     <script type="text/javascript" src="js/controllers/privacy.js"></script>
     <script type="text/javascript" src="js/controllers/disclaimer.js"></script>
+    <script type="text/javascript" src="js/controllers/preferences.js"></script>
+    <script type="text/javascript" src="js/controllers/modifyPreference.js"></script>
     
     <!-- endinjector -->
      

@@ -53,14 +53,14 @@
 
   &:hover,
   &:focus  {
-    color: white !important;
+    color: white;
     background-color: darken($btn-color, 12%);
     background-position: 0 -15px;
   }
 
   &:active,
   &.active {
-    color: white !important;
+    color: white;
     background-color: darken($btn-color, 12%);
     border-color: darken($btn-color, 14%);
   }

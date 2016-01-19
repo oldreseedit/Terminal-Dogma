@@ -119,6 +119,12 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
         controller : 'profileController as profile'
     });
     
+    $routeProvider.when('/preferences',{
+    	title: 'Pannello Utente',
+    	templateUrl: 'preferences',
+    	controller: 'preferencesController as preferences'
+    });
+    
     // Register - Restricted
     
     $routeProvider.when('/register',{

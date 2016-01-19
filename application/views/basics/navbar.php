@@ -64,7 +64,7 @@
                             				<i class="fa-stack-1x number-of-notifications" ng-if="numberOfNotifications!==0"><span ng-bind="numberOfNotifications" ></span></i>
 	                            		</span>
 	                          		</a>
-	                            	<a ng-href="#!/admin" ng-if="admin">
+	                            	<a ng-href="#!/preferences">
 	                            		<span class="fa-stack clickable">
 	                            			<i class="fa fa-cog fa-stack-2x"></i>
 	                            		</span>

@@ -1,0 +1,48 @@
+#preferences{
+	@extend .in-main;
+	
+	h2{
+		margin-bottom: 1em;
+	}
+	
+	.separator{
+		width: 10em;
+	}
+	
+	.modify{
+		@extend .clickable;
+		@extend .dark-green;
+		&:hover{
+			@extend .light-green;
+		}
+	}
+	
+	.avatar{
+		width: 3em;
+		height: 3em;
+	}
+	
+	.btn-group{
+		margin-bottom: 1em;
+		
+		.btn{
+			display: table;
+			@extend .dark-green;
+			&:hover{
+				@extend .green;
+			}
+			
+			i, span {
+				display: table-cell;
+				vertical-align: middle;
+				text-align: center;
+			}
+			
+			.sep {
+				width: 0.5em;
+			}
+		
+		}
+	}
+	
+}

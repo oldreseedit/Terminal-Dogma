@@ -4,8 +4,8 @@ main.directive('spinner',['ajaxEvents','$timeout',function(ajaxEvents,$timeout){
 		scope: true,
 		link : function($scope, $element, $attrs){
 
-			var el = $element.find('spinner-place').length > 0 ? $element.find('spinner-place') : null;
-			var elToHide = $element.find('[spinner-final], .spinner-final').length > 0 ? $element.find('[spinner-final], .spinner-final') : null;
+//			var el = $element.find('spinner-place').length > 0 ? $element.find('spinner-place') : null;
+//			var elToHide = $element.find('[spinner-final], .spinner-final').length > 0 ? $element.find('[spinner-final], .spinner-final') : null;
 //			console.log(el, elToHide);
 			var id;
 			
@@ -60,10 +60,10 @@ main.directive('spinnerPlace',[function(){
 
 main.directive('spinnerFinal',function(){
 	return {
-		restrict : 'AC',
+		restrict : 'ACE',
 		scope : false,
 		link : function($scope, $element, $attrs)
-		{			
+		{
 			$scope.$watch('pending',function(newValue){
 				if(newValue !== undefined) newValue ? $element.addClass('ng-hide') : $element.removeClass('ng-hide');
 			});

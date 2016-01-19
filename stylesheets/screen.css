@@ -1932,7 +1932,7 @@ mark,
 }
 
 /* line 92, ../sass/bootstrap/_type.scss */
-.text-center, .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #navbar, #footer, #home #team, #singleCourse .panel-title, #singleActivity .panel-title, #register, #register .XP, #profile .panel-title, #profile .profile-level-symbol {
+.text-center, .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #navbar, #footer, #home #team, #singleCourse .panel-title, #singleActivity .panel-title, #register, #register .XP, #profile .panel-title, #profile .profile-level-symbol {
   text-align: center;
 }
 
@@ -8726,13 +8726,13 @@ button.close {
 }
 /* line 54, ../sass/bootstrap/_theme.scss */
 .btn-default:hover, .btn-default:focus {
-  color: white !important;
+  color: white;
   background-color: #e0e0e0;
   background-position: 0 -15px;
 }
 /* line 61, ../sass/bootstrap/_theme.scss */
 .btn-default:active, .btn-default.active {
-  color: white !important;
+  color: white;
   background-color: #e0e0e0;
   border-color: #dbdbdb;
 }
@@ -8755,13 +8755,13 @@ button.close {
 }
 /* line 54, ../sass/bootstrap/_theme.scss */
 .btn-primary:hover, .btn-primary:focus {
-  color: white !important;
+  color: white;
   background-color: #265a88;
   background-position: 0 -15px;
 }
 /* line 61, ../sass/bootstrap/_theme.scss */
 .btn-primary:active, .btn-primary.active {
-  color: white !important;
+  color: white;
   background-color: #265a88;
   border-color: #245580;
 }
@@ -8784,13 +8784,13 @@ button.close {
 }
 /* line 54, ../sass/bootstrap/_theme.scss */
 .btn-success:hover, #payment-disclaimer-modal form #payment-disclaimer-submit:hover, .btn-success:focus, #payment-disclaimer-modal form #payment-disclaimer-submit:focus {
-  color: white !important;
+  color: white;
   background-color: #419641;
   background-position: 0 -15px;
 }
 /* line 61, ../sass/bootstrap/_theme.scss */
 .btn-success:active, #payment-disclaimer-modal form #payment-disclaimer-submit:active, .btn-success.active, #payment-disclaimer-modal form .active#payment-disclaimer-submit {
-  color: white !important;
+  color: white;
   background-color: #419641;
   border-color: #3e8f3e;
 }
@@ -8813,13 +8813,13 @@ button.close {
 }
 /* line 54, ../sass/bootstrap/_theme.scss */
 .btn-info:hover, .btn-info:focus {
-  color: white !important;
+  color: white;
   background-color: #2aabd2;
   background-position: 0 -15px;
 }
 /* line 61, ../sass/bootstrap/_theme.scss */
 .btn-info:active, .btn-info.active {
-  color: white !important;
+  color: white;
   background-color: #2aabd2;
   border-color: #28a4c9;
 }
@@ -8842,13 +8842,13 @@ button.close {
 }
 /* line 54, ../sass/bootstrap/_theme.scss */
 .btn-warning:hover, .btn-warning:focus {
-  color: white !important;
+  color: white;
   background-color: #eb9316;
   background-position: 0 -15px;
 }
 /* line 61, ../sass/bootstrap/_theme.scss */
 .btn-warning:active, .btn-warning.active {
-  color: white !important;
+  color: white;
   background-color: #eb9316;
   border-color: #e38d13;
 }
@@ -8871,13 +8871,13 @@ button.close {
 }
 /* line 54, ../sass/bootstrap/_theme.scss */
 .btn-danger:hover, #payment-disclaimer-modal form #payment-disclaimer-cancel:hover, .modal-wrapper form .modal-cancel:hover, .btn-danger:focus, #payment-disclaimer-modal form #payment-disclaimer-cancel:focus, .modal-wrapper form .modal-cancel:focus {
-  color: white !important;
+  color: white;
   background-color: #c12e2a;
   background-position: 0 -15px;
 }
 /* line 61, ../sass/bootstrap/_theme.scss */
 .btn-danger:active, #payment-disclaimer-modal form #payment-disclaimer-cancel:active, .modal-wrapper form .modal-cancel:active, .btn-danger.active, #payment-disclaimer-modal form .active#payment-disclaimer-cancel, .modal-wrapper form .active.modal-cancel {
-  color: white !important;
+  color: white;
   background-color: #c12e2a;
   border-color: #b92c28;
 }
@@ -9451,7 +9451,7 @@ button.close {
 }
 
 /* line 12, ../sass/_responsive.scss */
-.offset-15, .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #navbar #navbar-tabs, #navbar #navbar-profile, #payment .paymentStep, #faqPage .faqStep {
+.offset-15, .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #navbar #navbar-tabs, #navbar #navbar-profile, #payment .paymentStep, #faqPage .faqStep {
   margin-left: 15%;
 }
 
@@ -10320,7 +10320,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-70, .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #payment .paymentStep, #faqPage .faqStep {
+.col-70, .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #payment .paymentStep, #faqPage .faqStep {
   width: 70%;
   float: left;
 }
@@ -19377,7 +19377,7 @@ button.close {
 }
 
 /* line 103, ../sass/_tricks.scss */
-.clickable {
+.clickable, #preferences .modify {
   cursor: pointer;
 }
 
@@ -19423,19 +19423,19 @@ button.close {
 }
 
 /* line 144, ../sass/_tricks.scss */
-.in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper {
+.in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences {
   margin-bottom: 3vw;
 }
 @media all and (max-device-width: 1079px) {
   /* line 144, ../sass/_tricks.scss */
-  .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper {
+  .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences {
     width: 80%;
     margin-left: 10%;
   }
 }
 @media all and (max-device-width: 539px) {
   /* line 144, ../sass/_tricks.scss */
-  .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper {
+  .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences {
     width: 96%;
     margin-left: 2%;
   }
@@ -19505,7 +19505,7 @@ h1 {
 }
 
 /* line 6, ../sass/_palette.scss */
-.green, #singleCourse a:hover, #singleActivity a:hover, #profile .profile-info a:hover {
+.green, #singleCourse a:hover, #singleActivity a:hover, #profile .profile-info a:hover, #preferences .btn-group .btn:hover, #preferences .btn-group #contacts #contact-form #contacts-submit:hover, #contacts #contact-form #preferences .btn-group #contacts-submit:hover, #preferences .btn-group #payment-disclaimer-modal form #payment-disclaimer-submit:hover, #payment-disclaimer-modal form #preferences .btn-group #payment-disclaimer-submit:hover, #preferences .btn-group #payment-disclaimer-modal form #payment-disclaimer-cancel:hover, #payment-disclaimer-modal form #preferences .btn-group #payment-disclaimer-cancel:hover, #preferences .btn-group .modal-wrapper form .modal-submit:hover, .modal-wrapper form #preferences .btn-group .modal-submit:hover, #preferences .btn-group .modal-wrapper form .modal-cancel:hover, .modal-wrapper form #preferences .btn-group .modal-cancel:hover {
   color: #0fa82d;
 }
 
@@ -19545,7 +19545,7 @@ h1 {
 }
 
 /* line 15, ../sass/_palette.scss */
-.light-green, #footer a:hover, #payment #paymentFinalStep .stepLine {
+.light-green, #footer a:hover, #payment #paymentFinalStep .stepLine, #preferences .modify:hover {
   color: #1cdc41;
 }
 
@@ -19580,7 +19580,7 @@ h1 {
 }
 
 /* line 23, ../sass/_palette.scss */
-.dark-green {
+.dark-green, #preferences .modify, #preferences .btn-group .btn, #preferences .btn-group #contacts #contact-form #contacts-submit, #contacts #contact-form #preferences .btn-group #contacts-submit, #preferences .btn-group #payment-disclaimer-modal form #payment-disclaimer-submit, #payment-disclaimer-modal form #preferences .btn-group #payment-disclaimer-submit, #preferences .btn-group #payment-disclaimer-modal form #payment-disclaimer-cancel, #payment-disclaimer-modal form #preferences .btn-group #payment-disclaimer-cancel, #preferences .btn-group .modal-wrapper form .modal-submit, .modal-wrapper form #preferences .btn-group .modal-submit, #preferences .btn-group .modal-wrapper form .modal-cancel, .modal-wrapper form #preferences .btn-group .modal-cancel {
   color: #047f1c;
 }
 
@@ -20169,6 +20169,10 @@ body {
   font-family: logoFont;
   src: url(fertigo.ttf);
 }
+/* line 6, ../sass/_home.scss */
+#home {
+  margin-bottom: -3em;
+}
 /* line 1, ../sass/_presentation.scss */
 #home #presentation {
   padding-bottom: 3vw;
@@ -20638,6 +20642,38 @@ body {
   display: inline;
 }
 
+/* line 4, ../sass/_preferences.scss */
+#preferences h2 {
+  margin-bottom: 1em;
+}
+/* line 8, ../sass/_preferences.scss */
+#preferences .separator {
+  width: 10em;
+}
+/* line 20, ../sass/_preferences.scss */
+#preferences .avatar {
+  width: 3em;
+  height: 3em;
+}
+/* line 25, ../sass/_preferences.scss */
+#preferences .btn-group {
+  margin-bottom: 1em;
+}
+/* line 28, ../sass/_preferences.scss */
+#preferences .btn-group .btn, #preferences .btn-group #contacts #contact-form #contacts-submit, #contacts #contact-form #preferences .btn-group #contacts-submit, #preferences .btn-group #payment-disclaimer-modal form #payment-disclaimer-submit, #payment-disclaimer-modal form #preferences .btn-group #payment-disclaimer-submit, #preferences .btn-group #payment-disclaimer-modal form #payment-disclaimer-cancel, #payment-disclaimer-modal form #preferences .btn-group #payment-disclaimer-cancel, #preferences .btn-group .modal-wrapper form .modal-submit, .modal-wrapper form #preferences .btn-group .modal-submit, #preferences .btn-group .modal-wrapper form .modal-cancel, .modal-wrapper form #preferences .btn-group .modal-cancel {
+  display: table;
+}
+/* line 35, ../sass/_preferences.scss */
+#preferences .btn-group .btn i, #preferences .btn-group #contacts #contact-form #contacts-submit i, #contacts #contact-form #preferences .btn-group #contacts-submit i, #preferences .btn-group #payment-disclaimer-modal form #payment-disclaimer-submit i, #payment-disclaimer-modal form #preferences .btn-group #payment-disclaimer-submit i, #preferences .btn-group #payment-disclaimer-modal form #payment-disclaimer-cancel i, #payment-disclaimer-modal form #preferences .btn-group #payment-disclaimer-cancel i, #preferences .btn-group .modal-wrapper form .modal-submit i, .modal-wrapper form #preferences .btn-group .modal-submit i, #preferences .btn-group .modal-wrapper form .modal-cancel i, .modal-wrapper form #preferences .btn-group .modal-cancel i, #preferences .btn-group .btn span, #preferences .btn-group #contacts #contact-form #contacts-submit span, #contacts #contact-form #preferences .btn-group #contacts-submit span, #preferences .btn-group #payment-disclaimer-modal form #payment-disclaimer-submit span, #payment-disclaimer-modal form #preferences .btn-group #payment-disclaimer-submit span, #preferences .btn-group #payment-disclaimer-modal form #payment-disclaimer-cancel span, #payment-disclaimer-modal form #preferences .btn-group #payment-disclaimer-cancel span, #preferences .btn-group .modal-wrapper form .modal-submit span, .modal-wrapper form #preferences .btn-group .modal-submit span, #preferences .btn-group .modal-wrapper form .modal-cancel span, .modal-wrapper form #preferences .btn-group .modal-cancel span {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+/* line 41, ../sass/_preferences.scss */
+#preferences .btn-group .btn .sep, #preferences .btn-group #contacts #contact-form #contacts-submit .sep, #contacts #contact-form #preferences .btn-group #contacts-submit .sep, #preferences .btn-group #payment-disclaimer-modal form #payment-disclaimer-submit .sep, #payment-disclaimer-modal form #preferences .btn-group #payment-disclaimer-submit .sep, #preferences .btn-group #payment-disclaimer-modal form #payment-disclaimer-cancel .sep, #payment-disclaimer-modal form #preferences .btn-group #payment-disclaimer-cancel .sep, #preferences .btn-group .modal-wrapper form .modal-submit .sep, .modal-wrapper form #preferences .btn-group .modal-submit .sep, #preferences .btn-group .modal-wrapper form .modal-cancel .sep, .modal-wrapper form #preferences .btn-group .modal-cancel .sep {
+  width: 0.5em;
+}
+
 /* @import "sham-spinner"; */
 /* @import "sham-setup"; */
 /* line 1, ../sass/_scrollbar.scss */
@@ -20995,21 +21031,21 @@ body {
   border: 1.5px solid #B3B2B3;
 }
 
-/* line 42, ../sass/_reseed.scss */
+/* line 43, ../sass/_reseed.scss */
 #main {
   width: 100%;
 }
 
-/* line 50, ../sass/_reseed.scss */
+/* line 51, ../sass/_reseed.scss */
 .mini-header {
   margin-bottom: 2em;
 }
-/* line 54, ../sass/_reseed.scss */
+/* line 55, ../sass/_reseed.scss */
 .mini-header img {
   width: 100%;
 }
 
-/* line 73, ../sass/_reseed.scss */
+/* line 74, ../sass/_reseed.scss */
 .fa-stack-10x {
   position: relative;
   display: inline-block;

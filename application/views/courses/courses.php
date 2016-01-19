@@ -27,7 +27,7 @@
                                     </front>
                                     <back>
                                         <div class="back-title" ng-style="courses.getTileTitle()">
-                                            <span class="middler"></span><span class="middle noselect back-title-icon clickable" ng-class="courses.getIconClass(tile)" fittext fittext-multiple="backIcons"></span><span class="middle noselect clickable" ng-bind="tile.title" fittext="0.7" fittext-multiple="backTitles"></span>
+                                            <span class="middler"></span><img class="middle noselect back-title-icon clickable" alt="{{course.courseID}}" ng-src="imgs/{{course.courseID}}.png" ><span class="middle noselect clickable" ng-bind="tile.title" fittext="0.7" fittext-multiple="backTitles"></span>
                                         </div>
                                         <div class="back-content" ng-style="courses.getTileContent()">
                                             <span class="noselect clickable" ng-bind="tile.contentFlipped" fittext-long="0.9"></span>
