@@ -9291,7 +9291,7 @@ button.close {
 }
 
 /* line 12, ../sass/_responsive.scss */
-.offset-5, #home #presentation #tiles-presentation .inside-tab, #home #presentation #tiles-presentation .inside-tab .title-wrapper, #singleCourse .course-notification-text, #media .media-panel .media-panel-main .media-navbar, #profile .profile-name-level-xp {
+.offset-5, #home #presentation #tiles-presentation .inside-tab, #home #presentation #tiles-presentation .inside-tab .title-wrapper, #home #presentation #news-events .news-icon, #singleCourse .course-notification-text, #media .media-panel .media-panel-main .media-navbar, #profile .profile-name-level-xp {
   margin-left: 5%;
 }
 
@@ -9520,7 +9520,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-20, #navbar #navbar-home, #footer #footer-logo {
+.col-20, #navbar #navbar-home, #footer #footer-logo, #home #presentation #news-events .news-icon {
   width: 20%;
   float: left;
 }
@@ -10400,7 +10400,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-75 {
+.col-75, #home #presentation #news-events .news-title {
   width: 75%;
   float: left;
 }
@@ -20268,30 +20268,36 @@ body {
   width: 100%;
 }
 /* line 36, ../sass/_courses.scss */
+#courses #tiles-courses .tile .resp-img, #courses #tiles-courses .tile .avatar, #courses #tiles-courses .tile .avatar-leaf {
+  max-width: 60%;
+  max-height: 60%;
+}
+/* line 42, ../sass/_courses.scss */
 #courses #tiles-courses .tile .title {
   padding: 5%;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 36, ../sass/_courses.scss */
+  /* line 42, ../sass/_courses.scss */
   #courses #tiles-courses .tile .title {
     padding: 2%;
   }
 }
-/* line 46, ../sass/_courses.scss */
+/* line 52, ../sass/_courses.scss */
 #courses #tiles-courses .tile .back .back-title-icon {
+  margin-top: 0.2em;
   margin-right: 0.2em;
 }
-/* line 50, ../sass/_courses.scss */
+/* line 57, ../sass/_courses.scss */
 #courses #tiles-courses .tile .back .back-title {
   padding-left: 5%;
   padding-right: 5%;
 }
-/* line 55, ../sass/_courses.scss */
+/* line 62, ../sass/_courses.scss */
 #courses #tiles-courses .tile .back .back-content {
   padding: 2% 5% 5% 5%;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 55, ../sass/_courses.scss */
+  /* line 62, ../sass/_courses.scss */
   #courses #tiles-courses .tile .back .back-content {
     padding: 2%;
   }

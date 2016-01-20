@@ -33,6 +33,12 @@
             width: 100%;
             @extend .square;
             
+            .resp-img
+            {
+            	max-width: 60%;
+            	max-height: 60%;
+            }
+            
             .title{
                 padding: 5%;
                 @include responsive {
@@ -44,6 +50,7 @@
                 @extend .text-left;
                 
                 .back-title-icon{
+                	margin-top: 0.2em;
                     margin-right: 0.2em;
                 }
                 

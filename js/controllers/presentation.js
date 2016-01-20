@@ -7,7 +7,7 @@ main.controller('presentationController',["utilities",function(utilities){
             faName : 'fa-user',
             title : 'Apprendimento',
             content : "Gli studenti seguono corsi innovativi tenuti da docenti che usano quotidianamente i concetti insegnati.",
-            color : 'light-olive',
+            color : 'olive',
             url : '#!/courses'
         },
         {
@@ -15,7 +15,7 @@ main.controller('presentationController',["utilities",function(utilities){
             faName : 'fa-cog',
             title : 'Simulazione',
             content : "Tramite una rigorosa simulazione di On-The-Job Training gli studenti vengono immersi in un realistico ambiente di lavoro con lo scopo di sviluppare un prodotto.",
-            color : 'light-green',
+            color : 'green',
             url : '#!/courses'
         },
         {
@@ -23,7 +23,7 @@ main.controller('presentationController',["utilities",function(utilities){
             faName : 'fa-globe',
             title : 'Pubblicazione',
             content : "Il prodotto realizzato durante la simulazione viene reso disponibile al pubblico (web, Play Store, App Store, etc.).",
-            color : 'light-water',
+            color : 'water',
             url : '#!/courses'
         }
     ];
@@ -37,7 +37,17 @@ main.controller('presentationController',["utilities",function(utilities){
     };
     
     self.getStyleTabs = function($first, el){
-        return 'bg-' + el.color + ' ' + self.spacedTabs($first);
+        return 'bg-light-' + el.color + ' ' + self.spacedTabs($first);
+    };
+    
+    self.getColour = function(index)
+    {
+    	return 'bg-light-' + self.tabs[index%3].color;
+    };
+    
+    self.getDarkColour = function(index)
+    {
+    	return 'bg-' + self.tabs[index%3].color;
     };
     
     /* NEWS */

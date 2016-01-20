@@ -49,8 +49,14 @@
         }
     }
     
-    #tiles-newsEvents{
-        
+    #news-events{
+    	.news-icon{
+    		@extend .col-20;
+    		@extend .offset-5;
+    	}
+    	.news-title{
+    		@extend .col-75;
+    	}
     }
     
 }

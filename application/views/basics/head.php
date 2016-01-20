@@ -123,6 +123,7 @@
     <script type="text/javascript" src="js/controllers/navbar.js"></script>
     <script type="text/javascript" src="js/controllers/header.js"></script>
     <script type="text/javascript" src="js/controllers/presentation.js"></script>
+    <script type="text/javascript" src="js/controllers/news.js"></script>
     <script type="text/javascript" src="js/controllers/team.js"></script>
     <script type="text/javascript" src="js/controllers/footer.js"></script>
     <script type="text/javascript" src="js/controllers/courses.js"></script>

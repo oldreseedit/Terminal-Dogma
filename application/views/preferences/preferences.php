@@ -18,5 +18,13 @@
 				<td><span class="modify" ng-if="preferences.isModifiable(row.id)" ng-click="preferences.modify(row)"><i class="fa fa-pencil"></i> <small>Modifica</small></span></td>
 			</tr>
 		</table>
+		<div class="panel panel-default">
+			<div class="panel-body text-left">
+				<div class="checkbox" ng-repeat="right in preferences.rights">
+				   	<input type="checkbox" ng-model="right.value">
+				    <label><span ng-bind="right.description"></span></label>
+				</div>
+			</div>
+		</div>
 	</spinner-final>
 </div>

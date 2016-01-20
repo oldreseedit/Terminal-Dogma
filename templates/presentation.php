@@ -23,9 +23,7 @@
                 </div> 
             </div>
         </div>
-        <!--<h3>News & Eventi</h3>-->
-        <!--<div id="tiles-newsEvents">-->
-            
-        <!--</div>-->
+        <h3>News & Eventi</h3>
+        <div ng-include="'templates/news.php'"></div>
     </div>
 </div>

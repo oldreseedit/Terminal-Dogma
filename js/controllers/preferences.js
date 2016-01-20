@@ -106,7 +106,22 @@ main.controller('preferencesController',['$server','$scope','$uibModal','inform'
 			default:
 				return 'm';
 		}
-	}
+	};
+	
+	self.getDescriptionOf = function(key)
+	{
+		switch(key)
+		{
+			case 'events':
+				return 'Inviami per e-mail le notifiche dei nuovi eventi';
+			case 'news':
+				return 'Inviami per e-mail le notifiche delle nuove news';
+			case 'exp':
+				return 'Inviami per e-mail le notifiche su nuovi punti esperienza ottenuti';
+			case 'info':
+				return 'Rendi il mio profilo pubblico (visibile dagli altri utenti di reSeed)';
+		}
+	};
 	
 	self.getAjax = $server.post('/users/get',{username: $scope.username}).then(
 			function(response){
@@ -122,6 +137,19 @@ main.controller('preferencesController',['$server','$scope','$uibModal','inform'
 					if(display) self.data.push({title: self.getNameOf(key), value: data[key], id: key, sex: self.sexOf(key)});
 				});
 				self.oldData = angular.copy(self.data);
+			}
+	);
+	
+	self.rightsAjax = $server.post('/notification_rights/get',{userID: $scope.username}).then(
+			function(response)
+			{
+				var data = response.data;
+				var keys = Object.keys(data);
+				self.rights = [];
+				angular.forEach(keys,function(key){
+					if(key!=='userID') self.rights.push({description: self.getDescriptionOf(key), value: data[key], id: key});
+				});
+				self.oldRights = angular.copy(self.rights);
 			}
 	);
 	
@@ -169,14 +197,23 @@ main.controller('preferencesController',['$server','$scope','$uibModal','inform'
 		self.setAjax = $server.post('/userinfo/update',data).then(
 			function(response)
 			{
-				for(var i=0; i<response.data.length; i++)
+				var rights = {userID: $scope.username};
+				for(var i = 0; i < self.rights.length; i++)
 				{
-					if(response.data[i].error) inform.add(response.data[i].description,{type:'danger'});
-    				else inform.add(response.data[i].description);
+					if(self.rights[i].value !== self.oldRights[i].value) rights[self.rights[i].id] = self.rights[i].value;
 				}
+				console.log(rights, self.rights,self.oldRights);
+				
+				self.setAjax = $server.post('/notification_rights/update',{userID: $scope.username}).then(
+						function(response){
+							console.log(response);
+							inform.add(response.data.description);							
+						}
+				);
+				
 			}
 		);
-	}
+	};
 	
 	
 	
