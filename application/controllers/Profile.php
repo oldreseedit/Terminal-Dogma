@@ -20,7 +20,6 @@ class Profile extends CI_Controller {
 	{
 		if(!$this->users_model->exists($profileName))
 		{
-// 			echo json_encode(array("error" => true, "description" => "Utente ". $profileName ." inesistente.", "errorCode" => "ILLEGAL_ACCESS", "parameters" => array("username")));
 			$this->load->view("errors/html/error_404.php", array('heading' => "Errore", 'message' => "Utente inesistente."));
 			return;
 		}

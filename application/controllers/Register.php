@@ -16,8 +16,10 @@ class Register extends CI_Controller {
 
         public function index()
         {
-        	$userID = $_COOKIE['username'];
-        	$token = $_COOKIE['token'];
+        	$userID = null;
+			$token = null;
+			if(isset($_COOKIE['username'])) $userID = $_COOKIE['username'];
+			if(isset($_COOKIE['token'])) $token = $_COOKIE['token'];
         	if(!$this->users_model->isLoggedIn($userID, $token))
         	{
         		echo json_encode(array("error" => true, "description" => "Non risulti essere iscritto a reSeed. Iscriviti!", "errorCode" => "ILLEGAL_ACCESS", "parameters" => array("username", "password")));
@@ -28,7 +30,7 @@ class Register extends CI_Controller {
         	 
         	if(!$can_see)
         	{
-        		echo json_encode(array("error" => true, "description" => "Non sei autorizzato ad accedere al registro.", "errorCode" => "ILLEGAL_ACCESS", "parameters" => array("username")));
+        		$this->load->view("errors/html/error_404.php", array('heading' => "Errore", 'message' => "Non sei autorizzato ad accedere al registro di reSeed."));
         		return;
         	}
         	
