@@ -119,7 +119,7 @@ main.controller('preferencesController',['$server','$scope','$uibModal','inform'
 			case 'exp':
 				return 'Inviami per e-mail le notifiche su nuovi punti esperienza ottenuti';
 			case 'info':
-				return 'Inviami per e-mail le notifiche su nuove informazioni (nuovo materiale pubblicato, variazioni d\'orario delle lezioni, etc.';
+				return 'Inviami per e-mail le notifiche su nuove informazioni (nuovo materiale pubblicato, variazioni d\'orario delle lezioni, etc.)';
 			case 'profileVisibility':
 				return 'Rendi il mio profilo pubblico (visibile dagli altri utenti di reSeed)';
 		}
@@ -127,6 +127,7 @@ main.controller('preferencesController',['$server','$scope','$uibModal','inform'
 	
 	self.getAjax = $server.post('/users/get',{username: $scope.username}).then(
 			function(response){
+				console.log(response);
 				var data = response.data;
 				var keys = Object.keys(data);
 				self.data = [];
@@ -145,6 +146,7 @@ main.controller('preferencesController',['$server','$scope','$uibModal','inform'
 	self.rightsAjax = $server.post('/preferences/get',{userID: $scope.username}).then(
 			function(response)
 			{
+				console.log(response);
 				var data = response.data;
 				var keys = Object.keys(data);
 				self.rights = [];

@@ -1,4 +1,4 @@
-main.directive('centered',function() {
+main.directive('centered',['$timeout',function($timeout) {
 	return {
 		restrict: 'A',
 		scope: true,
@@ -21,6 +21,10 @@ main.directive('centered',function() {
 			element[0].style.position = 'relative';
 			measure();
 			center();
+			$timeout(function(){
+				measure();
+				center();
+			});
 			
 			scope.$watch(
 					function()
@@ -73,4 +77,4 @@ main.directive('centered',function() {
 			
 		}
 	}
-});
+}]);

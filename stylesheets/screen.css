@@ -20212,6 +20212,26 @@ body {
 #home #presentation #tiles-presentation .inside-tab p {
   margin-bottom: 1em;
 }
+/* line 52, ../sass/_presentation.scss */
+#home #presentation #news-events {
+  margin-top: 1em;
+}
+/* line 56, ../sass/_presentation.scss */
+#home #presentation #news-events .news {
+  margin-top: 1em;
+}
+/* line 60, ../sass/_presentation.scss */
+#home #presentation #news-events .news-icon {
+  padding-top: 2%;
+}
+/* line 70, ../sass/_presentation.scss */
+#home #presentation #news-events .news-description {
+  padding: 5%;
+}
+/* line 74, ../sass/_presentation.scss */
+#home #presentation #news-events .equal-height, #home #presentation #news-events #admin .tab, #admin #home #presentation #news-events .tab {
+  margin-top: 2em;
+}
 /* line 1, ../sass/_team.scss */
 #home #team {
   padding-top: 3vw;

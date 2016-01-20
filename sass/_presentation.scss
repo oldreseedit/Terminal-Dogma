@@ -50,12 +50,29 @@
     }
     
     #news-events{
+    
+    	margin-top: 1em;
+    	
+    	.news{
+    		margin-top: 1em;
+    	}
+    	
     	.news-icon{
     		@extend .col-20;
     		@extend .offset-5;
+    		padding-top: 2%;
     	}
+    	
     	.news-title{
     		@extend .col-75;
+    	}
+    	
+    	.news-description{
+    		padding: 5%;
+    	}
+    	
+    	.equal-height{
+			margin-top: 2em;    		
     	}
     }
     
