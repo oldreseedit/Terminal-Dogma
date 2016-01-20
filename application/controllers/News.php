@@ -1,7 +1,7 @@
 <?php
 class News extends CI_Controller {
 
-        const TOP_N_EVENTS = 10;
+        const TOP_N_NEWS = 10;
         
         public function __construct()
         {

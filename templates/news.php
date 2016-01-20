@@ -5,7 +5,7 @@
 			<div ng-class="presentation.getColour(index)">
 				<div class="news-icon"><i class="fa white" ng-class="news.getIconClass(event)" fittext-multiple="0.8"></i></div>
 				<div class="news-title">
-					
+					<span ng-bind="event.title"></span>
 				</div>
 			</div>
 			<div ng-class="presentation.getDarkColour(index)">

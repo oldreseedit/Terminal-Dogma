@@ -72,7 +72,7 @@ class Events extends CI_Controller {
            		if($email) $this->mailer->send_mail($email, "Novità sugli eventi organizzati da reSeed", $title . ": " . $description);
            	}
             
-            // Store the news itself
+            // Store the event itself
             $this->events_model->add($title, $description, $place, $startingDate, $endingDate, $publishing_timestamp);
             
             $this->db->trans_complete();
