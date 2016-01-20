@@ -119,6 +119,8 @@ main.controller('preferencesController',['$server','$scope','$uibModal','inform'
 			case 'exp':
 				return 'Inviami per e-mail le notifiche su nuovi punti esperienza ottenuti';
 			case 'info':
+				return 'Inviami per e-mail le notifiche su nuove informazioni (nuovo materiale pubblicato, variazioni d\'orario delle lezioni, etc.';
+			case 'profileVisibility':
 				return 'Rendi il mio profilo pubblico (visibile dagli altri utenti di reSeed)';
 		}
 	};
@@ -140,14 +142,14 @@ main.controller('preferencesController',['$server','$scope','$uibModal','inform'
 			}
 	);
 	
-	self.rightsAjax = $server.post('/notification_rights/get',{userID: $scope.username}).then(
+	self.rightsAjax = $server.post('/preferences/get',{userID: $scope.username}).then(
 			function(response)
 			{
 				var data = response.data;
 				var keys = Object.keys(data);
 				self.rights = [];
 				angular.forEach(keys,function(key){
-					if(key!=='userID') self.rights.push({description: self.getDescriptionOf(key), value: data[key], id: key});
+					if(key!=='userID') self.rights.push({description: self.getDescriptionOf(key), value: parseInt(data[key]), id: key});
 				});
 				self.oldRights = angular.copy(self.rights);
 			}
@@ -194,25 +196,31 @@ main.controller('preferencesController',['$server','$scope','$uibModal','inform'
 			if(self.data[i].value !== self.oldData[i].value) data[self.data[i].id] = self.data[i].value;
 		}
 		
-		self.setAjax = $server.post('/userinfo/update',data).then(
-			function(response)
-			{
-				var rights = {userID: $scope.username};
-				for(var i = 0; i < self.rights.length; i++)
+		if(Object.keys(data).length > 1)
+		{
+			self.setAjax = $server.post('/userinfo/update',data).then(
+				function(response)
 				{
-					if(self.rights[i].value !== self.oldRights[i].value) rights[self.rights[i].id] = self.rights[i].value;
+					angular.forEach(response.data, function(d){inform.add(d.description)});
 				}
-				console.log(rights, self.rights,self.oldRights);
-				
-				self.setAjax = $server.post('/notification_rights/update',{userID: $scope.username}).then(
-						function(response){
-							console.log(response);
-							inform.add(response.data.description);							
-						}
-				);
-				
-			}
-		);
+			);
+		}
+		
+		var rights = {userID: $scope.username};
+		for(var i = 0; i < self.rights.length; i++)
+		{
+			if(self.rights[i].value !== self.oldRights[i].value) rights[self.rights[i].id] = self.rights[i].value;
+		}
+		
+		if(Object.keys(rights).length > 1)
+		{
+			self.setAjax = $server.post('/preferences/update', rights).then(
+				function(response)
+				{
+					angular.forEach(response.data, function(d){inform.add(d.description)});
+				}
+			);
+		}
 	};
 	
 	

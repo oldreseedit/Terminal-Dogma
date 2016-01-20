@@ -7,7 +7,7 @@ class News extends CI_Controller {
         {
                 parent::__construct();
                 $this->load->model('news_model');
-                $this->load->model('notification_rights_model');
+                $this->load->model('preferences_model');
                 $this->load->model('userinfo_model');
         }
         
@@ -45,7 +45,7 @@ class News extends CI_Controller {
            		// Setup sending email permission
            		$email = null;
            		// Get the email of the target user
-           		$rights = $this->notification_rights_model->get($userID);
+           		$rights = $this->preferences_model->get($userID);
            		// If he agreed to receive emails, send him an email with the notification
            		if($rights && $rights['news']) $email = $user_info['email'];
            		if($email) $this->mailer->send_mail($email, "Novità su reSeed", $title . ": " . $description);

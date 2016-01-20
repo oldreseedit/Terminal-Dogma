@@ -11,7 +11,7 @@ class Lessons extends CI_Controller {
                 $this->load->model('userinfo_model');
                 
                 $this->load->model('notifications_model');
-                $this->load->model('notification_rights_model');
+                $this->load->model('preferences_model');
                 $this->load->model('experience_events_model');
                 $this->load->model('achievements_and_rewards_model');
                 $this->load->model('user_achievements_rewards_model');
@@ -104,7 +104,7 @@ class Lessons extends CI_Controller {
             	// Setup sending email permission
             	$email = null;
             	// Get the email of the target user
-            	$rights = $this->notification_rights_model->get($userID);
+            	$rights = $this->preferences_model->get($userID);
             	// If he agreed to receive emails, send him an email with the notification
             	if($rights && $rights['info']) $email = $this->userinfo_model->get($userID)['email'];
             	if($email) $this->mailer->send_mail($email, "Novità sui corsi che frequenti a reSeed", "Una lezione di " . $courseId . " ha subìto cambiamenti d'orario. Nuovo orario: " . $startingDate . " - " . $endingDate);
@@ -135,7 +135,7 @@ class Lessons extends CI_Controller {
             	// Setup sending email permission
             	$email = null;
             	// Get the email of the target user
-            	$rights = $this->notification_rights_model->get($userID);
+            	$rights = $this->preferences_model->get($userID);
             	// If he agreed to receive emails, send him an email with the notification
             	if($rights && $rights['info']) $email = $this->userinfo_model->get($userID)['email'];
             	if($email) $this->mailer->send_mail($email, "Novità sui corsi che frequenti a reSeed", "Una lezione di " . $courseId . " ha subìto cambiamenti d'orario. Nuovo orario: " . $startingDate . " - " . $endingDate);
@@ -190,7 +190,7 @@ class Lessons extends CI_Controller {
         	// Setup sending email permission
         	$email = null;
         	// Get the email of the target user
-        	$rights = $this->notification_rights_model->get($userID);
+        	$rights = $this->preferences_model->get($userID);
         	// If he agreed to receive emails, send him an email with the notification
         	if($rights && $rights['exp']) $email = $this->userinfo_model->get($userID)['email'];
         	

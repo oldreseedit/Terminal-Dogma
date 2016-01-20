@@ -33,7 +33,7 @@ main.controller('signinController',['utilities','$scope','$http','$timeout','fir
                 var expireDate = moment.unix(response.data.expire).toDate();
                 $cookies.put('username',response.data.username,{path:'/',expires:expireDate});
                 $cookies.put('token',response.data.token,{path:'/',expires:expireDate});
-                $scope.close();
+                // $scope.close();
                 $timeout(function(){$window.location.reload();});
             }
             

@@ -11,7 +11,7 @@ class Notifications extends CI_Controller {
                 $this->load->model('payment_model');
                 $this->load->helper('url');
                 
-                $this->load->model('notification_rights_model');
+                $this->load->model('preferences_model');
                 $this->load->model('userinfo_model');
                 
                 $this->load->library('time');
@@ -56,7 +56,7 @@ class Notifications extends CI_Controller {
             	// Setup sending email permission
             	$email = null;
             	// Get the email of the target user
-            	$rights = $this->notification_rights_model->get($userID);
+            	$rights = $this->preferences_model->get($userID);
             	// If he agreed to receive emails, send him an email with the notification
             	if($rights && $rights['info']) $email = $this->userinfo_model->get($userID)['email'];
             	if($email) $this->mailer->send_mail($email, "Novità sui corsi che frequenti a reSeed", "Il corso " . $courseId . " ha un nuovo avviso: " . $text);

@@ -15,7 +15,7 @@ class Experience
 		$this->CI->load->model('experience_events_model');
 		$this->CI->load->model('achievements_and_rewards_model');
 		$this->CI->load->model('user_achievements_rewards_model');
-		$this->CI->load->model('notification_rights_model');
+		$this->CI->load->model('preferences_model');
 		
 		$this->CI->load->library('time');
 		$this->CI->load->library('mailer');
@@ -51,7 +51,7 @@ class Experience
 		// Setup sending email permission
 		$email = null;
 		// Get the email of the target user
-		$rights = $this->CI->notification_rights_model->get($userID);
+		$rights = $this->CI->preferences_model->get($userID);
 		// If he agreed to receive emails, send him an email with the notification
 		if($rights && $rights['exp']) $email = $this->CI->userinfo_model->get($userID)['email'];
 		

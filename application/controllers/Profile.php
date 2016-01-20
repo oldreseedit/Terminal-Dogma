@@ -11,6 +11,7 @@ class Profile extends CI_Controller {
 		$this->load->model('profile_block_positions_model');
 		
 		$this->load->library('permissions');
+		$this->load->model('preferences_model');
 		
 		$this->load->helper('url');
 	}
@@ -24,23 +25,25 @@ class Profile extends CI_Controller {
 			return;
 		}
 		
+		$profilePublic = $this->preferences_model->get($profileName)['profileVisibility'];
+		
 		$userID = null;
 		$token = null;
 		if(isset($_COOKIE['username'])) $userID = $_COOKIE['username'];
 		if(isset($_COOKIE['token'])) $token = $_COOKIE['token'];
-		if(!$this->users_model->isLoggedIn($userID, $token))
+		if(!$this->users_model->isLoggedIn($userID, $token) && !$profilePublic)
 		{
-			echo json_encode(array("error" => true, "description" => "Non risulti essere iscritto a reSeed. Iscriviti!", "errorCode" => "ILLEGAL_ACCESS", "parameters" => array("username", "password")));
+			$this->load->view("errors/html/error_404.php", array('heading' => "Errore", 'message' => "Non risulti essere iscritto a reSeed. Iscriviti!"));
 			return;
 		}
 		
-// 		$can_see = $this->admins_model->is_admin($userID) || strcmp($userID, $profileName) == 0;
+		$can_see = $profilePublic || $this->admins_model->is_admin($userID) || strcmp($userID, $profileName) == 0;
 		
-// 		if(!$can_see)
-// 		{
-// 			echo json_encode(array("error" => true, "description" => "Non sei autorizzato a visitare questo profilo.", "errorCode" => "ILLEGAL_ACCESS", "parameters" => array("username")));
-// 			return;
-// 		}
+		if(!$can_see)
+		{
+			$this->load->view("errors/html/error_404.php", array('heading' => "Errore", 'message' => "Non sei autorizzato a visitare il profilo di ".$profileName."."));
+			return;
+		}
 		
 		$this->load->view('profile/profile');
 	}

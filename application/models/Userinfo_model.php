@@ -18,7 +18,7 @@ class Userinfo_model extends CI_Model
                         'registrationDate' => array('type' => 'DATETIME'),
                         'name' => array('type' => 'VARCHAR', 'constraint' => 30),
                         'surname' => array('type' => 'VARCHAR', 'constraint' => 30),
-                        'birthdate' => array('type' => 'DATE'),
+                        'birthdate' => array('type' => 'DATE', 'null' => true),
                         'profilePicture' => array('type' => 'VARCHAR', 'constraint' => 2083),
                         'profession' => array('type' => 'VARCHAR', 'constraint' => 50),
                         'schoolName' => array('type' => 'VARCHAR', 'constraint' => 100),

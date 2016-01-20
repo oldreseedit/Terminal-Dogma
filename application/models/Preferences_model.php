@@ -1,7 +1,7 @@
 <?php
-class Notification_rights_model extends CI_Model
+class Preferences_model extends CI_Model
 {
-        const table_name = "notifications_rights";
+        const table_name = "preferences";
         
         public function __construct()
         {
@@ -30,6 +30,9 @@ class Notification_rights_model extends CI_Model
                 		'events' => array(
                 				'type' => 'TINYINT',
                 		),
+                		'profileVisibility' => array(
+                				'type' => 'TINYINT',
+                		),
                 );
                 
                 $this->dbforge->add_key('userID', TRUE);
@@ -38,14 +41,15 @@ class Notification_rights_model extends CI_Model
                 $this->dbforge->create_table(self::table_name);
         }
         
-        public function add($userID, $exp, $info, $news, $events)
+        public function add($userID, $exp, $info, $news, $events, $profile_visibility)
         {
         	$data = array(
         			'userID' => $userID,
         			'exp' => $exp,
         			'info' => $info,
         			'news' => $news,
-        			'events' => $events
+        			'events' => $events,
+        			'profileVisibility' => $profile_visibility
         	);
         	
         	$this->db->insert(self::table_name, $data);
