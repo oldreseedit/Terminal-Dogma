@@ -17,7 +17,7 @@ main.controller('modifyPreferenceController',['$scope','$uibModalInstance','data
 	}
 	
 	self.close = function(newValue){
-		if(data.id === 'birthdate') newValue = moment(newValue).format('DD-MM-YYYY');
+		if(data.id === 'birthdate') newValue = moment(newValue).format('YYYY-MM-DD');
 		if($scope.modifyPreferenceForm.$valid) $scope.$close(newValue);
 	};	
 	

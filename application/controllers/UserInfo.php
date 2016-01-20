@@ -90,14 +90,47 @@ class UserInfo extends CI_Controller {
         		$pieces['advertisementProvenance'] = $provenance;
         	}
         	
+        	$userInfo = $this->userinfo_model->get($userID);
+        	
+        	$notifications = array();
+
+        	$property2string = array();
+        	$property2string['email'] = "indirizzo email";
+        	$property2string['name'] = "nome";
+        	$property2string['surname'] = "cognome";
+        	$property2string['birthdate'] = "data di nascita";
+        	$property2string['profilePicture'] = "immagine del tuo profilo";
+        	$property2string['profession'] = "professione";
+        	$property2string['schoolName'] = "scuola";
+        	$property2string['educationLevel'] = "grado di studi";
+        	$property2string['address'] = "indirizzo";
+        	$property2string['phoneNumber'] = "numero di telefono";
+        	$property2string['mobileNumber'] = "numero di cellulare";
+        	$property2string['advertisementProvenance'] = "come conosci reSeed";
+        	
         	foreach($pieces as $piece_key => $piece_value)
         	{
-        		$this->experience->add_exp_to_user($userID, 500, null, "Hai aggiunto " . $piece_key . " al tuo profilo.");
+        		if(!$userInfo[$piece_key])
+        		{
+        			$exp_notifications = $this->experience->add_exp_to_user($userID, 500, null, " per aver aggiunto '" . $property2string[$piece_key] . "' al tuo profilo.");
+        			foreach ($exp_notifications as $exp_notification)
+        				$notifications[] = $exp_notification;
+        		}
         	}
         	
-        	$this->userinfo_model->update($userID, $pieces);
+        	if($pieces)
+        	{
+        		$this->userinfo_model->update($userID, $pieces);
+        		$notifications[] = array("error" => false, "description" => "Informazioni del profilo modificate correttamente.");
+        	}
+        	else
+        	{
+        		$notifications[] = array("error" => true, "description" => "Non hai modificato alcuna informazione.");
+        	}
         	
         	$this->db->trans_complete();
+        	
+        	echo json_encode($notifications);
         }
 }
 ?>

@@ -38,12 +38,25 @@ class Notification_rights_model extends CI_Model
                 $this->dbforge->create_table(self::table_name);
         }
         
+        public function add($userID, $exp, $info, $news, $events)
+        {
+        	$data = array(
+        			'userID' => $userID,
+        			'exp' => $exp,
+        			'info' => $info,
+        			'news' => $news,
+        			'events' => $events
+        	);
+        	
+        	$this->db->insert(self::table_name, $data);
+        }
+        
         public function get($userID)
         {
         	return $this->db->where('userID', $userID)->get(self::table_name)->row_array();
         }
         
-        public function set($userID, $data)
+        public function update($userID, $data)
         {
         	$this->db->where('userID', $userID)->update(self::table_name, $data);
         }

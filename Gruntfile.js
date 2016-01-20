@@ -192,6 +192,9 @@ module.exports = function(grunt) {
                 	{
                 		requestUri = requestUri.substr(0, requestUri.length -1);
                 	}
+                	
+                	requestUri = requestUri.replace("/", "-");
+                	
                 	return requestUri;
                     //returns 'index.html' if the url is '/', otherwise a prefix 
 //                    if (/\//.test(requestUri)) {

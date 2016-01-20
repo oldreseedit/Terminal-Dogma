@@ -1,4 +1,4 @@
-main.controller('preferencesController',['$server','$scope','$uibModal',function($server,$scope,$uibModal){
+main.controller('preferencesController',['$server','$scope','$uibModal','inform',function($server,$scope,$uibModal,inform){
 	var self = this;
 	
 	self.nonDisplayedProperties = ['advertisementProvenance','currentExp','previousExp','profilePicture'];
@@ -169,7 +169,11 @@ main.controller('preferencesController',['$server','$scope','$uibModal',function
 		self.setAjax = $server.post('/userinfo/update',data).then(
 			function(response)
 			{
-				console.log(response);
+				for(var i=0; i<response.data.length; i++)
+				{
+					if(response.data[i].error) inform.add(response.data[i].description,{type:'danger'});
+    				else inform.add(response.data[i].description);
+				}
 			}
 		);
 	}
