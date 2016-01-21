@@ -146,7 +146,6 @@ main.controller('preferencesController',['$server','$scope','$uibModal','inform'
 	self.rightsAjax = $server.post('/preferences/get',{userID: $scope.username}).then(
 			function(response)
 			{
-				console.log(response.data);
 				var data = response.data;
 				var keys = Object.keys(data);
 				self.rights = [];
@@ -197,14 +196,12 @@ main.controller('preferencesController',['$server','$scope','$uibModal','inform'
 		{
 			if(self.data[i].value !== self.oldData[i].value) data[self.data[i].id] = self.data[i].value;
 		}
-		console.log(data,self.data,self.oldData);
 		
 		if(Object.keys(data).length > 1)
 		{
 			self.setAjax = $server.post('/user_info/update',data).then(
 				function(response)
 				{
-//					console.log(response);
 					angular.forEach(response.data, function(d){inform.add(d.description)});
 				}
 			);
@@ -215,7 +212,6 @@ main.controller('preferencesController',['$server','$scope','$uibModal','inform'
 		{
 			if(self.rights[i].value !== self.oldRights[i].value) rights[self.rights[i].id] = self.rights[i].value;
 		}
-//		console.log(rights,self.rights,self.oldRights);
 		
 		if(Object.keys(rights).length > 1)
 		{

@@ -91,11 +91,11 @@ class Preferences extends CI_Controller {
             
             $data = array();
             
-            if(isset($_POST['exp'])) $data['exp'] = $this->input->post('exp') === 'true' ? 1 : 0;
-            if(isset($_POST['info'])) $data['info'] = $this->input->post('info') === 'true' ? 1 : 0;
-            if(isset($_POST['news'])) $data['news'] = $this->input->post('news') === 'true' ? 1 : 0;
-            if(isset($_POST['events'])) $data['events'] = $this->input->post('events') === 'true' ? 1 : 0;
-            if(isset($_POST['profileVisibility'])) $data['profileVisibility'] = $this->input->post('profileVisibility') === 'true' ? 1 : 0;
+            if(isset($_POST['exp'])) $data['exp'] = $this->input->post('exp');
+            if(isset($_POST['info'])) $data['info'] = $this->input->post('info');
+            if(isset($_POST['news'])) $data['news'] = $this->input->post('news');
+            if(isset($_POST['events'])) $data['events'] = $this->input->post('events');
+            if(isset($_POST['profileVisibility'])) $data['profileVisibility'] = $this->input->post('profileVisibility');
             
             if(!empty($data))
             {
