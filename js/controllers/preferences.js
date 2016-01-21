@@ -151,7 +151,7 @@ main.controller('preferencesController',['$server','$scope','$uibModal','inform'
 				var keys = Object.keys(data);
 				self.rights = [];
 				angular.forEach(keys,function(key){
-					if(key!=='userID') self.rights.push({description: self.getDescriptionOf(key), value: parseInt(data[key]), id: key});
+					if(key!=='userID') self.rights.push({description: self.getDescriptionOf(key), value: parseInt(data[key]), id: key} );
 				});
 				self.oldRights = angular.copy(self.rights);
 			}
@@ -214,6 +214,7 @@ main.controller('preferencesController',['$server','$scope','$uibModal','inform'
 		{
 			if(self.rights[i].value !== self.oldRights[i].value) rights[self.rights[i].id] = self.rights[i].value;
 		}
+		console.log(rights,self.rights,self.oldRights);
 		
 		if(Object.keys(rights).length > 1)
 		{

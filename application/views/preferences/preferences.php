@@ -23,7 +23,7 @@
 		<div class="panel panel-default">
 			<div class="panel-body text-left">
 				<div class="checkbox" ng-repeat="right in preferences.rights">
-				   	<input type="checkbox" ng-model="right.value" ng-checked="right.value === 1">
+				   	<input type="checkbox" ng-model="right.value" ng-true-value="1" ng-false-value="0">
 				    <label><span ng-bind="right.description"></span></label>
 				</div>
 			</div>
