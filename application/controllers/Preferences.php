@@ -68,6 +68,13 @@ class Preferences extends CI_Controller {
         		return;
         	}
         	
+        	$profileVisibility = $this->input->post('profileVisibility');
+        	if($profileVisibility == false)
+        	{
+        		echo json_encode(array("error" => true, "description" => "E' obbligatorio specificare la visibilità del proprio profilo.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("profileVisibility")));
+        		return;
+        	}
+        	
         	$this->preferences_model->add($userID, $exp, $info, $news, $events);
         }
         
@@ -88,6 +95,7 @@ class Preferences extends CI_Controller {
             if(isset($_POST['info'])) $data['info'] = $this->input->post('info') === 'true' ? 1 : 0;
             if(isset($_POST['news'])) $data['news'] = $this->input->post('news') === 'true' ? 1 : 0;
             if(isset($_POST['events'])) $data['events'] = $this->input->post('events') === 'true' ? 1 : 0;
+            if(isset($_POST['profileVisibility'])) $data['profileVisibility'] = $this->input->post('profileVisibility') === 'true' ? 1 : 0;
             
             if(!empty($data))
             {

@@ -5,7 +5,7 @@
 			<div class="news" ng-repeat="event in row" ng-init="index=$index"  ng-class="presentation.spacedTabs($first)">
 				<div  ng-class="presentation.getColour(index)">
 					<div class="container">
-						<div class="news-icon" centered><i class="fa fa-4x white" ng-class="news.getIconClass(event)"></i></div>
+						<div class="news-icon" centered><i class="fa white" ng-class="news.getIconClass(event)" fittext fittext-exclusive="width"></i></div>
 						<div class="news-title text-left" centered>
 							<h5><b ng-bind="event.title"></b></h5>
 							<p ng-if="event.type==='event'" class="darker-grey">

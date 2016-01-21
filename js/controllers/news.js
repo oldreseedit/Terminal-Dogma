@@ -3,19 +3,19 @@ main.controller('newsController',['$server','$scope',function($server,$scope){
 	
 	self.news = [];
 	
-	self.getAjax = $server.post('/news/get_latest_news').then(
+	self.getAjax = $server.post('/news/get_latest_news', {top: 2}).then(
 			function(response)
 			{
 				angular.forEach(response.data, function(n){
 						n['type'] = 'news';
-						self.news.push(n);
+						self.news.unshift(n);
 				});
 				self.newsByRow = self.getNewsByRow();
 //				console.log(self.news);
 			}
 	);
 	
-	self.getAjax = $server.post('/events/get_latest_events').then(
+	self.getAjax = $server.post('/events/get_latest_events', {top: 2}).then(
 			function(response)
 			{
 				angular.forEach(response.data, function(e){
