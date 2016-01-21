@@ -4,7 +4,8 @@ main.controller('navbarController',['utilities','$timeout','$window','$uibModal'
     self.tabs = [
         {
             url : 'courses',
-            content : 'Corsi'
+            content : 'Corsi',
+            title : "Vedi tutti i nostri corsi"
         },
 //         {
 //             url : 'activities',
@@ -16,7 +17,8 @@ main.controller('navbarController',['utilities','$timeout','$window','$uibModal'
 //        },
         {
             url : 'contacts',
-            content : 'Contatti'
+            content : 'Contatti',
+            title : "Ottieni maggiori informazioni su reSeed"
         }
     ];
     

@@ -200,9 +200,10 @@ main.controller('preferencesController',['$server','$scope','$uibModal','inform'
 		
 		if(Object.keys(data).length > 1)
 		{
-			self.setAjax = $server.post('/userinfo/update',data).then(
+			self.setAjax = $server.post('/user_info/update',data).then(
 				function(response)
 				{
+					console.log(response);
 					angular.forEach(response.data, function(d){inform.add(d.description)});
 				}
 			);

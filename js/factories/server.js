@@ -2,9 +2,9 @@ main.factory('$server',['$http','inform',function($http,inform){
 	
 	var Post = function(url, data, showInform, config)
 	{
-		showInform = showInform || true;
-		config = config || null;
-		if(config) this.promise = $http.post(url,data,config);
+		this.showInform = showInform || true;
+		this.config = config || null;
+		if(this.config) this.promise = $http.post(url,data,config);
 		else this.promise = $http.post(url,data);
 		this.promise.id = url + JSON.stringify(data);
 		
@@ -14,11 +14,16 @@ main.factory('$server',['$http','inform',function($http,inform){
 	Post.prototype.then = function(successFn,errorFn){
 		successFn = successFn || null;
 		errorFn = errorFn || null;
+		
+		var self = this;
+		
 		this.promise.then(function(response){
-			if(this.showInform){
+			console.log(self);
+			
+			if(self.showInform){
 				if(response.data.error) inform.add(response.data.description,{type: 'danger'});
 			}
-			if(response) if(successFn) successFn(response);
+			if(response) if(successFn && !response.data.error) successFn(response);
 			
 //			console.log(successFn);
 		},function(error){
