@@ -146,7 +146,7 @@ main.controller('preferencesController',['$server','$scope','$uibModal','inform'
 	self.rightsAjax = $server.post('/preferences/get',{userID: $scope.username}).then(
 			function(response)
 			{
-//				console.log(response);
+				console.log(response.data);
 				var data = response.data;
 				var keys = Object.keys(data);
 				self.rights = [];
@@ -197,6 +197,7 @@ main.controller('preferencesController',['$server','$scope','$uibModal','inform'
 		{
 			if(self.data[i].value !== self.oldData[i].value) data[self.data[i].id] = self.data[i].value;
 		}
+		console.log(data,self.data,self.oldData);
 		
 		if(Object.keys(data).length > 1)
 		{

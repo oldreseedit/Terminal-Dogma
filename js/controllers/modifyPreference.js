@@ -1,7 +1,7 @@
-main.controller('modifyPreferenceController',['$scope','$uibModalInstance','data',function($scope,$uibModalInstance,data){
+main.controller('modifyPreferenceController',['$scope','$uibModalInstance','$timeout','data',function($scope,$uibModalInstance,$timeout,data){
 	var self = this;
 	
-	self.form = {};
+	self.form = angular.copy(data);
 	self.data = data;
 	
 	$scope.initDate = moment(new Date()).subtract(18,'years').toDate();
