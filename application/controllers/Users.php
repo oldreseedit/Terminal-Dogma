@@ -329,5 +329,10 @@ class Users extends CI_Controller {
         	
         	echo json_encode(array("error" => false, "discount" => $total_discount));
         }
+        
+        public function get_all_users_exp()
+        {
+        	echo json_encode(array("error" => false, "users" => $this->userinfo_model->get_all_exp_info()));
+        }
 }
 ?>

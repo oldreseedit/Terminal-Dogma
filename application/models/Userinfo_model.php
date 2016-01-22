@@ -85,5 +85,10 @@ class Userinfo_model extends CI_Model
         {
                 $this->db->where('userID', $userID)->update(self::table_name, array('currentExp' => $newExp, 'previousExp' => $oldExp, 'level' => $level));
         }
+        
+        public function get_all_exp_info()
+        {
+        	return $this->db->select('userID, level, currentExp')->order_by('currentExp', 'desc')->get(self::table_name)->result_array();
+        }
 }
 ?>

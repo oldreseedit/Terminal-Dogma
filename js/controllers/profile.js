@@ -76,6 +76,14 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
         	  width: 49,
         	  offset: 1
           },
+          {
+        	  id : 'profileHighScores',
+        	  title: 'High scores',
+        	  bgColour: 'bg-light-water',
+        	  templateUrl : 'templates/profile-highscores.php',
+        	  width: 49,
+        	  offset: 1
+          },
 	];
     
     self.getItemClass = function(item)
@@ -164,6 +172,20 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
 		}
 	);
     
+    self.expAjax = $server.post('users/get_all_users_exp', null, false).then(
+    		function(response)
+    		{
+    			self.highscores = [];
+    		    for(var i=0; i<response.data.users.length; i++)
+    			{
+    			   	self.highscores[i] = {};
+    			   	self.highscores[i].username = response.data.users[i].userID;
+    			   	self.highscores[i].level = response.data.users[i].level;
+    			   	self.highscores[i].exp = response.data.users[i].currentExp;
+    			}
+    		}
+    	);
+    
     // Watchers
     
     $scope.changeAvatar = function(URI)
@@ -174,7 +196,7 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
     $scope.$watch(
     		function()
     		{
-    			if($('.profile-name-level-xp')) return $('.profile-name-level-xp').height(); 
+    			if($('.profile-name-level-xp')) return $('.profile-name-level-xp').height();
     		},
     		function(newValue, oldValue)
     		{
@@ -188,7 +210,7 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
     $scope.$watchCollection(
     		function()
     		{
-    			var ajaxes = [self.coursesAjax, self.notificationsAjax, self.achievementsAndRewardsAjax, self.expInfoAjax, self.avatarAjax];
+    			var ajaxes = [self.coursesAjax, self.notificationsAjax, self.achievementsAndRewardsAjax, self.expInfoAjax, self.avatarAjax, self.expAjax];
     			
     			var states = [];
     			var allDefined = true;

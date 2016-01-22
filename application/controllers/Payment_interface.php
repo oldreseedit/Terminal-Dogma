@@ -171,7 +171,7 @@ class Payment_interface extends CI_Controller {
             $userID = $this->input->post('username');
             if($userID == false)
             {
-            	echo json_encode(array("error" => true, "description" => "Il nome utente è obbligatorio.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("username")));
+            	echo json_encode(array());
             	return;
             }
             
