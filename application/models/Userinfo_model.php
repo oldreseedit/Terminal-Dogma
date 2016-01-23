@@ -88,7 +88,7 @@ class Userinfo_model extends CI_Model
         
         public function get_all_exp_info()
         {
-        	return $this->db->select('userID, level, currentExp')->order_by('currentExp', 'desc')->get(self::table_name)->result_array();
+        	return $this->db->select('userID, profilePicture, level, currentExp')->order_by('currentExp', 'desc')->get(self::table_name)->result_array();
         }
 }
 ?>

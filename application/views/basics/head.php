@@ -102,6 +102,7 @@
     <!-- AngularJS Modules -->
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/filters/firstCapitalized.js"></script>
+    <script type="text/javascript" src="js/filters/experiencePointsFormatter.js"></script>
     <script type="text/javascript" src="js/factories/utilities.js"></script>
     <script type="text/javascript" src="js/factories/ajaxEvents.js"></script>
     <script type="text/javascript" src="js/factories/server.js"></script>

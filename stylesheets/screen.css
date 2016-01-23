@@ -19505,7 +19505,7 @@ h1 {
 }
 
 /* line 6, ../sass/_palette.scss */
-.green, #singleCourse a:hover, #singleActivity a:hover, #profile .profile-info a:hover, #preferences .btn-group .btn:hover, #preferences .btn-group #contacts #contact-form #contacts-submit:hover, #contacts #contact-form #preferences .btn-group #contacts-submit:hover, #preferences .btn-group #payment-disclaimer-modal form #payment-disclaimer-submit:hover, #payment-disclaimer-modal form #preferences .btn-group #payment-disclaimer-submit:hover, #preferences .btn-group #payment-disclaimer-modal form #payment-disclaimer-cancel:hover, #payment-disclaimer-modal form #preferences .btn-group #payment-disclaimer-cancel:hover, #preferences .btn-group .modal-wrapper form .modal-submit:hover, .modal-wrapper form #preferences .btn-group .modal-submit:hover, #preferences .btn-group .modal-wrapper form .modal-cancel:hover, .modal-wrapper form #preferences .btn-group .modal-cancel:hover {
+.green, #singleCourse a:hover, #singleActivity a:hover, #profile .profile-info a:hover, #profile .profile-high-scores a:hover, #preferences .btn-group .btn:hover, #preferences .btn-group #contacts #contact-form #contacts-submit:hover, #contacts #contact-form #preferences .btn-group #contacts-submit:hover, #preferences .btn-group #payment-disclaimer-modal form #payment-disclaimer-submit:hover, #payment-disclaimer-modal form #preferences .btn-group #payment-disclaimer-submit:hover, #preferences .btn-group #payment-disclaimer-modal form #payment-disclaimer-cancel:hover, #payment-disclaimer-modal form #preferences .btn-group #payment-disclaimer-cancel:hover, #preferences .btn-group .modal-wrapper form .modal-submit:hover, .modal-wrapper form #preferences .btn-group .modal-submit:hover, #preferences .btn-group .modal-wrapper form .modal-cancel:hover, .modal-wrapper form #preferences .btn-group .modal-cancel:hover {
   color: #0fa82d;
 }
 
@@ -20638,6 +20638,11 @@ body {
 #profile .profile-rewards .fa-stack-1x {
   top: -0.5em;
   font-size: 0.6em;
+}
+/* line 86, ../sass/_profile.scss */
+#profile .profile-high-scores a {
+  color: inherit;
+  text-decoration: none;
 }
 
 /* line 1, ../sass/_modal.scss */

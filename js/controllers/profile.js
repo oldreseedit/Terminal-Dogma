@@ -180,6 +180,8 @@ main.controller('profileController',['$scope','$http','$routeParams','$route','$
     			{
     			   	self.highscores[i] = {};
     			   	self.highscores[i].username = response.data.users[i].userID;
+    			   	self.highscores[i].avatar = response.data.users[i].profilePicture;
+    			   	if(self.highscores[i].avatar === "") self.highscores[i].avatar = '/imgs/leaf.png';
     			   	self.highscores[i].level = response.data.users[i].level;
     			   	self.highscores[i].exp = response.data.users[i].currentExp;
     			}
