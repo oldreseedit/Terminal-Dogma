@@ -10,10 +10,13 @@
     <link rel="icon" type="image/jpeg" href="imgs/favicon-alpha.png"/>
     <title ng-bind="(title ? (title + ' - ' ) : '' ) + 'reSeed'"></title>
 
+	<!-- SEO -->
+	<meta name="fragment" content="!">
+
     <!-- FB -->
-        <meta property="og:image" content="assets/img/header_bg.jpg" />
+        <meta property="og:image" content="https://reseed.it/imgs/header.jpg" />
         <meta property="og:description" content="Impara. Crea. Pubblica."/>
-        <meta property="og:url" content="reseed.it" />
+        <meta property="og:url" content="https://www.reseed.it" />
         <meta property="og:title" content="reSeed" />
             
 <!-- BOOTSTRAP -->
