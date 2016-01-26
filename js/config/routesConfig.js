@@ -133,6 +133,13 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
         controller : 'Register as register'
     });
     
+    // Presentazione ai licei
+    
+    $routeProvider.when('/school',{
+    	title : 'Presentazione',
+        templateUrl : 'school'
+    });
+    
     $routeProvider.otherwise({
     	templateUrl: 'error'
     });

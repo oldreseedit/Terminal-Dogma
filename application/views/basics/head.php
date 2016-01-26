@@ -57,6 +57,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.8/js/min/perfect-scrollbar.jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.8/js/min/perfect-scrollbar.min.js"></script>
     
+	<!-- Three JSs -->
+    
+    <script type="text/javascript" src="js/three/three.js"></script>
+    <script type="text/javascript" src="js/three/MTLLoader.js"></script>
+    <script type="text/javascript" src="js/three/OBJLoader.js"></script>
+    <script type="text/javascript" src="js/three/OBJMTLLoader.js"></script>
+    
+    
     <!-- injector:js -->
     
     <!-- AngularUI Calendar -->
