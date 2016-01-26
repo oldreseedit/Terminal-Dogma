@@ -1,4 +1,4 @@
-main.directive('equalSpans',['$window',function($window){
+main.directive('equalSpans',['$window','$timeout',function($window,$timeout){
 	return {
 		restrict: 'A',
 		link: function($scope, $element, $attrs)
@@ -31,7 +31,12 @@ main.directive('equalSpans',['$window',function($window){
 					}
 				}
 				
-			};	
+			};
+			
+			separate();
+			$timeout(function(){
+				separate();
+			});
 			
 			$scope.$on('separate',function(){
 				separate();
