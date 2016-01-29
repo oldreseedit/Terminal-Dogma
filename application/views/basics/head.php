@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Personal meta settings -->
-    <meta name="description" content="Impara. Crea. Pubblica.">
+	<meta name="description" content="{{description}}">
     <link rel="icon" type="image/jpeg" href="imgs/favicon-alpha.png"/>
     <title ng-bind="(title ? (title + ' - ' ) : '' ) + 'reSeed'"></title>
 
@@ -14,10 +14,10 @@
 	<meta name="fragment" content="!">
 
     <!-- FB -->
-        <meta property="og:image" content="https://reseed.it/imgs/header.jpg" />
-        <meta property="og:description" content="Impara. Crea. Pubblica."/>
-        <meta property="og:url" content="https://www.reseed.it" />
-        <meta property="og:title" content="reSeed" />
+	<meta property="og:image" content="https://reseed.it/imgs/header.jpg" />
+    <meta property="og:description" content="Impara. Crea. Pubblica."/>
+    <meta property="og:url" content="https://www.reseed.it" />
+    <meta property="og:title" content="(title ? (title + ' - ' ) : '' ) + 'reSeed'" />
             
 <!-- BOOTSTRAP -->
     

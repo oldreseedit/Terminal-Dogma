@@ -19505,7 +19505,7 @@ h1 {
 }
 
 /* line 6, ../sass/_palette.scss */
-.green, #singleCourse a:hover, #singleActivity a:hover, #profile .profile-info a:hover, #profile .profile-high-scores a:hover, #preferences .btn-group .btn:hover, #preferences .btn-group #contacts #contact-form #contacts-submit:hover, #contacts #contact-form #preferences .btn-group #contacts-submit:hover, #preferences .btn-group #payment-disclaimer-modal form #payment-disclaimer-submit:hover, #payment-disclaimer-modal form #preferences .btn-group #payment-disclaimer-submit:hover, #preferences .btn-group #payment-disclaimer-modal form #payment-disclaimer-cancel:hover, #payment-disclaimer-modal form #preferences .btn-group #payment-disclaimer-cancel:hover, #preferences .btn-group .modal-wrapper form .modal-submit:hover, .modal-wrapper form #preferences .btn-group .modal-submit:hover, #preferences .btn-group .modal-wrapper form .modal-cancel:hover, .modal-wrapper form #preferences .btn-group .modal-cancel:hover {
+.green, #singleActivity a:hover, #preferences .btn-group .btn:hover, #preferences .btn-group #contacts #contact-form #contacts-submit:hover, #contacts #contact-form #preferences .btn-group #contacts-submit:hover, #preferences .btn-group #payment-disclaimer-modal form #payment-disclaimer-submit:hover, #payment-disclaimer-modal form #preferences .btn-group #payment-disclaimer-submit:hover, #preferences .btn-group #payment-disclaimer-modal form #payment-disclaimer-cancel:hover, #payment-disclaimer-modal form #preferences .btn-group #payment-disclaimer-cancel:hover, #preferences .btn-group .modal-wrapper form .modal-submit:hover, .modal-wrapper form #preferences .btn-group .modal-submit:hover, #preferences .btn-group .modal-wrapper form .modal-cancel:hover, .modal-wrapper form #preferences .btn-group .modal-cancel:hover {
   color: #0fa82d;
 }
 
@@ -19515,12 +19515,12 @@ h1 {
 }
 
 /* line 8, ../sass/_palette.scss */
-.pond {
+.pond, #singleCourse a, #profile a {
   color: #0b9465;
 }
 
 /* line 9, ../sass/_palette.scss */
-.water, #profile .profile-name-level-xp .seed-level span {
+.water, #singleCourse a:hover, #profile a:hover, #profile .profile-name-level-xp .seed-level span, #profile .profile-high-scores a:hover {
   color: #0c9e84;
 }
 
@@ -19600,7 +19600,7 @@ h1 {
 }
 
 /* line 28, ../sass/_palette.scss */
-.white, #navbar #navbar-signin, #navbar #navbar-signup, #navbar #navbar-logged, #footer a:active, .modal-wrapper form .modal-submit, .modal-wrapper form .modal-submit:hover, .modal-wrapper form .modal-submit:active, .modal-wrapper form .modal-submit:focus {
+.white, #navbar #navbar-signin, #navbar #navbar-signup, #navbar #navbar-logged, #footer a:active, #home #presentation #news-events a:hover, .modal-wrapper form .modal-submit, .modal-wrapper form .modal-submit:hover, .modal-wrapper form .modal-submit:active, .modal-wrapper form .modal-submit:focus {
   color: white;
 }
 
@@ -19645,7 +19645,7 @@ h1 {
 }
 
 /* line 37, ../sass/_palette.scss */
-.black {
+.black, #home #presentation #news-events a {
   color: black;
 }
 
@@ -20232,6 +20232,10 @@ body {
 #home #presentation #news-events .equal-height, #home #presentation #news-events #admin .tab, #admin #home #presentation #news-events .tab {
   margin-top: 2em;
 }
+/* line 78, ../sass/_presentation.scss */
+#home #presentation #news-events a {
+  text-decoration: none;
+}
 /* line 1, ../sass/_team.scss */
 #home #team {
   padding-top: 3vw;
@@ -20330,7 +20334,7 @@ body {
 /* line 11, ../sass/_course.scss */
 #singleCourse .no-gridster-item {
   margin-bottom: 1em;
-  max-height: 50vh;
+  max-height: 75vh;
 }
 /* line 16, ../sass/_course.scss */
 #singleCourse .panel-title {
@@ -20339,7 +20343,6 @@ body {
 /* line 26, ../sass/_course.scss */
 #singleCourse a {
   text-decoration: none;
-  color: inherit;
 }
 /* line 69, ../sass/_course.scss */
 #singleCourse .course-icon {
@@ -20593,53 +20596,52 @@ body {
 }
 
 /* line 4, ../sass/_profile.scss */
+#profile a {
+  text-decoration: none;
+}
+/* line 12, ../sass/_profile.scss */
 #profile .gridster-item {
   /*         @extend .bg-lightest-grey; */
 }
-/* line 11, ../sass/_profile.scss */
+/* line 19, ../sass/_profile.scss */
 #profile .no-gridster-item {
   margin-bottom: 1em;
   max-height: 50vh;
 }
-/* line 16, ../sass/_profile.scss */
+/* line 24, ../sass/_profile.scss */
 #profile .panel-title {
   font-variant: small-caps;
 }
-/* line 22, ../sass/_profile.scss */
+/* line 30, ../sass/_profile.scss */
 #profile .panel-content {
   padding: 26px 10px 26px 10px;
 }
-/* line 36, ../sass/_profile.scss */
+/* line 44, ../sass/_profile.scss */
 #profile .profile-name-level-xp .seed-level {
   /*         	font-size: 1.4em; */
 }
-/* line 48, ../sass/_profile.scss */
+/* line 56, ../sass/_profile.scss */
 #profile .profile-name-level-xp .profile-xp .progress-bar {
   font-size: 1em;
 }
-/* line 54, ../sass/_profile.scss */
+/* line 62, ../sass/_profile.scss */
 #profile .profile-name-level-xp .profile-xp .progress-striped, #profile .profile-name-level-xp .profile-xp .progress-bar {
   height: 30px;
 }
-/* line 59, ../sass/_profile.scss */
+/* line 67, ../sass/_profile.scss */
 #profile .profile-name-level-xp p {
   padding: 0;
 }
-/* line 64, ../sass/_profile.scss */
+/* line 72, ../sass/_profile.scss */
 #profile .profile-info {
   padding-top: 1em;
 }
-/* line 68, ../sass/_profile.scss */
-#profile .profile-info a {
-  color: inherit;
-  text-decoration: none;
-}
-/* line 79, ../sass/_profile.scss */
+/* line 78, ../sass/_profile.scss */
 #profile .profile-rewards .fa-stack-1x {
   top: -0.5em;
   font-size: 0.6em;
 }
-/* line 86, ../sass/_profile.scss */
+/* line 85, ../sass/_profile.scss */
 #profile .profile-high-scores a {
   color: inherit;
   text-decoration: none;
@@ -20703,6 +20705,18 @@ body {
 /* line 41, ../sass/_preferences.scss */
 #preferences .btn-group .btn .sep, #preferences .btn-group #contacts #contact-form #contacts-submit .sep, #contacts #contact-form #preferences .btn-group #contacts-submit .sep, #preferences .btn-group #payment-disclaimer-modal form #payment-disclaimer-submit .sep, #payment-disclaimer-modal form #preferences .btn-group #payment-disclaimer-submit .sep, #preferences .btn-group #payment-disclaimer-modal form #payment-disclaimer-cancel .sep, #payment-disclaimer-modal form #preferences .btn-group #payment-disclaimer-cancel .sep, #preferences .btn-group .modal-wrapper form .modal-submit .sep, .modal-wrapper form #preferences .btn-group .modal-submit .sep, #preferences .btn-group .modal-wrapper form .modal-cancel .sep, .modal-wrapper form #preferences .btn-group .modal-cancel .sep {
   width: 0.5em;
+}
+
+/* line 3, ../sass/_sign-up.scss */
+#signupForm input[type=checkbox] {
+  width: 20px;
+  height: 20px;
+  border: double 2px #00F;
+  padding: 10px;
+}
+/* line 10, ../sass/_sign-up.scss */
+#signupForm label {
+  text-align: left;
 }
 
 /* @import "sham-spinner"; */
@@ -21062,21 +21076,21 @@ body {
   border: 1.5px solid #B3B2B3;
 }
 
-/* line 43, ../sass/_reseed.scss */
+/* line 44, ../sass/_reseed.scss */
 #main {
   width: 100%;
 }
 
-/* line 51, ../sass/_reseed.scss */
+/* line 52, ../sass/_reseed.scss */
 .mini-header {
   margin-bottom: 2em;
 }
-/* line 55, ../sass/_reseed.scss */
+/* line 56, ../sass/_reseed.scss */
 .mini-header img {
   width: 100%;
 }
 
-/* line 74, ../sass/_reseed.scss */
+/* line 75, ../sass/_reseed.scss */
 .fa-stack-10x {
   position: relative;
   display: inline-block;

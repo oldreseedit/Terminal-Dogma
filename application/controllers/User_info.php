@@ -114,7 +114,7 @@ class User_info extends CI_Controller {
         	{
         		if(!$userInfo[$piece_key])
         		{
-        			$total_exp += 500;
+        			$total_exp += 100;
         			$properties_added[] = "'" . $property2string[$piece_key] . "'";
         		}
         	}

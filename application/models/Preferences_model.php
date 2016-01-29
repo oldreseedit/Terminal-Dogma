@@ -60,6 +60,11 @@ class Preferences_model extends CI_Model
         	return $this->db->where('userID', $userID)->get(self::table_name)->row_array();
         }
         
+        public function get_all()
+        {
+        	return $this->db->get(self::table_name)->result_array();
+        }
+        
         public function update($userID, $data)
         {
         	$this->db->where('userID', $userID)->update(self::table_name, $data);

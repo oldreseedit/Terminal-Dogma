@@ -7,7 +7,7 @@
 					<div class="container">
 						<div class="news-icon" centered><i class="fa white" ng-class="news.getIconClass(event)" fittext fittext-exclusive="width"></i></div>
 						<div class="news-title text-left" centered>
-							<h5><b ng-bind="event.title"></b></h5>
+							<h5><b ng-bind-html="event.title"></b></h5>
 							<p ng-if="event.type==='event'" class="darker-grey">
 								<small>
 									<b>Quando: </b><span ng-bind="news.getDate(event)"></span>

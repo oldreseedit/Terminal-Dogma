@@ -122,6 +122,8 @@ main.controller('preferencesController',['$server','$scope','$uibModal','inform'
 				return 'Inviami per e-mail le notifiche su nuove informazioni (nuovo materiale pubblicato, variazioni d\'orario delle lezioni, etc.)';
 			case 'profileVisibility':
 				return 'Rendi il mio profilo pubblico (visibile dagli altri utenti di reSeed)';
+			case 'visibleInHighScore':
+				return 'Rendi pubblici i dati sulla mia esperienza (visibile dagli altri utenti di reSeed nel pannello \'High score\')';
 		}
 	};
 	
@@ -137,7 +139,13 @@ main.controller('preferencesController',['$server','$scope','$uibModal','inform'
 					{
 						if(self.nonDisplayedProperties[i] === key) display = false;
 					}
-					if(display) self.data.push({title: self.getNameOf(key), value: data[key], id: key, sex: self.sexOf(key)});
+					if(display) self.data.push(
+							{
+								title: self.getNameOf(key),
+								value: key === 'registrationDate' ? moment(data[key]).format('D MMMM YYYY') : data[key],
+								id: key,
+								sex: self.sexOf(key)
+							});
 				});
 				self.oldData = angular.copy(self.data);
 			}

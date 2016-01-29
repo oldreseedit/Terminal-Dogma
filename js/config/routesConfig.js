@@ -1,16 +1,19 @@
 main.run(['$rootScope', function($rootScope) {
     $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
         $rootScope.title = current.$$route.title;
+        $rootScope.description = current.$$route.description;
     });
 }]);
 
 main.config(['$routeProvider','$locationProvider',function($routeProvider,$locationProvider){
     
     $locationProvider.hashPrefix('!');
+//    $locationProvider.html5Mode(true);
     
     // Home
     
     $routeProvider.when('/',{
+    	description: 'Impara. Crea. Pubblica.',
         templateUrl : 'home'
     });
     
@@ -50,6 +53,7 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     
     $routeProvider.when('/courses',{
     	title : 'Corsi',
+    	description: 'BIM BUM BAM',
         templateUrl : 'courses'
     });
     

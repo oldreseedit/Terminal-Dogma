@@ -24,8 +24,8 @@
                 <ul id="contacts-list">
                     <li>Con i mezzi:
                         <ul>
-                            <li>Dalla stazione Termini: prendere la metro B fino alla stazione metro Rebibbia, 2 minuti a piedi.</li>
-                            <li>Dalla stazione Tiburtina: prendere la metro B fino alla stazione metro Rebibbia, 2 minuti a piedi.</li>
+                            <li>Dalla <b>stazione Termini</b>: prendere la metro B fino alla stazione metro Rebibbia, 2 minuti a piedi.</li>
+                            <li>Dalla <b>stazione Tiburtina</b>: prendere la metro B fino alla stazione metro Rebibbia, 2 minuti a piedi.</li>
                         </ul>
                     </li>
                     <li>Con auto/moto:

@@ -10,7 +10,7 @@
     
     .no-gridster-item{
     	margin-bottom: 1em;
-    	max-height: 50vh;
+    	max-height: 75vh;
     }
     
     .panel-title{
@@ -25,9 +25,9 @@
     
     a{
         text-decoration: none;
-        color: inherit;
+        @extend .pond;
         &:hover{
-            @extend .green;
+            @extend .water;
         }
     }
     

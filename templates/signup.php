@@ -9,6 +9,13 @@
                 <bootstrap-input form="signupForm" name="mail" type="email" ng-model="signup.signupForm.mail" placeholder="Indirizzo e-mail" required="required"></bootstrap-input>
                 <bootstrap-input form="signupForm" name="password" type="password" ng-model="signup.signupForm.password" placeholder="Digita la password che vuoi utilizzare" ng-minlength="8" required="required"></bootstrap-input>
                 <bootstrap-input form="signupForm" id="repassword" name="repassword" type="password" ng-model="signup.signupForm.repassword" placeholder="Ridigita la password" required="required"></bootstrap-input>
+                
+<!--                 <label class="checkbox-inline"><input form="signupForm" type="checkbox">Ciao</label> -->
+                
+                <div>
+					<label class="checkbox-inline" for="disclaimerAccepted"><input form="signupForm" id="disclaimerAccepted" name="disclaimerAccepted" type="checkbox" ng-model="signup.signupForm.disclaimerAccepted" required="required">Ho letto ed accetto i <a target="_blank" href="#!/disclaimer">Termini d'uso</a></label>
+                </div>
+                
                 <input class="modal-submit btn-success" type="submit" value="Iscriviti" />
                 <input class="modal-cancel" ng-click="$dismiss()" value="Annulla" readonly/>
             </form>

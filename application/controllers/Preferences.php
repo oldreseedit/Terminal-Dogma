@@ -75,6 +75,13 @@ class Preferences extends CI_Controller {
         		return;
         	}
         	
+        	$visibleInHighScore = $this->input->post('visibleInHighScore');
+        	if($visibleInHighScore == false)
+        	{
+        		echo json_encode(array("error" => true, "description" => "E' obbligatorio specificare la visibilità dei propri dati utente.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("visibleInHighScore")));
+        		return;
+        	}
+        	
         	$this->preferences_model->add($userID, $exp, $info, $news, $events);
         }
         
@@ -96,6 +103,7 @@ class Preferences extends CI_Controller {
             if(isset($_POST['news'])) $data['news'] = $this->input->post('news');
             if(isset($_POST['events'])) $data['events'] = $this->input->post('events');
             if(isset($_POST['profileVisibility'])) $data['profileVisibility'] = $this->input->post('profileVisibility');
+            if(isset($_POST['visibleInHighScore'])) $data['visibleInHighScore'] = $this->input->post('visibleInHighScore');
             
             if(!empty($data))
             {

@@ -74,6 +74,14 @@
     	.equal-height{
 			margin-top: 2em;    		
     	}
+    	
+    	a{
+			@extend .black;
+			text-decoration: none;
+			&:hover{
+				@extend .white;
+			}
+		}
     }
     
 }

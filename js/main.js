@@ -1,7 +1,7 @@
-angular.module('HTML5ModeURLs', []).config(['$routeProvider', function($route)
-{
-  $route.html5Mode(true);
-}]);
+//angular.module('HTML5ModeURLs', []).config(['$routeProvider', function($route)
+//{
+//  $route.html5Mode(true);
+//}]);
 
 
 var main = angular.module('Main',[

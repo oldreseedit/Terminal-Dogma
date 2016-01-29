@@ -332,7 +332,25 @@ class Users extends CI_Controller {
         
         public function get_all_users_exp()
         {
-        	echo json_encode(array("error" => false, "users" => $this->userinfo_model->get_all_exp_info()));
+        	$data = $this->userinfo_model->get_all_exp_info();
+        	$visibility = array();
+        	foreach($this->preferences_model->get_all() as $preferences)
+        	{
+        		$visibility[$preferences['userID']] = $preferences['visibleInHighScore'];
+        	}
+        	
+        	$filtered_data = array();
+        	
+        	foreach ($data as $userData)
+        	{
+        		$userID = $userData['userID'];
+        		if($visibility[$userID])
+        		{
+        			$filtered_data[] = $userData;
+        		}
+        	}
+        	
+        	echo json_encode(array("error" => false, "users" => $filtered_data));
         }
 }
 ?>
