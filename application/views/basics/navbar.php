@@ -24,14 +24,14 @@
             <div class="container macrotab">
                 <div id="navbar-signup" ng-if="!userVerified">
                     <div title="Registrati su reSeed.it" class="container">
-                        <button class="btn btn-success btn-sm" ng-click="navbar.signup()">
+                        <button class="btn btn-sm" ng-click="navbar.signup()">
                             <span>Registrati</span>
                         </button>
                     </div>
                 </div>
                 <div id="navbar-signin" ng-if="!userVerified">
                     <div title="Effettua il login su reSeed.it" class="container">
-                        <button class="btn btn-success btn-sm" ng-click="navbar.signin()">
+                        <button class="btn btn-round btn-sm" ng-click="navbar.signin()">
                             <span>Accedi</span>
                         </button>
                     </div>

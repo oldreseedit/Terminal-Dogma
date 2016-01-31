@@ -19686,7 +19686,7 @@ h1 {
 }
 
 /* line 49, ../sass/_palette.scss */
-.bg-water, #profile .profile-name-level-xp .profile-xp .progress-bar {
+.bg-water, #navbar #navbar-signin button, #navbar #navbar-signup button, #profile .profile-name-level-xp .profile-xp .progress-bar {
   background-color: #0c9e84;
 }
 
@@ -20021,16 +20021,18 @@ body {
 #navbar #navbar-signin button, #navbar #navbar-signup button {
   width: 90%;
   font-weight: 400;
+  border-radius: 6px;
+  text-transform: uppercase;
   line-height: 1;
-  font-size: 21.177px;
+  font-size: 18.824px;
 }
 @media all and (max-device-width: 1079px) {
   /* line 92, ../sass/_navbar.scss */
   #navbar #navbar-signin button, #navbar #navbar-signup button {
-    font-size: 13.032px;
+    font-size: 11.584px;
   }
 }
-/* line 113, ../sass/_navbar.scss */
+/* line 116, ../sass/_navbar.scss */
 #navbar #navbar-logged button {
   margin-right: 3em;
   width: 30%;
@@ -20039,12 +20041,12 @@ body {
   font-size: 21.177px;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 113, ../sass/_navbar.scss */
+  /* line 116, ../sass/_navbar.scss */
   #navbar #navbar-logged button {
     font-size: 13.032px;
   }
 }
-/* line 125, ../sass/_navbar.scss */
+/* line 128, ../sass/_navbar.scss */
 #navbar .number-of-notifications {
   top: -0.8em;
   left: -1.3em;

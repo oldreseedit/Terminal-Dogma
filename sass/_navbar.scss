@@ -92,10 +92,13 @@ body {
         button{
             width: 90%;
             font-weight: 400;
+            border-radius: 6px;
+            text-transform: uppercase;
+            @extend .bg-water;
             line-height: 1;
-            font-size: $size-body*$navbar-modifier*0.9;
+            font-size: $size-body*$navbar-modifier*0.8;
             @include responsive {
-                font-size: $size-body*$navbar-responsive-modifier*0.9;
+                font-size: $size-body*$navbar-responsive-modifier*0.8;
             }
         }
         

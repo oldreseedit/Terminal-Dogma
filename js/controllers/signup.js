@@ -2,6 +2,7 @@ main.controller('signupController',['utilities','$scope','$http','$timeout','fir
     var self = this;
     
     self.signupForm = {};
+    self.disclaimerLink = "Ho letto ed accetto i <a target=\"_blank\" href=\"#!/disclaimer\">Termini d'uso</a>";
     
     self.submit = function(){
         var form = angular.element('#signupForm').scope().signupForm;
