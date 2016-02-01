@@ -4,7 +4,7 @@ main.controller('disclaimerController',['utilities',function(utilities){
     self.faqList = [
         {
             title : 'Privacy',
-            content : 'reSeed ha a cuore la tua privacy. Tutte le informazioni che raccogliamo sono raccolte per soli fini statistici o per contattarti.'
+            content : 'reSeed ha a cuore la tua privacy. Tutte le informazioni che raccogliamo sono raccolte per soli fini statistici o per contattarti. Registrandoti a reSeed riceverai notifiche riguardanti la tua attività sul sito, ivi inclusi aggiornamenti sui tuoi punti esperienza, avvisi sui corsi che segui, etc. Potrai modificare queste impostazioni in ogni momento dal tuo profilo.'
         },
         {
             title : 'Sicurezza',

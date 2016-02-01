@@ -20,6 +20,13 @@ class Users extends CI_Controller {
         
         public function add()
         {
+        	$disclaimerAccepted = $this->input->post('disclaimerAccepted');
+            if($disclaimerAccepted == false)
+            {
+                echo json_encode(array("error" => true, "description" => "E' obbligatorio dichiarare di aver preso visione dei Termini d'uso del sito.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("disclaimerAccepted")));
+                return;
+            }
+        	
             $userID = $this->input->post('username');
             if($userID == false)
             {
