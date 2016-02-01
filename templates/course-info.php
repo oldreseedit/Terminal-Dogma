@@ -13,7 +13,7 @@
 				  <li><i class="fa-li fa fa-calendar-o"></i><b>Inizio corso</b>:
 					  <span ng-if="course.courseHasStarted">
 			            <span>Il corso è partito </span>
-						<emph><time title="precisamente: il {{course.courseInfo.startingDate | amCalendar}}" am-time-ago="course.courseInfo.startingDate"></time></emph>.
+						<emph class="text-danger"><time title="precisamente: il {{course.courseInfo.startingDate | amCalendar}}" am-time-ago="course.courseInfo.startingDate"></time></emph>.
 					  </span>
 					  <span ng-if="!course.courseHasStarted">
 					  	<span ng-bind="course.courseInfo.startingDateText"></span>
