@@ -28,6 +28,13 @@ class User_info extends CI_Controller {
         	
         	$pieces = array();
         	if($this->input->post('birthdate')) $pieces['birthdate'] = $this->input->post('birthdate');
+        	if($this->input->post('codiceFiscale'))
+        	{
+        		// TODO: check codice fiscale
+        		
+        		$pieces['codiceFiscale'] = $this->input->post('codiceFiscale');
+        	}
+        	
         	if($this->input->post('profession')) $pieces['profession'] = $this->input->post('profession');
         	if($this->input->post('schoolName')) $pieces['schoolName'] = $this->input->post('schoolName');
         	if($this->input->post('educationLevel')) $pieces['educationLevel'] = $this->input->post('educationLevel');
@@ -99,6 +106,7 @@ class User_info extends CI_Controller {
         	$property2string['name'] = "nome";
         	$property2string['surname'] = "cognome";
         	$property2string['birthdate'] = "data di nascita";
+        	$property2string['codiceFiscale'] = "codice fiscale";
         	$property2string['profilePicture'] = "immagine del tuo profilo";
         	$property2string['profession'] = "professione";
         	$property2string['schoolName'] = "scuola";

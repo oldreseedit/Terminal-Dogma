@@ -26,8 +26,7 @@ class Teachers extends CI_Controller {
 
             // Get the teacher(s) for this course
             $teachers = $this->course_teachers_model->get($courseID);
-            
-            echo json_encode($teachers[0]);
+            if(count($teachers) > 0) echo json_encode($teachers[0]);
         }
 }
 ?>

@@ -10,6 +10,7 @@ class Users extends CI_Controller {
                 
                 $this->load->model('users_model');
                 $this->load->model('userinfo_model');
+                $this->load->model('preferences_model');
                 $this->load->model('user_achievements_rewards_model');
                 
                 $this->load->helper('url');
@@ -96,6 +97,8 @@ class Users extends CI_Controller {
             
             // Store the user's additional information
             $this->userinfo_model->add($userID, $mail, $name, $surname, $registration_timestamp);
+            
+            $this->preferences_model->add($userID, 0, 0, 0, 0, 0);
             
             $this->login();
             
@@ -351,6 +354,10 @@ class Users extends CI_Controller {
         	foreach ($data as $userData)
         	{
         		$userID = $userData['userID'];
+        		
+        		// For sake of correctness (a user should always have an entry in the preferences table)
+        		if(!array_key_exists($userID, $visibility)) continue;
+        		
         		if($visibility[$userID])
         		{
         			$filtered_data[] = $userData;

@@ -16,6 +16,7 @@ class Userinfo_model extends CI_Model
                         'userID' => array('type' => 'VARCHAR', 'constraint' => 30),
                         'email' => array('type' => 'VARCHAR', 'constraint' => 30),
                         'registrationDate' => array('type' => 'DATETIME'),
+                		'codiceFiscale' => array('type' => 'VARCHAR', 'constraint' => 30),
                         'name' => array('type' => 'VARCHAR', 'constraint' => 30),
                         'surname' => array('type' => 'VARCHAR', 'constraint' => 30),
                         'birthdate' => array('type' => 'DATE', 'null' => true),

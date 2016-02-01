@@ -49,16 +49,22 @@
         @extend .offset-5;
     }
     
-    .teacher-avatar{
-        @extend .col-50;
-        @extend .offset-25;
+    .teacher-icon{
+        @extend .col-15;
+        float:left;
     }
     
-    .teacher-name, .teacher-description{
+    .teacher-avatar{
         @extend .col-100;
     }
     
+    .teacher-name{
+        
+    }
+    
     .teacher-description{
+    	@extend .col-80;
+    	@extend .offset-5;
     	@extend .text-justify;
     }
     
@@ -85,16 +91,11 @@
     	text-align: center;
     }
     
-    .banner {
-    	padding: 1em 0;
-	}
-	
-	.banner p {
-		color: black;
+	.course-info emph {
 		font-weight: bold;
 	}
 	
-	.banner emph {
-		color: white;
+	.course-info .details {
+		margin: 10px 0px;
 	}
 }

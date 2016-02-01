@@ -7,7 +7,7 @@
 					<div ng-include="item.templateUrl"></div>
 				</div>
 	            <div class="container" ng-if="item.id !== 'courseBanner'">
-	            	<div class="panel-title" ng-class="item.bgColour">
+	            	<div class="panel-title bg-lawn">
 	                	<h4 ng-bind="item.title"></h4>
 					</div>
 	                <div class="scrollbar-wrapper">

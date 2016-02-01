@@ -8,11 +8,19 @@ class Mailer extends CI_Controller {
                 $this->load->helper('email');
                 $this->load->library('email');
                 
+//                 $config['protocol'] = 'sendmail';
+//                 $config['smtp_host'] = "reseed.it";
+//                 $config['smtp_port'] = 465;
+//                 $config['smtp_user'] = "tflati";
+//                 $config['smtp_password'] = "arc0bal3n0";
+
+                
                 $config['protocol'] = 'sendmail';
-                $config['smtp_host'] = "reseed.it";
-                $config['smtp_port'] = 465;
-                $config['smtp_user'] = "tflati";
-                $config['smtp_password'] = "arc0bal3n0";
+				$config['smtp_host'] = "smtp.gmail.com";
+				$config['smtp_port'] = 465;
+				$config['smtp_user'] = "reseededucation@gmail.com";
+				$config['smtp_password'] = "arc0bal3n0";
+                
                 $config['mailtype'] = "html";
                 
                 $this->email->initialize($config);

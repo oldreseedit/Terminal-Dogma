@@ -77,18 +77,25 @@ main.controller('courseController',['utilities','$scope','$http','$server','$rou
                 width: 60
           },
           {
-              id : 'courseTeacher',
-              title: 'Docente',
+              id : 'courseInfo',
+              title: 'Informazioni',
               bgColour: 'bg-light-lawn',
-              templateUrl: 'templates/course-teacher.php',
+              templateUrl: 'templates/course-info.php',
               width: 39,
               offset: 1
           },
           {
-        	  id: 'courseBanner',
-        	  templateUrl: 'templates/course-banner.php',
-              width: 100
+              id : 'courseTeacher',
+              title: 'Docente',
+              bgColour: 'bg-light-lawn',
+              templateUrl: 'templates/course-teacher.php',
+              width: 100,
           },
+//          {
+//        	  id: 'courseBanner',
+//        	  templateUrl: 'templates/course-banner.php',
+//              width: 100
+//          },
           {
               id : 'calendar',
               title: 'Calendario delle lezioni',
@@ -134,11 +141,14 @@ main.controller('courseController',['utilities','$scope','$http','$server','$rou
     
     self.courseInfoAjax = $server.post('courses/get',{courseID : self.courseID}).then(function(response) {
     	
-    	self.courseDescription = response.data;
+    	self.courseInfo = response.data;
+    	
+    	self.courseInfo.startingDateText = moment(response.data.startingDate).format("D MMMM YYYY");
     	self.courseHasStarted = moment().isAfter(moment(response.data.startingDate));
     	self.next = response.data.next ? response.data.next[0] : null;
-    	self.hourPrice = Math.round(100 * self.courseDescription.price/self.courseDescription.duration)/100;
-
+    	self.hourPrice = Math.round(100 * self.courseInfo.price/self.courseInfo.duration)/100;
+    	self.courseInfo.lessons = self.courseInfo.duration / 4;
+    	
 		self.courseName = response.data.name;
 		$rootScope.title = self.courseName;
     	for(var i=0; i< self.items.length; i++)

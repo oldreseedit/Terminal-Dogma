@@ -14,6 +14,9 @@ main.controller('preferencesController',['$server','$scope','$uibModal','inform'
 			case 'birthdate':
 				name = 'Data di nascita';
 				break;
+			case 'codiceFiscale':
+				name = 'Codice fiscale';
+				break;
 			case 'educationLevel':
 				name = 'Grado di studi';
 				break;
@@ -75,6 +78,8 @@ main.controller('preferencesController',['$server','$scope','$uibModal','inform'
 				return 'Text';
 			case 'surname':
 				return 'Text';
+			case 'codiceFiscale':
+				return 'Text';
 			case 'schoolName':
 				return 'Text';
 			case 'address':
@@ -97,6 +102,8 @@ main.controller('preferencesController',['$server','$scope','$uibModal','inform'
 		switch(key){
 			case 'email':
 				return 'f';
+			case 'codiceFiscale':
+				return 'm';
 			case 'birthdate':
 				return 'f';
 			case 'profession':

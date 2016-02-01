@@ -9291,7 +9291,7 @@ button.close {
 }
 
 /* line 12, ../sass/_responsive.scss */
-.offset-5, #home #presentation #tiles-presentation .inside-tab, #home #presentation #tiles-presentation .inside-tab .title-wrapper, #home #presentation #news-events .news-icon, #singleCourse .course-notification-text, #media .media-panel .media-panel-main .media-navbar, #profile .profile-name-level-xp {
+.offset-5, #home #presentation #tiles-presentation .inside-tab, #home #presentation #tiles-presentation .inside-tab .title-wrapper, #home #presentation #news-events .news-icon, #singleCourse .course-notification-text, #singleCourse .teacher-description, #media .media-panel .media-panel-main .media-navbar, #profile .profile-name-level-xp {
   margin-left: 5%;
 }
 
@@ -9440,7 +9440,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-15 {
+.col-15, #singleCourse .teacher-icon {
   width: 15%;
   float: left;
 }
@@ -9611,7 +9611,7 @@ button.close {
 }
 
 /* line 12, ../sass/_responsive.scss */
-.offset-25, #singleCourse .teacher-avatar, #payment #subscriptionButton {
+.offset-25, #payment #subscriptionButton {
   margin-left: 25%;
 }
 
@@ -10000,7 +10000,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-50, #singleCourse .material-content, #singleCourse .teacher-avatar, #payment #subscriptionButton {
+.col-50, #singleCourse .material-content, #payment #subscriptionButton {
   width: 50%;
   float: left;
 }
@@ -10480,7 +10480,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-80, #home #team #team-wrapper .team-social-buttons {
+.col-80, #home #team #team-wrapper .team-social-buttons, #singleCourse .teacher-description {
   width: 80%;
   float: left;
 }
@@ -10800,7 +10800,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-100, #admin .admin-content, #navbar #navbar-logged, #footer, #footer #commercial-info, #home, #home #presentation #tiles-presentation, #home #presentation #tiles-presentation .inside-tab .tab-content, #home #team, #singleCourse .gridster-item, #singleCourse .panel-title, #singleCourse .panel-content, #singleCourse .teacher-name, #singleCourse .teacher-description, #singleCourse .course-description-introduction, #singleCourse .course-description-syllabus, #singleCourse .course-description, #singleActivity .gridster-item, #singleActivity .panel-title, #singleActivity .panel-content, #media .media-panel, #media .media-panel .media-panel-title, #media .media-panel .media-panel-main, #register, #register .XP, #payment .stepLine, #payment .stepContent, #faqPage .stepLine, #faqPage .stepContent, #profile .gridster-item, #profile .panel-title, #profile .panel-content, #profile .profile-name-level-xp .profile-xp, #profile .profile-info, .scrollbar-wrapper, .wrapper, .mini-header {
+.col-100, #admin .admin-content, #navbar #navbar-logged, #footer, #footer #commercial-info, #home, #home #presentation #tiles-presentation, #home #presentation #tiles-presentation .inside-tab .tab-content, #home #team, #singleCourse .gridster-item, #singleCourse .panel-title, #singleCourse .panel-content, #singleCourse .teacher-avatar, #singleCourse .course-description-introduction, #singleCourse .course-description-syllabus, #singleCourse .course-description, #singleActivity .gridster-item, #singleActivity .panel-title, #singleActivity .panel-content, #media .media-panel, #media .media-panel .media-panel-title, #media .media-panel .media-panel-main, #register, #register .XP, #payment .stepLine, #payment .stepContent, #faqPage .stepLine, #faqPage .stepContent, #profile .gridster-item, #profile .panel-title, #profile .panel-content, #profile .profile-name-level-xp .profile-xp, #profile .profile-info, .scrollbar-wrapper, .wrapper, .mini-header {
   width: 100%;
   float: left;
 }
@@ -19496,27 +19496,27 @@ h1 {
 
 /* line 4, ../sass/_palette.scss */
 .olive {
-  color: #89b11c;
+  color: #c6db3d;
 }
 
 /* line 5, ../sass/_palette.scss */
 .lawn {
-  color: #52ab10;
+  color: #8dc34b;
 }
 
 /* line 6, ../sass/_palette.scss */
 .green, #singleActivity a:hover, #preferences .btn-group .btn:hover, #preferences .btn-group #contacts #contact-form #contacts-submit:hover, #contacts #contact-form #preferences .btn-group #contacts-submit:hover, #preferences .btn-group #payment-disclaimer-modal form #payment-disclaimer-submit:hover, #payment-disclaimer-modal form #preferences .btn-group #payment-disclaimer-submit:hover, #preferences .btn-group #payment-disclaimer-modal form #payment-disclaimer-cancel:hover, #payment-disclaimer-modal form #preferences .btn-group #payment-disclaimer-cancel:hover, #preferences .btn-group .modal-wrapper form .modal-submit:hover, .modal-wrapper form #preferences .btn-group .modal-submit:hover, #preferences .btn-group .modal-wrapper form .modal-cancel:hover, .modal-wrapper form #preferences .btn-group .modal-cancel:hover {
-  color: #0fa82d;
+  color: #4caf52;
 }
 
 /* line 7, ../sass/_palette.scss */
 .leaf {
-  color: #0da84e;
+  color: #38a899;
 }
 
 /* line 8, ../sass/_palette.scss */
 .pond, #singleCourse a, #profile a {
-  color: #0b9465;
+  color: #4692a3;
 }
 
 /* line 9, ../sass/_palette.scss */
@@ -19662,27 +19662,27 @@ h1 {
 
 /* line 44, ../sass/_palette.scss */
 .bg-olive {
-  background-color: #89b11c;
+  background-color: #c6db3d;
 }
 
 /* line 45, ../sass/_palette.scss */
 .bg-lawn {
-  background-color: #52ab10;
+  background-color: #8dc34b;
 }
 
 /* line 46, ../sass/_palette.scss */
 .bg-green {
-  background-color: #0fa82d;
+  background-color: #4caf52;
 }
 
 /* line 47, ../sass/_palette.scss */
 .bg-leaf {
-  background-color: #0da84e;
+  background-color: #38a899;
 }
 
 /* line 48, ../sass/_palette.scss */
 .bg-pond {
-  background-color: #0b9465;
+  background-color: #4692a3;
 }
 
 /* line 49, ../sass/_palette.scss */
@@ -20346,7 +20346,11 @@ body {
 #singleCourse a {
   text-decoration: none;
 }
-/* line 69, ../sass/_course.scss */
+/* line 52, ../sass/_course.scss */
+#singleCourse .teacher-icon {
+  float: left;
+}
+/* line 75, ../sass/_course.scss */
 #singleCourse .course-icon {
   width: 10em;
   /*     	padding-top: 0.6em; */
@@ -20355,23 +20359,18 @@ body {
   padding-right: 1.5em;
   padding-bottom: 0.8em;
 }
-/* line 82, ../sass/_course.scss */
+/* line 88, ../sass/_course.scss */
 #singleCourse .agendaButtons {
   margin-bottom: 1vw;
   text-align: center;
 }
-/* line 88, ../sass/_course.scss */
-#singleCourse .banner {
-  padding: 1em 0;
-}
-/* line 92, ../sass/_course.scss */
-#singleCourse .banner p {
-  color: black;
+/* line 94, ../sass/_course.scss */
+#singleCourse .course-info emph {
   font-weight: bold;
 }
-/* line 97, ../sass/_course.scss */
-#singleCourse .banner emph {
-  color: white;
+/* line 98, ../sass/_course.scss */
+#singleCourse .course-info .details {
+  margin: 10px 0px;
 }
 
 /* line 1, ../sass/_activities.scss */
