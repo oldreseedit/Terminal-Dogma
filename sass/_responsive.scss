@@ -65,11 +65,11 @@
 
 $size-body: 0px;
 
-/* From 100 to 539px - MINI - 15px */
+/* From 100 to 539px - MINI - 14px */
 
 @include mini {
 	
-	$size-body: 15px;
+	$size-body: 14px;
 
 	body{
 	    font-size: $size-body;
@@ -105,14 +105,14 @@ $size-body: 0px;
 	
 }
 
-/* From 540 to 1080px - RESPONSIVE - Scaling 15px - 17px */
+/* From 540 to 1080px - RESPONSIVE - Scaling 14px - 16px */
 
 @for $i from 0 through 100{
     @media all 
 	and (min-device-width: 540px + 5.4*$i)
 	and (max-device-width: 545.4px + 5.4*$i)
 	{
-	    $size-body: 15px + 0.02*$i;
+	    $size-body: 14px + 0.02*$i;
 	    
     	body{
     	    font-size: $size-body;
@@ -148,14 +148,14 @@ $size-body: 0px;
     }
 }
 
-/* From 1080 to 4096px - DESKTOP - Scaling 17px - 28px */
+/* From 1080 to 4096px - DESKTOP - Scaling 16px - 27px */
 
 @for $i from 1 through 100{
     @media all 
 	and (min-device-width: 1080px + 30.16*$i)
 	and (max-device-width: 1110.16px + 30.16*$i)
 	{
-	    $size-body: 17px + 0.011*$i;
+	    $size-body: 16px + 0.011*$i;
 	    
     	body{
     	    font-size: $size-body;

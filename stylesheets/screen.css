@@ -10817,50 +10817,2100 @@ button.close {
 
 /* RESPONSIVE STYLES */
 /* For referencing $size-body outside of media queries */
-/* From 100 to 539px - MINI - 15px */
+/* From 100 to 539px - MINI - 14px */
 @media all and (max-device-width: 539px) {
   /* line 74, ../sass/_responsive.scss */
   body {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   /* line 78, ../sass/_responsive.scss */
   p {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   /* line 82, ../sass/_responsive.scss */
   h6 {
-    font-size: 18.75px;
+    font-size: 17.5px;
   }
 
   /* line 86, ../sass/_responsive.scss */
   h5 {
-    font-size: 22.5px;
+    font-size: 21px;
   }
 
   /* line 90, ../sass/_responsive.scss */
   h4 {
-    font-size: 26.25px;
+    font-size: 24.5px;
   }
 
   /* line 94, ../sass/_responsive.scss */
   h3 {
-    font-size: 30px;
+    font-size: 28px;
   }
 
   /* line 98, ../sass/_responsive.scss */
   h2 {
-    font-size: 22.5px;
+    font-size: 21px;
   }
 
   /* line 102, ../sass/_responsive.scss */
   h1 {
-    font-size: 45px;
+    font-size: 42px;
   }
 }
-/* From 540 to 1080px - RESPONSIVE - Scaling 15px - 17px */
+/* From 540 to 1080px - RESPONSIVE - Scaling 14px - 16px */
 @media all and (min-device-width: 540px) and (max-device-width: 545.4px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 17.5px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 21px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 24.5px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 28px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 21px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 42px;
+  }
+}
+@media all and (min-device-width: 545.4px) and (max-device-width: 550.8px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.02px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.02px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 17.525px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 21.03px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 24.535px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 28.04px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 21.03px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 42.06px;
+  }
+}
+@media all and (min-device-width: 550.8px) and (max-device-width: 556.2px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.04px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.04px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 17.55px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 21.06px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 24.57px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 28.08px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 21.06px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 42.12px;
+  }
+}
+@media all and (min-device-width: 556.2px) and (max-device-width: 561.6px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.06px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.06px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 17.575px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 21.09px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 24.605px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 28.12px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 21.09px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 42.18px;
+  }
+}
+@media all and (min-device-width: 561.6px) and (max-device-width: 567px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.08px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.08px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 17.6px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 21.12px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 24.64px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 28.16px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 21.12px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 42.24px;
+  }
+}
+@media all and (min-device-width: 567px) and (max-device-width: 572.4px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.1px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.1px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 17.625px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 21.15px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 24.675px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 28.2px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 21.15px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 42.3px;
+  }
+}
+@media all and (min-device-width: 572.4px) and (max-device-width: 577.8px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.12px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.12px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 17.65px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 21.18px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 24.71px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 28.24px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 21.18px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 42.36px;
+  }
+}
+@media all and (min-device-width: 577.8px) and (max-device-width: 583.2px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.14px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.14px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 17.675px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 21.21px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 24.745px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 28.28px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 21.21px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 42.42px;
+  }
+}
+@media all and (min-device-width: 583.2px) and (max-device-width: 588.6px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.16px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.16px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 17.7px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 21.24px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 24.78px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 28.32px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 21.24px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 42.48px;
+  }
+}
+@media all and (min-device-width: 588.6px) and (max-device-width: 594px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.18px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.18px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 17.725px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 21.27px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 24.815px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 28.36px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 21.27px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 42.54px;
+  }
+}
+@media all and (min-device-width: 594px) and (max-device-width: 599.4px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.2px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.2px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 17.75px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 21.3px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 24.85px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 28.4px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 21.3px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 42.6px;
+  }
+}
+@media all and (min-device-width: 599.4px) and (max-device-width: 604.8px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.22px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.22px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 17.775px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 21.33px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 24.885px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 28.44px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 21.33px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 42.66px;
+  }
+}
+@media all and (min-device-width: 604.8px) and (max-device-width: 610.2px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.24px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.24px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 17.8px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 21.36px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 24.92px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 28.48px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 21.36px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 42.72px;
+  }
+}
+@media all and (min-device-width: 610.2px) and (max-device-width: 615.6px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.26px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.26px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 17.825px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 21.39px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 24.955px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 28.52px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 21.39px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 42.78px;
+  }
+}
+@media all and (min-device-width: 615.6px) and (max-device-width: 621px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.28px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.28px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 17.85px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 21.42px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 24.99px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 28.56px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 21.42px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 42.84px;
+  }
+}
+@media all and (min-device-width: 621px) and (max-device-width: 626.4px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.3px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.3px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 17.875px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 21.45px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 25.025px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 28.6px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 21.45px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 42.9px;
+  }
+}
+@media all and (min-device-width: 626.4px) and (max-device-width: 631.8px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.32px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.32px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 17.9px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 21.48px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 25.06px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 28.64px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 21.48px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 42.96px;
+  }
+}
+@media all and (min-device-width: 631.8px) and (max-device-width: 637.2px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.34px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.34px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 17.925px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 21.51px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 25.095px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 28.68px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 21.51px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 43.02px;
+  }
+}
+@media all and (min-device-width: 637.2px) and (max-device-width: 642.6px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.36px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.36px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 17.95px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 21.54px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 25.13px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 28.72px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 21.54px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 43.08px;
+  }
+}
+@media all and (min-device-width: 642.6px) and (max-device-width: 648px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.38px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.38px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 17.975px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 21.57px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 25.165px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 28.76px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 21.57px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 43.14px;
+  }
+}
+@media all and (min-device-width: 648px) and (max-device-width: 653.4px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.4px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.4px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 18px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 21.6px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 25.2px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 28.8px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 21.6px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 43.2px;
+  }
+}
+@media all and (min-device-width: 653.4px) and (max-device-width: 658.8px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.42px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.42px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 18.025px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 21.63px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 25.235px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 28.84px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 21.63px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 43.26px;
+  }
+}
+@media all and (min-device-width: 658.8px) and (max-device-width: 664.2px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.44px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.44px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 18.05px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 21.66px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 25.27px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 28.88px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 21.66px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 43.32px;
+  }
+}
+@media all and (min-device-width: 664.2px) and (max-device-width: 669.6px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.46px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.46px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 18.075px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 21.69px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 25.305px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 28.92px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 21.69px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 43.38px;
+  }
+}
+@media all and (min-device-width: 669.6px) and (max-device-width: 675px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.48px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.48px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 18.1px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 21.72px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 25.34px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 28.96px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 21.72px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 43.44px;
+  }
+}
+@media all and (min-device-width: 675px) and (max-device-width: 680.4px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.5px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.5px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 18.125px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 21.75px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 25.375px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 29px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 21.75px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 43.5px;
+  }
+}
+@media all and (min-device-width: 680.4px) and (max-device-width: 685.8px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.52px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.52px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 18.15px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 21.78px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 25.41px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 29.04px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 21.78px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 43.56px;
+  }
+}
+@media all and (min-device-width: 685.8px) and (max-device-width: 691.2px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.54px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.54px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 18.175px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 21.81px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 25.445px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 29.08px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 21.81px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 43.62px;
+  }
+}
+@media all and (min-device-width: 691.2px) and (max-device-width: 696.6px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.56px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.56px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 18.2px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 21.84px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 25.48px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 29.12px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 21.84px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 43.68px;
+  }
+}
+@media all and (min-device-width: 696.6px) and (max-device-width: 702px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.58px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.58px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 18.225px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 21.87px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 25.515px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 29.16px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 21.87px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 43.74px;
+  }
+}
+@media all and (min-device-width: 702px) and (max-device-width: 707.4px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.6px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.6px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 18.25px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 21.9px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 25.55px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 29.2px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 21.9px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 43.8px;
+  }
+}
+@media all and (min-device-width: 707.4px) and (max-device-width: 712.8px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.62px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.62px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 18.275px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 21.93px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 25.585px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 29.24px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 21.93px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 43.86px;
+  }
+}
+@media all and (min-device-width: 712.8px) and (max-device-width: 718.2px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.64px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.64px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 18.3px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 21.96px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 25.62px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 29.28px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 21.96px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 43.92px;
+  }
+}
+@media all and (min-device-width: 718.2px) and (max-device-width: 723.6px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.66px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.66px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 18.325px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 21.99px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 25.655px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 29.32px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 21.99px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 43.98px;
+  }
+}
+@media all and (min-device-width: 723.6px) and (max-device-width: 729px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.68px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.68px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 18.35px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 22.02px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 25.69px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 29.36px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 22.02px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 44.04px;
+  }
+}
+@media all and (min-device-width: 729px) and (max-device-width: 734.4px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.7px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.7px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 18.375px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 22.05px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 25.725px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 29.4px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 22.05px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 44.1px;
+  }
+}
+@media all and (min-device-width: 734.4px) and (max-device-width: 739.8px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.72px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.72px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 18.4px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 22.08px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 25.76px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 29.44px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 22.08px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 44.16px;
+  }
+}
+@media all and (min-device-width: 739.8px) and (max-device-width: 745.2px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.74px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.74px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 18.425px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 22.11px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 25.795px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 29.48px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 22.11px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 44.22px;
+  }
+}
+@media all and (min-device-width: 745.2px) and (max-device-width: 750.6px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.76px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.76px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 18.45px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 22.14px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 25.83px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 29.52px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 22.14px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 44.28px;
+  }
+}
+@media all and (min-device-width: 750.6px) and (max-device-width: 756px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.78px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.78px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 18.475px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 22.17px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 25.865px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 29.56px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 22.17px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 44.34px;
+  }
+}
+@media all and (min-device-width: 756px) and (max-device-width: 761.4px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.8px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.8px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 18.5px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 22.2px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 25.9px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 29.6px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 22.2px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 44.4px;
+  }
+}
+@media all and (min-device-width: 761.4px) and (max-device-width: 766.8px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.82px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.82px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 18.525px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 22.23px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 25.935px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 29.64px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 22.23px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 44.46px;
+  }
+}
+@media all and (min-device-width: 766.8px) and (max-device-width: 772.2px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.84px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.84px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 18.55px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 22.26px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 25.97px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 29.68px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 22.26px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 44.52px;
+  }
+}
+@media all and (min-device-width: 772.2px) and (max-device-width: 777.6px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.86px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.86px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 18.575px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 22.29px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 26.005px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 29.72px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 22.29px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 44.58px;
+  }
+}
+@media all and (min-device-width: 777.6px) and (max-device-width: 783px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.88px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.88px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 18.6px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 22.32px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 26.04px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 29.76px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 22.32px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 44.64px;
+  }
+}
+@media all and (min-device-width: 783px) and (max-device-width: 788.4px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.9px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.9px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 18.625px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 22.35px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 26.075px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 29.8px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 22.35px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 44.7px;
+  }
+}
+@media all and (min-device-width: 788.4px) and (max-device-width: 793.8px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.92px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.92px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 18.65px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 22.38px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 26.11px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 29.84px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 22.38px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 44.76px;
+  }
+}
+@media all and (min-device-width: 793.8px) and (max-device-width: 799.2px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.94px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.94px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 18.675px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 22.41px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 26.145px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 29.88px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 22.41px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 44.82px;
+  }
+}
+@media all and (min-device-width: 799.2px) and (max-device-width: 804.6px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.96px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.96px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 18.7px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 22.44px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 26.18px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 29.92px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 22.44px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 44.88px;
+  }
+}
+@media all and (min-device-width: 804.6px) and (max-device-width: 810px) {
+  /* line 117, ../sass/_responsive.scss */
+  body {
+    font-size: 14.98px;
+  }
+
+  /* line 121, ../sass/_responsive.scss */
+  p {
+    font-size: 14.98px;
+  }
+
+  /* line 125, ../sass/_responsive.scss */
+  h6 {
+    font-size: 18.725px;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
+  h5 {
+    font-size: 22.47px;
+  }
+
+  /* line 133, ../sass/_responsive.scss */
+  h4 {
+    font-size: 26.215px;
+  }
+
+  /* line 137, ../sass/_responsive.scss */
+  h3 {
+    font-size: 29.96px;
+  }
+
+  /* line 141, ../sass/_responsive.scss */
+  h2 {
+    font-size: 22.47px;
+  }
+
+  /* line 145, ../sass/_responsive.scss */
+  h1 {
+    font-size: 44.94px;
+  }
+}
+@media all and (min-device-width: 810px) and (max-device-width: 815.4px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15px;
@@ -10901,7 +12951,7 @@ button.close {
     font-size: 45px;
   }
 }
-@media all and (min-device-width: 545.4px) and (max-device-width: 550.8px) {
+@media all and (min-device-width: 815.4px) and (max-device-width: 820.8px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.02px;
@@ -10942,7 +12992,7 @@ button.close {
     font-size: 45.06px;
   }
 }
-@media all and (min-device-width: 550.8px) and (max-device-width: 556.2px) {
+@media all and (min-device-width: 820.8px) and (max-device-width: 826.2px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.04px;
@@ -10983,7 +13033,7 @@ button.close {
     font-size: 45.12px;
   }
 }
-@media all and (min-device-width: 556.2px) and (max-device-width: 561.6px) {
+@media all and (min-device-width: 826.2px) and (max-device-width: 831.6px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.06px;
@@ -11024,7 +13074,7 @@ button.close {
     font-size: 45.18px;
   }
 }
-@media all and (min-device-width: 561.6px) and (max-device-width: 567px) {
+@media all and (min-device-width: 831.6px) and (max-device-width: 837px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.08px;
@@ -11065,7 +13115,7 @@ button.close {
     font-size: 45.24px;
   }
 }
-@media all and (min-device-width: 567px) and (max-device-width: 572.4px) {
+@media all and (min-device-width: 837px) and (max-device-width: 842.4px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.1px;
@@ -11106,7 +13156,7 @@ button.close {
     font-size: 45.3px;
   }
 }
-@media all and (min-device-width: 572.4px) and (max-device-width: 577.8px) {
+@media all and (min-device-width: 842.4px) and (max-device-width: 847.8px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.12px;
@@ -11147,7 +13197,7 @@ button.close {
     font-size: 45.36px;
   }
 }
-@media all and (min-device-width: 577.8px) and (max-device-width: 583.2px) {
+@media all and (min-device-width: 847.8px) and (max-device-width: 853.2px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.14px;
@@ -11188,7 +13238,7 @@ button.close {
     font-size: 45.42px;
   }
 }
-@media all and (min-device-width: 583.2px) and (max-device-width: 588.6px) {
+@media all and (min-device-width: 853.2px) and (max-device-width: 858.6px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.16px;
@@ -11229,7 +13279,7 @@ button.close {
     font-size: 45.48px;
   }
 }
-@media all and (min-device-width: 588.6px) and (max-device-width: 594px) {
+@media all and (min-device-width: 858.6px) and (max-device-width: 864px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.18px;
@@ -11270,7 +13320,7 @@ button.close {
     font-size: 45.54px;
   }
 }
-@media all and (min-device-width: 594px) and (max-device-width: 599.4px) {
+@media all and (min-device-width: 864px) and (max-device-width: 869.4px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.2px;
@@ -11311,7 +13361,7 @@ button.close {
     font-size: 45.6px;
   }
 }
-@media all and (min-device-width: 599.4px) and (max-device-width: 604.8px) {
+@media all and (min-device-width: 869.4px) and (max-device-width: 874.8px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.22px;
@@ -11352,7 +13402,7 @@ button.close {
     font-size: 45.66px;
   }
 }
-@media all and (min-device-width: 604.8px) and (max-device-width: 610.2px) {
+@media all and (min-device-width: 874.8px) and (max-device-width: 880.2px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.24px;
@@ -11393,7 +13443,7 @@ button.close {
     font-size: 45.72px;
   }
 }
-@media all and (min-device-width: 610.2px) and (max-device-width: 615.6px) {
+@media all and (min-device-width: 880.2px) and (max-device-width: 885.6px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.26px;
@@ -11434,7 +13484,7 @@ button.close {
     font-size: 45.78px;
   }
 }
-@media all and (min-device-width: 615.6px) and (max-device-width: 621px) {
+@media all and (min-device-width: 885.6px) and (max-device-width: 891px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.28px;
@@ -11475,7 +13525,7 @@ button.close {
     font-size: 45.84px;
   }
 }
-@media all and (min-device-width: 621px) and (max-device-width: 626.4px) {
+@media all and (min-device-width: 891px) and (max-device-width: 896.4px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.3px;
@@ -11516,7 +13566,7 @@ button.close {
     font-size: 45.9px;
   }
 }
-@media all and (min-device-width: 626.4px) and (max-device-width: 631.8px) {
+@media all and (min-device-width: 896.4px) and (max-device-width: 901.8px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.32px;
@@ -11557,7 +13607,7 @@ button.close {
     font-size: 45.96px;
   }
 }
-@media all and (min-device-width: 631.8px) and (max-device-width: 637.2px) {
+@media all and (min-device-width: 901.8px) and (max-device-width: 907.2px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.34px;
@@ -11598,7 +13648,7 @@ button.close {
     font-size: 46.02px;
   }
 }
-@media all and (min-device-width: 637.2px) and (max-device-width: 642.6px) {
+@media all and (min-device-width: 907.2px) and (max-device-width: 912.6px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.36px;
@@ -11639,7 +13689,7 @@ button.close {
     font-size: 46.08px;
   }
 }
-@media all and (min-device-width: 642.6px) and (max-device-width: 648px) {
+@media all and (min-device-width: 912.6px) and (max-device-width: 918px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.38px;
@@ -11680,7 +13730,7 @@ button.close {
     font-size: 46.14px;
   }
 }
-@media all and (min-device-width: 648px) and (max-device-width: 653.4px) {
+@media all and (min-device-width: 918px) and (max-device-width: 923.4px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.4px;
@@ -11721,7 +13771,7 @@ button.close {
     font-size: 46.2px;
   }
 }
-@media all and (min-device-width: 653.4px) and (max-device-width: 658.8px) {
+@media all and (min-device-width: 923.4px) and (max-device-width: 928.8px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.42px;
@@ -11762,7 +13812,7 @@ button.close {
     font-size: 46.26px;
   }
 }
-@media all and (min-device-width: 658.8px) and (max-device-width: 664.2px) {
+@media all and (min-device-width: 928.8px) and (max-device-width: 934.2px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.44px;
@@ -11803,7 +13853,7 @@ button.close {
     font-size: 46.32px;
   }
 }
-@media all and (min-device-width: 664.2px) and (max-device-width: 669.6px) {
+@media all and (min-device-width: 934.2px) and (max-device-width: 939.6px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.46px;
@@ -11844,7 +13894,7 @@ button.close {
     font-size: 46.38px;
   }
 }
-@media all and (min-device-width: 669.6px) and (max-device-width: 675px) {
+@media all and (min-device-width: 939.6px) and (max-device-width: 945px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.48px;
@@ -11885,7 +13935,7 @@ button.close {
     font-size: 46.44px;
   }
 }
-@media all and (min-device-width: 675px) and (max-device-width: 680.4px) {
+@media all and (min-device-width: 945px) and (max-device-width: 950.4px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.5px;
@@ -11926,7 +13976,7 @@ button.close {
     font-size: 46.5px;
   }
 }
-@media all and (min-device-width: 680.4px) and (max-device-width: 685.8px) {
+@media all and (min-device-width: 950.4px) and (max-device-width: 955.8px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.52px;
@@ -11967,7 +14017,7 @@ button.close {
     font-size: 46.56px;
   }
 }
-@media all and (min-device-width: 685.8px) and (max-device-width: 691.2px) {
+@media all and (min-device-width: 955.8px) and (max-device-width: 961.2px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.54px;
@@ -12008,7 +14058,7 @@ button.close {
     font-size: 46.62px;
   }
 }
-@media all and (min-device-width: 691.2px) and (max-device-width: 696.6px) {
+@media all and (min-device-width: 961.2px) and (max-device-width: 966.6px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.56px;
@@ -12049,7 +14099,7 @@ button.close {
     font-size: 46.68px;
   }
 }
-@media all and (min-device-width: 696.6px) and (max-device-width: 702px) {
+@media all and (min-device-width: 966.6px) and (max-device-width: 972px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.58px;
@@ -12090,7 +14140,7 @@ button.close {
     font-size: 46.74px;
   }
 }
-@media all and (min-device-width: 702px) and (max-device-width: 707.4px) {
+@media all and (min-device-width: 972px) and (max-device-width: 977.4px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.6px;
@@ -12131,7 +14181,7 @@ button.close {
     font-size: 46.8px;
   }
 }
-@media all and (min-device-width: 707.4px) and (max-device-width: 712.8px) {
+@media all and (min-device-width: 977.4px) and (max-device-width: 982.8px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.62px;
@@ -12172,7 +14222,7 @@ button.close {
     font-size: 46.86px;
   }
 }
-@media all and (min-device-width: 712.8px) and (max-device-width: 718.2px) {
+@media all and (min-device-width: 982.8px) and (max-device-width: 988.2px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.64px;
@@ -12213,7 +14263,7 @@ button.close {
     font-size: 46.92px;
   }
 }
-@media all and (min-device-width: 718.2px) and (max-device-width: 723.6px) {
+@media all and (min-device-width: 988.2px) and (max-device-width: 993.6px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.66px;
@@ -12254,7 +14304,7 @@ button.close {
     font-size: 46.98px;
   }
 }
-@media all and (min-device-width: 723.6px) and (max-device-width: 729px) {
+@media all and (min-device-width: 993.6px) and (max-device-width: 999px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.68px;
@@ -12295,7 +14345,7 @@ button.close {
     font-size: 47.04px;
   }
 }
-@media all and (min-device-width: 729px) and (max-device-width: 734.4px) {
+@media all and (min-device-width: 999px) and (max-device-width: 1004.4px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.7px;
@@ -12336,7 +14386,7 @@ button.close {
     font-size: 47.1px;
   }
 }
-@media all and (min-device-width: 734.4px) and (max-device-width: 739.8px) {
+@media all and (min-device-width: 1004.4px) and (max-device-width: 1009.8px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.72px;
@@ -12377,7 +14427,7 @@ button.close {
     font-size: 47.16px;
   }
 }
-@media all and (min-device-width: 739.8px) and (max-device-width: 745.2px) {
+@media all and (min-device-width: 1009.8px) and (max-device-width: 1015.2px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.74px;
@@ -12418,7 +14468,7 @@ button.close {
     font-size: 47.22px;
   }
 }
-@media all and (min-device-width: 745.2px) and (max-device-width: 750.6px) {
+@media all and (min-device-width: 1015.2px) and (max-device-width: 1020.6px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.76px;
@@ -12459,7 +14509,7 @@ button.close {
     font-size: 47.28px;
   }
 }
-@media all and (min-device-width: 750.6px) and (max-device-width: 756px) {
+@media all and (min-device-width: 1020.6px) and (max-device-width: 1026px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.78px;
@@ -12500,7 +14550,7 @@ button.close {
     font-size: 47.34px;
   }
 }
-@media all and (min-device-width: 756px) and (max-device-width: 761.4px) {
+@media all and (min-device-width: 1026px) and (max-device-width: 1031.4px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.8px;
@@ -12541,7 +14591,7 @@ button.close {
     font-size: 47.4px;
   }
 }
-@media all and (min-device-width: 761.4px) and (max-device-width: 766.8px) {
+@media all and (min-device-width: 1031.4px) and (max-device-width: 1036.8px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.82px;
@@ -12582,7 +14632,7 @@ button.close {
     font-size: 47.46px;
   }
 }
-@media all and (min-device-width: 766.8px) and (max-device-width: 772.2px) {
+@media all and (min-device-width: 1036.8px) and (max-device-width: 1042.2px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.84px;
@@ -12623,7 +14673,7 @@ button.close {
     font-size: 47.52px;
   }
 }
-@media all and (min-device-width: 772.2px) and (max-device-width: 777.6px) {
+@media all and (min-device-width: 1042.2px) and (max-device-width: 1047.6px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.86px;
@@ -12664,7 +14714,7 @@ button.close {
     font-size: 47.58px;
   }
 }
-@media all and (min-device-width: 777.6px) and (max-device-width: 783px) {
+@media all and (min-device-width: 1047.6px) and (max-device-width: 1053px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.88px;
@@ -12705,7 +14755,7 @@ button.close {
     font-size: 47.64px;
   }
 }
-@media all and (min-device-width: 783px) and (max-device-width: 788.4px) {
+@media all and (min-device-width: 1053px) and (max-device-width: 1058.4px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.9px;
@@ -12746,7 +14796,7 @@ button.close {
     font-size: 47.7px;
   }
 }
-@media all and (min-device-width: 788.4px) and (max-device-width: 793.8px) {
+@media all and (min-device-width: 1058.4px) and (max-device-width: 1063.8px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.92px;
@@ -12787,7 +14837,7 @@ button.close {
     font-size: 47.76px;
   }
 }
-@media all and (min-device-width: 793.8px) and (max-device-width: 799.2px) {
+@media all and (min-device-width: 1063.8px) and (max-device-width: 1069.2px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.94px;
@@ -12828,7 +14878,7 @@ button.close {
     font-size: 47.82px;
   }
 }
-@media all and (min-device-width: 799.2px) and (max-device-width: 804.6px) {
+@media all and (min-device-width: 1069.2px) and (max-device-width: 1074.6px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.96px;
@@ -12869,7 +14919,7 @@ button.close {
     font-size: 47.88px;
   }
 }
-@media all and (min-device-width: 804.6px) and (max-device-width: 810px) {
+@media all and (min-device-width: 1074.6px) and (max-device-width: 1080px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 15.98px;
@@ -12910,7 +14960,7 @@ button.close {
     font-size: 47.94px;
   }
 }
-@media all and (min-device-width: 810px) and (max-device-width: 815.4px) {
+@media all and (min-device-width: 1080px) and (max-device-width: 1085.4px) {
   /* line 117, ../sass/_responsive.scss */
   body {
     font-size: 16px;
@@ -12951,6155 +15001,4105 @@ button.close {
     font-size: 48px;
   }
 }
-@media all and (min-device-width: 815.4px) and (max-device-width: 820.8px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.02px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.02px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 20.025px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 24.03px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 28.035px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 32.04px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 24.03px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 48.06px;
-  }
-}
-@media all and (min-device-width: 820.8px) and (max-device-width: 826.2px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.04px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.04px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 20.05px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 24.06px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 28.07px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 32.08px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 24.06px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 48.12px;
-  }
-}
-@media all and (min-device-width: 826.2px) and (max-device-width: 831.6px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.06px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.06px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 20.075px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 24.09px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 28.105px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 32.12px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 24.09px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 48.18px;
-  }
-}
-@media all and (min-device-width: 831.6px) and (max-device-width: 837px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.08px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.08px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 20.1px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 24.12px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 28.14px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 32.16px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 24.12px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 48.24px;
-  }
-}
-@media all and (min-device-width: 837px) and (max-device-width: 842.4px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.1px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.1px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 20.125px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 24.15px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 28.175px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 32.2px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 24.15px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 48.3px;
-  }
-}
-@media all and (min-device-width: 842.4px) and (max-device-width: 847.8px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.12px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.12px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 20.15px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 24.18px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 28.21px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 32.24px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 24.18px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 48.36px;
-  }
-}
-@media all and (min-device-width: 847.8px) and (max-device-width: 853.2px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.14px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.14px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 20.175px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 24.21px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 28.245px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 32.28px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 24.21px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 48.42px;
-  }
-}
-@media all and (min-device-width: 853.2px) and (max-device-width: 858.6px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.16px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.16px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 20.2px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 24.24px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 28.28px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 32.32px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 24.24px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 48.48px;
-  }
-}
-@media all and (min-device-width: 858.6px) and (max-device-width: 864px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.18px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.18px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 20.225px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 24.27px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 28.315px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 32.36px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 24.27px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 48.54px;
-  }
-}
-@media all and (min-device-width: 864px) and (max-device-width: 869.4px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.2px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.2px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 20.25px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 24.3px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 28.35px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 32.4px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 24.3px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 48.6px;
-  }
-}
-@media all and (min-device-width: 869.4px) and (max-device-width: 874.8px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.22px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.22px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 20.275px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 24.33px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 28.385px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 32.44px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 24.33px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 48.66px;
-  }
-}
-@media all and (min-device-width: 874.8px) and (max-device-width: 880.2px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.24px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.24px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 20.3px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 24.36px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 28.42px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 32.48px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 24.36px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 48.72px;
-  }
-}
-@media all and (min-device-width: 880.2px) and (max-device-width: 885.6px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.26px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.26px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 20.325px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 24.39px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 28.455px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 32.52px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 24.39px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 48.78px;
-  }
-}
-@media all and (min-device-width: 885.6px) and (max-device-width: 891px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.28px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.28px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 20.35px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 24.42px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 28.49px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 32.56px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 24.42px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 48.84px;
-  }
-}
-@media all and (min-device-width: 891px) and (max-device-width: 896.4px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.3px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.3px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 20.375px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 24.45px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 28.525px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 32.6px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 24.45px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 48.9px;
-  }
-}
-@media all and (min-device-width: 896.4px) and (max-device-width: 901.8px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.32px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.32px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 20.4px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 24.48px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 28.56px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 32.64px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 24.48px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 48.96px;
-  }
-}
-@media all and (min-device-width: 901.8px) and (max-device-width: 907.2px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.34px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.34px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 20.425px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 24.51px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 28.595px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 32.68px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 24.51px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 49.02px;
-  }
-}
-@media all and (min-device-width: 907.2px) and (max-device-width: 912.6px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.36px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.36px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 20.45px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 24.54px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 28.63px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 32.72px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 24.54px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 49.08px;
-  }
-}
-@media all and (min-device-width: 912.6px) and (max-device-width: 918px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.38px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.38px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 20.475px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 24.57px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 28.665px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 32.76px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 24.57px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 49.14px;
-  }
-}
-@media all and (min-device-width: 918px) and (max-device-width: 923.4px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.4px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.4px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 20.5px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 24.6px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 28.7px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 32.8px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 24.6px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 49.2px;
-  }
-}
-@media all and (min-device-width: 923.4px) and (max-device-width: 928.8px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.42px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.42px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 20.525px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 24.63px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 28.735px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 32.84px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 24.63px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 49.26px;
-  }
-}
-@media all and (min-device-width: 928.8px) and (max-device-width: 934.2px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.44px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.44px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 20.55px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 24.66px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 28.77px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 32.88px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 24.66px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 49.32px;
-  }
-}
-@media all and (min-device-width: 934.2px) and (max-device-width: 939.6px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.46px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.46px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 20.575px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 24.69px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 28.805px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 32.92px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 24.69px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 49.38px;
-  }
-}
-@media all and (min-device-width: 939.6px) and (max-device-width: 945px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.48px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.48px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 20.6px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 24.72px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 28.84px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 32.96px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 24.72px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 49.44px;
-  }
-}
-@media all and (min-device-width: 945px) and (max-device-width: 950.4px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.5px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.5px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 20.625px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 24.75px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 28.875px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 33px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 24.75px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 49.5px;
-  }
-}
-@media all and (min-device-width: 950.4px) and (max-device-width: 955.8px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.52px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.52px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 20.65px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 24.78px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 28.91px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 33.04px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 24.78px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 49.56px;
-  }
-}
-@media all and (min-device-width: 955.8px) and (max-device-width: 961.2px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.54px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.54px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 20.675px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 24.81px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 28.945px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 33.08px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 24.81px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 49.62px;
-  }
-}
-@media all and (min-device-width: 961.2px) and (max-device-width: 966.6px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.56px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.56px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 20.7px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 24.84px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 28.98px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 33.12px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 24.84px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 49.68px;
-  }
-}
-@media all and (min-device-width: 966.6px) and (max-device-width: 972px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.58px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.58px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 20.725px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 24.87px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 29.015px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 33.16px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 24.87px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 49.74px;
-  }
-}
-@media all and (min-device-width: 972px) and (max-device-width: 977.4px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.6px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.6px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 20.75px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 24.9px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 29.05px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 33.2px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 24.9px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 49.8px;
-  }
-}
-@media all and (min-device-width: 977.4px) and (max-device-width: 982.8px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.62px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.62px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 20.775px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 24.93px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 29.085px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 33.24px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 24.93px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 49.86px;
-  }
-}
-@media all and (min-device-width: 982.8px) and (max-device-width: 988.2px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.64px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.64px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 20.8px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 24.96px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 29.12px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 33.28px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 24.96px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 49.92px;
-  }
-}
-@media all and (min-device-width: 988.2px) and (max-device-width: 993.6px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.66px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.66px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 20.825px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 24.99px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 29.155px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 33.32px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 24.99px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 49.98px;
-  }
-}
-@media all and (min-device-width: 993.6px) and (max-device-width: 999px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.68px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.68px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 20.85px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 25.02px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 29.19px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 33.36px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 25.02px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 50.04px;
-  }
-}
-@media all and (min-device-width: 999px) and (max-device-width: 1004.4px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.7px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.7px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 20.875px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 25.05px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 29.225px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 33.4px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 25.05px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 50.1px;
-  }
-}
-@media all and (min-device-width: 1004.4px) and (max-device-width: 1009.8px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.72px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.72px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 20.9px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 25.08px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 29.26px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 33.44px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 25.08px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 50.16px;
-  }
-}
-@media all and (min-device-width: 1009.8px) and (max-device-width: 1015.2px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.74px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.74px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 20.925px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 25.11px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 29.295px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 33.48px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 25.11px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 50.22px;
-  }
-}
-@media all and (min-device-width: 1015.2px) and (max-device-width: 1020.6px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.76px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.76px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 20.95px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 25.14px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 29.33px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 33.52px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 25.14px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 50.28px;
-  }
-}
-@media all and (min-device-width: 1020.6px) and (max-device-width: 1026px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.78px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.78px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 20.975px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 25.17px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 29.365px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 33.56px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 25.17px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 50.34px;
-  }
-}
-@media all and (min-device-width: 1026px) and (max-device-width: 1031.4px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.8px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.8px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 21px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 25.2px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 29.4px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 33.6px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 25.2px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 50.4px;
-  }
-}
-@media all and (min-device-width: 1031.4px) and (max-device-width: 1036.8px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.82px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.82px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 21.025px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 25.23px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 29.435px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 33.64px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 25.23px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 50.46px;
-  }
-}
-@media all and (min-device-width: 1036.8px) and (max-device-width: 1042.2px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.84px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.84px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 21.05px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 25.26px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 29.47px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 33.68px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 25.26px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 50.52px;
-  }
-}
-@media all and (min-device-width: 1042.2px) and (max-device-width: 1047.6px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.86px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.86px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 21.075px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 25.29px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 29.505px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 33.72px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 25.29px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 50.58px;
-  }
-}
-@media all and (min-device-width: 1047.6px) and (max-device-width: 1053px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.88px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.88px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 21.1px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 25.32px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 29.54px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 33.76px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 25.32px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 50.64px;
-  }
-}
-@media all and (min-device-width: 1053px) and (max-device-width: 1058.4px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.9px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.9px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 21.125px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 25.35px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 29.575px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 33.8px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 25.35px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 50.7px;
-  }
-}
-@media all and (min-device-width: 1058.4px) and (max-device-width: 1063.8px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.92px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.92px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 21.15px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 25.38px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 29.61px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 33.84px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 25.38px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 50.76px;
-  }
-}
-@media all and (min-device-width: 1063.8px) and (max-device-width: 1069.2px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.94px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.94px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 21.175px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 25.41px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 29.645px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 33.88px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 25.41px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 50.82px;
-  }
-}
-@media all and (min-device-width: 1069.2px) and (max-device-width: 1074.6px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.96px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.96px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 21.2px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 25.44px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 29.68px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 33.92px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 25.44px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 50.88px;
-  }
-}
-@media all and (min-device-width: 1074.6px) and (max-device-width: 1080px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 16.98px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 16.98px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 21.225px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 25.47px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 29.715px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 33.96px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 25.47px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 50.94px;
-  }
-}
-@media all and (min-device-width: 1080px) and (max-device-width: 1085.4px) {
-  /* line 117, ../sass/_responsive.scss */
-  body {
-    font-size: 17px;
-  }
-
-  /* line 121, ../sass/_responsive.scss */
-  p {
-    font-size: 17px;
-  }
-
-  /* line 125, ../sass/_responsive.scss */
-  h6 {
-    font-size: 21.25px;
-  }
-
-  /* line 129, ../sass/_responsive.scss */
-  h5 {
-    font-size: 25.5px;
-  }
-
-  /* line 133, ../sass/_responsive.scss */
-  h4 {
-    font-size: 29.75px;
-  }
-
-  /* line 137, ../sass/_responsive.scss */
-  h3 {
-    font-size: 34px;
-  }
-
-  /* line 141, ../sass/_responsive.scss */
-  h2 {
-    font-size: 25.5px;
-  }
-
-  /* line 145, ../sass/_responsive.scss */
-  h1 {
-    font-size: 51px;
-  }
-}
-/* From 1080 to 4096px - DESKTOP - Scaling 17px - 28px */
+/* From 1080 to 4096px - DESKTOP - Scaling 16px - 27px */
 @media all and (min-device-width: 1110.16px) and (max-device-width: 1140.32px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.011px;
+    font-size: 16.011px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.011px;
+    font-size: 16.011px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.26375px;
+    font-size: 20.01375px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 25.5165px;
+    font-size: 24.0165px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 29.76925px;
+    font-size: 28.01925px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.022px;
+    font-size: 32.022px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 25.5165px;
+    font-size: 24.0165px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 51.033px;
+    font-size: 48.033px;
   }
 }
 @media all and (min-device-width: 1140.32px) and (max-device-width: 1170.48px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.022px;
+    font-size: 16.022px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.022px;
+    font-size: 16.022px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.2775px;
+    font-size: 20.0275px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 25.533px;
+    font-size: 24.033px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 29.7885px;
+    font-size: 28.0385px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.044px;
+    font-size: 32.044px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 25.533px;
+    font-size: 24.033px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 51.066px;
+    font-size: 48.066px;
   }
 }
 @media all and (min-device-width: 1170.48px) and (max-device-width: 1200.64px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.033px;
+    font-size: 16.033px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.033px;
+    font-size: 16.033px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.29125px;
+    font-size: 20.04125px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 25.5495px;
+    font-size: 24.0495px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 29.80775px;
+    font-size: 28.05775px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.066px;
+    font-size: 32.066px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 25.5495px;
+    font-size: 24.0495px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 51.099px;
+    font-size: 48.099px;
   }
 }
 @media all and (min-device-width: 1200.64px) and (max-device-width: 1230.8px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.044px;
+    font-size: 16.044px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.044px;
+    font-size: 16.044px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.305px;
+    font-size: 20.055px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 25.566px;
+    font-size: 24.066px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 29.827px;
+    font-size: 28.077px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.088px;
+    font-size: 32.088px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 25.566px;
+    font-size: 24.066px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 51.132px;
+    font-size: 48.132px;
   }
 }
 @media all and (min-device-width: 1230.8px) and (max-device-width: 1260.96px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.055px;
+    font-size: 16.055px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.055px;
+    font-size: 16.055px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.31875px;
+    font-size: 20.06875px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 25.5825px;
+    font-size: 24.0825px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 29.84625px;
+    font-size: 28.09625px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.11px;
+    font-size: 32.11px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 25.5825px;
+    font-size: 24.0825px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 51.165px;
+    font-size: 48.165px;
   }
 }
 @media all and (min-device-width: 1260.96px) and (max-device-width: 1291.12px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.066px;
+    font-size: 16.066px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.066px;
+    font-size: 16.066px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.3325px;
+    font-size: 20.0825px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 25.599px;
+    font-size: 24.099px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 29.8655px;
+    font-size: 28.1155px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.132px;
+    font-size: 32.132px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 25.599px;
+    font-size: 24.099px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 51.198px;
+    font-size: 48.198px;
   }
 }
 @media all and (min-device-width: 1291.12px) and (max-device-width: 1321.28px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.077px;
+    font-size: 16.077px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.077px;
+    font-size: 16.077px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.34625px;
+    font-size: 20.09625px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 25.6155px;
+    font-size: 24.1155px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 29.88475px;
+    font-size: 28.13475px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.154px;
+    font-size: 32.154px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 25.6155px;
+    font-size: 24.1155px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 51.231px;
+    font-size: 48.231px;
   }
 }
 @media all and (min-device-width: 1321.28px) and (max-device-width: 1351.44px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.088px;
+    font-size: 16.088px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.088px;
+    font-size: 16.088px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.36px;
+    font-size: 20.11px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 25.632px;
+    font-size: 24.132px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 29.904px;
+    font-size: 28.154px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.176px;
+    font-size: 32.176px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 25.632px;
+    font-size: 24.132px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 51.264px;
+    font-size: 48.264px;
   }
 }
 @media all and (min-device-width: 1351.44px) and (max-device-width: 1381.6px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.099px;
+    font-size: 16.099px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.099px;
+    font-size: 16.099px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.37375px;
+    font-size: 20.12375px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 25.6485px;
+    font-size: 24.1485px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 29.92325px;
+    font-size: 28.17325px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.198px;
+    font-size: 32.198px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 25.6485px;
+    font-size: 24.1485px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 51.297px;
+    font-size: 48.297px;
   }
 }
 @media all and (min-device-width: 1381.6px) and (max-device-width: 1411.76px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.11px;
+    font-size: 16.11px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.11px;
+    font-size: 16.11px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.3875px;
+    font-size: 20.1375px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 25.665px;
+    font-size: 24.165px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 29.9425px;
+    font-size: 28.1925px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.22px;
+    font-size: 32.22px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 25.665px;
+    font-size: 24.165px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 51.33px;
+    font-size: 48.33px;
   }
 }
 @media all and (min-device-width: 1411.76px) and (max-device-width: 1441.92px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.121px;
+    font-size: 16.121px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.121px;
+    font-size: 16.121px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.40125px;
+    font-size: 20.15125px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 25.6815px;
+    font-size: 24.1815px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 29.96175px;
+    font-size: 28.21175px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.242px;
+    font-size: 32.242px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 25.6815px;
+    font-size: 24.1815px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 51.363px;
+    font-size: 48.363px;
   }
 }
 @media all and (min-device-width: 1441.92px) and (max-device-width: 1472.08px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.132px;
+    font-size: 16.132px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.132px;
+    font-size: 16.132px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.415px;
+    font-size: 20.165px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 25.698px;
+    font-size: 24.198px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 29.981px;
+    font-size: 28.231px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.264px;
+    font-size: 32.264px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 25.698px;
+    font-size: 24.198px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 51.396px;
+    font-size: 48.396px;
   }
 }
 @media all and (min-device-width: 1472.08px) and (max-device-width: 1502.24px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.143px;
+    font-size: 16.143px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.143px;
+    font-size: 16.143px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.42875px;
+    font-size: 20.17875px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 25.7145px;
+    font-size: 24.2145px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.00025px;
+    font-size: 28.25025px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.286px;
+    font-size: 32.286px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 25.7145px;
+    font-size: 24.2145px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 51.429px;
+    font-size: 48.429px;
   }
 }
 @media all and (min-device-width: 1502.24px) and (max-device-width: 1532.4px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.154px;
+    font-size: 16.154px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.154px;
+    font-size: 16.154px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.4425px;
+    font-size: 20.1925px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 25.731px;
+    font-size: 24.231px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.0195px;
+    font-size: 28.2695px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.308px;
+    font-size: 32.308px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 25.731px;
+    font-size: 24.231px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 51.462px;
+    font-size: 48.462px;
   }
 }
 @media all and (min-device-width: 1532.4px) and (max-device-width: 1562.56px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.165px;
+    font-size: 16.165px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.165px;
+    font-size: 16.165px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.45625px;
+    font-size: 20.20625px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 25.7475px;
+    font-size: 24.2475px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.03875px;
+    font-size: 28.28875px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.33px;
+    font-size: 32.33px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 25.7475px;
+    font-size: 24.2475px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 51.495px;
+    font-size: 48.495px;
   }
 }
 @media all and (min-device-width: 1562.56px) and (max-device-width: 1592.72px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.176px;
+    font-size: 16.176px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.176px;
+    font-size: 16.176px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.47px;
+    font-size: 20.22px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 25.764px;
+    font-size: 24.264px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.058px;
+    font-size: 28.308px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.352px;
+    font-size: 32.352px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 25.764px;
+    font-size: 24.264px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 51.528px;
+    font-size: 48.528px;
   }
 }
 @media all and (min-device-width: 1592.72px) and (max-device-width: 1622.88px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.187px;
+    font-size: 16.187px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.187px;
+    font-size: 16.187px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.48375px;
+    font-size: 20.23375px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 25.7805px;
+    font-size: 24.2805px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.07725px;
+    font-size: 28.32725px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.374px;
+    font-size: 32.374px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 25.7805px;
+    font-size: 24.2805px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 51.561px;
+    font-size: 48.561px;
   }
 }
 @media all and (min-device-width: 1622.88px) and (max-device-width: 1653.04px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.198px;
+    font-size: 16.198px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.198px;
+    font-size: 16.198px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.4975px;
+    font-size: 20.2475px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 25.797px;
+    font-size: 24.297px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.0965px;
+    font-size: 28.3465px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.396px;
+    font-size: 32.396px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 25.797px;
+    font-size: 24.297px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 51.594px;
+    font-size: 48.594px;
   }
 }
 @media all and (min-device-width: 1653.04px) and (max-device-width: 1683.2px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.209px;
+    font-size: 16.209px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.209px;
+    font-size: 16.209px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.51125px;
+    font-size: 20.26125px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 25.8135px;
+    font-size: 24.3135px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.11575px;
+    font-size: 28.36575px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.418px;
+    font-size: 32.418px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 25.8135px;
+    font-size: 24.3135px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 51.627px;
+    font-size: 48.627px;
   }
 }
 @media all and (min-device-width: 1683.2px) and (max-device-width: 1713.36px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.22px;
+    font-size: 16.22px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.22px;
+    font-size: 16.22px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.525px;
+    font-size: 20.275px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 25.83px;
+    font-size: 24.33px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.135px;
+    font-size: 28.385px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.44px;
+    font-size: 32.44px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 25.83px;
+    font-size: 24.33px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 51.66px;
+    font-size: 48.66px;
   }
 }
 @media all and (min-device-width: 1713.36px) and (max-device-width: 1743.52px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.231px;
+    font-size: 16.231px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.231px;
+    font-size: 16.231px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.53875px;
+    font-size: 20.28875px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 25.8465px;
+    font-size: 24.3465px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.15425px;
+    font-size: 28.40425px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.462px;
+    font-size: 32.462px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 25.8465px;
+    font-size: 24.3465px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 51.693px;
+    font-size: 48.693px;
   }
 }
 @media all and (min-device-width: 1743.52px) and (max-device-width: 1773.68px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.242px;
+    font-size: 16.242px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.242px;
+    font-size: 16.242px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.5525px;
+    font-size: 20.3025px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 25.863px;
+    font-size: 24.363px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.1735px;
+    font-size: 28.4235px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.484px;
+    font-size: 32.484px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 25.863px;
+    font-size: 24.363px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 51.726px;
+    font-size: 48.726px;
   }
 }
 @media all and (min-device-width: 1773.68px) and (max-device-width: 1803.84px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.253px;
+    font-size: 16.253px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.253px;
+    font-size: 16.253px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.56625px;
+    font-size: 20.31625px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 25.8795px;
+    font-size: 24.3795px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.19275px;
+    font-size: 28.44275px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.506px;
+    font-size: 32.506px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 25.8795px;
+    font-size: 24.3795px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 51.759px;
+    font-size: 48.759px;
   }
 }
 @media all and (min-device-width: 1803.84px) and (max-device-width: 1834px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.264px;
+    font-size: 16.264px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.264px;
+    font-size: 16.264px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.58px;
+    font-size: 20.33px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 25.896px;
+    font-size: 24.396px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.212px;
+    font-size: 28.462px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.528px;
+    font-size: 32.528px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 25.896px;
+    font-size: 24.396px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 51.792px;
+    font-size: 48.792px;
   }
 }
 @media all and (min-device-width: 1834px) and (max-device-width: 1864.16px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.275px;
+    font-size: 16.275px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.275px;
+    font-size: 16.275px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.59375px;
+    font-size: 20.34375px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 25.9125px;
+    font-size: 24.4125px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.23125px;
+    font-size: 28.48125px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.55px;
+    font-size: 32.55px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 25.9125px;
+    font-size: 24.4125px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 51.825px;
+    font-size: 48.825px;
   }
 }
 @media all and (min-device-width: 1864.16px) and (max-device-width: 1894.32px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.286px;
+    font-size: 16.286px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.286px;
+    font-size: 16.286px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.6075px;
+    font-size: 20.3575px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 25.929px;
+    font-size: 24.429px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.2505px;
+    font-size: 28.5005px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.572px;
+    font-size: 32.572px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 25.929px;
+    font-size: 24.429px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 51.858px;
+    font-size: 48.858px;
   }
 }
 @media all and (min-device-width: 1894.32px) and (max-device-width: 1924.48px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.297px;
+    font-size: 16.297px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.297px;
+    font-size: 16.297px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.62125px;
+    font-size: 20.37125px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 25.9455px;
+    font-size: 24.4455px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.26975px;
+    font-size: 28.51975px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.594px;
+    font-size: 32.594px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 25.9455px;
+    font-size: 24.4455px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 51.891px;
+    font-size: 48.891px;
   }
 }
 @media all and (min-device-width: 1924.48px) and (max-device-width: 1954.64px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.308px;
+    font-size: 16.308px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.308px;
+    font-size: 16.308px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.635px;
+    font-size: 20.385px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 25.962px;
+    font-size: 24.462px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.289px;
+    font-size: 28.539px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.616px;
+    font-size: 32.616px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 25.962px;
+    font-size: 24.462px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 51.924px;
+    font-size: 48.924px;
   }
 }
 @media all and (min-device-width: 1954.64px) and (max-device-width: 1984.8px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.319px;
+    font-size: 16.319px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.319px;
+    font-size: 16.319px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.64875px;
+    font-size: 20.39875px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 25.9785px;
+    font-size: 24.4785px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.30825px;
+    font-size: 28.55825px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.638px;
+    font-size: 32.638px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 25.9785px;
+    font-size: 24.4785px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 51.957px;
+    font-size: 48.957px;
   }
 }
 @media all and (min-device-width: 1984.8px) and (max-device-width: 2014.96px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.33px;
+    font-size: 16.33px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.33px;
+    font-size: 16.33px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.6625px;
+    font-size: 20.4125px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 25.995px;
+    font-size: 24.495px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.3275px;
+    font-size: 28.5775px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.66px;
+    font-size: 32.66px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 25.995px;
+    font-size: 24.495px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 51.99px;
+    font-size: 48.99px;
   }
 }
 @media all and (min-device-width: 2014.96px) and (max-device-width: 2045.12px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.341px;
+    font-size: 16.341px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.341px;
+    font-size: 16.341px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.67625px;
+    font-size: 20.42625px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.0115px;
+    font-size: 24.5115px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.34675px;
+    font-size: 28.59675px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.682px;
+    font-size: 32.682px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.0115px;
+    font-size: 24.5115px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 52.023px;
+    font-size: 49.023px;
   }
 }
 @media all and (min-device-width: 2045.12px) and (max-device-width: 2075.28px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.352px;
+    font-size: 16.352px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.352px;
+    font-size: 16.352px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.69px;
+    font-size: 20.44px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.028px;
+    font-size: 24.528px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.366px;
+    font-size: 28.616px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.704px;
+    font-size: 32.704px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.028px;
+    font-size: 24.528px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 52.056px;
+    font-size: 49.056px;
   }
 }
 @media all and (min-device-width: 2075.28px) and (max-device-width: 2105.44px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.363px;
+    font-size: 16.363px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.363px;
+    font-size: 16.363px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.70375px;
+    font-size: 20.45375px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.0445px;
+    font-size: 24.5445px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.38525px;
+    font-size: 28.63525px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.726px;
+    font-size: 32.726px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.0445px;
+    font-size: 24.5445px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 52.089px;
+    font-size: 49.089px;
   }
 }
 @media all and (min-device-width: 2105.44px) and (max-device-width: 2135.6px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.374px;
+    font-size: 16.374px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.374px;
+    font-size: 16.374px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.7175px;
+    font-size: 20.4675px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.061px;
+    font-size: 24.561px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.4045px;
+    font-size: 28.6545px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.748px;
+    font-size: 32.748px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.061px;
+    font-size: 24.561px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 52.122px;
+    font-size: 49.122px;
   }
 }
 @media all and (min-device-width: 2135.6px) and (max-device-width: 2165.76px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.385px;
+    font-size: 16.385px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.385px;
+    font-size: 16.385px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.73125px;
+    font-size: 20.48125px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.0775px;
+    font-size: 24.5775px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.42375px;
+    font-size: 28.67375px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.77px;
+    font-size: 32.77px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.0775px;
+    font-size: 24.5775px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 52.155px;
+    font-size: 49.155px;
   }
 }
 @media all and (min-device-width: 2165.76px) and (max-device-width: 2195.92px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.396px;
+    font-size: 16.396px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.396px;
+    font-size: 16.396px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.745px;
+    font-size: 20.495px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.094px;
+    font-size: 24.594px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.443px;
+    font-size: 28.693px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.792px;
+    font-size: 32.792px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.094px;
+    font-size: 24.594px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 52.188px;
+    font-size: 49.188px;
   }
 }
 @media all and (min-device-width: 2195.92px) and (max-device-width: 2226.08px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.407px;
+    font-size: 16.407px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.407px;
+    font-size: 16.407px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.75875px;
+    font-size: 20.50875px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.1105px;
+    font-size: 24.6105px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.46225px;
+    font-size: 28.71225px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.814px;
+    font-size: 32.814px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.1105px;
+    font-size: 24.6105px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 52.221px;
+    font-size: 49.221px;
   }
 }
 @media all and (min-device-width: 2226.08px) and (max-device-width: 2256.24px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.418px;
+    font-size: 16.418px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.418px;
+    font-size: 16.418px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.7725px;
+    font-size: 20.5225px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.127px;
+    font-size: 24.627px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.4815px;
+    font-size: 28.7315px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.836px;
+    font-size: 32.836px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.127px;
+    font-size: 24.627px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 52.254px;
+    font-size: 49.254px;
   }
 }
 @media all and (min-device-width: 2256.24px) and (max-device-width: 2286.4px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.429px;
+    font-size: 16.429px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.429px;
+    font-size: 16.429px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.78625px;
+    font-size: 20.53625px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.1435px;
+    font-size: 24.6435px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.50075px;
+    font-size: 28.75075px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.858px;
+    font-size: 32.858px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.1435px;
+    font-size: 24.6435px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 52.287px;
+    font-size: 49.287px;
   }
 }
 @media all and (min-device-width: 2286.4px) and (max-device-width: 2316.56px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.44px;
+    font-size: 16.44px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.44px;
+    font-size: 16.44px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.8px;
+    font-size: 20.55px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.16px;
+    font-size: 24.66px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.52px;
+    font-size: 28.77px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.88px;
+    font-size: 32.88px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.16px;
+    font-size: 24.66px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 52.32px;
+    font-size: 49.32px;
   }
 }
 @media all and (min-device-width: 2316.56px) and (max-device-width: 2346.72px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.451px;
+    font-size: 16.451px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.451px;
+    font-size: 16.451px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.81375px;
+    font-size: 20.56375px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.1765px;
+    font-size: 24.6765px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.53925px;
+    font-size: 28.78925px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.902px;
+    font-size: 32.902px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.1765px;
+    font-size: 24.6765px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 52.353px;
+    font-size: 49.353px;
   }
 }
 @media all and (min-device-width: 2346.72px) and (max-device-width: 2376.88px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.462px;
+    font-size: 16.462px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.462px;
+    font-size: 16.462px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.8275px;
+    font-size: 20.5775px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.193px;
+    font-size: 24.693px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.5585px;
+    font-size: 28.8085px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.924px;
+    font-size: 32.924px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.193px;
+    font-size: 24.693px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 52.386px;
+    font-size: 49.386px;
   }
 }
 @media all and (min-device-width: 2376.88px) and (max-device-width: 2407.04px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.473px;
+    font-size: 16.473px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.473px;
+    font-size: 16.473px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.84125px;
+    font-size: 20.59125px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.2095px;
+    font-size: 24.7095px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.57775px;
+    font-size: 28.82775px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.946px;
+    font-size: 32.946px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.2095px;
+    font-size: 24.7095px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 52.419px;
+    font-size: 49.419px;
   }
 }
 @media all and (min-device-width: 2407.04px) and (max-device-width: 2437.2px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.484px;
+    font-size: 16.484px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.484px;
+    font-size: 16.484px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.855px;
+    font-size: 20.605px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.226px;
+    font-size: 24.726px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.597px;
+    font-size: 28.847px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.968px;
+    font-size: 32.968px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.226px;
+    font-size: 24.726px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 52.452px;
+    font-size: 49.452px;
   }
 }
 @media all and (min-device-width: 2437.2px) and (max-device-width: 2467.36px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.495px;
+    font-size: 16.495px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.495px;
+    font-size: 16.495px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.86875px;
+    font-size: 20.61875px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.2425px;
+    font-size: 24.7425px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.61625px;
+    font-size: 28.86625px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 34.99px;
+    font-size: 32.99px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.2425px;
+    font-size: 24.7425px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 52.485px;
+    font-size: 49.485px;
   }
 }
 @media all and (min-device-width: 2467.36px) and (max-device-width: 2497.52px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.506px;
+    font-size: 16.506px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.506px;
+    font-size: 16.506px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.8825px;
+    font-size: 20.6325px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.259px;
+    font-size: 24.759px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.6355px;
+    font-size: 28.8855px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.012px;
+    font-size: 33.012px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.259px;
+    font-size: 24.759px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 52.518px;
+    font-size: 49.518px;
   }
 }
 @media all and (min-device-width: 2497.52px) and (max-device-width: 2527.68px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.517px;
+    font-size: 16.517px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.517px;
+    font-size: 16.517px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.89625px;
+    font-size: 20.64625px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.2755px;
+    font-size: 24.7755px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.65475px;
+    font-size: 28.90475px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.034px;
+    font-size: 33.034px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.2755px;
+    font-size: 24.7755px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 52.551px;
+    font-size: 49.551px;
   }
 }
 @media all and (min-device-width: 2527.68px) and (max-device-width: 2557.84px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.528px;
+    font-size: 16.528px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.528px;
+    font-size: 16.528px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.91px;
+    font-size: 20.66px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.292px;
+    font-size: 24.792px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.674px;
+    font-size: 28.924px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.056px;
+    font-size: 33.056px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.292px;
+    font-size: 24.792px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 52.584px;
+    font-size: 49.584px;
   }
 }
 @media all and (min-device-width: 2557.84px) and (max-device-width: 2588px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.539px;
+    font-size: 16.539px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.539px;
+    font-size: 16.539px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.92375px;
+    font-size: 20.67375px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.3085px;
+    font-size: 24.8085px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.69325px;
+    font-size: 28.94325px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.078px;
+    font-size: 33.078px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.3085px;
+    font-size: 24.8085px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 52.617px;
+    font-size: 49.617px;
   }
 }
 @media all and (min-device-width: 2588px) and (max-device-width: 2618.16px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.55px;
+    font-size: 16.55px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.55px;
+    font-size: 16.55px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.9375px;
+    font-size: 20.6875px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.325px;
+    font-size: 24.825px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.7125px;
+    font-size: 28.9625px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.1px;
+    font-size: 33.1px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.325px;
+    font-size: 24.825px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 52.65px;
+    font-size: 49.65px;
   }
 }
 @media all and (min-device-width: 2618.16px) and (max-device-width: 2648.32px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.561px;
+    font-size: 16.561px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.561px;
+    font-size: 16.561px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.95125px;
+    font-size: 20.70125px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.3415px;
+    font-size: 24.8415px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.73175px;
+    font-size: 28.98175px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.122px;
+    font-size: 33.122px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.3415px;
+    font-size: 24.8415px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 52.683px;
+    font-size: 49.683px;
   }
 }
 @media all and (min-device-width: 2648.32px) and (max-device-width: 2678.48px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.572px;
+    font-size: 16.572px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.572px;
+    font-size: 16.572px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.965px;
+    font-size: 20.715px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.358px;
+    font-size: 24.858px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.751px;
+    font-size: 29.001px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.144px;
+    font-size: 33.144px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.358px;
+    font-size: 24.858px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 52.716px;
+    font-size: 49.716px;
   }
 }
 @media all and (min-device-width: 2678.48px) and (max-device-width: 2708.64px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.583px;
+    font-size: 16.583px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.583px;
+    font-size: 16.583px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.97875px;
+    font-size: 20.72875px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.3745px;
+    font-size: 24.8745px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.77025px;
+    font-size: 29.02025px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.166px;
+    font-size: 33.166px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.3745px;
+    font-size: 24.8745px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 52.749px;
+    font-size: 49.749px;
   }
 }
 @media all and (min-device-width: 2708.64px) and (max-device-width: 2738.8px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.594px;
+    font-size: 16.594px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.594px;
+    font-size: 16.594px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 21.9925px;
+    font-size: 20.7425px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.391px;
+    font-size: 24.891px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.7895px;
+    font-size: 29.0395px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.188px;
+    font-size: 33.188px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.391px;
+    font-size: 24.891px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 52.782px;
+    font-size: 49.782px;
   }
 }
 @media all and (min-device-width: 2738.8px) and (max-device-width: 2768.96px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.605px;
+    font-size: 16.605px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.605px;
+    font-size: 16.605px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.00625px;
+    font-size: 20.75625px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.4075px;
+    font-size: 24.9075px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.80875px;
+    font-size: 29.05875px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.21px;
+    font-size: 33.21px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.4075px;
+    font-size: 24.9075px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 52.815px;
+    font-size: 49.815px;
   }
 }
 @media all and (min-device-width: 2768.96px) and (max-device-width: 2799.12px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.616px;
+    font-size: 16.616px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.616px;
+    font-size: 16.616px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.02px;
+    font-size: 20.77px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.424px;
+    font-size: 24.924px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.828px;
+    font-size: 29.078px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.232px;
+    font-size: 33.232px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.424px;
+    font-size: 24.924px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 52.848px;
+    font-size: 49.848px;
   }
 }
 @media all and (min-device-width: 2799.12px) and (max-device-width: 2829.28px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.627px;
+    font-size: 16.627px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.627px;
+    font-size: 16.627px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.03375px;
+    font-size: 20.78375px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.4405px;
+    font-size: 24.9405px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.84725px;
+    font-size: 29.09725px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.254px;
+    font-size: 33.254px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.4405px;
+    font-size: 24.9405px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 52.881px;
+    font-size: 49.881px;
   }
 }
 @media all and (min-device-width: 2829.28px) and (max-device-width: 2859.44px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.638px;
+    font-size: 16.638px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.638px;
+    font-size: 16.638px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.0475px;
+    font-size: 20.7975px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.457px;
+    font-size: 24.957px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.8665px;
+    font-size: 29.1165px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.276px;
+    font-size: 33.276px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.457px;
+    font-size: 24.957px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 52.914px;
+    font-size: 49.914px;
   }
 }
 @media all and (min-device-width: 2859.44px) and (max-device-width: 2889.6px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.649px;
+    font-size: 16.649px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.649px;
+    font-size: 16.649px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.06125px;
+    font-size: 20.81125px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.4735px;
+    font-size: 24.9735px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.88575px;
+    font-size: 29.13575px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.298px;
+    font-size: 33.298px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.4735px;
+    font-size: 24.9735px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 52.947px;
+    font-size: 49.947px;
   }
 }
 @media all and (min-device-width: 2889.6px) and (max-device-width: 2919.76px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.66px;
+    font-size: 16.66px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.66px;
+    font-size: 16.66px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.075px;
+    font-size: 20.825px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.49px;
+    font-size: 24.99px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.905px;
+    font-size: 29.155px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.32px;
+    font-size: 33.32px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.49px;
+    font-size: 24.99px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 52.98px;
+    font-size: 49.98px;
   }
 }
 @media all and (min-device-width: 2919.76px) and (max-device-width: 2949.92px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.671px;
+    font-size: 16.671px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.671px;
+    font-size: 16.671px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.08875px;
+    font-size: 20.83875px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.5065px;
+    font-size: 25.0065px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.92425px;
+    font-size: 29.17425px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.342px;
+    font-size: 33.342px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.5065px;
+    font-size: 25.0065px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 53.013px;
+    font-size: 50.013px;
   }
 }
 @media all and (min-device-width: 2949.92px) and (max-device-width: 2980.08px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.682px;
+    font-size: 16.682px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.682px;
+    font-size: 16.682px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.1025px;
+    font-size: 20.8525px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.523px;
+    font-size: 25.023px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.9435px;
+    font-size: 29.1935px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.364px;
+    font-size: 33.364px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.523px;
+    font-size: 25.023px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 53.046px;
+    font-size: 50.046px;
   }
 }
 @media all and (min-device-width: 2980.08px) and (max-device-width: 3010.24px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.693px;
+    font-size: 16.693px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.693px;
+    font-size: 16.693px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.11625px;
+    font-size: 20.86625px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.5395px;
+    font-size: 25.0395px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.96275px;
+    font-size: 29.21275px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.386px;
+    font-size: 33.386px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.5395px;
+    font-size: 25.0395px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 53.079px;
+    font-size: 50.079px;
   }
 }
 @media all and (min-device-width: 3010.24px) and (max-device-width: 3040.4px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.704px;
+    font-size: 16.704px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.704px;
+    font-size: 16.704px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.13px;
+    font-size: 20.88px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.556px;
+    font-size: 25.056px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 30.982px;
+    font-size: 29.232px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.408px;
+    font-size: 33.408px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.556px;
+    font-size: 25.056px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 53.112px;
+    font-size: 50.112px;
   }
 }
 @media all and (min-device-width: 3040.4px) and (max-device-width: 3070.56px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.715px;
+    font-size: 16.715px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.715px;
+    font-size: 16.715px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.14375px;
+    font-size: 20.89375px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.5725px;
+    font-size: 25.0725px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 31.00125px;
+    font-size: 29.25125px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.43px;
+    font-size: 33.43px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.5725px;
+    font-size: 25.0725px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 53.145px;
+    font-size: 50.145px;
   }
 }
 @media all and (min-device-width: 3070.56px) and (max-device-width: 3100.72px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.726px;
+    font-size: 16.726px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.726px;
+    font-size: 16.726px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.1575px;
+    font-size: 20.9075px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.589px;
+    font-size: 25.089px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 31.0205px;
+    font-size: 29.2705px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.452px;
+    font-size: 33.452px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.589px;
+    font-size: 25.089px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 53.178px;
+    font-size: 50.178px;
   }
 }
 @media all and (min-device-width: 3100.72px) and (max-device-width: 3130.88px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.737px;
+    font-size: 16.737px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.737px;
+    font-size: 16.737px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.17125px;
+    font-size: 20.92125px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.6055px;
+    font-size: 25.1055px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 31.03975px;
+    font-size: 29.28975px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.474px;
+    font-size: 33.474px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.6055px;
+    font-size: 25.1055px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 53.211px;
+    font-size: 50.211px;
   }
 }
 @media all and (min-device-width: 3130.88px) and (max-device-width: 3161.04px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.748px;
+    font-size: 16.748px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.748px;
+    font-size: 16.748px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.185px;
+    font-size: 20.935px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.622px;
+    font-size: 25.122px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 31.059px;
+    font-size: 29.309px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.496px;
+    font-size: 33.496px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.622px;
+    font-size: 25.122px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 53.244px;
+    font-size: 50.244px;
   }
 }
 @media all and (min-device-width: 3161.04px) and (max-device-width: 3191.2px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.759px;
+    font-size: 16.759px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.759px;
+    font-size: 16.759px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.19875px;
+    font-size: 20.94875px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.6385px;
+    font-size: 25.1385px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 31.07825px;
+    font-size: 29.32825px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.518px;
+    font-size: 33.518px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.6385px;
+    font-size: 25.1385px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 53.277px;
+    font-size: 50.277px;
   }
 }
 @media all and (min-device-width: 3191.2px) and (max-device-width: 3221.36px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.77px;
+    font-size: 16.77px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.77px;
+    font-size: 16.77px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.2125px;
+    font-size: 20.9625px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.655px;
+    font-size: 25.155px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 31.0975px;
+    font-size: 29.3475px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.54px;
+    font-size: 33.54px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.655px;
+    font-size: 25.155px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 53.31px;
+    font-size: 50.31px;
   }
 }
 @media all and (min-device-width: 3221.36px) and (max-device-width: 3251.52px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.781px;
+    font-size: 16.781px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.781px;
+    font-size: 16.781px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.22625px;
+    font-size: 20.97625px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.6715px;
+    font-size: 25.1715px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 31.11675px;
+    font-size: 29.36675px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.562px;
+    font-size: 33.562px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.6715px;
+    font-size: 25.1715px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 53.343px;
+    font-size: 50.343px;
   }
 }
 @media all and (min-device-width: 3251.52px) and (max-device-width: 3281.68px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.792px;
+    font-size: 16.792px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.792px;
+    font-size: 16.792px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.24px;
+    font-size: 20.99px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.688px;
+    font-size: 25.188px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 31.136px;
+    font-size: 29.386px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.584px;
+    font-size: 33.584px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.688px;
+    font-size: 25.188px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 53.376px;
+    font-size: 50.376px;
   }
 }
 @media all and (min-device-width: 3281.68px) and (max-device-width: 3311.84px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.803px;
+    font-size: 16.803px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.803px;
+    font-size: 16.803px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.25375px;
+    font-size: 21.00375px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.7045px;
+    font-size: 25.2045px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 31.15525px;
+    font-size: 29.40525px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.606px;
+    font-size: 33.606px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.7045px;
+    font-size: 25.2045px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 53.409px;
+    font-size: 50.409px;
   }
 }
 @media all and (min-device-width: 3311.84px) and (max-device-width: 3342px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.814px;
+    font-size: 16.814px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.814px;
+    font-size: 16.814px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.2675px;
+    font-size: 21.0175px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.721px;
+    font-size: 25.221px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 31.1745px;
+    font-size: 29.4245px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.628px;
+    font-size: 33.628px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.721px;
+    font-size: 25.221px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 53.442px;
+    font-size: 50.442px;
   }
 }
 @media all and (min-device-width: 3342px) and (max-device-width: 3372.16px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.825px;
+    font-size: 16.825px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.825px;
+    font-size: 16.825px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.28125px;
+    font-size: 21.03125px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.7375px;
+    font-size: 25.2375px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 31.19375px;
+    font-size: 29.44375px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.65px;
+    font-size: 33.65px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.7375px;
+    font-size: 25.2375px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 53.475px;
+    font-size: 50.475px;
   }
 }
 @media all and (min-device-width: 3372.16px) and (max-device-width: 3402.32px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.836px;
+    font-size: 16.836px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.836px;
+    font-size: 16.836px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.295px;
+    font-size: 21.045px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.754px;
+    font-size: 25.254px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 31.213px;
+    font-size: 29.463px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.672px;
+    font-size: 33.672px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.754px;
+    font-size: 25.254px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 53.508px;
+    font-size: 50.508px;
   }
 }
 @media all and (min-device-width: 3402.32px) and (max-device-width: 3432.48px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.847px;
+    font-size: 16.847px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.847px;
+    font-size: 16.847px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.30875px;
+    font-size: 21.05875px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.7705px;
+    font-size: 25.2705px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 31.23225px;
+    font-size: 29.48225px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.694px;
+    font-size: 33.694px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.7705px;
+    font-size: 25.2705px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 53.541px;
+    font-size: 50.541px;
   }
 }
 @media all and (min-device-width: 3432.48px) and (max-device-width: 3462.64px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.858px;
+    font-size: 16.858px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.858px;
+    font-size: 16.858px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.3225px;
+    font-size: 21.0725px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.787px;
+    font-size: 25.287px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 31.2515px;
+    font-size: 29.5015px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.716px;
+    font-size: 33.716px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.787px;
+    font-size: 25.287px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 53.574px;
+    font-size: 50.574px;
   }
 }
 @media all and (min-device-width: 3462.64px) and (max-device-width: 3492.8px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.869px;
+    font-size: 16.869px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.869px;
+    font-size: 16.869px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.33625px;
+    font-size: 21.08625px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.8035px;
+    font-size: 25.3035px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 31.27075px;
+    font-size: 29.52075px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.738px;
+    font-size: 33.738px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.8035px;
+    font-size: 25.3035px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 53.607px;
+    font-size: 50.607px;
   }
 }
 @media all and (min-device-width: 3492.8px) and (max-device-width: 3522.96px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.88px;
+    font-size: 16.88px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.88px;
+    font-size: 16.88px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.35px;
+    font-size: 21.1px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.82px;
+    font-size: 25.32px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 31.29px;
+    font-size: 29.54px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.76px;
+    font-size: 33.76px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.82px;
+    font-size: 25.32px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 53.64px;
+    font-size: 50.64px;
   }
 }
 @media all and (min-device-width: 3522.96px) and (max-device-width: 3553.12px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.891px;
+    font-size: 16.891px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.891px;
+    font-size: 16.891px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.36375px;
+    font-size: 21.11375px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.8365px;
+    font-size: 25.3365px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 31.30925px;
+    font-size: 29.55925px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.782px;
+    font-size: 33.782px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.8365px;
+    font-size: 25.3365px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 53.673px;
+    font-size: 50.673px;
   }
 }
 @media all and (min-device-width: 3553.12px) and (max-device-width: 3583.28px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.902px;
+    font-size: 16.902px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.902px;
+    font-size: 16.902px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.3775px;
+    font-size: 21.1275px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.853px;
+    font-size: 25.353px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 31.3285px;
+    font-size: 29.5785px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.804px;
+    font-size: 33.804px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.853px;
+    font-size: 25.353px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 53.706px;
+    font-size: 50.706px;
   }
 }
 @media all and (min-device-width: 3583.28px) and (max-device-width: 3613.44px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.913px;
+    font-size: 16.913px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.913px;
+    font-size: 16.913px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.39125px;
+    font-size: 21.14125px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.8695px;
+    font-size: 25.3695px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 31.34775px;
+    font-size: 29.59775px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.826px;
+    font-size: 33.826px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.8695px;
+    font-size: 25.3695px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 53.739px;
+    font-size: 50.739px;
   }
 }
 @media all and (min-device-width: 3613.44px) and (max-device-width: 3643.6px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.924px;
+    font-size: 16.924px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.924px;
+    font-size: 16.924px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.405px;
+    font-size: 21.155px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.886px;
+    font-size: 25.386px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 31.367px;
+    font-size: 29.617px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.848px;
+    font-size: 33.848px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.886px;
+    font-size: 25.386px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 53.772px;
+    font-size: 50.772px;
   }
 }
 @media all and (min-device-width: 3643.6px) and (max-device-width: 3673.76px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.935px;
+    font-size: 16.935px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.935px;
+    font-size: 16.935px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.41875px;
+    font-size: 21.16875px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.9025px;
+    font-size: 25.4025px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 31.38625px;
+    font-size: 29.63625px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.87px;
+    font-size: 33.87px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.9025px;
+    font-size: 25.4025px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 53.805px;
+    font-size: 50.805px;
   }
 }
 @media all and (min-device-width: 3673.76px) and (max-device-width: 3703.92px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.946px;
+    font-size: 16.946px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.946px;
+    font-size: 16.946px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.4325px;
+    font-size: 21.1825px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.919px;
+    font-size: 25.419px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 31.4055px;
+    font-size: 29.6555px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.892px;
+    font-size: 33.892px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.919px;
+    font-size: 25.419px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 53.838px;
+    font-size: 50.838px;
   }
 }
 @media all and (min-device-width: 3703.92px) and (max-device-width: 3734.08px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.957px;
+    font-size: 16.957px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.957px;
+    font-size: 16.957px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.44625px;
+    font-size: 21.19625px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.9355px;
+    font-size: 25.4355px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 31.42475px;
+    font-size: 29.67475px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.914px;
+    font-size: 33.914px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.9355px;
+    font-size: 25.4355px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 53.871px;
+    font-size: 50.871px;
   }
 }
 @media all and (min-device-width: 3734.08px) and (max-device-width: 3764.24px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.968px;
+    font-size: 16.968px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.968px;
+    font-size: 16.968px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.46px;
+    font-size: 21.21px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.952px;
+    font-size: 25.452px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 31.444px;
+    font-size: 29.694px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.936px;
+    font-size: 33.936px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.952px;
+    font-size: 25.452px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 53.904px;
+    font-size: 50.904px;
   }
 }
 @media all and (min-device-width: 3764.24px) and (max-device-width: 3794.4px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.979px;
+    font-size: 16.979px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.979px;
+    font-size: 16.979px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.47375px;
+    font-size: 21.22375px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.9685px;
+    font-size: 25.4685px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 31.46325px;
+    font-size: 29.71325px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.958px;
+    font-size: 33.958px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.9685px;
+    font-size: 25.4685px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 53.937px;
+    font-size: 50.937px;
   }
 }
 @media all and (min-device-width: 3794.4px) and (max-device-width: 3824.56px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 17.99px;
+    font-size: 16.99px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 17.99px;
+    font-size: 16.99px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.4875px;
+    font-size: 21.2375px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 26.985px;
+    font-size: 25.485px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 31.4825px;
+    font-size: 29.7325px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 35.98px;
+    font-size: 33.98px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 26.985px;
+    font-size: 25.485px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 53.97px;
+    font-size: 50.97px;
   }
 }
 @media all and (min-device-width: 3824.56px) and (max-device-width: 3854.72px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 18.001px;
+    font-size: 17.001px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 18.001px;
+    font-size: 17.001px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.50125px;
+    font-size: 21.25125px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 27.0015px;
+    font-size: 25.5015px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 31.50175px;
+    font-size: 29.75175px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 36.002px;
+    font-size: 34.002px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 27.0015px;
+    font-size: 25.5015px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 54.003px;
+    font-size: 51.003px;
   }
 }
 @media all and (min-device-width: 3854.72px) and (max-device-width: 3884.88px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 18.012px;
+    font-size: 17.012px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 18.012px;
+    font-size: 17.012px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.515px;
+    font-size: 21.265px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 27.018px;
+    font-size: 25.518px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 31.521px;
+    font-size: 29.771px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 36.024px;
+    font-size: 34.024px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 27.018px;
+    font-size: 25.518px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 54.036px;
+    font-size: 51.036px;
   }
 }
 @media all and (min-device-width: 3884.88px) and (max-device-width: 3915.04px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 18.023px;
+    font-size: 17.023px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 18.023px;
+    font-size: 17.023px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.52875px;
+    font-size: 21.27875px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 27.0345px;
+    font-size: 25.5345px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 31.54025px;
+    font-size: 29.79025px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 36.046px;
+    font-size: 34.046px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 27.0345px;
+    font-size: 25.5345px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 54.069px;
+    font-size: 51.069px;
   }
 }
 @media all and (min-device-width: 3915.04px) and (max-device-width: 3945.2px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 18.034px;
+    font-size: 17.034px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 18.034px;
+    font-size: 17.034px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.5425px;
+    font-size: 21.2925px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 27.051px;
+    font-size: 25.551px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 31.5595px;
+    font-size: 29.8095px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 36.068px;
+    font-size: 34.068px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 27.051px;
+    font-size: 25.551px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 54.102px;
+    font-size: 51.102px;
   }
 }
 @media all and (min-device-width: 3945.2px) and (max-device-width: 3975.36px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 18.045px;
+    font-size: 17.045px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 18.045px;
+    font-size: 17.045px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.55625px;
+    font-size: 21.30625px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 27.0675px;
+    font-size: 25.5675px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 31.57875px;
+    font-size: 29.82875px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 36.09px;
+    font-size: 34.09px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 27.0675px;
+    font-size: 25.5675px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 54.135px;
+    font-size: 51.135px;
   }
 }
 @media all and (min-device-width: 3975.36px) and (max-device-width: 4005.52px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 18.056px;
+    font-size: 17.056px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 18.056px;
+    font-size: 17.056px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.57px;
+    font-size: 21.32px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 27.084px;
+    font-size: 25.584px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 31.598px;
+    font-size: 29.848px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 36.112px;
+    font-size: 34.112px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 27.084px;
+    font-size: 25.584px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 54.168px;
+    font-size: 51.168px;
   }
 }
 @media all and (min-device-width: 4005.52px) and (max-device-width: 4035.68px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 18.067px;
+    font-size: 17.067px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 18.067px;
+    font-size: 17.067px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.58375px;
+    font-size: 21.33375px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 27.1005px;
+    font-size: 25.6005px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 31.61725px;
+    font-size: 29.86725px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 36.134px;
+    font-size: 34.134px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 27.1005px;
+    font-size: 25.6005px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 54.201px;
+    font-size: 51.201px;
   }
 }
 @media all and (min-device-width: 4035.68px) and (max-device-width: 4065.84px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 18.078px;
+    font-size: 17.078px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 18.078px;
+    font-size: 17.078px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.5975px;
+    font-size: 21.3475px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 27.117px;
+    font-size: 25.617px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 31.6365px;
+    font-size: 29.8865px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 36.156px;
+    font-size: 34.156px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 27.117px;
+    font-size: 25.617px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 54.234px;
+    font-size: 51.234px;
   }
 }
 @media all and (min-device-width: 4065.84px) and (max-device-width: 4096px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 18.089px;
+    font-size: 17.089px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 18.089px;
+    font-size: 17.089px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.61125px;
+    font-size: 21.36125px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 27.1335px;
+    font-size: 25.6335px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 31.65575px;
+    font-size: 29.90575px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 36.178px;
+    font-size: 34.178px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 27.1335px;
+    font-size: 25.6335px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 54.267px;
+    font-size: 51.267px;
   }
 }
 @media all and (min-device-width: 4096px) and (max-device-width: 4126.16px) {
   /* line 160, ../sass/_responsive.scss */
   body {
-    font-size: 18.1px;
+    font-size: 17.1px;
   }
 
   /* line 164, ../sass/_responsive.scss */
   p {
-    font-size: 18.1px;
+    font-size: 17.1px;
   }
 
   /* line 168, ../sass/_responsive.scss */
   h6 {
-    font-size: 22.625px;
+    font-size: 21.375px;
   }
 
   /* line 172, ../sass/_responsive.scss */
   h5 {
-    font-size: 27.15px;
+    font-size: 25.65px;
   }
 
   /* line 176, ../sass/_responsive.scss */
   h4 {
-    font-size: 31.675px;
+    font-size: 29.925px;
   }
 
   /* line 180, ../sass/_responsive.scss */
   h3 {
-    font-size: 36.2px;
+    font-size: 34.2px;
   }
 
   /* line 184, ../sass/_responsive.scss */
   h2 {
-    font-size: 27.15px;
+    font-size: 25.65px;
   }
 
   /* line 188, ../sass/_responsive.scss */
   h1 {
-    font-size: 54.3px;
+    font-size: 51.3px;
   }
 }
 /* From 4096 px to +\infty - MAXI - 28px */
@@ -19946,12 +19946,12 @@ textarea {
 
 /* line 1, ../sass/_navbar.scss */
 body {
-  margin-top: 58.825px;
+  margin-top: 55.575px;
 }
 @media all and (max-device-width: 1079px) {
   /* line 1, ../sass/_navbar.scss */
   body {
-    margin-top: 36.2px;
+    margin-top: 34.2px;
   }
 }
 
@@ -19964,7 +19964,7 @@ body {
   z-index: 100;
   color: white;
   font-weight: 400;
-  font-size: 23.53px;
+  font-size: 22.23px;
   margin-top: -6px;
   border-bottom: 3px solid white;
   background-color: #003E36;
@@ -19978,7 +19978,7 @@ body {
 @media all and (max-device-width: 1079px) {
   /* line 9, ../sass/_navbar.scss */
   #navbar {
-    font-size: 14.48px;
+    font-size: 13.68px;
   }
 }
 /* line 32, ../sass/_navbar.scss */
@@ -20033,12 +20033,12 @@ body {
   border-radius: 6px;
   text-transform: uppercase;
   line-height: 1;
-  font-size: 18.824px;
+  font-size: 17.784px;
 }
 @media all and (max-device-width: 1079px) {
   /* line 92, ../sass/_navbar.scss */
   #navbar #navbar-signin button, #navbar #navbar-signup button {
-    font-size: 11.584px;
+    font-size: 10.944px;
   }
 }
 /* line 116, ../sass/_navbar.scss */
@@ -20047,12 +20047,12 @@ body {
   width: 30%;
   font-weight: 400;
   line-height: 1;
-  font-size: 21.177px;
+  font-size: 20.007px;
 }
 @media all and (max-device-width: 1079px) {
   /* line 116, ../sass/_navbar.scss */
   #navbar #navbar-logged button {
-    font-size: 13.032px;
+    font-size: 12.312px;
   }
 }
 /* line 128, ../sass/_navbar.scss */
@@ -20068,7 +20068,7 @@ body {
   max-height: 55vw;
   /* For proper full-page visualization */
   position: relative;
-  margin-top: -38.295px;
+  margin-top: -36.345px;
   margin-bottom: 3vw;
   background: url(../imgs/header.jpg) no-repeat center;
   -webkit-background-size: 100%;
@@ -20080,7 +20080,7 @@ body {
 @media all and (max-device-width: 1079px) {
   /* line 1, ../sass/_header.scss */
   #header {
-    margin-top: -24.72px;
+    margin-top: -23.52px;
   }
 }
 
