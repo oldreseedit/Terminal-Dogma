@@ -157,58 +157,6 @@ main.directive('bootstrapTextarea',['$timeout','$filter',function($timeout,$filt
     };
 }]);
 
-
-main.directive('bootstrapCheckbox',['$timeout','$filter',function($timeout,$filter){
-    return {
-        restrict: "E",
-        scope: {
-            'form' : '=',
-            'formName' : '@form',
-            'name' : '@',
-            'ngModel' : '=?',
-            'placeholder' : '@?',
-            'label' : '=',
-            'rows' : '@?',
-            'required' : '@?',
-            'readonly' : '@?'
-        },
-        templateUrl: 'templates/bootstrapCheckbox.php',
-        link: function($scope,$element,$attrs){
-            
-            $scope.id = $attrs.$normalize($scope.formName + '-' + $scope.name);
-            $scope.errors = $scope.form[$scope.name].$error;
-            $scope.popover = {
-                templateUrl: 'templates/error-popover.php'
-            };
-            
-            
-            $scope.thereAreErrors = false;
-            
-            $scope.triggerIfDirtyAndInvalid = function(){
-                $timeout(function(){
-                    if($scope.form[$scope.name].$dirty)
-                    {
-                        if($scope.form[$scope.name].$invalid){
-                            $scope.thereAreErrors = true;
-                            // console.log('I triggered validationPopover');
-                        }
-                        else{
-                            $scope.thereAreErrors = false;
-                            // console.log('I triggered validationPopoverClose');
-                        }
-                    }
-                });
-            };
-            
-            $scope.closeValidationPopover= function(){
-                $timeout(function(){
-                    $scope.thereAreErrors = false;
-                });
-            };
-        }
-    };
-}]);
-
 main.directive('fileChange', function() {
 	return {
 		restrict: 'A',

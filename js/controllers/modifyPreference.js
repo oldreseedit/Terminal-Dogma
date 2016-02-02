@@ -3,6 +3,19 @@ main.controller('modifyPreferenceController',['$scope','$uibModalInstance','$tim
 	
 	self.form = angular.copy(data);
 	self.data = data;
+	self.addressPrefixChoices = [
+	                      'Via',
+	                      'Viale',
+	                      'Corso',
+	                      'Vicolo',
+	                      'Vicoletto',
+	                      'Piazza',
+	                      'Piazzale',
+	                      'Piazzetta',
+	                      'Largo',
+	                      'Larghetto',
+	                      'Altro'
+	];
 	
 	$scope.initDate = moment(new Date()).subtract(18,'years').toDate();
 	
@@ -18,6 +31,12 @@ main.controller('modifyPreferenceController',['$scope','$uibModalInstance','$tim
 	
 	self.close = function(newValue){
 		if(data.id === 'birthdate') newValue = moment(newValue).format('YYYY-MM-DD');
+		if(data.id === 'address')
+		{
+			if(self.form.CAP < 10000 && self.form.CAP > 999) self.form.CAP = '0' +self.form.CAP;
+			else if (self.form.CAP < 999) self.form.CAP = '00' + self.form.CAP;
+			newValue = self.form.addressPrefix + ' ' + self.form.address + ' ' + self.form.civicNumber + ', ' + self.form.CAP;
+		}
 		if($scope.modifyPreferenceForm.$valid) $scope.$close(newValue);
 	};	
 	

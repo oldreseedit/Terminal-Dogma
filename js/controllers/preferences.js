@@ -83,7 +83,7 @@ main.controller('preferencesController',['$server','$scope','$uibModal','inform'
 			case 'schoolName':
 				return 'Text';
 			case 'address':
-				return 'Text';
+				return 'Address';
 			case 'phoneNumber':
 				return 'Text';
 			case 'mobileNumber':
@@ -184,6 +184,7 @@ main.controller('preferencesController',['$server','$scope','$uibModal','inform'
 		
 		var modalInstance = $uibModal.open({
 			backdrop: false,
+			size: typeOfData === 'Address' ? 'lg' : '',
 			controller: 'modifyPreferenceController as preference',
 			resolve: {
 				data: resolveData 

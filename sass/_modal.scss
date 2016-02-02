@@ -28,5 +28,13 @@
             @extend .btn-danger;
             margin-top:5em;			
 		}
+		
+	
+		.address{
+			.form-control-feedback{
+				top: 1em;
+			}
+		}
+		
 	}
 }

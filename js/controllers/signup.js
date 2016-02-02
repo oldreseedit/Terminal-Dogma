@@ -1,10 +1,13 @@
-main.controller('signupController',['utilities','$scope','$http','$timeout','firstCapitalizedFilter','$cookies','$window',function(utilities,$scope,$http,$timeout,capitalized,$cookies,$window){
+main.controller('signupController',['utilities','$scope','$http','$timeout','firstCapitalizedFilter','$cookies','$window','inform',function(utilities,$scope,$http,$timeout,capitalized,$cookies,$window,inform){
     var self = this;
     
     self.signupForm = {};
     self.disclaimerLink = "Ho letto ed accetto i <a target=\"_blank\" href=\"#!/disclaimer\">Termini d'uso</a>";
     
     self.submit = function(){
+    	
+    	if(!self.signupForm.disclaimerAccepted) inform.add('Devi necessariamente leggere ed accettare i Termini d\'uso per poterti iscrivere!',{type:'warning'});
+    	
         var form = angular.element('#signupForm').scope().signupForm;
         if(form.$invalid) {
             angular.forEach(form,function(i){
@@ -16,7 +19,7 @@ main.controller('signupController',['utilities','$scope','$http','$timeout','fir
                     i.$validate();
                 }
             });
-            if(form.$invalid) return;
+            if(form.$invalid || !self.signupForm.disclaimerAccepted ) return;
         }
         
         $http.post('users/add',self.signupForm).then(function(response){
