@@ -12,7 +12,7 @@
         </div>
         <div id="tabs">
             <div class="container">
-                <div ng-repeat="tab in footer.tabs" ng-class="footer.spaced($first)"><a ng-href="#!/{{tab.id}}" id="{{tab.id}}" ng-bind="tab.content"></a></div>
+                <div ng-repeat="tab in footer.tabs" ng-class="footer.spaced($first)"><a ng-href="/{{tab.id}}" id="{{tab.id}}" ng-bind="tab.content"></a></div>
             </div>
         </div>
         <div id="footer-logo">

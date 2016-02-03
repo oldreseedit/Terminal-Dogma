@@ -23,12 +23,6 @@ class Lessons extends CI_Controller {
                 $this->load->helper('url');
         }
         
-        public function index()
-        {
-            $data['title'] = 'Lezioni reSeed';
-            $this->load->view('lessons/lessons', $data);
-        }
-        
         public function init()
         {
             $this->lessons_model->init();

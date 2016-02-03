@@ -8,7 +8,7 @@ main.controller('presentationController',["utilities",function(utilities){
             title : 'Apprendimento',
             content : "Gli studenti seguono corsi innovativi tenuti da docenti che usano quotidianamente i concetti insegnati.",
             color : 'olive',
-            url : '#!/courses'
+            url : '/courses'
         },
         {
             id : 'simulazione',
@@ -16,7 +16,7 @@ main.controller('presentationController',["utilities",function(utilities){
             title : 'Simulazione',
             content : "Tramite una rigorosa simulazione di On-The-Job Training gli studenti vengono immersi in un realistico ambiente di lavoro con lo scopo di sviluppare un prodotto.",
             color : 'green',
-            url : '#!/courses'
+            url : '/courses'
         },
         {
             id : 'pubblicazione',
@@ -24,7 +24,7 @@ main.controller('presentationController',["utilities",function(utilities){
             title : 'Pubblicazione',
             content : "Il prodotto realizzato durante la simulazione viene reso disponibile al pubblico (web, Play Store, App Store, etc.).",
             color : 'water',
-            url : '#!/courses'
+            url : '/courses'
         }
     ];
     

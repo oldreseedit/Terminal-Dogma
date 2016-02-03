@@ -16,11 +16,6 @@ class Activities extends CI_Controller {
     	$this->activities_model->init();
     	$this->activity_block_positions_model->init();
     }
-
-	public function index()
-	{
-		$this->load->view('activities/activities');
-	}
 	
 	public function exists()
 	{

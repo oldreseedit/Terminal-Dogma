@@ -1,4 +1,4 @@
-main.controller('paymentController',['utilities','$uibModal','$sce','$cookies','$http',function(utilities,$modal,$sce,$cookies,$http){
+main.controller('paymentController',['utilities','$uibModal','$sce','$cookies','$server',function(utilities,$modal,$sce,$cookies,$server){
     var self = this;
     
     self.step1 = false;
@@ -49,7 +49,7 @@ main.controller('paymentController',['utilities','$uibModal','$sce','$cookies','
     
     self.coursesPaid = function(){
         
-        $http.post('payment_interface/get_payment', {username : $cookies.get('username'), courseID : ['gameDesign','gameMaker','3DStudioMax']}).then(function(response){
+        $server.post('payment_interface/get_payment', {username : $cookies.get('username'), courseID : ['gameDesign','gameMaker','3DStudioMax']}).then(function(response){
             self.coursesAlreadyPaid = response.data;
             self.ready = true;
         },function(error){

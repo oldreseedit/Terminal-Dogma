@@ -33,7 +33,7 @@
 			<p class="bold">I tuoi corsi: </p>
 			<ul>
 				<li ng-repeat="course in profile.courses">
-					<a ng-href="#!/courses/{{course.courseID}}">
+					<a ng-href="/courses/{{course.courseID}}">
 						<span ng-bind="course.name"></span>
 					</a>
 				</li>

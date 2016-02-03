@@ -1,4 +1,4 @@
-main.controller('signinController',['utilities','$scope','$http','$timeout','firstCapitalizedFilter','$cookies','$window',function(utilities,$scope,$http,$timeout,capitalized,$cookies,$window){
+main.controller('signinController',['utilities','$scope','$server','$timeout','firstCapitalizedFilter','$cookies','$window',function(utilities,$scope,$server,$timeout,capitalized,$cookies,$window){
     var self = this;
     
     self.signinForm = {};
@@ -18,7 +18,7 @@ main.controller('signinController',['utilities','$scope','$http','$timeout','fir
             if(form.$invalid) return;
         }
         
-        $http.post('users/login',self.signinForm).then(function(response){
+        $server.post('users/login',self.signinForm).then(function(response){
             // console.log(response);
             if(response.data.error){
                 angular.forEach(response.data.parameters,function(parameter){

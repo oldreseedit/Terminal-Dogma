@@ -9,11 +9,6 @@ class Courses extends CI_Controller {
                 $this->load->model('course_graph_model');
         }
         
-        public function index()
-        {
-            $this->load->view('courses/courses');
-        }
-        
         public function init()
         {
         	$this->courses_model->init();

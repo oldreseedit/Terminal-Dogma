@@ -1,9 +1,3 @@
-//angular.module('HTML5ModeURLs', []).config(['$routeProvider', function($route)
-//{
-//  $route.html5Mode(true);
-//}]);
-
-
 var main = angular.module('Main',[
     'ngRoute', // For routing purposes
     'ngMessages', // For validation purposes
@@ -52,7 +46,7 @@ function imOnMaxi(){
 }
 
 /*** RUN PHASE ***/
-main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$route','gridsterConfig','inform','$cookies',function($rootScope, $location, $timeout, $http, $cookies, $window, $route, gridsterConfig,inform,$cookies) {
+main.run(['$rootScope','$location','$timeout','$server','$cookies','$window','$route','gridsterConfig','inform','$cookies',function($rootScope, $location, $timeout, $server, $cookies, $window, $route, gridsterConfig,inform,$cookies) {
 	
 	$rootScope.ajaxEvents = [];
 	
@@ -69,7 +63,7 @@ main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$rou
 	
 	$rootScope.setAvatar = function()
 	{
-		$http.post('avatars/get_avatar', {username: $rootScope.username}).then(
+		$server.post('avatars/get_avatar', {username: $rootScope.username}).then(
     			function(response)
     			{
     				if(response.data.error)
@@ -90,7 +84,7 @@ main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$rou
 	
 	$rootScope.getUnseenNotifications = function()
 	{
-		$http.post('notifications/get_unseen_user_notifications',{username: $rootScope.username}).then(
+		$server.post('notifications/get_unseen_user_notifications',{username: $rootScope.username}).then(
         		function(response)
         		{
         			if(response.data)
@@ -128,7 +122,7 @@ main.run(['$rootScope','$location','$timeout','$http','$cookies','$window','$rou
         
         $rootScope.setAvatar();
         
-        $http.post('admins/is_admin',{username: $rootScope.username}).then(
+        $server.post('admins/is_admin',{username: $rootScope.username}).then(
         		function(response)
         		{
 //        			console.log(response);

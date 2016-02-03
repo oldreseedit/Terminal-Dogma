@@ -2,6 +2,7 @@ main.factory('$server',['$http','inform',function($http,inform){
 	
 	var Post = function(url, data, showInform, config)
 	{
+		url = 'index.php/' + url;
 		this.showInform = showInform === undefined ? true : showInform;
 		this.config = config || null;
 		if(this.config) this.promise = $http.post(url,data,config);

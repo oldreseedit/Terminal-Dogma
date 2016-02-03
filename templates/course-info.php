@@ -27,7 +27,7 @@
 				<div>
 					<span ng-if="course.courseHasStarted && course.next">La prossima iterazione di questo corso corso ci sarà
 						<emph><time title="precisamente: il {{course.next.startingDate | amCalendar}}" am-time-ago="course.next.startingDate"></time></emph>.
-						<span><a href="#!/courses/{{course.next.courseID}}">Clicca qui</a> per vedere i dettagli del nuovo corso!</span>
+						<span><a href="/courses/{{course.next.courseID}}">Clicca qui</a> per vedere i dettagli del nuovo corso!</span>
 					</span>
 				</div>
 				

@@ -1,8 +1,8 @@
-main.controller('signupController',['utilities','$scope','$http','$timeout','firstCapitalizedFilter','$cookies','$window','inform',function(utilities,$scope,$http,$timeout,capitalized,$cookies,$window,inform){
+main.controller('signupController',['utilities','$scope','$server','$timeout','firstCapitalizedFilter','$cookies','$window','inform',function(utilities,$scope,$server,$timeout,capitalized,$cookies,$window,inform){
     var self = this;
     
     self.signupForm = {};
-    self.disclaimerLink = "Ho letto ed accetto i <a target=\"_blank\" href=\"#!/disclaimer\">Termini d'uso</a>";
+    self.disclaimerLink = "Ho letto ed accetto i <a target=\"_blank\" href=\"/disclaimer\">Termini d'uso</a>";
     
     self.submit = function(){
     	
@@ -22,7 +22,7 @@ main.controller('signupController',['utilities','$scope','$http','$timeout','fir
             if(form.$invalid || !self.signupForm.disclaimerAccepted ) return;
         }
         
-        $http.post('users/add',self.signupForm).then(function(response){
+        $server.post('users/add',self.signupForm).then(function(response){
             console.log(response);
             if(response.data.error){
                 angular.forEach(response.data.parameters,function(parameter){

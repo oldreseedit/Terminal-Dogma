@@ -14,29 +14,29 @@ class Register extends CI_Controller {
                 $this->load->helper('url');
         }
 
-        public function index()
-        {
-        	$userID = null;
-			$token = null;
-			if(isset($_COOKIE['username'])) $userID = $_COOKIE['username'];
-			if(isset($_COOKIE['token'])) $token = $_COOKIE['token'];
-        	if(!$this->users_model->isLoggedIn($userID, $token))
-        	{
-        		echo json_encode(array("error" => true, "description" => "Non risulti essere iscritto a reSeed. Iscriviti!", "errorCode" => "ILLEGAL_ACCESS", "parameters" => array("username", "password")));
-        		return;
-        	}
+//         public function index()
+//         {
+//         	$userID = null;
+// 			$token = null;
+// 			if(isset($_COOKIE['username'])) $userID = $_COOKIE['username'];
+// 			if(isset($_COOKIE['token'])) $token = $_COOKIE['token'];
+//         	if(!$this->users_model->isLoggedIn($userID, $token))
+//         	{
+//         		echo json_encode(array("error" => true, "description" => "Non risulti essere iscritto a reSeed. Iscriviti!", "errorCode" => "ILLEGAL_ACCESS", "parameters" => array("username", "password")));
+//         		return;
+//         	}
         	 
-        	$can_see = $this->admins_model->is_admin($userID);
+//         	$can_see = $this->admins_model->is_admin($userID);
         	 
-        	if(!$can_see)
-        	{
-        		$this->load->view("errors/html/error_404.php", array('heading' => "Errore", 'message' => "Non sei autorizzato ad accedere al registro di reSeed."));
-        		return;
-        	}
+//         	if(!$can_see)
+//         	{
+//         		$this->load->view("errors/html/error_404.php", array('heading' => "Errore", 'message' => "Non sei autorizzato ad accedere al registro di reSeed."));
+//         		return;
+//         	}
         	
-            $data['title'] = 'Registro reSeed';
-            $this->load->view('register/register', $data);
-        }
+//             $data['title'] = 'Registro reSeed';
+//             $this->load->view('register/register', $data);
+//         }
         
         /*
             Creates the Register table. If the table already exists, this call has no effect.

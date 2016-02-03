@@ -2,6 +2,7 @@
     
     <!-- Bootstrap meta settings -->
     <meta charset="utf-8" />
+    <base href="/">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -175,5 +176,5 @@
     
     <!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
     <script type="text/javascript">
-        window.cookieconsent_options = {"message":"Questo sito utilizza i cookie per garantire la miglior esperienza di navigazione possibile.","dismiss":"Ok, ok. Ora togliti.","learnMore":"Maggiori informazioni","link":"#!/privacy","theme":"dark-floating"};
+        window.cookieconsent_options = {"message":"Questo sito utilizza i cookie per garantire la miglior esperienza di navigazione possibile.","dismiss":"Ok, ok. Ora togliti.","learnMore":"Maggiori informazioni","link":"/privacy","theme":"dark-floating"};
     </script>

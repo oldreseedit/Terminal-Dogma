@@ -7,46 +7,21 @@ main.run(['$rootScope', function($rootScope) {
 
 main.config(['$routeProvider','$locationProvider',function($routeProvider,$locationProvider){
     
-    $locationProvider.hashPrefix('!');
+    $locationProvider.html5Mode(true);
 //    $locationProvider.html5Mode(true);
     
     // Home
     
     $routeProvider.when('/',{
     	description: 'Impara. Crea. Pubblica.',
-        templateUrl : 'home'
+        templateUrl : 'templates/home.php'
     });
     
     // Admin Page - Restricted
     
     $routeProvider.when('/admin',{
     	title : 'Pannello Admin',
-        templateUrl : 'admin'
-    });
-    
-    // Payment
-    
-    $routeProvider.when('/payment',{
-    	title : 'Pagamenti',
-        templateUrl : 'payment'
-    });
-    
-    // Payment-not-registered
-    
-    $routeProvider.when('/paymentNotRegistered',{
-        templateUrl : 'paymentNotRegistered'
-    });
-    
-    // Cancel_payment
-    
-    $routeProvider.when('/cancel_payment',{
-        templateUrl : 'cancel_payment'
-    });
-    
-    // Confirm_payment
-    
-    $routeProvider.when('/confirm_payment',{
-        templateUrl : 'confirm_payment'
+        templateUrl : 'templates/admin.php'
     });
     
     // Courses
@@ -54,54 +29,54 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     $routeProvider.when('/courses',{
     	title : 'Corsi',
     	description: 'BIM BUM BAM',
-        templateUrl : 'courses'
+        templateUrl : 'templates/courses.php'
     });
     
     // Activities
     
     $routeProvider.when('/activities',{
     	title : 'Servizi',
-        templateUrl : 'activities'
+        templateUrl : 'templates/activities.php'
     });
 //    
 //    // Media
 //    
 //    $routeProvider.when('/media',{
-//        templateUrl : 'media'
+//        templateUrl : 'templates/media.php'
 //    });
     
     // Contacts
     
     $routeProvider.when('/contacts',{
     	title : 'Contatti',
-        templateUrl : 'contacts'
+        templateUrl : 'templates/contacts.php'
     });
     
     // Disclaimer
     
     $routeProvider.when('/disclaimer',{
     	title : 'Termini d\'Uso',
-        templateUrl : 'disclaimer'
+        templateUrl : 'templates/disclaimer.php'
     });
     
     // FAQ
     
     $routeProvider.when('/faq',{
     	title : 'FAQ',
-        templateUrl : 'faq'
+        templateUrl : 'templates/faq.php'
     });
     
     // Privacy
     
     $routeProvider.when('/privacy',{
     	title : 'Privacy Policy',
-        templateUrl : 'privacy'
+        templateUrl : 'templates/privacy.php'
     });
     
     // Course
     
     $routeProvider.when('/courses/:courseID',{
-        templateUrl : function(parameters){return 'course/index/'+parameters.courseID;},
+        templateUrl : 'templates/course.php',
         controller : 'courseController as course',
     });
     
@@ -110,22 +85,21 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     
     $routeProvider.when('/activities/:activityID',{
 //    	title : function(parameters){return parameters.activityID},
-        templateUrl : function(parameters){return 'activity/index/'+parameters.activityID;},
+        templateUrl : 'templates/activity.php',
         controller : 'activityController as activity'
     });
     
     // Profile
     
     $routeProvider.when('/profile/:userID',{
-//        templateUrl : 'profile',
+        templateUrl : 'templates/profile.php',
     	title : 'Profilo',
-    	templateUrl: function(parameters){return 'profile/index/'+parameters.userID;},
         controller : 'profileController as profile'
     });
     
     $routeProvider.when('/preferences',{
     	title: 'Pannello Utente',
-    	templateUrl: 'preferences',
+    	templateUrl : 'templates/preferences.php',
     	controller: 'preferencesController as preferences'
     });
     
@@ -133,7 +107,7 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     
     $routeProvider.when('/register',{
     	title : 'Registro Elettronico',
-        templateUrl : 'register',
+        templateUrl : 'templates/register.php',
         controller : 'Register as register'
     });
     
@@ -141,11 +115,11 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     
     $routeProvider.when('/school',{
     	title : 'Presentazione',
-        templateUrl : 'school'
+        templateUrl : 'templates/school.php'
     });
     
     $routeProvider.otherwise({
-    	templateUrl: 'error'
+    	templateUrl : 'templates/error.php'
     });
     
 }]);

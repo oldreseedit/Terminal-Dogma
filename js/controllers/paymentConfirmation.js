@@ -1,4 +1,4 @@
-main.controller('paymentConfirmationController',['utilities','$cookies','$http',function(utilities,$cookies,$http){
+main.controller('paymentConfirmationController',['utilities','$cookies','$server',function(utilities,$cookies,$server){
     var self = this;
     
     self.paymentConfirmed = $cookies.get('pendingPayment') === '1';
@@ -13,7 +13,7 @@ main.controller('paymentConfirmationController',['utilities','$cookies','$http',
         if(self.choices.gameMaker === '1') courses.push('gameMaker');
         if(self.choices.studioMax === '1') courses.push('3DStudioMax');
         
-        $http.post('payment_interface/add',{username: $cookies.get('username'), courseID : courses, paymentChoice : self.choices.paymentChoice, rate : self.choices.rate}).then(function(response){
+        $server.post('payment_interface/add',{username: $cookies.get('username'), courseID : courses, paymentChoice : self.choices.paymentChoice, rate : self.choices.rate}).then(function(response){
             if(response.data.error){
                 self.message='Sembra che ci sia stato un errore nell\'iscrizione. Contatta al più presto un amministratore all\'indirizzo e-mail info@reseed.it';
             }
