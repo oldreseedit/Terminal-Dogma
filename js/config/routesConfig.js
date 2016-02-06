@@ -28,7 +28,7 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     
     $routeProvider.when('/courses',{
     	title : 'Corsi',
-    	description: 'BIM BUM BAM',
+    	description: 'I corsi di reSeed pongono l’accento sul lato pratico dell’insegnamento e sono improntati al “<i>learn by doing</i>”',
         templateUrl : 'templates/courses.php'
     });
     
@@ -49,6 +49,7 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     
     $routeProvider.when('/contacts',{
     	title : 'Contatti',
+    	description: 'Hai bisogno di informazioni? Ti serve qualche chiarimento? Hai una voglia incontenibile di seguire un corso ma hai un dubbio? Per qualsiasi domanda non esitare a contattarci!',
         templateUrl : 'templates/contacts.php'
     });
     
@@ -77,6 +78,7 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     
     $routeProvider.when('/courses/:courseID',{
         templateUrl : 'templates/course.php',
+        description: '',
         controller : 'courseController as course',
     });
     

@@ -5,8 +5,9 @@ Options +FollowSymLinks
 #RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 RewriteCond %{QUERY_STRING} ^_escaped_fragment_=/([^/]+)/*([^/]*)$
 RewriteRule ^(.*)$ /snapshots/%1%2.html? [NC,L]
-#RewriteCond %{HTTP_USER_AGENT} !facebookexternalhit/[0-9]
-#RewriteRule (.*) /snapshots/$1 [NC,L]
+RewriteCond %{HTTP_USER_AGENT} ^facebookexternalhit/1.1|http://www.facebook.com/externalhit_uatext.php
+RewriteCond %{REQUEST_URI} ^([^/]+)/*([^/]*)$
+RewriteRule ^(.*)$ /snapshots/$1$2 [NC,L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ /#/$1 [L,R,QSA,NE]

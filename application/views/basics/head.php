@@ -16,7 +16,7 @@
 
     <!-- FB -->
 	<meta property="og:image" content="https://reseed.it/imgs/header.jpg" />
-    <meta property="og:description" content="Impara. Crea. Pubblica."/>
+    <meta property="og:description" content="{{description}}"/>
     <meta property="og:url" content="https://www.reseed.it" />
     <meta property="og:title" content="(title ? (title + ' - ' ) : '' ) + 'reSeed'" />
             
