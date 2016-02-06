@@ -1,4 +1,4 @@
-main.controller('profileController',['$scope','$http','$routeParams','$route','$timeout', 'inform','$server',function($scope,$http,$routeParams,$route,$timeout,inform,$server){
+main.controller('profileController',['$scope','$server','$routeParams','$route','$timeout', 'inform','$server',function($scope,$server,$routeParams,$route,$timeout,inform,$server){
     var self = this;
     
     self.username = $routeParams.userID;

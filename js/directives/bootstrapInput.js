@@ -2,7 +2,7 @@
 /* bootstrap-input and bootstrap-textarea tag MUST contain 'form' and 'name' attributes. Bootstrap-input obviously needs 'type' too for proper behavior. Other parameters are optional. */
 /* NOTE: for 'required' tag to work, it must be written in XHTML syntax as required="required" */
 
-main.directive('bootstrapInput',['$timeout','$filter','$http','$q',function($timeout,$filter,$http,$q){
+main.directive('bootstrapInput',['$timeout','$filter','$server','$q',function($timeout,$filter,$server,$q){
     return {
         restrict: "E",
         require: 'ngModel',
@@ -35,7 +35,7 @@ main.directive('bootstrapInput',['$timeout','$filter','$http','$q',function($tim
         	{
 	            $scope.form[$scope.name].$asyncValidators.usernameTakenAsync = function(modelValue,viewValue)
 	            {
-            		return $http.post('users/exists',{username: viewValue}).then(
+            		return $server.post('users/exists',{username: viewValue}).then(
                 			function(response)
                 			{
 //                				console.log($scope.form[$scope.name]);

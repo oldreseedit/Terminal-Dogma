@@ -1,4 +1,4 @@
-main.controller('courseController',['utilities','$scope','$http','$server','$routeParams','uiCalendarConfig','$timeout','$route','$cookies','inform','$rootScope',function(utilities,$scope,$http,$server,$routeParams,uiCalendarConfig,$timeout,$route,$cookies,inform,$rootScope){
+main.controller('courseController',['utilities','$scope','$server','$server','$routeParams','uiCalendarConfig','$timeout','$route','$cookies','inform','$rootScope',function(utilities,$scope,$server,$server,$routeParams,uiCalendarConfig,$timeout,$route,$cookies,inform,$rootScope){
     var self = this;
     
     /* CONFIG */

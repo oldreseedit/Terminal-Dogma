@@ -38,12 +38,8 @@
                 @extend .col-100;
             }
             
-            span{
-                @extend .darker-grey;
-            }
-            
             p{
-                @extend .darker-grey;
+                @extend .black;
                 margin-bottom: 1em;
             }
         }

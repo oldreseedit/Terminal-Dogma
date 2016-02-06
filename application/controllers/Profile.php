@@ -16,36 +16,36 @@ class Profile extends CI_Controller {
 		$this->load->helper('url');
 	}
 	
-	public function index($profileName = null)
-	{
-		if(!$this->users_model->exists($profileName))
-		{
-			$this->load->view("errors/html/error_404.php", array('heading' => "Errore", 'message' => "Utente inesistente."));
-			return;
-		}
+// 	public function index($profileName = null)
+// 	{
+// 		if(!$this->users_model->exists($profileName))
+// 		{
+// 			$this->load->view("errors/html/error_404.php", array('heading' => "Errore", 'message' => "Utente inesistente."));
+// 			return;
+// 		}
 		
-		$profilePublic = $this->preferences_model->get($profileName)['profileVisibility'];
+// 		$profilePublic = $this->preferences_model->get($profileName)['profileVisibility'];
 		
-		$userID = null;
-		$token = null;
-		if(isset($_COOKIE['username'])) $userID = $_COOKIE['username'];
-		if(isset($_COOKIE['token'])) $token = $_COOKIE['token'];
-		if(!$this->users_model->isLoggedIn($userID, $token) && !$profilePublic)
-		{
-			$this->load->view("errors/html/error_404.php", array('heading' => "Errore", 'message' => "Non risulti essere iscritto a reSeed. Iscriviti!"));
-			return;
-		}
+// 		$userID = null;
+// 		$token = null;
+// 		if(isset($_COOKIE['username'])) $userID = $_COOKIE['username'];
+// 		if(isset($_COOKIE['token'])) $token = $_COOKIE['token'];
+// 		if(!$this->users_model->isLoggedIn($userID, $token) && !$profilePublic)
+// 		{
+// 			$this->load->view("errors/html/error_404.php", array('heading' => "Errore", 'message' => "Non risulti essere iscritto a reSeed. Iscriviti!"));
+// 			return;
+// 		}
 		
-		$can_see = $profilePublic || $this->admins_model->is_admin($userID) || strcmp($userID, $profileName) == 0;
+// 		$can_see = $profilePublic || $this->admins_model->is_admin($userID) || strcmp($userID, $profileName) == 0;
 		
-		if(!$can_see)
-		{
-			$this->load->view("errors/html/error_404.php", array('heading' => "Errore", 'message' => "Non sei autorizzato a visitare il profilo di ".$profileName."."));
-			return;
-		}
+// 		if(!$can_see)
+// 		{
+// 			$this->load->view("errors/html/error_404.php", array('heading' => "Errore", 'message' => "Non sei autorizzato a visitare il profilo di ".$profileName."."));
+// 			return;
+// 		}
 		
-		$this->load->view('profile/profile');
-	}
+// 		$this->load->view('profile/profile');
+// 	}
 	
 		public function update_block_positions()
         {

@@ -19258,7 +19258,6 @@ button.close {
 /* Margin between main elements */
 /* Palette */
 /* Navbar fs */
-/* OLD Palette */
 /* line 1, ../sass/_tricks.scss */
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
@@ -19525,7 +19524,7 @@ h1 {
 
 /* line 8, ../sass/_palette.scss */
 .pond, #singleCourse a, #profile a {
-  color: #4692a3;
+  color: #4398a3;
 }
 
 /* line 9, ../sass/_palette.scss */
@@ -19545,27 +19544,27 @@ h1 {
 
 /* line 13, ../sass/_palette.scss */
 .light-olive, #payment #paymentFirstStep .stepLine {
-  color: #b2e528;
+  color: #C9E113;
 }
 
 /* line 14, ../sass/_palette.scss */
 .light-lawn {
-  color: #6de217;
+  color: #91E226;
 }
 
 /* line 15, ../sass/_palette.scss */
 .light-green, #footer a:hover, #payment #paymentFinalStep .stepLine, #preferences .modify:hover {
-  color: #1cdc41;
+  color: #30DD39;
 }
 
 /* line 16, ../sass/_palette.scss */
 .light-leaf {
-  color: #1cdc69;
+  color: #2CE2C6;
 }
 
 /* line 17, ../sass/_palette.scss */
 .light-pond, #payment #paymentSecondStep .stepLine {
-  color: #1cdc9a;
+  color: #36CCDC;
 }
 
 /* line 18, ../sass/_palette.scss */
@@ -19580,27 +19579,27 @@ h1 {
 
 /* line 21, ../sass/_palette.scss */
 .dark-olive {
-  color: #526c0c;
+  color: #8E9B30;
 }
 
 /* line 22, ../sass/_palette.scss */
 .dark-lawn {
-  color: #377808;
+  color: #6B8F3C;
 }
 
 /* line 23, ../sass/_palette.scss */
 .dark-green, #preferences .modify, #preferences .btn-group .btn, #preferences .btn-group #contacts #contact-form #contacts-submit, #contacts #contact-form #preferences .btn-group #contacts-submit, #preferences .btn-group #payment-disclaimer-modal form #payment-disclaimer-submit, #payment-disclaimer-modal form #preferences .btn-group #payment-disclaimer-submit, #preferences .btn-group #payment-disclaimer-modal form #payment-disclaimer-cancel, #payment-disclaimer-modal form #preferences .btn-group #payment-disclaimer-cancel, #preferences .btn-group .modal-wrapper form .modal-submit, .modal-wrapper form #preferences .btn-group .modal-submit, #preferences .btn-group .modal-wrapper form .modal-cancel, .modal-wrapper form #preferences .btn-group .modal-cancel {
-  color: #047f1c;
+  color: #418A44;
 }
 
 /* line 24, ../sass/_palette.scss */
 .dark-leaf {
-  color: #01763b;
+  color: #379486;
 }
 
 /* line 25, ../sass/_palette.scss */
 .dark-pond {
-  color: #036141;
+  color: #3F858C;
 }
 
 /* line 26, ../sass/_palette.scss */
@@ -19644,7 +19643,7 @@ h1 {
 }
 
 /* line 35, ../sass/_palette.scss */
-.darker-grey, h3, h4, h5, h6, #home #presentation #tiles-presentation .inside-tab span, #home #presentation #tiles-presentation .inside-tab p, #home #team #team-wrapper .name p {
+.darker-grey, h3, h4, h5, h6, #home #team #team-wrapper .name p {
   color: #333339;
 }
 
@@ -19654,7 +19653,7 @@ h1 {
 }
 
 /* line 37, ../sass/_palette.scss */
-.black, #home #presentation #news-events a {
+.black, #home #presentation #tiles-presentation .inside-tab p, #home #presentation #news-events a {
   color: black;
 }
 
@@ -19691,7 +19690,7 @@ h1 {
 
 /* line 48, ../sass/_palette.scss */
 .bg-pond {
-  background-color: #4692a3;
+  background-color: #4398a3;
 }
 
 /* line 49, ../sass/_palette.scss */
@@ -19711,27 +19710,27 @@ h1 {
 
 /* line 53, ../sass/_palette.scss */
 .bg-light-olive, #media .media-tab:hover, #media .media-tab.selected, #media .media-panel .media-panel-title {
-  background-color: #b2e528;
+  background-color: #C9E113;
 }
 
 /* line 54, ../sass/_palette.scss */
 .bg-light-lawn {
-  background-color: #6de217;
+  background-color: #91E226;
 }
 
 /* line 55, ../sass/_palette.scss */
 .bg-light-green, #register #addLesson button:hover {
-  background-color: #1cdc41;
+  background-color: #30DD39;
 }
 
 /* line 56, ../sass/_palette.scss */
 .bg-light-leaf {
-  background-color: #1cdc69;
+  background-color: #2CE2C6;
 }
 
 /* line 57, ../sass/_palette.scss */
 .bg-light-pond {
-  background-color: #1cdc9a;
+  background-color: #36CCDC;
 }
 
 /* line 58, ../sass/_palette.scss */
@@ -19746,27 +19745,27 @@ h1 {
 
 /* line 61, ../sass/_palette.scss */
 .bg-dark-olive {
-  background-color: #526c0c;
+  background-color: #8E9B30;
 }
 
 /* line 62, ../sass/_palette.scss */
 .bg-dark-lawn {
-  background-color: #377808;
+  background-color: #6B8F3C;
 }
 
 /* line 63, ../sass/_palette.scss */
 .bg-dark-green {
-  background-color: #047f1c;
+  background-color: #418A44;
 }
 
 /* line 64, ../sass/_palette.scss */
 .bg-dark-leaf {
-  background-color: #01763b;
+  background-color: #379486;
 }
 
 /* line 65, ../sass/_palette.scss */
 .bg-dark-pond {
-  background-color: #036141;
+  background-color: #3F858C;
 }
 
 /* line 66, ../sass/_palette.scss */
@@ -19992,7 +19991,7 @@ body {
 }
 /* line 39, ../sass/_navbar.scss */
 #navbar a:hover {
-  color: #b2e528;
+  color: #C9E113;
 }
 /* line 44, ../sass/_navbar.scss */
 #navbar .macrotab {
@@ -20219,31 +20218,31 @@ body {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
-/* line 45, ../sass/_presentation.scss */
+/* line 41, ../sass/_presentation.scss */
 #home #presentation #tiles-presentation .inside-tab p {
   margin-bottom: 1em;
 }
-/* line 52, ../sass/_presentation.scss */
+/* line 48, ../sass/_presentation.scss */
 #home #presentation #news-events {
   margin-top: 1em;
 }
-/* line 56, ../sass/_presentation.scss */
+/* line 52, ../sass/_presentation.scss */
 #home #presentation #news-events .news {
   margin-top: 1em;
 }
-/* line 60, ../sass/_presentation.scss */
+/* line 56, ../sass/_presentation.scss */
 #home #presentation #news-events .news-icon {
   padding-top: 2%;
 }
-/* line 70, ../sass/_presentation.scss */
+/* line 66, ../sass/_presentation.scss */
 #home #presentation #news-events .news-description {
   padding: 5%;
 }
-/* line 74, ../sass/_presentation.scss */
+/* line 70, ../sass/_presentation.scss */
 #home #presentation #news-events .equal-height, #home #presentation #news-events #admin .tab, #admin #home #presentation #news-events .tab {
   margin-top: 2em;
 }
-/* line 78, ../sass/_presentation.scss */
+/* line 74, ../sass/_presentation.scss */
 #home #presentation #news-events a {
   text-decoration: none;
 }

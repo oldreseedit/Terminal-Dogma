@@ -1,4 +1,4 @@
-main.controller('avatarController',['$http','$scope','$uibModal','$route','inform',function($http,$scope,$uibModal,$route,inform){
+main.controller('avatarController',['$server','$scope','$uibModal','$route','inform',function($server,$scope,$uibModal,$route,inform){
 	var self = this;
     
     self.changeAvatar = function(username,avatar)
@@ -34,7 +34,7 @@ main.controller('avatarController',['$http','$scope','$uibModal','$route','infor
 
 /* AVATAR FORM CONTROLLER */
 
-main.controller('avatarFormController',['$scope','$http','$timeout','$cookies','$window','upload','inform','$route','items','$server',function($scope,$http,$timeout,$cookies,$window,upload,inform,$route,items,$server){
+main.controller('avatarFormController',['$scope','$server','$timeout','$cookies','$window','upload','inform','$route','items','$server',function($scope,$server,$timeout,$cookies,$window,upload,inform,$route,items,$server){
 	var self = this;
 	
 	if(FileReader) self.fr = new FileReader();

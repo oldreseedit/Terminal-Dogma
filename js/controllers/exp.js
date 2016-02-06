@@ -1,4 +1,4 @@
-main.controller('expController',['$http','inform',function($http,inform){
+main.controller('expController',['$server','inform',function($server,inform){
 	var self = this;
 	
 	self.addAdmin = function(userID, xp, courseID, description)
@@ -7,7 +7,7 @@ main.controller('expController',['$http','inform',function($http,inform){
 		if(courseID) data.courseID = courseID;
 		if(description) data.description = description;
 		
-		$http.post('users/add_exp',data).then(function(response)
+		$server.post('users/add_exp',data).then(function(response)
 				{
 					notifies = response.data;
 					angular.forEach(notifies,function(notify)

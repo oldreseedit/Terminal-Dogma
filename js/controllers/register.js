@@ -1,4 +1,4 @@
-main.controller('Register',['$http','inform','$route','$scope','uiCalendarConfig','$uibModal',function($http,inform,$route,$scope,uiCalendarConfig,$modal){
+main.controller('Register',['$server','inform','$route','$scope','uiCalendarConfig','$uibModal',function($server,inform,$route,$scope,uiCalendarConfig,$modal){
     
     var self = this;
     
@@ -78,7 +78,7 @@ main.controller('Register',['$http','inform','$route','$scope','uiCalendarConfig
                     
                     self.setInterval(view);
                     
-                    $http.post('lessons/get',{'startingDate': self.currentIntervalStart.format('YYYY-MM-DD HH:mm:ss'), 'endingDate': self.currentIntervalEnd.format('YYYY-MM-DD HH:mm:ss')}).
+                    $server.post('lessons/get',{'startingDate': self.currentIntervalStart.format('YYYY-MM-DD HH:mm:ss'), 'endingDate': self.currentIntervalEnd.format('YYYY-MM-DD HH:mm:ss')}).
                     then( function(response){
                         
                         self.setDefaults();
@@ -93,7 +93,7 @@ main.controller('Register',['$http','inform','$route','$scope','uiCalendarConfig
             },
             eventResize : function(event, delta, revertFunc, jsEvent, ui, view){
                 
-                $http.post('lessons/update',{
+                $server.post('lessons/update',{
                     lessonID : event.lessonID,
                     endingDate : event.end.format('YYYY-MM-DD HH:mm:ss')
                 }).
@@ -105,7 +105,7 @@ main.controller('Register',['$http','inform','$route','$scope','uiCalendarConfig
                 
             },
             eventDrop : function(event, delta, revertFunc, jsEvent, ui, view ){
-                $http.post('lessons/update',{
+                $server.post('lessons/update',{
                     lessonID : event.lessonID,
                     startingDate : event.start.format('YYYY-MM-DD HH:mm:ss'),
                     endingDate : event.end.format('YYYY-MM-DD HH:mm:ss')
@@ -349,7 +349,7 @@ main.controller('Register',['$http','inform','$route','$scope','uiCalendarConfig
         
         if(self.changes.studentsChanges.length === 0 && self.changes.lessonNote === undefined) return;
         
-        $http.post('lessons/update_batch',self.changes).
+        $server.post('lessons/update_batch',self.changes).
         then(function(response){
         	
         	notifies = response.data;
@@ -399,7 +399,7 @@ main.controller('Register',['$http','inform','$route','$scope','uiCalendarConfig
         
         // console.log(self.selectedStartingHour);
         
-        $http.post('lessons/add',{
+        $server.post('lessons/add',{
             startingDate : moment(self.selectedStartingHour).format('YYYY-MM-DD HH:mm:ss'),
             endingDate : moment(self.selectedEndingHour).format('YYYY-MM-DD HH:mm:ss'),
             courseID : self.courseIDInput,
@@ -450,7 +450,7 @@ main.controller('Register',['$http','inform','$route','$scope','uiCalendarConfig
         modalInstance.result.
         then(function(responseFromModal) {
             if(responseFromModal) {
-                $http.post('lessons/delete',{lessonID : self.selectedLessonID}).
+                $server.post('lessons/delete',{lessonID : self.selectedLessonID}).
                 then(function(response){
                     
                 	if(response.data.error) inform.add(response.data.description,{type:'danger'});
@@ -503,7 +503,7 @@ main.controller('Register',['$http','inform','$route','$scope','uiCalendarConfig
     startingDate = startingDate.format('YYYY-MM-DD HH:mm:ss');
     endingDate = endingDate.format('YYYY-MM-DD HH:mm:ss');
     
-    $http.post('lessons/get',{'startingDate': startingDate, 'endingDate': endingDate}).
+    $server.post('lessons/get',{'startingDate': startingDate, 'endingDate': endingDate}).
     then(function(response){
     	console.log(response);
     	self.raw = response.data;
@@ -518,7 +518,7 @@ main.controller('Register',['$http','inform','$route','$scope','uiCalendarConfig
         //     var startingHour = (course === 'studioMax' ? moment('2015-11-03 09:00','YYYY-MM-DD HH:mm') : (course === 'gameDesign' ? moment('2015-11-04 09:00','YYYY-MM-DD HH:mm') : moment('2015-11-07 09:00','YYYY-MM-DD HH:mm')));
         //     var endingHour = (course === 'studioMax' ? moment('2015-11-03 13:00','YYYY-MM-DD HH:mm') : (course === 'gameDesign' ? moment('2015-11-04 13:00','YYYY-MM-DD HH:mm') : moment('2015-11-07 13:00','YYYY-MM-DD HH:mm')));
         //     for(var i=0; i<12; i++){
-        //         $http.post('lessons/add',{
+        //         $server.post('lessons/add',{
         //             startingDate : startingHour.format('YYYY-MM-DD HH:mm:ss'),
         //             endingDate : endingHour.format('YYYY-MM-DD HH:mm:ss'),
         //             courseID : course,

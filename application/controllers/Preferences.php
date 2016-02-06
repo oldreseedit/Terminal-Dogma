@@ -9,11 +9,6 @@ class Preferences extends CI_Controller {
                 $this->load->model('userinfo_model');
         }
         
-        public function index()
-        {
-        	$this->load->view('preferences/preferences');
-        }
-        
         public function init()
         {
         	$this->db->trans_start();

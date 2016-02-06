@@ -181,10 +181,10 @@ module.exports = function(grunt) {
                 //this is to give the page enough time to to assemble itself. 
                 //if your page needs more time, tweak here. 
                 msWaitForPages: 5000,
-                //sanitize function to be used for filenames. Converts '#!/' to '_' as default 
+                //sanitize function to be used for filenames. Converts '/' to '_' as default 
                 //has a filename argument, must have a return that is a sanitized string 
                 sanitize: function (requestUri) {
-                	if(/#!\//.test(requestUri))
+                	if(/\//.test(requestUri))
                 	{
                 		requestUri = requestUri.substr(3);
                 	}
@@ -207,19 +207,19 @@ module.exports = function(grunt) {
                 bodyAttr: 'data-prerendered',
                 //here goes the list of all urls that should be fetched 
                 urls: [
-                  '#!/courses',
-                  '#!/contacts',
-                  '#!/faq',
-                  '#!/privacy',
-                  '#!/disclaimer',
-                  '#!/courses/java',
-                  '#!/courses/mobileApp',
-                  '#!/courses/HCJS',
-                  '#!/courses/MVCDevelopment',
-                  '#!/courses/gameDesign',
-                  '#!/courses/gameMaker',
-                  '#!/courses/gamesForDummies',
-                  '#!/courses/3DStudioMax',
+                  '/courses',
+                  '/contacts',
+                  '/faq',
+                  '/privacy',
+                  '/disclaimer',
+                  '/courses/java',
+                  '/courses/mobileApp',
+                  '/courses/HCJS',
+                  '/courses/MVCDevelopment',
+                  '/courses/gameDesign',
+                  '/courses/gameMaker',
+                  '/courses/gamesForDummies',
+                  '/courses/3DStudioMax',
                 ]
               }
             }

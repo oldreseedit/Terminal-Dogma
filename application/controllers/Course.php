@@ -14,16 +14,16 @@ class Course extends CI_Controller {
                 $this->load->helper('url');
         }
         
-        public function index($courseID)
-        {
-        	if(!$this->courses_model->exists($courseID))
-        	{
-        		$this->load->view("errors/html/error_404.php", array('heading' => "Errore", 'message' => "Corso inesistente."));
-        		return;
-        	}
+//         public function index($courseID)
+//         {
+//         	if(!$this->courses_model->exists($courseID))
+//         	{
+//         		$this->load->view("errors/html/error_404.php", array('heading' => "Errore", 'message' => "Corso inesistente."));
+//         		return;
+//         	}
         	
-			$this->load->view('courses/course');
-        }
+// 			$this->load->view('courses/course');
+//         }
         
         public function update_block_positions()
         {

@@ -1,4 +1,4 @@
-main.controller('activityController',['utilities','$scope','$http','$routeParams','uiCalendarConfig','$timeout','$route','$cookies',function(utilities,$scope,$http,$routeParams,uiCalendarConfig,$timeout,$route,$cookies){
+main.controller('activityController',['utilities','$scope','$server','$routeParams','uiCalendarConfig','$timeout','$route','$cookies',function(utilities,$scope,$server,$routeParams,uiCalendarConfig,$timeout,$route,$cookies){
     var self = this;
     
     /* CONFIG */
@@ -49,7 +49,7 @@ main.controller('activityController',['utilities','$scope','$http','$routeParams
 
     $scope.registerMeasures = function(item)
     {
-		$http.post('course/update_block_positions',{username: self.username, activityID: self.courseID, panelID: item.id, measures : item.measures}).then(
+		$server.post('course/update_block_positions',{username: self.username, activityID: self.courseID, panelID: item.id, measures : item.measures}).then(
     			function(response)
     			{
 //        			console.log(response);
@@ -61,7 +61,7 @@ main.controller('activityController',['utilities','$scope','$http','$routeParams
     	);
     };
     
-    $http.post('activity/load_block_positions',{username : self.username, activityID : self.activityID}).then(
+    $server.post('activity/load_block_positions',{username : self.username, activityID : self.activityID}).then(
     		function(response)
     		{
 //    			console.log(response);
@@ -109,7 +109,7 @@ main.controller('activityController',['utilities','$scope','$http','$routeParams
     /* MAIN */
     
 
-    $http.post('activities/get',{activityID : self.activityID}).then(function(response) {
+    $server.post('activities/get',{activityID : self.activityID}).then(function(response) {
         if(response.data.error) inform.add(response.data.description,{type:'danger'});
         else if(response.data)
         {

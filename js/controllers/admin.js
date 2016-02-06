@@ -1,4 +1,4 @@
-main.controller('adminController',['utilities','$http','$timeout','$sce','$scope','upload','inform',function(utilities, $http, $timeout, $sce, $scope, upload,inform){
+main.controller('adminController',['utilities','$server','$timeout','$sce','$scope','upload','inform',function(utilities, $server, $timeout, $sce, $scope, upload,inform){
     var self = this;
     
     self.addCourseMaterialForm = {};
@@ -141,7 +141,7 @@ main.controller('adminController',['utilities','$http','$timeout','$sce','$scope
     /* METHODS FOR QUERYING CI */
     
     self.getCoursesAndLessons = function(){
-        $http.post('lessons/get_lessons_by_course').then(function(response){
+        $server.post('lessons/get_lessons_by_course').then(function(response){
             // console.log(response);
             self.lessons = response.data;
             self.courses = Object.keys(self.lessons);
@@ -151,7 +151,7 @@ main.controller('adminController',['utilities','$http','$timeout','$sce','$scope
     };
     
     self.getCourses = function(){
-        $http.post('courses/get_all_courseIDs').then(function(response){
+        $server.post('courses/get_all_courseIDs').then(function(response){
             console.log(response);
             self.courses = response.data;
         },function(error){
@@ -201,7 +201,7 @@ main.controller('adminController',['utilities','$http','$timeout','$sce','$scope
     };
     
     self.getMaterials = function(courseID){
-        $http.post('course_material/get_all',{courseID : courseID}).then(function(response){
+        $server.post('course_material/get_all',{courseID : courseID}).then(function(response){
             // console.log(response);
             self.courseMaterials = response.data;
             
@@ -266,7 +266,7 @@ main.controller('adminController',['utilities','$http','$timeout','$sce','$scope
     
     self.deleteCourseMaterial = function(){
         
-        $http.post('course_material/delete',self.deleteCourseMaterialForm).then(
+        $server.post('course_material/delete',self.deleteCourseMaterialForm).then(
             function(response) {
             	if(response.data.error) inform.add(response.data.description,{type: 'danger'});
               	else inform.add('Materiale del corso eliminato correttamente!');
@@ -282,7 +282,7 @@ main.controller('adminController',['utilities','$http','$timeout','$sce','$scope
     
     self.getNotifications = function(courseID){
         
-        $http.post('notifications/get',{courseID: courseID}).then(function(response){
+        $server.post('notifications/get',{courseID: courseID}).then(function(response){
             console.log(response);
             self.notifications = response.data;
         },function(error){
@@ -293,7 +293,7 @@ main.controller('adminController',['utilities','$http','$timeout','$sce','$scope
     
     self.addNotification = function(){
         
-        $http.post('notifications/add',self.addNotificationForm).then(function(response){
+        $server.post('notifications/add',self.addNotificationForm).then(function(response){
             console.log(response);
             
             if(response.data.error) inform.add(response.data.description,{type: 'danger'});
@@ -308,7 +308,7 @@ main.controller('adminController',['utilities','$http','$timeout','$sce','$scope
     
     self.modifyNotification = function(){
         
-        $http.post('notifications/update',self.modifyNotificationForm).then(function(response){
+        $server.post('notifications/update',self.modifyNotificationForm).then(function(response){
             console.log(response);
         },function(error){
             console.log(error);
@@ -319,7 +319,7 @@ main.controller('adminController',['utilities','$http','$timeout','$sce','$scope
     
     self.deleteNotification = function(){
         
-        $http.post('notifications/delete',self.deleteNotificationForm).then(function(response){
+        $server.post('notifications/delete',self.deleteNotificationForm).then(function(response){
             console.log(response);
         },function(error){
             console.log(error);
@@ -330,7 +330,7 @@ main.controller('adminController',['utilities','$http','$timeout','$sce','$scope
     
     self.getUsers = function()
     {
-    	$http.post('users/get_all').then(
+    	$server.post('users/get_all').then(
     			function(response)
     			{
     				self.users = response.data;
@@ -356,7 +356,7 @@ main.controller('adminController',['utilities','$http','$timeout','$sce','$scope
     		return;
     	}
     	
-    	$http.post('users/add_exp',self.xpAddForm).then(
+    	$server.post('users/add_exp',self.xpAddForm).then(
     			function(response)
     			{
     				for(var i=0; i<response.data.length; i++)
