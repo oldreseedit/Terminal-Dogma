@@ -9,7 +9,8 @@
 				<ul class="fa-ul">
 				  <li><i class="fa-li fa fa-hourglass-half"></i><b>Durata</b>: <span ng-bind="course.courseInfo.duration"></span> ore</li>
 				  <li><i class="fa-li fa fa-eur"></i><b>Costo</b>: <span ng-bind="course.courseInfo.price"></span> €</li>
-				  <li><i class="fa-li fa fa-bell"></i><b>Numero lezioni</b>: <span ng-bind="course.courseInfo.lessons"></span></li>
+				  <li><i class="fa-li fa fa-book"></i><b>Quando</b>: ogni <span ng-bind="course.courseInfo.day"></span> dalle <span ng-bind="course.courseInfo.startingHour"></span> alle <span ng-bind="course.courseInfo.endingHour"></span></li>
+				  <li><i class="fa-li fa fa-pie-chart"></i><b>Numero lezioni</b>: <span ng-bind="course.courseInfo.lessons"></span></li>
 				  <li><i class="fa-li fa fa-calendar-o"></i><b>Inizio corso</b>:
 					  <span ng-if="course.courseHasStarted">
 			            <span>Il corso è partito </span>

@@ -505,6 +505,7 @@ main.controller('Register',['$http','inform','$route','$scope','uiCalendarConfig
     
     $http.post('lessons/get',{'startingDate': startingDate, 'endingDate': endingDate}).
     then(function(response){
+    	console.log(response);
     	self.raw = response.data;
         self.buildDB();
     }, function(error){

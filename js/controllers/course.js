@@ -14,7 +14,7 @@ main.controller('courseController',['utilities','$scope','$http','$server','$rou
     
     $scope.events = [];
     $scope.eventSources = [{events: $scope.events, color: 'green'}];
-     
+    
     $scope.uiConfig = {
     		calendar: {
     			lang : "it",
@@ -148,6 +148,9 @@ main.controller('courseController',['utilities','$scope','$http','$server','$rou
     	self.next = response.data.next ? response.data.next[0] : null;
     	self.hourPrice = Math.round(100 * self.courseInfo.price/self.courseInfo.duration)/100;
     	self.courseInfo.lessons = self.courseInfo.duration / 4;
+    	self.courseInfo.day = moment(response.data.startingDate).format("dddd").toLowerCase();
+    	self.courseInfo.startingHour = moment(response.data.startingDate).format("HH:mm");
+    	self.courseInfo.endingHour = moment(response.data.endingDate).format("HH:mm");
     	
 		self.courseName = response.data.name;
 		$rootScope.title = self.courseName;
