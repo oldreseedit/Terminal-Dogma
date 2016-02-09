@@ -9440,7 +9440,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-15, #singleCourse .teacher-icon {
+.col-15 {
   width: 15%;
   float: left;
 }
@@ -9680,7 +9680,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-30, #singleCourse .course-notification-date, #contacts #contact-form #contacts-submit, #payment-disclaimer-modal form #payment-disclaimer-submit, #payment-disclaimer-modal form #payment-disclaimer-cancel, #profile .profile-level-symbol, .modal-wrapper form .modal-submit, .modal-wrapper form .modal-cancel {
+.col-30, #singleCourse .course-notification-date, #singleCourse .teacher-icon, #contacts #contact-form #contacts-submit, #payment-disclaimer-modal form #payment-disclaimer-submit, #payment-disclaimer-modal form #payment-disclaimer-cancel, #profile .profile-level-symbol, .modal-wrapper form .modal-submit, .modal-wrapper form .modal-cancel {
   width: 30%;
   float: left;
 }
@@ -10160,7 +10160,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-60, #media .media-panel .media-panel-main .media-content {
+.col-60, #singleCourse .teacher-avatar .circle-img, #singleCourse .teacher-avatar .avatar, #singleCourse .teacher-description, #media .media-panel .media-panel-main .media-content {
   width: 60%;
   float: left;
 }
@@ -10480,7 +10480,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-80, #home #team #team-wrapper .team-social-buttons, #singleCourse .teacher-description {
+.col-80, #home #team #team-wrapper .team-social-buttons {
   width: 80%;
   float: left;
 }
@@ -10800,7 +10800,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-100, #admin .admin-content, #navbar #navbar-logged, #footer, #footer #commercial-info, #home, #home #presentation #tiles-presentation, #home #presentation #tiles-presentation .inside-tab .tab-content, #home #team, #singleCourse .gridster-item, #singleCourse .panel-title, #singleCourse .panel-content, #singleCourse .teacher-avatar, #singleCourse .course-description-introduction, #singleCourse .course-description-syllabus, #singleCourse .course-description, #singleActivity .gridster-item, #singleActivity .panel-title, #singleActivity .panel-content, #media .media-panel, #media .media-panel .media-panel-title, #media .media-panel .media-panel-main, #register, #register .XP, #payment .stepLine, #payment .stepContent, #faqPage .stepLine, #faqPage .stepContent, #profile .gridster-item, #profile .panel-title, #profile .panel-content, #profile .profile-name-level-xp .profile-xp, #profile .profile-info, .scrollbar-wrapper, .wrapper, .mini-header {
+.col-100, #admin .admin-content, #navbar #navbar-logged, #footer, #footer #commercial-info, #home, #home #presentation #tiles-presentation, #home #presentation #tiles-presentation .inside-tab .tab-content, #home #team, #singleCourse .gridster-item, #singleCourse .panel-title, #singleCourse .panel-content, #singleCourse .teacher-icon .team-social-buttons, #singleCourse .teacher-avatar, #singleCourse .course-description-introduction, #singleCourse .course-description-syllabus, #singleCourse .course-description, #singleActivity .gridster-item, #singleActivity .panel-title, #singleActivity .panel-content, #media .media-panel, #media .media-panel .media-panel-title, #media .media-panel .media-panel-main, #register, #register .XP, #payment .stepLine, #payment .stepContent, #faqPage .stepLine, #faqPage .stepContent, #profile .gridster-item, #profile .panel-title, #profile .panel-content, #profile .profile-name-level-xp .profile-xp, #profile .profile-info, .scrollbar-wrapper, .wrapper, .mini-header {
   width: 100%;
   float: left;
 }
@@ -20354,11 +20354,22 @@ body {
 #singleCourse a {
   text-decoration: none;
 }
-/* line 52, ../sass/_course.scss */
-#singleCourse .teacher-icon {
-  float: left;
+/* line 60, ../sass/_course.scss */
+#singleCourse .teacher-avatar {
+  display: block;
+  float: none;
 }
-/* line 75, ../sass/_course.scss */
+/* line 65, ../sass/_course.scss */
+#singleCourse .teacher-avatar .circle-img, #singleCourse .teacher-avatar .avatar {
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 73, ../sass/_course.scss */
+#singleCourse .teacher-name {
+  float: none;
+}
+/* line 87, ../sass/_course.scss */
 #singleCourse .course-icon {
   width: 10em;
   /*     	padding-top: 0.6em; */
@@ -20367,16 +20378,16 @@ body {
   padding-right: 1.5em;
   padding-bottom: 0.8em;
 }
-/* line 88, ../sass/_course.scss */
+/* line 100, ../sass/_course.scss */
 #singleCourse .agendaButtons {
   margin-bottom: 1vw;
   text-align: center;
 }
-/* line 94, ../sass/_course.scss */
+/* line 106, ../sass/_course.scss */
 #singleCourse .course-info emph {
   font-weight: bold;
 }
-/* line 98, ../sass/_course.scss */
+/* line 110, ../sass/_course.scss */
 #singleCourse .course-info .details {
   margin: 10px 0px;
 }
@@ -20615,7 +20626,7 @@ body {
 /* line 19, ../sass/_profile.scss */
 #profile .no-gridster-item {
   margin-bottom: 1em;
-  max-height: 50vh;
+  max-height: 75vh;
 }
 /* line 24, ../sass/_profile.scss */
 #profile .panel-title {

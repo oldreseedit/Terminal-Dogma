@@ -50,20 +50,32 @@
     }
     
     .teacher-icon{
-        @extend .col-15;
-        float:left;
+        @extend .col-30;
+        
+        .team-social-buttons {
+        	@extend .col-100;
+        }
     }
     
     .teacher-avatar{
         @extend .col-100;
+        display: block;
+        float: none;
+        
+        .circle-img{
+        	@extend .col-60;
+        	float: none;
+        	margin-left: auto;
+    		margin-right: auto;
+    	}
     }
     
     .teacher-name{
-        
+    	float: none;
     }
     
     .teacher-description{
-    	@extend .col-80;
+    	@extend .col-60;
     	@extend .offset-5;
     	@extend .text-justify;
     }

@@ -1,4 +1,4 @@
-main.controller('courseController',['utilities','$scope','$server','$server','$routeParams','uiCalendarConfig','$timeout','$route','$cookies','inform','$rootScope',function(utilities,$scope,$server,$server,$routeParams,uiCalendarConfig,$timeout,$route,$cookies,inform,$rootScope){
+main.controller('courseController',['utilities','$scope','$server','$routeParams','uiCalendarConfig','$timeout','$route','$cookies','inform','$rootScope',function(utilities,$scope,$server,$routeParams,uiCalendarConfig,$timeout,$route,$cookies,inform,$rootScope){
     var self = this;
     
     /* CONFIG */
@@ -70,11 +70,11 @@ main.controller('courseController',['utilities','$scope','$server','$server','$r
     
     self.items = [
           {
-                id : 'courseDescription',
-                title: self.courseName,
-                bgColour: 'bg-light-olive',
-                templateUrl: 'templates/course-description.php',
-                width: 60
+        	  id : 'courseDescription',
+	          title: self.courseName,
+	          bgColour: 'bg-light-olive',
+	          templateUrl: 'templates/course-description.php',
+	          width: 60
           },
           {
               id : 'courseInfo',
@@ -91,11 +91,11 @@ main.controller('courseController',['utilities','$scope','$server','$server','$r
               templateUrl: 'templates/course-teacher.php',
               width: 100,
           },
-//          {
-//        	  id: 'courseBanner',
-//        	  templateUrl: 'templates/course-banner.php',
-//              width: 100
-//          },
+////          {
+////        	  id: 'courseBanner',
+////        	  templateUrl: 'templates/course-banner.php',
+////              width: 100
+////          },
           {
               id : 'calendar',
               title: 'Calendario delle lezioni',
@@ -144,13 +144,27 @@ main.controller('courseController',['utilities','$scope','$server','$server','$r
     	self.courseInfo = response.data;
     	
     	self.courseInfo.startingDateText = moment(response.data.startingDate).format("D MMMM YYYY");
+    	self.courseInfo.endingDateText = moment(response.data.endingDate).format("D MMMM YYYY");
     	self.courseHasStarted = moment().isAfter(moment(response.data.startingDate));
     	self.next = response.data.next ? response.data.next[0] : null;
     	self.hourPrice = Math.round(100 * self.courseInfo.price/self.courseInfo.duration)/100;
     	self.courseInfo.lessons = self.courseInfo.duration / 4;
     	self.courseInfo.day = moment(response.data.startingDate).format("dddd").toLowerCase();
-    	self.courseInfo.startingHour = moment(response.data.startingDate).format("HH:mm");
-    	self.courseInfo.endingHour = moment(response.data.endingDate).format("HH:mm");
+    	self.courseInfo.startingHour = moment(response.data.startingHour).format("HH:mm");
+    	self.courseInfo.endingHour = moment(response.data.endingHour).format("HH:mm");
+    	
+    	if(response.data.simulationStartingDate)
+    	{
+    		self.hasSimulation = true;
+	    	self.courseInfo.simulationStartingDateText = moment(response.data.simulationStartingDate).format("D MMMM YYYY");
+	    	self.courseInfo.simulationEndingDateText = moment(response.data.simulationEndingDate).format("D MMMM YYYY");
+	    	self.simulationHasStarted = moment().isAfter(moment(response.data.simulationStartingDate));
+	    	self.simulationHourPrice = Math.round(100 * self.courseInfo.simulationPrice/self.courseInfo.simulationDuration)/100;
+	    	self.courseInfo.simulationLessons = self.courseInfo.simulationDuration / 4;
+	    	self.courseInfo.simulationDay = moment(response.data.simulationStartingDate).format("dddd").toLowerCase();
+	    	self.courseInfo.simulationStartingHour = moment(response.data.simulationStartingHour).format("HH:mm");
+	    	self.courseInfo.simulationEndingHour = moment(response.data.simulationEndingHour).format("HH:mm");
+    	}
     	
 		self.courseName = response.data.name;
 		$rootScope.title = self.courseName;

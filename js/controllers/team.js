@@ -158,4 +158,12 @@ main.controller('teamController',["utilities",function(utilities){
         };
     };
     
+    self.getTeacherInfo = function(teacherName){
+    	for(var i=0; i<self.people.length; i++)
+    		if(self.people[i].name === teacherName)
+    			return self.people[i];
+    	
+    	return null;
+    }
+    
 }]);

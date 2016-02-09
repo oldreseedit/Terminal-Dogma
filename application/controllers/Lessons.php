@@ -314,7 +314,7 @@ class Lessons extends CI_Controller {
             $courseId = $this->input->post('courseID');
             if($courseId == false) $courseId = null;
 //         	$start_time = null; $end_time = null; $lessonId = null;
-// 			$courseId = "mobileApp";
+// 			$courseId = "gameMaker";
             
             // Creating list of subscribers
             $subscription = $this->payment_model->get_subscribers_names();
@@ -328,7 +328,7 @@ class Lessons extends CI_Controller {
                 $userID = $member['userID'];
                 $subscribers[$course][$userID] = array('name' => $member['name'], 'surname' => $member['surname']);
             }
-//             print("SUBSCRIBERS"); print_r($subscribers);
+//             print("SUBSCRIBERS"); print_r($subscribers['gameMaker']);
             
             // Creating array of objects of lessons
             $db = array();
@@ -356,6 +356,8 @@ class Lessons extends CI_Controller {
                 	if(!array_key_exists($course, $subscribers)) continue;
 
                     $newStudent = $row;
+                    
+//                     print_r($subscribers[$course]);
                     
                     $userID = $row['userID'];
                     $newStudent['name'] = $subscribers[$course][$userID]['name'];

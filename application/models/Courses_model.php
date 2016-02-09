@@ -37,9 +37,15 @@ class Courses_model extends CI_Model
                 				'null' => true
                 		),
                 		'startingDate' => array(
-                				'type' => 'DATETIME'
+                				'type' => 'DATE'
                 		),
                 		'endingDate' => array(
+                				'type' => 'DATE'
+                		),
+                		'startingHour' => array(
+                				'type' => 'DATETIME'
+                		),
+                		'endingHour' => array(
                 				'type' => 'DATETIME'
                 		),
                 		'price' => array(
