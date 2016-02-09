@@ -1,6 +1,6 @@
 <div id="singleCourse">
 
-	<div class="pay-button" ng-controller="cartController as cart" ng-click="cart.addCourse(course.courseID)">
+	<div class="pay-button" ng-controller="cartController as cart" ng-click="cart.addCourse(course.courseInfo.courseID, course.courseInfo.price)">
 		<img src="imgs/iscriviti.png">
 	</div>
 	

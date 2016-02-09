@@ -83,9 +83,9 @@ main.run(['$rootScope','$location','$timeout','$server','$cookies','$window','$r
 	}
 	
 	$rootScope.cart = [
-	                   {courseId: 'java', price: "300"},
-	                   {courseId: '3DStudioMax', price: "450"},
-	                   {courseId: 'mobileApp', price: "250"}
+	                   {courseID: 'java', price: "300"},
+	                   {courseID: '3DStudioMax', price: "450"},
+	                   {courseID: 'mobileApp', price: "250"}
 	                  ];
 	
 	$rootScope.getUnseenNotifications = function()

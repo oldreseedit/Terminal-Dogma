@@ -12,7 +12,7 @@
 		                	<table class="table table-striped text-center">
 								<tr ng-repeat="item in cart.getCoursesToPay()">
 									<td align="left">
-										<span ng-bind="item.courseId"></span>
+										<span ng-bind="item.courseID"></span>
 										<span class="cart-item-price"><span ng-bind="item.price"></span> €</span>
 									</td>
 								</tr>
