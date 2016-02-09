@@ -163,6 +163,7 @@
     <script type="text/javascript" src="js/controllers/disclaimer.js"></script>
     <script type="text/javascript" src="js/controllers/preferences.js"></script>
     <script type="text/javascript" src="js/controllers/modifyPreference.js"></script>
+    <script type="text/javascript" src="js/controllers/cart.js"></script>
     
     <!-- endinjector -->
      

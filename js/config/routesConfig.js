@@ -105,6 +105,12 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     	controller: 'preferencesController as preferences'
     });
     
+    $routeProvider.when('/cart',{
+    	title: 'Carrello di reSeed',
+    	templateUrl : 'templates/cart.php',
+    	controller: 'cartController as cart'
+    });
+    
     // Register - Restricted
     
     $routeProvider.when('/register',{

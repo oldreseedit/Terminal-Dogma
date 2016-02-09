@@ -110,4 +110,18 @@
 	.course-info .details {
 		margin: 10px 0px;
 	}
+	
+	.pay-button {
+		position: fixed;
+		bottom: 10px;
+		right: 10px;
+		
+		img {
+			height: 100px;
+			
+			&:hover {
+    			opacity: .7;
+    		}
+		}
+	}
 }

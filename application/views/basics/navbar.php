@@ -69,6 +69,11 @@
 	                            			<i class="fa fa-cog fa-stack-2x"></i>
 	                            		</span>
 	                            	</a>
+	                            	<a title="Vai al carrello" ng-href="/cart" ng-controller="cartController">
+	                            		<span class="fa-stack clickable">
+	                            			<i class="fa fa-shopping-cart fa-stack-2x"></i>
+	                            		</span>
+	                            	</a>
 	                            	<a title="Accedi al registro" ng-href="/register" ng-if="admin">
 	                            		<span class="fa-stack clickable">
 	                            			<i class="fa fa-calendar fa-stack-2x"></i>

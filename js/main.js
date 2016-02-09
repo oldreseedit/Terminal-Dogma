@@ -82,6 +82,12 @@ main.run(['$rootScope','$location','$timeout','$server','$cookies','$window','$r
     	);
 	}
 	
+	$rootScope.cart = [
+	                   {courseId: 'java', price: "300"},
+	                   {courseId: '3DStudioMax', price: "450"},
+	                   {courseId: 'mobileApp', price: "250"}
+	                  ];
+	
 	$rootScope.getUnseenNotifications = function()
 	{
 		$server.post('notifications/get_unseen_user_notifications',{username: $rootScope.username}).then(

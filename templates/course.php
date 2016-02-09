@@ -1,4 +1,9 @@
 <div id="singleCourse">
+
+	<div class="pay-button" ng-controller="cartController as cart" ng-click="cart.addCourse(course.courseID)">
+		<img src="imgs/iscriviti.png">
+	</div>
+	
     <div class="container">
 		<div  ng-repeat="item in course.items" ng-init="index = $index">
 			<div class="clearfix" ng-if="course.isNewRow(index)"></div>

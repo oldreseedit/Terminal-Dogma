@@ -1932,12 +1932,12 @@ mark,
 }
 
 /* line 92, ../sass/bootstrap/_type.scss */
-.text-center, .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #navbar, #footer, #home #team, #singleCourse .panel-title, #singleActivity .panel-title, #register, #register .XP, #profile .panel-title, #profile .profile-level-symbol {
+.text-center, .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #cart, #navbar, #footer, #home #team, #singleCourse .panel-title, #singleActivity .panel-title, #register, #register .XP, #profile .panel-title, #profile .profile-level-symbol, #cart .panel-title {
   text-align: center;
 }
 
 /* line 93, ../sass/bootstrap/_type.scss */
-.text-justify, #singleCourse .gridster-item, #singleCourse .teacher-description, #singleActivity .gridster-item, #profile .gridster-item, .scrollbar-wrapper .scrollbar {
+.text-justify, #singleCourse .gridster-item, #singleCourse .teacher-description, #singleActivity .gridster-item, #profile .gridster-item, #cart .gridster-item, .scrollbar-wrapper .scrollbar {
   text-align: justify;
 }
 
@@ -9451,7 +9451,7 @@ button.close {
 }
 
 /* line 12, ../sass/_responsive.scss */
-.offset-15, .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #navbar #navbar-tabs, #navbar #navbar-profile, #payment .paymentStep, #faqPage .faqStep {
+.offset-15, .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #cart, #navbar #navbar-tabs, #navbar #navbar-profile, #payment .paymentStep, #faqPage .faqStep {
   margin-left: 15%;
 }
 
@@ -10320,7 +10320,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-70, .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #payment .paymentStep, #faqPage .faqStep {
+.col-70, .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #cart, #payment .paymentStep, #faqPage .faqStep {
   width: 70%;
   float: left;
 }
@@ -10800,7 +10800,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-100, #admin .admin-content, #navbar #navbar-logged, #footer, #footer #commercial-info, #home, #home #presentation #tiles-presentation, #home #presentation #tiles-presentation .inside-tab .tab-content, #home #team, #singleCourse .gridster-item, #singleCourse .panel-title, #singleCourse .panel-content, #singleCourse .teacher-icon .team-social-buttons, #singleCourse .teacher-avatar, #singleCourse .course-description-introduction, #singleCourse .course-description-syllabus, #singleCourse .course-description, #singleActivity .gridster-item, #singleActivity .panel-title, #singleActivity .panel-content, #media .media-panel, #media .media-panel .media-panel-title, #media .media-panel .media-panel-main, #register, #register .XP, #payment .stepLine, #payment .stepContent, #faqPage .stepLine, #faqPage .stepContent, #profile .gridster-item, #profile .panel-title, #profile .panel-content, #profile .profile-name-level-xp .profile-xp, #profile .profile-info, .scrollbar-wrapper, .wrapper, .mini-header {
+.col-100, #admin .admin-content, #navbar #navbar-logged, #footer, #footer #commercial-info, #home, #home #presentation #tiles-presentation, #home #presentation #tiles-presentation .inside-tab .tab-content, #home #team, #singleCourse .gridster-item, #singleCourse .panel-title, #singleCourse .panel-content, #singleCourse .teacher-icon .team-social-buttons, #singleCourse .teacher-avatar, #singleCourse .course-description-introduction, #singleCourse .course-description-syllabus, #singleCourse .course-description, #singleActivity .gridster-item, #singleActivity .panel-title, #singleActivity .panel-content, #media .media-panel, #media .media-panel .media-panel-title, #media .media-panel .media-panel-main, #register, #register .XP, #payment .stepLine, #payment .stepContent, #faqPage .stepLine, #faqPage .stepContent, #profile .gridster-item, #profile .panel-title, #profile .panel-content, #profile .profile-name-level-xp .profile-xp, #profile .profile-info, #cart .gridster-item, #cart .panel-title, #cart .panel-content, .scrollbar-wrapper, .wrapper, .mini-header {
   width: 100%;
   float: left;
 }
@@ -19431,19 +19431,19 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 /* line 152, ../sass/_tricks.scss */
-.in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences {
+.in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #cart {
   margin-bottom: 3vw;
 }
 @media all and (max-device-width: 1079px) {
   /* line 152, ../sass/_tricks.scss */
-  .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences {
+  .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #cart {
     width: 80%;
     margin-left: 10%;
   }
 }
 @media all and (max-device-width: 539px) {
   /* line 152, ../sass/_tricks.scss */
-  .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences {
+  .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #cart {
     width: 96%;
     margin-left: 2%;
   }
@@ -19523,12 +19523,12 @@ h1 {
 }
 
 /* line 8, ../sass/_palette.scss */
-.pond, #singleCourse a, #profile a {
+.pond, #singleCourse a, #profile a, #cart a {
   color: #4398a3;
 }
 
 /* line 9, ../sass/_palette.scss */
-.water, #singleCourse a:hover, #profile a:hover, #profile .profile-name-level-xp .seed-level span, #profile .profile-high-scores a:hover {
+.water, #singleCourse a:hover, #profile a:hover, #profile .profile-name-level-xp .seed-level span, #profile .profile-high-scores a:hover, #cart a:hover {
   color: #0c9e84;
 }
 
@@ -20391,6 +20391,20 @@ body {
 #singleCourse .course-info .details {
   margin: 10px 0px;
 }
+/* line 114, ../sass/_course.scss */
+#singleCourse .pay-button {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+/* line 119, ../sass/_course.scss */
+#singleCourse .pay-button img {
+  height: 100px;
+}
+/* line 122, ../sass/_course.scss */
+#singleCourse .pay-button img:hover {
+  opacity: .7;
+}
 
 /* line 1, ../sass/_activities.scss */
 #activities {
@@ -20743,6 +20757,45 @@ body {
 /* line 62, ../sass/_preferences.scss */
 #address .form-group {
   width: 40%;
+}
+
+/* line 4, ../sass/_cart.scss */
+#cart a {
+  text-decoration: none;
+}
+/* line 18, ../sass/_cart.scss */
+#cart .no-gridster-item {
+  margin-bottom: 1em;
+}
+/* line 22, ../sass/_cart.scss */
+#cart .panel-title {
+  font-variant: small-caps;
+}
+/* line 28, ../sass/_cart.scss */
+#cart .panel-content {
+  padding: 26px 10px 26px 10px;
+}
+/* line 33, ../sass/_cart.scss */
+#cart .cart-item {
+  float: left;
+}
+/* line 37, ../sass/_cart.scss */
+#cart .cart-item-price {
+  float: right;
+}
+/* line 41, ../sass/_cart.scss */
+#cart .cart-total {
+  width: 100%;
+  text-align: right;
+  margin-bottom: 20px;
+}
+/* line 46, ../sass/_cart.scss */
+#cart .cart-total * {
+  display: inline;
+}
+/* line 51, ../sass/_cart.scss */
+#cart .pay-button {
+  float: right;
 }
 
 /* @import "sham-spinner"; */
@@ -21102,21 +21155,21 @@ body {
   border: 1.5px solid #B3B2B3;
 }
 
-/* line 43, ../sass/_reseed.scss */
+/* line 44, ../sass/_reseed.scss */
 #main {
   width: 100%;
 }
 
-/* line 51, ../sass/_reseed.scss */
+/* line 52, ../sass/_reseed.scss */
 .mini-header {
   margin-bottom: 2em;
 }
-/* line 55, ../sass/_reseed.scss */
+/* line 56, ../sass/_reseed.scss */
 .mini-header img {
   width: 100%;
 }
 
-/* line 74, ../sass/_reseed.scss */
+/* line 75, ../sass/_reseed.scss */
 .fa-stack-10x {
   position: relative;
   display: inline-block;
