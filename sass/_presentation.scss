@@ -80,4 +80,34 @@
 		}
     }
     
+    #tiles-experience{
+    
+    	margin-top: 2em;
+    	margin-bottom: 2em;
+    
+    	#presentation-gain, #presentation-unlock {
+    		@extend .col-45;
+    		@extend .bg-green;
+    		@extend .black;
+    	}
+    	
+    	#presentation-unlock {
+    		@extend .offset-10;
+    	}
+    	
+    	.gain-icon, .unlock-icon{
+    		@extend .col-30;
+    	}
+    	.experience-content{
+    		@extend .col-60;
+    		@extend .offset-5;
+    	}
+    	.gain-icon{
+    		@extend .offset-5;
+    	}
+    	.unlock-icon{
+			margin-right: 5%;
+    	}
+    }
+    
 }

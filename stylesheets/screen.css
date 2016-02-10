@@ -9291,7 +9291,7 @@ button.close {
 }
 
 /* line 12, ../sass/_responsive.scss */
-.offset-5, #home #presentation #tiles-presentation .inside-tab, #home #presentation #tiles-presentation .inside-tab .title-wrapper, #home #presentation #news-events .news-icon, #singleCourse .course-notification-text, #singleCourse .teacher-description, #media .media-panel .media-panel-main .media-navbar, #profile .profile-name-level-xp {
+.offset-5, #home #presentation #tiles-presentation .inside-tab, #home #presentation #tiles-presentation .inside-tab .title-wrapper, #home #presentation #news-events .news-icon, #home #presentation #tiles-experience .experience-content, #home #presentation #tiles-experience .gain-icon, #singleCourse .course-notification-text, #singleCourse .teacher-description, #media .media-panel .media-panel-main .media-navbar, #profile .profile-name-level-xp {
   margin-left: 5%;
 }
 
@@ -9371,7 +9371,7 @@ button.close {
 }
 
 /* line 12, ../sass/_responsive.scss */
-.offset-10, #home #team #team-wrapper .team-social-buttons, #singleCourse .material-content {
+.offset-10, #home #presentation #tiles-experience #presentation-unlock, #home #team #team-wrapper .team-social-buttons, #singleCourse .material-content {
   margin-left: 10%;
 }
 
@@ -9680,7 +9680,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-30, #singleCourse .course-notification-date, #singleCourse .teacher-icon, #contacts #contact-form #contacts-submit, #payment-disclaimer-modal form #payment-disclaimer-submit, #payment-disclaimer-modal form #payment-disclaimer-cancel, #profile .profile-level-symbol, .modal-wrapper form .modal-submit, .modal-wrapper form .modal-cancel {
+.col-30, #home #presentation #tiles-experience .gain-icon, #home #presentation #tiles-experience .unlock-icon, #singleCourse .course-notification-date, #singleCourse .teacher-icon, #contacts #contact-form #contacts-submit, #payment-disclaimer-modal form #payment-disclaimer-submit, #payment-disclaimer-modal form #payment-disclaimer-cancel, #profile .profile-level-symbol, .modal-wrapper form .modal-submit, .modal-wrapper form .modal-cancel {
   width: 30%;
   float: left;
 }
@@ -9920,7 +9920,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-45 {
+.col-45, #home #presentation #tiles-experience #presentation-gain, #home #presentation #tiles-experience #presentation-unlock {
   width: 45%;
   float: left;
 }
@@ -10160,7 +10160,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-60, #singleCourse .teacher-avatar .circle-img, #singleCourse .teacher-avatar .avatar, #singleCourse .teacher-description, #media .media-panel .media-panel-main .media-content {
+.col-60, #home #presentation #tiles-experience .experience-content, #singleCourse .teacher-avatar .circle-img, #singleCourse .teacher-avatar .avatar, #singleCourse .teacher-description, #media .media-panel .media-panel-main .media-content {
   width: 60%;
   float: left;
 }
@@ -19653,7 +19653,7 @@ h1 {
 }
 
 /* line 37, ../sass/_palette.scss */
-.black, #home #presentation #tiles-presentation .inside-tab p, #home #presentation #news-events a {
+.black, #home #presentation #tiles-presentation .inside-tab p, #home #presentation #news-events a, #home #presentation #tiles-experience #presentation-gain, #home #presentation #tiles-experience #presentation-unlock {
   color: black;
 }
 
@@ -19679,7 +19679,7 @@ h1 {
 }
 
 /* line 46, ../sass/_palette.scss */
-.bg-green {
+.bg-green, #home #presentation #tiles-experience #presentation-gain, #home #presentation #tiles-experience #presentation-unlock {
   background-color: #4caf52;
 }
 
@@ -20254,6 +20254,15 @@ body {
 /* line 74, ../sass/_presentation.scss */
 #home #presentation #news-events a {
   text-decoration: none;
+}
+/* line 83, ../sass/_presentation.scss */
+#home #presentation #tiles-experience {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+/* line 108, ../sass/_presentation.scss */
+#home #presentation #tiles-experience .unlock-icon {
+  margin-right: 5%;
 }
 /* line 1, ../sass/_team.scss */
 #home #team {

@@ -78,7 +78,6 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     
     $routeProvider.when('/courses/:courseID',{
         templateUrl : 'templates/course.php',
-        description: '',
         controller : 'courseController as course',
     });
     
