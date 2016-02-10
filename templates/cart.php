@@ -24,7 +24,7 @@
 							</div>
 							
 							<div>
-								<button class="btn btn-success pay-button" ng-click="cart.pay()">Paga</button>
+								<button class="btn btn-success pay-button" ng-class="{disabled: cart.getTotalPrice() <= 0}" ng-click="cart.pay()">Paga</button>
 							</div>
 	       				</div>
 	                </div>

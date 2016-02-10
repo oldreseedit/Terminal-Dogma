@@ -4,7 +4,6 @@ main.factory('cartService',['inform', function(inform){
 	cart.addCourse = function (courseID, price){
     	inform.add("Hai aggiunto " + courseID + " al carrello.");
     	cart.push({courseID: courseID, price: price});
-    	console.log("Corsi nel carrello: ", cart);
     }
     
 	cart.getCoursesToPay = function()
