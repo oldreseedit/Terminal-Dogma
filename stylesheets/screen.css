@@ -20396,12 +20396,13 @@ body {
   position: fixed;
   bottom: 10px;
   right: 10px;
+  cursor: pointer;
 }
-/* line 119, ../sass/_course.scss */
+/* line 120, ../sass/_course.scss */
 #singleCourse .pay-button img {
   height: 100px;
 }
-/* line 122, ../sass/_course.scss */
+/* line 123, ../sass/_course.scss */
 #singleCourse .pay-button img:hover {
   opacity: .7;
 }
