@@ -131,4 +131,13 @@ body {
     	left: -1.3em;
     }
     
+    .number-of-cart-items{
+    	@extend .bolder;
+    	top: -0.8em;
+    	left: -1.3em;
+    }
+    
+    .cart-not-empty{
+		@include light-olive;
+    }
 }

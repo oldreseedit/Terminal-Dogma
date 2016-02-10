@@ -1,9 +1,5 @@
 main.factory('cartService',['inform', function(inform){
-	var cart = [
-                {courseID: 'java', price: "300"},
-                {courseID: '3DStudioMax', price: "450"},
-                {courseID: 'mobileApp', price: "250"}
-               ];
+	var cart = [];
 	
 	cart.addCourse = function (courseID, price){
     	inform.add("Hai aggiunto " + courseID + " al carrello.");

@@ -69,11 +69,14 @@
 	                            			<i class="fa fa-cog fa-stack-2x"></i>
 	                            		</span>
 	                            	</a>
-	                            	<a title="Vai al carrello" ng-href="/cart" ng-controller="cartController">
+	                            	
+	                            	<a title="Vai al carrello" ng-href="/cart" ng-class="{'cart-not-empty': cart.getCoursesToPay().length>0}">
 	                            		<span class="fa-stack clickable">
 	                            			<i class="fa fa-shopping-cart fa-stack-2x"></i>
+	                            			<i class="fa-stack-1x number-of-cart-items" ng-if="cart.getCoursesToPay().length>0"><span ng-bind="cart.getCoursesToPay().length" ></span></i>
 	                            		</span>
 	                            	</a>
+	                            	
 	                            	<a title="Accedi al registro" ng-href="/register" ng-if="admin">
 	                            		<span class="fa-stack clickable">
 	                            			<i class="fa fa-calendar fa-stack-2x"></i>

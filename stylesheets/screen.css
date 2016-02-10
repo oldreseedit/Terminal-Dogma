@@ -19492,7 +19492,7 @@ h1 {
 }
 
 /* line 49, ../sass/_fonts.scss */
-.bolder, #navbar .number-of-notifications, #profile .profile-name-level-xp .seed-level {
+.bolder, #navbar .number-of-notifications, #navbar .number-of-cart-items, #profile .profile-name-level-xp .seed-level {
   font-weight: 900;
 }
 
@@ -20059,6 +20059,15 @@ body {
   top: -0.8em;
   left: -1.3em;
 }
+/* line 134, ../sass/_navbar.scss */
+#navbar .number-of-cart-items {
+  top: -0.8em;
+  left: -1.3em;
+}
+/* line 140, ../sass/_navbar.scss */
+#navbar .cart-not-empty {
+  color: #C9E113;
+}
 
 /* line 1, ../sass/_header.scss */
 #header {
@@ -20396,13 +20405,12 @@ body {
   position: fixed;
   bottom: 10px;
   right: 10px;
-  cursor: pointer;
 }
-/* line 120, ../sass/_course.scss */
+/* line 119, ../sass/_course.scss */
 #singleCourse .pay-button img {
   height: 100px;
 }
-/* line 123, ../sass/_course.scss */
+/* line 122, ../sass/_course.scss */
 #singleCourse .pay-button img:hover {
   opacity: .7;
 }

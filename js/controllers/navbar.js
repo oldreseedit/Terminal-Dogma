@@ -1,5 +1,7 @@
-main.controller('navbarController',['utilities','$timeout','$window','$uibModal','$rootScope','$cookies','$location', function(utilities,$timeout,$window,$uibModal,$rootScope,$cookies,$location){
+main.controller('navbarController',['utilities','$timeout','$window','$uibModal','$rootScope','$cookies','$location','$scope','cartService', function(utilities,$timeout,$window,$uibModal,$rootScope,$cookies,$location,$scope,cartService){
     var self = this;
+
+    $scope.cart = cartService;
     
     self.tabs = [
         {
