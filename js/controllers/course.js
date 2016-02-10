@@ -1,4 +1,4 @@
-main.controller('courseController',['utilities','$scope','$server','$routeParams','uiCalendarConfig','$timeout','$route','$cookies','inform','$rootScope',function(utilities,$scope,$server,$routeParams,uiCalendarConfig,$timeout,$route,$cookies,inform,$rootScope){
+main.controller('courseController',['utilities','$scope','$server','$routeParams','uiCalendarConfig','$timeout','$route','$cookies','inform','$rootScope','cartService',function(utilities,$scope,$server,$routeParams,uiCalendarConfig,$timeout,$route,$cookies,inform,$rootScope,cartService){
     var self = this;
     
     /* CONFIG */
@@ -36,6 +36,10 @@ main.controller('courseController',['utilities','$scope','$server','$routeParams
     var scrollbarsCreated = false;
     
     /* METHODS */
+    
+    self.addCourse = function (courseID, price){
+    	cartService.addCourse(courseID, price);
+    }
     
     $scope.changeView = function(viewName){
         uiCalendarConfig.calendars['register'].fullCalendar('changeView',viewName);

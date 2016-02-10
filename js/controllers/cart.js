@@ -1,27 +1,16 @@
-main.controller('cartController',['$rootScope','utilities','inform',function($rootScope,utilities,inform){
+main.controller('cartController',['$rootScope','utilities','inform','cartService',function($rootScope,utilities,inform,cartService){
     var self = this;
-    
-    self.addCourse = function (courseID, price){
-    	inform.add("Hai aggiunto " + courseID + " al carrello.");
-    	$rootScope.cart.push({courseID: courseID, price: price});
-    	console.log("Corsi nel carrello: ", $rootScope.cart);
-    }
     
     self.getCoursesToPay = function()
     {
-    	return $rootScope.cart;
+    	return cartService.getCoursesToPay();
     }
     
     self.pay = function(){
-    	console.log($rootScope.cart);
+    	cartService.pay();
     }
     
     self.getTotalPrice = function(){
-    	var total = 0;
-    	
-    	for(var i=0; i<$rootScope.cart.length; i++)
-    		total += parseInt($rootScope.cart[i].price);
-    	
-    	return total;
+    	return cartService.getTotalPrice();
     }
 }]);
