@@ -21,6 +21,7 @@ main.factory('$server',['$http','inform',function($http,inform){
 		this.promise.then(function(response){
 			
 			if(self.showInform){
+				console.log(response);
 				if(response.data.error) inform.add(response.data.description,{type: 'danger'});
 			}
 			if(response) if(successFn && !response.data.error) successFn(response);

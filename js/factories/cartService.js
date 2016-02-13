@@ -91,6 +91,7 @@ main.factory('cartService',['inform','$cookies','moment','$server', function(inf
     	return total;
     }
 	
+	if($cookies.get('username'))
 	$server.post('users/get_total_discount',{username : $cookies.get('username')}).then(
 			function(response)
 			{

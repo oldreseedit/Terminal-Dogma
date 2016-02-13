@@ -1,31 +1,34 @@
-main.controller('newsController',['$server','$scope',function($server,$scope){
+main.controller('newsController',['$server','$scope','$cookies',function($server,$scope,$cookies){
 	var self = this;
 	
 	self.news = [];
 	
-	self.getAjax = $server.post('/news/get_latest_news', {top: 2}).then(
-			function(response)
-			{
-				angular.forEach(response.data, function(n){
-						n['type'] = 'news';
-						self.news.unshift(n);
-				});
-				self.newsByRow = self.getNewsByRow();
-//				console.log(self.news);
-			}
-	);
-	
-	self.getAjax = $server.post('/events/get_latest_events', {top: 2}).then(
-			function(response)
-			{
-				angular.forEach(response.data, function(e){
-					e['type'] = 'event';
-					self.news.push(e);
-				});
-				self.newsByRow = self.getNewsByRow();
-//				console.log(self.news);
-			}
-	);
+	if($cookies.get('username'))
+	{
+		self.getAjax = $server.post('/news/get_latest_news', {top: 2}).then(
+				function(response)
+				{
+					angular.forEach(response.data, function(n){
+							n['type'] = 'news';
+							self.news.unshift(n);
+					});
+					self.newsByRow = self.getNewsByRow();
+	//				console.log(self.news);
+				}
+		);
+		
+		self.getAjax = $server.post('/events/get_latest_events', {top: 2}).then(
+				function(response)
+				{
+					angular.forEach(response.data, function(e){
+						e['type'] = 'event';
+						self.news.push(e);
+					});
+					self.newsByRow = self.getNewsByRow();
+	//				console.log(self.news);
+				}
+		);
+	}
 	
 	self.getNewsByRow = function()
 	{
