@@ -48,4 +48,14 @@
         margin-top: 2em;
     }
     
+    .message-with-symbol {
+    	padding: 8px 16px;
+    	vertical-align: middle;
+    	
+    	div {
+    		display: table-cell;
+    		vertical-align: middle;
+    		text-align: justify;
+    	}
+    }
 }

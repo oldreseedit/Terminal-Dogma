@@ -21,6 +21,10 @@ main.controller('disclaimerController',['utilities',function(utilities){
         {
         	title: 'Pagamenti online tramite PayPal',
         	content: 'reSeed offre la possibilità di effettuare il pagamento di uno o più corsi tramite apposito pulsante PayPal. E’ cura dell’utente leggere accuratamente i termini d’uso di Paypal al seguente indirizzo <a href=”https://www.paypal.com/it/webapps/mpp/ua/useragreement-full” target=”_”>https://www.paypal.com/it/webapps/mpp/ua/useragreement-full</a>.'
+        },
+        {
+        	title: 'Informazioni sui corsi',
+        	content: 'Ciascun corso viene effettivamente svolto a condizione di aver raccolto almeno 5 iscrizioni. Le iscrizioni sono aperte tutto l\'anno e fino a un mese prima dell\'inizio del corso. Qualora non si raggiungesse la quota minima di iscrizioni fissata, coloro che avessero già pagato l\'iscrizione verrebbero rimborsati.'
         }
     ];
     

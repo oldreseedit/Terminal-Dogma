@@ -7,6 +7,7 @@ main.controller('courseController',['utilities','$scope','$server','$routeParams
     $route.current.locals.username = self.username; // For modal and GridsterResizer
     
     self.courseID = $routeParams.courseID;
+    self.subscribed = false;
     
     // Role-based access
     if($rootScope.admin == true) self.hasAccessToMaterial = true; 
@@ -37,8 +38,21 @@ main.controller('courseController',['utilities','$scope','$server','$routeParams
     
     /* METHODS */
     
-    self.addCourse = function (courseID, price){
-    	cartService.addCourse(courseID, price);
+    self.addCourse = function (){
+    	cartService.addCourse(
+    			{
+    				courseID: self.courseInfo.courseID,
+    				courseName: self.courseName,
+    				price: self.courseInfo.price,
+    				simulation: self.hasSimulation,
+    				paySimulation: true,
+    				simulationPrice: self.courseInfo.simulationPrice
+    			}
+    	);
+    }
+    
+    self.isInCart = function() {
+    	return cartService.isInCart(self.courseID);
     }
     
     $scope.changeView = function(viewName){
@@ -268,7 +282,11 @@ main.controller('courseController',['utilities','$scope','$server','$routeParams
 			
 		    for(var i=0; i<self.tempCourses.length; i++)
 		    {
-			   	if(self.tempCourses[i] === self.courseID) self.hasAccessToMaterial = true;
+			   	if(self.tempCourses[i] === self.courseID)
+			   	{
+			   		self.hasAccessToMaterial = true;
+			   		self.subscribed = true;
+			   	}
 		    }
 		}
 	);

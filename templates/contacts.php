@@ -35,6 +35,17 @@
                         </ul>
                     </li>
                 </ul>
+                
+                <div class="message-with-symbol">
+                	<div><i class="fa fa-2x fa-pull-left text-danger fa-exclamation-circle"></i></div>
+                	<div class="text-align"><strong>Nota:</strong> I corsi si svolgono presso le aule del Centro Studi Castro Pretorio, all'interno di un grande consorzio. Per accedere alla palazzina del centro studi <strong>chiedere al portiere</strong>.</div>
+                </div>
+                
+                <div class="message-with-symbol">
+                	<div><i class="fa fa-2x fa-pull-left text-primary fa-info-circle"></i></div>
+                	<div class="text-align">Il consorzio offre ampia disponibilità di <strong>parcheggio per motorini e auto</strong>!</div>
+                </div>
+                
                 <div id="contacts-map" ng-if="contacts.mapIsReady">
                     <ui-gmap-google-map center="contacts.map.center" zoom="contacts.map.zoom" options="contacts.map.options" control="contacts.map.control">
                         <ui-gmap-marker idKey="contacts.marker.id" coords="contacts.marker.coords" options="contacts.marker.options">

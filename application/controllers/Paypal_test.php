@@ -1,5 +1,7 @@
 <?php
 
+require_once(APPPATH.'libraries/PayPal-PHP-SDK/autoload.php');
+
 class Paypal_test extends CI_Controller {
 
 	public function __construct()
@@ -7,7 +9,7 @@ class Paypal_test extends CI_Controller {
             parent::__construct();
     }
 
-	public function index()
+	public function pay()
 	{
 		$apiContext = new ApiContext(new OAuthTokenCredential(
 				"<CLIENT_ID>", "<CLIENT_SECRET>"));

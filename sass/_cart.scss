@@ -30,25 +30,64 @@
         padding: 26px 10px 26px 10px;
     }
     
-    .cart-item{
-    	float:left;
-    }
-    
     .cart-item-price{
     	float:right;
+    }
+    
+    input[type="checkbox"]{
+    	display: inline-block;
+    	width: auto;
+    	height: auto;
     }
     
     .cart-total {
     	width:100%;
     	text-align:right;
-    	margin-bottom: 20px;
+    	margin: 10px 0;
     	
     	* {
     		display:inline;
     	}
     }
     
+    .cart-grand-total {
+    	@extend .cart-total;
+    	font-size: 1.2em;
+    }
+    
+    .cart-subitem {
+    	vertical-align: text-bottom;
+    }
+    
     .pay-button{
     	float: right;
+    }
+    
+    .price-cancelled {
+    	text-decoration: line-through;
+	}
+    
+    .choice-text {
+    	text-align: left;
+    	margin-bottom: 1.5em;
+    }
+    
+    .cart-buttons {
+    	margin-top: 3em;
+    }
+    
+    .empty-button{
+    	float: left;
+    }
+    
+    td {
+    	vertical-align: middle;
+    }
+    
+    select {
+    	font-weight: bold;
+    	float: right;
+    	text-align: center;
+    	padding: 0.5em 1em;
     }
 }

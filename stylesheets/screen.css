@@ -20534,6 +20534,17 @@ body {
 #contacts .distant {
   margin-top: 2em;
 }
+/* line 51, ../sass/_contacts.scss */
+#contacts .message-with-symbol {
+  padding: 8px 16px;
+  vertical-align: middle;
+}
+/* line 55, ../sass/_contacts.scss */
+#contacts .message-with-symbol div {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: justify;
+}
 
 /* line 1, ../sass/_register.scss */
 #register {
@@ -20794,26 +20805,64 @@ body {
   padding: 26px 10px 26px 10px;
 }
 /* line 33, ../sass/_cart.scss */
-#cart .cart-item {
-  float: left;
-}
-/* line 37, ../sass/_cart.scss */
 #cart .cart-item-price {
   float: right;
 }
-/* line 41, ../sass/_cart.scss */
-#cart .cart-total {
+/* line 37, ../sass/_cart.scss */
+#cart input[type="checkbox"] {
+  display: inline-block;
+  width: auto;
+  height: auto;
+}
+/* line 43, ../sass/_cart.scss */
+#cart .cart-total, #cart .cart-grand-total {
   width: 100%;
   text-align: right;
-  margin-bottom: 20px;
+  margin: 10px 0;
 }
-/* line 46, ../sass/_cart.scss */
-#cart .cart-total * {
+/* line 48, ../sass/_cart.scss */
+#cart .cart-total *, #cart .cart-grand-total * {
   display: inline;
 }
-/* line 51, ../sass/_cart.scss */
+/* line 53, ../sass/_cart.scss */
+#cart .cart-grand-total {
+  font-size: 1.2em;
+}
+/* line 58, ../sass/_cart.scss */
+#cart .cart-subitem {
+  vertical-align: text-bottom;
+}
+/* line 62, ../sass/_cart.scss */
 #cart .pay-button {
   float: right;
+}
+/* line 66, ../sass/_cart.scss */
+#cart .price-cancelled {
+  text-decoration: line-through;
+}
+/* line 70, ../sass/_cart.scss */
+#cart .choice-text {
+  text-align: left;
+  margin-bottom: 1.5em;
+}
+/* line 75, ../sass/_cart.scss */
+#cart .cart-buttons {
+  margin-top: 3em;
+}
+/* line 79, ../sass/_cart.scss */
+#cart .empty-button {
+  float: left;
+}
+/* line 83, ../sass/_cart.scss */
+#cart td {
+  vertical-align: middle;
+}
+/* line 87, ../sass/_cart.scss */
+#cart select {
+  font-weight: bold;
+  float: right;
+  text-align: center;
+  padding: 0.5em 1em;
 }
 
 /* @import "sham-spinner"; */

@@ -25,6 +25,14 @@ main.controller('faqController',['utilities',function(utilities){
         {
             question : 'Sono interessato a un corso ma non posso seguirlo in quegli orari/giorni',
             answer : 'Scrivici! Se si riesce a radunare un numero di studenti sufficiente è spesso possibile attivare un’altra classe!'
+        },
+        {
+        	question : 'A quali condizioni parte un corso? Cosa succede se mi sono iscritto un corso che ha pochi studenti?',
+        	answer: 'Un corso parte con almeno 5 iscrizioni. Qualora non si raggiungesse il numero minimo fissato, gli iscritti verranno rimborsati.'
+        },
+        {
+        	question: 'Entro quando posso iscrivermi?',
+        	answer: 'Le iscrizioni sono aperte fino a un mese prima dell\'effettiva partenza di un corso. Puoi iscriverti tutto l\'anno!'
         }
     ];
     

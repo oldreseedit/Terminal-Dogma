@@ -20,6 +20,10 @@ class Seedon_model extends CI_Model
 						'type' => 'INT',
                     	'auto_increment' => TRUE
                 ),
+				'username' => array(
+						'type' => 'VARCHAR',
+						'constraint' => 30
+				),
 				'seedon' => array(
 						'type' => 'CHAR',
 						'constraint' => 32,
@@ -37,6 +41,13 @@ class Seedon_model extends CI_Model
 						'constraint' => 1024,
 						'null' => true
 				),
+				'data' => array(
+						'type' => 'DOUBLE',
+				),
+				'tag' => array(
+						'type' => 'VARCHAR',
+						'constraint' => 30,
+				),
 				'used' => array(
 						'type' => 'TINYINT',
 				),
@@ -48,12 +59,14 @@ class Seedon_model extends CI_Model
 		$this->dbforge->create_table(self::table_name);
 	}
 	
-	public function save($userID, $randomSeedon, $description = null, $startingDate = null, $endingDate = null, $tag = null)
+	public function save($userID, $randomSeedon, $seedonData, $description = null, $startingDate = null, $endingDate = null, $tag = null)
 	{
 		$data = array();
 		
 		$data['username'] = $userID;
 		$data['seedon'] = $randomSeedon;
+		$data['data'] = $seedonData;
+		
 		$data['used'] = false;
 		
 		if($description != null) $data['description'] = $description;
@@ -64,9 +77,9 @@ class Seedon_model extends CI_Model
 		$this->db->insert(self::table_name, $data);
 	}
 	
-	public function use_random_seedon($seedonID)
+	public function use_seedon($seedonID)
 	{
-		$this->db->where('seedonID', $seedonID)->update('seen', true);
+		$this->db->where('seedonID', $seedonID)->update(self::table_name, array('used' => true));
 	}
 	
 	public function get($userID)
