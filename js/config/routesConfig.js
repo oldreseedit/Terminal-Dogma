@@ -1,10 +1,18 @@
 main.run(['$rootScope', function($rootScope) {
     $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
     	console.log(current);
-        $rootScope.title = current.$$route.title;
-        $rootScope.description = current.$$route.description;
-        $rootScope.ogUrl = 'https://www.reseed.it/' + current.$$route.originalPath;
-        // ogImg
+    	if(current.$$route)
+    	{
+            $rootScope.title = current.$$route.title;
+            $rootScope.description = current.$$route.description;
+            $rootScope.ogUrl = 'https://www.reseed.it/' + current.$$route.originalPath;    		
+            // ogImg
+    	}
+    	else
+    	{
+    		$rootScope.title = 'Pagina Inesistente';
+    		$rootScope.description = 'Eh, se non esiste non esiste.';
+    	}
     });
 }]);
 
@@ -129,7 +137,7 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     });
     
     $routeProvider.otherwise({
-    	templateUrl : 'templates/error.php'
+    	templateUrl : 'templates/error.php',
     });
     
 }]);
