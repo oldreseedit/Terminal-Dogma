@@ -103,6 +103,14 @@ main.controller('profileController',['$scope','$server','$routeParams','$route',
     }
     
     /* PROPER OBJECTS AND METHODS */
+    
+    self.userInfo = $server.post('preferences/get',{userID: self.username}).then(
+    		function(response)
+    		{
+//    			console.log(response.data);
+    			self.visible = response.data.profileVisibility === '1' ? true : false;
+    		}
+    );
 
     // Loading Avatar 
     
