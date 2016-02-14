@@ -139,14 +139,6 @@ main.run(['$rootScope','$location','$timeout','$server','$cookies','$window','$r
     }
     else $rootScope.userVerified = false;    
     
-    /* ANGULAR GRIDSTER */
-    
-    gridsterConfig.swapping = true;
-    gridsterConfig.mobileBreakPoint = 600;
-    // gridsterConfig.rowHeight = '*3.236';
-    gridsterConfig.columns = 12;
-    gridsterConfig.draggable.handle = '.panel-title';
-    
     // For scrolling at top when view changes
     
     $rootScope.$on('$routeChangeStart', function(event,next)

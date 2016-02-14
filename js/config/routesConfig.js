@@ -1,7 +1,10 @@
 main.run(['$rootScope', function($rootScope) {
     $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
+    	console.log(current);
         $rootScope.title = current.$$route.title;
         $rootScope.description = current.$$route.description;
+        $rootScope.ogUrl = 'https://www.reseed.it/' + current.$$route.originalPath;
+        // ogImg
     });
 }]);
 

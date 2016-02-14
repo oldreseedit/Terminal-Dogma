@@ -172,22 +172,22 @@ main.factory('utilities',function(){
         var colour = '';
         switch (module) {
             case 0:
-                colour = 'light-olive';
+                colour = 'olive';
                 break;
             case 1:
-                colour = 'light-lawn';
+                colour = 'lawn';
                 break;
             case 2:
-                colour = 'light-green';
+                colour = 'green';
                 break;
             case 3:
-                colour = 'light-leaf';
+                colour = 'leaf';
                 break;
             case 4:
-                colour = 'light-pond';
+                colour = 'pond';
                 break;
             case 5:
-                colour = 'light-water';
+                colour = 'water';
                 break;
         }
         return colour;
