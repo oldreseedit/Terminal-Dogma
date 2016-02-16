@@ -70,10 +70,10 @@
 	                            		</span>
 	                            	</a>
 	                            	
-	                            	<a title="Vai al carrello" ng-href="/cart" ng-class="{'cart-not-empty': cart.getCoursesToPay().length>0}">
+	                            	<a title="Vai al carrello" ng-href="/cart" ng-class="{'cart-not-empty': cart.getCart().items.length > 0}">
 	                            		<span class="fa-stack clickable">
 	                            			<i class="fa fa-shopping-cart fa-stack-2x"></i>
-	                            			<i class="fa-stack-1x number-of-cart-items" ng-if="cart.getCoursesToPay().length>0"><span ng-bind="cart.getCoursesToPay().length" ></span></i>
+	                            			<i class="fa-stack-1x number-of-cart-items" ng-if="cart.getCart().items.length > 0"><span ng-bind="cart.getCart().items.length" ></span></i>
 	                            		</span>
 	                            	</a>
 	                            	

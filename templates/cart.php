@@ -9,11 +9,11 @@
                 <div class="scrollbar-wrapper">
 	        		<div class="panel-content">
 	                	<div class="container">
-	                		<div ng-if="cart.getCoursesToPay().length == 0">Non ci sono corsi nel tuo carrello.</div>
+	                		<div ng-if="cart.getCart().items.length == 0">Non ci sono corsi nel tuo carrello.</div>
 		                	
-		                	<div ng-if="cart.getCoursesToPay().length > 0">
+		                	<div ng-if="cart.getCart().items.length > 0">
 			                	<table class="table table-striped text-center">
-									<tr ng-repeat="item in cart.getCoursesToPay()">
+									<tr ng-repeat="item in cart.getCart().items">
 										<td align="left">
 											<div>
 											<strong>Corso</strong>: <span ng-bind="item.courseName"></span>
@@ -82,7 +82,7 @@
 								</div>
 								
 								<div class="cart-buttons">
-									<button class="btn btn-danger empty-button" ng-disabled="cart.getCoursesToPay() <= 0" ng-click="cart.emptyCart()">Svuota il carrello</button>
+									<button class="btn btn-danger empty-button" ng-disabled="cart.getCart().items.length <= 0" ng-click="cart.emptyCart()">Svuota il carrello</button>
 									<button class="btn btn-success pay-button" ng-disabled="cart.getCoursesToPay() <= 0 || cart.getCart().options.paymentCycleChosen == null || cart.getCart().options.paymentMediaChosen == null" ng-click="cart.pay()">Paga</button>
 								</div>
 							</div>

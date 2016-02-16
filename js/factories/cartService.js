@@ -30,7 +30,17 @@ main.factory('cartService',['inform','$cookies','moment','$server', function(inf
     
 	cart.getCoursesToPay = function()
     {
-    	return cart.items;
+		var num = 0;
+		
+		for(var i=0; i<cart.items.length; i++)
+		{
+			if(cart.items[i].paySimulation) num += 1;
+			if(cart.items[i].payCourse) num += 1;
+		}
+		
+		console.log("NUM", num);
+		
+		return num;
     }
 	
 	cart.isInCart = function(courseID)

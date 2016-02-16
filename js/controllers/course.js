@@ -41,6 +41,12 @@ main.controller('courseController',['utilities','$scope','$server','$routeParams
     /* METHODS */
     
     self.addCourse = function (){
+    	if(self.username == null)
+    	{
+    		inform.add('Non risulti essere iscritto a reSeed. <div>Per iscriverti clicca sul pulsante "<emph>REGISTRATI</emph>" in alto a destra!</div>',{type: 'danger', "html": true});
+    		return;
+    	}
+    	
     	cartService.addCourse(
     			{
     				courseID: self.courseInfo.courseID,
