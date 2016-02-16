@@ -100,7 +100,7 @@ main.factory('cartService',['inform','$cookies','moment','$server', function(inf
     	for(var i=0; i<cart.items.length; i++)
     	{
     		if(cart.items[i].payCourse) total += parseFloat(cart.items[i].price);
-    		if(cart.items[i].paySimulation) total += parseFloat(cart.items[i].simulationPrice);
+    		if(cart.items[i].paySimulation && cart.items[i].simulationPrice) total += parseFloat(cart.items[i].simulationPrice);
     	}
     	
     	return total;
