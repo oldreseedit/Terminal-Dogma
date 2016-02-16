@@ -213,14 +213,14 @@ module.exports = function(grunt) {
                   '/faq',
                   '/privacy',
                   '/disclaimer',
-                  '/courses/java',
-                  '/courses/mobileApp',
-                  '/courses/HCJS',
-                  '/courses/MVCDevelopment',
-                  '/courses/gameDesign',
-                  '/courses/gameMaker',
-                  '/courses/gamesForDummies',
-                  '/courses/3DStudioMax',
+                  '/courses/java2016',
+                  '/courses/mobileApp2016',
+                  '/courses/HCJS2016',
+                  '/courses/MVCDevelopment2016',
+                  '/courses/gameDesign2016',
+                  '/courses/gameMaker2016',
+                  '/courses/gamesForDummies2016',
+                  '/courses/3DStudioMax2016',
                 ]
               }
             }

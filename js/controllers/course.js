@@ -3,6 +3,8 @@ main.controller('courseController',['utilities','$scope','$server','$routeParams
     
     /* CONFIG */
     
+    $rootScope.ogImage = 'https://www.reseed.it/' + 'imgs/fb/' + $routeParams.courseID + ".png";
+    
     self.username = $cookies.get('username') || null;
     $route.current.locals.username = self.username; // For modal and GridsterResizer
     

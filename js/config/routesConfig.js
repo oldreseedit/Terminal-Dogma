@@ -1,15 +1,11 @@
-main.run(['$rootScope', function($rootScope) {
+main.run(['$rootScope','$location', function($rootScope,$location) {
     $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
     	if(current.$$route)
     	{
             $rootScope.title = (current.$$route.title ? current.$$route.title + " - " : "") + "reSeed";
-            
-//            console.log($rootScope.title, current.$$route.title);
-            
-            $rootScope.ogimage = current.$$route.image ? current.$$route.image : "https://reseed.it/imgs/header.jpg";
-            $rootScope.description = current.$$route.description.replace(/<[^>]+>/gm, '');
-            $rootScope.ogUrl = 'https://www.reseed.it' + current.$$route.originalPath;
-            // ogImg
+            $rootScope.description = current.$$route.description ? current.$$route.description.replace(/<[^>]+>/gm, '') : "";
+            $rootScope.ogImage = "http://www.reseed.it/" + (current.$$route.image ? current.$$route.image : "imgs/header.jpg");
+            $rootScope.ogUrl = 'https://www.reseed.it' + $location.url();
     	}
     	else
     	{
