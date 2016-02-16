@@ -1,11 +1,14 @@
 main.run(['$rootScope', function($rootScope) {
     $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
-    	console.log(current);
     	if(current.$$route)
     	{
-            $rootScope.title = current.$$route.title;
-            $rootScope.description = current.$$route.description;
-            $rootScope.ogUrl = 'https://www.reseed.it/' + current.$$route.originalPath;    		
+            $rootScope.title = (current.$$route.title ? current.$$route.title + " - " : "") + "reSeed";
+            
+//            console.log($rootScope.title, current.$$route.title);
+            
+            $rootScope.ogimage = current.$$route.image ? current.$$route.image : "https://reseed.it/imgs/header.jpg";
+            $rootScope.description = current.$$route.description.replace(/<[^>]+>/gm, '');
+            $rootScope.ogUrl = 'https://www.reseed.it' + current.$$route.originalPath;
             // ogImg
     	}
     	else
@@ -19,7 +22,6 @@ main.run(['$rootScope', function($rootScope) {
 main.config(['$routeProvider','$locationProvider',function($routeProvider,$locationProvider){
     
     $locationProvider.html5Mode(true);
-//    $locationProvider.html5Mode(true);
     
     // Home
     
@@ -68,6 +70,7 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     
     $routeProvider.when('/disclaimer',{
     	title : 'Termini d\'Uso',
+    	description: 'Di seguito vengono illustrati i Termini d\'uso di reSeed.',
         templateUrl : 'templates/disclaimer.php'
     });
     
@@ -75,6 +78,7 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     
     $routeProvider.when('/faq',{
     	title : 'FAQ',
+    	description: 'Hai qualche domanda? Consulta le nostre F.A.Q.!',
         templateUrl : 'templates/faq.php'
     });
     
@@ -82,6 +86,7 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     
     $routeProvider.when('/privacy',{
     	title : 'Privacy Policy',
+    	description: 'Noi di reSeed teniamo alla tua privacy.',
         templateUrl : 'templates/privacy.php'
     });
     

@@ -122,6 +122,8 @@ class Preferences extends CI_Controller {
         		return;
         	}
         	
+        	// TODO
+        	
         	echo json_encode($this->preferences_model->get($userID));
         }
 }

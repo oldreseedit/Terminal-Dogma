@@ -50,7 +50,7 @@
     }
     
     .teacher-icon{
-        @extend .col-30;
+        @extend .col-25;
         
         .team-social-buttons {
         	@extend .col-100;
@@ -63,7 +63,7 @@
         float: none;
         
         .circle-img{
-        	@extend .col-60;
+        	@extend .col-40;
         	float: none;
         	margin-left: auto;
     		margin-right: auto;
@@ -75,7 +75,7 @@
     }
     
     .teacher-description{
-    	@extend .col-60;
+    	@extend .col-65;
     	@extend .offset-5;
     	@extend .text-justify;
     }
@@ -117,7 +117,7 @@
 		right: 10px;
 		
 		img {
-			height: 100px;
+			height: 150px;
 			
 			&:hover {
     			opacity: .7;

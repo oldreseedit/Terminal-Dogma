@@ -88,7 +88,7 @@ class Payment_model extends CI_Model
         	$courses = array();
         
         	$this->db->distinct();
-        	$query = $this->db->select(self::table_name . '.courseID, name, paymentDate, icon, startingDate, price, duration');
+        	$query = $this->db->select(self::table_name . '.courseID, name, paymentDate, subject, icon, startingDate, price, duration');
         	$query = $this->db->from(self::table_name);
         
         	if($userID != null) $this->db->where('userID', $userID);

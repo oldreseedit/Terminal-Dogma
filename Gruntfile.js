@@ -209,19 +209,18 @@ module.exports = function(grunt) {
                 //here goes the list of all urls that should be fetched 
                 urls: [
                   '/courses',
-//                  '/courses',
-//                  '/contacts',
-//                  '/faq',
-//                  '/privacy',
-//                  '/disclaimer',
-//                  '/courses/java',
-//                  '/courses/mobileApp',
-//                  '/courses/HCJS',
-//                  '/courses/MVCDevelopment',
-//                  '/courses/gameDesign',
-//                  '/courses/gameMaker',
-//                  '/courses/gamesForDummies',
-//                  '/courses/3DStudioMax',
+                  '/contacts',
+                  '/faq',
+                  '/privacy',
+                  '/disclaimer',
+                  '/courses/java',
+                  '/courses/mobileApp',
+                  '/courses/HCJS',
+                  '/courses/MVCDevelopment',
+                  '/courses/gameDesign',
+                  '/courses/gameMaker',
+                  '/courses/gamesForDummies',
+                  '/courses/3DStudioMax',
                 ]
               }
             }

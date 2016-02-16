@@ -7,6 +7,7 @@ class Courses extends CI_Controller {
                 $this->load->helper('url');
                 $this->load->model('courses_model');
                 $this->load->model('course_graph_model');
+                $this->load->model('payment_model');
         }
         
         public function init()
@@ -48,6 +49,34 @@ class Courses extends CI_Controller {
         	foreach($data as $course)
         	{
         		$course['next'] = $this->get_next($course['courseID']);
+        	}
+        	
+        	// Filtering
+        	// If the user is logged in
+        	if(isset($_COOKIE["username"]))
+        	{
+        		$userID = $_COOKIE["username"];
+        		
+        		$courseIDs = $this->payment_model->get_courses_with_info($userID);
+        		
+        		foreach($data as $key => $course)
+        		{
+        			foreach($courseIDs as $courseID)
+        			{
+        				if($courseID['subject'] === $course['subject'] && $courseID['courseID'] !== $course['courseID'])
+        				{
+        					unset($data[$key]);
+        					
+//         					print("<br/>Ho trovato che " . $course['courseID'] . " è da buttare, perché l'utente " . $userID . " è già iscritto a un corso della stessa materia: " . $courseID['courseID'] . " (materia:".$courseID['subject'].") Dimensione corsi: " . count($data));
+        				}
+        			}
+        		}
+        		
+        		$data = array_values($data);
+        	}
+        	else
+        	{
+        		// Take the most recent courses for each subject
         	}
         
         	echo json_encode($data);

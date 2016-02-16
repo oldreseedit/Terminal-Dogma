@@ -167,8 +167,11 @@ main.factory('utilities',function(){
     };
     
     this.getColours = function(i,total){
-        total = (total > 6 ? 6 : total) || 6;
-        var module = Math.round((i%6)*5/(total-1));
+        total = (total > 6 ? 6 : total);
+        
+        // var module = Math.round(((i%6)*5)/(total-1)); // To use all the colors
+    	var module = i%6; // To use all the colors in turn (round-robin)
+    	
         var colour = '';
         switch (module) {
             case 0:
