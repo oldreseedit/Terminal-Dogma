@@ -37,6 +37,24 @@ main.factory('cartService',['inform','$cookies','moment','$server', function(inf
 	{
 		return cart.items.filter(function(cartItem){return cartItem.courseID === courseID}).length == 1;
 	}
+	
+	cart.isSimulationInCart = function(courseID) {
+		for(var i=0; i<cart.items.length; i++)
+			if(cart.items[i].courseID === courseID)
+				if(cart.items[i].paySimulation)
+					return cart.items[i].paySimulation;
+		
+		return false;
+    }
+    
+    cart.getItem = function(courseID) {
+    	
+    	for(var i=0; i<cart.items.length; i++)
+			if(cart.items[i].courseID === courseID)
+				return cart.items[i];
+    	
+    	return null;
+    }
     
 	cart.pay = function(){
 //    	console.log(cart);
@@ -71,7 +89,7 @@ main.factory('cartService',['inform','$cookies','moment','$server', function(inf
     	
     	for(var i=0; i<cart.items.length; i++)
     	{
-    		total += parseFloat(cart.items[i].price);
+    		if(cart.items[i].payCourse) total += parseFloat(cart.items[i].price);
     		if(cart.items[i].paySimulation) total += parseFloat(cart.items[i].simulationPrice);
     	}
     	
@@ -101,6 +119,15 @@ main.factory('cartService',['inform','$cookies','moment','$server', function(inf
 	
 	cart.toggle = function(item){
 		item.paySimulation = !item.paySimulation;
+		
+		cart.save();
+		
+		console.log("CART: ", cart);
+	}
+	
+	cart.toggleCourse = function(item){
+		item.payCourse = !item.payCourse;
+		item.paySimulation = item.payCourse;
 		
 		cart.save();
 		

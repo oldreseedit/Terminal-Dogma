@@ -17,7 +17,12 @@
 										<td align="left">
 											<div>
 											<strong>Corso</strong>: <span ng-bind="item.courseName"></span>
-											<span class="cart-item-price"><span ng-bind="item.price"></span> €</span>
+<!-- 											<span class="cart-item-price"><span ng-bind="item.price"></span> €</span> -->
+											</div>
+											<div>
+												<input type="checkbox" ng-if="!item.courseAlreadyPaid" ng-checked="item.payCourse" ng-disabled="item.courseAlreadyPaid" ng-click="cart.toggleCourse(item)">
+												<span class="cart-subitem">Corso<span ng-if="item.courseAlreadyPaid">: hai già acquistato il corso.</span></span>
+												<span class="cart-item-price" ng-class="{'price-cancelled': !item.payCourse}"><span ng-bind="item.price"></span> €</span>
 											</div>
 											<div ng-if="item.simulation">
 												<input type="checkbox" ng-checked="item.paySimulation" ng-click="cart.toggleSimulation(item)">
@@ -77,8 +82,8 @@
 								</div>
 								
 								<div class="cart-buttons">
-									<button class="btn btn-danger empty-button" ng-class="{disabled: cart.getCoursesToPay() <= 0}" ng-click="cart.emptyCart()">Svuota il carrello</button>
-									<button class="btn btn-success pay-button" ng-class="{disabled: cart.getCoursesToPay() <= 0 || cart.getCart().options.paymentCycleChosen == null || cart.getCart().options.paymentMediaChosen == null}" ng-click="cart.pay()">Paga</button>
+									<button class="btn btn-danger empty-button" ng-disabled="cart.getCoursesToPay() <= 0" ng-click="cart.emptyCart()">Svuota il carrello</button>
+									<button class="btn btn-success pay-button" ng-disabled="cart.getCoursesToPay() <= 0 || cart.getCart().options.paymentCycleChosen == null || cart.getCart().options.paymentMediaChosen == null" ng-click="cart.pay()">Paga</button>
 								</div>
 							</div>
 							

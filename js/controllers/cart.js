@@ -74,6 +74,10 @@ main.controller('cartController',['$rootScope','utilities','inform','cartService
     	cartService.toggle(item);
     }
     
+    self.toggleCourse = function(item){
+    	cartService.toggleCourse(item);
+    }
+    
     self.applySeedon = function(seedonIdx){
     	var seedon = self.paymentOptions.seedon[seedonIdx];
     	if(!seedon)

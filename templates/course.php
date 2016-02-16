@@ -4,6 +4,10 @@
 		<img src="imgs/iscriviti.png">
 	</div>
 	
+	<div class="pay-button clickable" ng-if="course.hasSimulation && !course.isSimulationInCart() && (course.isInCart() || (course.subscribed && !course.subscribedToSimulation))" ng-click="course.addSimulation()">
+		<img src="imgs/iscriviti-simulazione.png">
+	</div>
+	
     <div class="container">
 		<div  ng-repeat="item in course.items" ng-init="index = $index">
 			<div class="clearfix" ng-if="course.isNewRow(index)"></div>
