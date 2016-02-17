@@ -1,7 +1,7 @@
 <p>Pratica ed esercizio sono fondamentali per capire a fondo i concetti e saldarli in mente. Abbiamo quindi progettato un sistema di punti esperienza e level up che spinga gli studenti a essere presenti a lezione, fare e consegnare esercizi e in generale a svolgere attività didatticamente utili</p>
 <div id="tiles-experience">
 	<div class="container">
-		<div id="presentation-gain">
+		<div id="presentation-gain" equal-height>
 			<div class="container">
 				<div class="gain-icon" centered>
 					<i class="fa fa-plus-square white" fittext fittext-exclusive="width"></i>
@@ -19,7 +19,7 @@
 				</div>
 			</div>			
 		</div>
-		<div id="presentation-unlock">
+		<div id="presentation-unlock" equal-height>
 			<div class="container">
 				<div class="experience-content text-left" centered>
 					<h6 class="white strong">Sblocca ricompense</h6>

@@ -14,10 +14,6 @@
     #contact-form-wrapper, #how-to-map-wrapper{
         @extend .bg-light-grey;
         @extend .well;
-        
-        @include desktop {
-            @include equal-height;
-        }
     }
     
     #contact-form-wrapper{

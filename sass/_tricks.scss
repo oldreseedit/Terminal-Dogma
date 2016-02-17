@@ -62,14 +62,6 @@ input[type=number]::-webkit-outer-spin-button {
     vertical-align: middle;
 }
 
-
-/*  Trick for equal height columns - Apply to all columns */
-        
-.equal-height{
-    margin-bottom: -99999px;
-    padding-bottom: 99999px;
-}
-
 /* Trick for centering vertically a div -> to put in sequence <outer><inner> */
 
 .outer {
@@ -222,13 +214,6 @@ input[type=number]::-webkit-outer-spin-button {
 @mixin innermiddler{
     display: table-cell;
     vertical-align: middle;
-}
-
-// Trick for equal height columns - Apply to all columns
-        
-@mixin equal-height{
-    margin-bottom: -99999px;
-    padding-bottom: 99999px;
 }
 
 @mixin noselect {

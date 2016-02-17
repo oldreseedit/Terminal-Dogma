@@ -19332,15 +19332,8 @@ input[type=number]::-webkit-outer-spin-button {
   vertical-align: middle;
 }
 
-/*  Trick for equal height columns - Apply to all columns */
-/* line 68, ../sass/_tricks.scss */
-.equal-height, #admin .tab {
-  margin-bottom: -99999px;
-  padding-bottom: 99999px;
-}
-
 /* Trick for centering vertically a div -> to put in sequence <outer><inner> */
-/* line 75, ../sass/_tricks.scss */
+/* line 67, ../sass/_tricks.scss */
 .outer {
   display: table;
   position: absolute;
@@ -19348,13 +19341,13 @@ input[type=number]::-webkit-outer-spin-button {
   width: 100%;
 }
 
-/* line 82, ../sass/_tricks.scss */
+/* line 74, ../sass/_tricks.scss */
 .inner {
   display: table-cell;
   vertical-align: middle;
 }
 
-/* line 87, ../sass/_tricks.scss */
+/* line 79, ../sass/_tricks.scss */
 .clearfix:before,
 .clearfix:after {
   content: " ";
@@ -19363,17 +19356,17 @@ input[type=number]::-webkit-outer-spin-button {
   /* 2 */
 }
 
-/* line 93, ../sass/_tricks.scss */
+/* line 85, ../sass/_tricks.scss */
 .clearfix:after {
   clear: both;
 }
 
-/* line 97, ../sass/_tricks.scss */
+/* line 89, ../sass/_tricks.scss */
 .clearfix {
   *zoom: 1;
 }
 
-/* line 101, ../sass/_tricks.scss */
+/* line 93, ../sass/_tricks.scss */
 .noselect {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -19384,29 +19377,29 @@ input[type=number]::-webkit-outer-spin-button {
   cursor: default;
 }
 
-/* line 111, ../sass/_tricks.scss */
+/* line 103, ../sass/_tricks.scss */
 .clickable, #preferences .modify {
   cursor: pointer;
 }
 
-/* line 115, ../sass/_tricks.scss */
+/* line 107, ../sass/_tricks.scss */
 .first {
   margin-left: 0 !important;
 }
 
-/* line 119, ../sass/_tricks.scss */
+/* line 111, ../sass/_tricks.scss */
 .circle-img, .avatar {
   width: 100%;
   height: 100%;
   border-radius: 50%;
 }
 
-/* line 125, ../sass/_tricks.scss */
+/* line 117, ../sass/_tricks.scss */
 .square, #courses #tiles-courses .tile, #activities #tiles-activities .tile {
   padding-top: 100%;
   position: relative;
 }
-/* line 129, ../sass/_tricks.scss */
+/* line 121, ../sass/_tricks.scss */
 .square .square-content, #courses #tiles-courses .tile .square-content, #activities #tiles-activities .tile .square-content {
   position: absolute;
   top: 0;
@@ -19415,12 +19408,12 @@ input[type=number]::-webkit-outer-spin-button {
   right: 0;
 }
 
-/* line 138, ../sass/_tricks.scss */
+/* line 130, ../sass/_tricks.scss */
 .square-only {
   padding-bottom: 100%;
 }
 
-/* line 143, ../sass/_tricks.scss */
+/* line 135, ../sass/_tricks.scss */
 .container {
   width: auto;
   height: inherit;
@@ -19430,26 +19423,26 @@ input[type=number]::-webkit-outer-spin-button {
   padding: 0;
 }
 
-/* line 152, ../sass/_tricks.scss */
+/* line 144, ../sass/_tricks.scss */
 .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #cart {
   margin-bottom: 3vw;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 152, ../sass/_tricks.scss */
+  /* line 144, ../sass/_tricks.scss */
   .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #cart {
     width: 80%;
     margin-left: 10%;
   }
 }
 @media all and (max-device-width: 539px) {
-  /* line 152, ../sass/_tricks.scss */
+  /* line 144, ../sass/_tricks.scss */
   .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #cart {
     width: 96%;
     margin-left: 2%;
   }
 }
 
-/* line 170, ../sass/_tricks.scss */
+/* line 162, ../sass/_tricks.scss */
 .fa-stack img {
   vertical-align: baseline;
 }
@@ -19938,7 +19931,7 @@ textarea {
 }
 
 /* Pages */
-/* line 8, ../sass/_admin.scss */
+/* line 4, ../sass/_admin.scss */
 #admin .admin-content {
   margin-top: 2em;
 }
@@ -20241,19 +20234,15 @@ body {
   padding: 5%;
 }
 /* line 67, ../sass/_presentation.scss */
-#home #presentation #news-events .equal-height, #home #presentation #news-events #admin .tab, #admin #home #presentation #news-events .tab {
-  margin-top: 2em;
-}
-/* line 71, ../sass/_presentation.scss */
 #home #presentation #news-events a {
   text-decoration: none;
 }
-/* line 80, ../sass/_presentation.scss */
+/* line 76, ../sass/_presentation.scss */
 #home #presentation #tiles-experience {
   margin-top: 2em;
   margin-bottom: 2em;
 }
-/* line 105, ../sass/_presentation.scss */
+/* line 101, ../sass/_presentation.scss */
 #home #presentation #tiles-experience .unlock-icon {
   margin-right: 5%;
 }
@@ -20506,33 +20495,26 @@ body {
 #contacts .introduction {
   margin-bottom: 3em;
 }
-@media all and (min-device-width: 1080px) {
-  /* line 14, ../sass/_contacts.scss */
-  #contacts #contact-form-wrapper, #contacts #how-to-map-wrapper {
-    margin-bottom: -99999px;
-    padding-bottom: 99999px;
-  }
-}
 @media all and (max-device-width: 1079px) {
-  /* line 23, ../sass/_contacts.scss */
+  /* line 19, ../sass/_contacts.scss */
   #contacts #contact-form-wrapper {
     margin-top: 3vw;
   }
 }
-/* line 43, ../sass/_contacts.scss */
+/* line 39, ../sass/_contacts.scss */
 #contacts #contacts-map {
   margin-bottom: 19px;
 }
-/* line 47, ../sass/_contacts.scss */
+/* line 43, ../sass/_contacts.scss */
 #contacts .distant {
   margin-top: 2em;
 }
-/* line 51, ../sass/_contacts.scss */
+/* line 47, ../sass/_contacts.scss */
 #contacts .message-with-symbol {
   padding: 8px 16px;
   vertical-align: middle;
 }
-/* line 55, ../sass/_contacts.scss */
+/* line 51, ../sass/_contacts.scss */
 #contacts .message-with-symbol div {
   display: table-cell;
   vertical-align: middle;
