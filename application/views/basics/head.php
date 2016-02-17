@@ -127,6 +127,7 @@
     <script type="text/javascript" src="js/directives/bootstrapInput.js"></script>
     <script type="text/javascript" src="js/directives/centered.js"></script>
     <script type="text/javascript" src="js/directives/elastic.js"></script>
+    <script type="text/javascript" src="js/directives/equalHeight.js"></script>
     <script type="text/javascript" src="js/directives/equalSpans.js"></script>
     <script type="text/javascript" src="js/directives/fitText.js"></script>
     <script type="text/javascript" src="js/directives/flipper.js"></script>

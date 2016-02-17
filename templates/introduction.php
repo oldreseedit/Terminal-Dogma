@@ -1,7 +1,7 @@
 <p>I corsi di reSeed prevedono una parte di simulazione di On-The-Job Training, che ponga gli studenti di fronte a questioni e problemi che non vengono affrontati in altri corsi di formazione ma che sono all'ordine del giorno in un ambiente lavorativo.</p>
 <div id="tiles-presentation">
 	<div class="container">
-		<div ng-repeat="tab in presentation.tabs" id="{{tab.id}}" class="tab bg-lawn" ng-class="presentation.getStyleTabs($first)">
+		<div ng-repeat="tab in presentation.tabs" id="{{tab.id}}" class="tab bg-lawn" equal-height ng-class="presentation.getStyleTabs($first)">
 			<a ng-href="{{tab.url}}">
 				<div class="container">
 					<div class="inside-tab">

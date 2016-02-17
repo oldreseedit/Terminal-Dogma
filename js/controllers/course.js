@@ -168,7 +168,8 @@ main.controller('courseController',['utilities','$scope','$server','$routeParams
               bgColour: 'bg-light-leaf',
               templateUrl: 'templates/course-notifications.php',
               width: 39,
-              offset: 1              	  
+              offset: 1,
+              noMaxHeight: true     	  
           },
           {
               id : 'courseMaterials',
@@ -194,6 +195,14 @@ main.controller('courseController',['utilities','$scope','$server','$routeParams
     	if(sum%100 === 0) return true;
     	else return false;
     }
+    
+    self.getAdjacent = function(id){
+    	if(id==='courseDescription') return 'courseInfo';
+    	if(id==='courseInfo') return 'courseDescription';
+    	if(id==='courseNotifications') return 'calendar';
+    	if(id==='calendar') return 'courseNotifications';
+    	else return '';
+    };
     
      // MAIN
     

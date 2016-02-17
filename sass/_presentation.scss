@@ -10,9 +10,6 @@
         margin-bottom: 3em;
         
         .tab{
-            @include desktop {
-                @include equal-height;
-            }
             @include responsive {
                 margin-bottom: 2em;
             }
