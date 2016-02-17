@@ -154,7 +154,7 @@ main.controller('teamController',["utilities",function(utilities){
         var fs = (13/180)*$(window).width();
         fs /= self.people[0].socialNetworks.length;
         return {
-            'font-size' : fs+'px'
+            'font-size' : (fs*3/4)+'px'
         };
     };
     
