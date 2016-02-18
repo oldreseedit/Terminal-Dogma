@@ -118,6 +118,7 @@
     <script type="text/javascript" src="js/factories/utilities.js"></script>
     <script type="text/javascript" src="js/factories/ajaxEvents.js"></script>
     <script type="text/javascript" src="js/factories/cartService.js"></script>
+    <script type="text/javascript" src="js/factories/reseedFacebook.js"></script>
     <script type="text/javascript" src="js/factories/server.js"></script>
     <script type="text/javascript" src="js/config/elasticConfig.js"></script>
     <script type="text/javascript" src="js/config/gridsterConfig.js"></script>

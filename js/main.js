@@ -23,9 +23,19 @@ var main = angular.module('Main',[
     $httpProvider.defaults.transformRequest = [function(data) {
         return angular.isObject(data) && String(data) !== '[object File]' ? $.param(data) : data;
     }];
+    
+    // FOR FB
+	(function(d, s, id){
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) {return;}
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/it_it/sdk/debug.js"; // TODO: change to it_it/sdk.js
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+	
   
 });
-    
+
 /* Configures Moment plugin to display dates in Italian */
 moment.locale('it', {}); 
 
@@ -46,8 +56,10 @@ function imOnMaxi(){
 }
 
 /*** RUN PHASE ***/
-main.run(['$rootScope','$location','$timeout','$server','$cookies','$window','$route','gridsterConfig','inform','$cookies',function($rootScope, $location, $timeout, $server, $cookies, $window, $route, gridsterConfig,inform,$cookies) {
+main.run(['$rootScope','$location','$timeout','$server','$cookies','$window','$route','gridsterConfig','inform','$cookies','fb',function($rootScope, $location, $timeout, $server, $cookies, $window, $route, gridsterConfig,inform,$cookies,fb) {
 	
+	fb.init();
+
 	$rootScope.ajaxEvents = [];
 	
 	$rootScope.thereIsAvatar = function()
