@@ -113,7 +113,7 @@ main.run(['$rootScope','$location','$timeout','$server','$cookies','$window','$r
 	};
     
     $rootScope.miniHeader = function(){
-        if($location.path() !== '/') return true;
+        if($location.path() !== '/' && $location.url().indexOf('/home') !== 0) return true;
         else return false;
     };    
 
@@ -121,6 +121,7 @@ main.run(['$rootScope','$location','$timeout','$server','$cookies','$window','$r
         $cookies.remove('username',{path:'/'});
         $cookies.remove('token',{path:'/'});
         $cookies.remove('verified',{path:'/'});
+        $cookies.remove('cart',{path:'/'});
         $location.path('/');
         $window.location.reload();
     };

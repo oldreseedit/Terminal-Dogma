@@ -4,6 +4,11 @@ main.run(['$rootScope','$location', function($rootScope,$location) {
     	{
             $rootScope.title = (current.$$route.title ? current.$$route.title + " - " : "") + "reSeed";
             $rootScope.description = current.$$route.description ? current.$$route.description.replace(/<[^>]+>/gm, '') : "";
+            $rootScope.ogTitle = (current.$$route.title ? current.$$route.title + " - " : "") + "reSeed";
+            
+            // Se stiamo su una pagina del tipo "courses/" modificare ogTitle in "Corso di "
+            if($location.url().indexOf("/courses/") == 0) $rootScope.ogTitle = "Corso di " + $rootScope.ogTitle;
+
             $rootScope.ogImage = "http://www.reseed.it/" + (current.$$route.image ? current.$$route.image : "imgs/header.jpg");
             $rootScope.ogUrl = 'https://www.reseed.it' + $location.url();
     	}
@@ -20,8 +25,12 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     $locationProvider.html5Mode(true);
     
     // Home
-    
     $routeProvider.when('/',{
+    	description: 'Impara. Crea. Pubblica.',
+        templateUrl : 'templates/home.php'
+    });
+    
+    $routeProvider.when('/home',{
     	description: 'Impara. Crea. Pubblica.',
         templateUrl : 'templates/home.php'
     });
@@ -120,6 +129,28 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     	title: 'Carrello di reSeed',
     	templateUrl : 'templates/cart.php',
     	controller: 'cartController as cart'
+    });
+    
+    $routeProvider.when('/pre-pay',{
+    	title: 'Rivedi il tuo pagamento',
+    	templateUrl : 'templates/pre-pay.php',
+    	controller: 'cartController as cart'
+    });
+    
+    $routeProvider.when('/paymentOK',{
+    	title: 'Risultato del tuo pagamento',
+    	templateUrl : 'templates/paymentOK.php',
+    });
+    
+    $routeProvider.when('/paymentFailed/:errorCode',{
+    	title: 'Risultato del tuo pagamento',
+    	templateUrl : 'templates/paymentFailed.php',
+    	controller: 'paypalPaymentFailedController as paypal'
+    });
+    
+    $routeProvider.when('/paymentCancelled',{
+    	title: 'Risultato del tuo pagamento',
+    	templateUrl : 'templates/paymentCancelled.php',
     });
     
     // Register - Restricted

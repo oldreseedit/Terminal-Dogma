@@ -10,6 +10,11 @@ main.controller('cartController',['$rootScope','utilities','inform','cartService
     		         }
     		         ],
     		paymentCycleOptions: [
+								{
+									  value: '',
+									  label: '',
+									  description: ''
+								},
   				                {
   			                	   value: 'monthly',
   					        	   label: 'In 3 rate mensili',
@@ -21,23 +26,28 @@ main.controller('cartController',['$rootScope','utilities','inform','cartService
   					        	   description: 'Scegliendo questa opzione decidi di pagare in una volta sola.'
   				                }
   					               ],
-  					paymentMediaOptions: [
-  					          {
-  					        	  value: 'creditCard',
-  					        	  label: 'Pagamento online',
-  					        	  description: 'Scegliendo questa opzione decidi di pagare online con una carta di credito o il tuo conto PayPal.'
-  					          },
-  					          {
-  					        	  value: 'wireTransfer',
-  					        	  label: 'Bonifico',
-  					        	  description: 'Scegliendo questa opzione decidi di pagare attraverso un bonifico.'
-  					          },
-  					          {
-  					        	  value: 'cash',
-  					        	  label: 'Contanti',
-  					        	  description: 'Scegliendo questa opzione decidi di pagare in contanti alla prima lezione.'
-  					          }
-  					          ]	
+			paymentMediaOptions: [
+			          {
+						  value: '',
+						  label: '',
+						  description: ''
+					  },
+			          {
+			        	  value: 'creditCard',
+			        	  label: 'Pagamento online',
+			        	  description: 'Scegliendo questa opzione decidi di pagare online con una carta di credito o il tuo conto PayPal.'
+			          },
+			          {
+			        	  value: 'wireTransfer',
+			        	  label: 'Bonifico',
+			        	  description: 'Scegliendo questa opzione decidi di pagare attraverso un bonifico.'
+			          },
+			          {
+			        	  value: 'cash',
+			        	  label: 'Contanti',
+			        	  description: 'Scegliendo questa opzione decidi di pagare in contanti alla prima lezione.'
+			          }
+			          ]	
     };
     
     self.getCart = function()
@@ -63,6 +73,7 @@ main.controller('cartController',['$rootScope','utilities','inform','cartService
     }
     
     self.remove = function(item){
+    	inform.add("Hai rimosso " + item.courseName + " dal carrello.");
     	return cartService.remove(item);
     }
     
@@ -71,7 +82,7 @@ main.controller('cartController',['$rootScope','utilities','inform','cartService
     }
     
     self.toggleSimulation = function(item){
-    	cartService.toggle(item);
+    	cartService.toggleSimulation(item);
     }
     
     self.toggleCourse = function(item){
@@ -95,7 +106,7 @@ main.controller('cartController',['$rootScope','utilities','inform','cartService
     self.applyPaymentMedia = function(){self.getCart().save();}
     self.applyPaymentCycle = function(){self.getCart().save();}
     
-    $server.post('seedon/get',{username : $cookies.get('username')}).then(
+    $server.post('seedon/get_seedon_not_used',{username : $cookies.get('username')}).then(
     		function(response)
     		{
     			for(var i=0; i<response.data.length; i++)

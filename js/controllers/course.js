@@ -47,18 +47,23 @@ main.controller('courseController',['utilities','$scope','$server','$routeParams
     		return;
     	}
     	
-    	cartService.addCourse(
-    			{
-    				courseID: self.courseInfo.courseID,
-    				courseName: self.courseName,
-    				price: self.courseInfo.price,
-    				simulation: self.hasSimulation,
-    				payCourse: true,
-    				courseAlreadyPaid: false,
-    				paySimulation: true,
-    				simulationPrice: self.courseInfo.simulationPrice
-    			}
-    	);
+    	var courseData = {
+				courseID: self.courseInfo.courseID,
+				courseName: self.courseName,
+				simulation: self.hasSimulation,
+				price: self.courseInfo.price,
+				simulationPrice: self.courseInfo.simulationPrice,
+				payCourse: !self.subscribed,
+				paySimulation: !self.subscribedToSimulation,
+				courseAlreadyPaid: self.subscribed,
+				simulationAlreadyPaid: self.subscribedToSimulation
+			};
+    	
+    	var result = cartService.addCourse(courseData);
+    	
+    	console.log(result);
+    	
+    	if(result) inform.add('Hai aggiunto il corso di <emph>' + courseData.courseName + '</emph> al carrello.<div><a class="leaf" href="/#cart">Vai al carrello!</a></div>', {"html": true});;
     }
     
     self.isInCart = function() {
@@ -76,23 +81,25 @@ main.controller('courseController',['utilities','$scope','$server','$routeParams
     	if(courseItem != null)
     	{
     		cartService.toggle(courseItem);
-    		inform.add('Hai aggiunto anche la simulazione di ' + self.courseName + ' al carrello.<div><a class="leaf" href="/#cart">Vai al carrello!</a></div>', {"html": true});
     	}
     	else 
     	{
-    		cartService.addCourse(
-        			{
-        				courseID: self.courseInfo.courseID,
-        				courseName: self.courseName,
-        				price: self.courseInfo.price,
-        				simulation: self.hasSimulation,
-        				payCourse: false,
-        				courseAlreadyPaid: true,
-        				paySimulation: true,
-        				simulationPrice: self.courseInfo.simulationPrice
-        			}
-        	);
+    		var courseData = {
+    				courseID: self.courseInfo.courseID,
+    				courseName: self.courseName,
+    				price: self.courseInfo.price,
+    				simulation: self.hasSimulation,
+    				payCourse: !self.subscribed,
+    				paySimulation: !self.subscribedToSimulation,
+    				simulationPrice: self.courseInfo.simulationPrice,
+    				courseAlreadyPaid: self.subscribed,
+    				simulationAlreadyPaid: self.subscribedToSimulation
+    			};
+    		
+    		cartService.addCourse(courseData);
     	}
+    	
+    	inform.add('Hai aggiunto la simulazione di <emph>' + self.courseName + '</emph> al carrello.<div><a class="leaf" href="/#cart">Vai al carrello!</a></div>', {"html": true});
     }
     
     $scope.changeView = function(viewName){
@@ -335,7 +342,6 @@ main.controller('courseController',['utilities','$scope','$server','$routeParams
 			   	{
 			   		self.hasAccessToMaterial = true;
 			   		self.subscribed = true;
-			   		
 			   		self.subscribedToSimulation = self.tempCourses[i].simulation;
 			   	}
 		    }

@@ -9,6 +9,9 @@ RewriteEngine on
 #RewriteRule ^(.*)$ /snapshots/%1%2.html? [NC,L]
 
 RewriteCond %{HTTP_USER_AGENT} ^facebookexternalhit/1.1
+RewriteRule ^$ /snapshots/home.html [NC,L]
+
+RewriteCond %{HTTP_USER_AGENT} ^facebookexternalhit/1.1
 RewriteCond %{REQUEST_URI} !^.*snapshots.*$
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

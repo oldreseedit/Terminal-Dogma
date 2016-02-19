@@ -4,7 +4,7 @@
         <div class="no-gridster-item bg-light-grey">
         	<div class="container">
             	<div class="panel-title bg-lawn">
-                	<h4>I corsi da te inseriti nel carrello</h4>
+                	<h4>Rivedi il tuo pagamento</h4>
 				</div>
                 <div class="scrollbar-wrapper">
 	        		<div class="panel-content">
@@ -17,47 +17,32 @@
 										<td align="left">
 											<div>
 											<strong>Corso</strong>: <span ng-bind="item.courseName"></span>
-<!-- 											<span class="cart-item-price"><span ng-bind="item.price"></span> €</span> -->
 											</div>
-											<div>
-												<input type="checkbox" ng-if="!item.courseAlreadyPaid" ng-checked="item.payCourse" ng-disabled="item.courseAlreadyPaid" ng-click="cart.toggleCourse(item)">
-												<span class="cart-subitem">Corso<span ng-if="item.courseAlreadyPaid">: hai già acquistato il corso.</span></span>
-												<span class="cart-item-price" ng-class="{'price-cancelled': !item.payCourse}"><span ng-bind="item.price"></span> €</span>
+											<div ng-if="item.payCourse">
+												<span class="cart-subitem">Corso</span>
+												<span class="cart-item-price"><span ng-bind="item.price"></span> €</span>
 											</div>
-											<div ng-if="item.simulation">
-												<input type="checkbox" ng-checked="item.paySimulation" ng-click="cart.toggleSimulation(item)">
+											<div ng-if="item.paySimulation">
 												<span class="cart-subitem">Simulazione</span>
-												<span class="cart-item-price" ng-class="{'price-cancelled': !item.paySimulation}"><span ng-bind="item.simulationPrice"></span> €</span>
+												<span class="cart-item-price"><span ng-bind="item.simulationPrice"></span> €</span>
 											</div>
-											<div ng-if="!item.simulation">
-												<span class="cart-subitem">Questo corso non prevede simulazione.</span>
-											</div>
-										</td>
-										<td width="30px;">
-											<span title="Rimuovi questo articolo dal carrello" class="fa fa-2x fa-times-circle text-danger clickable" ng-click="cart.remove(item)"></span>
 										</td>
 									</tr>
 								</table>
 	
-								<div class="choice-text" ng-if="cart.paymentOptions.seedon.length > 1">
+								<div class="choice-text" ng-if="cart.getCart().options.seedOnChosen != null">
 									<strong>Seedon: </strong>
-									<select ng-model="cart.getCart().options.seedOnChosen" ng-click="cart.applySeedon(cart.getCart().options.seedOnChosen)">
-										<option ng-repeat="seedon in cart.paymentOptions.seedon" value="{{seedon.seedonID}}" title="{{seedon.description}}">{{seedon.longDescription}}</option>
-									</select>
+									<span ng-repeat="seedon in cart.paymentOptions.seedon" ng-bind="seedon.longDescription" ng-if="seedon.seedonID === cart.getCart().options.seedOnChosen"></span>
 								</div>
 								
 								<div class="choice-text">
 									<strong>Modalità di pagamento: </strong>
-									<select ng-model="cart.getCart().options.paymentMediaChosen" ng-click="cart.applyPaymentMedia()">
-										<option ng-repeat="option in cart.paymentOptions.paymentMediaOptions" value="{{option.value}}" title="{{option.description}}">{{option.label}}</option>
-									</select>
+									<span ng-repeat="option in cart.paymentOptions.paymentMediaOptions" ng-bind="option.label" ng-if="option.value === cart.getCart().options.paymentMediaChosen"></span>
 								</div>
 								
 								<div class="choice-text">
 									<strong>Rateizzazione: </strong>
-									<select ng-model="cart.getCart().options.paymentCycleChosen" ng-click="cart.applyPaymentCycle()">
-										<option ng-repeat="option in cart.paymentOptions.paymentCycleOptions" value="{{option.value}}" title="{{option.description}}">{{option.label}}</option>
-									</select>
+									<span ng-repeat="option in cart.paymentOptions.paymentCycleOptions" ng-bind="option.label" ng-if="option.value === cart.getCart().options.paymentCycleChosen"></span>
 								</div>
 	
 								<div title="Questo è il totale calcolato prima di applicare qualunque tipo di sconto." class="cart-total" ng-class="{'price-cancelled': cart.getCart().options.discount > 0 || cart.getCart().options.seedonDiscount > 0}">
@@ -82,8 +67,8 @@
 								</div>
 								
 								<div class="cart-buttons">
-									<button class="btn btn-danger empty-button" ng-disabled="cart.getCart().items.length <= 0" ng-click="cart.emptyCart()">Svuota il carrello</button>
-									<a href="/pre-pay"><button class="btn btn-success pay-button" ng-disabled="cart.getCoursesToPay() <= 0 || cart.getCart().options.paymentCycleChosen == '' || cart.getCart().options.paymentMediaChosen == ''">Rivedi e paga</button></a>
+									<a href="/cart"><button class="btn btn-danger empty-button">Torna al carrello</button></a>
+									<button class="btn btn-success pay-button" ng-click="cart.pay()">Paga</button>
 								</div>
 							</div>
 							

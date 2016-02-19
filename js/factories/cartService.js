@@ -6,9 +6,15 @@ main.factory('cartService',['inform','$cookies','moment','$server', function(inf
 					discount: 0,
 					seedonDiscount: 0,
 					seedOnChosen: null,
-					paymentCycleChosen: null,
-					paymentMediaChosen: null,
-				}};
+					paymentCycleChosen: '',
+					paymentMediaChosen: '',
+				},
+				expire:
+				{
+					num: 30,
+					measure: "minutes"
+				}
+				};
 	
 	if($cookies.get('cart'))
 	{
@@ -20,12 +26,14 @@ main.factory('cartService',['inform','$cookies','moment','$server', function(inf
 	
 	cart.addCourse = function (courseData){
 		for(var i=0; i<cart.items.length; i++)
-			if(cart.items[i].courseID === courseData.courseID) return;
+			if(cart.items[i].courseID === courseData.courseID)
+				return false;
 		
-    	inform.add('Hai aggiunto ' + courseData.courseName + ' al carrello.<div><a class="leaf" href="/#cart">Vai al carrello!</a></div>', {"html": true});
     	cart.items.push(courseData);
     	
     	cart.save();
+    	
+    	return true;
     }
     
 	cart.getCoursesToPay = function()
@@ -37,8 +45,6 @@ main.factory('cartService',['inform','$cookies','moment','$server', function(inf
 			if(cart.items[i].paySimulation) num += 1;
 			if(cart.items[i].payCourse) num += 1;
 		}
-		
-		console.log("NUM", num);
 		
 		return num;
     }
@@ -67,24 +73,22 @@ main.factory('cartService',['inform','$cookies','moment','$server', function(inf
     }
     
 	cart.pay = function(){
-//    	console.log(cart);
-    	window.location = "index.php/paypal/adaptive_payments/pay_with_options";
+    	console.log(cart);
 		
-//		$server.post('paypal/adaptive_payments/pay_with_options', cart.items).then(
-//				function(response)
-//				{
-//					console.log(response);
-////					window.location = "index.php/paypal/adaptive_payments/pay_with_options";
-//				}
-//		    );
+		$server.post('paypal/pay').then(
+				function(response)
+				{
+					console.log(response);
+					
+					if(!response.data.error)
+						window.location = response.data.url;
+				}
+		    );
     }
 	
 	cart.remove = function(item) {
-		console.log("CART BEFORE REMOVAL: ", cart);
 		cart.items = cart.items.filter(function(cartItem){return cartItem.courseID !== item.courseID});
 		cart.save();
-    	inform.add("Hai rimosso " + item.courseName + " dal carrello.");
-    	console.log("CART AFTER REMOVAL: ", cart);
 	}
 	
 	cart.emptyCart = function()
@@ -119,34 +123,35 @@ main.factory('cartService',['inform','$cookies','moment','$server', function(inf
     	return total;
     }
 	
+	// Se l'utente è loggato
 	if($cookies.get('username'))
-	$server.post('users/get_total_discount',{username : $cookies.get('username')}).then(
-			function(response)
-			{
-				cart.options.discount = response.data.discount;
-			}
-	    );
+		$server.post('users/get_total_discount',{username : $cookies.get('username')}).then(
+				function(response)
+				{
+					cart.options.discount = response.data.discount;
+				}
+		    );
 	
-	cart.toggle = function(item){
-		item.paySimulation = !item.paySimulation;
+	cart.toggleSimulation = function(item){
+		if(!item.courseAlreadyPaid) item.payCourse = true;
+		if(!item.simulationAlreadyPaid) item.paySimulation = !item.paySimulation;
 		
 		cart.save();
-		
-		console.log("CART: ", cart);
 	}
 	
 	cart.toggleCourse = function(item){
-		item.payCourse = !item.payCourse;
-		item.paySimulation = item.payCourse;
+		if(!item.courseAlreadyPaid) item.payCourse = !item.payCourse;
+		if(!item.simulationAlreadyPaid)
+			if(item.paySimulation) item.paySimulation = false;
 		
 		cart.save();
-		
-		console.log("CART: ", cart);
 	}
 	
+	// Il carrello sarà valido per 30 minuti
 	cart.save = function()
 	{
-		$cookies.put('cart', angular.toJson(cart), {path:'/', expires: moment().add(30, 'minutes').toDate()});
+		$cookies.put('cart', angular.toJson(cart), {path:'/', expires: moment().add(cart.expire.num, cart.expire.measure).toDate()});
+		console.log("CART: ", cart);
 	}
 	
 	return cart;

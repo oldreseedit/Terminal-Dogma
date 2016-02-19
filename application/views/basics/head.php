@@ -18,7 +18,7 @@
 	<meta property="og:image" content="{{ogImage}}" />
     <meta property="og:description" content="{{description}}"/>
     <meta property="og:url" content="{{ogUrl}}" />
-    <meta property="og:title" content="{{title}}" />
+    <meta property="og:title" content="{{ogTitle}}" />
             
 <!-- BOOTSTRAP -->
     
@@ -161,6 +161,7 @@
     <script type="text/javascript" src="js/controllers/paymentCancel.js"></script>
     <script type="text/javascript" src="js/controllers/paymentConfirmation.js"></script>
     <script type="text/javascript" src="js/controllers/payment.js"></script>
+    <script type="text/javascript" src="js/controllers/paypalPaymentFailed.js"></script>
     <script type="text/javascript" src="js/controllers/faq.js"></script>
     <script type="text/javascript" src="js/controllers/privacy.js"></script>
     <script type="text/javascript" src="js/controllers/disclaimer.js"></script>

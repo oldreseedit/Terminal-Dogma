@@ -17,9 +17,12 @@ class Payment_model extends CI_Model
                 $fields = array(
                         'userID' => array('type' => 'VARCHAR', 'constraint' => 30),			
                         'courseID' => array('type' => 'VARCHAR', 'constraint' => 30),
+                		'simulation' => array('type' => 'TINYINT'),
                         'paymentChoice' => array('type' => 'VARCHAR', 'constraint' => 30),
                         'rate' => array('type' => 'VARCHAR', 'constraint' => 30),
-                        'paymentDate' => array('type' => 'DATETIME')
+                        'paymentDate' => array('type' => 'DATETIME'),
+                		'paypalCoursePaymentID' => array('type' => 'VARCHAR', 'constraint' => 2048),
+                		'paypalSimulationPaymentID' => array('type' => 'VARCHAR', 'constraint' => 2048),
                 );
                 
                 $this->dbforge->add_key('userID', TRUE);
@@ -30,21 +33,47 @@ class Payment_model extends CI_Model
                 $this->dbforge->create_table(self::table_name);
         }
         
-        public function add($userID, $courseIDs, $paymentChoice, $rate, $paymentDate)
+//         public function add($userID, $courseIDs, $paymentChoice, $rate, $paymentDate)
+//         {
+//                 $data = array();
+                
+//                 foreach($courseIDs as $course)
+//                         array_push($data,
+//                                 array(
+//                                    'userID' => $userID,
+//                                    'courseID' => $course,
+//                                    'paymentChoice' => $paymentChoice,
+//                                    'rate' => $rate,
+//                                    'paymentDate' => $paymentDate
+//                                 ));
+                
+//                 $this->db->insert_batch(self::table_name, $data);
+//         }
+
+		public function add($userID, $courseID, $simulation, $paymentChoice, $rate, $paymentDate, $paypalCoursePaymentID, $paypalSimulationPaymentID)
         {
-                $data = array();
-                
-                foreach($courseIDs as $course)
-                        array_push($data,
-                                array(
-                                   'userID' => $userID,
-                                   'courseID' => $course,
-                                   'paymentChoice' => $paymentChoice,
-                                   'rate' => $rate,
-                                   'paymentDate' => $paymentDate
-                                ));
-                
-                $this->db->insert_batch(self::table_name, $data);
+                $data = array(
+							'userID' => $userID,
+                            'courseID' => $courseID,
+                			'simulation' => $simulation,
+                            'paymentChoice' => $paymentChoice,
+                            'rate' => $rate,
+                            'paymentDate' => $paymentDate,
+                			'paypalCoursePaymentID' => $paypalCoursePaymentID,
+                			'paypalSimulationPaymentID' => $paypalSimulationPaymentID
+				);
+
+                $this->db->insert(self::table_name, $data);
+        }
+        
+        public function add_simulation($userID, $courseID, $paypalSimulationPaymentID)
+        {
+        	$data = array('simulation' => true, 'paypalSimulationPaymentID' => $paypalSimulationPaymentID);
+        	
+        	$this->db->where('userID', $userID);
+        	$this->db->where('courseID', $courseID);
+        	
+        	$this->db->update(self::table_name, $data);
         }
         
         public function get($paymentID)

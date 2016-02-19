@@ -4,7 +4,11 @@
 		<img src="imgs/iscriviti.png">
 	</div>
 	
-	<div class="pay-button clickable" ng-if="course.hasSimulation && !course.isSimulationInCart() && (course.isInCart() || (course.subscribed && !course.subscribedToSimulation))" ng-click="course.addSimulation()">
+	<!-- Devo mostrare il bottone per iscriversi alla simulazione se:
+	i) il corso ha la simulazione &&
+	ii) ho già pagato il corso soltanto
+	 -->
+	<div class="pay-button clickable" ng-if="course.hasSimulation && course.subscribed && !course.subscribedToSimulation && !course.isInCart()" ng-click="course.addSimulation()">
 		<img src="imgs/iscriviti-simulazione.png">
 	</div>
 	
