@@ -2,7 +2,7 @@
     <div class="container">
         <div class="faqStep text-center">
             <div class="container">
-                <div class="faqIntroduction">FAQ</div>
+                <div class="faqIntroduction">DOMANDE FREQUENTI (F.A.Q.)</div>
                 <div class="stepContent">
                     <div class="container">
                         <span>Tutto ciò che avete sempre desiderato sapere ma non avete mai avuto il coraggio di chiedere!</span>

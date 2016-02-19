@@ -32,7 +32,7 @@ main.controller('footerController',["utilities",function(utilities){
     self.tabs = [
         {
             id : 'faq',
-            content : 'FAQ'
+            content : 'DOMANDE FREQUENTI'
         },
         {
             id : 'privacy',
