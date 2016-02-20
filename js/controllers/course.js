@@ -12,7 +12,7 @@ main.controller('courseController',['utilities','$scope','$server','$routeParams
     self.subscribed = false;
     
     // Role-based access
-    if($rootScope.admin == true) self.hasAccessToMaterial = true; 
+    if($rootScope.admin == true) self.hasAccessToMaterial = true;
     else self.hasAccessToMaterial = false;
     
     $scope.events = [];

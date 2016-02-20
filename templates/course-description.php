@@ -2,7 +2,7 @@
     <div class="course-description-introduction">
         <div class="container">
             <div class="course-description">
-				<img alt="{{course.courseID}}" ng-src="imgs/{{course.courseInfo.icon}}.png" class="course-icon">
+				<img alt="{{course.courseID}}" ng-src="imgs/courses/grey/{{course.courseInfo.icon}}.png" class="course-icon">
                 <span ng-bind-html="course.courseInfo.description"></span>
             </div>
         </div>
