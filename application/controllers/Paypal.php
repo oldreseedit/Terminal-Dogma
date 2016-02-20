@@ -30,6 +30,7 @@ class Paypal extends CI_Controller {
             $this->load->model('user_achievements_rewards_model');
             $this->load->model('seedon_model');
             $this->load->model('userinfo_model');
+            $this->load->model('preferences_model');
             $this->load->model('paypal_history_model');
             
             $this->apiContext = new ApiContext(new OAuthTokenCredential(
@@ -295,6 +296,14 @@ class Paypal extends CI_Controller {
 			
 			if($response->getState() === "approved")
 			{
+				$allCourses = [];
+				foreach($this->courses_model->get_all() as $course)
+				{
+					$allCourses[$course['courseID']] = $course;
+				}
+				
+				$userInfo = $this->userinfo_model->get($userID);
+				
 				// Aggiungi i corsi alla tabella "Payment"
 				$cart = json_decode($_COOKIE['cart'], true);
 				$cartItems = $cart['items'];
@@ -303,7 +312,9 @@ class Paypal extends CI_Controller {
 				foreach($cartItems as $item)
 				{
 					$courseID = $item['courseID'];
-						
+					$courseInfo = $allCourses[$courseID];
+					$rights = $this->preferences_model->get($userID);
+					
 					// Evita di far pagare corsi che l'utente ha già acquistato
 					$wantCourse = $item['payCourse'] == "1";
 					
@@ -319,11 +330,23 @@ class Paypal extends CI_Controller {
 					{
 						// Aggiungi il corso alla tabella
 						$this->payment_model->add($userID, $courseID, $simulation, $paymentChoice, $rate, $paymentDate, $response->getId(), $response->getId());
+
+						$this->mailer->send_mail("info@reseed.it", $userID . " si è appena iscritto al corso di " . $courseID, "L'utente ".$userID." (nome:".$userInfo['name'].", cognome:".$userInfo['surname'].") si è appena iscritto al corso di " . $courseID . "!");
+						
+						// If the user agreed to receive emails, send him an email with the notification
+						if($rights && $rights['info'] && array_key_exists('email', $userInfo))
+							$this->mailer->send_mail($userInfo['email'], "La tua iscrizione ai corsi di reSeed", "Grazie per esserti iscritto al corso di " . $courseInfo['name'] . "!");
 					}
 					else if($wantSimulation)
 					{
 						// Aggiungi la simulazione alla tabella
-						$this->payment_model->add_simulation($userID, $courseID, $response->getId());						
+						$this->payment_model->add_simulation($userID, $courseID, $response->getId());
+						
+						$this->mailer->send_mail("info@reseed.it", $userID . " si è appena iscritto alla simulazione di " . $courseID, "L'utente ".$userID." (nome:".$userInfo['name'].", cognome:".$userInfo['surname'].") si è appena iscritto alla simulazione di " . $courseID . "!");
+						
+						// If the user agreed to receive emails, send him an email with the notification
+						if($rights && $rights['info'] && array_key_exists('email', $userInfo))
+							$this->mailer->send_mail($userInfo['email'], "La tua iscrizione ai corsi di reSeed", "Grazie per esserti iscritto alla simulazione di " . $courseInfo['name'] . "!");
 					}
 				}
 				
