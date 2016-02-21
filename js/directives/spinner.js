@@ -54,7 +54,7 @@ main.directive('spinnerPlace',[function(){
 				if(newValue !== undefined) newValue ? $element.removeClass('ng-hide')  : $element.addClass('ng-hide');
 			});
 //			console.log($scope);
-		}		
+		}
 	}
 }]);
 

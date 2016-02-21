@@ -61,7 +61,7 @@ main.controller('cartController',['$rootScope','utilities','inform','cartService
     }
     
     self.pay = function(){
-    	  cartService.pay();
+    	  self.paypalAjax = cartService.pay();
     }
     
     self.getTotalPrice = function(){

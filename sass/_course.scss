@@ -50,7 +50,7 @@
     }
     
     .teacher-icon{
-        @extend .col-25;
+        @extend .col-20;
         
         .team-social-buttons {
         	@extend .col-100;
@@ -63,7 +63,7 @@
         float: none;
         
         .circle-img{
-        	@extend .col-40;
+        	@extend .col-60;
         	float: none;
         	margin-left: auto;
     		margin-right: auto;
@@ -75,8 +75,8 @@
     }
     
     .teacher-description{
-    	@extend .col-65;
-    	@extend .offset-5;
+    	@extend .col-73;
+    	@extend .offset-2;
     	@extend .text-justify;
     }
     
@@ -86,7 +86,6 @@
     
     .course-icon{
 		width: 10em;
-/*     	padding-top: 0.6em; */
     	float: left;
     	padding: 0.6em;
     	padding-right: 1.5em;
@@ -118,6 +117,22 @@
 		
 		img {
 			height: 150px;
+			
+			&:hover {
+    			opacity: .7;
+    		}
+		}
+	}
+	
+	.faq-button {
+		position: fixed;
+		bottom: 10px;
+		left: 10px;
+		
+		a {
+			height: 150px;
+			color: white;
+			font-size: 0.3em;
 			
 			&:hover {
     			opacity: .7;

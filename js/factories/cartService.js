@@ -75,7 +75,7 @@ main.factory('cartService',['inform','$cookies','moment','$server', function(inf
 	cart.pay = function(){
     	console.log(cart);
 		
-		$server.post('paypal/pay').then(
+		return $server.post('paypal/pay').then(
 				function(response)
 				{
 					console.log(response);

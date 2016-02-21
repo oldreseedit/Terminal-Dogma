@@ -4,6 +4,15 @@
 		<img src="imgs/iscriviti.png">
 	</div>
 	
+	<div class="faq-button clickable">
+			<span class="fa-stack fa-5x">
+			  <i class="fa fa-circle fa-stack-2x green"></i>
+			  <a href="/faq">
+			  <i class="fa fa-stack-1x">FAQ</i>
+			  </a>
+			</span>
+	</div>
+	
 	<!-- Devo mostrare il bottone per iscriversi alla simulazione se:
 	i) il corso ha la simulazione &&
 	ii) ho già pagato il corso soltanto

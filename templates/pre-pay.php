@@ -2,6 +2,14 @@
 
 <div class="container">
         <div class="no-gridster-item bg-light-grey">
+        	<div spinner="cart.paypalAjax" ng-if="cart.paypalAjax" style="z-index: 1000; display: table; position:fixed; left:5vw; top:5vh; overflow: visible; background-color: white; border: 10px solid; width:90vw; height:90vh;">
+        		<div style="display: table-cell; vertical-align: middle;">
+		    		<h1>Abbiamo inoltrato la richiesta di pagamento a Paypal...</h1>
+		    		<h2>Verrai redirezionato alla pagina di pagamento dedicata di Paypal.</h2>
+		    		<spinner-place class="fa-5x"></spinner-place>
+		    	</div>
+	    	</div>
+        
         	<div class="container">
             	<div class="panel-title bg-lawn">
                 	<h4>Rivedi il tuo pagamento</h4>

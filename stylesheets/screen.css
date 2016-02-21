@@ -9243,7 +9243,7 @@ button.close {
 }
 
 /* line 12, ../sass/_responsive.scss */
-.offset-2, #navbar #navbar-signin {
+.offset-2, #navbar #navbar-signin, #singleCourse .teacher-description {
   margin-left: 2%;
 }
 
@@ -9291,7 +9291,7 @@ button.close {
 }
 
 /* line 12, ../sass/_responsive.scss */
-.offset-5, #home #presentation #tiles-presentation .inside-tab, #home #presentation #tiles-presentation .inside-tab .title-wrapper, #home #presentation #news-events .news-icon, #home #presentation #tiles-experience .experience-content, #home #presentation #tiles-experience .gain-icon, #singleCourse .course-notification-text, #singleCourse .teacher-description, #media .media-panel .media-panel-main .media-navbar, #profile .profile-name-level-xp {
+.offset-5, #home #presentation #tiles-presentation .inside-tab, #home #presentation #tiles-presentation .inside-tab .title-wrapper, #home #presentation #news-events .news-icon, #home #presentation #tiles-experience .experience-content, #home #presentation #tiles-experience .gain-icon, #singleCourse .course-notification-text, #media .media-panel .media-panel-main .media-navbar, #profile .profile-name-level-xp {
   margin-left: 5%;
 }
 
@@ -9520,7 +9520,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-20, #navbar #navbar-home, #footer #footer-logo, #home #presentation #news-events .news-icon {
+.col-20, #navbar #navbar-home, #footer #footer-logo, #home #presentation #news-events .news-icon, #singleCourse .teacher-icon {
   width: 20%;
   float: left;
 }
@@ -9600,7 +9600,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-25, #navbar #navbar-tabs, #navbar #navbar-profile, #singleCourse .teacher-icon {
+.col-25, #navbar #navbar-tabs, #navbar #navbar-profile {
   width: 25%;
   float: left;
 }
@@ -9840,7 +9840,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-40, #singleCourse .material-title, #singleCourse .teacher-avatar .circle-img, #singleCourse .teacher-avatar .avatar {
+.col-40, #singleCourse .material-title {
   width: 40%;
   float: left;
 }
@@ -10160,7 +10160,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-60, #home #presentation #tiles-experience .experience-content, #media .media-panel .media-panel-main .media-content {
+.col-60, #home #presentation #tiles-experience .experience-content, #singleCourse .teacher-avatar .circle-img, #singleCourse .teacher-avatar .avatar, #media .media-panel .media-panel-main .media-content {
   width: 60%;
   float: left;
 }
@@ -10240,7 +10240,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-65, #singleCourse .course-notification-text, #singleCourse .teacher-description, #profile .profile-name-level-xp {
+.col-65, #singleCourse .course-notification-text, #profile .profile-name-level-xp {
   width: 65%;
   float: left;
 }
@@ -10368,7 +10368,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-73 {
+.col-73, #singleCourse .teacher-description {
   width: 73%;
   float: left;
 }
@@ -20372,37 +20372,52 @@ body {
 /* line 87, ../sass/_course.scss */
 #singleCourse .course-icon {
   width: 10em;
-  /*     	padding-top: 0.6em; */
   float: left;
   padding: 0.6em;
   padding-right: 1.5em;
   padding-bottom: 0.8em;
 }
-/* line 100, ../sass/_course.scss */
+/* line 99, ../sass/_course.scss */
 #singleCourse .agendaButtons {
   margin-bottom: 1vw;
   text-align: center;
 }
-/* line 106, ../sass/_course.scss */
+/* line 105, ../sass/_course.scss */
 #singleCourse .course-info emph {
   font-weight: bold;
 }
-/* line 110, ../sass/_course.scss */
+/* line 109, ../sass/_course.scss */
 #singleCourse .course-info .details {
   margin: 10px 0px;
 }
-/* line 114, ../sass/_course.scss */
+/* line 113, ../sass/_course.scss */
 #singleCourse .pay-button {
   position: fixed;
   bottom: 10px;
   right: 10px;
 }
-/* line 119, ../sass/_course.scss */
+/* line 118, ../sass/_course.scss */
 #singleCourse .pay-button img {
   height: 150px;
 }
-/* line 122, ../sass/_course.scss */
+/* line 121, ../sass/_course.scss */
 #singleCourse .pay-button img:hover {
+  opacity: .7;
+}
+/* line 127, ../sass/_course.scss */
+#singleCourse .faq-button {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+}
+/* line 132, ../sass/_course.scss */
+#singleCourse .faq-button a {
+  height: 150px;
+  color: white;
+  font-size: 0.3em;
+}
+/* line 137, ../sass/_course.scss */
+#singleCourse .faq-button a:hover {
   opacity: .7;
 }
 
