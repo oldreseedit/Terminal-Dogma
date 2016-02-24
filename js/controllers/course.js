@@ -3,7 +3,7 @@ main.controller('courseController',['utilities','$scope','$server','$routeParams
     
     /* CONFIG */
     
-    $rootScope.ogImage = 'https://www.reseed.it/' + 'imgs/fb/' + $routeParams.courseID + ".png";
+    $rootScope.ogImage = 'http://www.reseed.it/' + 'imgs/fb/' + $routeParams.courseID + ".png";
     
     self.username = $cookies.get('username') || null;
     $route.current.locals.username = self.username; // For modal and GridsterResizer
@@ -241,38 +241,42 @@ main.controller('courseController',['utilities','$scope','$server','$routeParams
     	}
     	
 		self.courseName = response.data.name;
-		$rootScope.title = self.courseName;
-		$rootScope.description = null;
 		
-		switch (self.courseName) {
-		case 'Java':
-			$rootScope.description = 'Impara il linguaggio di programmazione che controlla più di 4 miliardi di dispositivi!';
-			break;
-		case 'Mobile App':
-			$rootScope.description = 'Apprendi le basi per sviluppare un\'applicazione Android!';
-			break;
-		case 'HTML + CSS + JS':
-			$rootScope.description = 'Un corso introduttivo ma completo sulle nozioni e funzionalità di base della programmazione web: HTML, CSS e Javascript';
-			break;
-		case 'MVC Development':
-			$rootScope.description = 'Un corso completo sui framework più diffusi e potenti (AngularJS, jQuery e CodeIgniter) per lo sviluppo di applicazioni web.';
-			break;
-		case 'Game Design':
-			$rootScope.description = 'Fondamenti di game design e progettazione di un videogioco da realizzare in collaborazione con altri corsi.';
-			break;
-		case 'Game Maker':
-			$rootScope.description = 'Come creare un videogioco da zero utilizzando Game Maker Studio, e suo effettivo sviluppo in collaborazione con altri corsi.';
-			break;
-		case 'Games for Dummies':
-			$rootScope.description = 'Corso per principianti mirato allo sviluppo di un videogioco senza alcuna conoscenza di linguaggi di programmazione.';
-			break;
-		case '3D Studio Max':
-			$rootScope.description = 'Modellazione, texturing, illuminazione e rendering in 3DS Max + V-Ray e realizzazione della grafica per un videogioco in collaborazione con altri corsi.';
-			break;
-			
-		default:
-			break;
-		}
+		$rootScope.title = self.courseName + " - reSeed";
+		$rootScope.description = response.data.shortDescription;
+		
+		$rootScope.ogTitle = "Corso di " + $rootScope.title;
+	    $rootScope.ogDescription = $rootScope.description;
+	    
+//		switch (self.courseName) {
+//		case 'Java':
+//			$rootScope.description = 'Impara il linguaggio di programmazione che controlla più di 4 miliardi di dispositivi!';
+//			break;
+//		case 'Mobile App':
+//			$rootScope.description = 'Apprendi le basi per sviluppare un\'applicazione Android!';
+//			break;
+//		case 'HTML + CSS + JS':
+//			$rootScope.description = 'Un corso introduttivo ma completo sulle nozioni e funzionalità di base della programmazione web: HTML, CSS e Javascript';
+//			break;
+//		case 'MVC Development':
+//			$rootScope.description = 'Un corso completo sui framework più diffusi e potenti (AngularJS, jQuery e CodeIgniter) per lo sviluppo di applicazioni web.';
+//			break;
+//		case 'Game Design':
+//			$rootScope.description = 'Fondamenti di game design e progettazione di un videogioco da realizzare in collaborazione con altri corsi.';
+//			break;
+//		case 'Game Maker':
+//			$rootScope.description = 'Come creare un videogioco da zero utilizzando Game Maker Studio, e suo effettivo sviluppo in collaborazione con altri corsi.';
+//			break;
+//		case 'Games for Dummies':
+//			$rootScope.description = 'Corso per principianti mirato allo sviluppo di un videogioco senza alcuna conoscenza di linguaggi di programmazione.';
+//			break;
+//		case '3D Studio Max':
+//			$rootScope.description = 'Modellazione, texturing, illuminazione e rendering in 3DS Max + V-Ray e realizzazione della grafica per un videogioco in collaborazione con altri corsi.';
+//			break;
+//			
+//		default:
+//			break;
+//		}
 		
     	for(var i=0; i< self.items.length; i++)
     	{
@@ -338,11 +342,15 @@ main.controller('courseController',['utilities','$scope','$server','$routeParams
 			
 		    for(var i=0; i<self.tempCourses.length; i++)
 		    {
-			   	if(self.tempCourses[i] === self.courseID)
+			   	if(self.tempCourses[i].courseID === self.courseID)
 			   	{
-			   		self.hasAccessToMaterial = true;
-			   		self.subscribed = true;
-			   		self.subscribedToSimulation = self.tempCourses[i].simulation;
+			   		self.hasAccessToMaterial = parseInt(self.tempCourses[i].course);
+			   		self.subscribed = parseInt(self.tempCourses[i].course);
+			   		self.subscribedToSimulation = parseInt(self.tempCourses[i].simulation);
+			   		
+			   		self.presubscribed = true;
+			   		
+			   		console.log(self);
 			   	}
 		    }
 		}

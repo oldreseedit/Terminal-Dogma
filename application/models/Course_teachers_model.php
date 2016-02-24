@@ -58,6 +58,11 @@ class Course_teachers_model extends CI_Model
                 return $this->db->where('courseID', $courseID)->get(self::table_name)->result_array();
         }
         
+        public function get_all_teachers()
+        {
+        	return $this->db->get(self::table_name)->result_array();
+        }
+        
 		public function get_courses($teacherID)
         {
                 return $this->db->where('teacherID', $teacherID)->get(self::table_name)->result_array();

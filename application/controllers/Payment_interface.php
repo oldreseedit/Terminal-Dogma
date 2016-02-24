@@ -46,99 +46,8 @@ class Payment_interface extends CI_Controller {
                 return;
             }
             
-            $paymentChoice = $this->input->post('paymentChoice');
-            if($paymentChoice == false)
-            {
-                echo json_encode(array("error" => true, "description" => "Il tipo di pagamento è obbligatorio (contanti, virtuale, etc.).", "errorCode" => "MANDATORY_FIELD", "parameters" => array("paymentChoice")));
-                return;
-            }
-            
-            $rate = $this->input->post('rate');
-            if($rate == false)
-            {
-                echo json_encode(array("error" => true, "description" => "La durata del pagamento (rata mensile, bimensile, one-shot) è obbligatoria.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("rate")));
-                return;
-            }
-            
-            $paymentDate = date("Y-m-d H:i:s");
-
-            $this->db->trans_start();
-            
-            // How many courses so far has the user subscribed to?
-            $subscribed_courses = count($this->payment_model->get_courses($userID));
-            
             // Store the payment fact
-            $this->payment_model->add($userID, $courseIDs, $paymentChoice, $rate, $paymentDate);
-            
-            // Get all the achievements
-            $all_achievements_and_rewards = array();
-            foreach ($this->achievements_and_rewards_model->get("ACHIEVEMENT") as $achievement)
-            {
-            	$all_achievements[$achievement['achievementRewardID']] = $achievement;
-            }
-            
-            // Get current achievements
-            $achievements_obtained_db = $this->user_achievements_rewards_model->get_achievements_and_rewards_obtained($userID, "ACHIEVEMENT");
-            $obtained_achievements = array();
-            foreach ($achievements_obtained_db as $achievement_obtained_db)
-            {
-            	$obtained_achievements[$achievement_obtained_db['achievementRewardID']] = $achievement_obtained_db;
-            }
-            
-            $notifications = array();
-            
-			$new_subscribing_courses = 1;
-			foreach($courseIDs as $courseID)
-			{
-				$course_count = $subscribed_courses + $new_subscribing_courses;
-				$achievement_ID = "SUBSCRIBED_TO_" . $course_count . "_COURSE" . ($course_count == 1 ? "" : "S");
-				
-				// If such an achievement does not exist (yet)
-				if(!array_key_exists($achievement_ID, $all_achievements)) continue;
-				
-				// Get the prototype of this achievement
-				$achievement = $all_achievements[$achievement_ID];
-				
-				// Get the description
-				$description = $achievement['description'];
-				
-				$publishingTimestamp = $this->time->get_timestamp();
-				$notifications[] = array("error" => false, "description" => "Hai ottenuto " . $achievement_ID . ": " . $description, "errorCode" => "ACHIEVEMENT_EVENT");
-				$this->experience_events_model->add($userID, "ACHIEVEMENT", $achievement_ID, $publishingTimestamp, null, $courseID);
-				$this->notifications_model->add("Hai ottenuto " . $achievement_ID . ": " . $description, $publishingTimestamp, array($userID), true, $courseID);
-				$this->user_achievements_rewards_model->add($userID, $achievement_ID, $publishingTimestamp, $courseID);
-				
-				$new_subscribing_courses++;
-			}
-			
-			// Assign special achievement (2 at once, three at once, and so on)
-			for($i=2; $i <= count($courseIDs); $i++)
-			{
-				$achievement_ID = $i . "_COURSES_AT_ONCE";
-				
-				// If such an achievement does not exist (yet)
-				if(!array_key_exists($achievement_ID, $all_achievements)) continue;
-				
-				// Check if the user already has it
-				if(array_key_exists($achievement_ID, $obtained_achievements)) continue;
-				
-				// Get the prototype of this achievement
-				$achievement = $all_achievements[$achievement_ID];
-				
-				// Get the description
-				$description = $achievement['description'];
-				
-				// Assign it
-				$publishingTimestamp = $this->time->get_timestamp();
-				$notifications[] = array("error" => false, "description" => "Hai ottenuto " . $achievement_ID . ": " . $description, "errorCode" => "ACHIEVEMENT_EVENT");
-				$this->experience_events_model->add($userID, "ACHIEVEMENT", $achievement_ID, $publishingTimestamp, null, null);
-				$this->notifications_model->add("Hai ottenuto " . $achievement_ID . ": " . $description, $publishingTimestamp, array($userID), true, null);
-				$this->user_achievements_rewards_model->add($userID, $achievement_ID, $publishingTimestamp, null);
-			}
-			
-            $this->db->trans_complete();
-            
-            echo json_encode($notifications);
+            $this->payment_model->add($userID, $courseIDs);
         }
                
         public function get_payment()
@@ -177,12 +86,12 @@ class Payment_interface extends CI_Controller {
             
             $result = $this->payment_model->get_courses($userID);
             
-            $courses = array();
-            foreach($result as $course)
-            {
-                $courses[] = $course['courseID'];
-            }
-            echo json_encode($courses);
+//             $courses = array();
+//             foreach($result as $course)
+//             {
+//                 $courses[] = $course['courseID'];
+//             }
+            echo json_encode($result);
         }
         
         public function get_courses_with_info()
@@ -243,6 +152,84 @@ class Payment_interface extends CI_Controller {
             }
             
             echo json_encode($subscriptions);
+        }
+        
+        public function update()
+        {
+        	$this->db->trans_start();
+        	
+        	// How many courses so far has the user subscribed to?
+        	$subscribed_courses = count($this->payment_model->get_courses($userID));
+        	
+        	// Get all the achievements
+        	$all_achievements_and_rewards = array();
+        	foreach ($this->achievements_and_rewards_model->get("ACHIEVEMENT") as $achievement)
+        	{
+        		$all_achievements[$achievement['achievementRewardID']] = $achievement;
+        	}
+        	
+        	// Get current achievements
+        	$achievements_obtained_db = $this->user_achievements_rewards_model->get_achievements_and_rewards_obtained($userID, "ACHIEVEMENT");
+        	$obtained_achievements = array();
+        	foreach ($achievements_obtained_db as $achievement_obtained_db)
+        	{
+        		$obtained_achievements[$achievement_obtained_db['achievementRewardID']] = $achievement_obtained_db;
+        	}
+        	
+        	$notifications = array();
+        	
+        	$new_subscribing_courses = 1;
+        	foreach($courseIDs as $courseID)
+        	{
+        		$course_count = $subscribed_courses + $new_subscribing_courses;
+        		$achievement_ID = "SUBSCRIBED_TO_" . $course_count . "_COURSE" . ($course_count == 1 ? "" : "S");
+        	
+        		// If such an achievement does not exist (yet)
+        		if(!array_key_exists($achievement_ID, $all_achievements)) continue;
+        	
+        		// Get the prototype of this achievement
+        		$achievement = $all_achievements[$achievement_ID];
+        	
+        		// Get the description
+        		$description = $achievement['description'];
+        	
+        		$publishingTimestamp = $this->time->get_timestamp();
+        		$notifications[] = array("error" => false, "description" => "Hai ottenuto " . $achievement_ID . ": " . $description, "errorCode" => "ACHIEVEMENT_EVENT");
+        		$this->experience_events_model->add($userID, "ACHIEVEMENT", $achievement_ID, $publishingTimestamp, null, $courseID);
+        		$this->notifications_model->add("Hai ottenuto " . $achievement_ID . ": " . $description, $publishingTimestamp, array($userID), true, $courseID);
+        		$this->user_achievements_rewards_model->add($userID, $achievement_ID, $publishingTimestamp, $courseID);
+        	
+        		$new_subscribing_courses++;
+        	}
+        		
+        	// Assign special achievement (2 at once, three at once, and so on)
+        	for($i=2; $i <= count($courseIDs); $i++)
+        	{
+        		$achievement_ID = $i . "_COURSES_AT_ONCE";
+        	
+        		// If such an achievement does not exist (yet)
+        		if(!array_key_exists($achievement_ID, $all_achievements)) continue;
+        	
+        		// Check if the user already has it
+        		if(array_key_exists($achievement_ID, $obtained_achievements)) continue;
+        	
+        		// Get the prototype of this achievement
+        		$achievement = $all_achievements[$achievement_ID];
+        	
+        		// Get the description
+        		$description = $achievement['description'];
+        	
+        		// Assign it
+        		$publishingTimestamp = $this->time->get_timestamp();
+        		$notifications[] = array("error" => false, "description" => "Hai ottenuto " . $achievement_ID . ": " . $description, "errorCode" => "ACHIEVEMENT_EVENT");
+        		$this->experience_events_model->add($userID, "ACHIEVEMENT", $achievement_ID, $publishingTimestamp, null, null);
+        		$this->notifications_model->add("Hai ottenuto " . $achievement_ID . ": " . $description, $publishingTimestamp, array($userID), true, null);
+        		$this->user_achievements_rewards_model->add($userID, $achievement_ID, $publishingTimestamp, null);
+        	}
+        		
+        	$this->db->trans_complete();
+        	
+        	echo json_encode($notifications);
         }
 }
 ?>

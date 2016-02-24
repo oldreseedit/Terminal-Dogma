@@ -58,6 +58,22 @@ main.directive('spinnerPlace',[function(){
 	}
 }]);
 
+main.directive('whileSpinning',[function(){
+	return {
+		restrict: 'E',
+		scope: true,
+		transclude: true,
+		template : '<div ng-transclude></div>',
+		link : function($scope, $element, $attrs)
+		{			
+			$scope.$watch('pending',function(newValue){
+				newValue ? $element.removeClass('ng-hide')  : $element.addClass('ng-hide');
+			});
+//			console.log($scope);
+		}
+	}
+}]);
+
 main.directive('spinnerFinal',function(){
 	return {
 		restrict : 'ACE',

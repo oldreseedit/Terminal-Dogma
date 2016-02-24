@@ -8,20 +8,31 @@ RewriteEngine on
 #RewriteCond %{QUERY_STRING} ^_escaped_fragment_=/([^/]+)/*([^/]*)$
 #RewriteRule ^(.*)$ /snapshots/%1%2.html? [NC,L]
 
-RewriteCond %{HTTP_USER_AGENT} ^facebookexternalhit/1.1
+RewriteCond %{HTTP_USER_AGENT} ^facebookexternalhit/1.1 [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} Googlebot [NC]
 RewriteRule ^$ /snapshots/home.html [NC,L]
 
-RewriteCond %{HTTP_USER_AGENT} ^facebookexternalhit/1.1
+RewriteCond %{HTTP_USER_AGENT} ^facebookexternalhit/1.1 [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} Googlebot [NC]
 RewriteCond %{REQUEST_URI} !^.*snapshots.*$
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)/(.*)$ /snapshots/$1$2.html [NC,L]
 
-RewriteCond %{HTTP_USER_AGENT} ^facebookexternalhit/1.1
+RewriteCond %{HTTP_USER_AGENT} ^facebookexternalhit/1.1 [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} Googlebot [NC]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI} !^.*snapshots.*$
 RewriteRule ^(.*)$ /snapshots/$1.html [NC,L]
+
+# Backoff for Facebook and Google
+RewriteCond %{HTTP_USER_AGENT} ^facebookexternalhit/1.1 [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} Googlebot [NC]
+RewriteCond %{REQUEST_URI} !^.*snapshots.*$
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /snapshots/courses.html [NC,L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

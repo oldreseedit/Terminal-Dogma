@@ -20398,7 +20398,7 @@ body {
 }
 /* line 118, ../sass/_course.scss */
 #singleCourse .pay-button img {
-  height: 150px;
+  height: 160px;
 }
 /* line 121, ../sass/_course.scss */
 #singleCourse .pay-button img:hover {
@@ -20411,13 +20411,11 @@ body {
   left: 10px;
 }
 /* line 132, ../sass/_course.scss */
-#singleCourse .faq-button a {
-  height: 150px;
-  color: white;
-  font-size: 0.3em;
+#singleCourse .faq-button img {
+  height: 110px;
 }
-/* line 137, ../sass/_course.scss */
-#singleCourse .faq-button a:hover {
+/* line 135, ../sass/_course.scss */
+#singleCourse .faq-button img:hover {
   opacity: .7;
 }
 

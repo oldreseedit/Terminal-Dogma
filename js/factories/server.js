@@ -1,10 +1,11 @@
 main.factory('$server',['$http','inform',function($http,inform){
 	
-	var Post = function(url, data, showInform, config)
+	var Post = function(url, data, showInform, config, forceSuccessFnInvocation)
 	{
 		url = 'index.php/' + url;
 		this.showInform = showInform === undefined ? true : showInform;
-		this.config = config || null;
+		this.config = config === undefined ? null : config;
+		this.forceSuccessFnInvocation = forceSuccessFnInvocation === undefined ? false : forceSuccessFnInvocation;
 		if(this.config) this.promise = $http.post(url,data,config);
 		else this.promise = $http.post(url,data);
 		this.promise.id = url + JSON.stringify(data);
@@ -21,10 +22,14 @@ main.factory('$server',['$http','inform',function($http,inform){
 		this.promise.then(function(response){
 			
 			if(self.showInform){
-//				console.log(response);
 				if(response.data.error) inform.add(response.data.description,{type: 'danger'});
 			}
-			if(response) if(successFn && !response.data.error) successFn(response);
+			
+			if(response)
+			{
+				if(successFn && (self.forceSuccessFnInvocation || !response.data.error))
+					successFn(response);
+			}
 			
 //			console.log(successFn);
 		},function(error){
@@ -36,8 +41,8 @@ main.factory('$server',['$http','inform',function($http,inform){
 		return this.promise;
 	};
 	
-	var post = function(url,data,showInform,config){
-		return new Post(url,data,showInform,config);
+	var post = function(url,data,showInform,config,forceSuccessFnInvocation){
+		return new Post(url,data,showInform,config,forceSuccessFnInvocation);
 	}
 	
 	return {

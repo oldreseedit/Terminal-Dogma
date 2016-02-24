@@ -29,7 +29,10 @@ var main = angular.module('Main',[
 		var js, fjs = d.getElementsByTagName(s)[0];
 		if (d.getElementById(id)) {return;}
 		js = d.createElement(s); js.id = id;
-		js.src = "//connect.facebook.net/it_it/sdk/debug.js"; // TODO: change to it_it/sdk.js
+		
+		// DEBUG: //connect.facebook.net/it_it/sdk/debug.js
+		// LIVE:  //connect.facebook.net/it_it/sdk.js
+		js.src = "//connect.facebook.net/it_it/sdk.js";
 		fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));
 	

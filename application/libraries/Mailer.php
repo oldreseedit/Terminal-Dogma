@@ -9,18 +9,8 @@ class Mailer {
 			
 			$this->CI->load->helper('email');
 			$this->CI->load->library('email');
-                
-// 			$config['protocol'] = 'sendmail';  // mail, sendmail, or smtp
-// 			$config['smtp_host'] = "reseed.it";
-// 			$config['smtp_port'] = 465;
-// 			$config['smtp_user'] = "tflati";
-// 			$config['smtp_pass'] = "arc0bal3n0";
 
-			$config['protocol'] = 'sendmail';
-			$config['smtp_host'] = "nlss2.a2hosting.com";
-			$config['smtp_port'] = 465;
-			$config['smtp_user'] = "reseedit@reseed.it";
-			$config['smtp_password'] = "arc0bal3n0";
+			require_once(APPPATH . '/../../mail_credentials.php');
 			
 			$config['crlf'] = "\r\n";
 			$config['newline'] = "\r\n";

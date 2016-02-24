@@ -90,14 +90,6 @@ module.exports = function(grunt) {
             }
         },
         
-//        purifycss: {
-//	      target: {
-//	        src: ['dist/**/*.js'], // Observe all html files
-//	        css: ['dist/stylesheets/screen.css', 'stylesheets/awesome-bootstrap-checkbox.css', 'stylesheets/fontcustom.css'], // Take all css files into consideration
-//	        dest: 'dist/stylesheets/reseed.clean.css' // Write to this path
-//	      }
-//	    },
-        
         autoprefixer: {
         	options: {
         		browsers: ['last 10 versions', 'ie 8', 'ie 9'],
@@ -117,16 +109,6 @@ module.exports = function(grunt) {
 			}
 		},
 	    
-//        cssmin: {
-//			target: {
-//				files: { // 'destination': 'source'
-//                  'dist/stylesheets/screen.min.css': 'dist/stylesheets/screen.css',
-//                  'dist/stylesheets/print.min.css': 'dist/stylesheets/print.css',
-//                  'dist/stylesheets/ie.min.css': 'dist/stylesheets/ie.css',
-//              }
-//			}
-//		},
-		
 		copy: {
 			website: {
 			    files: [
@@ -193,8 +175,8 @@ module.exports = function(grunt) {
 //                		requestUri = requestUri.substr(0, requestUri.length -1);
 //                	}
                 	
-//                	requestUri = requestUri.replace(/\//g, "");
-                	//if(requestUri === "") requestUri = "home";
+                	requestUri = requestUri.replace(/\//g, "");
+                	if(requestUri === "") requestUri = "home";
                 	
                 	return requestUri;
                     //returns 'index.html' if the url is '/', otherwise a prefix 
@@ -208,20 +190,23 @@ module.exports = function(grunt) {
                 bodyAttr: 'data-prerendered',
                 //here goes the list of all urls that should be fetched 
                 urls: [
-                  '/home',
+//                  '/home',
 //                  '/courses',
 //                  '/contacts',
 //                  '/faq',
 //                  '/privacy',
 //                  '/disclaimer',
 //                  '/courses/java2016',
-//                  '/courses/mobileApp2016',
-//                  '/courses/HCJS2016',
+                  '/courses/mobileApp2016',
+//                  '/courses/hcjs2016',
 //                  '/courses/MVCDevelopment2016',
 //                  '/courses/gameDesign2016',
 //                  '/courses/gameMaker2016',
 //                  '/courses/gamesForDummies2016',
 //                  '/courses/3DStudioMax2016',
+//                  '/courses/c2016',
+//                  '/courses/rendering2016',
+//                  '/courses/webDesign2016',
                 ]
               }
             }
@@ -277,83 +262,6 @@ module.exports = function(grunt) {
 //			    exclusions: ['path/to/source/folder/**/.DS_Store', 'path/to/source/folder/**/Thumbs.db', 'path/to/dist/tmp']
 			  }
 			}
-		
-//		uncss: {
-//			  dist: {
-//			    files: {
-//			      'dist/stylesheets/reseed.clean.css': ['dist/**']
-//			    }
-//			  }
-//			}
-		
-//		sass: {                              // Task 
-//            dist: {                            // Target 
-//                options: {                       // Target options 
-//                    style: 'compressed',
-//                    trace: true,
-//                    precision: 10,
-//                    relativeAssets: true
-//                },
-//                files: {                         // Dictionary of files 
-//                    'dist/stylesheets/screen.css': 'sass/screen.scss',       // 'destination': 'source' 
-//                }
-//            }
-//        },
-		
-//		jshint: {
-//            js_target: {
-//                src: ['js/*.js']
-//            }, //js_target
-//            options: { force: true }, //report JSHint errors but not fail the task
-//        }, //jshint
- 
-//        cssc: {
-//			build: {
-//			   options: {
-//				consolidateViaDeclarations: true,
-//				consolidateViaSelectors:    true,
-//				consolidateMediaQueries:    true
-//			  }
-//			} //build
-//		}, //cssc 
-	 
-//		postcss: {
-//			options: {
-//				diff: true,
-//				processors: [
-//				  // require('autoprefixer')({browsers: ['last 1 version']}),
-//				  require('cssnano')() // minify the result
-//				]
-//			  },
-//			dist: {
-//			  src: 'stylesheets/screen.css',
-//			  dest: 'stylesheets/prefixed-screen.css'
-//			}
-//		},
-//		
-//		watch: {
-//            ngtemplates: {
-//              files: 'templates/**.php',
-//              tasks: ['ngtemplates'],
-//            },
-//			options: { livereload: true }, // reloads browser on save
-//            scripts: {
-//                files: ['js/*.js'],
-//                tasks: ['jshint', 'uglify']
-//            }, //scripts
-//            sass: {
-//                files: ['sass.scss'],
-//                tasks: ['compass:dev', 'postcss:build', 'cssc:build', 'cssmin:build']
-//            } //sass
-//        },
-//		
-//		svgcss: {
-//			build: {
-//			  files: {
-//				'stylesheets/my_icons.css': ['stylesheets/vectors/*.svg']
-//			  }
-//			}
-//		},
     });
 
     grunt.loadNpmTasks('grunt-contrib-uglify');

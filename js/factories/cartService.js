@@ -11,7 +11,7 @@ main.factory('cartService',['inform','$cookies','moment','$server', function(inf
 				},
 				expire:
 				{
-					num: 30,
+					num: 120,
 					measure: "minutes"
 				}
 				};
@@ -73,15 +73,19 @@ main.factory('cartService',['inform','$cookies','moment','$server', function(inf
     }
     
 	cart.pay = function(){
-    	console.log(cart);
-		
-		return $server.post('paypal/pay').then(
+    	return $server.post('paypal/pay', undefined, undefined, undefined, true).then(
 				function(response)
 				{
-					console.log(response);
-					
-					if(!response.data.error)
+					if(response.data.error)
+					{
+						
+						
+//						window.location = "paymentFailed/failed";
+					}
+					else
+					{
 						window.location = response.data.url;
+					}
 				}
 		    );
     }

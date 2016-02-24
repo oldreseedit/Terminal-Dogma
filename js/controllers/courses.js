@@ -1,6 +1,8 @@
 main.controller('coursesController',['utilities','$timeout','$location','$server','moment',function(utilities,$timeout,$location,$server,moment){
     var self = this;
     
+    self.showAllCategories = false;
+    
     self.categories = [{name: 'Informatica', tiles: []},
                        {name: 'Web Development', tiles: []},
                        {name: 'Gaming', tiles: []},
@@ -9,6 +11,8 @@ main.controller('coursesController',['utilities','$timeout','$location','$server
     self.coursesData = $server.post('courses/get_all').then(
     		function(response)
     		{
+    			console.log(response.data);
+    			
     			for(var i=0; i<response.data.length; i++)
     			{
     				var course = response.data[i];
@@ -22,14 +26,19 @@ main.controller('coursesController',['utilities','$timeout','$location','$server
     						category = self.categories[j];
     					}
     				}
-//    				if(category == null)
-//    				{
-//    					category = {
-//    							'name': course.category,
-//    							'tiles': []
-//    					};
-//    					self.categories.push(category);
-//    				}
+    				
+    				if(category == null)
+    				{
+    					if(self.showAllCategories === true)
+    					{
+	    					category = {
+	    							'name': course.category,
+	    							'tiles': []
+	    					};
+	    					self.categories.push(category);
+    					}
+    					else continue;
+    				}
     				
     				// Find the corresponding tile
     				var tile = null;
@@ -62,7 +71,7 @@ main.controller('coursesController',['utilities','$timeout','$location','$server
     			}
     			
     			// To sort categories alphabetically
-//    			self.categories.sort(function(a, b){return a.name >= b.name});
+    			// self.categories.sort(function(a, b){return a.name >= b.name});
     		}
         );
     

@@ -16,7 +16,7 @@
 
     <!-- FB -->
 	<meta property="og:image" content="{{ogImage}}" />
-    <meta property="og:description" content="{{description}}"/>
+    <meta property="og:description" content="{{ogDescription}}"/>
     <meta property="og:url" content="{{ogUrl}}" />
     <meta property="og:title" content="{{ogTitle}}" />
             
@@ -62,12 +62,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.8/js/min/perfect-scrollbar.min.js"></script>
     
 	<!-- Three JSs -->
-    
+    <!-- 
     <script type="text/javascript" src="js/three/three.js"></script>
     <script type="text/javascript" src="js/three/MTLLoader.js"></script>
     <script type="text/javascript" src="js/three/OBJLoader.js"></script>
     <script type="text/javascript" src="js/three/OBJMTLLoader.js"></script>
-    
+    -->
     
     <!-- injector:js -->
     
@@ -161,7 +161,9 @@
     <script type="text/javascript" src="js/controllers/paymentCancel.js"></script>
     <script type="text/javascript" src="js/controllers/paymentConfirmation.js"></script>
     <script type="text/javascript" src="js/controllers/payment.js"></script>
-    <script type="text/javascript" src="js/controllers/paypalPaymentFailed.js"></script>
+    <script type="text/javascript" src="js/controllers/paymentFailed.js"></script>
+    <script type="text/javascript" src="js/controllers/paymentOK.js"></script>
+    <script type="text/javascript" src="js/controllers/paymentPending.js"></script>
     <script type="text/javascript" src="js/controllers/faq.js"></script>
     <script type="text/javascript" src="js/controllers/privacy.js"></script>
     <script type="text/javascript" src="js/controllers/disclaimer.js"></script>

@@ -8,18 +8,7 @@ class Mailer extends CI_Controller {
                 $this->load->helper('email');
                 $this->load->library('email');
                 
-                $config['protocol'] = 'sendmail';
-                $config['smtp_host'] = "nlss2.a2hosting.com";
-                $config['smtp_port'] = 465;
-                $config['smtp_user'] = "reseedit@reseed.it";
-                $config['smtp_password'] = "arc0bal3n0";
-
-                
-//                 $config['protocol'] = 'sendmail';
-// 				$config['smtp_host'] = "smtp.gmail.com";
-// 				$config['smtp_port'] = 465;
-// 				$config['smtp_user'] = "reseededucation@gmail.com";
-// 				$config['smtp_password'] = "arc0bal3n0";
+                require_once(APPPATH . '/../../mail_credentials.php');
                 
                 $config['mailtype'] = "html";
                 

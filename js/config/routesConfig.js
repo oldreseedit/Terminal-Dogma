@@ -2,6 +2,8 @@ main.run(['$rootScope','$location', function($rootScope,$location) {
     $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
     	if(current.$$route)
     	{
+    		console.log(current);
+    		
             $rootScope.title = (current.$$route.title ? current.$$route.title + " - " : "") + "reSeed";
             $rootScope.description = current.$$route.description ? current.$$route.description.replace(/<[^>]+>/gm, '') : "";
             $rootScope.ogTitle = (current.$$route.title ? current.$$route.title + " - " : "") + "reSeed";
@@ -9,6 +11,7 @@ main.run(['$rootScope','$location', function($rootScope,$location) {
             // Se stiamo su una pagina del tipo "courses/" modificare ogTitle in "Corso di "
             if($location.url().indexOf("/courses/") == 0) $rootScope.ogTitle = "Corso di " + $rootScope.ogTitle;
 
+            $rootScope.ogDescription = $rootScope.description;
             $rootScope.ogImage = "http://www.reseed.it/" + (current.$$route.image ? current.$$route.image : "imgs/header.jpg");
             $rootScope.ogUrl = 'https://www.reseed.it' + $location.url();
     	}
@@ -26,11 +29,13 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     
     // Home
     $routeProvider.when('/',{
+    	title : 'reSeed',
     	description: 'Impara. Crea. Pubblica.',
         templateUrl : 'templates/home.php'
     });
     
     $routeProvider.when('/home',{
+    	title : 'reSeed',
     	description: 'Impara. Crea. Pubblica.',
         templateUrl : 'templates/home.php'
     });
@@ -54,6 +59,7 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     
     $routeProvider.when('/activities',{
     	title : 'Servizi',
+    	description : 'I servizi offerti da reSeed sono molteplici. Vieni a scoprirli.',
         templateUrl : 'templates/activities.php'
     });
 //    
@@ -106,7 +112,6 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     // Activity
     
     $routeProvider.when('/activities/:activityID',{
-//    	title : function(parameters){return parameters.activityID},
         templateUrl : 'templates/activity.php',
         controller : 'activityController as activity'
     });
@@ -137,15 +142,22 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     	controller: 'cartController as cart'
     });
     
-    $routeProvider.when('/paymentOK',{
+    $routeProvider.when('/paymentOK/:paymentID/:amount/:paymentCycle/:paymentMedia/:wireTransferCode?/:reason?',{
     	title: 'Risultato del tuo pagamento',
     	templateUrl : 'templates/paymentOK.php',
+    	controller: 'paymentOKController as payment'
+    });
+    
+    $routeProvider.when('/paymentPending/:paymentID/:amount/:paymentCycle/:paymentMedia/:wireTransferCode?/:reason?',{
+    	title: 'Risultato del tuo pagamento',
+    	templateUrl : 'templates/paymentPending.php',
+    	controller: 'paymentPendingController as payment'
     });
     
     $routeProvider.when('/paymentFailed/:errorCode',{
     	title: 'Risultato del tuo pagamento',
     	templateUrl : 'templates/paymentFailed.php',
-    	controller: 'paypalPaymentFailedController as paypal'
+    	controller: 'paymentFailedController as paypal'
     });
     
     $routeProvider.when('/paymentCancelled',{

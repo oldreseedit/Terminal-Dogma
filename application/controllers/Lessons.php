@@ -328,7 +328,7 @@ class Lessons extends CI_Controller {
                 $userID = $member['userID'];
                 $subscribers[$course][$userID] = array('name' => $member['name'], 'surname' => $member['surname']);
             }
-//             print("SUBSCRIBERS"); print_r($subscribers['gameMaker']);
+//             print("SUBSCRIBERS"); print_r($subscribers['gameMaker2015']);
             
             // Creating array of objects of lessons
             $db = array();
@@ -345,23 +345,31 @@ class Lessons extends CI_Controller {
             // Populating studentLists
             $register = $this->register_model->get($lessonId);
 //             print("REGISTER"); print_r($register);
-            foreach($register as $row){
+
+            // Qui stiamo iterando sulle singole lezioni
+            foreach($register as $row)
+            {
             	$lessonID = $row['lessonID'];
+            	
+//             	print("<br/>lesson: ");
+//             	print_r($lessonID);
             	
                 if(!array_key_exists($lessonID,$db)) continue;
                 	
-                	$course = $db[$lessonID]['courseID'];
+                	$lessonCourseID = $db[$lessonID]['courseID'];
                 	
-                	// Check that this user has been inserted in the lessons
-                	if(!array_key_exists($course, $subscribers)) continue;
-
+                	// Check that this user is subscribed to this course
+                	if(!array_key_exists($lessonCourseID, $subscribers)) continue;
+// 					if(!array_key_exists($userID, $subscribers[$lessonCourseID])) continue;
+                	
                     $newStudent = $row;
                     
-//                     print_r($subscribers[$course]);
+//                     print("<br/>SUBSCRIBERS(".$lessonID. ",".$lessonCourseID.")");
+//                     print_r($subscribers[$lessonCourseID]);
                     
                     $userID = $row['userID'];
-                    $newStudent['name'] = $subscribers[$course][$userID]['name'];
-                    $newStudent['surname'] = $subscribers[$course][$userID]['surname'];
+                    $newStudent['name'] = $subscribers[$lessonCourseID][$userID]['name'];
+                    $newStudent['surname'] = $subscribers[$lessonCourseID][$userID]['surname'];
                     $newStudent['attendance'] = (int)$newStudent['attendance'];
                     $newStudent['attendanceID'] = (int)$newStudent['attendanceID'];
                     unset($newStudent['lessonID']);
