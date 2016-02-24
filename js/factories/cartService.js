@@ -78,13 +78,12 @@ main.factory('cartService',['inform','$cookies','moment','$server', function(inf
 				{
 					if(response.data.error)
 					{
-						
-						
-//						window.location = "paymentFailed/failed";
 					}
 					else
 					{
-						window.location = response.data.url;
+						console.log(response);
+//						inform.add(response.data.url);
+//						window.location = response.data.url;
 					}
 				}
 		    );

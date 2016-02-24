@@ -1,7 +1,7 @@
 <?php
 
 require_once(APPPATH.'libraries/PayPal-PHP-SDK/autoload.php');
-require_once(APPPATH . '/../../paypal_credentials.php');
+// require_once(APPPATH . '/../../paypal_credentials.php');
 
 use PayPal\Api\Amount;
 use PayPal\Api\Item;
@@ -17,7 +17,6 @@ use PayPal\Rest\ApiContext;
 
 class Paypal extends CI_Controller {
 
-	public $apiContext = null;
 	public $debugMode = false;
 	const defaultTeacher = "Titto";
 	
@@ -36,14 +35,26 @@ class Paypal extends CI_Controller {
             $this->load->model('paypal_history_model');
             $this->load->model('course_teachers_model');
             $this->load->model('teachers_model');
-            
-            global $clientID;
-            global $clientSecret;
-
-            $this->apiContext = new ApiContext(new OAuthTokenCredential($clientID, $clientSecret));
-            
-            // To make the service live!
-//             $this->apiContext->setConfig(array('mode' => 'live'));
+    }
+    
+    private function get_credentials($teacherID)
+    {
+    	if($teacherID == null) $teacherID = "default";
+    	
+		$go_live = false;
+		
+		$file_content = file_get_contents(APPPATH . '/../../paypal_credentials.json');
+    	$all_credentials = json_decode($file_content, true);
+    	$teacher_credentials = $all_credentials[$teacherID];
+    	$credentials = $teacher_credentials[$go_live ? 'live' : 'sandbox'];
+    	
+    	$apiContext = new ApiContext(new OAuthTokenCredential($credentials['clientID'], $credentials['clientSecret']));
+//     	print_r($apiContext);
+    	
+    	// To make the service live!
+    	if($go_live) $apiContext->setConfig(array('mode' => 'live'));
+    	
+    	return $apiContext;
     }
     
     private function get_total($userID, $cartItems, $cartOptions)
@@ -470,7 +481,34 @@ class Paypal extends CI_Controller {
 			
 			try {
 				
-				$response = $payment->create($this->apiContext);
+				// Prendiamo i docenti di tutti i corsi
+				$all_teachers = array();
+				foreach ($this->course_teachers_model->get_all_teachers() as $course_teacher)
+				{
+					$all_teachers[$course_teacher['courseID']] = $course_teacher['teacherID'];
+				}
+				
+				// Vediamo quali sono i docenti coinvolti dal pagamento dell'utente
+				$course_teachers = array();
+				foreach ($cartItems as $cartItem)
+				{
+					if($cartItem['payCourse'] == "1" || $cartItem['paySimulation'] == "1")
+					{
+						$teacher = $all_teachers[$cartItem['courseID']];
+						if(!array_key_exists($teacher, $course_teachers))
+							$course_teachers[] = $teacher;
+					}
+				}
+				
+				$teacher = null;
+				if(count($course_teachers) == 1) $teacher = $course_teachers[0];
+				
+				$apiContext = $this->get_credentials($teacher);
+				
+				print("USING CREDENTIALS: ");
+				print_r($apiContext);
+				
+				$response = $payment->create($apiContext);
 				
 				// Salva sul DB il successo
 				$this->paypal_history_model->add($response->getId(), $userID, json_encode($payment->toJSON()), json_encode($response->toJSON()), $this->time->get_timestamp(), $response->getState());
@@ -607,13 +645,36 @@ class Paypal extends CI_Controller {
 		{
 			$queryString .= "/paypal";
 			
-			$payment = Payment::get($paymentId, $this->apiContext);
+			// Prendiamo i docenti di tutti i corsi
+			$all_teachers = array();
+			foreach ($this->course_teachers_model->get_all_teachers() as $course_teacher)
+			{
+				$all_teachers[$course_teacher['courseID']] = $course_teacher['teacherID'];
+			}
+			
+			// Vediamo quali sono i docenti coinvolti dal pagamento dell'utente
+			$course_teachers = array();
+			foreach ($cartItems as $cartItem)
+			{
+				if($cartItem['payCourse'] == "1" || $cartItem['paySimulation'] == "1")
+				{
+					$teacher = $all_teachers[$cartItem['courseID']];
+					if(!array_key_exists($teacher, $course_teachers))
+						$course_teachers[] = $teacher;
+				}
+			}
+			
+			$teacher = null;
+			if(count($course_teachers) == 1) $teacher = $course_teachers[0];
+			$apiContext = $this->get_credentials($teacher);
+			
+			$payment = Payment::get($paymentId, $apiContext);
 			
 			$paymentExecution = new PaymentExecution();
 			$paymentExecution->setPayerId($payerID);
 			
 			try {
-				$response = $payment->execute($paymentExecution, $this->apiContext);
+				$response = $payment->execute($paymentExecution, $apiContext);
 	
 				// Salva nel DB la risposta da paypal
 				$this->paypal_history_model->add($response->getId(), $userID, json_encode($payment->toJSON()), json_encode($response->toJSON()), $this->time->get_timestamp(), $response->getState());
