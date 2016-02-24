@@ -17,12 +17,12 @@
                         <div class="stepIcon fa-stack fa-3x">
                             <span class="fa-stack-2x fa fa-question-circle" ng-class="faq.getColours(index)"></span>
                         </div>
-                        <span class="middler"></span><span class="stepTitle middle" ng-bind="faqItem.question"></span>
+                        <span class="middler"></span><span class="stepTitle middle" ng-bind-html="faqItem.question"></span>
                     </div>
                 </div>
                 <div class="stepContent">
                     <div class="container">
-                        <span ng-bind="faqItem.answer"></span>
+                        <span ng-bind-html="faqItem.answer"></span>
                     </div>
                 </div>
             </div>

@@ -505,8 +505,8 @@ class Paypal extends CI_Controller {
 				
 				$apiContext = $this->get_credentials($teacher);
 				
-				print("USING CREDENTIALS: ");
-				print_r($apiContext);
+// 				print("USING CREDENTIALS: ");
+// 				print_r($apiContext);
 				
 				$response = $payment->create($apiContext);
 				

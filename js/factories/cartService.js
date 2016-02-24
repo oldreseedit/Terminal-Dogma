@@ -76,14 +76,11 @@ main.factory('cartService',['inform','$cookies','moment','$server', function(inf
     	return $server.post('paypal/pay', undefined, undefined, undefined, true).then(
 				function(response)
 				{
-					if(response.data.error)
+					if(!response.data.error)
 					{
-					}
-					else
-					{
-						console.log(response);
+//						console.log(response);
 //						inform.add(response.data.url);
-//						window.location = response.data.url;
+						window.location = response.data.url;
 					}
 				}
 		    );

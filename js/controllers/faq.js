@@ -2,6 +2,30 @@ main.controller('faqController',['utilities',function(utilities){
     var self = this;
     
     self.faqList = [
+		{
+		    question : 'Dove si tengono le lezioni?',
+		    answer : 'Nel Centro Studi Castro Pretorio, a due passi dalla metro Rebibbia. <a href="/contacts">Guarda la mappa</a>!'
+		},
+		{
+		    question : 'Cosa è l’On-The-Job Training?',
+		    answer : 'Si tratta di un periodo di apprendistato in cui gli studenti di diversi corsi collaborano tra loro applicando ciò che hanno imparato durante i corsi all’interno di un progetto reale, fornito da aziende esterne o da noi stessi.'
+		},
+		{
+		    question : 'Come vengono pubblicati i lavori degli studenti?',
+		    answer : 'I prodotti dell’On-The-Job Training vengono pubblicati nella maniera più coerente con il tipo di prodotto. Ad esempio se è stato sviluppato un gioco per dispositivi mobili verrà pubblicato sui principali market (Google Play, etc.)'
+		},
+		{
+		    question : 'Come funziona il meccanismo dei punti esperienza?',
+		    answer : 'È molto semplice. Svolgendo azioni didatticamente positive, come essere presenti a lezione, partecipare attivamente o svolgere esercitazioni, lo studente guadagna punti esperienza. Raggiunte determinate soglie lo studente sale di livello sbloccando ricompense e medaglie, come gadget, materiale di studio aggiuntivo, interviste, etc.'
+		},
+		{
+		    question : 'Come funzionano i vostri eventi Open Day?',
+		    answer : 'Sono eventi gratuiti in cui presentiamo i nostri docenti (noi!) e i nostri corsi. Tipicamente vengono strutturati a mo’ di workshop/clinic, ovvero con dimostrazioni da parte nostra di cosa è possibile realizzare con le tecnologie che insegniamo'
+		},
+		{
+		    question : 'Quanto sono effettivamente pratici i vostri corsi?',
+		    answer : 'Molto. Tutti i corsi prevedono frequenti esercitazioni sia durante le lezioni che in sessioni dedicate. '
+		},
         {
             question : 'Perché dovrei seguire uno dei vostri corsi?',
             answer : 'Per due motivi. Il primo è che i nostri docenti sono innanzitutto professionisti che lavorano quotidianamente con gli strumenti che insegnano. Il secondo è che tramite le simulazioni di On-The-Job Training gli studenti hanno la possibilità di toccare con mano il funzionamento delle cose al di fuori dell’ambiente accademico, realizzando al tempo stesso un prodotto di qualità sufficiente per essere inserito nel curriculum'

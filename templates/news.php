@@ -15,7 +15,7 @@
 							<b class="white">Quando: </b><span class="black" ng-bind="news.getDate(event)"></span>
 						</small><br />
 						<small>
-							<b class="white">Dove: </b><span class="black" ng-bind="event.place"></span>
+							<b class="white">Dove: </b><span class="black" ng-bind-html="event.place"></span>
 						</small>
 					</p>
 				</div>
