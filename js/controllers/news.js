@@ -18,9 +18,16 @@ main.controller('newsController',['$server','$scope','$cookies',function($server
 	self.getAjax = $server.post('/events/get_latest_events', {top: 2}).then(
 			function(response)
 			{
+				self.topEvent = null;
+				
 				angular.forEach(response.data, function(e){
 					e['type'] = 'event';
 					self.news.push(e);
+					
+					if(e.type === 'event' && self.topEvent == null)
+					{
+						self.topEvent = e;
+					}
 				});
 				self.newsByRow = self.getNewsByRow();
 			}

@@ -65,10 +65,10 @@
     	}
     	
     	a{
-			@extend .black;
+			@extend .white;
 			text-decoration: none;
 			&:hover{
-				@extend .white;
+				@extend .black;
 			}
 		}
     }

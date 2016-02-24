@@ -19601,7 +19601,7 @@ h1 {
 }
 
 /* line 28, ../sass/_palette.scss */
-.white, #navbar #navbar-signin, #navbar #navbar-signup, #navbar #navbar-logged, #footer a:active, #home #presentation #news-events a:hover, .modal-wrapper form .modal-submit, .modal-wrapper form .modal-submit:hover, .modal-wrapper form .modal-submit:active, .modal-wrapper form .modal-submit:focus {
+.white, #navbar #navbar-signin, #navbar #navbar-signup, #navbar #navbar-logged, #footer a:active, #home #presentation #news-events a, .modal-wrapper form .modal-submit, .modal-wrapper form .modal-submit:hover, .modal-wrapper form .modal-submit:active, .modal-wrapper form .modal-submit:focus {
   color: white;
 }
 
@@ -19646,7 +19646,7 @@ h1 {
 }
 
 /* line 37, ../sass/_palette.scss */
-.black, #home #presentation #tiles-presentation .inside-tab p, #home #presentation #news-events a, #home #presentation #tiles-experience #presentation-gain, #home #presentation #tiles-experience #presentation-unlock {
+.black, #home #presentation #tiles-presentation .inside-tab p, #home #presentation #news-events a:hover, #home #presentation #tiles-experience #presentation-gain, #home #presentation #tiles-experience #presentation-unlock {
   color: black;
 }
 
