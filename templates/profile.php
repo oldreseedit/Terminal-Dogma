@@ -3,7 +3,7 @@
 		<div spinner="profile.userInfo">
 			<spinner-place class="fa-4x"></spinner-place>
 			<spinner-final>
-				<div ng-if="profile.visible">
+				<div ng-if="profile.isMyProfile() || profile.visible">
 					<div  ng-repeat="item in profile.items" ng-init="index = $index">
 						<div class="clearfix" ng-if="profile.isNewRow(index)"></div>
 						<div class="no-gridster-item bg-light-grey" ng-class="profile.getItemClass(item)" ng-style="item.noMaxHeight ? {'max-height':  'none'} : ''">
