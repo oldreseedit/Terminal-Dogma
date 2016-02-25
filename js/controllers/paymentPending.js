@@ -7,6 +7,5 @@ main.controller('paymentPendingController',['utilities','$routeParams',function(
     self.paymentMedia = $routeParams.paymentMedia;
     self.wireTransferCode = $routeParams.wireTransferCode;
     self.reason = $routeParams.reason;
-    
-    
+    self.holder = $routeParams.holder;
 }]);

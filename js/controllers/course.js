@@ -234,7 +234,7 @@ main.controller('courseController',['utilities','$scope','$server','$routeParams
 	    	self.courseInfo.simulationEndingDateText = moment(response.data.simulationEndingDate).format("D MMMM YYYY");
 	    	self.simulationHasStarted = moment().isAfter(moment(response.data.simulationStartingDate));
 	    	self.simulationHourPrice = Math.round(100 * self.courseInfo.simulationPrice/self.courseInfo.simulationDuration)/100;
-	    	self.courseInfo.simulationLessons = self.courseInfo.simulationDuration / 4;
+	    	self.courseInfo.simulationLessons = self.courseInfo.simulationDuration / 2;
 	    	self.courseInfo.simulationDay = moment(response.data.simulationStartingDate).format("dddd").toLowerCase();
 	    	self.courseInfo.simulationStartingHour = moment(response.data.simulationStartingHour).format("HH:mm");
 	    	self.courseInfo.simulationEndingHour = moment(response.data.simulationEndingHour).format("HH:mm");

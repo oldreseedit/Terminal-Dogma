@@ -595,13 +595,14 @@ class Paypal extends CI_Controller {
 				if($cartItem['payCourse'] == "1" || $cartItem['paySimulation'] == "1")
 				{
 					$teacher = $all_teachers[$cartItem['courseID']];
-					if(!array_key_exists($teacher, $course_teachers))
+					if(!in_array($teacher, $course_teachers))
 						$course_teachers[] = $teacher;
 				}
 			}
 			
 			// Determiniamo il conto corrente target
 			$wireTransferCode = null;
+			$wireTransferHolder = null;
 			
 			// Se c'è solo un docente coinvolto (e ha un conto in banca): scegliamo il suo conto corrente
 			if(count($course_teachers) == 1)
@@ -611,14 +612,16 @@ class Paypal extends CI_Controller {
 				if(array_key_exists('accountNo', $teacherInfo))
 				{
 					$wireTransferCode = $teacherInfo['accountNo'];
+					$wireTransferHolder = $teacherInfo['accountHolder'];
 				}
 			}
 			
-			// Altrimenti depositiamo tutto sul conto di Tiziano
+			// Altrimenti depositiamo tutto sul conto di reSeed
 			if($wireTransferCode == null)
 			{
 				$defaultTeacherInfo = $this->teachers_model->get(self::defaultTeacher);
 				$wireTransferCode = $defaultTeacherInfo['accountNo'];
+				$wireTransferHolder = $defaultTeacherInfo['accountHolder'];
 			}
 			
 			// Aggiungiamo la causale/ragione sociale
@@ -637,6 +640,7 @@ class Paypal extends CI_Controller {
 			
 			$queryString .= "/" .  "" . $wireTransferCode;
 			$queryString .= "/" . "" . $wireTransferReason;
+			$queryString .= "/" . "" . $wireTransferHolder;
 
 			$state = "pending";
 			$this->paypal_history_model->add($paymentId, $userID, $_COOKIE['cart'], "OK", $this->time->get_timestamp(), $state);
@@ -715,9 +719,6 @@ class Paypal extends CI_Controller {
 						
 						if($wantCourse)
 						{
-							// Aggiungi il corso alla tabella
-// 							$this->payment_model->update_course($userID, $courseID, $simulation, $paymentChoice, $rate, $paymentDate, $response->getId(), $response->getId());
-	
 							$this->mailer->send_mail("info@reseed.it", $userID . " si è appena iscritto al corso di " . $courseID, "L'utente ".$userID." (nome:".$userInfo['name'].", cognome:".$userInfo['surname'].") si è appena iscritto al corso di " . $courseID . "!");
 							
 							// If the user agreed to receive emails, send him an email with the notification
@@ -726,9 +727,6 @@ class Paypal extends CI_Controller {
 						}
 						else if($wantSimulation)
 						{
-							// Aggiungi la simulazione alla tabella
-// 							$this->payment_model->update_simulation($userID, $courseID, $response->getId());
-							
 							$this->mailer->send_mail("info@reseed.it", $userID . " si è appena iscritto alla simulazione di " . $courseID, "L'utente ".$userID." (nome:".$userInfo['name'].", cognome:".$userInfo['surname'].") si è appena iscritto alla simulazione di " . $courseID . "!");
 							
 							// If the user agreed to receive emails, send him an email with the notification
@@ -773,6 +771,17 @@ class Paypal extends CI_Controller {
 		
 		if($state !== "failed" && $state !== "expired")
 		{
+			// Aggiungiamo la pre-iscrizione al DB (se necessario)
+			foreach($cartItems as $item)
+			{
+				$courseID = $item['courseID'];
+				$payCourse = $item['payCourse'];
+				$paySimulation = $item['paySimulation'];
+			
+				if($payCourse) $this->payment_model->update_course_payment($userID, $courseID, $paymentId);
+				if($paySimulation) $this->payment_model->update_simulation_payment($userID, $courseID, $paymentId);
+			}
+			
 			// Remove the seedon from the user
 			$this->seedon_model->use_seedon($cartOptions['seedOnChosen']);
 		

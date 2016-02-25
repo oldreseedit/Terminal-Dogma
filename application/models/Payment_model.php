@@ -63,6 +63,26 @@ class Payment_model extends CI_Model
                 $this->db->insert(self::table_name, $data);
         }
         
+        public function update_course_payment($userID, $courseID, $coursePaymentID)
+        {
+        	$data = array('coursePaymentID' => $coursePaymentID);
+        
+        	$this->db->where('userID', $userID);
+        	$this->db->where('courseID', $courseID);
+        
+        	$this->db->update(self::table_name, $data);
+        }
+        
+        public function update_simulation_payment($userID, $courseID, $simulationPaymentID)
+        {
+        	$data = array('simulationPaymentID' => $simulationPaymentID);
+        	 
+        	$this->db->where('userID', $userID);
+        	$this->db->where('courseID', $courseID);
+        	 
+        	$this->db->update(self::table_name, $data);
+        }
+        
         public function update_simulation($userID, $courseID, $simulationPaymentID)
         {
         	$data = array('simulation' => true, 'simulationPaymentID' => $simulationPaymentID);

@@ -47,6 +47,10 @@
                 		<td><strong>Causale</strong></td>
 						<td ng-bind="payment.reason"></td>
                 	</tr>
+                	<tr ng-if="payment.wireTransferCode">
+                		<td><strong>Intestatario</strong></td>
+						<td ng-bind="payment.holder"></td>
+                	</tr>
                 </table>
             </div>
         </div>

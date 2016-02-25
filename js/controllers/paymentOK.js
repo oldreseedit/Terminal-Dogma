@@ -7,6 +7,5 @@ main.controller('paymentOKController',['utilities','$routeParams',function(utili
     self.paymentMedia = $routeParams.paymentMedia;
     self.wireTransferCode = $routeParams.wireTransferCode;
     self.reason = $routeParams.reason;
-    
-    
+    self.holder = $routeParams.holder;
 }]);

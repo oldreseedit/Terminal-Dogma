@@ -142,13 +142,13 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     	controller: 'cartController as cart'
     });
     
-    $routeProvider.when('/paymentOK/:paymentID/:amount/:paymentCycle/:paymentMedia/:wireTransferCode?/:reason?',{
+    $routeProvider.when('/paymentOK/:paymentID/:amount/:paymentCycle/:paymentMedia/:wireTransferCode?/:reason?/:holder?',{
     	title: 'Risultato del tuo pagamento',
     	templateUrl : 'templates/paymentOK.php',
     	controller: 'paymentOKController as payment'
     });
     
-    $routeProvider.when('/paymentPending/:paymentID/:amount/:paymentCycle/:paymentMedia/:wireTransferCode?/:reason?',{
+    $routeProvider.when('/paymentPending/:paymentID/:amount/:paymentCycle/:paymentMedia/:wireTransferCode?/:reason?/:holder?',{
     	title: 'Risultato del tuo pagamento',
     	templateUrl : 'templates/paymentPending.php',
     	controller: 'paymentPendingController as payment'

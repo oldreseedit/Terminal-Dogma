@@ -51,10 +51,12 @@
 	                        </div>
 	                        <span class="stepTitle middle">Effettua un bonifico con l'importo necessario sul conto corrente con IBAN:</span>
 	                        <h4 ng-bind="payment.wireTransferCode"></h4>
-	                        <span class="stepTitle middle">con la seguente causale:</span>
+	                        <span class="stepTitle middle">con la seguente causale,</span>
 	                		<h4 ng-bind="payment.reason"></h4>
-	                		<span class="stepTitle middle">e il seguente importo:</span>
+	                		<span class="stepTitle middle">il seguente importo</span>
 	                		<h4><span ng-bind="payment.amount"></span> €</h4>
+	                		<span class="stepTitle middle">e il seguente intestatario</span>
+	                		<h4 ng-bind="payment.holder"></h4>
 	                    </div>
 	                    
 	                    <div class="container">
@@ -116,6 +118,10 @@
                 	<tr ng-if="payment.wireTransferCode">
                 		<td><strong>Causale</strong></td>
 						<td ng-bind="payment.reason"></td>
+                	</tr>
+                	<tr ng-if="payment.wireTransferCode">
+                		<td><strong>Intestatario</strong></td>
+						<td ng-bind="payment.holder"></td>
                 	</tr>
                 </table>
             </div>
