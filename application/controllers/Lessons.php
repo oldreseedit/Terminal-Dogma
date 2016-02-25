@@ -64,13 +64,6 @@ class Lessons extends CI_Controller {
             // Temporal check
             if($startingDate >= $endingDate) show_error('La data di inizio non può essere posteriore alla data di fine. Per favore, controlla le date di inizio e fine della tua lezione.');
             
-            // Check that the course does exist
-            // if(!in_array($courseId, $this->payment_model->get_courses())) {
-            //     print_r($this->payment_model->get_courses());
-            //     // show_error('Non esiste nessun corso con codice ' . $courseId . ". Per favore specifica un corso esistente.");
-            //     return;
-            // }
-                
             return $this->lessons_model->add($startingDate, $endingDate, $courseId, $note);
         }
         

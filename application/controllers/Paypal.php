@@ -1,7 +1,6 @@
 <?php
 
 require_once(APPPATH.'libraries/PayPal-PHP-SDK/autoload.php');
-// require_once(APPPATH . '/../../paypal_credentials.php');
 
 use PayPal\Api\Amount;
 use PayPal\Api\Item;
@@ -73,7 +72,10 @@ class Paypal extends CI_Controller {
     	{
     		$allCourses[$course['courseID']] = $course;
     	}
-    		
+    	
+    	print("<br/>CART:");
+    	print_r($cartItems);
+    	
 //     	$totalItems = array();
     	$total = 0;
     	foreach($cartItems as $item)
@@ -81,20 +83,11 @@ class Paypal extends CI_Controller {
     		$courseID = $item['courseID'];
     		$courseInfo = $allCourses[$courseID];
     			
-    		$alreadySubscribed = array_key_exists($courseID, $userCourses);
-    			
     		// Evita di far pagare corsi che l'utente ha già acquistato
-    		$wantCourse = !$alreadySubscribed && $item['payCourse'] == "1";
+    		$wantCourse = $item['payCourse'] == "1";
     			
     		// Check se l'utente ha acquistato la simulazione
     		$wantSimulation = $item['paySimulation'] == "1";
-    		if(!$alreadySubscribed && !$wantCourse && $wantSimulation)
-    		{
-    			if($this->debugMode) print("ERRORE: non puoi comprare solo la simulazione.");
-    	
-    			echo json_encode(array("error" => true, "description" => "Non è possibile acquistare soltanto la simulazione per un corso. Seleziona anche il corso e riprova.", "errorCode" => "INVALID_CHOICE", "parameters" => array("paySimulation")));
-    			return;
-    		}
     			
     		// Non dare per buone le somme che arrivano dai cookie. Ricalcola.
     		if($wantCourse)
@@ -102,11 +95,6 @@ class Paypal extends CI_Controller {
     			$coursePrice = $courseInfo['price'];
     			if($this->debugMode) print("<br/>Costo di " . $courseID . ": " . $coursePrice);
     	
-//     			$totalItems[] = array(
-//     					'item' => $courseID,
-//     					'price' => $coursePrice,
-//     					'description' => "Il corso di " . $courseInfo['name'] . " a reSeed"
-//     			);
     			$total += $coursePrice;
     		}
     	
@@ -118,11 +106,6 @@ class Paypal extends CI_Controller {
     				
     			if($simulationPrice)
     			{
-//     				$totalItems[] = array(
-//     						'item' => $courseID . "-simulation",
-//     						'price' => $simulationPrice,
-//     						'description' => "La simulazione del corso di " . $courseInfo['name'] . " a reSeed"
-//     				);
     				$total += $simulationPrice;
     			}
     		}
