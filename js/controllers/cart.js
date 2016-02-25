@@ -60,6 +60,19 @@ main.controller('cartController',['$rootScope','utilities','inform','cartService
     	return cartService.getCoursesToPay();
     }
     
+    self.getCourseIcon = function(item)
+    {
+    	var icon='noCourse';
+    	angular.forEach(self.courses, function(course)
+		{
+    		if(course.courseID === item.courseID)
+    		{
+    			icon = course.icon; 
+    		}
+		});
+    	return icon;
+    }
+    
     self.pay = function(){
     	  self.paypalAjax = cartService.pay();
     }
@@ -109,6 +122,12 @@ main.controller('cartController',['$rootScope','utilities','inform','cartService
     
     self.applyPaymentMedia = function(){self.getCart().save();}
     self.applyPaymentCycle = function(){self.getCart().save();}
+    
+    self.coursesAjax = $server.post('courses/get_all').then(
+    	function(response){
+    		self.courses = response.data;
+    	}
+    );
     
     $server.post('seedon/get_seedon_not_used',{username : $cookies.get('username')}).then(
     		function(response)

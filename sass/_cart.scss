@@ -1,5 +1,7 @@
 #cart{
-    @extend .in-main;
+	
+	@extend .col-50;
+	@extend .offset-25;
     
     a{
         text-decoration: none;
@@ -90,4 +92,11 @@
     	text-align: center;
     	padding: 0.5em 1em;
     }
+    
+    .cart-course-icon {
+    	width: 3em;
+    	margin-right: 0.5em;
+    	margin-bottom: 0.5em;
+    }
+    
 }

@@ -164,6 +164,25 @@ input[type=number]::-webkit-outer-spin-button {
 	}
 }
 
+.step{
+	width:100%;
+	display: table;
+	margin-bottom: 1em;
+}
+.step-icon, .step-content{
+	display: table-cell;
+	vertical-align: middle;
+}
+.step-icon, .step-icon{
+	width: 3em;
+}
+.padding-right-1{
+	padding-right: 1em;
+}
+.padding-left-1{
+	padding-right: 1em;
+}
+
 /*** MIXINS ***/
 
 @mixin container{

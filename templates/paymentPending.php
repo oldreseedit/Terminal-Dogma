@@ -7,7 +7,7 @@
                 <div class="stepContent">
                     <div class="container">
 						<h3>
-							<span class="fa-stack fa-lg text-warning">
+							<span class="fa-stack fa-lg light-olive">
 							  <i class="fa fa-circle fa-stack-2x"></i>
 							  <i class="fa fa-exclamation fa-stack-1x fa-inverse"></i>
 							</span>
@@ -25,21 +25,9 @@
                 <div class="faqIntroduction">Cosa fare per risultare iscritto:</div>
                 <div>
                 	<div ng-if="payment.paymentMedia === 'contanti'">
-                		<div class="container">
-	                        <div class="stepIcon fa-stack fa-3x green">
-	                            <span class="fa-stack-2x fa fa-circle-thin"></span>
-	                            <span class="fa-stack-1x">1</span>
-	                        </div>
-	                        <span class="stepTitle middle">Partecipa alla prima lezione del corso e porta con te i contanti necessari (<span ng-bind="payment.amount"></span> €).</span>
-	                    </div>
 	                    
-	                    <div class="container">
-	                        <div class="stepIcon fa-stack fa-3x water">
-	                            <span class="fa-stack-2x fa fa-circle-thin"></span>
-	                            <span class="fa-stack-1x">2</span>
-	                        </div>
-	                        <span class="stepTitle middle">Una volta che il pagamento risulterà effettuato, penseremo noi a completare la tua registrazione.</span>
-	                    </div>
+	                    <macro-list number="1" class="green"><span class="step-title">Partecipa alla prima lezione del corso e porta con te i contanti necessari (<span ng-bind="payment.amount"></span>€).</span></macro-list>
+	                    <macro-list number="2" class="water"><span class="step-title">Una volta che il pagamento risulterà effettuato, penseremo noi a completare la tua registrazione.</span></macro-list>
 	                    
                 	</div>
                 	<div ng-if="payment.paymentMedia === 'bonifico'">
@@ -88,7 +76,7 @@
                 	</div>
                 </div>
                 
-                <p>Ti consigliamo di ricopiare o stampare i dettagli di seguito riportati per futuro riferimento.
+                <p class="faq-advice">Ti consigliamo di ricopiare o stampare i dettagli di seguito riportati per futuro riferimento.
                 Potrebbero tornarti utili come promemoria o per comunicarci gli estremi della tua iscrizione.
                 Conservali con cura.</p>
                 <h3>Dettagli pagamento:</h3>

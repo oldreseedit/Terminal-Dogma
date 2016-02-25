@@ -1,4 +1,4 @@
-<div id="news-events" ng-controller="newsController as news" spinner="news.getAjax">
+<div id="news-events" ng-controller="newsController as news" spinner="news.getAjax" style="margin-bottom:2em">
 	<spinner-place class="fa-5x"></spinner-place>
 	<spinner-final>
 		<div class="black" style="width: 60%; margin-left: auto; margin-right: auto;">

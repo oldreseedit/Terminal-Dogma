@@ -135,6 +135,7 @@
     <script type="text/javascript" src="js/directives/gridsterResizer.js"></script>
     <script type="text/javascript" src="js/directives/sizeOn.js"></script>
     <script type="text/javascript" src="js/directives/spinner.js"></script>
+    <script type="text/javascript" src="js/directives/macroList.js"></script>
     <script type="text/javascript" src="js/controllers/modal.js"></script>
     <script type="text/javascript" src="js/controllers/navbar.js"></script>
     <script type="text/javascript" src="js/controllers/header.js"></script>
