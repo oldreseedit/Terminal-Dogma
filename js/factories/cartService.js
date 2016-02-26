@@ -72,6 +72,14 @@ main.factory('cartService',['inform','$cookies','moment','$server', function(inf
     	return null;
     }
     
+    cart.squeeze = function(){
+    	cart.items = cart.items.filter(function(item){
+    		return item.paySimulation || item.payCourse;
+    	});
+    	
+    	cart.save();    	
+    }
+    
 	cart.pay = function(){
     	return $server.post('paypal/pay', undefined, undefined, undefined, true).then(
 				function(response)

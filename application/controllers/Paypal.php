@@ -73,8 +73,8 @@ class Paypal extends CI_Controller {
     		$allCourses[$course['courseID']] = $course;
     	}
     	
-    	print("<br/>CART:");
-    	print_r($cartItems);
+//     	print("<br/>CART:");
+//     	print_r($cartItems);
     	
 //     	$totalItems = array();
     	$total = 0;
@@ -370,7 +370,6 @@ class Paypal extends CI_Controller {
 		if($this->debugMode) print("<br/>PREZZO FINALE: " . $total);
 		// END OF PAYMENT CHECK
 		
-		
 		$paymentChoice = $cartOptions['paymentMediaChosen'];
 		if($paymentChoice === "wireTransfer")
 		{
@@ -388,6 +387,8 @@ class Paypal extends CI_Controller {
 					$this->payment_model->add($userID, $courseID);
 				}
 			}
+			
+			sleep(3);
 			
 			echo json_encode(array("error" => false, "url" => "index.php/Paypal/payment_successful?paymentId=".$paymentID . "&PayerID=".$userID));
 			return;
@@ -407,6 +408,8 @@ class Paypal extends CI_Controller {
 					$this->payment_model->add($userID, $courseID);
 				}
 			}
+			
+			sleep(3);
 			
 			echo json_encode(array("error" => false, "url" => "index.php/Paypal/payment_successful?paymentId=".$paymentID . "&PayerID=".$userID));
 			return;
@@ -548,21 +551,31 @@ class Paypal extends CI_Controller {
 		$paymentCycle = $cartOptions['paymentCycleChosen'];
 		$total = $this->get_total($userID, $cartItems, $cartOptions);
 		
+		$summaryData = array();
+		
 		$queryString = "/" . "" . $paymentId;
+		$summaryData['Codice transazione'] = $paymentId;
+		
 		$queryString .= "/" . "" . $total;
+		$summaryData['Importo'] = $total . "€";
+		
 		$queryString .= "/" . "" . ($paymentCycle === "monthly" ? "A rate mensili" : "Soluzione unica");
+		$summaryData['Modalità di pagamento'] = ($paymentCycle === "monthly" ? "A rate mensili" : "Soluzione unica");
 		
 		$state = null;
 		
 		if($paymentChoice === "cash")
 		{
 			$queryString .= "/contanti";
+			$summaryData['Pagamento da effettuarsi con'] = "contanti";
+			
 			$state = "pending";
 			$this->paypal_history_model->add($paymentId, $userID, $_COOKIE['cart'], "OK", $this->time->get_timestamp(), $state);
 		}
 		else if($paymentChoice === "wireTransfer")
 		{
 			$queryString .= "/bonifico";
+			$summaryData['Pagamento da effettuarsi con'] = "bonifico";
 			
 			// Prendiamo i docenti di tutti i corsi
 			$all_teachers = array();
@@ -624,6 +637,9 @@ class Paypal extends CI_Controller {
 			$queryString .= "/" .  "" . $wireTransferCode;
 			$queryString .= "/" . "" . $wireTransferReason;
 			$queryString .= "/" . "" . $wireTransferHolder;
+			$summaryData['IBAN'] = $wireTransferCode;
+			$summaryData['Ragione sociale'] = $wireTransferReason;
+			$summaryData['Intestatario'] = $wireTransferHolder;
 
 			$state = "pending";
 			$this->paypal_history_model->add($paymentId, $userID, $_COOKIE['cart'], "OK", $this->time->get_timestamp(), $state);
@@ -682,12 +698,13 @@ class Paypal extends CI_Controller {
 					$cart = json_decode($_COOKIE['cart'], true);
 					$cartItems = $cart['items'];
 					$cartOptions = $cart['options'];
+
+					$rights = $this->preferences_model->get($userID);
 					
 					foreach($cartItems as $item)
 					{
 						$courseID = $item['courseID'];
 						$courseInfo = $allCourses[$courseID];
-						$rights = $this->preferences_model->get($userID);
 						
 						// Evita di far pagare corsi che l'utente ha già acquistato
 						$wantCourse = $item['payCourse'] == "1";
@@ -744,6 +761,8 @@ class Paypal extends CI_Controller {
 		}
 		else if($state === "pending")
 		{
+			$this->send_reminder_mail($userID, $cartItems, $cartOptions, $summaryData);
+			
 			// Redirect to payment OK
 			header("location: /paymentPending" . $queryString);
 		}
@@ -778,5 +797,48 @@ class Paypal extends CI_Controller {
 	{
 		// Redirect to payment failed
 		header("location: /paymentCancelled");
+	}
+	
+	private function send_reminder_mail($userID, $cartItems, $cartOptions, $data)
+	{
+		$userInfo = $this->userinfo_model->get($userID);
+		$rights = $this->preferences_model->get($userID);
+		
+		$message = "<p>Grazie per aver effettuato il pagamento</p>";
+		$message .= "<p>Ti consigliamo di ricopiare o stampare i dettagli di seguito riportati per futuro riferimento. Potrebbero tornarti utili come promemoria o per comunicarci gli estremi della tua iscrizione. Conservali con cura.</p>";
+		
+		$table = "<table style=\"border-collapse: collapse;\">";
+		$i = 0;
+		foreach ($data as $key => $value)
+		{
+			$style = "color: #7F7F7F;";
+			if($i%2 == 1)
+			{
+				$style .= "background-color: #f7f7f7;";
+			}
+		
+			$table .= "<tr style=\"".$style."\">";
+			$table .= "<td style=\"border-top: 1px solid #ddd; border-bottom: 1px solid #ddd\">".$key."</td>";
+			$table .= "<td style=\"border-top: 1px solid #ddd; border-bottom: 1px solid #ddd\">".$value."</td>";
+			$table .= "</tr>";
+		
+			$i++;
+		}
+		 
+		$table .= "</table>";
+		
+		$message .= $table;
+		
+		if($rights && $rights['info'] && array_key_exists('email', $userInfo))
+			$this->mailer->send_mail($userInfo['email'], "Promemoria relativa alla tua pre-iscrizione ai corsi di reSeed", $message);
+
+		$details = json_encode($cartItems) . json_encode($cartOptions);
+		
+		$backupMessage = "<p>L'utente <b>".$userID."</b> (nome:".$userInfo['name'].", cognome:".$userInfo['surname'].") si è appena pre-iscritto a dei corsi.</p>";
+		$backupMessage .= $table;
+		$backupMessage .= "<h1>Dettagli</h1>";
+		$backupMessage .= $details;
+		
+		$this->mailer->send_mail("tiziano.flati@gmail.com", "L'utente ".$userID." (nome:".$userInfo['name'].", cognome:".$userInfo['surname'].") si è appena pre-iscritto a dei corsi.", $backupMessage);
 	}
 }

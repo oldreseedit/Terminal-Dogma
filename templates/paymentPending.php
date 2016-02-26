@@ -91,6 +91,7 @@
                 <p>Ti consigliamo di ricopiare o stampare i dettagli di seguito riportati per futuro riferimento.
                 Potrebbero tornarti utili come promemoria o per comunicarci gli estremi della tua iscrizione.
                 Conservali con cura.</p>
+                <p>Ti abbiamo anche mandato una mail con le stesse informazioni.</p>
                 <h3>Dettagli pagamento:</h3>
                 
                 <table class="table table-striped text-center">

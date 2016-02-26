@@ -60,6 +60,11 @@ main.controller('cartController',['$rootScope','utilities','inform','cartService
     	return cartService.getCoursesToPay();
     }
     
+    self.prepay = function(){
+  	  cartService.squeeze();
+  	  window.location = "/pre-pay";
+  }
+    
     self.pay = function(){
     	  self.paypalAjax = cartService.pay();
     }

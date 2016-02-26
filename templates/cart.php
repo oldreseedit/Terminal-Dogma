@@ -83,7 +83,7 @@
 								
 								<div class="cart-buttons">
 									<button class="btn btn-danger empty-button" ng-disabled="cart.getCart().items.length <= 0" ng-click="cart.emptyCart()">Svuota il carrello</button>
-									<a href="/pre-pay"><button class="btn btn-success pay-button" ng-disabled="cart.getCoursesToPay() <= 0 || cart.getCart().options.paymentCycleChosen == '' || cart.getCart().options.paymentMediaChosen == ''">Rivedi e paga</button></a>
+									<button class="btn btn-success pay-button" ng-disabled="cart.getCoursesToPay() <= 0 || cart.getCart().options.paymentCycleChosen == '' || cart.getCart().options.paymentMediaChosen == ''" ng-click="cart.prepay()">Rivedi e paga</button>
 								</div>
 							</div>
 							

@@ -4,9 +4,10 @@ main.run(['$rootScope','$location', function($rootScope,$location) {
     	{
     		console.log(current);
     		
-            $rootScope.title = (current.$$route.title ? current.$$route.title + " - " : "") + "reSeed";
+//            $rootScope.title = (current.$$route.title ? current.$$route.title + " - " : "") + "reSeed";
+    		$rootScope.title = ($location.url() == "/" || $location.url().indexOf("/home") == 0) ? current.$$route.title : current.$$route.title + " - reSeed";
             $rootScope.description = current.$$route.description ? current.$$route.description.replace(/<[^>]+>/gm, '') : "";
-            $rootScope.ogTitle = (current.$$route.title ? current.$$route.title + " - " : "") + "reSeed";
+            $rootScope.ogTitle = ($location.url() == "/" || $location.url().indexOf("/home") == 0) ? current.$$route.title : current.$$route.title + " - reSeed";
             
             // Se stiamo su una pagina del tipo "courses/" modificare ogTitle in "Corso di "
             if($location.url().indexOf("/courses/") == 0) $rootScope.ogTitle = "Corso di " + $rootScope.ogTitle;

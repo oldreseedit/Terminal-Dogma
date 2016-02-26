@@ -6,8 +6,9 @@
 	        	<while-spinning>
 	        		<div style="z-index: 1000; display: table; position:fixed; left:5vw; top:5vh; overflow: visible; background-color: white; border: 10px solid; width:90vw; height:90vh;">
 		        		<div style="display: table-cell; vertical-align: middle;">
-				    		<h1>Abbiamo inoltrato la richiesta di pagamento a Paypal...</h1>
-				    		<h2>Verrai redirezionato alla pagina di pagamento dedicata di Paypal.</h2>
+				    		<h1>Abbiamo inoltrato la richiesta di pagamento<span ng-if="cart.getCart().options.paymentMediaChosen === 'creditCard'"> a Paypal</span>...</h1>
+				    		<h2 ng-if="cart.getCart().options.paymentMediaChosen === 'creditCard'">Verrai redirezionato alla pagina di pagamento dedicata di Paypal.</h2>
+				    		<h2 ng-if="cart.getCart().options.paymentMediaChosen !== 'creditCard'">Stiamo effettuando dei controlli...</h2>
 				    		<spinner-place class="fa-5x"></spinner-place>
 				    	</div>
 				    </div>
