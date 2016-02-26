@@ -16,6 +16,7 @@
 									<tr ng-repeat="item in cart.getCart().items">
 										<td align="left">
 											<div>
+											<span spinner="cart.coursesAjax" ><spinner-final><img ng-src="imgs/courses/black/{{cart.getCourseIcon(item)}}.png" class="cart-course-icon"></spinner-final><spinner-place class="fa-3x"></spinner-place></span>
 											<strong>Corso</strong>: <span ng-bind="item.courseName"></span>
 <!-- 											<span class="cart-item-price"><span ng-bind="item.price"></span> €</span> -->
 											</div>

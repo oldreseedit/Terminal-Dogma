@@ -63,15 +63,24 @@ main.controller('cartController',['$rootScope','utilities','inform','cartService
     self.prepay = function(){
   	  cartService.squeeze();
   	  window.location = "/pre-pay";
-  }
+    }
+
+    self.getCourseIcon = function(item)
+    {
+    	var icon='noCourse';
+    	angular.forEach(self.courses, function(course)
+		{
+    		if(course.courseID === item.courseID)
+    		{
+    			icon = course.icon; 
+    		}
+		});
+    	return icon;
+    }
     
     self.pay = function(){
     	  self.paypalAjax = cartService.pay();
     }
-    
-//    self.getPaypalAjax = function(){
-//    	return cartService.paypalAjax;
-//    }
     
     self.getTotalPrice = function(){
     	return cartService.getTotalPrice();
@@ -114,6 +123,12 @@ main.controller('cartController',['$rootScope','utilities','inform','cartService
     
     self.applyPaymentMedia = function(){self.getCart().save();}
     self.applyPaymentCycle = function(){self.getCart().save();}
+    
+    self.coursesAjax = $server.post('courses/get_all').then(
+    	function(response){
+    		self.courses = response.data;
+    	}
+    );
     
     $server.post('seedon/get_seedon_not_used',{username : $cookies.get('username')}).then(
     		function(response)
