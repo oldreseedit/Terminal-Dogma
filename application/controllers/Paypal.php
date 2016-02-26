@@ -684,57 +684,58 @@ class Paypal extends CI_Controller {
 				
 				$state = $response->getState();
 				
-				if($state === "approved")
-				{
-					$allCourses = [];
-					foreach($this->courses_model->get_all() as $course)
-					{
-						$allCourses[$course['courseID']] = $course;
-					}
+// 				if($state === "approved")
+// 				{
+// 					$allCourses = [];
+// 					foreach($this->courses_model->get_all() as $course)
+// 					{
+// 						$allCourses[$course['courseID']] = $course;
+// 					}
 					
-					$userInfo = $this->userinfo_model->get($userID);
+// 					$userInfo = $this->userinfo_model->get($userID);
 					
-					// Aggiungi i corsi alla tabella "Payment"
-					$cart = json_decode($_COOKIE['cart'], true);
-					$cartItems = $cart['items'];
-					$cartOptions = $cart['options'];
+// 					// Aggiungi i corsi alla tabella "Payment"
+// 					$cart = json_decode($_COOKIE['cart'], true);
+// 					$cartItems = $cart['items'];
+// 					$cartOptions = $cart['options'];
 
-					$rights = $this->preferences_model->get($userID);
+// 					$rights = $this->preferences_model->get($userID);
 					
-					foreach($cartItems as $item)
-					{
-						$courseID = $item['courseID'];
-						$courseInfo = $allCourses[$courseID];
+					// Mail notifications
+// 					foreach($cartItems as $item)
+// 					{
+// 						$courseID = $item['courseID'];
+// 						$courseInfo = $allCourses[$courseID];
 						
-						// Evita di far pagare corsi che l'utente ha già acquistato
-						$wantCourse = $item['payCourse'] == "1";
+// 						// Evita di far pagare corsi che l'utente ha già acquistato
+// 						$wantCourse = $item['payCourse'] == "1";
 						
-						// Check se l'utente ha acquistato la simulazione
-						$wantSimulation = $item['paySimulation'] == "1";
+// 						// Check se l'utente ha acquistato la simulazione
+// 						$wantSimulation = $item['paySimulation'] == "1";
 						
-						$simulation = $wantSimulation;
-						$paymentChoice = $cartOptions['paymentMediaChosen'];
-						$rate = $cartOptions['paymentCycleChosen'];
-						$paymentDate = $this->time->get_timestamp();
+// 						$simulation = $wantSimulation;
+// 						$paymentChoice = $cartOptions['paymentMediaChosen'];
+// 						$rate = $cartOptions['paymentCycleChosen'];
+// 						$paymentDate = $this->time->get_timestamp();
 						
-						if($wantCourse)
-						{
-							$this->mailer->send_mail("info@reseed.it", $userID . " si è appena iscritto al corso di " . $courseID, "L'utente ".$userID." (nome:".$userInfo['name'].", cognome:".$userInfo['surname'].") si è appena iscritto al corso di " . $courseID . "!");
+// 						if($wantCourse)
+// 						{
+// 							$this->mailer->send_mail("info@reseed.it", $userID . " si è appena iscritto al corso di " . $courseID, "L'utente ".$userID." (nome:".$userInfo['name'].", cognome:".$userInfo['surname'].") si è appena iscritto al corso di " . $courseID . "!");
 							
-							// If the user agreed to receive emails, send him an email with the notification
-							if($rights && $rights['info'] && array_key_exists('email', $userInfo))
-								$this->mailer->send_mail($userInfo['email'], "La tua iscrizione ai corsi di reSeed", "Grazie per esserti iscritto al corso di " . $courseInfo['name'] . "!");
-						}
-						else if($wantSimulation)
-						{
-							$this->mailer->send_mail("info@reseed.it", $userID . " si è appena iscritto alla simulazione di " . $courseID, "L'utente ".$userID." (nome:".$userInfo['name'].", cognome:".$userInfo['surname'].") si è appena iscritto alla simulazione di " . $courseID . "!");
+// 							// If the user agreed to receive emails, send him an email with the notification
+// 							if($rights && $rights['info'] && array_key_exists('email', $userInfo))
+// 								$this->mailer->send_mail($userInfo['email'], "La tua iscrizione ai corsi di reSeed", "Grazie per esserti iscritto al corso di " . $courseInfo['name'] . "!");
+// 						}
+// 						else if($wantSimulation)
+// 						{
+// 							$this->mailer->send_mail("info@reseed.it", $userID . " si è appena iscritto alla simulazione di " . $courseID, "L'utente ".$userID." (nome:".$userInfo['name'].", cognome:".$userInfo['surname'].") si è appena iscritto alla simulazione di " . $courseID . "!");
 							
-							// If the user agreed to receive emails, send him an email with the notification
-							if($rights && $rights['info'] && array_key_exists('email', $userInfo))
-								$this->mailer->send_mail($userInfo['email'], "La tua iscrizione ai corsi di reSeed", "Grazie per esserti iscritto alla simulazione di " . $courseInfo['name'] . "!");
-						}
-					}
-				}
+// 							// If the user agreed to receive emails, send him an email with the notification
+// 							if($rights && $rights['info'] && array_key_exists('email', $userInfo))
+// 								$this->mailer->send_mail($userInfo['email'], "La tua iscrizione ai corsi di reSeed", "Grazie per esserti iscritto alla simulazione di " . $courseInfo['name'] . "!");
+// 						}
+// 					}
+// 				}
 			}
 			catch (\PayPal\Exception\PayPalConnectionException $ex) {
 				$this->paypal_history_model->add($payment->getId(), $userID, json_encode($payment->toJSON()), $ex->getData(), $this->time->get_timestamp(), $payment->getState());
@@ -756,12 +757,14 @@ class Paypal extends CI_Controller {
 				if($paySimulation) $this->payment_model->update_simulation($userID, $courseID, $paymentId);
 			}
 			
+			$this->send_reminder_mail($userID, $cartItems, $cartOptions, $summaryData, false);
+			
 			// Redirect to payment OK
 			header("location: /paymentOK" . $queryString);
 		}
 		else if($state === "pending")
 		{
-			$this->send_reminder_mail($userID, $cartItems, $cartOptions, $summaryData);
+			$this->send_reminder_mail($userID, $cartItems, $cartOptions, $summaryData, true);
 			
 			// Redirect to payment OK
 			header("location: /paymentPending" . $queryString);
@@ -799,12 +802,18 @@ class Paypal extends CI_Controller {
 		header("location: /paymentCancelled");
 	}
 	
-	private function send_reminder_mail($userID, $cartItems, $cartOptions, $data)
+	private function send_reminder_mail($userID, $cartItems, $cartOptions, $data, $preSubscription)
 	{
+		$type = $preSubscription ? "pre-iscrizione" : "iscrizione";
+		
 		$userInfo = $this->userinfo_model->get($userID);
 		$rights = $this->preferences_model->get($userID);
 		
-		$message = "<p>Grazie per aver effettuato il pagamento</p>";
+		$message = "<img width=\"600px\" src=\"http://www.reseed.it/imgs/mini-header.jpg\">";
+		
+		if($preSubscription) $message .= "<p>Abbiamo ricevuto la tua richiesta di iscrizione. Dovrai effettuare il pagamento non appena possibile.</p>";
+		else $message .= "<p>Grazie per aver effettuato il pagamento</p>";
+		
 		$message .= "<p>Ti consigliamo di ricopiare o stampare i dettagli di seguito riportati per futuro riferimento. Potrebbero tornarti utili come promemoria o per comunicarci gli estremi della tua iscrizione. Conservali con cura.</p>";
 		
 		$table = "<table style=\"border-collapse: collapse;\">";
@@ -824,21 +833,45 @@ class Paypal extends CI_Controller {
 		
 			$i++;
 		}
-		 
+		
 		$table .= "</table>";
 		
 		$message .= $table;
 		
+		$purchaseDetailsHeader = "<p>Hai acquistato i seguenti corsi:</p>";
+		$purchaseDetails = "";
+		$purchaseDetails .= "<ul>";
+		foreach ($cartItems as $cartItem)
+		{
+			$purchaseDetails .= "<li>";
+			$purchaseDetails .= "<b>Corso di \"<a href=\"https://www.reseed.it/courses/".$cartItem['courseID']."\">".$cartItem['courseName']."</a>\"</b>";
+				$purchaseDetails .= "<ul>";
+				$purchaseDetails .= "<li><b>Corso</b>: " . ($cartItem['payCourse'] == "1" ? "sì" : "no") . "</li>";
+				$purchaseDetails .= "<li><b>Simulazione</b>: " . ($cartItem['paySimulation'] == "1" ? "sì" : "no")  . "</li>";
+				$purchaseDetails .= "</ul>";
+			$purchaseDetails .= "</li>";
+		}
+		$purchaseDetails .= "</ul>";
+		$purchaseDetails .= "<b>Sconto lifetime</b>: " . ($cartOptions['discount']);
+		$purchaseDetails .= "<br/><b>Sconto dato da seedon</b>: " . ($cartOptions['seedonDiscount']);
+		if($cartOptions['seedonDiscount'] > 0) $purchaseDetails .= "<br/><b>Hai usato il seedon con ID</b>: " . ($cartOptions['seedOnChosen']);
+		
+		$message .= $purchaseDetailsHeader . $purchaseDetails;
+		
 		if($rights && $rights['info'] && array_key_exists('email', $userInfo))
-			$this->mailer->send_mail($userInfo['email'], "Promemoria relativa alla tua pre-iscrizione ai corsi di reSeed", $message);
+			$this->mailer->send_mail($userInfo['email'], "Promemoria relativa alla tua " . $type . " ai corsi di reSeed", $message);
 
 		$details = json_encode($cartItems) . json_encode($cartOptions);
 		
-		$backupMessage = "<p>L'utente <b>".$userID."</b> (nome:".$userInfo['name'].", cognome:".$userInfo['surname'].") si è appena pre-iscritto a dei corsi.</p>";
+		$backupMessage = "<p>L'utente <b>".$userID."</b> (nome:".$userInfo['name'].", cognome:".$userInfo['surname'].") ha effettuato una ".$type.".</p>";
+		$backupMessage .= "<h3>Riepilogo</h3>";
 		$backupMessage .= $table;
-		$backupMessage .= "<h1>Dettagli</h1>";
+		$backupMessage .= "<h3>Dettagli</h3>";
+		$backupMessage .= $purchaseDetails;
+		$backupMessage .= "<h3>Cookie dell'utente</h3>";
 		$backupMessage .= $details;
 		
-		$this->mailer->send_mail("tiziano.flati@gmail.com", "L'utente ".$userID." (nome:".$userInfo['name'].", cognome:".$userInfo['surname'].") si è appena pre-iscritto a dei corsi.", $backupMessage);
+		// Send a copy to ourselves
+		$this->mailer->send_mail("info@reseed.it", "L'utente ".$userID." (nome:".$userInfo['name'].", cognome:".$userInfo['surname'].") ha effettuato una " .  $type . " a dei corsi.", $backupMessage);
 	}
 }

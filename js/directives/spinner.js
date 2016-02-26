@@ -36,7 +36,7 @@ main.directive('spinner',['ajaxEvents','$timeout',function(ajaxEvents,$timeout){
 						if(newValue !== undefined)
 						{
 							$scope.pending = newValue;
-						}						
+						}
 					}
 			);
 		}
