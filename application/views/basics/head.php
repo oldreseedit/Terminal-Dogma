@@ -55,7 +55,8 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-messages.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-sanitize.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-cookies.min.js"></script>
-    
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.js"></script>
+        
     <!-- Angular Perfect Scrollbar -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.8/css/perfect-scrollbar.min.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.8/js/min/perfect-scrollbar.jquery.min.js"></script>
@@ -178,7 +179,7 @@
 
 	<!-- injector:css -->
     <link href="stylesheets/screen.css" rel="stylesheet" type="text/css" />
-    <link href="stylesheets/fontcustom.css" rel="stylesheet" />
+    <link href="stylesheets/fontcustom.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="stylesheets/awesome-bootstrap-checkbox.css" type="text/css" />
     <!-- endinjector -->
     
