@@ -81,8 +81,4 @@ main.controller('navbarController',['utilities','$timeout','$window','$uibModal'
     	$window.location.reload();
     };
     
-    $timeout(function(){
-    	$('#navbar a').addClass('animated-class-fastest');
-    },500);
-    
 }]);
