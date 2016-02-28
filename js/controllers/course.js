@@ -61,7 +61,7 @@ main.controller('courseController',['utilities','$scope','$server','$routeParams
     	
     	var result = cartService.addCourse(courseData);
     	
-    	console.log(result);
+//    	console.log(result);
     	
     	if(result) inform.add('Hai aggiunto il corso di <emph>' + courseData.courseName + '</emph> al carrello.<div><a class="leaf" href="/#cart">Vai al carrello!</a></div>', {"html": true});;
     }
@@ -350,7 +350,7 @@ main.controller('courseController',['utilities','$scope','$server','$routeParams
 			   		
 			   		self.presubscribed = true;
 			   		
-			   		console.log(self);
+//			   		console.log(self);
 			   	}
 		    }
 		}

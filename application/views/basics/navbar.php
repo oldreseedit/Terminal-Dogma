@@ -1,23 +1,18 @@
 <div id="navbar" ng-controller="navbarController as navbar">
-    <div class="container">
-        <div id="navbar-home">
-            <div class="container">
-                <div class="macrotab">
-                    <a href="/"><span class="middler"></span>
-                    <span class="fa-stack middle">
-                    	<i class="fa fa-home fa-stack-2x"></i>
-                    </span>
-                    <span title="Torna alla home" class="middle">Home</span></a>
-                </div>
-            </div>
+    	<div id="navbar-home">
+             <div class="macrotab">
+                 <a href="/"><span class="middler"></span>
+                 <span class="fa-stack middle">
+                 	<i class="fa fa-home fa-stack-2x"></i>
+                 </span>
+                 <span title="Torna alla home" class="middle">Home</span></a>
+             </div>
         </div>
         
         <div id="navbar-tabs">
-            <div class="container">
-                <div class="macrotab" equal-spans>
-                    <a ng-repeat="tab in navbar.tabs" title="{{tab.title}}" equal-span ng-href="/{{tab.url}}"><span class="middle" ng-bind="tab.content"></span></a>
-                </div>
-            </div>
+             <div class="macrotab">
+                 <a ng-repeat="tab in navbar.tabs" title="{{tab.title}}" ng-href="/{{tab.url}}"><span class="middle" ng-bind="tab.content"></span></a>
+             </div>
         </div>
         
         <div id="navbar-profile">
@@ -41,7 +36,6 @@
                 <div id="navbar-logged" ng-if="userVerified">
                     <div class="container">
                     	<div class="navbar-profile-name">
-                    		<span class="noselect" fittext="0.9">
 	                            <span class="middler"></span>
 	                             <a title="Clicca per impostare un nuovo avatar" ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-click="avatar.changeAvatar(username,avatarURI)" ng-controller="avatarController as avatar">
 	                            	<span class="fa-stack fa-sm clickable" ng-if="thereIsAvatar()">
@@ -88,11 +82,9 @@
 	                        			</span>
 	                        		</a>
 	                            </span>
-                        	</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 </div>

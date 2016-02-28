@@ -172,6 +172,7 @@
     <script type="text/javascript" src="js/controllers/preferences.js"></script>
     <script type="text/javascript" src="js/controllers/modifyPreference.js"></script>
     <script type="text/javascript" src="js/controllers/cart.js"></script>
+    <script type="text/javascript" src="js/controllers/math.js"></script>
     
     <!-- endinjector -->
      

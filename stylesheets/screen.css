@@ -1932,7 +1932,7 @@ mark,
 }
 
 /* line 92, ../sass/bootstrap/_type.scss */
-.text-center, .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #navbar, #footer, #home #team, #singleCourse .panel-title, #singleActivity .panel-title, #register, #register .XP, #profile .panel-title, #profile .profile-level-symbol, #cart .panel-title {
+.text-center, .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #navbar, #navbar #navbar-tabs, #footer, #home #team, #singleCourse .panel-title, #singleActivity .panel-title, #register, #register .XP, #profile .panel-title, #profile .profile-level-symbol, #cart .panel-title {
   text-align: center;
 }
 
@@ -9451,7 +9451,7 @@ button.close {
 }
 
 /* line 12, ../sass/_responsive.scss */
-.offset-15, .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #navbar #navbar-tabs, #navbar #navbar-profile, #payment .paymentStep, #faqPage .faqStep {
+.offset-15, .in-main, #admin, #home #presentation, #home #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #payment .paymentStep, #faqPage .faqStep {
   margin-left: 15%;
 }
 
@@ -9520,7 +9520,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-20, #navbar #navbar-home, #footer #footer-logo, #home #presentation #news-events .news-icon, #singleCourse .teacher-icon {
+.col-20, #footer #footer-logo, #home #presentation #news-events .news-icon, #singleCourse .teacher-icon {
   width: 20%;
   float: left;
 }
@@ -9600,7 +9600,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-25, #navbar #navbar-tabs, #navbar #navbar-profile {
+.col-25 {
   width: 25%;
   float: left;
 }
@@ -19984,7 +19984,7 @@ textarea {
 }
 
 /* line 26, ../sass/_animate.scss */
-.animated-class-fastest {
+.animated-class-fastest, #navbar a {
   transition: all linear 0.2s;
 }
 
@@ -22978,6 +22978,8 @@ body {
 
 /* line 9, ../sass/_navbar.scss */
 #navbar {
+  display: table;
+  table-layout: fixed;
   width: 100%;
   position: fixed;
   top: 0;
@@ -23002,52 +23004,55 @@ body {
     font-size: 13.68px;
   }
 }
-/* line 32, ../sass/_navbar.scss */
+/* line 34, ../sass/_navbar.scss */
 #navbar .fa ~ span {
   margin-left: 0.5em;
 }
-/* line 36, ../sass/_navbar.scss */
+/* line 38, ../sass/_navbar.scss */
 #navbar a {
   text-decoration: none;
   color: inherit;
 }
-/* line 39, ../sass/_navbar.scss */
+/* line 41, ../sass/_navbar.scss */
 #navbar a:hover {
   color: #C9E113;
 }
-/* line 44, ../sass/_navbar.scss */
+/* line 47, ../sass/_navbar.scss */
 #navbar .macrotab {
   line-height: 2.5;
 }
-@media all and (max-device-width: 1079px) {
-  /* line 56, ../sass/_navbar.scss */
-  #navbar #navbar-tabs {
-    width: 45%;
-    float: left;
-    margin-left: 5%;
-  }
+/* line 51, ../sass/_navbar.scss */
+#navbar #navbar-home, #navbar #navbar-tabs, #navbar #navbar-profile {
+  display: table-cell;
+  vertical-align: middle;
 }
-@media all and (max-device-width: 1079px) {
-  /* line 65, ../sass/_navbar.scss */
-  #navbar #navbar-profile {
-    width: 25%;
-    float: left;
-    margin-left: 5%;
-  }
+/* line 61, ../sass/_navbar.scss */
+#navbar #navbar-tabs .macrotab {
+  width: 100%;
+  display: table;
+  table-layout: fixed;
+}
+/* line 65, ../sass/_navbar.scss */
+#navbar #navbar-tabs .macrotab a {
+  display: table-cell;
 }
 /* line 73, ../sass/_navbar.scss */
 #navbar #navbar-profile .navbar-icons {
   margin-left: 1em;
 }
-/* line 76, ../sass/_navbar.scss */
+/* line 77, ../sass/_navbar.scss */
 #navbar #navbar-profile .navbar-icons .fa-stack {
-  font-size: 0.8em;
+  font-size: 0.7em;
 }
-/* line 80, ../sass/_navbar.scss */
+/* line 82, ../sass/_navbar.scss */
 #navbar #navbar-profile .navbar-icons a {
   margin-left: 0.2em;
 }
-/* line 92, ../sass/_navbar.scss */
+/* line 88, ../sass/_navbar.scss */
+#navbar #navbar-profile .navbar-username {
+  font-size: 0.8em;
+}
+/* line 98, ../sass/_navbar.scss */
 #navbar #navbar-signin button, #navbar #navbar-signup button {
   width: 90%;
   font-weight: 400;
@@ -23057,12 +23062,12 @@ body {
   font-size: 17.784px;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 92, ../sass/_navbar.scss */
+  /* line 98, ../sass/_navbar.scss */
   #navbar #navbar-signin button, #navbar #navbar-signup button {
     font-size: 10.944px;
   }
 }
-/* line 116, ../sass/_navbar.scss */
+/* line 122, ../sass/_navbar.scss */
 #navbar #navbar-logged button {
   margin-right: 3em;
   width: 30%;
@@ -23071,22 +23076,22 @@ body {
   font-size: 20.007px;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 116, ../sass/_navbar.scss */
+  /* line 122, ../sass/_navbar.scss */
   #navbar #navbar-logged button {
     font-size: 12.312px;
   }
 }
-/* line 128, ../sass/_navbar.scss */
+/* line 134, ../sass/_navbar.scss */
 #navbar .number-of-notifications {
   top: -0.8em;
   left: -1.3em;
 }
-/* line 134, ../sass/_navbar.scss */
+/* line 140, ../sass/_navbar.scss */
 #navbar .number-of-cart-items {
   top: -0.8em;
   left: -1.3em;
 }
-/* line 140, ../sass/_navbar.scss */
+/* line 146, ../sass/_navbar.scss */
 #navbar .cart-not-empty {
   color: #C9E113;
 }

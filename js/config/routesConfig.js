@@ -2,7 +2,7 @@ main.run(['$rootScope','$location', function($rootScope,$location) {
     $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
     	if(current.$$route)
     	{
-    		console.log(current);
+//    		console.log(current);
     		
 //            $rootScope.title = (current.$$route.title ? current.$$route.title + " - " : "") + "reSeed";
     		$rootScope.title = ($location.url() == "/" || $location.url().indexOf("/home") == 0) ? current.$$route.title : current.$$route.title + " - reSeed";
@@ -172,6 +172,13 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     	title : 'Registro Elettronico',
         templateUrl : 'templates/register.php',
         controller : 'Register as register'
+    });
+    
+    // Register - Restricted
+    
+    $routeProvider.when('/test',{
+    	title : 'Test',
+        templateUrl : 'templates/test.php',
     });
     
     // Presentazione ai licei

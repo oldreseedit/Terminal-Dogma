@@ -7,6 +7,8 @@ body {
 }
 
 #navbar{
+	display: table;
+	table-layout: fixed;
     width: 100%;
     position: fixed;
     top: 0;
@@ -39,48 +41,52 @@ body {
         &:hover{
             @include light-olive;
         }
+        @extend .animated-class-fastest;
     }
     
     .macrotab{
         line-height: $navbar-line-height;
-        &:hover{
-            // @extend .bg-dark-grey;
-        }
+    }
+    
+    #navbar-home, #navbar-tabs, #navbar-profile{
+		display: table-cell;
+		vertical-align: middle;
     }
     
     #navbar-home{
-        @extend .col-20;
-        @extend .text-left;
+    	@extend .text-left;
     }
-    
     #navbar-tabs{
-        @extend .col-25;
-        @extend .offset-15;
-        @include responsive {
-            @include col(45);
-            @include offset(5);
-        }
+    	@extend .text-center;
+   		.macrotab{
+   			width: 100%;
+   			display: table;
+   			table-layout: fixed;
+    		a{
+    			display:table-cell;
+    		}
+   		}
     }
     
     #navbar-profile{
-        @extend .col-25;
-        @extend .offset-15;
-        @include responsive {
-            @include col(25);
-            @include offset(5);
-        }
-        
+    	
         .navbar-icons
         {
         	margin-left: 1em;
+        	
         	.fa-stack
         	{
-        		font-size: 0.8em;
+        		font-size: 0.7em;
         	}
+        	
         	a
         	{
         		margin-left: 0.2em;
         	}
+        }
+        
+        .navbar-username{
+        	font-size: 0.8em;
         }
         
     }

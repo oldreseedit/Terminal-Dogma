@@ -19,7 +19,7 @@ main.factory('cartService',['inform','$cookies','moment','$server', function(inf
 	if($cookies.get('cart'))
 	{
 		cart = JSON.parse($cookies.get('cart'));
-		console.log("LOADED CART FROM COOKIES: ", cart);
+//		console.log("LOADED CART FROM COOKIES: ", cart);
 	}
 	
 	cart.getCart = function(){return cart;}
@@ -159,7 +159,7 @@ main.factory('cartService',['inform','$cookies','moment','$server', function(inf
 	cart.save = function()
 	{
 		$cookies.put('cart', angular.toJson(cart), {path:'/', expires: moment().add(cart.expire.num, cart.expire.measure).toDate()});
-		console.log("CART: ", cart);
+//		console.log("CART: ", cart);
 	}
 	
 	return cart;

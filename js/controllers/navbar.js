@@ -24,19 +24,6 @@ main.controller('navbarController',['utilities','$timeout','$window','$uibModal'
         }
     ];
     
-    self.sizes = utilities.spacedSizes(self.tabs.length);
-    
-    self.spaced = function($first){
-        if($first) return "col-" + self.sizes.elementsWidth + " offset-" + self.sizes.outerWidth;
-        else return "col-" + self.sizes.elementsWidth + " offset-" + self.sizes.spacerWidth;
-    };
-    
-    self.spaceMacrotabs = function($first){
-        var sizes = utilities.spacedSizes(3);
-        if($first) return "col-" + sizes.elementsWidth + " offset-" + sizes.outerWidth;
-        else return "col-" + sizes.elementsWidth + " offset-" + sizes.spacerWidth;
-    };
-    
     /* SIGNUP AND SIGNIN */
     
     self.signup = function(){

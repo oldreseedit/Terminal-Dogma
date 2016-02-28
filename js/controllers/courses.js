@@ -11,7 +11,7 @@ main.controller('coursesController',['utilities','$timeout','$location','$server
     self.coursesData = $server.post('courses/get_all').then(
     		function(response)
     		{
-    			console.log(response.data);
+//    			console.log(response.data);
     			
     			for(var i=0; i<response.data.length; i++)
     			{
