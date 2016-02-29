@@ -852,8 +852,8 @@ class Paypal extends CI_Controller {
 			$purchaseDetails .= "</li>";
 		}
 		$purchaseDetails .= "</ul>";
-		$purchaseDetails .= "<b>Sconto lifetime</b>: " . ($cartOptions['discount']);
-		$purchaseDetails .= "<br/><b>Sconto dato da seedon</b>: " . ($cartOptions['seedonDiscount']);
+		$purchaseDetails .= "<b>Sconto lifetime</b>: " . round(100 * $cartOptions['discount'], 2) . "%";
+		$purchaseDetails .= "<br/><b>Sconto dato da seedon</b>: " . round(100 * $cartOptions['seedonDiscount'], 2) . "%";
 		if($cartOptions['seedonDiscount'] > 0) $purchaseDetails .= "<br/><b>Hai usato il seedon con ID</b>: " . ($cartOptions['seedOnChosen']);
 		
 		$message .= $purchaseDetailsHeader . $purchaseDetails;

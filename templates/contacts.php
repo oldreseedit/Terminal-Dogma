@@ -31,7 +31,7 @@
                     <li>Con auto/moto:
                         <ul>
                             <li>Dal Grande Raccordo Anulare, uscita 13 per Tiburtina in direzione Centro, continuare per 2.8 km.</li>
-                            <li>Dal centro raggiungere via Tiburtina in direzione Grande Raccordo Anulare, continuare su via Tiburtina finoi all'arrivo alla stazione metro Rebibbia.</li>
+                            <li>Dal centro raggiungere via Tiburtina in direzione Grande Raccordo Anulare, continuare su via Tiburtina fino all'arrivo alla stazione metro Rebibbia.</li>
                         </ul>
                     </li>
                 </ul>
