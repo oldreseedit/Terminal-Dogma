@@ -16,7 +16,7 @@
         
         <div class="mini-header" ng-if="miniHeader()">
             <div class="container">
-                <img src="imgs/mini-header.jpg" />
+                <img src="imgs/mini-header.png" />
             </div>
         </div>
         

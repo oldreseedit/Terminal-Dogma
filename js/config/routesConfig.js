@@ -13,7 +13,7 @@ main.run(['$rootScope','$location', function($rootScope,$location) {
             if($location.url().indexOf("/courses/") == 0) $rootScope.ogTitle = "Corso di " + $rootScope.ogTitle;
 
             $rootScope.ogDescription = $rootScope.description;
-            $rootScope.ogImage = "http://www.reseed.it/" + (current.$$route.image ? current.$$route.image : "imgs/header.jpg");
+            $rootScope.ogImage = "http://www.reseed.it/" + (current.$$route.image ? current.$$route.image : "imgs/header.png");
             $rootScope.ogUrl = 'https://www.reseed.it' + $location.url();
     	}
     	else

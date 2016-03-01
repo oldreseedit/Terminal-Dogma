@@ -809,7 +809,7 @@ class Paypal extends CI_Controller {
 		$userInfo = $this->userinfo_model->get($userID);
 		$rights = $this->preferences_model->get($userID);
 		
-		$message = "<img width=\"600px\" src=\"http://www.reseed.it/imgs/mini-header.jpg\">";
+		$message = "<img width=\"600px\" src=\"http://www.reseed.it/imgs/mini-header.png\">";
 		
 		if($preSubscription) $message .= "<p>Abbiamo ricevuto la tua richiesta di iscrizione. Dovrai effettuare il pagamento non appena possibile.</p>";
 		else $message .= "<p>Grazie per aver effettuato il pagamento</p>";
