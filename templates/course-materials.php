@@ -13,7 +13,7 @@
                         <a ng-href="{{material.fileURI}}">
                             <span class="middler"></span>
                             <span class="middle fa fa-3x" ng-class="material.getFA()"></span>
-                            <span class="middle" fittext="0.8" fittext-multiple="materialTitles" fittext-exclusive="width" fittext-reference="materialContainer" ng-bind="material.getTitle()"></span>
+                            <span class="middle" ng-bind="material.getTitle()"></span>
                         </a>
                     </div>
                 </div>

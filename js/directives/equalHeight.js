@@ -8,7 +8,6 @@ main.directive('equalHeight',['$timeout',function($timeout){
 				function()
 				{
 					var target = (targetName && targetName !== '') ? $('#'+targetName) : $element.parent().find('[equal-height]');
-//					console.log(target,target.height());
 					var height = 0;
 					if(target.length > 0)
 					{
@@ -16,13 +15,14 @@ main.directive('equalHeight',['$timeout',function($timeout){
 							var h = $(this).height();
 							if(height < h) height = h;
 						});
+//						console.log(target,height);
 						return height;
 					}
 				},
-				function(newValue, oldValue)
+				function(newValue)
 				{					
-//					console.log(newValue,oldValue, $element.height());
-					if(newValue > 0 && Math.abs(newValue - oldValue) > 2 && newValue > $element.height() + 2) $timeout(function(){$element.height(newValue);}); 
+//					console.log(newValue, $element.height());
+					if(newValue > 0 && Math.abs(newValue - $element.height()) > 1) $element.height(newValue); 
 				}
 			);
 		}

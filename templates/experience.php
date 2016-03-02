@@ -4,7 +4,7 @@
 		<div id="presentation-gain" equal-height>
 			<div class="container">
 				<div class="gain-icon" centered>
-					<i class="fa fa-plus-square white" fittext fittext-exclusive="width"></i>
+					<i class="fa fa-plus-square white"></i>
 				</div>
 				<div class="experience-content text-left" centered>
 					<h6 class="white strong">Guadagna punti esperienza</h6>
@@ -33,7 +33,7 @@
 					</p>
 				</div>
 				<div class="unlock-icon" centered>
-					<i class="fa fa-arrow-circle-o-up white" fittext fittext-exclusive="width"></i>
+					<i class="fa fa-arrow-circle-o-up white"></i>
 				</div>
 			</div>			
 		</div>

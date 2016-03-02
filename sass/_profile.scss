@@ -35,15 +35,21 @@
     .profile-level-symbol{
     	@extend .col-30;
     	@extend .text-center;
+    	font-size: 5em;
     }
         
     .profile-name-level-xp{
         @extend .col-65;
         @extend .offset-5;
         
+        .name{
+        	font-size: 3em;
+        	line-height: 1;
+        }
+        
         .seed-level{
         	@extend .bolder;
-/*         	font-size: 1.4em; */
+        	font-size: 1.4em;
         	
         	span{
         		@extend .water;

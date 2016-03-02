@@ -5,7 +5,7 @@
 			<div class="news">
 				<div  class="bg-leaf">
 					<div class="container">
-						<div class="news-icon" centered><i class="fa white" ng-class="news.getIconClass(news.topEvent)" fittext fittext-exclusive="width"></i></div>
+						<div class="spotlights-icon" centered><i class="fa white" ng-class="news.getIconClass(news.topEvent)"></i></div>
 						<div class="news-title" centered>
 							<h1><b class="white"ng-bind-html="news.topEvent.title"></b></h1>
 						</div>

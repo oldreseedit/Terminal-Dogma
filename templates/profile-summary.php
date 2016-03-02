@@ -1,15 +1,15 @@
 <div class="container">
 	<div class="profile-level-symbol" centered spinner="profile.avatarAjax">
-		<spinner-place class="fa-10x"></spinner-place>
-		<span class="fa-stack fa-stack-10x clickable" fittext ng-click="avatar.changeAvatar(profile.username,profile.avatar)" ng-controller="avatarController as avatar" spinner-final>
+		<spinner-place></spinner-place>
+		<span class="fa-stack clickable" ng-click="avatar.changeAvatar(profile.username,profile.avatar)" ng-controller="avatarController as avatar" spinner-final>
 			<img ng-src="{{profile.avatar}}" ng-class="{'avatar': !profile.isDefaultAvatar(), 'avatar-leaf' : profile.isDefaultAvatar() }" />
 		</span>
 	</div>
 	<div class="profile-name-level-xp">
-		<p fittext="0.8">
+		<p class="name">
 			<span class="water" ng-bind="profile.username"></span>
 		</p><br />
-		<p class="seed-level" fittext="0.5">
+		<p class="seed-level">
 			Seed Level: <span ng-bind="profile.expInfo.level"></span>
 		</p>
 		<div class="profile-xp">

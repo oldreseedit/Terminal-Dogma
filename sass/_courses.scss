@@ -23,6 +23,7 @@
             .container {
                 padding: 5%;
             }
+            font-size: 1.55em;
         }
             
         .routePossible{
@@ -44,6 +45,7 @@
                 @include responsive {
                     padding: 2%;
                 }
+                font-size: 1.22em;
             }
             
             .back{

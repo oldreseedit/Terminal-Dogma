@@ -5,14 +5,14 @@
 			<div class="news" ng-repeat="event in row" ng-init="index=$index"  ng-class="presentation.spacedTabs($first)">
 				<div  class="bg-leaf">
 					<div class="container">
-						<div class="news-icon" centered><i class="fa white" ng-class="news.getIconClass(event)" fittext fittext-exclusive="width"></i></div>
+						<div class="news-icon" centered><i class="fa white" ng-class="news.getIconClass(event)"></i></div>
 						<div class="news-title text-left" centered>
 							<h6><b  class="white" ng-bind-html="event.title"></b></h6>
 						</div>
 					</div>
 					<p ng-if="event.type==='event'" class="darker-grey">
 						<small>
-							<b class="white">Quando: </b><span class="black" ng-bind="news.getDate(event)"></span>
+							<b class="white">Quando: </b><span class="black" ng-bind-html="news.getDate(event)"></span>
 						</small><br />
 						<small>
 							<b class="white">Dove: </b><span class="black" ng-bind-html="event.place"></span>
@@ -20,7 +20,7 @@
 					</p>
 				</div>
 				<div class="news-description bg-dark-leaf">
-					<span ng-bind="event.description"></span>
+					<span ng-bind-html="event.description"></span>
 				</div>
 			</div>
 			<div class="clearfix"></div>

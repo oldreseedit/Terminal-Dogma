@@ -2,21 +2,19 @@
 <div id="tiles-presentation">
 	<div class="container">
 		<div ng-repeat="tab in presentation.tabs" id="{{tab.id}}" class="tab bg-lawn" equal-height ng-class="presentation.getStyleTabs($first)">
-			<a ng-href="{{tab.url}}">
-				<div class="container">
-					<div class="inside-tab">
-						<i class="fa fa-5x white" ng-class="tab.faName"></i>
-						<div class="title-wrapper">
-							<div class="container">
-								<span ng-bind="tab.title" class="title white" fittext fittext-multiple="presentationTiles" fittext-exclusive="width"></span>
-							</div>
-						</div>
-						<div class="tab-content">
-							<p ng-bind="tab.content"></p>
+			<div class="container">
+				<div class="inside-tab">
+					<i class="fa fa-5x white" ng-class="tab.faName"></i>
+					<div class="title-wrapper">
+						<div class="container">
+							<span ng-bind="tab.title" class="title white"></span>
 						</div>
 					</div>
+					<div class="tab-content">
+						<p ng-bind="tab.content"></p>
+					</div>
 				</div>
-			</a>
+			</div>
 		</div>
 	</div>
 </div>
