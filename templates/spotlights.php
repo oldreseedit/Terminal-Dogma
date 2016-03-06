@@ -7,16 +7,16 @@
 					<div class="container">
 						<div class="spotlights-icon" centered><i class="fa white" ng-class="news.getIconClass(news.topEvent)"></i></div>
 						<div class="news-title" centered>
-							<h1><b class="white"ng-bind-html="news.topEvent.title"></b></h1>
+							<h2><b class="white"ng-bind-html="news.topEvent.title"></b></h2>
 						</div>
 					</div>
 <!-- 					<p class="darker-grey"> -->
-							<h2 class="text-left"><b class="white">Quando: </b><span class="black" ng-bind="news.getDate(news.topEvent)"></span></h2>
-							<h2 class="text-left"><b class="white">Dove: </b><span class="black" ng-bind-html="news.topEvent.place"></span></h2>
+							<h6 class="text-center"><b class="white">Quando: </b><span class="black" ng-bind="news.getDate(news.topEvent)"></span></h6>
+							<h6 class="text-center"><b class="white">Dove: </b><span class="black" ng-bind-html="news.topEvent.place"></span></h6>
 <!-- 					</p> -->
 				</div>
 				<div class="news-description bg-dark-leaf">
-					<h3 ng-bind-html="news.topEvent.description"></h3>
+					<p ng-bind-html="news.topEvent.description" class="black"></p>
 				</div>
 			</div>
 			<div class="clearfix"></div>

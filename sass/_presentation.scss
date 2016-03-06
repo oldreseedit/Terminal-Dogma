@@ -1,128 +1,126 @@
 #presentation{
-    
     @extend .in-main;
     @extend .text-center;
-    padding-bottom: 3vw;
+    padding-bottom: 3vw;    
+}
+
+#tiles-presentation{
+	@extend .col-100;
+	margin-top: 1em;
+	margin-bottom: 3em;
+	
+	.tab{
+	    @include responsive {
+	        margin-bottom: 2em;
+	    }
+	}
     
-    #tiles-presentation{
-        @extend .col-100;
+    .inside-tab{
         margin-top: 1em;
-        margin-bottom: 3em;
+        @extend .col-90;
+        @extend .offset-5;
         
-        .tab{
-            @include responsive {
-                margin-bottom: 2em;
-            }
+        .title{
+            font-weight: 600;
         }
         
-        .inside-tab{
-            margin-top: 1em;
+        .title-wrapper{
             @extend .col-90;
             @extend .offset-5;
-            
-            .title{
-                font-weight: 600;
-            }
-            
-            .title-wrapper{
-                @extend .col-90;
-                @extend .offset-5;
-                margin-top: 0.5em;
-                margin-bottom: 0.5em;
-                font-size: 2.7em;
-                line-height: 1;
-            }
-            
-            .tab-content{
-                @extend .col-100;
-            }
-            
-            p{
-                @extend .black;
-                margin-bottom: 1em;
-            }
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+            font-size: 2.7em;
+            line-height: 1;
+        }
+        
+        .tab-content{
+            @extend .col-100;
+        }
+        
+        p{
+            @extend .black;
+            margin-bottom: 1em;
         }
     }
-    
-    .spotlights-icon{
-   		@extend .col-20;
-   		@extend .offset-5;
-   		padding-top: 2%;
-   		.fa {
-   			font-size: 8em;
-   		}
-    }
-    
-    #news-events{
-    
-    	margin-top: 1em;
-    	
-    	.news{
-    		margin-top: 1em;
-    	}
-    	
-    	.news-icon{
-    		@extend .col-20;
-    		@extend .offset-5;
-    		padding-top: 2%;
-    		.fa {
-    			font-size: 4em;
-    		}
-    	}
-    	
-    	.news-title{
-    		@extend .col-75;
-    	}
-    	
-    	.news-description{
-    		padding: 5%;
-    	}
-    	
-    	a{
-			@extend .white;
-			text-decoration: none;
-			&:hover{
-				@extend .black;
-			}
+}
+  
+#news-events{
+  
+  	margin-top: 1em;
+  	
+  	.news{
+  		margin-top: 1em;
+  	}
+  	
+  	.news-icon{
+  		@extend .col-20;
+  		@extend .offset-5;
+  		padding-top: 2%;
+  		.fa {
+  			font-size: 4em;
+  		}
+  	}
+  	
+  	.news-title{
+  		@extend .col-75;
+  	}
+  	
+  	.news-description{
+  		padding: 5%;
+  	}
+  	
+  	a{
+		@extend .white;
+		text-decoration: none;
+		&:hover{
+			@extend .black;
 		}
-    }
-    
-    #tiles-experience{
-    
-    	margin-top: 2em;
-    	margin-bottom: 2em;
-    
-    	#presentation-gain, #presentation-unlock {
-    		@extend .col-45;
-    		@extend .bg-green;
-    		@extend .black;
-    	}
-    	
-    	#presentation-unlock {
-    		@extend .offset-10;
-    	}
-    	
-    	.gain-icon, .unlock-icon{
-    		@extend .col-30;
-    		.fa {
-    			font-size: 13em;
-    		}
-    	}
-    	.experience-content{
-    		@extend .col-60;
-    		@extend .offset-5;
-    		ul{
-    			padding-left: 20px;
-    			font-size: 14px;
-    		}
-    		
-    	}
-    	.gain-icon{
-    		@extend .offset-5;
-    	}
-    	.unlock-icon{
-			margin-right: 5%;
-    	}
-    }
-    
+	}
+}
+  
+  #tiles-experience{
+  
+  	margin-top: 2em;
+  	margin-bottom: 2em;
+  
+  	#presentation-gain, #presentation-unlock {
+  		@extend .col-45;
+  		@extend .bg-green;
+  		@extend .black;
+  	}
+  	
+  	#presentation-unlock {
+  		@extend .offset-10;
+  	}
+  	
+  	.gain-icon, .unlock-icon{
+  		@extend .col-30;
+  		.fa {
+  			font-size: 13em;
+  		}
+  	}
+  	.experience-content{
+  		@extend .col-60;
+  		@extend .offset-5;
+  		ul{
+  			padding-left: 20px;
+  			font-size: 14px;
+  		}
+  		
+  	}
+  	.gain-icon{
+  		@extend .offset-5;
+  	}
+  	.unlock-icon{
+		margin-right: 5%;
+  	}
+}
+
+.spotlights-icon{
+	@extend .col-20;
+	@extend .offset-5;
+	padding-top: 2%;
+	.fa {
+		font-size: 8em;
+	}
 }

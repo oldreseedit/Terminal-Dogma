@@ -6,10 +6,5 @@
 #home{
     @extend .col-100;
     
-    margin-bottom: -3em;
-    
-    @import "presentation";
-    
-    @import "team";
-    
+    margin-bottom: -3em;    
 }
