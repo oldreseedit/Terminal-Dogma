@@ -16,6 +16,7 @@ var main = angular.module('Main',[
     'inform', // For notifier purposes
     'angularMoment', // For inline moment
     'ngAnimate', // For animations
+    'ngTouch', // For Touch Support
     ], function($httpProvider) {
 
     // FOR CI

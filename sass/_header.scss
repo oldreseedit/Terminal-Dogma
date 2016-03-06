@@ -6,10 +6,7 @@
     
     /* For proper full-page visualization */
     position: relative;
-    margin-top: -($size-body*$navbar-modifier*1.5 + 3px);
-    @include responsive {
-        margin-top: -($size-body*$navbar-responsive-modifier*1.5 + 3px);
-    }
+    margin-top: -$navbar-modifier*1.5em;
     margin-bottom: $main-spacer;
     
     background: url(../imgs/header.png) no-repeat center;

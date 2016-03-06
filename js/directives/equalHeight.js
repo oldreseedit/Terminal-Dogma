@@ -15,14 +15,16 @@ main.directive('equalHeight',['$timeout',function($timeout){
 							var h = $(this).height();
 							if(height < h) height = h;
 						});
-//						console.log(target,height);
 						return height;
 					}
 				},
 				function(newValue)
 				{					
 //					console.log(newValue, $element.height());
-					if(newValue > 0 && Math.abs(newValue - $element.height()) > 1) $element.height(newValue); 
+					if(newValue > 0 && Math.abs(newValue - $element.height()) > 1)
+					{
+						$element.height(newValue);
+					}
 				}
 			);
 		}

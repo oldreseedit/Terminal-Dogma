@@ -71,12 +71,9 @@
     }
 }
 
-.fa-stack-10x
-{
-	position: relative;
-	display: inline-block;
-	width: 10em;
-	height: 10em;
-	line-height: 10em;
-	vertical-align: middle;
+body{
+	@extend .animated;
+	@extend .fadeIn;
 }
+
+

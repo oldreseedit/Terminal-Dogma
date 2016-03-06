@@ -1,9 +1,8 @@
+$navbar-modifier : 1.375;
+$navbar-line-height: 2.5;
+
 body {
-    margin-top: $size-body*$navbar-modifier*$navbar-line-height;
-    @include responsive {
-        margin-top: $size-body*$navbar-responsive-modifier*$navbar-line-height;
-    }
-    
+    margin-top: $navbar-modifier*$navbar-line-height*1em;    
 }
 
 #navbar{
@@ -21,10 +20,8 @@ body {
     color: white;
     @extend .text-center;
     font-weight: 400;
-    font-size: $size-body*$navbar-modifier;
-    @include responsive {
-        font-size: $size-body*$navbar-responsive-modifier;
-    }
+    
+    font-size: $navbar-modifier*1em;
     
     margin-top: -6px;
     border-bottom: 3px solid white;
@@ -102,10 +99,7 @@ body {
             text-transform: uppercase;
             @extend .bg-water;
             line-height: 1;
-            font-size: $size-body*$navbar-modifier*0.8;
-            @include responsive {
-                font-size: $size-body*$navbar-responsive-modifier*0.8;
-            }
+            font-size: $navbar-modifier*0.8em;
         }
         
     }
@@ -124,10 +118,7 @@ body {
             width: 30%;
             font-weight: 400;
             line-height: 1;
-            font-size: $size-body*$navbar-modifier*0.9;
-            @include responsive {
-                font-size: $size-body*$navbar-responsive-modifier*0.9;
-            }
+            font-size: $navbar-modifier*0.9em;
         }
     }
     

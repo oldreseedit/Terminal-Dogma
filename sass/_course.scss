@@ -13,6 +13,10 @@
     	max-height: 75vh;
     }
     
+    .carousel{
+    	margin-bottom: 1em;
+    }
+    
     .panel-title{
         @extend .col-100;
         @extend .text-center;
@@ -23,13 +27,13 @@
         @extend .col-100;
     }
     
-    a{
+   	a:not(.carousel-control){
         text-decoration: none;
         @extend .pond;
         &:hover{
             @extend .water;
         }
-    }
+	}   
     
     .material-title{
         @extend .col-40;
@@ -85,11 +89,12 @@
     }
     
     .course-icon{
-		width: 10em;
+		width: 13em;
     	float: left;
-    	padding: 0.6em;
-    	padding-right: 1.5em;
+    	padding-left: 40px;
+    	padding-right: 40px;
     	padding-bottom: 0.8em;
+    	padding-top: 0.8em;
     }
     
     .course-description{

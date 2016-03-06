@@ -155,7 +155,7 @@ $size-body: 0px;
 	and (min-device-width: 1080px + 30.16*$i)
 	and (max-device-width: 1110.16px + 30.16*$i)
 	{
-	    $size-body: 16px + 0.011*$i;
+	    $size-body: 9.78px + 0.234*$i;
 	    
     	body{
     	    font-size: $size-body;
