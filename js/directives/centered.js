@@ -19,8 +19,10 @@ main.directive('centered',['$timeout',function($timeout) {
 			}
 
 			element[0].style.position = 'relative';
+			
 			measure();
 			center();
+			
 			$timeout(function(){
 				measure();
 				center();

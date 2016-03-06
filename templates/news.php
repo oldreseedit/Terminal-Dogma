@@ -7,7 +7,7 @@
 					<div class="container">
 						<div class="news-icon" centered><i class="fa white" ng-class="news.getIconClass(event)"></i></div>
 						<div class="news-title text-left" centered>
-							<h6><b  class="white" ng-bind-html="event.title"></b></h6>
+							<h4><b  class="white" ng-bind-html="event.title"></b></h4>
 						</div>
 					</div>
 					<p ng-if="event.type==='event'" class="darker-grey">
@@ -20,7 +20,7 @@
 					</p>
 				</div>
 				<div class="news-description bg-dark-leaf">
-					<span ng-bind-html="event.description"></span>
+					<p class="black"><span ng-bind-html="event.description"></span></p>
 				</div>
 			</div>
 			<div class="clearfix"></div>

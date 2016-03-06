@@ -23,7 +23,7 @@
             .container {
                 padding: 5%;
             }
-            font-size: 1.55em;
+            font-size: 1.5em;
         }
             
         .routePossible{
@@ -42,30 +42,20 @@
             
             .title{
                 padding: 5%;
-                @include responsive {
-                    padding: 2%;
-                }
                 font-size: 1.22em;
             }
             
             .back{
                 @extend .text-left;
                 
-                .back-title-icon{
-                	margin-top: 0.2em;
-                    margin-right: 0.2em;
-                }
-                
                 .back-title{
+                	font-size: 1.1em;
                     padding-left: 5%;
                     padding-right: 5%;
                 }
                 
                 .back-content{
                     padding: 2% 5% 5% 5%;
-                    @include responsive {
-                        padding: 2%;
-                    }
                 }
                 
             }

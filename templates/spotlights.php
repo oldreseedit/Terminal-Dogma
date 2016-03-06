@@ -16,7 +16,7 @@
 <!-- 					</p> -->
 				</div>
 				<div class="news-description bg-dark-leaf">
-					<h5 ng-bind-html="news.topEvent.description"></h5>
+					<h3 ng-bind-html="news.topEvent.description"></h3>
 				</div>
 			</div>
 			<div class="clearfix"></div>

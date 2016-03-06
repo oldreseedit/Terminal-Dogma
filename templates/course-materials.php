@@ -13,13 +13,13 @@
                         <a ng-href="{{material.fileURI}}">
                             <span class="middler"></span>
                             <span class="middle fa fa-3x" ng-class="material.getFA()"></span>
-                            <span class="middle" ng-bind="material.getTitle()"></span>
+                            <p><span class="middle" ng-bind="material.getTitle()"></span></p>
                         </a>
                     </div>
                 </div>
                 <div class="material-content" id="material{{material.materialID}}Content" size-on-scope ng-style="course.getMargin(material{{material.materialID}}Height,material{{material.materialID}}ContentHeight)">
                     <div class="container" ng-if="material.note">
-                        <span ng-bind="material.note"></span>
+                        <p><span ng-bind="material.note"></span></p>
                     </div>
                 </div>
             </div>

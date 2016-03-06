@@ -1,8 +1,7 @@
-$navbar-modifier : 1.375;
 $navbar-line-height: 2.5;
 
 body {
-    margin-top: $navbar-modifier*$navbar-line-height*1em;    
+    margin-top: $navbar-line-height*1em - 0.1em;    
 }
 
 #navbar{
@@ -12,16 +11,13 @@ body {
     position: fixed;
     top: 0;
     padding: 0 5%;
-    @include responsive {
-        padding: 0 2%;
-    }
     z-index: 100;
     
     color: white;
     @extend .text-center;
     font-weight: 400;
     
-    font-size: $navbar-modifier*1em;
+    font-size: 21px;
     
     margin-top: -6px;
     border-bottom: 3px solid white;
@@ -99,7 +95,6 @@ body {
             text-transform: uppercase;
             @extend .bg-water;
             line-height: 1;
-            font-size: $navbar-modifier*0.8em;
         }
         
     }
@@ -112,14 +107,6 @@ body {
         @extend .col-100;
         @extend .white;
         @extend .text-right;
-        
-        button{
-            margin-right: 3em;
-            width: 30%;
-            font-weight: 400;
-            line-height: 1;
-            font-size: $navbar-modifier*0.9em;
-        }
     }
     
     .number-of-notifications{

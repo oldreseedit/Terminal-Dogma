@@ -111,6 +111,11 @@
     	.experience-content{
     		@extend .col-60;
     		@extend .offset-5;
+    		ul{
+    			padding-left: 20px;
+    			font-size: 14px;
+    		}
+    		
     	}
     	.gain-icon{
     		@extend .offset-5;

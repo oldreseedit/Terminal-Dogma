@@ -3,16 +3,16 @@
         <div class="container">
         	<div class="col-100 details text-center fa fa-5x fa-info-circle"></div>
         	
-			<div>I corsi a reSeed si tengono tipicamente due volte l'anno: ad <emph>aprile</emph> e <emph>settembre</emph>.</div>
+			<p>I corsi a reSeed si tengono tipicamente due volte l'anno: ad <emph>aprile</emph> e <emph>settembre</emph>.</p>
         
             <div class="details">
-            	<h5>Corso:</h5>
+            	<h3>Corso:</h3>
 				<ul class="fa-ul">
-				  <li><i class="fa-li fa fa-hourglass-half"></i><b>Durata</b>: <span ng-bind="course.courseInfo.duration"></span> ore (<span ng-bind="course.courseInfo.lessons"></span> lezioni)</li>
-				  <li><i class="fa-li fa fa-eur"></i><b>Costo</b>: <span ng-bind="course.courseInfo.price"></span> €</li>
-				  <li><i class="fa-li fa fa-clock-o"></i><b>Orari</b>: ogni <span ng-bind="course.courseInfo.day"></span> dalle <span ng-bind="course.courseInfo.startingHour"></span> alle <span ng-bind="course.courseInfo.endingHour"></span></li>
+				  <li><i class="fa-li fa fa-hourglass-half fa-lg"></i><p class="inline"><b>Durata</b>: <span ng-bind="course.courseInfo.duration"></span> ore (<span ng-bind="course.courseInfo.lessons"></span> lezioni)</p></li>
+				  <li><i class="fa-li fa fa-eur fa-lg"></i><p class="inline"><b>Costo</b>: <span ng-bind="course.courseInfo.price"></span> €</p></li>
+				  <li><i class="fa-li fa fa-clock-o fa-lg"></i><p class="inline"><b>Orari</b>: ogni <span ng-bind="course.courseInfo.day"></span> dalle <span ng-bind="course.courseInfo.startingHour"></span> alle <span ng-bind="course.courseInfo.endingHour"></span></p></li>
 <!-- 				  <li><i class="fa-li fa fa-pie-chart"></i><b>Numero lezioni</b>: <span ng-bind="course.courseInfo.lessons"></span></li> -->
-				  <li><i class="fa-li fa fa-calendar-o"></i><b>Data di inizio e fine</b>:
+				  <li><i class="fa-li fa fa-calendar-o fa-lg"></i><p class="inline"><b>Data di inizio e fine</b>:
 					  <span ng-if="course.courseHasStarted">
 			            <span>Il corso è partito </span>
 						<emph class="text-danger"><time title="precisamente: il {{course.courseInfo.startingDate | amCalendar}}" am-time-ago="course.courseInfo.startingDate"></time></emph>
@@ -21,16 +21,16 @@
 					  	<span ng-bind="course.courseInfo.startingDateText"></span> -
 					  	<span ng-bind="course.courseInfo.endingDateText"></span>.
 					  </span>
-					</li>
+					</p></li>
 				</ul>
 				<div ng-show="course.hasSimulation">
-					<h5>Simulazione:</h5>
+					<h3>Simulazione:</h3>
 					<ul class="fa-ul">
-					  <li><i class="fa-li fa fa-hourglass-half"></i><b>Durata</b>: <span ng-bind="course.courseInfo.simulationDuration"></span> ore (<span ng-bind="course.courseInfo.simulationLessons"></span> lezioni)</li>
-					  <li><i class="fa-li fa fa-eur"></i><b>Costo</b>: <span ng-bind="course.courseInfo.simulationPrice"></span> €</li>
-					  <li><i class="fa-li fa fa-clock-o"></i><b>Orari</b>: ogni <span ng-bind="course.courseInfo.simulationDay"></span> dalle <span ng-bind="course.courseInfo.simulationStartingHour"></span> alle <span ng-bind="course.courseInfo.simulationEndingHour"></span></li>
+					  <li><i class="fa-li fa fa-hourglass-half fa-lg"></i><p class="inline"><b>Durata</b>: <span ng-bind="course.courseInfo.simulationDuration"></span> ore (<span ng-bind="course.courseInfo.simulationLessons"></span> lezioni)</p></li>
+					  <li><i class="fa-li fa fa-eur fa-lg"></i><p class="inline"><b>Costo</b>: <span ng-bind="course.courseInfo.simulationPrice"></span> €</p></li>
+					  <li><i class="fa-li fa fa-clock-o fa-lg"></i><p class="inline"><b>Orari</b>: ogni <span ng-bind="course.courseInfo.simulationDay"></span> dalle <span ng-bind="course.courseInfo.simulationStartingHour"></span> alle <span ng-bind="course.courseInfo.simulationEndingHour"></span></p></li>
 <!-- 					  <li><i class="fa-li fa fa-pie-chart"></i><b>Numero lezioni</b>: <span ng-bind="course.courseInfo.simulation.lessons"></span></li> -->
-					  <li><i class="fa-li fa fa-calendar-o"></i><b>Data di inizio e fine</b>:
+					  <li><i class="fa-li fa fa-calendar-o fa-lg"></i><p class="inline"><b>Data di inizio e fine</b>:
 						  <span ng-if="course.simulationHasStarted">
 				            <span>La simulazione è partita </span>
 							<emph class="text-danger"><time title="precisamente: il {{course.courseInfo.simulationStartingDate | amCalendar}}" am-time-ago="course.courseInfo.simulationStartingDate"></time></emph>
@@ -39,10 +39,10 @@
 						  	<span ng-bind="course.courseInfo.simulationStartingDateText"></span> -
 						  	<span ng-bind="course.courseInfo.simulationEndingDateText"></span>.
 						  </span>
-						</li>
+						</p></li>
 					</ul>
 				</div>
-				<div ng-show="!course.hasSimulation"><strong>Nota:</strong> Questo corso non prevede simulazione.</div>
+				<div ng-show="!course.hasSimulation"><p><strong>Nota:</strong> Questo corso non prevede simulazione.</p></div>
             </div>
             
             

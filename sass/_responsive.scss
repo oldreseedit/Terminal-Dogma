@@ -63,172 +63,77 @@
 
 /* For referencing $size-body outside of media queries */
 
-$size-body: 0px;
+/* From 100 to 539px  */
 
-/* From 100 to 539px - MINI - 14px */
-
-@include mini {
-	
-	$size-body: 14px;
+/* @include mini {
 
 	body{
 	    font-size: $size-body;
 	}
 	
-	p{
-	    font-size: $size-body;
-	}
-	
-	h6{
-	    font-size: $size-body*5/4;
-	}
-	
-	h5{
-	    font-size: $size-body*3/2;
-	}
-	
-	h4{
-	    font-size: $size-body*7/4;
-	}
-	
-	h3{
-	    font-size: $size-body*2;
-	}
-	
-	h2{
-	    font-size: $size-body*3/2;
-	}
-	
-	h1{
-	    font-size: $size-body*3;
-	}
-	
 }
 
-/* From 540 to 1080px - RESPONSIVE - Scaling 14px - 16px */
+From 540 to 1080px - RESPONSIVE
 
 @for $i from 0 through 100{
     @media all 
-	and (min-device-width: 540px + 5.4*$i)
-	and (max-device-width: 545.4px + 5.4*$i)
+	and (min-width: 540px + 5.4*$i)
+	and (max-width: 545.4px + 5.4*$i)
 	{
-	    $size-body: 14px + 0.02*$i;
-	    
     	body{
     	    font-size: $size-body;
     	}
-    	
-    	p{
-    	    font-size: $size-body;
-    	}
-    	
-    	h6{
-    	    font-size: $size-body*5/4;
-    	}
-    	
-    	h5{
-    	    font-size: $size-body*3/2;
-    	}
-    	
-    	h4{
-    	    font-size: $size-body*7/4;
-    	}
-    	
-    	h3{
-    	    font-size: $size-body*2;
-    	}
-    	
-    	h2{
-    	    font-size: $size-body*3/2;
-    	}
-    	
-    	h1{
-    	    font-size: $size-body*3;
-    	}
     }
-}
+} */
 
-/* From 1080 to 4096px - DESKTOP - Scaling 16px - 27px */
+/* From 1080 to 4096px - DESKTOP */
 
-@for $i from 1 through 100{
+@for $i from 0 through 100{
     @media all 
-	and (min-device-width: 1080px + 30.16*$i)
-	and (max-device-width: 1110.16px + 30.16*$i)
-	{
-	    $size-body: 9.78px + 0.234*$i;
-	    
+	and (min-width: 1080px + 30.16*$i)
+	and (max-width: 1110.16px + 30.16*$i)
+	{	    
     	body{
-    	    font-size: $size-body;
+    	    font-size: 9.78px + 0.234*$i;
     	}
     	
-    	p{
-    	    font-size: $size-body;
-    	}
-    	
-    	h6{
-    	    font-size: $size-body*5/4;
-    	}
-    	
-    	h5{
-    	    font-size: $size-body*3/2;
-    	}
-    	
-    	h4{
-    	    font-size: $size-body*7/4;
-    	}
-    	
-    	h3{
-    	    font-size: $size-body*2;
-    	}
-    	
-    	h2{
-    	    font-size: $size-body*3/2;
-    	}
-    	
-    	h1{
-    	    font-size: $size-body*3;
-    	}
     }
 }
+    	
+p{
+    font-size: 16px;
+}
+    
+.inline{
+	display: inline;
+}
 
-/* From 4096 px to +\infty - MAXI - 28px */
+.no-padding{
+	padding:0;
+}
 
-@include maxi {
-	
-	$size-body: 28px;
+h6{
+    font-size: 5/4*1em;
+}
 
-	body{
-	    font-size: $size-body;
-	}
-	
-	p{
-	    font-size: $size-body;
-	}
-	
-	h6{
-	    font-size: $size-body*5/4;
-	}
-	
-	h5{
-	    font-size: $size-body*3/2;
-	}
-	
-	h4{
-	    font-size: $size-body*7/4;
-	}
-	
-	h3{
-	    font-size: $size-body*2;
-	}
-	
-	h2{
-	    font-size: $size-body*3/2;
-	}
-	
-	h1{
-	    font-size: $size-body*3;
-	}
-	
+h5{
+    font-size: 3/2*1em;
+}
+
+h4{
+    font-size: 7/4*1em;
+}
+
+h3{
+    font-size: 2em;
+}
+
+h2{
+    font-size: 5/2*1em;
+}
+
+h1{
+    font-size: 3em;
 }
 
 .mini-hide{

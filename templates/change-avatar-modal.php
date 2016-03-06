@@ -15,10 +15,10 @@
 	            </div>
             	
             	<div class="container">
-	            	<label for="file">Carica un file</label>
+	            	<label for="file"><p>Carica un file</p></label>
 	            	<input id="file" form="avatarForm" type="file"  file-change="avatarModal.uploadTempAvatar(file)"></input>
 	            	<uib-progressbar ng-if="loading" class="progress-striped active" value="current" max="total" type="success" ><span ng-bind="avatarModal.getPercent()"></span></uib-progressbar>
-	            	<label for="uri">o incolla un URI</label>
+	            	<label for="uri"><p>o incolla un URI</p></label>
 	            	<input id="uri" form="avatarForm" type="text" ng-model="avatarModal.avatarURI"></input>
 					<input class="modal-submit" type="submit" ng-class="{'btn-success' : avatarForm.$valid, 'btn-grey' : avatarForm.$invalid}" value="Salva"></input>
 	            	<input class="modal-cancel" ng-click="$dismiss()" value="Annulla" readonly/>

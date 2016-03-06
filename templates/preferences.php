@@ -13,10 +13,10 @@
 		<h3>Informazioni utente</h3>
 		<table class="table table-striped table-condensed text-left">
 			<tr ng-repeat="row in preferences.data">
-				<td class="bold" ng-bind="row.title" ></td>
-				<td ng-bind="row.value" ></td>
+				<td><p class="bold" ng-bind="row.title" ></p></td>
+				<td><p class="bold" ng-bind="row.value" ></p></td>
 				<td><div class="separator"></div></td>
-				<td><span class="modify" ng-if="preferences.isModifiable(row.id)" ng-click="preferences.modify(row)"><i class="fa fa-pencil"></i> <small>Modifica</small></span></td>
+				<td><p><span class="modify" ng-if="preferences.isModifiable(row.id)" ng-click="preferences.modify(row)"><i class="fa fa-pencil"></i> <small>Modifica</small></span></p></td>
 			</tr>
 		</table>
 		<h3>Preferenze utente</h3>
@@ -24,7 +24,7 @@
 			<div class="panel-body text-left">
 				<div class="checkbox" ng-repeat="right in preferences.rights">
 				   	<input type="checkbox" ng-model="right.value" ng-true-value="1" ng-false-value="0">
-				    <label><span ng-bind="right.description"></span></label>
+				    <label><p class="inline no-padding"><span ng-bind="right.description"></span></p></label>
 				</div>
 			</div>
 		</div>

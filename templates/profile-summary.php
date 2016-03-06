@@ -9,14 +9,16 @@
 		<p class="name">
 			<span class="water" ng-bind="profile.username"></span>
 		</p><br />
+		
 		<p class="seed-level">
 			Seed Level: <span ng-bind="profile.expInfo.level"></span>
 		</p>
+		
 		<div class="profile-xp">
 			<div class="container">
 				<uib-progressbar class="progress-striped active" value="profile.expInfo.partialExperience" max="profile.expInfo.experienceDifference"  title="Esperienza">
 					<span ng-if="profile.expInfo.partialExperience/profile.expInfo.experienceDifference > 0.1">
-						<span class="middler"></span><span class="middle" ng-bind="profile.expInfo.partialExperience"></span>/<span class="middle" ng-bind="profile.expInfo.experienceDifference"></span>
+						<span class="middler"></span><p class="inline no-padding white"><span class="middle" ng-bind="profile.expInfo.partialExperience"></span>/<span class="middle" ng-bind="profile.expInfo.experienceDifference"></span></p>
 					</span>
 				</uib-progressbar>
 			</div>
@@ -33,9 +35,11 @@
 			<p class="bold">I tuoi corsi: </p>
 			<ul>
 				<li ng-repeat="course in profile.courses">
+					<p>
 					<a ng-href="/courses/{{course.courseID}}">
 						<span ng-bind="course.name"></span>
 					</a>
+					</p>
 				</li>
 			</ul>
 		</div>

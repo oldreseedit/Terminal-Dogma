@@ -57,7 +57,12 @@
 	}
 }
 
-
+label {
+	p {
+		position: relative;
+		top: -3px;
+	}
+}
 	
 #address .form-group {
 	width: 40%

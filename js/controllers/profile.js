@@ -81,8 +81,7 @@ main.controller('profileController',['$scope','$server','$routeParams','$route',
         	  title: 'High scores',
         	  bgColour: 'bg-light-water',
         	  templateUrl : 'templates/profile-highscores.php',
-        	  width: 49,
-        	  offset: 1
+        	  width: 100
           },
 	];
     
