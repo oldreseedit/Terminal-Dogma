@@ -5,8 +5,8 @@
     padding-bottom: 3vw;
     
     #tiles-courses{
-        @extend .col-76;
-        @extend .offset-12;
+        @extend .col-80;
+        @extend .offset-10;
         margin-top: 3vw;
         
         @include responsive {
@@ -23,7 +23,7 @@
             .container {
                 padding: 5%;
             }
-            font-size: 1.5em;
+            font-size: 1.6em;
         }
             
         .routePossible{
@@ -42,20 +42,24 @@
             
             .title{
                 padding: 5%;
-                font-size: 1.22em;
+                font-size: 1.3em;
             }
             
             .back{
                 @extend .text-left;
                 
                 .back-title{
-                	font-size: 1.1em;
-                    padding-left: 5%;
-                    padding-right: 5%;
+                	font-size: 1.3em;
+                    padding: 5%;
+                    span{
+                    	display:inline-block;
+                    }
                 }
                 
                 .back-content{
-                    padding: 2% 5% 5% 5%;
+                	font-size: 1.2em;
+                    padding: 5%;
+                    
                 }
                 
             }

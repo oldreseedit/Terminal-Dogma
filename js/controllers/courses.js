@@ -116,18 +116,6 @@ main.controller('coursesController',['utilities','$timeout','$location','$server
         return self.tilesCoursesWidth*self.sizesCategories.elementsWidth;
     };
     
-    self.getTileTitle = function(){
-        return {
-            'height' : self.getTileWidth()/4 + 'px'
-        };
-    };
-    
-    self.getTileContent = function(){
-        return {
-            'height' : self.getTileWidth()*3/4 + 'px'
-        };
-    };
-    
     self.getColours = function(i){
         return utilities.getColours(i, 4);
     };

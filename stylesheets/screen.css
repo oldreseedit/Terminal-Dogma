@@ -9371,7 +9371,7 @@ button.close {
 }
 
 /* line 12, ../sass/_responsive.scss */
-.offset-10, #tiles-experience #presentation-unlock, #team #team-wrapper .team-social-buttons, #singleCourse .material-content {
+.offset-10, #tiles-experience #presentation-unlock, #team #team-wrapper .team-social-buttons, #courses #tiles-courses, #singleCourse .material-content {
   margin-left: 10%;
 }
 
@@ -9403,7 +9403,7 @@ button.close {
 }
 
 /* line 12, ../sass/_responsive.scss */
-.offset-12, #courses #tiles-courses {
+.offset-12 {
   margin-left: 12%;
 }
 
@@ -10416,7 +10416,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-76, #courses #tiles-courses {
+.col-76 {
   width: 76%;
   float: left;
 }
@@ -10480,7 +10480,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-80, #team #team-wrapper .team-social-buttons {
+.col-80, #team #team-wrapper .team-social-buttons, #courses #tiles-courses {
   width: 80%;
   float: left;
 }
@@ -15681,7 +15681,7 @@ body {
 }
 /* line 21, ../sass/_courses.scss */
 #courses #tiles-courses .category-title {
-  font-size: 1.5em;
+  font-size: 1.6em;
 }
 /* line 23, ../sass/_courses.scss */
 #courses #tiles-courses .category-title .container {
@@ -15703,17 +15703,21 @@ body {
 /* line 43, ../sass/_courses.scss */
 #courses #tiles-courses .tile .title {
   padding: 5%;
-  font-size: 1.22em;
+  font-size: 1.3em;
 }
 /* line 51, ../sass/_courses.scss */
 #courses #tiles-courses .tile .back .back-title {
-  font-size: 1.1em;
-  padding-left: 5%;
-  padding-right: 5%;
+  font-size: 1.3em;
+  padding: 5%;
 }
-/* line 57, ../sass/_courses.scss */
+/* line 54, ../sass/_courses.scss */
+#courses #tiles-courses .tile .back .back-title span {
+  display: inline-block;
+}
+/* line 59, ../sass/_courses.scss */
 #courses #tiles-courses .tile .back .back-content {
-  padding: 2% 5% 5% 5%;
+  font-size: 1.2em;
+  padding: 5%;
 }
 
 /* line 4, ../sass/_course.scss */

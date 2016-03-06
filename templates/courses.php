@@ -30,12 +30,11 @@
 	                                        </div>
 	                                    </front>
 	                                    <back>
-	                                        <div class="back-title" ng-style="courses.getTileTitle()">
-	                                            <span class="middler"></span>
+	                                        <div class="back-title">
 	<!--                                             <img class="resp-img back-title-icon clickable" alt="{{tile.iconName}}" ng-src="imgs/{{tile.iconName}}-{{courses.getColours(indexOfCategory)}}.png" > -->
 	                                            <span class="middle noselect clickable" ng-bind="tile.title"></span>
 	                                        </div>
-	                                        <div class="back-content" ng-style="courses.getTileContent()">
+	                                        <div class="back-content">
 	                                            <span class="noselect clickable" ng-bind="tile.contentFlipped"></span>
 	                                        </div>
 	                                    </back>
