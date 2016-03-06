@@ -9,11 +9,6 @@ main.controller('courseController',['utilities','$scope','$server','$routeParams
     $route.current.locals.username = self.username; // For modal and GridsterResizer
     
     self.courseID = $routeParams.courseID;
-    self.subscribed = false;
-    
-    // Role-based access
-    if($rootScope.admin == true) self.hasAccessToMaterial = true;
-    else self.hasAccessToMaterial = false;
     
     $scope.events = [];
     $scope.eventSources = [{events: $scope.events, color: 'green'}];
@@ -137,53 +132,63 @@ main.controller('courseController',['utilities','$scope','$server','$routeParams
           {
         	  id : 'courseDescription',
 	          title: self.courseName,
-	          bgColour: 'bg-light-olive',
 	          templateUrl: 'templates/course-description.php',
-	          width: 60
+	          width: 60,
+              noMaxHeight: true,
+              visible: true
           },
           {
               id : 'courseInfo',
               title: 'Informazioni',
-              bgColour: 'bg-light-lawn',
               templateUrl: 'templates/course-info.php',
               width: 39,
-              offset: 1
+              offset: 1,
+              noMaxHeight: true,
+              visible: true
           },
-          {
-              id : 'courseTeacher',
-              title: 'Docente',
-              bgColour: 'bg-light-lawn',
-              templateUrl: 'templates/course-teacher.php',
-              width: 100,
-          },
+//          {
+//              id : 'courseTeacher',
+//              title: 'Docente',
+//              bgColour: 'bg-light-lawn',
+//              templateUrl: 'templates/course-teacher.php',
+//              width: 100,
+//          },
 ////          {
 ////        	  id: 'courseBanner',
 ////        	  templateUrl: 'templates/course-banner.php',
 ////              width: 100
 ////          },
           {
+        	  id: 'whatYouLearn',
+        	  title: 'Cosa imparerai',
+        	  templateUrl: 'templates/course-whatyoulearn.php',
+        	  width: 100,
+        	  visible : true
+          },
+          {
               id : 'calendar',
               title: 'Calendario delle lezioni',
-              bgColour: 'bg-light-green',
               templateUrl: 'templates/calendar.php',
               width: 60,
-              noMaxHeight: true
+              noMaxHeight: true,
+              visible : self.subscribed
           },
           {
               id : 'courseNotifications',
               title: 'Avvisi',
-              bgColour: 'bg-light-leaf',
               templateUrl: 'templates/course-notifications.php',
               width: 39,
               offset: 1,
-              noMaxHeight: true     	  
+              noMaxHeight: true,
+              visible : self.subscribed  
           },
           {
               id : 'courseMaterials',
               title: 'Materiale del corso',
               bgColour: 'bg-light-water',
               templateUrl: 'templates/course-materials.php',
-              width: 100                	  
+              width: 100,
+              visible : self.subscribed        	  
           }
 	];
     
@@ -287,12 +292,12 @@ main.controller('courseController',['utilities','$scope','$server','$routeParams
     	}
     });
     
-    self.teacherAjax = $server.post('teachers/get',{courseID : self.courseID}).then(
-		function(response)
-		{
-			self.teacher = response.data;
-		}
-    );
+//    self.teacherAjax = $server.post('teachers/get',{courseID : self.courseID}).then(
+//		function(response)
+//		{
+//			self.teacher = response.data;
+//		}
+//    );
     
     self.notificationsAjax = $server.post('notifications/get',{courseID : self.courseID}).then(function(response) {
     	 self.notifications = response.data;
@@ -344,7 +349,6 @@ main.controller('courseController',['utilities','$scope','$server','$routeParams
 		    {
 			   	if(self.tempCourses[i].courseID === self.courseID)
 			   	{
-			   		self.hasAccessToMaterial = parseInt(self.tempCourses[i].course);
 			   		self.subscribed = parseInt(self.tempCourses[i].course);
 			   		self.subscribedToSimulation = parseInt(self.tempCourses[i].simulation);
 			   		
@@ -359,7 +363,7 @@ main.controller('courseController',['utilities','$scope','$server','$routeParams
     $scope.$watchCollection(
     		function()
     		{
-    			var ajaxes = [self.coursesAjax, self.teacherAjax, self.courseInfoAjax, self.lessonsAjax, self.notificationsAjax, self.materialsAjax];
+    			var ajaxes = [self.coursesAjax, self.courseInfoAjax, self.lessonsAjax, self.notificationsAjax, self.materialsAjax];
     			var states = [];
     			var allDefined = true;
     			for(var i=0; i<ajaxes.length;i++)

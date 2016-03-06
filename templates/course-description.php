@@ -2,13 +2,22 @@
     <div class="course-description-introduction">
         <div class="container">
             <div class="course-description">
-				<img alt="{{course.courseID}}" ng-src="imgs/courses/grey/{{course.courseInfo.icon}}.png" class="course-icon">
-                <span ng-bind-html="course.courseInfo.description"></span>
+            	<uib-carousel interval="10000">
+            		<uib-slide>
+            			<img src="imgs/carousel/provaCarousel.png"/>
+            		</uib-slide>
+            		<uib-slide>
+            			<img src="imgs/header.png"/>
+            		</uib-slide>
+            		<uib-slide>
+            			<img src="imgs/footer.jpg" />
+            		</uib-slide>
+            		<uib-slide>
+            			<img src="imgs/mini-header.png" />
+            		</uib-slide>
+            	</uib-carousel>
+                <p><span ng-bind-html="course.courseInfo.description"></span></p>
             </div>
         </div>
-    </div>
-    <h5>Programma</h5>
-    <div class="course-description-syllabus">
-    	<span ng-bind-html="course.courseInfo.syllabus"></span>
     </div>
 </div>
