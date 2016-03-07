@@ -1,3 +1,12 @@
+<div ng-controller="navbarController as navbar" ng-init="navbar.checked = false">
+
+	<div id="left-border-responsive" ng-if="imOnResponsive" ></div>
+	<div id="navbar-responsive" ng-if="imOnResponsive" >
+		<span class="middler"></span><i class="fa fa-3x fa-bars middle" ng-click="navbar.checked = !navbar.checked"></i>
+	</div>
+
+</div>
+
 <div id="navbar" ng-if="!imOnResponsive" ng-controller="navbarController as navbar">
     	<div id="navbar-home">
              <div class="macrotab">

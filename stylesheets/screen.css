@@ -1932,7 +1932,7 @@ mark,
 }
 
 /* line 92, ../sass/bootstrap/_type.scss */
-.text-center, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #navbar, #navbar #navbar-tabs, #footer, #team, #singleCourse .panel-title, #singleActivity .panel-title, #register, #register .XP, #profile .panel-title, #profile .profile-level-symbol, #cart .panel-title {
+.text-center, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #navbar-responsive, #navbar, #navbar #navbar-tabs, #footer, #team, #singleCourse .panel-title, #singleActivity .panel-title, #register, #register .XP, #profile .panel-title, #profile .profile-level-symbol, #cart .panel-title {
   text-align: center;
 }
 
@@ -9199,6 +9199,8 @@ button.close {
 }
 
 /* General Behavior */
+/* Margin between main elements */
+/* Palette */
 /* line 3, ../sass/_responsive.scss */
 .col-0 {
   width: 0%;
@@ -10815,712 +10817,711 @@ button.close {
   margin-left: 100%;
 }
 
-/* line 46, ../sass/_responsive.scss */
+/* line 49, ../sass/_responsive.scss */
 body {
+  position: absolute;
   font-size: 14px;
 }
 
 /* From 1080 to 4096px - DESKTOP */
 @media all and (min-width: 1080px) and (max-width: 1110.16px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 9.78px;
   }
 }
 @media all and (min-width: 1110.16px) and (max-width: 1140.32px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 10.014px;
   }
 }
 @media all and (min-width: 1140.32px) and (max-width: 1170.48px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 10.248px;
   }
 }
 @media all and (min-width: 1170.48px) and (max-width: 1200.64px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 10.482px;
   }
 }
 @media all and (min-width: 1200.64px) and (max-width: 1230.8px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 10.716px;
   }
 }
 @media all and (min-width: 1230.8px) and (max-width: 1260.96px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 10.95px;
   }
 }
 @media all and (min-width: 1260.96px) and (max-width: 1291.12px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 11.184px;
   }
 }
 @media all and (min-width: 1291.12px) and (max-width: 1321.28px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 11.418px;
   }
 }
 @media all and (min-width: 1321.28px) and (max-width: 1351.44px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 11.652px;
   }
 }
 @media all and (min-width: 1351.44px) and (max-width: 1381.6px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 11.886px;
   }
 }
 @media all and (min-width: 1381.6px) and (max-width: 1411.76px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 12.12px;
   }
 }
 @media all and (min-width: 1411.76px) and (max-width: 1441.92px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 12.354px;
   }
 }
 @media all and (min-width: 1441.92px) and (max-width: 1472.08px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 12.588px;
   }
 }
 @media all and (min-width: 1472.08px) and (max-width: 1502.24px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 12.822px;
   }
 }
 @media all and (min-width: 1502.24px) and (max-width: 1532.4px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 13.056px;
   }
 }
 @media all and (min-width: 1532.4px) and (max-width: 1562.56px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 13.29px;
   }
 }
 @media all and (min-width: 1562.56px) and (max-width: 1592.72px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 13.524px;
   }
 }
 @media all and (min-width: 1592.72px) and (max-width: 1622.88px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 13.758px;
   }
 }
 @media all and (min-width: 1622.88px) and (max-width: 1653.04px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 13.992px;
   }
 }
 @media all and (min-width: 1653.04px) and (max-width: 1683.2px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 14.226px;
   }
 }
 @media all and (min-width: 1683.2px) and (max-width: 1713.36px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 14.46px;
   }
 }
 @media all and (min-width: 1713.36px) and (max-width: 1743.52px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 14.694px;
   }
 }
 @media all and (min-width: 1743.52px) and (max-width: 1773.68px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 14.928px;
   }
 }
 @media all and (min-width: 1773.68px) and (max-width: 1803.84px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 15.162px;
   }
 }
 @media all and (min-width: 1803.84px) and (max-width: 1834px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 15.396px;
   }
 }
 @media all and (min-width: 1834px) and (max-width: 1864.16px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 15.63px;
   }
 }
 @media all and (min-width: 1864.16px) and (max-width: 1894.32px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 15.864px;
   }
 }
 @media all and (min-width: 1894.32px) and (max-width: 1924.48px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 16.098px;
   }
 }
 @media all and (min-width: 1924.48px) and (max-width: 1954.64px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 16.332px;
   }
 }
 @media all and (min-width: 1954.64px) and (max-width: 1984.8px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 16.566px;
   }
 }
 @media all and (min-width: 1984.8px) and (max-width: 2014.96px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 16.8px;
   }
 }
 @media all and (min-width: 2014.96px) and (max-width: 2045.12px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 17.034px;
   }
 }
 @media all and (min-width: 2045.12px) and (max-width: 2075.28px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 17.268px;
   }
 }
 @media all and (min-width: 2075.28px) and (max-width: 2105.44px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 17.502px;
   }
 }
 @media all and (min-width: 2105.44px) and (max-width: 2135.6px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 17.736px;
   }
 }
 @media all and (min-width: 2135.6px) and (max-width: 2165.76px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 17.97px;
   }
 }
 @media all and (min-width: 2165.76px) and (max-width: 2195.92px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 18.204px;
   }
 }
 @media all and (min-width: 2195.92px) and (max-width: 2226.08px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 18.438px;
   }
 }
 @media all and (min-width: 2226.08px) and (max-width: 2256.24px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 18.672px;
   }
 }
 @media all and (min-width: 2256.24px) and (max-width: 2286.4px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 18.906px;
   }
 }
 @media all and (min-width: 2286.4px) and (max-width: 2316.56px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 19.14px;
   }
 }
 @media all and (min-width: 2316.56px) and (max-width: 2346.72px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 19.374px;
   }
 }
 @media all and (min-width: 2346.72px) and (max-width: 2376.88px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 19.608px;
   }
 }
 @media all and (min-width: 2376.88px) and (max-width: 2407.04px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 19.842px;
   }
 }
 @media all and (min-width: 2407.04px) and (max-width: 2437.2px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 20.076px;
   }
 }
 @media all and (min-width: 2437.2px) and (max-width: 2467.36px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 20.31px;
   }
 }
 @media all and (min-width: 2467.36px) and (max-width: 2497.52px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 20.544px;
   }
 }
 @media all and (min-width: 2497.52px) and (max-width: 2527.68px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 20.778px;
   }
 }
 @media all and (min-width: 2527.68px) and (max-width: 2557.84px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 21.012px;
   }
 }
 @media all and (min-width: 2557.84px) and (max-width: 2588px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 21.246px;
   }
 }
 @media all and (min-width: 2588px) and (max-width: 2618.16px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 21.48px;
   }
 }
 @media all and (min-width: 2618.16px) and (max-width: 2648.32px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 21.714px;
   }
 }
 @media all and (min-width: 2648.32px) and (max-width: 2678.48px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 21.948px;
   }
 }
 @media all and (min-width: 2678.48px) and (max-width: 2708.64px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 22.182px;
   }
 }
 @media all and (min-width: 2708.64px) and (max-width: 2738.8px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 22.416px;
   }
 }
 @media all and (min-width: 2738.8px) and (max-width: 2768.96px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 22.65px;
   }
 }
 @media all and (min-width: 2768.96px) and (max-width: 2799.12px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 22.884px;
   }
 }
 @media all and (min-width: 2799.12px) and (max-width: 2829.28px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 23.118px;
   }
 }
 @media all and (min-width: 2829.28px) and (max-width: 2859.44px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 23.352px;
   }
 }
 @media all and (min-width: 2859.44px) and (max-width: 2889.6px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 23.586px;
   }
 }
 @media all and (min-width: 2889.6px) and (max-width: 2919.76px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 23.82px;
   }
 }
 @media all and (min-width: 2919.76px) and (max-width: 2949.92px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 24.054px;
   }
 }
 @media all and (min-width: 2949.92px) and (max-width: 2980.08px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 24.288px;
   }
 }
 @media all and (min-width: 2980.08px) and (max-width: 3010.24px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 24.522px;
   }
 }
 @media all and (min-width: 3010.24px) and (max-width: 3040.4px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 24.756px;
   }
 }
 @media all and (min-width: 3040.4px) and (max-width: 3070.56px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 24.99px;
   }
 }
 @media all and (min-width: 3070.56px) and (max-width: 3100.72px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 25.224px;
   }
 }
 @media all and (min-width: 3100.72px) and (max-width: 3130.88px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 25.458px;
   }
 }
 @media all and (min-width: 3130.88px) and (max-width: 3161.04px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 25.692px;
   }
 }
 @media all and (min-width: 3161.04px) and (max-width: 3191.2px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 25.926px;
   }
 }
 @media all and (min-width: 3191.2px) and (max-width: 3221.36px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 26.16px;
   }
 }
 @media all and (min-width: 3221.36px) and (max-width: 3251.52px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 26.394px;
   }
 }
 @media all and (min-width: 3251.52px) and (max-width: 3281.68px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 26.628px;
   }
 }
 @media all and (min-width: 3281.68px) and (max-width: 3311.84px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 26.862px;
   }
 }
 @media all and (min-width: 3311.84px) and (max-width: 3342px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 27.096px;
   }
 }
 @media all and (min-width: 3342px) and (max-width: 3372.16px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 27.33px;
   }
 }
 @media all and (min-width: 3372.16px) and (max-width: 3402.32px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 27.564px;
   }
 }
 @media all and (min-width: 3402.32px) and (max-width: 3432.48px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 27.798px;
   }
 }
 @media all and (min-width: 3432.48px) and (max-width: 3462.64px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 28.032px;
   }
 }
 @media all and (min-width: 3462.64px) and (max-width: 3492.8px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 28.266px;
   }
 }
 @media all and (min-width: 3492.8px) and (max-width: 3522.96px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 28.5px;
   }
 }
 @media all and (min-width: 3522.96px) and (max-width: 3553.12px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 28.734px;
   }
 }
 @media all and (min-width: 3553.12px) and (max-width: 3583.28px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 28.968px;
   }
 }
 @media all and (min-width: 3583.28px) and (max-width: 3613.44px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 29.202px;
   }
 }
 @media all and (min-width: 3613.44px) and (max-width: 3643.6px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 29.436px;
   }
 }
 @media all and (min-width: 3643.6px) and (max-width: 3673.76px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 29.67px;
   }
 }
 @media all and (min-width: 3673.76px) and (max-width: 3703.92px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 29.904px;
   }
 }
 @media all and (min-width: 3703.92px) and (max-width: 3734.08px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 30.138px;
   }
 }
 @media all and (min-width: 3734.08px) and (max-width: 3764.24px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 30.372px;
   }
 }
 @media all and (min-width: 3764.24px) and (max-width: 3794.4px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 30.606px;
   }
 }
 @media all and (min-width: 3794.4px) and (max-width: 3824.56px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 30.84px;
   }
 }
 @media all and (min-width: 3824.56px) and (max-width: 3854.72px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 31.074px;
   }
 }
 @media all and (min-width: 3854.72px) and (max-width: 3884.88px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 31.308px;
   }
 }
 @media all and (min-width: 3884.88px) and (max-width: 3915.04px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 31.542px;
   }
 }
 @media all and (min-width: 3915.04px) and (max-width: 3945.2px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 31.776px;
   }
 }
 @media all and (min-width: 3945.2px) and (max-width: 3975.36px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 32.01px;
   }
 }
 @media all and (min-width: 3975.36px) and (max-width: 4005.52px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 32.244px;
   }
 }
 @media all and (min-width: 4005.52px) and (max-width: 4035.68px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 32.478px;
   }
 }
 @media all and (min-width: 4035.68px) and (max-width: 4065.84px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 32.712px;
   }
 }
 @media all and (min-width: 4065.84px) and (max-width: 4096px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 32.946px;
   }
 }
 @media all and (min-width: 4096px) and (max-width: 4126.16px) {
-  /* line 57, ../sass/_responsive.scss */
+  /* line 62, ../sass/_responsive.scss */
   body {
     font-size: 33.18px;
   }
 }
-/* line 64, ../sass/_responsive.scss */
+/* line 69, ../sass/_responsive.scss */
 p {
   font-size: 16px;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 64, ../sass/_responsive.scss */
+  /* line 69, ../sass/_responsive.scss */
   p {
     font-size: 14px;
   }
 }
 
-/* line 73, ../sass/_responsive.scss */
+/* line 78, ../sass/_responsive.scss */
 .inline {
   display: inline;
 }
 
-/* line 77, ../sass/_responsive.scss */
+/* line 82, ../sass/_responsive.scss */
 .no-padding {
   padding: 0;
 }
 
-/* line 81, ../sass/_responsive.scss */
+/* line 86, ../sass/_responsive.scss */
 h6 {
   font-size: 1.25em;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 81, ../sass/_responsive.scss */
+  /* line 86, ../sass/_responsive.scss */
   h6 {
     font-size: 1.16667em;
   }
 }
 
-/* line 89, ../sass/_responsive.scss */
+/* line 94, ../sass/_responsive.scss */
 h5 {
   font-size: 1.5em;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 89, ../sass/_responsive.scss */
+  /* line 94, ../sass/_responsive.scss */
   h5 {
     font-size: 1.33333em;
   }
 }
 
-/* line 97, ../sass/_responsive.scss */
+/* line 102, ../sass/_responsive.scss */
 h4 {
   font-size: 1.75em;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 97, ../sass/_responsive.scss */
+  /* line 102, ../sass/_responsive.scss */
   h4 {
     font-size: 1.5em;
   }
 }
 
-/* line 105, ../sass/_responsive.scss */
+/* line 110, ../sass/_responsive.scss */
 h3 {
   font-size: 2em;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 105, ../sass/_responsive.scss */
+  /* line 110, ../sass/_responsive.scss */
   h3 {
     font-size: 1.66667em;
   }
 }
 
-/* line 113, ../sass/_responsive.scss */
+/* line 118, ../sass/_responsive.scss */
 h2 {
   font-size: 2.5em;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 113, ../sass/_responsive.scss */
+  /* line 118, ../sass/_responsive.scss */
   h2 {
     font-size: 1.83333em;
   }
 }
 
-/* line 121, ../sass/_responsive.scss */
+/* line 126, ../sass/_responsive.scss */
 h1 {
   font-size: 3em;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 121, ../sass/_responsive.scss */
+  /* line 126, ../sass/_responsive.scss */
   h1 {
     font-size: 2em;
   }
 }
 
-/* line 129, ../sass/_responsive.scss */
+/* line 134, ../sass/_responsive.scss */
 .fa {
   margin-right: 2px;
 }
 
-/* Margin between main elements */
-/* Palette */
 /* line 1, ../sass/_tricks.scss */
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
@@ -11688,7 +11689,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 /* line 144, ../sass/_tricks.scss */
 .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences {
-  margin-bottom: 3vw;
+  margin-bottom: 1em;
 }
 @media all and (max-device-width: 1079px) {
   /* line 144, ../sass/_tricks.scss */
@@ -11910,7 +11911,7 @@ h1 {
 }
 
 /* line 28, ../sass/_palette.scss */
-.white, #navbar #navbar-signin, #navbar #navbar-signup, #navbar #navbar-logged, #footer a:active, #news-events a, .modal-wrapper form .modal-submit, .modal-wrapper form .modal-submit:hover, .modal-wrapper form .modal-submit:active, .modal-wrapper form .modal-submit:focus {
+.white, #navbar-responsive, #navbar #navbar-signin, #navbar #navbar-signup, #navbar #navbar-logged, #footer a:active, #news-events a, .modal-wrapper form .modal-submit, .modal-wrapper form .modal-submit:hover, .modal-wrapper form .modal-submit:active, .modal-wrapper form .modal-submit:focus {
   color: white;
 }
 
@@ -12126,7 +12127,7 @@ h1 {
 }
 
 /* line 79, ../sass/_palette.scss */
-.bg-jungle {
+.bg-jungle, html, #left-border-responsive, #navbar-responsive {
   background-color: #003E36;
 }
 
@@ -12260,7 +12261,7 @@ textarea {
 }
 
 /* line 22, ../sass/_animate.scss */
-.animated-class-fast {
+.animated-class-fast, body {
   transition: all linear 0.4s;
 }
 
@@ -15261,6 +15262,33 @@ body {
 }
 
 /* line 11, ../sass/_navbar.scss */
+#left-border-responsive {
+  z-index: 100;
+  position: fixed;
+  top: 5%;
+  width: 0.5em;
+  height: 100%;
+  box-shadow: 5px 5px 10px #333339;
+}
+
+/* line 22, ../sass/_navbar.scss */
+#navbar-responsive {
+  z-index: 100;
+  position: fixed;
+  top: 5%;
+  width: 3.7em;
+  height: 3.7em;
+  border-radius: 0 5px 5px 0;
+  box-shadow: 5px 5px 10px #333339;
+}
+/* line 34, ../sass/_navbar.scss */
+#navbar-responsive .fa {
+  padding-left: 0.01em;
+  position: relative;
+  top: 1px;
+}
+
+/* line 41, ../sass/_navbar.scss */
 #navbar {
   display: table;
   table-layout: fixed;
@@ -15276,55 +15304,55 @@ body {
   border-bottom: 3px solid white;
   background-color: #003E36;
 }
-/* line 32, ../sass/_navbar.scss */
+/* line 62, ../sass/_navbar.scss */
 #navbar .fa ~ span {
   margin-left: 0.5em;
 }
-/* line 36, ../sass/_navbar.scss */
+/* line 66, ../sass/_navbar.scss */
 #navbar a {
   text-decoration: none;
   color: inherit;
 }
-/* line 39, ../sass/_navbar.scss */
+/* line 69, ../sass/_navbar.scss */
 #navbar a:hover {
   color: #C9E113;
 }
-/* line 45, ../sass/_navbar.scss */
+/* line 75, ../sass/_navbar.scss */
 #navbar .macrotab {
   line-height: 2.5;
 }
-/* line 49, ../sass/_navbar.scss */
+/* line 79, ../sass/_navbar.scss */
 #navbar #navbar-home, #navbar #navbar-tabs, #navbar #navbar-profile {
   display: table-cell;
   vertical-align: middle;
 }
-/* line 59, ../sass/_navbar.scss */
+/* line 89, ../sass/_navbar.scss */
 #navbar #navbar-tabs .macrotab {
   width: 100%;
   display: table;
   table-layout: fixed;
 }
-/* line 63, ../sass/_navbar.scss */
+/* line 93, ../sass/_navbar.scss */
 #navbar #navbar-tabs .macrotab a {
   display: table-cell;
 }
-/* line 71, ../sass/_navbar.scss */
+/* line 101, ../sass/_navbar.scss */
 #navbar #navbar-profile .navbar-icons {
   margin-left: 1em;
 }
-/* line 75, ../sass/_navbar.scss */
+/* line 105, ../sass/_navbar.scss */
 #navbar #navbar-profile .navbar-icons .fa-stack {
   font-size: 0.7em;
 }
-/* line 80, ../sass/_navbar.scss */
+/* line 110, ../sass/_navbar.scss */
 #navbar #navbar-profile .navbar-icons a {
   margin-left: 0.2em;
 }
-/* line 86, ../sass/_navbar.scss */
+/* line 116, ../sass/_navbar.scss */
 #navbar #navbar-profile .navbar-username {
   font-size: 0.8em;
 }
-/* line 96, ../sass/_navbar.scss */
+/* line 126, ../sass/_navbar.scss */
 #navbar #navbar-signin button, #navbar #navbar-signup button {
   width: 90%;
   font-weight: 400;
@@ -15332,17 +15360,17 @@ body {
   text-transform: uppercase;
   line-height: 1;
 }
-/* line 117, ../sass/_navbar.scss */
+/* line 147, ../sass/_navbar.scss */
 #navbar .number-of-notifications {
   top: -0.8em;
   left: -1.3em;
 }
-/* line 123, ../sass/_navbar.scss */
+/* line 153, ../sass/_navbar.scss */
 #navbar .number-of-cart-items {
   top: -0.8em;
   left: -1.3em;
 }
-/* line 129, ../sass/_navbar.scss */
+/* line 159, ../sass/_navbar.scss */
 #navbar .cart-not-empty {
   color: #C9E113;
 }
@@ -15354,7 +15382,7 @@ body {
   max-height: 55vw;
   /* For proper full-page visualization */
   position: relative;
-  margin-bottom: 3vw;
+  margin-bottom: 1em;
   background: url(../imgs/header.png) no-repeat center;
   -webkit-background-size: 100%;
   -moz-background-size: 100%;
@@ -15834,7 +15862,7 @@ body {
 
 /* line 4, ../sass/_media.scss */
 #media .media-tab {
-  margin-bottom: 3vw;
+  margin-bottom: 1em;
 }
 /* line 21, ../sass/_media.scss */
 #media .media-panel .media-panel-main {
@@ -15852,7 +15880,7 @@ body {
 @media all and (max-device-width: 1079px) {
   /* line 19, ../sass/_contacts.scss */
   #contacts #contact-form-wrapper {
-    margin-top: 3vw;
+    margin-top: 1em;
   }
 }
 /* line 29, ../sass/_contacts.scss */

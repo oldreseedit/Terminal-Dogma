@@ -43,7 +43,12 @@
     }
 }
 
+html{
+	@extend .bg-jungle;	
+}
 body{
+	@extend .animated-class-fast;
+	position:absolute;
 	font-size: 14px;
 }
 

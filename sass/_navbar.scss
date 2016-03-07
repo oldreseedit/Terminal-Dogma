@@ -8,6 +8,36 @@ body {
     }
 }
 
+#left-border-responsive
+{
+	z-index: 100;
+	position: fixed;
+	top: 5%;
+	width: 0.5em;
+	height: 100%;
+    box-shadow: 5px 5px 10px $darker-grey;
+	@extend .bg-jungle;	
+}
+
+#navbar-responsive{
+	z-index: 100;
+	position: fixed;
+	top: 5%;
+	width: 3.7em;
+	height: 3.7em;
+	border-radius: 0 5px 5px 0;
+    box-shadow: 5px 5px 10px $darker-grey;
+	@extend .bg-jungle;
+	@extend .text-center;
+	@extend .white;
+	
+	.fa{
+		padding-left: 0.01em;
+		position: relative;
+		top: 1px;
+	}
+}
+
 #navbar{
 	
 	display: table;
