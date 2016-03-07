@@ -34,14 +34,6 @@
 		@content
     }
 }
-
-@mixin mini {
-	@media all
-	and (max-device-width: 539px)
-	{
-		@content
-	}
-}
         
 @mixin desktop {
     @media all 
@@ -51,40 +43,9 @@
     }
 }
 
-@mixin maxi {
-	@media all
-	and (min-device-width: 4096px)
-	{
-		@content
-	}
+body{
+	font-size: 14px;
 }
-
-/* RESPONSIVE STYLES */
-
-/* For referencing $size-body outside of media queries */
-
-/* From 100 to 539px  */
-
-/* @include mini {
-
-	body{
-	    font-size: $size-body;
-	}
-	
-}
-
-From 540 to 1080px - RESPONSIVE
-
-@for $i from 0 through 100{
-    @media all 
-	and (min-width: 540px + 5.4*$i)
-	and (max-width: 545.4px + 5.4*$i)
-	{
-    	body{
-    	    font-size: $size-body;
-    	}
-    }
-} */
 
 /* From 1080 to 4096px - DESKTOP */
 
@@ -102,6 +63,11 @@ From 540 to 1080px - RESPONSIVE
     	
 p{
     font-size: 16px;
+    
+    @include responsive
+    {
+    	font-size: 14px;
+    }
 }
     
 .inline{
@@ -114,98 +80,50 @@ p{
 
 h6{
     font-size: 5/4*1em;
+    @include responsive
+    {
+    	font-size: 7/6*1em;
+    }
 }
 
 h5{
     font-size: 3/2*1em;
+    @include responsive
+    {
+    	font-size: 8/6*1em;
+    }
 }
 
 h4{
     font-size: 7/4*1em;
+    @include responsive
+    {
+    	font-size: 9/6*1em;
+    }
 }
 
 h3{
     font-size: 2em;
+    @include responsive
+    {
+    	font-size: 10/6*1em;
+    }
 }
 
 h2{
     font-size: 5/2*1em;
+    @include responsive
+    {
+    	font-size: 11/6*1em;
+    }
 }
 
 h1{
     font-size: 3em;
-}
-
-.mini-hide{
-	@include mini {
-		display: none;
-	}
-}
-
-.responsive-hide{
-	@include responsive {
-		display: none;
-	}
-}
-
-.desktop-hide{
-	@include desktop {
-		display: none;
-	}
-}
-
-.maxi-hide{
-	@include maxi {
-		display: none;
-	}
-}
-
-.mini-only{
-	display: none;
-	@include mini {
-		display: initial;
-	}
-}
-
-.responsive-only{
-	display: none;
-	@include responsive {
-		display: initial;
-	}
-}
-
-.responsive-strict{
-	display: none;
-	@include responsive {
-		display: initial;
-	}
-	@include mini{
-		display: none;
-	}
-}
-
-.desktop-only{
-	display: none;
-	@include desktop {
-		display: initial;
-	}
-}
-
-.maxi-only{
-	display: none;
-	@include maxi {
-		display: initial;
-	}
-}
-
-.desktop-strict{
-	display: none;
-	@include desktop {
-		display: initial;
-	}
-	@include maxi {
-		display: initial;
-	}
+    @include responsive
+    {
+    	font-size: 2*1em;
+    }
 }
 
 .fa{

@@ -1,10 +1,15 @@
 $navbar-line-height: 2.5;
 
 body {
-    margin-top: $navbar-line-height*1em - 0.1em;    
+    margin-top: $navbar-line-height*1em - 0.1em;
+    @include responsive
+    {
+    	margin-top: 0;
+    }
 }
 
 #navbar{
+	
 	display: table;
 	table-layout: fixed;
     width: 100%;

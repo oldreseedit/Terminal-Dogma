@@ -115,16 +115,8 @@ main.controller('teamController',["utilities",function(utilities){
         }
     ];
     
-    if(imOnResponsive) {
-        for(var i=0;i<self.people.length;i++){
-            self.people[i].socialNetworks = self.people[i].socialNetworks.filter(function(element){
-                return !element.responsiveHide;
-            });
-        }
-    }
-    
     self.sizesIcons = utilities.spacedSizes(self.people[0].socialNetworks.length);
-    self.sizesPeople = utilities.spacedSizes(self.people.length);
+    self.sizesPeople =imOnResponsive ? utilities.spacedSizes(1) : utilities.spacedSizes(self.people.length);
     
     self.spacedIcons = function($first){
         if($first) return ["col-" + self.sizesIcons.elementsWidth, "offset-" + self.sizesIcons.outerWidth];
@@ -148,14 +140,6 @@ main.controller('teamController',["utilities",function(utilities){
         var style = {'white': !hover};
         style[icon.id] = hover;
         return [icon.faName,style];
-    };
-    
-    self.getFontSize = function(){
-        var fs = (13/180)*$(window).width();
-        fs /= self.people[0].socialNetworks.length;
-        return {
-            'font-size' : (fs*3/4)+'px'
-        };
     };
     
     self.getTeacherInfo = function(teacherName){

@@ -36,31 +36,25 @@ var main = angular.module('Main',[
 		js.src = "//connect.facebook.net/it_it/sdk.js";
 		fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));
-	
-  
 });
 
 /* Configures Moment plugin to display dates in Italian */
 moment.locale('it', {}); 
 
-/* Check if you are on "responsive" devices */
-imOnResponsive = (window.innerWidth > 0) ? (window.innerWidth < 1080) : (screen.width < 1080);
-function imOnResponsive(){
-    return imOnResponsive;
-}
-/* Check if you are on "mini" devices */
-imOnMini = (window.innerWidth > 0) ? (window.innerWidth < 540) : (screen.width < 540);
-function imOnMini(){
-    return imOnMini;
-}
-/* Check if you are on "maxi" devices */
-imOnMaxi = (window.innerWidth > 0) ? (window.innerWidth >= 4096) : (screen.width >= 4096);
-function imOnMaxi(){
-    return imOnMaxi;
-}
-
 /*** RUN PHASE ***/
 main.run(['$rootScope','$location','$timeout','$server','$cookies','$window','$route','gridsterConfig','inform','$cookies','fb',function($rootScope, $location, $timeout, $server, $cookies, $window, $route, gridsterConfig,inform,$cookies,fb) {
+	
+	/** FOR RESPONSIVE STYLES **/
+  
+	$rootScope.imOnResponsive = (window.innerWidth > 0) ? (window.innerWidth < 1080) : (screen.width < 1080);
+	
+	imOnResponsive = function()
+	{
+		return $rootScope.imOnResponsive;
+	};
+	imOnResponsive = $rootScope.imOnResponsive;
+	
+	/** **/
 	
 	fb.init();
 

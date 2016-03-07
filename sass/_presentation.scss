@@ -29,7 +29,7 @@
             @extend .offset-5;
             margin-top: 0.5em;
             margin-bottom: 0.5em;
-            font-size: 2.7em;
+            font-size: 2.2em;
             line-height: 1;
         }
         
@@ -53,7 +53,7 @@
   	}
   	
   	.news-icon{
-  		@extend .col-20;
+  		@extend .col-25;
   		@extend .offset-5;
   		padding-top: 2%;
   		.fa {
@@ -62,7 +62,7 @@
   	}
   	
   	.news-title{
-  		@extend .col-75;
+  		@extend .col-70;
   	}
   	
   	.news-description{
@@ -87,16 +87,32 @@
   		@extend .col-45;
   		@extend .bg-green;
   		@extend .black;
+  		
+  		@include responsive
+  		{
+			@include col(100);
+			padding: 1%;
+			margin-bottom: 0.5em;
+  		}
   	}
   	
   	#presentation-unlock {
   		@extend .offset-10;
+  		
+  		@include responsive
+  		{
+  			@include offset(0);
+  		}
   	}
   	
   	.gain-icon, .unlock-icon{
   		@extend .col-30;
   		.fa {
   			font-size: 13em;
+  			@include responsive
+  			{
+  				font-size:7em;
+  			}
   		}
   	}
   	.experience-content{
@@ -117,10 +133,14 @@
 }
 
 .spotlights-icon{
-	@extend .col-20;
+	@extend .col-25;
 	@extend .offset-5;
 	padding-top: 2%;
 	.fa {
 		font-size: 8em;
+		@include responsive
+		{
+			font-size: 4em;
+		}
 	}
 }

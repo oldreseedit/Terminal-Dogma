@@ -3,8 +3,15 @@
     @extend .bg-light-grey;
     @extend .text-center;
     @extend .dark-grey;
-    padding-top: 3vw;
-    padding-bottom: 3vw;
+    padding-top: 3em;
+    padding-bottom: 3em;
+    
+    .person{
+    	@include responsive
+    	{
+    		margin-bottom: 2em;
+    	}
+    }
     
     #team-wrapper{
         @extend .in-main;

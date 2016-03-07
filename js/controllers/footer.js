@@ -53,8 +53,8 @@ main.controller('footerController',["utilities",function(utilities){
     };
     
     self.spacedIcons = function($first){
-        if($first) return ["col-" + self.sizesIcons.elementsWidth, "offset-" + self.sizesIcons.outerWidth];
-        else return ["col-" + self.sizesIcons.elementsWidth, "offset-" + self.sizesIcons.spacerWidth];
+        if($first) return ["col-" + self.sizesIcons.elementsWidth, "offset-" + self.sizesIcons.outerWidth, imOnResponsive ? "fa-lg" : "fa-2x"];
+        else return ["col-" + self.sizesIcons.elementsWidth, "offset-" + self.sizesIcons.spacerWidth, imOnResponsive ? "fa-lg" : "fa-2x"];
     };
     
     self.getColors = function(icon,hover){

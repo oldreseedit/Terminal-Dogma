@@ -1,4 +1,4 @@
-<div id="navbar" ng-controller="navbarController as navbar">
+<div id="navbar" ng-if="!imOnResponsive" ng-controller="navbarController as navbar">
     	<div id="navbar-home">
              <div class="macrotab">
                  <a href="/"><span class="middler"></span>
