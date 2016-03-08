@@ -13,8 +13,10 @@ main.directive('navbarLeft',['$swipe',function($swipe){
 			var menuWidth = $element.find('#menu').width();
 			var buttonStart = $element.find('#navbar-toggle')[0].offsetTop;
 			var buttonEnd = buttonStart + $element.find('#navbar-toggle')[0].offsetHeight;
-			
-//			console.log(buttonStart, buttonEnd);
+
+			$scope.$on('remove-navbar',function(){
+				$element.css('left',0);
+			});
 			
 			$swipe.bind($element, {
 				start : function(event)
@@ -49,7 +51,7 @@ main.directive('navbarLeft',['$swipe',function($swipe){
 
 					$element.addClass('animated-class-fastest');	
 					
-					if(!changedOpening && startPosition.x < $element.width()  && startPosition.x > -1  && startPosition.y < buttonEnd && startPosition.y > buttonStart && endPosition < $element.width() && endPosition  > -1)
+					if(!changedOpening && startPosition.x < $element.width()  && startPosition.x > -1  && ( !isOpened ? (startPosition.y < buttonEnd && startPosition.y > buttonStart) : true ) && endPosition < $element.width() && endPosition  > -1)
 					{
 						if( parseInt(left) < menuWidth/2 ) $element.css('left',  menuWidth);		
 						else $element.css('left',0);
