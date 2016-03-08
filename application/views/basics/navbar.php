@@ -1,9 +1,10 @@
-<div ng-controller="navbarController as navbar" ng-init="navbar.checked = false">
+<div id="navbar-responsive" ng-if="imOnResponsive" navbar-left>
 
-	<div id="left-border-responsive" ng-if="imOnResponsive" ></div>
-	<div id="navbar-responsive" ng-if="imOnResponsive" >
-		<span class="middler"></span><i class="fa fa-3x fa-bars middle" ng-click="navbar.checked = !navbar.checked"></i>
+	<div id="left-border-responsive"></div>
+	<div id="navbar-toggle">
+		<span class="middler"></span><i class="fa fa-3x fa-bars middle"></i>
 	</div>
+	<div id="menu"></div>
 
 </div>
 

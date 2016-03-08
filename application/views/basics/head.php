@@ -134,7 +134,7 @@
     <script type="text/javascript" src="js/directives/equalSpans.js"></script>
     <script type="text/javascript" src="js/directives/fitText.js"></script>
     <script type="text/javascript" src="js/directives/flipper.js"></script>
-    <script type="text/javascript" src="js/directives/gridsterResizer.js"></script>
+    <script type="text/javascript" src="js/directives/navbarLeft.js"></script>
     <script type="text/javascript" src="js/directives/sizeOn.js"></script>
     <script type="text/javascript" src="js/directives/spinner.js"></script>
     <script type="text/javascript" src="js/directives/macroList.js"></script>

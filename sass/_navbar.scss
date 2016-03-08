@@ -5,13 +5,31 @@ body {
     @include responsive
     {
     	margin-top: 0;
+    	position: absolute;
     }
+}
+
+#navbar-responsive
+{
+	z-index: 100;
+	position: fixed;
+	top: 0;
+	height: 100%;	
+	width: 3.7em;
+}
+
+#menu
+{
+	position: absolute;
+	left: -300%;
+	width: 300%;
+	height: 100%;
+	@extend .bg-jungle;
 }
 
 #left-border-responsive
 {
-	z-index: 100;
-	position: fixed;
+	position: absolute;
 	top: 5%;
 	width: 0.5em;
 	height: 100%;
@@ -19,9 +37,9 @@ body {
 	@extend .bg-jungle;	
 }
 
-#navbar-responsive{
-	z-index: 100;
-	position: fixed;
+#navbar-toggle{
+	
+	position: absolute;
 	top: 5%;
 	width: 3.7em;
 	height: 3.7em;
