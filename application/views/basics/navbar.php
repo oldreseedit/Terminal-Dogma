@@ -4,7 +4,11 @@
 	<div id="navbar-toggle">
 		<span class="middler"></span><i class="fa fa-3x fa-bars middle"></i>
 	</div>
-	<div id="menu"></div>
+	<div id="menu" ng-controller="navbarController as navbar">
+		<h3>Sezioni</h3>
+		<a href="/" ng-click="navbar.goTo('/')"><span class="fa-stack middle"><i class="fa fa-home fa-stack-2x"></i></span> <h5 class="inline"><span title="Torna alla home" class="middle">Home</span></h5> </a>
+		<a ng-repeat="tab in navbar.tabs" title="{{tab.title}}" ng-href="/{{tab.url}}" ng-click="navbar.goTo(tab.url)"><h5 ng-bind="tab.content"></h5></a>
+	</div>
 
 </div>
 

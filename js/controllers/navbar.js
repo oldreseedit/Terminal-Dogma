@@ -24,6 +24,12 @@ main.controller('navbarController',['utilities','$timeout','$window','$uibModal'
         }
     ];
     
+    self.goTo = function(url)
+    {
+    	$scope.$emit('remove-navbar');
+    	$location.path(url);
+    };
+    
     /* SIGNUP AND SIGNIN */
     
     self.signup = function(){

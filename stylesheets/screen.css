@@ -1932,7 +1932,7 @@ mark,
 }
 
 /* line 92, ../sass/bootstrap/_type.scss */
-.text-center, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #navbar-toggle, #navbar, #navbar #navbar-tabs, #footer, #team, #singleCourse .panel-title, #singleActivity .panel-title, #register, #register .XP, #profile .panel-title, #profile .profile-level-symbol, #cart .panel-title {
+.text-center, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #menu, #navbar-toggle, #navbar, #navbar #navbar-tabs, #footer, #team, #singleCourse .panel-title, #singleActivity .panel-title, #register, #register .XP, #profile .panel-title, #profile .profile-level-symbol, #cart .panel-title {
   text-align: center;
 }
 
@@ -11910,7 +11910,7 @@ h1 {
 }
 
 /* line 28, ../sass/_palette.scss */
-.white, #navbar-toggle, #navbar #navbar-signin, #navbar #navbar-signup, #navbar #navbar-logged, #footer a:active, #news-events a, .modal-wrapper form .modal-submit, .modal-wrapper form .modal-submit:hover, .modal-wrapper form .modal-submit:active, .modal-wrapper form .modal-submit:focus {
+.white, #menu h1, #menu h2, #menu h3, #menu h4, #menu h5, #menu span, #menu p, #navbar-toggle, #navbar #navbar-signin, #navbar #navbar-signup, #navbar #navbar-logged, #footer a:active, #news-events a, .modal-wrapper form .modal-submit, .modal-wrapper form .modal-submit:hover, .modal-wrapper form .modal-submit:active, .modal-wrapper form .modal-submit:focus {
   color: white;
 }
 
@@ -15277,13 +15277,18 @@ body {
 
 /* line 21, ../sass/_navbar.scss */
 #menu {
+  z-index: 101;
   position: absolute;
   left: -300%;
   width: 300%;
   height: 100%;
 }
+/* line 34, ../sass/_navbar.scss */
+#menu h3 {
+  margin-bottom: 1em;
+}
 
-/* line 30, ../sass/_navbar.scss */
+/* line 39, ../sass/_navbar.scss */
 #left-border-responsive {
   position: absolute;
   top: 5%;
@@ -15292,7 +15297,7 @@ body {
   box-shadow: 5px 5px 10px #333339;
 }
 
-/* line 40, ../sass/_navbar.scss */
+/* line 49, ../sass/_navbar.scss */
 #navbar-toggle {
   position: absolute;
   top: 5%;
@@ -15301,14 +15306,14 @@ body {
   border-radius: 0 5px 5px 0;
   box-shadow: 5px 5px 10px #333339;
 }
-/* line 52, ../sass/_navbar.scss */
+/* line 61, ../sass/_navbar.scss */
 #navbar-toggle .fa {
   padding-left: 0.01em;
   position: relative;
   top: 1px;
 }
 
-/* line 59, ../sass/_navbar.scss */
+/* line 68, ../sass/_navbar.scss */
 #navbar {
   display: table;
   table-layout: fixed;
@@ -15324,55 +15329,55 @@ body {
   border-bottom: 3px solid white;
   background-color: #003E36;
 }
-/* line 80, ../sass/_navbar.scss */
+/* line 89, ../sass/_navbar.scss */
 #navbar .fa ~ span {
   margin-left: 0.5em;
 }
-/* line 84, ../sass/_navbar.scss */
+/* line 93, ../sass/_navbar.scss */
 #navbar a {
   text-decoration: none;
   color: inherit;
 }
-/* line 87, ../sass/_navbar.scss */
+/* line 96, ../sass/_navbar.scss */
 #navbar a:hover {
   color: #C9E113;
 }
-/* line 93, ../sass/_navbar.scss */
+/* line 102, ../sass/_navbar.scss */
 #navbar .macrotab {
   line-height: 2.5;
 }
-/* line 97, ../sass/_navbar.scss */
+/* line 106, ../sass/_navbar.scss */
 #navbar #navbar-home, #navbar #navbar-tabs, #navbar #navbar-profile {
   display: table-cell;
   vertical-align: middle;
 }
-/* line 107, ../sass/_navbar.scss */
+/* line 116, ../sass/_navbar.scss */
 #navbar #navbar-tabs .macrotab {
   width: 100%;
   display: table;
   table-layout: fixed;
 }
-/* line 111, ../sass/_navbar.scss */
+/* line 120, ../sass/_navbar.scss */
 #navbar #navbar-tabs .macrotab a {
   display: table-cell;
 }
-/* line 119, ../sass/_navbar.scss */
+/* line 128, ../sass/_navbar.scss */
 #navbar #navbar-profile .navbar-icons {
   margin-left: 1em;
 }
-/* line 123, ../sass/_navbar.scss */
+/* line 132, ../sass/_navbar.scss */
 #navbar #navbar-profile .navbar-icons .fa-stack {
   font-size: 0.7em;
 }
-/* line 128, ../sass/_navbar.scss */
+/* line 137, ../sass/_navbar.scss */
 #navbar #navbar-profile .navbar-icons a {
   margin-left: 0.2em;
 }
-/* line 134, ../sass/_navbar.scss */
+/* line 143, ../sass/_navbar.scss */
 #navbar #navbar-profile .navbar-username {
   font-size: 0.8em;
 }
-/* line 144, ../sass/_navbar.scss */
+/* line 153, ../sass/_navbar.scss */
 #navbar #navbar-signin button, #navbar #navbar-signup button {
   width: 90%;
   font-weight: 400;
@@ -15380,17 +15385,17 @@ body {
   text-transform: uppercase;
   line-height: 1;
 }
-/* line 165, ../sass/_navbar.scss */
+/* line 174, ../sass/_navbar.scss */
 #navbar .number-of-notifications {
   top: -0.8em;
   left: -1.3em;
 }
-/* line 171, ../sass/_navbar.scss */
+/* line 180, ../sass/_navbar.scss */
 #navbar .number-of-cart-items {
   top: -0.8em;
   left: -1.3em;
 }
-/* line 177, ../sass/_navbar.scss */
+/* line 186, ../sass/_navbar.scss */
 #navbar .cart-not-empty {
   color: #C9E113;
 }

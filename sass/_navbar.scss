@@ -20,11 +20,20 @@ body {
 
 #menu
 {
+	z-index: 101;
 	position: absolute;
 	left: -300%;
 	width: 300%;
 	height: 100%;
 	@extend .bg-jungle;
+	
+	@extend .text-center;
+	h1,h2,h3,h4,h5,span,p{
+		@extend .white;
+	}
+	h3{
+		margin-bottom: 1em;
+	}
 }
 
 #left-border-responsive
