@@ -6,7 +6,7 @@ main.directive('navbarLeft',['$swipe',function($swipe){
 			$element.addClass('animated-class-fastest');
 			$element.css('left', 0);
 			
-			var startPosition;
+			var startPosition = {};
 			var hasMoved = false;
 			var isOpened = false;
 			var left;
@@ -14,56 +14,61 @@ main.directive('navbarLeft',['$swipe',function($swipe){
 			var buttonStart = $element.find('#navbar-toggle')[0].offsetTop;
 			var buttonEnd = buttonStart + $element.find('#navbar-toggle')[0].offsetHeight;
 			
+//			console.log(buttonStart, buttonEnd);
+			
 			$swipe.bind($element, {
 				start : function(event)
 				{
 					left = $element.css('left');
 					
-					if( left !== '0px' && left !== 'auto') isOpened = true;
-					else isOpened = false;
+					isOpened = (left !== '0px' && left !== 'auto');
 					
-					startPosition = isOpened ? event.x - parseInt(left) : event.x;
+					startPosition.x = isOpened ? event.x - parseInt(left) : event.x;
+					startPosition.y =  event.y;
 					
-					console.log(event.x, left, startPosition, isOpened);
+//					console.log(event.x, left, startPosition.x, isOpened);
 				},
 				move : function(event)
 				{
-					hasMoved = true;
-					$element.removeClass('animated-class-fastest');
-					$element.css('left', Math.max(0, Math.min(event.x - startPosition, menuWidth)) );
+//					console.log(startPosition.x);
+					if( startPosition.x < 8 || ( startPosition.y < buttonEnd && startPosition.y > buttonStart ) )
+					{
+						if(event.x !== startPosition.x || event.y !== startPosition.y) hasMoved = true;
+						$element.removeClass('animated-class-fastest');
+						$element.css('left', Math.max(0, Math.min(event.x - startPosition.x, menuWidth)) );						
+					}
 				},
 				end : function(event)
 				{
-//					console.log(event);
-					$element.addClass('animated-class-fastest');
-					if(hasMoved)
+//					console.log('end!');
+					
+					left = $element.css('left');
+					
+					var changedOpening = (left !== '0px' && left !== 'auto') !== isOpened;
+					var endPosition = isOpened ? event.x - menuWidth : event.x;
+
+					$element.addClass('animated-class-fastest');	
+					
+					if(!changedOpening && startPosition.x < $element.width()  && startPosition.x > -1  && startPosition.y < buttonEnd && startPosition.y > buttonStart && endPosition < $element.width() && endPosition  > -1)
 					{
-						if( event.x < (menuWidth + $element.width())/2 ) $element.css('left',0);
-						else $element.css('left',  menuWidth); 						
+						if( parseInt(left) < menuWidth/2 ) $element.css('left',  menuWidth);		
+						else $element.css('left',0);
 					}
 					else
 					{
-						console.log(event);
-						if(isOpened && event.x > menuWidth) $element.css('left',0);
-						if(!isOpened && event.y > buttonStart && event.y < buttonEnd) $element.css('left',  menuWidth);
+						if( parseInt(left) < menuWidth/2) $element.css('left',0);
+						else $element.css('left',  menuWidth);						
 					}
 					
 					hasMoved = false;
 				},
 				cancel : function(event)
 				{
+					left = $element.css('left');
+					
 					$element.addClass('animated-class-fastest');
-					if(hasMoved)
-					{
-						if( event.x < (menuWidth + $element.width())/2 ) $element.css('left',0);
-						else $element.css('left',  menuWidth); 						
-					}
-					else
-					{
-						console.log(event);
-						if(isOpened && event.x > menuWidth) $element.css('left',0);
-						if(!isOpened && event.y > buttonStart && event.y < buttonEnd) $element.css('left',  menuWidth);
-					}
+					if( parseInt(left) < menuWidth/2 ) $element.css('left',0);
+					else $element.css('left',  menuWidth);
 					
 					hasMoved = false;					
 				}
