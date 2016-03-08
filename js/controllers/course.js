@@ -221,6 +221,7 @@ main.controller('courseController',['utilities','$scope','$server','$routeParams
     self.courseInfoAjax = $server.post('courses/get',{courseID : self.courseID}).then(function(response) {
     	
     	self.courseInfo = response.data;
+//    	console.log(self.courseInfo);
     	
     	self.courseInfo.startingDateText = moment(response.data.startingDate).format("D MMMM YYYY");
     	self.courseInfo.endingDateText = moment(response.data.endingDate).format("D MMMM YYYY");

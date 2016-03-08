@@ -79,7 +79,7 @@ class Course_images_model extends CI_Model
         	
         	foreach(preg_grep('/^([^.]).*[^(db)]$/', scandir($dir)) as $file)
         	{
-        		$images[] = $file;
+        		$images[] = "/imgs/carousel/" . $subject . "/" . $file;
         	}
         	
         	return $images;
