@@ -73,7 +73,11 @@ class Course_images_model extends CI_Model
         {
         	// return $this->db->where('courseID', $courseID)->get(self::table_name)->result_array();
         	$images = array();
-        	foreach(preg_grep('/^([^.]).*[^(db)]$/', scandir("imgs/carousel/".$subject)) as $file)
+        	
+        	$dir = "imgs/carousel/" . $subject;
+        	if(!file_exists($dir)) return $images;
+        	
+        	foreach(preg_grep('/^([^.]).*[^(db)]$/', scandir($dir)) as $file)
         	{
         		$images[] = $file;
         	}
