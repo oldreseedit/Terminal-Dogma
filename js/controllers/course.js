@@ -252,6 +252,11 @@ main.controller('courseController',['utilities','$scope','$server','$routeParams
 		
 		$rootScope.ogTitle = "Corso di " + $rootScope.title;
 	    $rootScope.ogDescription = $rootScope.description;
+	    if(self.courseName == "Rendering per architetti")
+	    {
+	    	$rootScope.ogTitle = "Corso di rendering fotorealistico";
+	    	$rootScope.ogDescription = "Rendering fotorealistici in 3D Studio Max e V-Ray";
+	    }
 	    
 //		switch (self.courseName) {
 //		case 'Java':

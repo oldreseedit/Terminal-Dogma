@@ -190,7 +190,7 @@ module.exports = function(grunt) {
                 bodyAttr: 'data-prerendered',
                 //here goes the list of all urls that should be fetched 
                 urls: [
-                  '/home',
+//                  '/home',
 //                  '/courses',
 //                  '/contacts',
 //                  '/faq',
@@ -205,7 +205,7 @@ module.exports = function(grunt) {
 //                  '/courses/gamesForDummies2016',
 //                  '/courses/3DStudioMax2016',
 //                  '/courses/c2016',
-//                  '/courses/rendering2016',
+                  '/courses/rendering2016',
 //                  '/courses/webDesign2016',
                 ]
               }

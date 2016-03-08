@@ -7,13 +7,15 @@ class Courses extends CI_Controller {
                 $this->load->helper('url');
                 $this->load->model('courses_model');
                 $this->load->model('course_graph_model');
+                $this->load->model('course_images_model');
                 $this->load->model('payment_model');
         }
         
         public function init()
         {
-        	$this->courses_model->init();
-        	$this->course_graph_model->init();
+//         	$this->courses_model->init();
+//         	$this->course_graph_model->init();
+			$this->course_images_model->init();
         }
         
         public function exists()
@@ -39,6 +41,8 @@ class Courses extends CI_Controller {
             
             $data = $this->courses_model->get($courseID);
             $data['next'] = $this->get_next($courseID);
+            
+            $data['images'] = $this->course_images_model->get($data['name']);
             
             echo json_encode($data);
         }
