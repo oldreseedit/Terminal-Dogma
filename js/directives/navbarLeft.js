@@ -70,7 +70,7 @@ main.directive('navbarLeft',['$swipe',function($swipe){
 					}
 					else
 					{
-						if(!changedOpening && startPosition.x < $element.width()  && startPosition.x > -1  && ( !isOpened ? (startPosition.y < buttonEnd && startPosition.y > buttonStart) : true ) && endPosition < $element.width() && endPosition  > -1)
+						if(!changedOpening && startPosition.x < interfaceWidth  && startPosition.x > -1  && ( !isOpened ? (startPosition.y < buttonEnd && startPosition.y > buttonStart) : true ) && endPosition < interfaceWidth && endPosition  > -1)
 						{
 							if( parseInt(left) < menuWidth/2 ) swipeRight();
 							else swipeLeft();
