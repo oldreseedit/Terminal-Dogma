@@ -45,7 +45,9 @@ main.directive('navbarLeft',['$swipe',function($swipe){
 				move : function(coordinates)
 				{
 //					console.log(startPosition.x);
-					if( startPosition.x < 8 || ( startPosition.y < buttonEnd && startPosition.y > buttonStart ) )
+
+					if(haveToSwipeLeft && !isOpened) haveToSwipeLeft = false;
+					if( !haveToSwipeLeft && ( startPosition.x < 8 || ( startPosition.y < buttonEnd && startPosition.y > buttonStart ) ) )
 					{
 						if(coordinates.x !== startPosition.x || coordinates.y !== startPosition.y) hasMoved = true;
 						$element.removeClass('animated-class-fastest');
@@ -58,19 +60,18 @@ main.directive('navbarLeft',['$swipe',function($swipe){
 					
 					var changedOpening = (left !== '0px' && left !== 'auto') !== isOpened;
 					var endPosition = isOpened ? coordinates.x - menuWidth : coordinates.x;
+					isOpened = (left !== '0px' && left !== 'auto');
 
 					$element.addClass('animated-class-fastest');	
 					
 					if(haveToSwipeLeft)
 					{
 						swipeLeft();
-						
-						isOpened = (left !== '0px' && left !== 'auto');
 						if(!isOpened) haveToSwipeLeft = false;
 					}
-					else
-					{
-						if(!changedOpening && startPosition.x < interfaceWidth  && startPosition.x > -1  && ( !isOpened ? (startPosition.y < buttonEnd && startPosition.y > buttonStart) : true ) && endPosition < interfaceWidth && endPosition  > -1)
+					if(!haveToSwipeLeft)
+					{						
+						if(!changedOpening && startPosition.x > -1 && endPosition  > -1 && ( !isOpened ? ( startPosition.x < interfaceWidth && startPosition.y < buttonEnd && startPosition.y > buttonStart && endPosition < interfaceWidth) : true ) )
 						{
 							if( parseInt(left) < menuWidth/2 ) swipeRight();
 							else swipeLeft();
