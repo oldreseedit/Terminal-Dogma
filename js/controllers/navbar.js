@@ -26,7 +26,7 @@ main.controller('navbarController',['utilities','$timeout','$window','$uibModal'
     
     self.goTo = function(url)
     {
-    	$scope.$emit('remove-navbar');
+    	$scope.$emit('close-navbar');
     	$location.path(url);
     };
     

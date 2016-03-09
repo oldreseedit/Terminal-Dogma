@@ -40,6 +40,14 @@
             @include offset(0);
         }
         
+        .tab{
+         	/* for Menu bug */ 
+        	@include responsive{
+        		position: relative;
+           		z-index: 101;
+        	}
+        }
+        
         a{
             text-shadow: 0.2vw 0.2vw 0.4vw black;
             padding: 0.4vw 0;

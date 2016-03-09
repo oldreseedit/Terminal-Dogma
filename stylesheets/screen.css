@@ -15465,6 +15465,17 @@ body {
   }
 }
 /* line 43, ../sass/_footer.scss */
+#footer #tabs .tab {
+  /* for Menu bug */
+}
+@media all and (max-device-width: 1079px) {
+  /* line 43, ../sass/_footer.scss */
+  #footer #tabs .tab {
+    position: relative;
+    z-index: 101;
+  }
+}
+/* line 51, ../sass/_footer.scss */
 #footer #tabs a {
   text-shadow: 0.2vw 0.2vw 0.4vw black;
   padding: 0.4vw 0;
@@ -15472,33 +15483,33 @@ body {
   line-height: 2;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 43, ../sass/_footer.scss */
+  /* line 51, ../sass/_footer.scss */
   #footer #tabs a {
     font-size: 0.8em;
   }
 }
-/* line 55, ../sass/_footer.scss */
+/* line 63, ../sass/_footer.scss */
 #footer #footer-logo {
   margin-top: 1.5vw;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 55, ../sass/_footer.scss */
+  /* line 63, ../sass/_footer.scss */
   #footer #footer-logo {
     width: 50%;
     float: left;
     margin-left: 25%;
   }
 }
-/* line 64, ../sass/_footer.scss */
+/* line 72, ../sass/_footer.scss */
 #footer #footer-logo img {
   width: 100%;
 }
-/* line 69, ../sass/_footer.scss */
+/* line 77, ../sass/_footer.scss */
 #footer #commercial-info {
   margin-top: 0.5vw;
   line-height: 1.5;
 }
-/* line 74, ../sass/_footer.scss */
+/* line 82, ../sass/_footer.scss */
 #footer #commercial-info p {
   color: white;
   text-shadow: 0.2vw 0.2vw 0.4vw black;

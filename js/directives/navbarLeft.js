@@ -14,6 +14,7 @@ main.directive('navbarLeft',['$swipe',function($swipe){
 			var buttonStart = $element.find('#navbar-toggle')[0].offsetTop;
 			var buttonEnd = buttonStart + $element.find('#navbar-toggle')[0].offsetHeight;
 			var interfaceWidth = parseInt($element.width());
+			var haveToSwipeLeft = false;
 
 			var swipeLeft = function()
 			{
@@ -27,53 +28,66 @@ main.directive('navbarLeft',['$swipe',function($swipe){
 				$element.width('100%');				
 			};
 			
+			$scope.$on('close-navbar',function(){ console.log('received Event!'); haveToSwipeLeft = true; });
+			
 			$swipe.bind($element, {
-				start : function(event)
+				start : function(coordinates)
 				{
 					left = $element.css('left');
 					
 					isOpened = (left !== '0px' && left !== 'auto');
 					
-					startPosition.x = isOpened ? event.x - parseInt(left) : event.x;
-					startPosition.y =  event.y;
+					startPosition.x = isOpened ? coordinates.x - parseInt(left) : coordinates.x;
+					startPosition.y =  coordinates.y;
 					
-//					console.log(event.x, left, startPosition.x, isOpened);
+//					console.log(coordinates.x, left, startPosition.x, isOpened);
 				},
-				move : function(event)
+				move : function(coordinates)
 				{
 //					console.log(startPosition.x);
 					if( startPosition.x < 8 || ( startPosition.y < buttonEnd && startPosition.y > buttonStart ) )
 					{
-						if(event.x !== startPosition.x || event.y !== startPosition.y) hasMoved = true;
+						if(coordinates.x !== startPosition.x || coordinates.y !== startPosition.y) hasMoved = true;
 						$element.removeClass('animated-class-fastest');
-						$element.css('left', Math.max(0, Math.min(event.x - startPosition.x, menuWidth)) );						
+						$element.css('left', Math.max(0, Math.min(coordinates.x - startPosition.x, menuWidth)) );						
 					}
 				},
-				end : function(event)
+				end : function(coordinates,event)
 				{
-//					console.log('end!');
-					
 					left = $element.css('left');
 					
 					var changedOpening = (left !== '0px' && left !== 'auto') !== isOpened;
-					var endPosition = isOpened ? event.x - menuWidth : event.x;
+					var endPosition = isOpened ? coordinates.x - menuWidth : coordinates.x;
 
 					$element.addClass('animated-class-fastest');	
 					
-					if(!changedOpening && startPosition.x < $element.width()  && startPosition.x > -1  && ( !isOpened ? (startPosition.y < buttonEnd && startPosition.y > buttonStart) : true ) && endPosition < $element.width() && endPosition  > -1)
+					if(haveToSwipeLeft)
 					{
-						if( parseInt(left) < menuWidth/2 ) swipeRight();
-						else swipeLeft();
+						swipeLeft();
+						
+						isOpened = (left !== '0px' && left !== 'auto');
+						if(!isOpened) haveToSwipeLeft = false;
 					}
 					else
 					{
-						if( parseInt(left) < menuWidth/2) swipeLeft();
-						else swipeRight();						
+						if(!changedOpening && startPosition.x < $element.width()  && startPosition.x > -1  && ( !isOpened ? (startPosition.y < buttonEnd && startPosition.y > buttonStart) : true ) && endPosition < $element.width() && endPosition  > -1)
+						{
+							if( parseInt(left) < menuWidth/2 ) swipeRight();
+							else swipeLeft();
+						}
+						else
+						{
+//							console.log(event);
+							if( parseInt(left) < menuWidth/2) swipeLeft();
+							else swipeRight();
+//							console.log(event.isDefaultPrevented);
+						}
 					}
+					
 					hasMoved = false;
 				},
-				cancel : function(event)
-				{
+				cancel : function()
+				{					
 					left = $element.css('left');
 					
 					$element.addClass('animated-class-fastest');
