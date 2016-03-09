@@ -6,7 +6,7 @@
     <?php include_once("basics/head.php"); ?>
 </head>
 
-<body ng-click="$broadcast('remove-navbar')">
+<body>
     <!-- Google Analytics Snippet -->
     <?php include_once("basics/analyticstracking.php"); ?>
     

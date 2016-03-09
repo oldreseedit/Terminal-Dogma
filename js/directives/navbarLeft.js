@@ -13,10 +13,19 @@ main.directive('navbarLeft',['$swipe',function($swipe){
 			var menuWidth = $element.find('#menu').width();
 			var buttonStart = $element.find('#navbar-toggle')[0].offsetTop;
 			var buttonEnd = buttonStart + $element.find('#navbar-toggle')[0].offsetHeight;
+			var interfaceWidth = parseInt($element.width());
 
-			$scope.$on('remove-navbar',function(){
+			var swipeLeft = function()
+			{
 				$element.css('left',0);
-			});
+				$element.width(interfaceWidth);				
+			};
+			
+			var swipeRight = function()
+			{
+				$element.css('left',  menuWidth);
+				$element.width('100%');				
+			};
 			
 			$swipe.bind($element, {
 				start : function(event)
@@ -53,15 +62,14 @@ main.directive('navbarLeft',['$swipe',function($swipe){
 					
 					if(!changedOpening && startPosition.x < $element.width()  && startPosition.x > -1  && ( !isOpened ? (startPosition.y < buttonEnd && startPosition.y > buttonStart) : true ) && endPosition < $element.width() && endPosition  > -1)
 					{
-						if( parseInt(left) < menuWidth/2 ) $element.css('left',  menuWidth);		
-						else $element.css('left',0);
+						if( parseInt(left) < menuWidth/2 ) swipeRight();
+						else swipeLeft();
 					}
 					else
 					{
-						if( parseInt(left) < menuWidth/2) $element.css('left',0);
-						else $element.css('left',  menuWidth);						
+						if( parseInt(left) < menuWidth/2) swipeLeft();
+						else swipeRight();						
 					}
-					
 					hasMoved = false;
 				},
 				cancel : function(event)
@@ -69,9 +77,9 @@ main.directive('navbarLeft',['$swipe',function($swipe){
 					left = $element.css('left');
 					
 					$element.addClass('animated-class-fastest');
-					if( parseInt(left) < menuWidth/2 ) $element.css('left',0);
-					else $element.css('left',  menuWidth);
-					
+					if( parseInt(left) < menuWidth/2 ) swipeLeft();
+					else swipeRight();
+
 					hasMoved = false;					
 				}
 			});

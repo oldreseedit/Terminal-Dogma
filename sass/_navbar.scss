@@ -6,6 +6,8 @@ body {
     {
     	margin-top: 0;
     	position: absolute;
+    	top: 0;
+    	width: 100%;
     }
 }
 
@@ -22,8 +24,8 @@ body {
 {
 	z-index: 101;
 	position: absolute;
-	left: -300%;
-	width: 300%;
+	left: -11em;
+	width: 11em;
 	height: 100%;
 	@extend .bg-jungle;
 	
