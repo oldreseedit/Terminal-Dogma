@@ -113,6 +113,21 @@
     <!-- Angular monospaced elastic for textareas -->
     <script type="text/javascript" src="js/directives/elastic.js"></script>
     
+    <!-- Text-angular -->
+    <link rel='stylesheet' href='/bower_components/textAngular/dist/textAngular.css'>
+	<script src='/bower_components/textAngular/dist/textAngular-rangy.min.js'></script>
+	<script src='/bower_components/textAngular/dist/textAngular-sanitize.min.js'></script>
+	<script src='/bower_components/textAngular/dist/textAngular.min.js'></script>
+    
+<!--     <link href='https://cdnjs.cloudflare.com/ajax/libs/textAngular/1.5.0/textAngular.css'/> -->
+<!--     <script src='https://cdnjs.cloudflare.com/ajax/libs/textAngular/1.5.0/textAngular-rangy.min.js'></script> -->
+<!--     <script src='https://cdnjs.cloudflare.com/ajax/libs/textAngular/1.5.0/textAngular-sanitize.min.js'></script> -->
+<!--     <script src='https://cdnjs.cloudflare.com/ajax/libs/textAngular/1.5.0/textAngular.min.js'></script> -->
+    
+	
+<!-- 	<script src='https://cdnjs.cloudflare.com/ajax/libs/textAngular/1.5.0/textAngularSetup.js'></script> -->
+<!-- 	<script src='https://cdnjs.cloudflare.com/ajax/libs/textAngular/1.5.0/textAngular.js'></script> -->
+
     <!-- AngularJS Modules -->
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/filters/firstCapitalized.js"></script>
@@ -174,6 +189,7 @@
     <script type="text/javascript" src="js/controllers/modifyPreference.js"></script>
     <script type="text/javascript" src="js/controllers/cart.js"></script>
     <script type="text/javascript" src="js/controllers/math.js"></script>
+    <script type="text/javascript" src="js/controllers/writeTutorial.js"></script>
     
     <!-- endinjector -->
      
