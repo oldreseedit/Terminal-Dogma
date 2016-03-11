@@ -16292,6 +16292,10 @@ label p {
   text-align: left;
   margin-top: 1em;
 }
+/* line 7, ../sass/_write-tutorial.scss */
+#write-tutorial .buttons {
+  margin: 3em 0px;
+}
 
 /* line 1, ../sass/_scrollbar.scss */
 .scrollbar-wrapper {
