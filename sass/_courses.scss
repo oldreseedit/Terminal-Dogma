@@ -4,15 +4,98 @@
     @extend .text-center;
     padding-bottom: 3vw;
     
+    /* RESPONSIVE */
+    
+    #courses-bookmarks
+    {
+		width:100%;
+    }
+    
+    .category-bookmark
+    {
+    	@extend .bookmark;
+    	@extend .bg-jungle;
+    	@extend .white;
+    }
+    
+    .course-bookmark
+    {
+    	z-index: 99 !important;
+    	@extend .bookmark;
+    	@extend .white;
+    }
+    
+    .bookmark{
+    	z-index: 100;
+		position: relative;
+		right: -30vw;
+    	width: 75vw;
+	    margin-top: 1em;
+	    margin-bottom: 1em;
+    }
+    
+    .bookmark-content{
+    	height: 4em;
+    	
+    }
+    
+    .bookmark-tail{
+		position: absolute;
+		left: 0;
+    	border-top: 2em solid transparent;
+	    border-bottom: 2em solid transparent;
+	    border-left: 2em solid white;
+    }
+
+	.swipeRight
+	{
+		animation-name: swipeRight;
+	}
+	
+	.removeSwipeRight
+	{
+		animation-name: removeSwipeRight;
+	}
+	
+	@keyframes swipeRight
+	{
+		0%
+		{
+			right: -30vw;
+		}
+		60%
+		{
+			right: -22vw;
+		}
+		100%
+		{
+			right: -100vw;
+		}
+	}
+	
+	@keyframes removeSwipeRight
+	{
+		0%
+		{
+			right: -100vw;
+		}
+		
+		40%
+		{
+			right: -22vw;
+		}
+		100%
+		{
+			right: -30vw;
+		}
+	}
+    
+    /* DESKTOP */
+    
     #tiles-courses{
         @extend .col-80;
         @extend .offset-10;
         margin-top: 3vw;
-        
-        @include responsive {
-            @include col(100);
-            @include offset(0);
-        }
         
         .category-column{
             @extend .float;

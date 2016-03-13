@@ -43,8 +43,18 @@
     }
 }
 
-body{
-	font-size: 14px;
+/* From 0 to 1079px - MOBILE/TABLET */
+
+@for $i from 0 through 100{
+    @media all 
+	and (min-width: 0px + 10.79*$i)
+	and (max-width: 10.79px + 10.79*$i)
+	{	    
+    	body{
+    	    font-size: 10px + 0.072*$i;
+    	}
+    	
+    }
 }
 
 /* From 1080 to 4096px - DESKTOP */
@@ -76,6 +86,13 @@ p{
 
 .no-padding{
 	padding:0;
+}
+
+small{
+	@include responsive
+	{
+		font-size: 1em;
+	}	
 }
 
 h6{

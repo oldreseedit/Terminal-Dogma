@@ -16,7 +16,7 @@
 }
 
 .animated-class{
- 	transition: all linear 1s;
+ 	transition: all linear;
 }
 
 .animated-class-fast{
@@ -25,6 +25,30 @@
 
 .animated-class-fastest{
  	transition: all linear 0.2s;	
+}
+
+.ms50{
+	transition-duration: 100ms;
+}
+
+.ms100{
+	transition-duration: 100ms;
+}
+
+.ms150{
+	transition-duration: 150ms;
+}
+
+.ms250{
+	transition-duration: 250ms;
+}
+
+.ms500{
+	transition-duration: 500ms;
+}
+
+.ms750{
+	transition-duration: 750ms;
 }
 
 .animated-slow {
