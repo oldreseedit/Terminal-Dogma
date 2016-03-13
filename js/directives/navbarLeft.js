@@ -20,6 +20,7 @@ main.directive('navbarLeft',['$swipe','$timeout',function($swipe,$timeout){
 			{
 				$element.css('left',0);
 				$element.width(interfaceWidth);
+				$timeout(function(){$('#footer .tab').css('z-index',103);},200);		
 			};
 			
 			var swipeRight = function()
@@ -70,8 +71,7 @@ main.directive('navbarLeft',['$swipe','$timeout',function($swipe,$timeout){
 						swipeLeft();
 						if(!isOpened)
 						{
-							haveToSwipeLeft = false;
-							$timeout(function(){$('#footer .tab').css('z-index',103);},200);							
+							haveToSwipeLeft = false;					
 						}
 					}
 					if(!haveToSwipeLeft)
@@ -81,8 +81,7 @@ main.directive('navbarLeft',['$swipe','$timeout',function($swipe,$timeout){
 							if( parseInt(left) < menuWidth/2 ) swipeRight();
 							else
 							{
-								swipeLeft();
-								$timeout(function(){$('#footer .tab').css('z-index',103);},200);							
+								swipeLeft();	
 							}
 						}
 						else
@@ -103,8 +102,7 @@ main.directive('navbarLeft',['$swipe','$timeout',function($swipe,$timeout){
 					$element.addClass('animated-class-fastest');
 					if( parseInt(left) < menuWidth/2 )
 					{
-						swipeLeft();
-						$timeout(function(){$('#footer .tab').css('z-index',103);},200);						
+						swipeLeft();			
 					}
 					else swipeRight();
 

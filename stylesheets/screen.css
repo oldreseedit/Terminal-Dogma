@@ -16512,7 +16512,7 @@ body {
   position: fixed;
   bottom: 1em;
   right: 1em;
-  z-index: 199;
+  z-index: 104;
 }
 /* line 140, ../sass/_course.scss */
 #singleCourse .pay-button:hover {
@@ -16527,7 +16527,7 @@ body {
   position: fixed;
   bottom: 1em;
   left: 1em;
-  z-index: 199;
+  z-index: 104;
 }
 /* line 156, ../sass/_course.scss */
 #singleCourse .faq-button:hover {
