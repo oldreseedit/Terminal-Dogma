@@ -1,4 +1,4 @@
-main.directive('navbarLeft',['$swipe',function($swipe){
+main.directive('navbarLeft',['$swipe','$timeout',function($swipe,$timeout){
 	return {
 		restrict: 'AEC',
 		link: function($scope, $element, $attrs)
@@ -26,7 +26,7 @@ main.directive('navbarLeft',['$swipe',function($swipe){
 			{
 				$element.css('left',  menuWidth);
 				$element.width('100%');		
-				$('#footer .tab').css('z-index',100);
+				$('#footer .tab').css('z-index',99);
 			};
 			
 			$scope.$on('close-navbar',function(){ haveToSwipeLeft = true; });
@@ -71,7 +71,7 @@ main.directive('navbarLeft',['$swipe',function($swipe){
 						if(!isOpened)
 						{
 							haveToSwipeLeft = false;
-							$('#footer .tab').css('z-index',102);							
+							$timeout(function(){$('#footer .tab').css('z-index',103);},200);							
 						}
 					}
 					if(!haveToSwipeLeft)
@@ -79,7 +79,11 @@ main.directive('navbarLeft',['$swipe',function($swipe){
 						if(!changedOpening && startPosition.x > -1 && endPosition  > -1 && ( !isOpened ? ( startPosition.x < interfaceWidth && startPosition.y < buttonEnd && startPosition.y > buttonStart && endPosition < interfaceWidth) : true ) )
 						{
 							if( parseInt(left) < menuWidth/2 ) swipeRight();
-							else swipeLeft();
+							else
+							{
+								swipeLeft();
+								$timeout(function(){$('#footer .tab').css('z-index',103);},200);							
+							}
 						}
 						else
 						{
@@ -97,7 +101,11 @@ main.directive('navbarLeft',['$swipe',function($swipe){
 					left = $element.css('left');
 					
 					$element.addClass('animated-class-fastest');
-					if( parseInt(left) < menuWidth/2 ) swipeLeft();
+					if( parseInt(left) < menuWidth/2 )
+					{
+						swipeLeft();
+						$timeout(function(){$('#footer .tab').css('z-index',103);},200);						
+					}
 					else swipeRight();
 
 					hasMoved = false;					
