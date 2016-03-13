@@ -200,11 +200,6 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     	controller: 'tutorialController as tutorialC'
     });
     
-    $routeProvider.when('/tutorial/:tutorialID',{
-        templateUrl : 'templates/tutorial.php',
-        controller : 'viewTutorialController as tutorialV'
-    });
-    
     $routeProvider.otherwise({
     	templateUrl : 'templates/error.php',
     });

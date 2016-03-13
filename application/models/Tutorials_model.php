@@ -14,8 +14,8 @@ class Tutorials_model extends CI_Model
                 
                 $fields = array(
                         'tutorialID' => array(
-                                'type' => 'VARCHAR',
-                        		'constraint' => 100
+                                'type' => 'INT',
+                                 'auto_increment' => TRUE
                         ),
                         'title' => array(
                                 'type' => 'VARCHAR',
@@ -56,10 +56,9 @@ class Tutorials_model extends CI_Model
                 $this->dbforge->create_table(self::table_name);
         }
         
-        public function add($tutorialID, $title, $body, $publishingTimestamp, $description = null, $course = null, $requirements = null, $tags = null, $seealso = null, $images)
+        public function add($title, $body, $publishingTimestamp, $description = null, $course = null, $requirements = null, $tags = null, $seealso = null)
         {
                 $data = array(
-                	'tutorialID' => $tutorialID,
                    	'title' => $title,
 					'body' => $body,
                     'publishingTimestamp' => $publishingTimestamp,
@@ -71,18 +70,9 @@ class Tutorials_model extends CI_Model
                 if($tags != null) $data['tags'] = $tags;
                 if($seealso != null) $data['seealso'] = $seealso;
                 
-                if(!empty($images))
-                {
-	                $imagesString = $images[0];
-// 	                foreach ($images as $image)
-// 	                {
-// 	                	$imagesString .= $image . "|";
-// 	                }
-	                
-	                $data['images'] = $imagesString;
-                }
-                
                 $this->db->insert(self::table_name, $data);
+                
+                return $this->db->insert_id(); 
         }
         
         public function update($tutorialID, $title = null, $body = null, $publishingTimestamp = null, $description = null, $course = null, $requirements = null, $tags = null, $seealso = null)

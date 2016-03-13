@@ -98,7 +98,6 @@
     
     <!-- Angular File Upload -->
     <script src='bower_components/angular-upload/angular-upload.js'></script>
-    <script src='bower_components/angular-file-upload/dist/angular-file-upload.js'></script>
     
     <!-- Angular Inform -->
     <link rel="stylesheet" href="bower_components/angular-inform/dist/angular-inform.min.css"/>
@@ -120,6 +119,15 @@
 	<script src='/bower_components/textAngular/dist/textAngular-sanitize.min.js'></script>
 	<script src='/bower_components/textAngular/dist/textAngular.min.js'></script>
     
+<!--     <link href='https://cdnjs.cloudflare.com/ajax/libs/textAngular/1.5.0/textAngular.css'/> -->
+<!--     <script src='https://cdnjs.cloudflare.com/ajax/libs/textAngular/1.5.0/textAngular-rangy.min.js'></script> -->
+<!--     <script src='https://cdnjs.cloudflare.com/ajax/libs/textAngular/1.5.0/textAngular-sanitize.min.js'></script> -->
+<!--     <script src='https://cdnjs.cloudflare.com/ajax/libs/textAngular/1.5.0/textAngular.min.js'></script> -->
+    
+	
+<!-- 	<script src='https://cdnjs.cloudflare.com/ajax/libs/textAngular/1.5.0/textAngularSetup.js'></script> -->
+<!-- 	<script src='https://cdnjs.cloudflare.com/ajax/libs/textAngular/1.5.0/textAngular.js'></script> -->
+
     <!-- AngularJS Modules -->
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/filters/firstCapitalized.js"></script>
@@ -185,7 +193,6 @@
     <script type="text/javascript" src="js/controllers/math.js"></script>
     <script type="text/javascript" src="js/controllers/writeTutorial.js"></script>
     <script type="text/javascript" src="js/controllers/tutorialController.js"></script>
-    <script type="text/javascript" src="js/controllers/viewTutorialController.js"></script>
     
     <!-- endinjector -->
      
