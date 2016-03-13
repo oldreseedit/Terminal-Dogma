@@ -17,7 +17,6 @@ var main = angular.module('Main',[
     'angularMoment', // For inline moment
     'ngAnimate', // For animations
     'ngTouch', // For Touch Support
-    'textAngular' // For HTML-like input
     ], function($httpProvider) {
 
     // FOR CI
