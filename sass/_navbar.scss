@@ -16,7 +16,7 @@ body {
 	z-index: 100;
 	position: fixed;
 	top: 0;
-	height: 150%;	
+	height: 100%;	
 	width: 3.7em;
 }
 
@@ -30,12 +30,7 @@ body {
 	@extend .bg-jungle;
 	
 	@extend .text-center;
-	
-	h5{
-		padding-top: 0.8em
-	}
-	h3,h5,span
-	{
+	h1,h2,h3,h4,h5,span,p{
 		@extend .white;
 	}
 	h3{

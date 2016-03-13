@@ -10817,1315 +10817,706 @@ button.close {
   margin-left: 100%;
 }
 
-/* From 0 to 1079px - MOBILE/TABLET */
-@media all and (min-width: 0px) and (max-width: 10.79px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 10px;
-  }
-}
-@media all and (min-width: 10.79px) and (max-width: 21.58px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 10.072px;
-  }
-}
-@media all and (min-width: 21.58px) and (max-width: 32.37px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 10.144px;
-  }
-}
-@media all and (min-width: 32.37px) and (max-width: 43.16px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 10.216px;
-  }
-}
-@media all and (min-width: 43.16px) and (max-width: 53.95px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 10.288px;
-  }
-}
-@media all and (min-width: 53.95px) and (max-width: 64.74px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 10.36px;
-  }
-}
-@media all and (min-width: 64.74px) and (max-width: 75.53px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 10.432px;
-  }
-}
-@media all and (min-width: 75.53px) and (max-width: 86.32px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 10.504px;
-  }
-}
-@media all and (min-width: 86.32px) and (max-width: 97.11px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 10.576px;
-  }
-}
-@media all and (min-width: 97.11px) and (max-width: 107.9px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 10.648px;
-  }
-}
-@media all and (min-width: 107.9px) and (max-width: 118.69px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 10.72px;
-  }
-}
-@media all and (min-width: 118.69px) and (max-width: 129.48px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 10.792px;
-  }
-}
-@media all and (min-width: 129.48px) and (max-width: 140.27px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 10.864px;
-  }
-}
-@media all and (min-width: 140.27px) and (max-width: 151.06px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 10.936px;
-  }
-}
-@media all and (min-width: 151.06px) and (max-width: 161.85px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 11.008px;
-  }
-}
-@media all and (min-width: 161.85px) and (max-width: 172.64px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 11.08px;
-  }
-}
-@media all and (min-width: 172.64px) and (max-width: 183.43px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 11.152px;
-  }
-}
-@media all and (min-width: 183.43px) and (max-width: 194.22px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 11.224px;
-  }
-}
-@media all and (min-width: 194.22px) and (max-width: 205.01px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 11.296px;
-  }
-}
-@media all and (min-width: 205.01px) and (max-width: 215.8px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 11.368px;
-  }
-}
-@media all and (min-width: 215.8px) and (max-width: 226.59px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 11.44px;
-  }
-}
-@media all and (min-width: 226.59px) and (max-width: 237.38px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 11.512px;
-  }
-}
-@media all and (min-width: 237.38px) and (max-width: 248.17px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 11.584px;
-  }
-}
-@media all and (min-width: 248.17px) and (max-width: 258.96px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 11.656px;
-  }
-}
-@media all and (min-width: 258.96px) and (max-width: 269.75px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 11.728px;
-  }
-}
-@media all and (min-width: 269.75px) and (max-width: 280.54px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 11.8px;
-  }
-}
-@media all and (min-width: 280.54px) and (max-width: 291.33px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 11.872px;
-  }
-}
-@media all and (min-width: 291.33px) and (max-width: 302.12px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 11.944px;
-  }
-}
-@media all and (min-width: 302.12px) and (max-width: 312.91px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 12.016px;
-  }
-}
-@media all and (min-width: 312.91px) and (max-width: 323.7px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 12.088px;
-  }
-}
-@media all and (min-width: 323.7px) and (max-width: 334.49px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 12.16px;
-  }
-}
-@media all and (min-width: 334.49px) and (max-width: 345.28px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 12.232px;
-  }
-}
-@media all and (min-width: 345.28px) and (max-width: 356.07px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 12.304px;
-  }
-}
-@media all and (min-width: 356.07px) and (max-width: 366.86px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 12.376px;
-  }
-}
-@media all and (min-width: 366.86px) and (max-width: 377.65px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 12.448px;
-  }
-}
-@media all and (min-width: 377.65px) and (max-width: 388.44px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 12.52px;
-  }
-}
-@media all and (min-width: 388.44px) and (max-width: 399.23px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 12.592px;
-  }
-}
-@media all and (min-width: 399.23px) and (max-width: 410.02px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 12.664px;
-  }
-}
-@media all and (min-width: 410.02px) and (max-width: 420.81px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 12.736px;
-  }
-}
-@media all and (min-width: 420.81px) and (max-width: 431.6px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 12.808px;
-  }
-}
-@media all and (min-width: 431.6px) and (max-width: 442.39px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 12.88px;
-  }
-}
-@media all and (min-width: 442.39px) and (max-width: 453.18px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 12.952px;
-  }
-}
-@media all and (min-width: 453.18px) and (max-width: 463.97px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 13.024px;
-  }
-}
-@media all and (min-width: 463.97px) and (max-width: 474.76px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 13.096px;
-  }
-}
-@media all and (min-width: 474.76px) and (max-width: 485.55px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 13.168px;
-  }
-}
-@media all and (min-width: 485.55px) and (max-width: 496.34px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 13.24px;
-  }
-}
-@media all and (min-width: 496.34px) and (max-width: 507.13px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 13.312px;
-  }
-}
-@media all and (min-width: 507.13px) and (max-width: 517.92px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 13.384px;
-  }
-}
-@media all and (min-width: 517.92px) and (max-width: 528.71px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 13.456px;
-  }
-}
-@media all and (min-width: 528.71px) and (max-width: 539.5px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 13.528px;
-  }
-}
-@media all and (min-width: 539.5px) and (max-width: 550.29px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 13.6px;
-  }
-}
-@media all and (min-width: 550.29px) and (max-width: 561.08px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 13.672px;
-  }
-}
-@media all and (min-width: 561.08px) and (max-width: 571.87px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 13.744px;
-  }
-}
-@media all and (min-width: 571.87px) and (max-width: 582.66px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 13.816px;
-  }
-}
-@media all and (min-width: 582.66px) and (max-width: 593.45px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 13.888px;
-  }
-}
-@media all and (min-width: 593.45px) and (max-width: 604.24px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 13.96px;
-  }
-}
-@media all and (min-width: 604.24px) and (max-width: 615.03px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 14.032px;
-  }
-}
-@media all and (min-width: 615.03px) and (max-width: 625.82px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 14.104px;
-  }
-}
-@media all and (min-width: 625.82px) and (max-width: 636.61px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 14.176px;
-  }
-}
-@media all and (min-width: 636.61px) and (max-width: 647.4px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 14.248px;
-  }
-}
-@media all and (min-width: 647.4px) and (max-width: 658.19px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 14.32px;
-  }
-}
-@media all and (min-width: 658.19px) and (max-width: 668.98px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 14.392px;
-  }
-}
-@media all and (min-width: 668.98px) and (max-width: 679.77px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 14.464px;
-  }
-}
-@media all and (min-width: 679.77px) and (max-width: 690.56px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 14.536px;
-  }
-}
-@media all and (min-width: 690.56px) and (max-width: 701.35px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 14.608px;
-  }
-}
-@media all and (min-width: 701.35px) and (max-width: 712.14px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 14.68px;
-  }
-}
-@media all and (min-width: 712.14px) and (max-width: 722.93px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 14.752px;
-  }
-}
-@media all and (min-width: 722.93px) and (max-width: 733.72px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 14.824px;
-  }
-}
-@media all and (min-width: 733.72px) and (max-width: 744.51px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 14.896px;
-  }
-}
-@media all and (min-width: 744.51px) and (max-width: 755.3px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 14.968px;
-  }
-}
-@media all and (min-width: 755.3px) and (max-width: 766.09px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 15.04px;
-  }
-}
-@media all and (min-width: 766.09px) and (max-width: 776.88px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 15.112px;
-  }
-}
-@media all and (min-width: 776.88px) and (max-width: 787.67px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 15.184px;
-  }
-}
-@media all and (min-width: 787.67px) and (max-width: 798.46px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 15.256px;
-  }
-}
-@media all and (min-width: 798.46px) and (max-width: 809.25px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 15.328px;
-  }
-}
-@media all and (min-width: 809.25px) and (max-width: 820.04px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 15.4px;
-  }
-}
-@media all and (min-width: 820.04px) and (max-width: 830.83px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 15.472px;
-  }
-}
-@media all and (min-width: 830.83px) and (max-width: 841.62px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 15.544px;
-  }
-}
-@media all and (min-width: 841.62px) and (max-width: 852.41px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 15.616px;
-  }
-}
-@media all and (min-width: 852.41px) and (max-width: 863.2px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 15.688px;
-  }
-}
-@media all and (min-width: 863.2px) and (max-width: 873.99px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 15.76px;
-  }
-}
-@media all and (min-width: 873.99px) and (max-width: 884.78px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 15.832px;
-  }
-}
-@media all and (min-width: 884.78px) and (max-width: 895.57px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 15.904px;
-  }
-}
-@media all and (min-width: 895.57px) and (max-width: 906.36px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 15.976px;
-  }
-}
-@media all and (min-width: 906.36px) and (max-width: 917.15px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 16.048px;
-  }
-}
-@media all and (min-width: 917.15px) and (max-width: 927.94px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 16.12px;
-  }
-}
-@media all and (min-width: 927.94px) and (max-width: 938.73px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 16.192px;
-  }
-}
-@media all and (min-width: 938.73px) and (max-width: 949.52px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 16.264px;
-  }
-}
-@media all and (min-width: 949.52px) and (max-width: 960.31px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 16.336px;
-  }
-}
-@media all and (min-width: 960.31px) and (max-width: 971.1px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 16.408px;
-  }
-}
-@media all and (min-width: 971.1px) and (max-width: 981.89px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 16.48px;
-  }
-}
-@media all and (min-width: 981.89px) and (max-width: 992.68px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 16.552px;
-  }
-}
-@media all and (min-width: 992.68px) and (max-width: 1003.47px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 16.624px;
-  }
-}
-@media all and (min-width: 1003.47px) and (max-width: 1014.26px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 16.696px;
-  }
-}
-@media all and (min-width: 1014.26px) and (max-width: 1025.05px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 16.768px;
-  }
-}
-@media all and (min-width: 1025.05px) and (max-width: 1035.84px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 16.84px;
-  }
-}
-@media all and (min-width: 1035.84px) and (max-width: 1046.63px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 16.912px;
-  }
-}
-@media all and (min-width: 1046.63px) and (max-width: 1057.42px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 16.984px;
-  }
-}
-@media all and (min-width: 1057.42px) and (max-width: 1068.21px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 17.056px;
-  }
-}
-@media all and (min-width: 1068.21px) and (max-width: 1079px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 17.128px;
-  }
-}
-@media all and (min-width: 1079px) and (max-width: 1089.79px) {
-  /* line 53, ../sass/_responsive.scss */
-  body {
-    font-size: 17.2px;
-  }
-}
+/* line 46, ../sass/_responsive.scss */
+body {
+  font-size: 14px;
+}
+
 /* From 1080 to 4096px - DESKTOP */
 @media all and (min-width: 1080px) and (max-width: 1110.16px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 9.78px;
   }
 }
 @media all and (min-width: 1110.16px) and (max-width: 1140.32px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 10.014px;
   }
 }
 @media all and (min-width: 1140.32px) and (max-width: 1170.48px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 10.248px;
   }
 }
 @media all and (min-width: 1170.48px) and (max-width: 1200.64px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 10.482px;
   }
 }
 @media all and (min-width: 1200.64px) and (max-width: 1230.8px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 10.716px;
   }
 }
 @media all and (min-width: 1230.8px) and (max-width: 1260.96px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 10.95px;
   }
 }
 @media all and (min-width: 1260.96px) and (max-width: 1291.12px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 11.184px;
   }
 }
 @media all and (min-width: 1291.12px) and (max-width: 1321.28px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 11.418px;
   }
 }
 @media all and (min-width: 1321.28px) and (max-width: 1351.44px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 11.652px;
   }
 }
 @media all and (min-width: 1351.44px) and (max-width: 1381.6px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 11.886px;
   }
 }
 @media all and (min-width: 1381.6px) and (max-width: 1411.76px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 12.12px;
   }
 }
 @media all and (min-width: 1411.76px) and (max-width: 1441.92px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 12.354px;
   }
 }
 @media all and (min-width: 1441.92px) and (max-width: 1472.08px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 12.588px;
   }
 }
 @media all and (min-width: 1472.08px) and (max-width: 1502.24px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 12.822px;
   }
 }
 @media all and (min-width: 1502.24px) and (max-width: 1532.4px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 13.056px;
   }
 }
 @media all and (min-width: 1532.4px) and (max-width: 1562.56px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 13.29px;
   }
 }
 @media all and (min-width: 1562.56px) and (max-width: 1592.72px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 13.524px;
   }
 }
 @media all and (min-width: 1592.72px) and (max-width: 1622.88px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 13.758px;
   }
 }
 @media all and (min-width: 1622.88px) and (max-width: 1653.04px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 13.992px;
   }
 }
 @media all and (min-width: 1653.04px) and (max-width: 1683.2px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 14.226px;
   }
 }
 @media all and (min-width: 1683.2px) and (max-width: 1713.36px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 14.46px;
   }
 }
 @media all and (min-width: 1713.36px) and (max-width: 1743.52px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 14.694px;
   }
 }
 @media all and (min-width: 1743.52px) and (max-width: 1773.68px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 14.928px;
   }
 }
 @media all and (min-width: 1773.68px) and (max-width: 1803.84px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 15.162px;
   }
 }
 @media all and (min-width: 1803.84px) and (max-width: 1834px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 15.396px;
   }
 }
 @media all and (min-width: 1834px) and (max-width: 1864.16px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 15.63px;
   }
 }
 @media all and (min-width: 1864.16px) and (max-width: 1894.32px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 15.864px;
   }
 }
 @media all and (min-width: 1894.32px) and (max-width: 1924.48px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 16.098px;
   }
 }
 @media all and (min-width: 1924.48px) and (max-width: 1954.64px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 16.332px;
   }
 }
 @media all and (min-width: 1954.64px) and (max-width: 1984.8px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 16.566px;
   }
 }
 @media all and (min-width: 1984.8px) and (max-width: 2014.96px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 16.8px;
   }
 }
 @media all and (min-width: 2014.96px) and (max-width: 2045.12px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 17.034px;
   }
 }
 @media all and (min-width: 2045.12px) and (max-width: 2075.28px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 17.268px;
   }
 }
 @media all and (min-width: 2075.28px) and (max-width: 2105.44px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 17.502px;
   }
 }
 @media all and (min-width: 2105.44px) and (max-width: 2135.6px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 17.736px;
   }
 }
 @media all and (min-width: 2135.6px) and (max-width: 2165.76px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 17.97px;
   }
 }
 @media all and (min-width: 2165.76px) and (max-width: 2195.92px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 18.204px;
   }
 }
 @media all and (min-width: 2195.92px) and (max-width: 2226.08px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 18.438px;
   }
 }
 @media all and (min-width: 2226.08px) and (max-width: 2256.24px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 18.672px;
   }
 }
 @media all and (min-width: 2256.24px) and (max-width: 2286.4px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 18.906px;
   }
 }
 @media all and (min-width: 2286.4px) and (max-width: 2316.56px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 19.14px;
   }
 }
 @media all and (min-width: 2316.56px) and (max-width: 2346.72px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 19.374px;
   }
 }
 @media all and (min-width: 2346.72px) and (max-width: 2376.88px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 19.608px;
   }
 }
 @media all and (min-width: 2376.88px) and (max-width: 2407.04px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 19.842px;
   }
 }
 @media all and (min-width: 2407.04px) and (max-width: 2437.2px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 20.076px;
   }
 }
 @media all and (min-width: 2437.2px) and (max-width: 2467.36px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 20.31px;
   }
 }
 @media all and (min-width: 2467.36px) and (max-width: 2497.52px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 20.544px;
   }
 }
 @media all and (min-width: 2497.52px) and (max-width: 2527.68px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 20.778px;
   }
 }
 @media all and (min-width: 2527.68px) and (max-width: 2557.84px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 21.012px;
   }
 }
 @media all and (min-width: 2557.84px) and (max-width: 2588px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 21.246px;
   }
 }
 @media all and (min-width: 2588px) and (max-width: 2618.16px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 21.48px;
   }
 }
 @media all and (min-width: 2618.16px) and (max-width: 2648.32px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 21.714px;
   }
 }
 @media all and (min-width: 2648.32px) and (max-width: 2678.48px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 21.948px;
   }
 }
 @media all and (min-width: 2678.48px) and (max-width: 2708.64px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 22.182px;
   }
 }
 @media all and (min-width: 2708.64px) and (max-width: 2738.8px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 22.416px;
   }
 }
 @media all and (min-width: 2738.8px) and (max-width: 2768.96px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 22.65px;
   }
 }
 @media all and (min-width: 2768.96px) and (max-width: 2799.12px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 22.884px;
   }
 }
 @media all and (min-width: 2799.12px) and (max-width: 2829.28px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 23.118px;
   }
 }
 @media all and (min-width: 2829.28px) and (max-width: 2859.44px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 23.352px;
   }
 }
 @media all and (min-width: 2859.44px) and (max-width: 2889.6px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 23.586px;
   }
 }
 @media all and (min-width: 2889.6px) and (max-width: 2919.76px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 23.82px;
   }
 }
 @media all and (min-width: 2919.76px) and (max-width: 2949.92px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 24.054px;
   }
 }
 @media all and (min-width: 2949.92px) and (max-width: 2980.08px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 24.288px;
   }
 }
 @media all and (min-width: 2980.08px) and (max-width: 3010.24px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 24.522px;
   }
 }
 @media all and (min-width: 3010.24px) and (max-width: 3040.4px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 24.756px;
   }
 }
 @media all and (min-width: 3040.4px) and (max-width: 3070.56px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 24.99px;
   }
 }
 @media all and (min-width: 3070.56px) and (max-width: 3100.72px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 25.224px;
   }
 }
 @media all and (min-width: 3100.72px) and (max-width: 3130.88px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 25.458px;
   }
 }
 @media all and (min-width: 3130.88px) and (max-width: 3161.04px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 25.692px;
   }
 }
 @media all and (min-width: 3161.04px) and (max-width: 3191.2px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 25.926px;
   }
 }
 @media all and (min-width: 3191.2px) and (max-width: 3221.36px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 26.16px;
   }
 }
 @media all and (min-width: 3221.36px) and (max-width: 3251.52px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 26.394px;
   }
 }
 @media all and (min-width: 3251.52px) and (max-width: 3281.68px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 26.628px;
   }
 }
 @media all and (min-width: 3281.68px) and (max-width: 3311.84px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 26.862px;
   }
 }
 @media all and (min-width: 3311.84px) and (max-width: 3342px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 27.096px;
   }
 }
 @media all and (min-width: 3342px) and (max-width: 3372.16px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 27.33px;
   }
 }
 @media all and (min-width: 3372.16px) and (max-width: 3402.32px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 27.564px;
   }
 }
 @media all and (min-width: 3402.32px) and (max-width: 3432.48px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 27.798px;
   }
 }
 @media all and (min-width: 3432.48px) and (max-width: 3462.64px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 28.032px;
   }
 }
 @media all and (min-width: 3462.64px) and (max-width: 3492.8px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 28.266px;
   }
 }
 @media all and (min-width: 3492.8px) and (max-width: 3522.96px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 28.5px;
   }
 }
 @media all and (min-width: 3522.96px) and (max-width: 3553.12px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 28.734px;
   }
 }
 @media all and (min-width: 3553.12px) and (max-width: 3583.28px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 28.968px;
   }
 }
 @media all and (min-width: 3583.28px) and (max-width: 3613.44px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 29.202px;
   }
 }
 @media all and (min-width: 3613.44px) and (max-width: 3643.6px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 29.436px;
   }
 }
 @media all and (min-width: 3643.6px) and (max-width: 3673.76px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 29.67px;
   }
 }
 @media all and (min-width: 3673.76px) and (max-width: 3703.92px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 29.904px;
   }
 }
 @media all and (min-width: 3703.92px) and (max-width: 3734.08px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 30.138px;
   }
 }
 @media all and (min-width: 3734.08px) and (max-width: 3764.24px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 30.372px;
   }
 }
 @media all and (min-width: 3764.24px) and (max-width: 3794.4px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 30.606px;
   }
 }
 @media all and (min-width: 3794.4px) and (max-width: 3824.56px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 30.84px;
   }
 }
 @media all and (min-width: 3824.56px) and (max-width: 3854.72px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 31.074px;
   }
 }
 @media all and (min-width: 3854.72px) and (max-width: 3884.88px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 31.308px;
   }
 }
 @media all and (min-width: 3884.88px) and (max-width: 3915.04px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 31.542px;
   }
 }
 @media all and (min-width: 3915.04px) and (max-width: 3945.2px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 31.776px;
   }
 }
 @media all and (min-width: 3945.2px) and (max-width: 3975.36px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 32.01px;
   }
 }
 @media all and (min-width: 3975.36px) and (max-width: 4005.52px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 32.244px;
   }
 }
 @media all and (min-width: 4005.52px) and (max-width: 4035.68px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 32.478px;
   }
 }
 @media all and (min-width: 4035.68px) and (max-width: 4065.84px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 32.712px;
   }
 }
 @media all and (min-width: 4065.84px) and (max-width: 4096px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 32.946px;
   }
 }
 @media all and (min-width: 4096px) and (max-width: 4126.16px) {
-  /* line 67, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   body {
     font-size: 33.18px;
   }
 }
-/* line 74, ../sass/_responsive.scss */
+/* line 64, ../sass/_responsive.scss */
 p {
   font-size: 16px;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 74, ../sass/_responsive.scss */
+  /* line 64, ../sass/_responsive.scss */
   p {
     font-size: 14px;
   }
 }
 
-/* line 83, ../sass/_responsive.scss */
+/* line 73, ../sass/_responsive.scss */
 .inline {
   display: inline;
 }
 
-/* line 87, ../sass/_responsive.scss */
+/* line 77, ../sass/_responsive.scss */
 .no-padding {
   padding: 0;
 }
 
-@media all and (max-device-width: 1079px) {
-  /* line 91, ../sass/_responsive.scss */
-  small {
-    font-size: 1em;
-  }
-}
-
-/* line 98, ../sass/_responsive.scss */
+/* line 81, ../sass/_responsive.scss */
 h6 {
   font-size: 1.25em;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 98, ../sass/_responsive.scss */
+  /* line 81, ../sass/_responsive.scss */
   h6 {
     font-size: 1.16667em;
   }
 }
 
-/* line 106, ../sass/_responsive.scss */
+/* line 89, ../sass/_responsive.scss */
 h5 {
   font-size: 1.5em;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 106, ../sass/_responsive.scss */
+  /* line 89, ../sass/_responsive.scss */
   h5 {
     font-size: 1.33333em;
   }
 }
 
-/* line 114, ../sass/_responsive.scss */
+/* line 97, ../sass/_responsive.scss */
 h4 {
   font-size: 1.75em;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 114, ../sass/_responsive.scss */
+  /* line 97, ../sass/_responsive.scss */
   h4 {
     font-size: 1.5em;
   }
 }
 
-/* line 122, ../sass/_responsive.scss */
+/* line 105, ../sass/_responsive.scss */
 h3 {
   font-size: 2em;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 122, ../sass/_responsive.scss */
+  /* line 105, ../sass/_responsive.scss */
   h3 {
     font-size: 1.66667em;
   }
 }
 
-/* line 130, ../sass/_responsive.scss */
+/* line 113, ../sass/_responsive.scss */
 h2 {
   font-size: 2.5em;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 130, ../sass/_responsive.scss */
+  /* line 113, ../sass/_responsive.scss */
   h2 {
     font-size: 1.83333em;
   }
 }
 
-/* line 138, ../sass/_responsive.scss */
+/* line 121, ../sass/_responsive.scss */
 h1 {
   font-size: 3em;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 138, ../sass/_responsive.scss */
+  /* line 121, ../sass/_responsive.scss */
   h1 {
     font-size: 2em;
   }
 }
 
-/* line 146, ../sass/_responsive.scss */
+/* line 129, ../sass/_responsive.scss */
 .fa {
   margin-right: 2px;
 }
@@ -12519,7 +11910,7 @@ h1 {
 }
 
 /* line 28, ../sass/_palette.scss */
-.white, #menu h3, #menu h5, #menu span, #navbar-toggle, #navbar #navbar-signin, #navbar #navbar-signup, #navbar #navbar-logged, #footer a:active, #news-events a, #courses .category-bookmark, #courses .course-bookmark, .modal-wrapper form .modal-submit, .modal-wrapper form .modal-submit:hover, .modal-wrapper form .modal-submit:active, .modal-wrapper form .modal-submit:focus {
+.white, #menu h1, #menu h2, #menu h3, #menu h4, #menu h5, #menu span, #menu p, #navbar-toggle, #navbar #navbar-signin, #navbar #navbar-signup, #navbar #navbar-logged, #footer a:active, #news-events a, .modal-wrapper form .modal-submit, .modal-wrapper form .modal-submit:hover, .modal-wrapper form .modal-submit:active, .modal-wrapper form .modal-submit:focus {
   color: white;
 }
 
@@ -12735,7 +12126,7 @@ h1 {
 }
 
 /* line 79, ../sass/_palette.scss */
-.bg-jungle, #menu, #left-border-responsive, #navbar-toggle, #courses .category-bookmark {
+.bg-jungle, #menu, #left-border-responsive, #navbar-toggle {
   background-color: #003E36;
 }
 
@@ -12865,7 +12256,7 @@ textarea {
 
 /* line 18, ../sass/_animate.scss */
 .animated-class {
-  transition: all linear;
+  transition: all linear 1s;
 }
 
 /* line 22, ../sass/_animate.scss */
@@ -12879,36 +12270,6 @@ textarea {
 }
 
 /* line 30, ../sass/_animate.scss */
-.ms50 {
-  transition-duration: 100ms;
-}
-
-/* line 34, ../sass/_animate.scss */
-.ms100 {
-  transition-duration: 100ms;
-}
-
-/* line 38, ../sass/_animate.scss */
-.ms150 {
-  transition-duration: 150ms;
-}
-
-/* line 42, ../sass/_animate.scss */
-.ms250 {
-  transition-duration: 250ms;
-}
-
-/* line 46, ../sass/_animate.scss */
-.ms500 {
-  transition-duration: 500ms;
-}
-
-/* line 50, ../sass/_animate.scss */
-.ms750 {
-  transition-duration: 750ms;
-}
-
-/* line 54, ../sass/_animate.scss */
 .animated-slow, html {
   -webkit-animation-duration: 1.25s;
   animation-duration: 1.25s;
@@ -12916,7 +12277,7 @@ textarea {
   animation-fill-mode: both;
 }
 
-/* line 61, ../sass/_animate.scss */
+/* line 37, ../sass/_animate.scss */
 .animated-fast, #singleCourse .pay-button.ng-leave {
   -webkit-animation-duration: 0.4s;
   animation-duration: 0.4s;
@@ -12924,7 +12285,7 @@ textarea {
   animation-fill-mode: both;
 }
 
-/* line 68, ../sass/_animate.scss */
+/* line 44, ../sass/_animate.scss */
 .animated-fastest {
   -webkit-animation-duration: 0.2s;
   animation-duration: 0.2s;
@@ -12932,19 +12293,19 @@ textarea {
   animation-fill-mode: both;
 }
 
-/* line 75, ../sass/_animate.scss */
+/* line 51, ../sass/_animate.scss */
 .animated.infinite {
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
 }
 
-/* line 80, ../sass/_animate.scss */
+/* line 56, ../sass/_animate.scss */
 .animated.hinge {
   -webkit-animation-duration: 2s;
   animation-duration: 2s;
 }
 
-/* line 85, ../sass/_animate.scss */
+/* line 61, ../sass/_animate.scss */
 .animated.flipOutX,
 .animated.flipOutY,
 .animated.bounceIn,
@@ -13001,7 +12362,7 @@ textarea {
     transform: translate3d(0, -4px, 0);
   }
 }
-/* line 149, ../sass/_animate.scss */
+/* line 125, ../sass/_animate.scss */
 .bounce {
   -webkit-animation-name: bounce;
   animation-name: bounce;
@@ -13025,7 +12386,7 @@ textarea {
     opacity: 0;
   }
 }
-/* line 176, ../sass/_animate.scss */
+/* line 152, ../sass/_animate.scss */
 .flash {
   -webkit-animation-name: flash;
   animation-name: flash;
@@ -13060,7 +12421,7 @@ textarea {
     transform: scale3d(1, 1, 1);
   }
 }
-/* line 217, ../sass/_animate.scss */
+/* line 193, ../sass/_animate.scss */
 .pulse {
   -webkit-animation-name: pulse;
   animation-name: pulse;
@@ -13126,7 +12487,7 @@ textarea {
     transform: scale3d(1, 1, 1);
   }
 }
-/* line 296, ../sass/_animate.scss */
+/* line 272, ../sass/_animate.scss */
 .rubberBand {
   -webkit-animation-name: rubberBand;
   animation-name: rubberBand;
@@ -13160,7 +12521,7 @@ textarea {
     transform: translate3d(10px, 0, 0);
   }
 }
-/* line 335, ../sass/_animate.scss */
+/* line 311, ../sass/_animate.scss */
 .shake {
   -webkit-animation-name: shake;
   animation-name: shake;
@@ -13218,7 +12579,7 @@ textarea {
     transform: translateX(0);
   }
 }
-/* line 404, ../sass/_animate.scss */
+/* line 380, ../sass/_animate.scss */
 .headShake {
   -webkit-animation-timing-function: ease-in-out;
   animation-timing-function: ease-in-out;
@@ -13270,7 +12631,7 @@ textarea {
     transform: rotate3d(0, 0, 1, 0deg);
   }
 }
-/* line 465, ../sass/_animate.scss */
+/* line 441, ../sass/_animate.scss */
 .swing {
   -webkit-transform-origin: top center;
   transform-origin: top center;
@@ -13322,7 +12683,7 @@ textarea {
     transform: scale3d(1, 1, 1);
   }
 }
-/* line 526, ../sass/_animate.scss */
+/* line 502, ../sass/_animate.scss */
 .tada {
   -webkit-animation-name: tada;
   animation-name: tada;
@@ -13389,7 +12750,7 @@ textarea {
     transform: none;
   }
 }
-/* line 607, ../sass/_animate.scss */
+/* line 583, ../sass/_animate.scss */
 .wobble {
   -webkit-animation-name: wobble;
   animation-name: wobble;
@@ -13463,7 +12824,7 @@ textarea {
     transform: skewX(-0.19531deg) skewY(-0.19531deg);
   }
 }
-/* line 696, ../sass/_animate.scss */
+/* line 672, ../sass/_animate.scss */
 .jello {
   -webkit-animation-name: jello;
   animation-name: jello;
@@ -13537,7 +12898,7 @@ textarea {
     transform: scale3d(1, 1, 1);
   }
 }
-/* line 783, ../sass/_animate.scss */
+/* line 759, ../sass/_animate.scss */
 .bounceIn {
   -webkit-animation-name: bounceIn;
   animation-name: bounceIn;
@@ -13599,7 +12960,7 @@ textarea {
     transform: none;
   }
 }
-/* line 856, ../sass/_animate.scss */
+/* line 832, ../sass/_animate.scss */
 .bounceInDown {
   -webkit-animation-name: bounceInDown;
   animation-name: bounceInDown;
@@ -13661,7 +13022,7 @@ textarea {
     transform: none;
   }
 }
-/* line 929, ../sass/_animate.scss */
+/* line 905, ../sass/_animate.scss */
 .bounceInLeft {
   -webkit-animation-name: bounceInLeft;
   animation-name: bounceInLeft;
@@ -13723,7 +13084,7 @@ textarea {
     transform: none;
   }
 }
-/* line 1002, ../sass/_animate.scss */
+/* line 978, ../sass/_animate.scss */
 .bounceInRight {
   -webkit-animation-name: bounceInRight;
   animation-name: bounceInRight;
@@ -13785,7 +13146,7 @@ textarea {
     transform: translate3d(0, 0, 0);
   }
 }
-/* line 1075, ../sass/_animate.scss */
+/* line 1051, ../sass/_animate.scss */
 .bounceInUp {
   -webkit-animation-name: bounceInUp;
   animation-name: bounceInUp;
@@ -13823,7 +13184,7 @@ textarea {
     transform: scale3d(0.3, 0.3, 0.3);
   }
 }
-/* line 1118, ../sass/_animate.scss */
+/* line 1094, ../sass/_animate.scss */
 .bounceOut {
   -webkit-animation-name: bounceOut;
   animation-name: bounceOut;
@@ -13861,7 +13222,7 @@ textarea {
     transform: translate3d(0, 2000px, 0);
   }
 }
-/* line 1161, ../sass/_animate.scss */
+/* line 1137, ../sass/_animate.scss */
 .bounceOutDown {
   -webkit-animation-name: bounceOutDown;
   animation-name: bounceOutDown;
@@ -13891,7 +13252,7 @@ textarea {
     transform: translate3d(-2000px, 0, 0);
   }
 }
-/* line 1194, ../sass/_animate.scss */
+/* line 1170, ../sass/_animate.scss */
 .bounceOutLeft {
   -webkit-animation-name: bounceOutLeft;
   animation-name: bounceOutLeft;
@@ -13921,7 +13282,7 @@ textarea {
     transform: translate3d(2000px, 0, 0);
   }
 }
-/* line 1227, ../sass/_animate.scss */
+/* line 1203, ../sass/_animate.scss */
 .bounceOutRight {
   -webkit-animation-name: bounceOutRight;
   animation-name: bounceOutRight;
@@ -13959,7 +13320,7 @@ textarea {
     transform: translate3d(0, -2000px, 0);
   }
 }
-/* line 1270, ../sass/_animate.scss */
+/* line 1246, ../sass/_animate.scss */
 .bounceOutUp {
   -webkit-animation-name: bounceOutUp;
   animation-name: bounceOutUp;
@@ -13981,7 +13342,7 @@ textarea {
     opacity: 1;
   }
 }
-/* line 1295, ../sass/_animate.scss */
+/* line 1271, ../sass/_animate.scss */
 .fadeIn, html {
   -webkit-animation-name: fadeIn;
   animation-name: fadeIn;
@@ -14011,7 +13372,7 @@ textarea {
     transform: none;
   }
 }
-/* line 1328, ../sass/_animate.scss */
+/* line 1304, ../sass/_animate.scss */
 .fadeInDown {
   -webkit-animation-name: fadeInDown;
   animation-name: fadeInDown;
@@ -14041,7 +13402,7 @@ textarea {
     transform: none;
   }
 }
-/* line 1361, ../sass/_animate.scss */
+/* line 1337, ../sass/_animate.scss */
 .fadeInDownBig {
   -webkit-animation-name: fadeInDownBig;
   animation-name: fadeInDownBig;
@@ -14071,7 +13432,7 @@ textarea {
     transform: none;
   }
 }
-/* line 1394, ../sass/_animate.scss */
+/* line 1370, ../sass/_animate.scss */
 .fadeInLeft {
   -webkit-animation-name: fadeInLeft;
   animation-name: fadeInLeft;
@@ -14101,7 +13462,7 @@ textarea {
     transform: none;
   }
 }
-/* line 1427, ../sass/_animate.scss */
+/* line 1403, ../sass/_animate.scss */
 .fadeInLeftBig {
   -webkit-animation-name: fadeInLeftBig;
   animation-name: fadeInLeftBig;
@@ -14131,7 +13492,7 @@ textarea {
     transform: none;
   }
 }
-/* line 1460, ../sass/_animate.scss */
+/* line 1436, ../sass/_animate.scss */
 .fadeInRight {
   -webkit-animation-name: fadeInRight;
   animation-name: fadeInRight;
@@ -14161,7 +13522,7 @@ textarea {
     transform: none;
   }
 }
-/* line 1493, ../sass/_animate.scss */
+/* line 1469, ../sass/_animate.scss */
 .fadeInRightBig {
   -webkit-animation-name: fadeInRightBig;
   animation-name: fadeInRightBig;
@@ -14191,7 +13552,7 @@ textarea {
     transform: none;
   }
 }
-/* line 1526, ../sass/_animate.scss */
+/* line 1502, ../sass/_animate.scss */
 .fadeInUp {
   -webkit-animation-name: fadeInUp;
   animation-name: fadeInUp;
@@ -14221,7 +13582,7 @@ textarea {
     transform: none;
   }
 }
-/* line 1559, ../sass/_animate.scss */
+/* line 1535, ../sass/_animate.scss */
 .fadeInUpBig {
   -webkit-animation-name: fadeInUpBig;
   animation-name: fadeInUpBig;
@@ -14243,7 +13604,7 @@ textarea {
     opacity: 0;
   }
 }
-/* line 1584, ../sass/_animate.scss */
+/* line 1560, ../sass/_animate.scss */
 .fadeOut, #singleCourse .pay-button.ng-leave {
   -webkit-animation-name: fadeOut;
   animation-name: fadeOut;
@@ -14269,7 +13630,7 @@ textarea {
     transform: translate3d(0, 100%, 0);
   }
 }
-/* line 1613, ../sass/_animate.scss */
+/* line 1589, ../sass/_animate.scss */
 .fadeOutDown {
   -webkit-animation-name: fadeOutDown;
   animation-name: fadeOutDown;
@@ -14295,7 +13656,7 @@ textarea {
     transform: translate3d(0, 2000px, 0);
   }
 }
-/* line 1642, ../sass/_animate.scss */
+/* line 1618, ../sass/_animate.scss */
 .fadeOutDownBig {
   -webkit-animation-name: fadeOutDownBig;
   animation-name: fadeOutDownBig;
@@ -14321,7 +13682,7 @@ textarea {
     transform: translate3d(-100%, 0, 0);
   }
 }
-/* line 1671, ../sass/_animate.scss */
+/* line 1647, ../sass/_animate.scss */
 .fadeOutLeft {
   -webkit-animation-name: fadeOutLeft;
   animation-name: fadeOutLeft;
@@ -14347,7 +13708,7 @@ textarea {
     transform: translate3d(-2000px, 0, 0);
   }
 }
-/* line 1700, ../sass/_animate.scss */
+/* line 1676, ../sass/_animate.scss */
 .fadeOutLeftBig {
   -webkit-animation-name: fadeOutLeftBig;
   animation-name: fadeOutLeftBig;
@@ -14373,7 +13734,7 @@ textarea {
     transform: translate3d(100%, 0, 0);
   }
 }
-/* line 1729, ../sass/_animate.scss */
+/* line 1705, ../sass/_animate.scss */
 .fadeOutRight {
   -webkit-animation-name: fadeOutRight;
   animation-name: fadeOutRight;
@@ -14399,7 +13760,7 @@ textarea {
     transform: translate3d(2000px, 0, 0);
   }
 }
-/* line 1758, ../sass/_animate.scss */
+/* line 1734, ../sass/_animate.scss */
 .fadeOutRightBig {
   -webkit-animation-name: fadeOutRightBig;
   animation-name: fadeOutRightBig;
@@ -14425,7 +13786,7 @@ textarea {
     transform: translate3d(0, -100%, 0);
   }
 }
-/* line 1787, ../sass/_animate.scss */
+/* line 1763, ../sass/_animate.scss */
 .fadeOutUp {
   -webkit-animation-name: fadeOutUp;
   animation-name: fadeOutUp;
@@ -14451,7 +13812,7 @@ textarea {
     transform: translate3d(0, -2000px, 0);
   }
 }
-/* line 1816, ../sass/_animate.scss */
+/* line 1792, ../sass/_animate.scss */
 .fadeOutUpBig {
   -webkit-animation-name: fadeOutUpBig;
   animation-name: fadeOutUpBig;
@@ -14521,7 +13882,7 @@ textarea {
     animation-timing-function: ease-in;
   }
 }
-/* line 1895, ../sass/_animate.scss */
+/* line 1871, ../sass/_animate.scss */
 .animated.flip {
   -webkit-backface-visibility: visible;
   backface-visibility: visible;
@@ -14585,7 +13946,7 @@ textarea {
     transform: perspective(400px);
   }
 }
-/* line 1968, ../sass/_animate.scss */
+/* line 1944, ../sass/_animate.scss */
 .flipInX {
   -webkit-backface-visibility: visible !important;
   backface-visibility: visible !important;
@@ -14649,7 +14010,7 @@ textarea {
     transform: perspective(400px);
   }
 }
-/* line 2041, ../sass/_animate.scss */
+/* line 2017, ../sass/_animate.scss */
 .flipInY {
   -webkit-backface-visibility: visible !important;
   backface-visibility: visible !important;
@@ -14689,7 +14050,7 @@ textarea {
     opacity: 0;
   }
 }
-/* line 2086, ../sass/_animate.scss */
+/* line 2062, ../sass/_animate.scss */
 .flipOutX {
   -webkit-animation-name: flipOutX;
   animation-name: flipOutX;
@@ -14729,7 +14090,7 @@ textarea {
     opacity: 0;
   }
 }
-/* line 2131, ../sass/_animate.scss */
+/* line 2107, ../sass/_animate.scss */
 .flipOutY {
   -webkit-backface-visibility: visible !important;
   backface-visibility: visible !important;
@@ -14781,7 +14142,7 @@ textarea {
     opacity: 1;
   }
 }
-/* line 2190, ../sass/_animate.scss */
+/* line 2166, ../sass/_animate.scss */
 .lightSpeedIn {
   -webkit-animation-name: lightSpeedIn;
   animation-name: lightSpeedIn;
@@ -14809,7 +14170,7 @@ textarea {
     opacity: 0;
   }
 }
-/* line 2221, ../sass/_animate.scss */
+/* line 2197, ../sass/_animate.scss */
 .lightSpeedOut {
   -webkit-animation-name: lightSpeedOut;
   animation-name: lightSpeedOut;
@@ -14849,7 +14210,7 @@ textarea {
     opacity: 1;
   }
 }
-/* line 2264, ../sass/_animate.scss */
+/* line 2240, ../sass/_animate.scss */
 .rotateIn {
   -webkit-animation-name: rotateIn;
   animation-name: rotateIn;
@@ -14887,7 +14248,7 @@ textarea {
     opacity: 1;
   }
 }
-/* line 2305, ../sass/_animate.scss */
+/* line 2281, ../sass/_animate.scss */
 .rotateInDownLeft {
   -webkit-animation-name: rotateInDownLeft;
   animation-name: rotateInDownLeft;
@@ -14925,7 +14286,7 @@ textarea {
     opacity: 1;
   }
 }
-/* line 2346, ../sass/_animate.scss */
+/* line 2322, ../sass/_animate.scss */
 .rotateInDownRight {
   -webkit-animation-name: rotateInDownRight;
   animation-name: rotateInDownRight;
@@ -14963,7 +14324,7 @@ textarea {
     opacity: 1;
   }
 }
-/* line 2387, ../sass/_animate.scss */
+/* line 2363, ../sass/_animate.scss */
 .rotateInUpLeft {
   -webkit-animation-name: rotateInUpLeft;
   animation-name: rotateInUpLeft;
@@ -15001,7 +14362,7 @@ textarea {
     opacity: 1;
   }
 }
-/* line 2428, ../sass/_animate.scss */
+/* line 2404, ../sass/_animate.scss */
 .rotateInUpRight {
   -webkit-animation-name: rotateInUpRight;
   animation-name: rotateInUpRight;
@@ -15035,7 +14396,7 @@ textarea {
     opacity: 0;
   }
 }
-/* line 2465, ../sass/_animate.scss */
+/* line 2441, ../sass/_animate.scss */
 .rotateOut {
   -webkit-animation-name: rotateOut;
   animation-name: rotateOut;
@@ -15069,7 +14430,7 @@ textarea {
     opacity: 0;
   }
 }
-/* line 2502, ../sass/_animate.scss */
+/* line 2478, ../sass/_animate.scss */
 .rotateOutDownLeft {
   -webkit-animation-name: rotateOutDownLeft;
   animation-name: rotateOutDownLeft;
@@ -15103,7 +14464,7 @@ textarea {
     opacity: 0;
   }
 }
-/* line 2539, ../sass/_animate.scss */
+/* line 2515, ../sass/_animate.scss */
 .rotateOutDownRight {
   -webkit-animation-name: rotateOutDownRight;
   animation-name: rotateOutDownRight;
@@ -15137,7 +14498,7 @@ textarea {
     opacity: 0;
   }
 }
-/* line 2576, ../sass/_animate.scss */
+/* line 2552, ../sass/_animate.scss */
 .rotateOutUpLeft {
   -webkit-animation-name: rotateOutUpLeft;
   animation-name: rotateOutUpLeft;
@@ -15171,7 +14532,7 @@ textarea {
     opacity: 0;
   }
 }
-/* line 2613, ../sass/_animate.scss */
+/* line 2589, ../sass/_animate.scss */
 .rotateOutUpRight {
   -webkit-animation-name: rotateOutUpRight;
   animation-name: rotateOutUpRight;
@@ -15237,7 +14598,7 @@ textarea {
     opacity: 0;
   }
 }
-/* line 2686, ../sass/_animate.scss */
+/* line 2662, ../sass/_animate.scss */
 .hinge {
   -webkit-animation-name: hinge;
   animation-name: hinge;
@@ -15268,7 +14629,7 @@ textarea {
     transform: none;
   }
 }
-/* line 2721, ../sass/_animate.scss */
+/* line 2697, ../sass/_animate.scss */
 .rollIn {
   -webkit-animation-name: rollIn;
   animation-name: rollIn;
@@ -15295,7 +14656,7 @@ textarea {
     transform: translate3d(100%, 0, 0) rotate3d(0, 0, 1, 120deg);
   }
 }
-/* line 2752, ../sass/_animate.scss */
+/* line 2728, ../sass/_animate.scss */
 .rollOut {
   -webkit-animation-name: rollOut;
   animation-name: rollOut;
@@ -15321,7 +14682,7 @@ textarea {
     opacity: 1;
   }
 }
-/* line 2781, ../sass/_animate.scss */
+/* line 2757, ../sass/_animate.scss */
 .zoomIn {
   -webkit-animation-name: zoomIn;
   animation-name: zoomIn;
@@ -15359,7 +14720,7 @@ textarea {
     animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
   }
 }
-/* line 2822, ../sass/_animate.scss */
+/* line 2798, ../sass/_animate.scss */
 .zoomInDown {
   -webkit-animation-name: zoomInDown;
   animation-name: zoomInDown;
@@ -15397,7 +14758,7 @@ textarea {
     animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
   }
 }
-/* line 2863, ../sass/_animate.scss */
+/* line 2839, ../sass/_animate.scss */
 .zoomInLeft {
   -webkit-animation-name: zoomInLeft;
   animation-name: zoomInLeft;
@@ -15435,7 +14796,7 @@ textarea {
     animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
   }
 }
-/* line 2904, ../sass/_animate.scss */
+/* line 2880, ../sass/_animate.scss */
 .zoomInRight {
   -webkit-animation-name: zoomInRight;
   animation-name: zoomInRight;
@@ -15473,7 +14834,7 @@ textarea {
     animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
   }
 }
-/* line 2945, ../sass/_animate.scss */
+/* line 2921, ../sass/_animate.scss */
 .zoomInUp {
   -webkit-animation-name: zoomInUp;
   animation-name: zoomInUp;
@@ -15505,7 +14866,7 @@ textarea {
     opacity: 0;
   }
 }
-/* line 2982, ../sass/_animate.scss */
+/* line 2958, ../sass/_animate.scss */
 .zoomOut {
   -webkit-animation-name: zoomOut;
   animation-name: zoomOut;
@@ -15547,7 +14908,7 @@ textarea {
     animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
   }
 }
-/* line 3027, ../sass/_animate.scss */
+/* line 3003, ../sass/_animate.scss */
 .zoomOutDown {
   -webkit-animation-name: zoomOutDown;
   animation-name: zoomOutDown;
@@ -15581,7 +14942,7 @@ textarea {
     transform-origin: left center;
   }
 }
-/* line 3064, ../sass/_animate.scss */
+/* line 3040, ../sass/_animate.scss */
 .zoomOutLeft {
   -webkit-animation-name: zoomOutLeft;
   animation-name: zoomOutLeft;
@@ -15615,7 +14976,7 @@ textarea {
     transform-origin: right center;
   }
 }
-/* line 3101, ../sass/_animate.scss */
+/* line 3077, ../sass/_animate.scss */
 .zoomOutRight {
   -webkit-animation-name: zoomOutRight;
   animation-name: zoomOutRight;
@@ -15657,7 +15018,7 @@ textarea {
     animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
   }
 }
-/* line 3146, ../sass/_animate.scss */
+/* line 3122, ../sass/_animate.scss */
 .zoomOutUp {
   -webkit-animation-name: zoomOutUp;
   animation-name: zoomOutUp;
@@ -15685,7 +15046,7 @@ textarea {
     transform: translate3d(0, 0, 0);
   }
 }
-/* line 3177, ../sass/_animate.scss */
+/* line 3153, ../sass/_animate.scss */
 .slideInDown {
   -webkit-animation-name: slideInDown;
   animation-name: slideInDown;
@@ -15713,7 +15074,7 @@ textarea {
     transform: translate3d(0, 0, 0);
   }
 }
-/* line 3208, ../sass/_animate.scss */
+/* line 3184, ../sass/_animate.scss */
 .slideInLeft {
   -webkit-animation-name: slideInLeft;
   animation-name: slideInLeft;
@@ -15741,7 +15102,7 @@ textarea {
     transform: translate3d(0, 0, 0);
   }
 }
-/* line 3239, ../sass/_animate.scss */
+/* line 3215, ../sass/_animate.scss */
 .slideInRight {
   -webkit-animation-name: slideInRight;
   animation-name: slideInRight;
@@ -15769,7 +15130,7 @@ textarea {
     transform: translate3d(0, 0, 0);
   }
 }
-/* line 3270, ../sass/_animate.scss */
+/* line 3246, ../sass/_animate.scss */
 .slideInUp {
   -webkit-animation-name: slideInUp;
   animation-name: slideInUp;
@@ -15797,7 +15158,7 @@ textarea {
     transform: translate3d(0, 100%, 0);
   }
 }
-/* line 3301, ../sass/_animate.scss */
+/* line 3277, ../sass/_animate.scss */
 .slideOutDown {
   -webkit-animation-name: slideOutDown;
   animation-name: slideOutDown;
@@ -15825,7 +15186,7 @@ textarea {
     transform: translate3d(-100%, 0, 0);
   }
 }
-/* line 3332, ../sass/_animate.scss */
+/* line 3308, ../sass/_animate.scss */
 .slideOutLeft {
   -webkit-animation-name: slideOutLeft;
   animation-name: slideOutLeft;
@@ -15853,7 +15214,7 @@ textarea {
     transform: translate3d(100%, 0, 0);
   }
 }
-/* line 3363, ../sass/_animate.scss */
+/* line 3339, ../sass/_animate.scss */
 .slideOutRight {
   -webkit-animation-name: slideOutRight;
   animation-name: slideOutRight;
@@ -15881,7 +15242,7 @@ textarea {
     transform: translate3d(0, -100%, 0);
   }
 }
-/* line 3394, ../sass/_animate.scss */
+/* line 3370, ../sass/_animate.scss */
 .slideOutUp {
   -webkit-animation-name: slideOutUp;
   animation-name: slideOutUp;
@@ -15912,7 +15273,7 @@ body {
   z-index: 100;
   position: fixed;
   top: 0;
-  height: 150%;
+  height: 100%;
   width: 3.7em;
 }
 
@@ -15924,16 +15285,12 @@ body {
   width: 11em;
   height: 100%;
 }
-/* line 34, ../sass/_navbar.scss */
-#menu h5 {
-  padding-top: 0.8em;
-}
-/* line 41, ../sass/_navbar.scss */
+/* line 36, ../sass/_navbar.scss */
 #menu h3 {
   margin-bottom: 1em;
 }
 
-/* line 46, ../sass/_navbar.scss */
+/* line 41, ../sass/_navbar.scss */
 #left-border-responsive {
   position: absolute;
   top: 5%;
@@ -15942,7 +15299,7 @@ body {
   box-shadow: 5px 5px 10px #333339;
 }
 
-/* line 56, ../sass/_navbar.scss */
+/* line 51, ../sass/_navbar.scss */
 #navbar-toggle {
   position: absolute;
   top: 5%;
@@ -15951,14 +15308,14 @@ body {
   border-radius: 0 5px 5px 0;
   box-shadow: 5px 5px 10px #333339;
 }
-/* line 68, ../sass/_navbar.scss */
+/* line 63, ../sass/_navbar.scss */
 #navbar-toggle .fa {
   padding-left: 0.01em;
   position: relative;
   top: 1px;
 }
 
-/* line 75, ../sass/_navbar.scss */
+/* line 70, ../sass/_navbar.scss */
 #navbar {
   display: table;
   table-layout: fixed;
@@ -15974,55 +15331,55 @@ body {
   border-bottom: 3px solid white;
   background-color: #003E36;
 }
-/* line 96, ../sass/_navbar.scss */
+/* line 91, ../sass/_navbar.scss */
 #navbar .fa ~ span {
   margin-left: 0.5em;
 }
-/* line 100, ../sass/_navbar.scss */
+/* line 95, ../sass/_navbar.scss */
 #navbar a {
   text-decoration: none;
   color: inherit;
 }
-/* line 103, ../sass/_navbar.scss */
+/* line 98, ../sass/_navbar.scss */
 #navbar a:hover {
   color: #C9E113;
 }
-/* line 109, ../sass/_navbar.scss */
+/* line 104, ../sass/_navbar.scss */
 #navbar .macrotab {
   line-height: 2.5;
 }
-/* line 113, ../sass/_navbar.scss */
+/* line 108, ../sass/_navbar.scss */
 #navbar #navbar-home, #navbar #navbar-tabs, #navbar #navbar-profile {
   display: table-cell;
   vertical-align: middle;
 }
-/* line 123, ../sass/_navbar.scss */
+/* line 118, ../sass/_navbar.scss */
 #navbar #navbar-tabs .macrotab {
   width: 100%;
   display: table;
   table-layout: fixed;
 }
-/* line 127, ../sass/_navbar.scss */
+/* line 122, ../sass/_navbar.scss */
 #navbar #navbar-tabs .macrotab a {
   display: table-cell;
 }
-/* line 135, ../sass/_navbar.scss */
+/* line 130, ../sass/_navbar.scss */
 #navbar #navbar-profile .navbar-icons {
   margin-left: 1em;
 }
-/* line 139, ../sass/_navbar.scss */
+/* line 134, ../sass/_navbar.scss */
 #navbar #navbar-profile .navbar-icons .fa-stack {
   font-size: 0.7em;
 }
-/* line 144, ../sass/_navbar.scss */
+/* line 139, ../sass/_navbar.scss */
 #navbar #navbar-profile .navbar-icons a {
   margin-left: 0.2em;
 }
-/* line 150, ../sass/_navbar.scss */
+/* line 145, ../sass/_navbar.scss */
 #navbar #navbar-profile .navbar-username {
   font-size: 0.8em;
 }
-/* line 160, ../sass/_navbar.scss */
+/* line 155, ../sass/_navbar.scss */
 #navbar #navbar-signin button, #navbar #navbar-signup button {
   width: 90%;
   font-weight: 400;
@@ -16030,17 +15387,17 @@ body {
   text-transform: uppercase;
   line-height: 1;
 }
-/* line 181, ../sass/_navbar.scss */
+/* line 176, ../sass/_navbar.scss */
 #navbar .number-of-notifications {
   top: -0.8em;
   left: -1.3em;
 }
-/* line 187, ../sass/_navbar.scss */
+/* line 182, ../sass/_navbar.scss */
 #navbar .number-of-cart-items {
   top: -0.8em;
   left: -1.3em;
 }
-/* line 193, ../sass/_navbar.scss */
+/* line 188, ../sass/_navbar.scss */
 #navbar .cart-not-empty {
   color: #C9E113;
 }
@@ -16323,108 +15680,55 @@ body {
 /* line 1, ../sass/_courses.scss */
 #courses {
   padding-bottom: 3vw;
-  /* RESPONSIVE */
-  /* DESKTOP */
 }
-/* line 9, ../sass/_courses.scss */
-#courses #courses-bookmarks {
-  width: 100%;
-}
-/* line 21, ../sass/_courses.scss */
-#courses .course-bookmark {
-  z-index: 99 !important;
-}
-/* line 28, ../sass/_courses.scss */
-#courses .bookmark, #courses .category-bookmark, #courses .course-bookmark {
-  z-index: 100;
-  position: relative;
-  right: -30vw;
-  width: 75vw;
-  margin-top: 1em;
-  margin-bottom: 1em;
-}
-/* line 37, ../sass/_courses.scss */
-#courses .bookmark-content {
-  height: 4em;
-}
-/* line 42, ../sass/_courses.scss */
-#courses .bookmark-tail {
-  position: absolute;
-  left: 0;
-  border-top: 2em solid transparent;
-  border-bottom: 2em solid transparent;
-  border-left: 2em solid white;
-}
-/* line 50, ../sass/_courses.scss */
-#courses .swipeRight {
-  animation-name: swipeRight;
-}
-/* line 55, ../sass/_courses.scss */
-#courses .removeSwipeRight {
-  animation-name: removeSwipeRight;
-}
-@keyframes swipeRight {
-  0% {
-    right: -30vw;
-  }
-  60% {
-    right: -22vw;
-  }
-  100% {
-    right: -100vw;
-  }
-}
-@keyframes removeSwipeRight {
-  0% {
-    right: -100vw;
-  }
-  40% {
-    right: -22vw;
-  }
-  100% {
-    right: -30vw;
-  }
-}
-/* line 95, ../sass/_courses.scss */
+/* line 7, ../sass/_courses.scss */
 #courses #tiles-courses {
   margin-top: 3vw;
 }
-/* line 104, ../sass/_courses.scss */
+@media all and (max-device-width: 1079px) {
+  /* line 7, ../sass/_courses.scss */
+  #courses #tiles-courses {
+    width: 100%;
+    float: left;
+    margin-left: 0%;
+  }
+}
+/* line 21, ../sass/_courses.scss */
 #courses #tiles-courses .category-title {
   font-size: 1.6em;
 }
-/* line 106, ../sass/_courses.scss */
+/* line 23, ../sass/_courses.scss */
 #courses #tiles-courses .category-title .container {
   padding: 5%;
 }
-/* line 112, ../sass/_courses.scss */
+/* line 29, ../sass/_courses.scss */
 #courses #tiles-courses .routePossible {
   cursor: pointer;
 }
-/* line 116, ../sass/_courses.scss */
+/* line 33, ../sass/_courses.scss */
 #courses #tiles-courses .tile {
   width: 100%;
 }
-/* line 120, ../sass/_courses.scss */
+/* line 37, ../sass/_courses.scss */
 #courses #tiles-courses .tile .resp-img, #courses #tiles-courses .tile .avatar, #courses #tiles-courses .tile .avatar-leaf {
   max-width: 60%;
   max-height: 60%;
 }
-/* line 126, ../sass/_courses.scss */
+/* line 43, ../sass/_courses.scss */
 #courses #tiles-courses .tile .title {
   padding: 5%;
   font-size: 1.3em;
 }
-/* line 134, ../sass/_courses.scss */
+/* line 51, ../sass/_courses.scss */
 #courses #tiles-courses .tile .back .back-title {
   font-size: 1.3em;
   padding: 5%;
 }
-/* line 137, ../sass/_courses.scss */
+/* line 54, ../sass/_courses.scss */
 #courses #tiles-courses .tile .back .back-title span {
   display: inline-block;
 }
-/* line 142, ../sass/_courses.scss */
+/* line 59, ../sass/_courses.scss */
 #courses #tiles-courses .tile .back .back-content {
   font-size: 1.2em;
   padding: 5%;

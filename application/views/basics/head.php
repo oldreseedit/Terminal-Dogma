@@ -142,7 +142,6 @@
     <script type="text/javascript" src="js/directives/fitText.js"></script>
     <script type="text/javascript" src="js/directives/flipper.js"></script>
     <script type="text/javascript" src="js/directives/navbarLeft.js"></script>
-    <script type="text/javascript" src="js/directives/responsiveBookmark.js"></script>
     <script type="text/javascript" src="js/directives/sizeOn.js"></script>
     <script type="text/javascript" src="js/directives/spinner.js"></script>
     <script type="text/javascript" src="js/directives/macroList.js"></script>
@@ -157,7 +156,6 @@
     <script type="text/javascript" src="js/controllers/course.js"></script>
     <script type="text/javascript" src="js/controllers/activities.js"></script>
     <script type="text/javascript" src="js/controllers/activity.js"></script>
-    <script type="text/javascript" src="js/controllers/bookmark.js"></script>
     <script type="text/javascript" src="js/controllers/media.js"></script>
     <script type="text/javascript" src="js/controllers/contacts.js"></script>
     <script type="text/javascript" src="js/controllers/infoWindow.js"></script>

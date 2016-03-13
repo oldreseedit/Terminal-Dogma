@@ -1,5 +1,5 @@
 <div id="courses" ng-controller="coursesController as courses">
-
+    <div class="container">
         <h3>Non i soliti corsi</h3>
         <p class="text-justify">I corsi di reSeed pongono l’accento sul lato pratico dell’insegnamento e sono improntati al “<i>learn by doing</i>”.</p>
         <p class="text-justify">Tutti i nostri corsi prevedono infatti una parte di simulazione di <i>On-The-Job Training</i>, che pone gli studenti di fronte a questioni e problemi che non vengono affrontati in altri corsi di formazione ma che sono all'ordine del giorno in un ambiente lavorativo, con l’obiettivo di ottenere un prodotto finale (videogiochi, applicazioni, siti web, etc.) concreto e competitivo.</p>
@@ -7,13 +7,7 @@
 <!-- 		<div spinner="courses.coursesData">   -->
 <!-- 		<spinner-place class="fa-4x"></spinner-place> -->
 <!-- 		<spinner-final> -->
-			
-			<div id="courses-bookmarks" ng-if="imOnResponsive" bookmarks>
-				<bookmark-category ng-repeat="category in courses.categories" ng-init="indexOfCategory = $index">
-				</bookmark-category>
-			</div>
-			
-	        <div id="tiles-courses" size-on-controller ng-if="!imOnResponsive">
+	        <div id="tiles-courses" size-on-controller>
 	            <div class="container" ng-if="courses.tilesCoursesWidth">
 	                <div class="category-column" ng-repeat="category in courses.categories" ng-style="courses.spacedCategories($first)" ng-init="indexOfCategory = $index">
 	                    <div class="category-title" ng-style="courses.getVerticalOffsetForCategory()">
@@ -55,3 +49,4 @@
 <!--         </spinner-final> -->
 <!-- 		</div> -->
     </div>
+</div>
