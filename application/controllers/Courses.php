@@ -47,11 +47,6 @@ class Courses extends CI_Controller {
             echo json_encode($data);
         }
         
-        public function get_all_names()
-        {
-        	echo json_encode($this->courses_model->get_all_names());
-        }
-        
         public function get_all()
         {
         	$data = $this->courses_model->get_all();
