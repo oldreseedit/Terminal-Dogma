@@ -6,7 +6,6 @@ var main = angular.module('Main',[
     'ngAnimate', // For animating purposes
     'ui.calendar', // For register calendar
     'ui.bootstrap', // For all bootstrap functions and for ui.calendar
-//    'angularShamSpinner', // For pre-loading spinner
     'monospaced.elastic', // For text-area auto-resizing
     'uiGmapgoogle-maps', // For Google Maps integration
     'youtube-embed', // For embedding Youtube Videos
@@ -17,7 +16,8 @@ var main = angular.module('Main',[
     'angularMoment', // For inline moment
     'ngAnimate', // For animations
     'ngTouch', // For Touch Support
-    'textAngular' // For HTML-like input
+    'textAngular', // For HTML-like input
+    'angularFileUpload', // For file-upload
     ], function($httpProvider) {
 
     // FOR CI

@@ -18,7 +18,7 @@ main.controller('tutorialController',['$server','$scope','$uibModal','$route','i
 				for(var i=0; i<self.tutorials.length; i+=1)
 				{
 					self.tutorials[i].tags = self.tutorials[i].tags.split(" ");
-					self.tutorials[i].icon = "/imgs/courses/black/mobileApp.png";
+					self.tutorials[i].url = self.tutorials[i].title.toLowerCase().split(" ").join("-");
 				}
 				
 				console.log(self.tutorials);

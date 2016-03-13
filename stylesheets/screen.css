@@ -17023,7 +17023,12 @@ label p {
   line-height: 3em;
   padding-bottom: 10px;
 }
-/* line 42, ../sass/_tutorials.scss */
+/* line 46, ../sass/_tutorials.scss */
+#tutorials .tutorial-readmore {
+  padding-left: 10px;
+  font-size: 1.5em;
+}
+/* line 52, ../sass/_tutorials.scss */
 #tutorials .tutorial-tag {
   border-radius: 15px 100px 100px;
   padding: 5px 20px;

@@ -14,8 +14,8 @@ class Tutorials_model extends CI_Model
                 
                 $fields = array(
                         'tutorialID' => array(
-                                'type' => 'INT',
-                                 'auto_increment' => TRUE
+                                'type' => 'VARCHAR',
+                        		'constraint' => 100
                         ),
                         'title' => array(
                                 'type' => 'VARCHAR',
@@ -56,9 +56,10 @@ class Tutorials_model extends CI_Model
                 $this->dbforge->create_table(self::table_name);
         }
         
-        public function add($title, $body, $publishingTimestamp, $description = null, $course = null, $requirements = null, $tags = null, $seealso = null)
+        public function add($tutorialID, $title, $body, $publishingTimestamp, $description = null, $course = null, $requirements = null, $tags = null, $seealso = null, $images)
         {
                 $data = array(
+                	'tutorialID' => $tutorialID,
                    	'title' => $title,
 					'body' => $body,
                     'publishingTimestamp' => $publishingTimestamp,
@@ -70,9 +71,18 @@ class Tutorials_model extends CI_Model
                 if($tags != null) $data['tags'] = $tags;
                 if($seealso != null) $data['seealso'] = $seealso;
                 
-                $this->db->insert(self::table_name, $data);
+                if(!empty($images))
+                {
+	                $imagesString = $images[0];
+// 	                foreach ($images as $image)
+// 	                {
+// 	                	$imagesString .= $image . "|";
+// 	                }
+	                
+	                $data['images'] = $imagesString;
+                }
                 
-                return $this->db->insert_id(); 
+                $this->db->insert(self::table_name, $data);
         }
         
         public function update($tutorialID, $title = null, $body = null, $publishingTimestamp = null, $description = null, $course = null, $requirements = null, $tags = null, $seealso = null)
