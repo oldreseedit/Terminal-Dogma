@@ -15909,7 +15909,7 @@ body {
 
 /* line 14, ../sass/_navbar.scss */
 #navbar-responsive {
-  z-index: 100;
+  z-index: 101;
   position: fixed;
   top: 0;
   height: 150%;
@@ -15918,7 +15918,7 @@ body {
 
 /* line 23, ../sass/_navbar.scss */
 #menu {
-  z-index: 101;
+  z-index: 102;
   position: absolute;
   left: -11em;
   width: 11em;

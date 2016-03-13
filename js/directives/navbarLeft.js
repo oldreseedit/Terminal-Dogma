@@ -26,7 +26,7 @@ main.directive('navbarLeft',['$swipe',function($swipe){
 			{
 				$element.css('left',  menuWidth);
 				$element.width('100%');		
-				$('#footer .tab').css('z-index',99);
+				$('#footer .tab').css('z-index',100);
 			};
 			
 			$scope.$on('close-navbar',function(){ haveToSwipeLeft = true; });
@@ -71,7 +71,7 @@ main.directive('navbarLeft',['$swipe',function($swipe){
 						if(!isOpened)
 						{
 							haveToSwipeLeft = false;
-							$('#footer .tab').css('z-index',101);							
+							$('#footer .tab').css('z-index',102);							
 						}
 					}
 					if(!haveToSwipeLeft)
