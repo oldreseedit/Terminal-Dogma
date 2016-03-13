@@ -51,30 +51,30 @@ main.controller('profileController',['$scope','$server','$routeParams','$route',
         	  title: 'Sommario',
         	  bgColour: 'bg-light-olive',
         	  templateUrl : 'templates/profile-summary.php',
-        	  width: 50
+        	  width: imOnResponsive ? 100 : 50
           },
           {
         	  id : 'profileNotifications',
         	  title: 'Notifiche',
         	  bgColour: 'bg-light-lawn',
         	  templateUrl : 'templates/profile-notifications.php',
-        	  width: 49,
-        	  offset: 1
+        	  width: imOnResponsive ? 100 :49,
+        	  offset: imOnResponsive ? 0 :1
           },
           {
         	  id : 'profileAchievements',
         	  title: 'Achievements',
         	  bgColour: 'bg-light-green',
         	  templateUrl : 'templates/profile-achievements.php',
-        	  width: 50
+        	  width: imOnResponsive ? 100 :50
           },
           {
         	  id : 'profileRewards',
         	  title: 'Rewards',
         	  bgColour: 'bg-light-leaf',
         	  templateUrl : 'templates/profile-rewards.php',
-        	  width: 49,
-        	  offset: 1
+        	  width: imOnResponsive ? 100 : 49,
+        	  offset: imOnResponsive ? 0 : 1
           },
           {
         	  id : 'profileHighScores',
@@ -202,20 +202,6 @@ main.controller('profileController',['$scope','$server','$routeParams','$route',
     	self.avatar = URI;
     };
     
-    $scope.$watch(
-    		function()
-    		{
-    			if($('.profile-name-level-xp')) return $('.profile-name-level-xp').height();
-    		},
-    		function(newValue, oldValue)
-    		{
-    			if(newValue > 0)
-    			{
-    				$('.profile-level-symbol').height(newValue);
-    			}
-    		}
-    );
-    
     $scope.$watchCollection(
     		function()
     		{
@@ -239,7 +225,7 @@ main.controller('profileController',['$scope','$server','$routeParams','$route',
     				if(!newValues[i]) allReady=false;
     			}
     			
-    			if(allReady)
+    			if(allReady && !imOnResponsive)
     			{
     				$timeout(function(){
     					

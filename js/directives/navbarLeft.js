@@ -15,19 +15,32 @@ main.directive('navbarLeft',['$swipe','$timeout',function($swipe,$timeout){
 			var buttonEnd = buttonStart + $element.find('#navbar-toggle')[0].offsetHeight;
 			var interfaceWidth = parseInt($element.width());
 			var haveToSwipeLeft = false;
+			var isAnimating = false;
 
 			var swipeLeft = function()
 			{
-				$element.css('left',0);
-				$element.width(interfaceWidth);
-				$timeout(function(){$('#footer .tab').css('z-index',103);},200);		
+				isAnimating = true;
+				$timeout(function(){
+					$element.css('left',0);
+					$element.width(interfaceWidth);
+					$timeout(function(){
+						$('#footer .tab').css('z-index',103);
+						isAnimating = false;
+					},250);						
+				});	
 			};
 			
 			var swipeRight = function()
 			{
-				$element.css('left',  menuWidth);
-				$element.width('100%');		
-				$('#footer .tab').css('z-index',99);
+				isAnimating = true;
+				$timeout(function(){
+					$element.css('left',  menuWidth);
+					$element.width('100%');		
+					$('#footer .tab').css('z-index',99);
+					$timeout(function(){
+						isAnimating = false;
+					},250);
+				});
 			};
 			
 			$scope.$on('close-navbar',function(){ haveToSwipeLeft = true; });
@@ -35,6 +48,7 @@ main.directive('navbarLeft',['$swipe','$timeout',function($swipe,$timeout){
 			$swipe.bind($element, {
 				start : function(coordinates)
 				{
+					if(isAnimating) return;
 					left = $element.css('left');
 					
 					isOpened = (left !== '0px' && left !== 'auto');
@@ -46,6 +60,7 @@ main.directive('navbarLeft',['$swipe','$timeout',function($swipe,$timeout){
 				},
 				move : function(coordinates)
 				{
+					if(isAnimating) return;
 //					console.log(startPosition.x);
 
 					if(haveToSwipeLeft && !isOpened) haveToSwipeLeft = false;
@@ -58,6 +73,7 @@ main.directive('navbarLeft',['$swipe','$timeout',function($swipe,$timeout){
 				},
 				end : function(coordinates,event)
 				{
+					if(isAnimating) return;
 					left = $element.css('left');
 					
 					var changedOpening = (left !== '0px' && left !== 'auto') !== isOpened;
@@ -97,6 +113,7 @@ main.directive('navbarLeft',['$swipe','$timeout',function($swipe,$timeout){
 				},
 				cancel : function()
 				{					
+					if(isAnimating) return;
 					left = $element.css('left');
 					
 					$element.addClass('animated-class-fastest');

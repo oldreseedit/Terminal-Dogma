@@ -19,6 +19,46 @@
     .no-gridster-item{
     	margin-bottom: 1em;
     	max-height: 75vh;
+    	@include responsive
+    	{
+    		max-height: none;
+    	}
+    }
+    
+    table{
+    	@include responsive
+    	{
+    		width: 100%;
+    	}
+    	margin: auto;    	
+    	td
+    	{
+    		text-align: center;
+			vertical-align: middle;
+    	}
+    }
+    
+    .high-score-img
+    {
+		float: right;
+    	font-size: 3em;
+    	@include responsive
+    	{
+    		font-size: 1.5em;
+    	}
+    }
+    .high-score-name
+    {
+    	@extend .text-left;
+    }
+    
+    .profile-summary
+    {
+    	display: table;
+    	@include responsive
+    	{
+    		display: block;
+    	}
     }
     
     .panel-title{
@@ -30,20 +70,41 @@
     .panel-content{
         @extend .col-100;
         padding: 26px 10px 26px 10px;
+        @include responsive
+        {
+        	padding: 0;
+        }
     }
     
     .profile-level-symbol{
-    	@extend .col-30;
+		display: table-cell;
+		vertical-align: middle;
     	@extend .text-center;
     	font-size: 5em;
+    	@include responsive
+    	{
+    		display: block;
+    		font-size: 5em;
+    	}
     }
         
     .profile-name-level-xp{
-        @extend .col-65;
-        @extend .offset-5;
-        
+		display: table-cell;
+		vertical-align: middle;
+		padding: 0 2em;
+		
+		@include responsive
+		{
+			width: 100%;
+    		display: block;
+		}
+		        
         .name{
         	font-size: 3em;
+        	@include responsive
+        	{
+        		font-size: 2em;
+        	}
         	line-height: 1;
         }
         

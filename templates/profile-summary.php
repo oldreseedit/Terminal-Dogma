@@ -1,5 +1,5 @@
-<div class="container">
-	<div class="profile-level-symbol" centered spinner="profile.avatarAjax">
+<div class="container profile-summary">
+	<div class="profile-level-symbol" spinner="profile.avatarAjax">
 		<spinner-place></spinner-place>
 		<span class="fa-stack clickable" ng-click="avatar.changeAvatar(profile.username,profile.avatar)" ng-controller="avatarController as avatar" spinner-final>
 			<img ng-src="{{profile.avatar}}" ng-class="{'avatar': !profile.isDefaultAvatar(), 'avatar-leaf' : profile.isDefaultAvatar() }" />

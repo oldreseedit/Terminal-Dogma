@@ -8,11 +8,11 @@
 
 <body>
     <!-- Google Analytics Snippet -->
-    <?php include_once("basics/analyticstracking.php"); ?>
+    <ng-include src="'templates/analyticstracking.php'"></ng-include>
+        
+    <ng-include src="'templates/navbar.php'"></ng-include>
     
     <div class="container">
-        
-        <?php include_once("basics/navbar.php"); ?>
         
 
         <div id="header" ng-if="!miniHeader()"></div>
@@ -28,9 +28,9 @@
         
             
         </div>
-        
-        <?php include_once("basics/footer.php"); ?>
     </div>
+        
+    <ng-include src="'templates/footer.php'"></ng-include>
     
     <div inform class="inform-shadow inform-fixed inform-center inform-animate"></div>
 </body>

@@ -16,7 +16,7 @@ body {
 	z-index: 101;
 	position: fixed;
 	top: 0;
-	height: 150%;	
+	height: 100vh;	
 	width: 3.7em;
 }
 
@@ -72,6 +72,22 @@ body {
 	}
 }
 
+.navbar-profile-name
+{
+	@include responsive
+	{
+		position: absolute;
+		width:100%;
+		bottom:0;		
+	}
+	a{
+		@include responsive
+		{
+			display: block;
+		}
+	}
+}
+
 #navbar{
 	
 	display: table;
@@ -106,91 +122,133 @@ body {
         @extend .animated-class-fastest;
     }
     
-    .macrotab{
-        line-height: $navbar-line-height;
-    }
+}
     
-    #navbar-home, #navbar-tabs, #navbar-profile{
-		display: table-cell;
-		vertical-align: middle;
-    }
+.macrotab{
+    line-height: $navbar-line-height;
+}
     
-    #navbar-home{
-    	@extend .text-left;
-    }
-    #navbar-tabs{
-    	@extend .text-center;
-   		.macrotab{
-   			width: 100%;
-   			display: table;
-   			table-layout: fixed;
-    		a{
-    			display:table-cell;
-    		}
-   		}
-    }
+#navbar-home, #navbar-tabs, #navbar-profile{
+	display: table-cell;
+	vertical-align: middle;
+}
     
-    #navbar-profile{
-    	
-        .navbar-icons
-        {
-        	margin-left: 1em;
+#navbar-home{
+	@extend .text-left;
+}
+
+#navbar-tabs{
+	@extend .text-center;
+	.macrotab{
+		width: 100%;
+		display: table;
+		table-layout: fixed;
+		a{
+			display:table-cell;
+		}
+	}
+}
+
+.navbar-icons{
+	margin-left: 1em;
+	@include responsive
+	{
+		display: table;
+		width: 100%;
+		margin-left: auto;
+		margin-top: 2em;
+	}
+	
+	div{
+		@include responsive
+		{
+			display: table-row;
+		}
+	}
+       	
+	.fa-stack
+	{
+		font-size: 0.7em;
+		@include responsive
+		{
+			font-size: 1.5em;
+		}
+	}
         	
-        	.fa-stack
-        	{
-        		font-size: 0.7em;
-        	}
-        	
-        	a
-        	{
-        		margin-left: 0.2em;
-        	}
-        }
+	a
+	{
+		margin-left: 0.2em;
+		
+		@include responsive
+		{
+			margin-left: auto;
+			display: table-cell;
+			padding: 1em 0;
+		}
+	}
+}
         
-        .navbar-username{
-        	font-size: 0.8em;
-        }
-        
+.navbar-username{
+	font-size: 0.8em;
+}
+    
+#navbar-signin, #navbar-signup{
+    @extend .col-49;
+    @include responsive
+    {
+    	width:100%;
+    }
+    @extend .white;
+    
+    button{
+        width: 90%;
+        font-weight: 400;
+        border-radius: 6px;
+        text-transform: uppercase;
+        @extend .bg-water;
+        line-height: 1;
     }
     
-    #navbar-signin, #navbar-signup{
-        @extend .col-49;
-        @extend .white;
-        
-        button{
-            width: 90%;
-            font-weight: 400;
-            border-radius: 6px;
-            text-transform: uppercase;
-            @extend .bg-water;
-            line-height: 1;
-        }
-        
-    }
+}
     
-    #navbar-signin{
-        @extend .offset-2;
+#navbar-signin{
+    @extend .offset-2;
+    @include responsive
+    {
+		margin-left: 0;
+		margin-top: 1em;
     }
+}
+
+#navbar-signup{
+	@include responsive
+	{
+		margin-top: 3em;
+	}
+}
+
+#navbar-logged{
+    @extend .col-100;
+    @extend .white;
+	@extend .text-right;
+	@include responsive
+	{
+		text-align: center;
+	}
+}
     
-    #navbar-logged{
-        @extend .col-100;
-        @extend .white;
-        @extend .text-right;
-    }
-    
-    .number-of-notifications{
-    	@extend .bolder;
-    	top: -0.8em;
-    	left: -1.3em;
-    }
-    
-    .number-of-cart-items{
-    	@extend .bolder;
-    	top: -0.8em;
-    	left: -1.3em;
-    }
-    
-    .cart-not-empty{
-		@include light-olive;
-    }
+.number-of-notifications{
+  	@extend .bolder;
+  	top: -0.8em;
+  	left: -1.3em;
+}
+  
+.number-of-cart-items{
+	@extend .bolder;
+  	top: -0.8em;
+  	left: -1.3em;
+}
+ 
+.cart-not-empty{
+	@include light-olive;
 }
