@@ -14,13 +14,15 @@
         
         <?php include_once("basics/navbar.php"); ?>
         
+
+        <div id="header" ng-if="!miniHeader()"></div>
         <div class="mini-header" ng-if="miniHeader()">
             <div class="container">
                 <img src="imgs/mini-header.png" />
-		        <h3 class="text-center" style="margin-top:1em">In evidenza</h3>
-		        <div ng-include="'templates/spotlights.php'"></div>
             </div>
         </div>
+<!-- 				<h3 class="text-center" style="margin-top:1em">In evidenza</h3> -->
+<!-- 		        <div ng-include="'templates/spotlights.php'"></div> -->
                 
         <div id="main" ng-view>
         

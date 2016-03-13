@@ -2,7 +2,7 @@
     <div class="course-description-introduction">
         <div class="container">
             <div class="course-description">
-            	<uib-carousel interval="10000">
+            	<uib-carousel interval="10000" ng-if="!imOnResponsive">
             		<uib-slide ng-repeat="imageUrl in course.courseInfo.images">
             			<img ng-src="{{imageUrl}}"/>
             		</uib-slide>

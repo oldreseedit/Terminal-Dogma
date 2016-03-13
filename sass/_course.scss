@@ -11,6 +11,10 @@
     .no-gridster-item{
     	margin-bottom: 1em;
     	max-height: 75vh;
+    	@include responsive
+    	{
+    		max-height: none;
+    	}
     }
     
     .carousel{
@@ -90,6 +94,12 @@
     
     .course-icon{
 		width: 13em;
+		@include responsive
+		{
+			width: 8em;
+			padding-left: 0.6em;
+			padding-right:0.6em;
+		}
     	float: left;
     	padding-left: 40px;
     	padding-right: 40px;
@@ -122,33 +132,33 @@
 	
 	.pay-button {
 		position: fixed;
-		bottom: 10px;
-		right: 10px;
+		bottom: 1em;
+		right: 1em;
+		z-index: 199;
+		@extend .animated-class-fastest;
+						
+		&:hover {
+   			opacity: .7;
+   		}
 		
 		img {
-			height: 160px;
-			
-			&:hover {
-    			opacity: .7;
-    		}
-		}
-		&.ng-leave {
-			@extend .animated-fast;
-			@extend .fadeOut;
+			height: 12em;
 		}
 	}
 	
 	.faq-button {
 		position: fixed;
-		bottom: 10px;
-		left: 10px;
+		bottom: 1em;
+		left: 1em;
+		z-index: 199;
+		@extend .animated-class-fastest;
+			
+		&:hover {
+   			opacity: .7;
+   		}
 		
 		img {
-			height: 110px;
-			
-			&:hover {
-    			opacity: .7;
-    		}
+			height: 8em;
 		}
 	}
 }

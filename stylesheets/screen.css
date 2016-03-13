@@ -12874,7 +12874,7 @@ textarea {
 }
 
 /* line 26, ../sass/_animate.scss */
-.animated-class-fastest, #navbar a {
+.animated-class-fastest, #navbar a, #singleCourse .pay-button, #singleCourse .faq-button {
   transition: all linear 0.2s;
 }
 
@@ -12917,7 +12917,7 @@ textarea {
 }
 
 /* line 61, ../sass/_animate.scss */
-.animated-fast, #singleCourse .pay-button.ng-leave {
+.animated-fast {
   -webkit-animation-duration: 0.4s;
   animation-duration: 0.4s;
   -webkit-animation-fill-mode: both;
@@ -14244,7 +14244,7 @@ textarea {
   }
 }
 /* line 1584, ../sass/_animate.scss */
-.fadeOut, #singleCourse .pay-button.ng-leave {
+.fadeOut {
   -webkit-animation-name: fadeOut;
   animation-name: fadeOut;
 }
@@ -16439,34 +16439,40 @@ body {
   margin-bottom: 1em;
   max-height: 75vh;
 }
-/* line 16, ../sass/_course.scss */
+@media all and (max-device-width: 1079px) {
+  /* line 11, ../sass/_course.scss */
+  #singleCourse .no-gridster-item {
+    max-height: none;
+  }
+}
+/* line 20, ../sass/_course.scss */
 #singleCourse .carousel {
   margin-bottom: 1em;
 }
-/* line 20, ../sass/_course.scss */
+/* line 24, ../sass/_course.scss */
 #singleCourse .panel-title {
   font-variant: small-caps;
 }
-/* line 30, ../sass/_course.scss */
+/* line 34, ../sass/_course.scss */
 #singleCourse a:not(.carousel-control) {
   text-decoration: none;
 }
-/* line 64, ../sass/_course.scss */
+/* line 68, ../sass/_course.scss */
 #singleCourse .teacher-avatar {
   display: block;
   float: none;
 }
-/* line 69, ../sass/_course.scss */
+/* line 73, ../sass/_course.scss */
 #singleCourse .teacher-avatar .circle-img, #singleCourse .teacher-avatar .avatar {
   float: none;
   margin-left: auto;
   margin-right: auto;
 }
-/* line 77, ../sass/_course.scss */
+/* line 81, ../sass/_course.scss */
 #singleCourse .teacher-name {
   float: none;
 }
-/* line 91, ../sass/_course.scss */
+/* line 95, ../sass/_course.scss */
 #singleCourse .course-icon {
   width: 13em;
   float: left;
@@ -16475,51 +16481,61 @@ body {
   padding-bottom: 0.8em;
   padding-top: 0.8em;
 }
-/* line 104, ../sass/_course.scss */
+@media all and (max-device-width: 1079px) {
+  /* line 95, ../sass/_course.scss */
+  #singleCourse .course-icon {
+    width: 8em;
+    padding-left: 0.6em;
+    padding-right: 0.6em;
+  }
+}
+/* line 114, ../sass/_course.scss */
 #singleCourse .agendaButtons {
   margin-bottom: 1vw;
   text-align: center;
 }
-/* line 110, ../sass/_course.scss */
+/* line 120, ../sass/_course.scss */
 #singleCourse .course-info emph {
   font-weight: bold;
 }
-/* line 114, ../sass/_course.scss */
+/* line 124, ../sass/_course.scss */
 #singleCourse .course-info .details {
   margin: 10px 0px;
 }
-/* line 116, ../sass/_course.scss */
+/* line 126, ../sass/_course.scss */
 #singleCourse .course-info .details .fa-li {
   top: .4em;
   font-size: 16px;
 }
-/* line 123, ../sass/_course.scss */
+/* line 133, ../sass/_course.scss */
 #singleCourse .pay-button {
   position: fixed;
-  bottom: 10px;
-  right: 10px;
+  bottom: 1em;
+  right: 1em;
+  z-index: 199;
 }
-/* line 128, ../sass/_course.scss */
-#singleCourse .pay-button img {
-  height: 160px;
-}
-/* line 131, ../sass/_course.scss */
-#singleCourse .pay-button img:hover {
+/* line 140, ../sass/_course.scss */
+#singleCourse .pay-button:hover {
   opacity: .7;
 }
-/* line 141, ../sass/_course.scss */
-#singleCourse .faq-button {
-  position: fixed;
-  bottom: 10px;
-  left: 10px;
-}
-/* line 146, ../sass/_course.scss */
-#singleCourse .faq-button img {
-  height: 110px;
+/* line 144, ../sass/_course.scss */
+#singleCourse .pay-button img {
+  height: 12em;
 }
 /* line 149, ../sass/_course.scss */
-#singleCourse .faq-button img:hover {
+#singleCourse .faq-button {
+  position: fixed;
+  bottom: 1em;
+  left: 1em;
+  z-index: 199;
+}
+/* line 156, ../sass/_course.scss */
+#singleCourse .faq-button:hover {
   opacity: .7;
+}
+/* line 160, ../sass/_course.scss */
+#singleCourse .faq-button img {
+  height: 8em;
 }
 
 /* line 1, ../sass/_activities.scss */
@@ -17341,13 +17357,14 @@ label p {
 /* line 45, ../sass/_reseed.scss */
 #main {
   width: 100%;
+  padding-left: 0.5em;
 }
 
-/* line 53, ../sass/_reseed.scss */
+/* line 54, ../sass/_reseed.scss */
 .mini-header {
   margin-bottom: 2em;
 }
-/* line 57, ../sass/_reseed.scss */
+/* line 58, ../sass/_reseed.scss */
 .mini-header img {
   width: 100%;
 }

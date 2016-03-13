@@ -133,7 +133,7 @@ main.controller('courseController',['utilities','$scope','$server','$routeParams
         	  id : 'courseDescription',
 	          title: self.courseName,
 	          templateUrl: 'templates/course-description.php',
-	          width: 60,
+	          width: imOnResponsive ? 100 : 60,
               noMaxHeight: true,
               visible: true
           },
@@ -141,8 +141,8 @@ main.controller('courseController',['utilities','$scope','$server','$routeParams
               id : 'courseInfo',
               title: 'Informazioni',
               templateUrl: 'templates/course-info.php',
-              width: 39,
-              offset: 1,
+              width: imOnResponsive ? 100 : 39,
+              offset: imOnResponsive ? 0 : 1,
               noMaxHeight: true,
               visible: true
           },
@@ -169,7 +169,7 @@ main.controller('courseController',['utilities','$scope','$server','$routeParams
               id : 'calendar',
               title: 'Calendario delle lezioni',
               templateUrl: 'templates/calendar.php',
-              width: 60,
+              width: imOnResponsive ? 100 : 60,
               noMaxHeight: true,
               visible : self.subscribed
           },
@@ -177,8 +177,8 @@ main.controller('courseController',['utilities','$scope','$server','$routeParams
               id : 'courseNotifications',
               title: 'Avvisi',
               templateUrl: 'templates/course-notifications.php',
-              width: 39,
-              offset: 1,
+              width: imOnResponsive ? 100 : 39,
+              offset: imOnResponsive ? 0 : 1,
               noMaxHeight: true,
               visible : self.subscribed  
           },
@@ -388,7 +388,7 @@ main.controller('courseController',['utilities','$scope','$server','$routeParams
     				if(!newValues[i]) allReady=false;
     			}
     			
-    			if(allReady)
+    			if(allReady && !imOnResponsive)
     			{
     				$timeout(function(){
     					
