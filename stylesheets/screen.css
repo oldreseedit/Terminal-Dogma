@@ -1932,7 +1932,7 @@ mark,
 }
 
 /* line 92, ../sass/bootstrap/_type.scss */
-.text-center, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #write-tutorial, #tutorials, #menu, #navbar-toggle, #navbar, #navbar #navbar-tabs, #footer, #team, #singleCourse .panel-title, #singleActivity .panel-title, #register, #register .XP, #profile .panel-title, #profile .profile-level-symbol, #cart .panel-title {
+.text-center, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #write-tutorial, #menu, #navbar-toggle, #navbar, #navbar #navbar-tabs, #footer, #team, #singleCourse .panel-title, #singleActivity .panel-title, #register, #register .XP, #profile .panel-title, #profile .profile-level-symbol, #cart .panel-title {
   text-align: center;
 }
 
@@ -9453,7 +9453,7 @@ button.close {
 }
 
 /* line 12, ../sass/_responsive.scss */
-.offset-15, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #write-tutorial, #tutorials, #payment .paymentStep, #faqPage .faqStep {
+.offset-15, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #write-tutorial, #payment .paymentStep, #faqPage .faqStep {
   margin-left: 15%;
 }
 
@@ -10322,7 +10322,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-70, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #write-tutorial, #tutorials, #news-events .news-title, #payment .paymentStep, #faqPage .faqStep {
+.col-70, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #write-tutorial, #news-events .news-title, #payment .paymentStep, #faqPage .faqStep {
   width: 70%;
   float: left;
 }
@@ -12296,12 +12296,12 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 /* line 144, ../sass/_tricks.scss */
-.in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #write-tutorial, #tutorials {
+.in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #write-tutorial {
   margin-bottom: 1em;
 }
 @media all and (max-device-width: 1079px) {
   /* line 144, ../sass/_tricks.scss */
-  .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #write-tutorial, #tutorials {
+  .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #write-tutorial {
     width: 94%;
     margin-left: 3%;
   }
@@ -12590,7 +12590,7 @@ h1 {
 }
 
 /* line 46, ../sass/_palette.scss */
-.bg-green, #tiles-experience #presentation-gain, #tiles-experience #presentation-unlock, #tutorials .tutorial-tag {
+.bg-green, #tiles-experience #presentation-gain, #tiles-experience #presentation-unlock {
   background-color: #4caf52;
 }
 
@@ -12600,7 +12600,7 @@ h1 {
 }
 
 /* line 48, ../sass/_palette.scss */
-.bg-pond, #tutorials .tutorial-title {
+.bg-pond {
   background-color: #4398a3;
 }
 
@@ -12690,7 +12690,7 @@ h1 {
 }
 
 /* line 69, ../sass/_palette.scss */
-.bg-lightest-grey, #tutorials .tutorial-course, #tutorials .tutorial-description, #tutorials .tutorial-footer, .table-striped > tbody > tr:nth-of-type(even) {
+.bg-lightest-grey, .table-striped > tbody > tr:nth-of-type(even) {
   background-color: #f7f7f7;
 }
 
@@ -16993,45 +16993,6 @@ label p {
   margin: 3em 0px;
 }
 
-/* line 1, ../sass/_tutorials.scss */
-#tutorials {
-  text-align: left;
-  margin-top: 1em;
-}
-/* line 7, ../sass/_tutorials.scss */
-#tutorials .tutorial {
-  margin-bottom: 50px;
-  color: black;
-}
-/* line 13, ../sass/_tutorials.scss */
-#tutorials .tutorial-title {
-  color: white;
-  font-size: 2em;
-  padding-left: 10px;
-}
-/* line 21, ../sass/_tutorials.scss */
-#tutorials .tutorial-course {
-  font-size: 1.5em;
-  padding-left: 10px;
-}
-/* line 29, ../sass/_tutorials.scss */
-#tutorials .tutorial-description {
-  padding-left: 5px;
-}
-/* line 35, ../sass/_tutorials.scss */
-#tutorials .tutorial-footer {
-  line-height: 3em;
-  padding-bottom: 10px;
-}
-/* line 42, ../sass/_tutorials.scss */
-#tutorials .tutorial-tag {
-  border-radius: 15px 100px 100px;
-  padding: 5px 20px;
-  line-height: 3em;
-  margin: 0px 10px;
-  font-weight: bold;
-}
-
 /* line 1, ../sass/_scrollbar.scss */
 .scrollbar-wrapper {
   padding: 10px;
@@ -17387,16 +17348,16 @@ label p {
   border: 1.5px solid #B3B2B3;
 }
 
-/* line 47, ../sass/_reseed.scss */
+/* line 46, ../sass/_reseed.scss */
 #main {
   width: 100%;
 }
 
-/* line 55, ../sass/_reseed.scss */
+/* line 54, ../sass/_reseed.scss */
 .mini-header {
   margin-bottom: 2em;
 }
-/* line 59, ../sass/_reseed.scss */
+/* line 58, ../sass/_reseed.scss */
 .mini-header img {
   width: 100%;
 }

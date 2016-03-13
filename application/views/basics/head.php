@@ -192,7 +192,6 @@
     <script type="text/javascript" src="js/controllers/cart.js"></script>
     <script type="text/javascript" src="js/controllers/math.js"></script>
     <script type="text/javascript" src="js/controllers/writeTutorial.js"></script>
-    <script type="text/javascript" src="js/controllers/tutorialController.js"></script>
     
     <!-- endinjector -->
      

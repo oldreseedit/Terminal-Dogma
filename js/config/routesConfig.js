@@ -194,12 +194,6 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     	controller: 'writeTutorial as writeTutorial'
     });
     
-    $routeProvider.when('/tutorials', {
-    	title: 'Tutorial',
-    	templateUrl: 'templates/tutorials.php',
-    	controller: 'tutorialController as tutorialC'
-    });
-    
     $routeProvider.otherwise({
     	templateUrl : 'templates/error.php',
     });
