@@ -1,4 +1,4 @@
-main.controller('coursesController',['utilities','$timeout','$location','$server','moment',function(utilities,$timeout,$location,$server,moment){
+main.controller('coursesController',['utilities','$timeout','$location','$server','moment','$scope',function(utilities,$timeout,$location,$server,moment,$scope){
     var self = this;
     
     self.showAllCategories = false;
@@ -118,6 +118,10 @@ main.controller('coursesController',['utilities','$timeout','$location','$server
     
     self.getColours = function(i){
         return utilities.getColours(i, 4);
+    };
+    
+    self.getBgColours = function(i){
+    	return 'bg-' + self.getColours(i);
     };
     
 }]);

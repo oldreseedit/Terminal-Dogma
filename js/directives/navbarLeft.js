@@ -19,16 +19,17 @@ main.directive('navbarLeft',['$swipe',function($swipe){
 			var swipeLeft = function()
 			{
 				$element.css('left',0);
-				$element.width(interfaceWidth);				
+				$element.width(interfaceWidth);
 			};
 			
 			var swipeRight = function()
 			{
 				$element.css('left',  menuWidth);
-				$element.width('100%');				
+				$element.width('100%');		
+				$('#footer .tab').css('z-index',99);
 			};
 			
-			$scope.$on('close-navbar',function(){ console.log('received Event!'); haveToSwipeLeft = true; });
+			$scope.$on('close-navbar',function(){ haveToSwipeLeft = true; });
 			
 			$swipe.bind($element, {
 				start : function(coordinates)
@@ -67,7 +68,11 @@ main.directive('navbarLeft',['$swipe',function($swipe){
 					if(haveToSwipeLeft)
 					{
 						swipeLeft();
-						if(!isOpened) haveToSwipeLeft = false;
+						if(!isOpened)
+						{
+							haveToSwipeLeft = false;
+							$('#footer .tab').css('z-index',101);							
+						}
 					}
 					if(!haveToSwipeLeft)
 					{						
