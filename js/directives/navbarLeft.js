@@ -66,6 +66,7 @@ main.directive('navbarLeft',['$swipe','$timeout',function($swipe,$timeout){
 					if(haveToSwipeLeft && !isOpened) haveToSwipeLeft = false;
 					if( !haveToSwipeLeft && ( startPosition.x < 8 || ( startPosition.y < buttonEnd && startPosition.y > buttonStart ) ) )
 					{
+						$('#footer .tab').css('z-index',99);
 						if(coordinates.x !== startPosition.x || coordinates.y !== startPosition.y) hasMoved = true;
 						$element.removeClass('animated-class-fastest');
 						$element.css('left', Math.max(0, Math.min(coordinates.x - startPosition.x, menuWidth)) );						
