@@ -242,7 +242,7 @@ main.directive('bookmarkCourse',['$swipe','$timeout','$location',function($swipe
 		    var endPosition = {};
 		    var hasMoved = false;
 		    var screenWidth = window.innerWidth ? window.innerWidth : screen.width;
-		    var minRight = -0.22*screenWidth;
+		    var minRight = -0.05*screenWidth;
 		    var normalRight = parseInt(right);
 		    var index = $scope.indexOfCourse;
 		    var isAnimating = false;

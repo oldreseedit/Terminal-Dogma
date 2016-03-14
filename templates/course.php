@@ -1,10 +1,10 @@
 <div id="singleCourse">
 
-	<div class="pay-button clickable" ng-if="!course.presubscribed && !course.subscribed && !course.isInCart()" ng-click="course.addCourse()">
+	<div class="pay-button clickable" ng-if="!course.presubscribed && !course.subscribed && !course.isInCart() && !imOnResponsive" ng-click="course.addCourse()">
 		<img src="imgs/iscriviti.png">
 	</div>
 	
-	<div class="faq-button clickable">
+	<div class="faq-button clickable" ng-if="!imOnResponsive">
 		<a href="/faq">
 			<img src="imgs/faq.png">
 		</a>
@@ -23,7 +23,7 @@
 	i) il corso ha la simulazione &&
 	ii) ho già pagato il corso soltanto
 	 -->
-	<div class="pay-button clickable" ng-if="course.hasSimulation && course.subscribed && !course.subscribedToSimulation && !course.isInCart()" ng-click="course.addSimulation()">
+	<div class="pay-button clickable" ng-if="course.hasSimulation && course.subscribed && !course.subscribedToSimulation && !course.isInCart() && !imOnResponsive" ng-click="course.addSimulation()">
 		<img src="imgs/iscriviti-simulazione.png">
 	</div>
 	
