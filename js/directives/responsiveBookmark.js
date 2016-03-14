@@ -1,7 +1,37 @@
 main.directive('bookmarks',function(){
 	return {
 		restrict: 'A',
-		controller: 'bookmarkController'
+		controller: 'bookmarkController',
+		link : function($scope, $element, $attrs)
+		{
+//			console.log($scope);
+			
+			var maxNumberOfCourses = 0;
+			
+		    $scope.$watch(
+		    		function()
+		    		{
+		    			if($scope.$parent.courses.categories) return $scope.$parent.courses.categories;
+		    		},
+		    		function(categories){
+		    			if(categories.length > 0)
+		    			{
+		    				for(var i=0; i<categories.length; i++)
+		    				{
+		    					if(categories[i].tiles)
+		    					{
+		    						if(maxNumberOfCourses < categories[i].tiles.length) maxNumberOfCourses = categories[i].tiles.length;
+		    					}
+		    				}
+		    			    var margin = parseInt($element.find('.category-bookmark').css('margin-top'));
+		    			    var height = $element.find('.category-bookmark').height();
+		    			    
+		    				$element.css('height',(height+margin)* Math.max( maxNumberOfCourses + 1, categories.length ) );
+		    			}
+		    		},
+		    		true
+		    );
+		}
 	};
 });
 
@@ -12,7 +42,7 @@ main.directive('bookmarkCategory',['$swipe','$timeout','$compile',function($swip
 		require : '^bookmarks',
 		replace: true,
 		template: '<div class="category-bookmark animated-class ms150"><div class="bookmark-tail"></div><div class="bookmark-content">'+
-			'<span class="middler"></span><h4 class="inline middle no-padding" ng-bind="category.name" ng-class="courses.getColours(indexOfCategory)"></h4>'+
+			'<span class="middler"></span><h4 class="inline middle noselect no-padding" ng-bind="category.name" ng-class="courses.getColours(indexOfCategory)"></h4>'+
 			'</div> </div>',
 		link : function($scope, $element, $attrs, $ctrl)
 		{
@@ -21,6 +51,7 @@ main.directive('bookmarkCategory',['$swipe','$timeout','$compile',function($swip
 			
 		    var right = $element.css('right');
 		    var margin = parseInt($element.css('margin-top'));
+		    var height = $element.height();
 		    var index = $scope.indexOfCategory;
 		    var startPosition = {};
 		    var endPosition = {};
@@ -28,19 +59,13 @@ main.directive('bookmarkCategory',['$swipe','$timeout','$compile',function($swip
 		    var screenWidth = window.innerWidth ? window.innerWidth : screen.width;
 		    var minRight = -0.22*screenWidth;
 		    var normalRight = parseInt(right);
-		    var height = $element.height();
-		    var numberOfCourses;
+			var isAnimating = false;
 		    
-		    $scope.$watch(
-		    		function()
-		    		{
-		    			if($scope.$parent.$parent.courses.categories[$ctrl.selected]) return $scope.$parent.$parent.courses.categories[$ctrl.selected].tiles.length;
-		    		},
-		    		function(newValue){
-		    			if(newValue > 0) numberOfCourses = newValue;
-		    		}
-		    );
-		     
+
+			var el = $compile('<bookmark-course ng-repeat="course in category.tiles" ng-init="indexOfCourse = $index"></bookmark-course>')( $scope );
+			$element.parent().append(el);
+		    
+		    // TODO: RIVEDI TUTTO COME EVENTI!
 		    
 		    var bounceRight = function()
 		    {
@@ -50,12 +75,7 @@ main.directive('bookmarkCategory',['$swipe','$timeout','$compile',function($swip
 		    	// II phase
 		    	$timeout(function(){
 		    		$element.css('right', -screenWidth);
-		    	},200);
-		    	
-		    	// IV phase
-		    	$timeout(function(){
-		    		disappear();
-		    	},600);
+		    	},250);
 		    };
 		    
 		    var bounceLeft = function()
@@ -66,7 +86,7 @@ main.directive('bookmarkCategory',['$swipe','$timeout','$compile',function($swip
 		    	// II phase
 		    	$timeout(function(){
 		    		$element.css('right', normalRight);
-		    	},200);
+		    	},250);
 		    };
 		    
 		    var goToTop = function()
@@ -84,37 +104,6 @@ main.directive('bookmarkCategory',['$swipe','$timeout','$compile',function($swip
 		    	$element.css('right',normalRight);
 		    };
 		    
-		    var disappear = function()
-		    {
-	    		$element.css('display','none');
-		    };
-		    
-		    var reappear = function()
-		    {
-	    		$element.css('display','block');
-		    };
-		    
-		    var letCoursesAppear = function()
-		    {
-				$element.removeClass('ms150');
-				$element.css('top','0');	
-				var el = $compile('<bookmark-course ng-repeat="course in category.tiles" ng-init="indexOfCourse = $index"></bookmark-course>')( $scope );
-				$element.parent().append(el);
-				$timeout(function(){
-					$element.addClass('ms150');
-				});
-		    };
-		    
-		    var letCoursesDisappear = function()
-		    {
-				$element.removeClass('ms150');
-				$element.css('top',-(height+margin)*index);	
-				$element.parent().find('.course-bookmark').remove();
-				$timeout(function(){
-					$element.addClass('ms150');
-				});
-		    };
-		    
 		    $scope.$watch(
 		    		function()
 		    		{
@@ -123,6 +112,7 @@ main.directive('bookmarkCategory',['$swipe','$timeout','$compile',function($swip
 		    		function(newValue, oldValue)
 		    		{
 //		    			console.log(oldValue + ' -> ' + newValue);
+		    			isAnimating = true;
 		    			
 		    			if(index !== newValue && newValue !== -2 && newValue !== -1)
 		    			{
@@ -137,45 +127,34 @@ main.directive('bookmarkCategory',['$swipe','$timeout','$compile',function($swip
 		    		    	// III phase SELECTION
 		    				$timeout(function(){
 		    					goToTop();
-		    				},400);
-
-		    		    	// IV phase SELECTION
-	    					$timeout(function(){
-	    						letCoursesAppear();
-	    					},600);
+		    				},500);
 		    			}
 		    			if(newValue === -1 && $ctrl.oldSelected !== index)
-		    			{
-		    				// II phase NOSELECTION
-		    				$timeout(function(){
-			    		    	reappear();			
-		    				},200);
-		    				
+		    			{		    				
 		    				// IV phase NOSELECTION
 		    				$timeout(function(){
 			    				bounceLeft();		    					
-		    				},600);		    		
+		    				},750);		    		
 		    			}
 		    			if(newValue === -1 && $ctrl.oldSelected === index)
 		    			{
 		    				// I phase NOSELECTION
 		    				rightToYourPosition();
-		    				
-		    				// II phase NOSELECTION
-	    					$timeout(function(){
-		    					letCoursesDisappear();
-	    					},200);
 
 		    				// III phase NOSELECTION
 		    				$timeout(function(){
 		    					backToYourPosition();
-		    				},400);
+		    				},500);
 		    			}
-		    			
+				    	
+				    	$timeout(function(){
+							isAnimating = false;		    		
+				    	},1000);
 		    		}
 		    );
 		    
 		    $element.bind('click',function(){
+				if(isAnimating) return;
 		    	$timeout(function(){
 		    		$ctrl.toggleSelection(index);
 //					console.log($ctrl);
@@ -185,6 +164,7 @@ main.directive('bookmarkCategory',['$swipe','$timeout','$compile',function($swip
 			$swipe.bind($element,{
 				start : function(coordinates)
 				{
+					if(isAnimating) return;
 					right = parseInt($element.css('right'));
 					startPosition.x = coordinates.x;
 					startPosition.y =  coordinates.y;
@@ -195,6 +175,7 @@ main.directive('bookmarkCategory',['$swipe','$timeout','$compile',function($swip
 				},
 				move : function(coordinates)
 				{
+					if(isAnimating) return;
 //					console.log(coordinates, startPosition);
 					if(coordinates.x !== startPosition.x || coordinates.y !== startPosition.y)
 					{
@@ -209,6 +190,7 @@ main.directive('bookmarkCategory',['$swipe','$timeout','$compile',function($swip
 				},
 				end : function(coordinates,event)
 				{
+					if(isAnimating) return;
 					right = parseInt($element.css('right'));
 					$element.addClass('ms150');
 
@@ -221,7 +203,8 @@ main.directive('bookmarkCategory',['$swipe','$timeout','$compile',function($swip
 					}
 				},
 				cancel : function()
-				{					
+				{	
+					if(isAnimating) return;				
 					right = parseInt($element.css('right'));
 					$element.addClass('ms150');
 
@@ -245,7 +228,7 @@ main.directive('bookmarkCourse',['$swipe','$timeout','$location',function($swipe
 		require : '^bookmarks',
 		replace: true,
 		template: '<div class="course-bookmark animated-class ms150" ng-class="courses.getBgColours(indexOfCategory)"><a ng-href="/courses/{{course.url}}"><div class="bookmark-tail"></div><div class="bookmark-content">'+
-			'<span class="middler"></span><h6 class="inline middle no-padding white" ng-bind="course.title"></h6>'+
+			'<span class="middler"></span><h6 class="inline middle no-padding noselect white" ng-bind="course.title"></h6>'+
 			'</div> </a></div>',
 		link : function($scope, $element, $attrs, $ctrl)
 		{
@@ -262,8 +245,10 @@ main.directive('bookmarkCourse',['$swipe','$timeout','$location',function($swipe
 		    var minRight = -0.22*screenWidth;
 		    var normalRight = parseInt(right);
 		    var index = $scope.indexOfCourse;
-			
-		    $element.css('top', -(height+margin)*(index+1));
+		    var isAnimating = false;
+
+			$element.css('visibility','hidden');
+			$element.css('top',-margin);
 			
 			 $scope.$watch(
 	    		function()
@@ -272,13 +257,25 @@ main.directive('bookmarkCourse',['$swipe','$timeout','$location',function($swipe
 	    		},
 	    		function(newValue, oldValue)
 	    		{
-	    			if(newValue !== -1)
+	    			if(newValue === -1)
 	    			{
-	    				$element.css('top',0);
+	    				isAnimating = true;
+						$element.css('top', -margin);
+    					$timeout(function(){
+    	    				$element.css('visibility','hidden');
+        					isAnimating = false;    						
+    					},250);
 	    			}
-	    			else
+	    			if(newValue === $scope.$parent.indexOfCategory)
     				{
-	    				$element.css('top', -(height+margin)*(index+1));
+//	    				console.log($element);
+	    				isAnimating = true;
+	    				
+    					$timeout(function(){
+	    					$element.css('visibility','visible');
+    						$element.css('top',(height+margin)*(index+1) - margin);
+        					isAnimating = false;    						
+    					},750);
     				}
 	    		}
     		);
@@ -286,6 +283,7 @@ main.directive('bookmarkCourse',['$swipe','$timeout','$location',function($swipe
 			$swipe.bind($element,{
 				start : function(coordinates)
 				{
+					if(isAnimating) return;
 					right = parseInt($element.css('right'));
 					startPosition.x = coordinates.x;
 					startPosition.y =  coordinates.y;
@@ -294,6 +292,7 @@ main.directive('bookmarkCourse',['$swipe','$timeout','$location',function($swipe
 				},
 				move : function(coordinates)
 				{
+					if(isAnimating) return;
 					$element.removeClass('ms150');
 					
 					var position = normalRight - (coordinates.x - startPosition.x);
@@ -302,6 +301,7 @@ main.directive('bookmarkCourse',['$swipe','$timeout','$location',function($swipe
 				},
 				end : function(coordinates,event)
 				{
+					if(isAnimating) return;
 					right = parseInt($element.css('right'));
 					$element.addClass('ms150');
 
@@ -314,7 +314,8 @@ main.directive('bookmarkCourse',['$swipe','$timeout','$location',function($swipe
 					}
 				},
 				cancel : function()
-				{					
+				{
+					if(isAnimating) return;					
 					right = parseInt($element.css('right'));
 					$element.addClass('ms150');
 

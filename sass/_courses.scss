@@ -18,10 +18,23 @@
     	@extend .white;
     }
     
+    #courses-responsive
+    {
+    	position: relative;
+    	width: 100%;
+    	@extend .animated-class-fast;
+    }
+    
     .course-bookmark
     {
-    	z-index: 99 !important;
-    	@extend .bookmark;
+    	z-index: 98;
+    	visibility: hidden;
+		position: absolute;
+		top: 0;
+		right: -13vw;
+    	width: 75vw;
+	    margin-top: 1em;
+	    margin-bottom: 1em;
     	@extend .white;
     }
     

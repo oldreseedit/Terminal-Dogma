@@ -12873,7 +12873,7 @@ textarea {
 }
 
 /* line 26, ../sass/_animate.scss */
-.animated-class-fast {
+.animated-class-fast, #courses #courses-responsive {
   transition: all linear 0.4s;
 }
 
@@ -16416,11 +16416,23 @@ body {
   width: 100%;
 }
 /* line 21, ../sass/_courses.scss */
-#courses .course-bookmark {
-  z-index: 99 !important;
+#courses #courses-responsive {
+  position: relative;
+  width: 100%;
 }
 /* line 28, ../sass/_courses.scss */
-#courses .bookmark, #courses .category-bookmark, #courses .course-bookmark {
+#courses .course-bookmark {
+  z-index: 98;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  right: -13vw;
+  width: 75vw;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+/* line 41, ../sass/_courses.scss */
+#courses .bookmark, #courses .category-bookmark {
   z-index: 100;
   position: relative;
   right: -30vw;
@@ -16428,11 +16440,11 @@ body {
   margin-top: 1em;
   margin-bottom: 1em;
 }
-/* line 37, ../sass/_courses.scss */
+/* line 50, ../sass/_courses.scss */
 #courses .bookmark-content {
   height: 4em;
 }
-/* line 42, ../sass/_courses.scss */
+/* line 55, ../sass/_courses.scss */
 #courses .bookmark-tail {
   position: absolute;
   left: 0;
@@ -16440,11 +16452,11 @@ body {
   border-bottom: 2em solid transparent;
   border-left: 2em solid white;
 }
-/* line 50, ../sass/_courses.scss */
+/* line 63, ../sass/_courses.scss */
 #courses .swipeRight {
   animation-name: swipeRight;
 }
-/* line 55, ../sass/_courses.scss */
+/* line 68, ../sass/_courses.scss */
 #courses .removeSwipeRight {
   animation-name: removeSwipeRight;
 }
@@ -16470,46 +16482,46 @@ body {
     right: -30vw;
   }
 }
-/* line 95, ../sass/_courses.scss */
+/* line 108, ../sass/_courses.scss */
 #courses #tiles-courses {
   margin-top: 3vw;
 }
-/* line 104, ../sass/_courses.scss */
+/* line 117, ../sass/_courses.scss */
 #courses #tiles-courses .category-title {
   font-size: 1.6em;
 }
-/* line 106, ../sass/_courses.scss */
+/* line 119, ../sass/_courses.scss */
 #courses #tiles-courses .category-title .container {
   padding: 5%;
 }
-/* line 112, ../sass/_courses.scss */
+/* line 125, ../sass/_courses.scss */
 #courses #tiles-courses .routePossible {
   cursor: pointer;
 }
-/* line 116, ../sass/_courses.scss */
+/* line 129, ../sass/_courses.scss */
 #courses #tiles-courses .tile {
   width: 100%;
 }
-/* line 120, ../sass/_courses.scss */
+/* line 133, ../sass/_courses.scss */
 #courses #tiles-courses .tile .resp-img, #courses #tiles-courses .tile .avatar, #courses #tiles-courses .tile .avatar-leaf {
   max-width: 60%;
   max-height: 60%;
 }
-/* line 126, ../sass/_courses.scss */
+/* line 139, ../sass/_courses.scss */
 #courses #tiles-courses .tile .title {
   padding: 5%;
   font-size: 1.3em;
 }
-/* line 134, ../sass/_courses.scss */
+/* line 147, ../sass/_courses.scss */
 #courses #tiles-courses .tile .back .back-title {
   font-size: 1.3em;
   padding: 5%;
 }
-/* line 137, ../sass/_courses.scss */
+/* line 150, ../sass/_courses.scss */
 #courses #tiles-courses .tile .back .back-title span {
   display: inline-block;
 }
-/* line 142, ../sass/_courses.scss */
+/* line 155, ../sass/_courses.scss */
 #courses #tiles-courses .tile .back .back-content {
   font-size: 1.2em;
   padding: 5%;

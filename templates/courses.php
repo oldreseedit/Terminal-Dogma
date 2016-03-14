@@ -7,10 +7,11 @@
 <!-- 		<div spinner="courses.coursesData">   -->
 <!-- 		<spinner-place class="fa-4x"></spinner-place> -->
 <!-- 		<spinner-final> -->
-			
-			<div id="courses-bookmarks" ng-if="imOnResponsive" bookmarks>
-				<bookmark-category ng-repeat="category in courses.categories" ng-init="indexOfCategory = $index">
-				</bookmark-category>
+			<div id="courses-responsive">
+				<div id="courses-bookmarks" ng-if="imOnResponsive" bookmarks>
+					<bookmark-category ng-repeat="category in courses.categories" ng-init="indexOfCategory = $index">
+					</bookmark-category>
+				</div>
 			</div>
 			
 	        <div id="tiles-courses" size-on-controller ng-if="!imOnResponsive">
