@@ -1,4 +1,4 @@
-main.controller('courseController',['utilities','$scope','$server','$routeParams','uiCalendarConfig','$timeout','$route','$cookies','inform','$rootScope','cartService',function(utilities,$scope,$server,$routeParams,uiCalendarConfig,$timeout,$route,$cookies,inform,$rootScope,cartService){
+main.controller('courseController',['utilities','$scope','$server','$routeParams','uiCalendarConfig','$timeout','$route','$cookies','inform','$rootScope','cartService','$location',function(utilities,$scope,$server,$routeParams,uiCalendarConfig,$timeout,$route,$cookies,inform,$rootScope,cartService,$location){
     var self = this;
     
     /* CONFIG */
@@ -34,6 +34,11 @@ main.controller('courseController',['utilities','$scope','$server','$routeParams
     var scrollbarsCreated = false;
     
     /* METHODS */
+    
+    self.goTo = function(url)
+    {
+    	$location.path(url);
+    }
     
     self.addCourse = function (){
     	if(self.username == null)
@@ -129,6 +134,15 @@ main.controller('courseController',['utilities','$scope','$server','$routeParams
     };
     
     self.items = [
+//          {
+//        	  id : 'subscription',
+//	          title: 'Iscriviti al corso!',
+//	          classes: 'bg-water button-responsive',
+//	          textColor: 'white',
+//	          width: 100,
+//              noMaxHeight: true,
+//              visible: imOnResponsive        	  
+//          },
           {
         	  id : 'courseDescription',
 	          title: self.courseName,
@@ -146,6 +160,15 @@ main.controller('courseController',['utilities','$scope','$server','$routeParams
               noMaxHeight: true,
               visible: true
           },
+//          {
+//        	  id : 'faq',
+//	          title: 'Domande Frequenti',
+//	          classes: 'bg-water button-responsive',
+//	          width: 100,
+//	          textColor: 'white',
+//              noMaxHeight: true,
+//              visible: imOnResponsive        	  
+//          },
 //          {
 //              id : 'courseTeacher',
 //              title: 'Docente',
@@ -194,7 +217,7 @@ main.controller('courseController',['utilities','$scope','$server','$routeParams
     
     self.getItemClass = function(item)
     {
-    	return 'col-' + item.width + (item.offset ? ' offset-'+item.offset : '') ;
+    	return 'col-' + item.width + (item.offset ? ' offset-'+item.offset : '') + (!item.classes ? ' bg-light-grey' : '') ;
     };
     
     self.isNewRow = function(index)

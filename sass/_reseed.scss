@@ -74,6 +74,31 @@
     }
 }
 
+.bookmark{
+   	z-index: 100;
+	position: relative;
+	right: -30vw;
+   	width: 75vw;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    &.ng-leave
+    {
+    	@extend .fadeOut;
+    }
+}
+    
+.bookmark-content{
+   	height: 4em;
+}
+   
+.bookmark-tail{
+	position: absolute;
+	left: 0;
+   	border-top: 2em solid transparent;
+    border-bottom: 2em solid transparent;
+    border-left: 2em solid white;
+}
+
 html{
 	@extend .animated-slow;
 	@extend .fadeIn;	

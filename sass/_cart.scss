@@ -2,6 +2,11 @@
 	
 	@extend .col-50;
 	@extend .offset-25;
+	@include responsive
+	{
+		width: 100%;
+		margin-left: 0;
+	}
     
     a{
         text-decoration: none;

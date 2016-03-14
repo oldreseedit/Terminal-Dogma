@@ -35,6 +35,81 @@ main.directive('bookmarks',function(){
 	};
 });
 
+main.directive('genericBookmark',['$swipe','$timeout','$location',function($swipe,$timeout,$location){
+	return {
+		restrict: 'AE',
+		scope: {
+			action : '=?bookmarkAction',
+			condition : '=?bookmarkIf',
+			href : '@?bookmarkHref'
+		},
+		transclude: true,
+		template: '<div class="bookmark bg-jungle animated-fast animated-class ms150" ng-click="action()" ng-if="condition"><div class="bookmark-tail"></div><div class="bookmark-content"><span class="middler"></span><h6 class="inline middle no-padding noselect white" ng-transclude></h6></div></div>',
+		link : function($scope, $element, $attrs)
+		{
+			var element;
+			$timeout(function(){
+				element = $element.find('.bookmark');
+				element.css('right', element.css('right'));
+				
+				if($scope.href)
+				{
+					$scope.action = function(){
+						$location.path($scope.href);
+					};
+				}
+			
+			    var right = element.css('right');
+			    var margin = parseInt(element.css('margin-top'));
+			    var height = element.height();
+			    var startPosition = {};
+			    var endPosition = {};
+			    var hasMoved = false;
+			    var screenWidth = window.innerWidth ? window.innerWidth : screen.width;
+			    var minRight = -0.22*screenWidth;
+			    var normalRight = parseInt(right);
+				
+				$swipe.bind($element,{
+					start : function(coordinates)
+					{
+						right = parseInt(element.css('right'));
+						startPosition.x = coordinates.x;
+						startPosition.y =  coordinates.y;
+					},
+					move : function(coordinates)
+					{
+						element.removeClass('ms150');
+						var position = normalRight - (coordinates.x - startPosition.x);
+						element.css('right', position < normalRight ? normalRight : (position > minRight ? minRight : position) );
+					},
+					end : function(coordinates,event)
+					{
+						right = parseInt(element.css('right'));
+						element.addClass('ms150');	
+						if(right !== normalRight)
+						{
+					    	element.css('right',normalRight);
+				    		if(Math.abs(right-normalRight) > 5)
+				    		{
+						    	$timeout(function(){
+					    			$scope.action();
+					    		});			    			
+				    		}
+						}
+					},
+					cancel : function()
+					{		
+						right = parseInt(element.css('right'));
+						element.addClass('ms150');
+				    	element.css('right',normalRight);
+					}
+				});
+			});
+		}		
+	};
+
+}]);
+
 main.directive('bookmarkCategory',['$swipe','$timeout','$compile',function($swipe,$timeout,$compile){
 	return {
 		restrict: 'AEC',

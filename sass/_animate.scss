@@ -23,11 +23,36 @@
  	transition: all linear;
 }
 
+.noTransition {
+    -moz-transition: none;
+    -webkit-transition: none;
+    -o-transition: all 0 ease-in;
+    transition: none;
+}
+
+@mixin noTransition
+{
+    -moz-transition: none;
+    -webkit-transition: none;
+    -o-transition: all 0 ease-in;
+    transition: none;	
+}
+
+.animated-class-slow{
+	-webkit-transform: translateZ(0);
+	transform: translateZ(0);
+ 	transition: all linear 1.25s;
+}
+
 .animated-class-fast{
+	-webkit-transform: translateZ(0);
+	transform: translateZ(0);
  	transition: all linear 0.4s;
 }
 
 .animated-class-fastest{
+	-webkit-transform: translateZ(0);
+	transform: translateZ(0);
  	transition: all linear 0.2s;	
 }
 
