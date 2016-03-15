@@ -6,6 +6,13 @@ tt.controller('matrixCtrl', ['$scope','$timeout', function($scope, $timeout){
 	self.numRows = 1;
 	self.numCols = 1;
 	
+	self.promise;
+	
+	self.setSize = function()
+	{
+		self.m.setSize(self.numRows,self.numCols);
+	}
+	
 	$scope.$watchCollection(
 			function()
 			{
@@ -13,11 +20,12 @@ tt.controller('matrixCtrl', ['$scope','$timeout', function($scope, $timeout){
 			},
 			function(newValues)
 			{
-				self.m.setSize(newValues[0],newValues[1]);
 				if($scope.reRender)
 				{
-					console.log($scope.reRender());
-					$scope.reRender();
+					$timeout.cancel(self.promise);
+					self.promise = $timeout(function(){
+						$scope.reRender(self.setSize);
+					},100);
 				}
 			}
 	);

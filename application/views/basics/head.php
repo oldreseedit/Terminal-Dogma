@@ -117,13 +117,23 @@
 	<script type="text/javascript">
 		window.MathJax = {
 			AuthorInit: function () {
-				MathJax.Hub.Register.StartupHook('End Typeset',function () {
+				MathJax.Hub.Register.StartupHook('End',function () {
 					var event = document.createEvent('Event');
 					event.initEvent('MathJaxLoaded', true, true);
 					window.dispatchEvent(event);					
 				});
-// 				MathJax.Hub.Startup.signal.Interest(
-// 				  function (message) {console.log("Startup: "+message)}
+// 				MathJax.Hub.Register.MessageHook('Begin Process',function () {
+// 					var event = document.createEvent('Event');
+// 					event.initEvent('beginMath', true, true);
+// 					window.dispatchEvent(event);					
+// 				});
+// 				MathJax.Hub.Register.MessageHook('End Process',function () {
+// 					var event = document.createEvent('Event');
+// 					event.initEvent('endMath', true, true);
+// 					window.dispatchEvent(event);					
+// 				});
+// 				MathJax.Hub.signal.Interest(
+// 				  function (message) {console.log("Hub: "+message)}
 // 				);
 			}
 		};
@@ -136,7 +146,8 @@
     
     <!-- AngularJS Modules -->
     
-     <script type="text/javascript" src="TT/js/main.js"></script>       
+    <script type="text/javascript" src="TT/js/main.js"></script>       
+    <script type="text/javascript" src="TT/js/directives/math.js"></script>
     <script type="text/javascript" src="TT/js/matrixCtrl.js"></script>    
     
     <script type="text/javascript" src="js/main.js"></script>
@@ -161,7 +172,6 @@
     <script type="text/javascript" src="js/directives/flipper.js"></script>
     <script type="text/javascript" src="js/directives/navbarLeft.js"></script>
     <script type="text/javascript" src="js/directives/responsiveBookmark.js"></script>
-    <script type="text/javascript" src="js/directives/math.js"></script>
     <script type="text/javascript" src="js/directives/sizeOn.js"></script>
     <script type="text/javascript" src="js/directives/spinner.js"></script>
     <script type="text/javascript" src="js/directives/macroList.js"></script>

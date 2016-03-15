@@ -1,8 +1,8 @@
 var Matrix = function()
 {	
-	this.matrix = [];
-	this.nRows = 0;
-	this.nCols = 0;
+	this.matrix = [[0]];
+	this.nRows = 1;
+	this.nCols = 1;
 	this.errors = [];
 	
 	this.error = function(errorString)
@@ -17,48 +17,50 @@ var Matrix = function()
 	
 	this.setSize= function(m,n)
 	{
-		if(this.nRows < m)
+		if(!m || !n) return;
+		
+		if(this.nRows < m && m>0)
 		{
 			for(var i=0; i<m-this.nRows; i++)
 			{
 				this.matrix.push([]);
 			}
-			this.nRows = m;
 		}
 		
-		if(this.nRows > m)
+		if(this.nRows > m && m>0)
 		{
 			this.matrix.splice(m,this.nRows-m);
-			this.nRows = m;
 		}
 		
 		for(var i=0; i<m; i++)
 		{
-			if(this.nCols < n)
+			if(this.nCols < n && n>0)
 			{
 				for(var j=0; j<n-this.nCols; j++)
 				{
-					this.matrix[j].push([]);
+					this.matrix[i].push([]);
 				}
-				this.nCols = n;
 			}
 			
-			if(this.nCols > n)
+			if(this.nCols > n && n>0)
 			{
 				this.matrix[i].splice(n,this.nCols-n);
-				this.nCols = n;
 			}
 			
 			for(var j=0; j<n; j++)
 			{
-				this.matrix[i][j] = 0;
+				if(i>=this.nRows || j >= this.nCols) this.matrix[i][j] = 0;
 			}
 		}		
+		
+		this.nRows = m;
+		this.nCols = n;
+		
 	}
 	
 	this.pushRow = function(row)
 	{
-		if(this.nCols !== 0 && row.length !== this.nCols) this.error('Numero di colonne diverso dal pre-esistente');
+		if(this.nCols !== 1 && row.length !== this.nCols) this.error('Numero di colonne diverso dal pre-esistente');
 		else
 		{
 			this.matrix.push(row);
@@ -69,7 +71,7 @@ var Matrix = function()
 	
 	this.pushCol = function(col)
 	{
-		if(this.nRows !== 0 && col.length !== this.nRows) this.error('Numero di righe diverso dal pre-esistente');
+		if(this.nRows !== 1 && col.length !== this.nRows) this.error('Numero di righe diverso dal pre-esistente');
 		else
 		{
 			for(var i=0; i<col.length; i++)
@@ -84,7 +86,6 @@ var Matrix = function()
 	
 	this.display = function(mode)
 	{
-		if(this.nRows === this.nCols === 0) return '';
 		var tex;
 		
 		tex = (mode === 'inline' ? '\\(' : '\\[');

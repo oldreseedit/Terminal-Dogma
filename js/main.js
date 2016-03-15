@@ -49,19 +49,40 @@ main.run(['$rootScope','$location','$timeout','$server','$cookies','$window','$r
 	// For MathJax
 	window.addEventListener('MathJaxLoaded', function(){
 		
-		$rootScope.$broadcast('endOfTypeset');
+		$rootScope.$broadcast('MathJaxLoaded');
 		
-		function broadcast(state){
-			$rootScope.$broadcast(state+'OfTypeset');
-		};
-		
-		$rootScope.reRender = function()
+		function broadcast(state)
 		{
-			MathJax.Callback.Queue(
+			var promise = $timeout(function(){
+				$rootScope.$broadcast(state + 'OfTypeset');
+			});
+			return promise;
+		}
+		
+		function exec(func)
+		{
+			var promise = $timeout(function(){
+				func();
+			});
+			return promise;
+		}
+		
+		function render()
+		{
+			var promise = $timeout(function(){
+				MathJax.Hub.Typeset();
+			});
+			return promise;
+		}
+		
+		$rootScope.reRender = function(midStepFunc)
+		{
+			MathJax.Hub.Queue(
 				[broadcast,'begin'],
-				["Typeset",MathJax.Hub],
+				[exec,midStepFunc],
+				[render],
 				[broadcast,'end']
-			);
+			);				
 		};
 	});
 	
