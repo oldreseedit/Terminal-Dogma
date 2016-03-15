@@ -10,13 +10,14 @@ var main = angular.module('Main',[
     'monospaced.elastic', // For text-area auto-resizing
     'uiGmapgoogle-maps', // For Google Maps integration
     'youtube-embed', // For embedding Youtube Videos
-    'ngFitText', // My creation for perfectly centering text into div
-    'gridster', // For draggable/resizable divs
+//    'ngFitText', // My creation for perfectly centering text into div
+//    'gridster', // For draggable/resizable divs
     'lr.upload', // For uploading purposes
     'inform', // For notifier purposes
     'angularMoment', // For inline moment
     'ngAnimate', // For animations
     'ngTouch', // For Touch Support
+    'teachingToolbox', // It explains itself
     ], function($httpProvider) {
 
     // FOR CI
@@ -42,7 +43,7 @@ var main = angular.module('Main',[
 moment.locale('it', {}); 
 
 /*** RUN PHASE ***/
-main.run(['$rootScope','$location','$timeout','$server','$cookies','$window','$route','gridsterConfig','inform','$cookies','fb',function($rootScope, $location, $timeout, $server, $cookies, $window, $route, gridsterConfig,inform,$cookies,fb) {
+main.run(['$rootScope','$location','$timeout','$server','$cookies','$window','$route','inform','$cookies','fb',function($rootScope, $location, $timeout, $server, $cookies, $window, $route, inform,$cookies,fb) {
 	
 	/** FOR RESPONSIVE STYLES **/
   

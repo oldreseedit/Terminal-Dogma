@@ -93,8 +93,8 @@
     <script src="bower_components/angular-youtube-mb/src/angular-youtube-embed.js"></script>
     
     <!-- Angular Gridster -->
-    <script src="bower_components/javascript-detect-element-resize/jquery.resize.js"></script>
-    <script src="bower_components/angular-gridster/src/angular-gridster.js"></script>
+<!--     <script src="bower_components/javascript-detect-element-resize/jquery.resize.js"></script> -->
+<!--     <script src="bower_components/angular-gridster/src/angular-gridster.js"></script> -->
     
     <!-- Angular File Upload -->
     <script src='bower_components/angular-upload/angular-upload.js'></script>
@@ -113,7 +113,18 @@
     <!-- Angular monospaced elastic for textareas -->
     <script type="text/javascript" src="js/directives/elastic.js"></script>
     
+	<!-- MathJax  -->
+	<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
+    
+	<!--  Teaching Toolbox -->
+    <script type="text/javascript" src="TT/js/classes/Matrix.js"></script>
+    
     <!-- AngularJS Modules -->
+    
+     <script type="text/javascript" src="TT/js/main.js"></script>       
+    <script type="text/javascript" src="TT/js/matrixCtrl.js"></script>    
+    
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/filters/firstCapitalized.js"></script>
     <script type="text/javascript" src="js/filters/experiencePointsFormatter.js"></script>
@@ -123,7 +134,7 @@
     <script type="text/javascript" src="js/factories/reseedFacebook.js"></script>
     <script type="text/javascript" src="js/factories/server.js"></script>
     <script type="text/javascript" src="js/config/elasticConfig.js"></script>
-    <script type="text/javascript" src="js/config/gridsterConfig.js"></script>
+<!--     <script type="text/javascript" src="js/config/gridsterConfig.js"></script> -->
     <script type="text/javascript" src="js/config/httpInterceptors.js"></script>
     <script type="text/javascript" src="js/config/informConfig.js"></script>
     <script type="text/javascript" src="js/config/routesConfig.js"></script>
@@ -175,8 +186,6 @@
     <script type="text/javascript" src="js/controllers/preferences.js"></script>
     <script type="text/javascript" src="js/controllers/modifyPreference.js"></script>
     <script type="text/javascript" src="js/controllers/cart.js"></script>
-    <script type="text/javascript" src="js/controllers/math.js"></script>
-    
     <!-- endinjector -->
      
     <!-- PERSONAL CSS-->

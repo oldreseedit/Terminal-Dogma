@@ -188,6 +188,16 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
         templateUrl : 'templates/school.php'
     });
     
+    /* TEACHING TOOLBOX */
+    
+    // Matrix
+
+    $routeProvider.when('/matrix',{
+    	title : 'Calcolo Matriciale',
+        templateUrl : 'TT/templates/matrix.php'
+    });
+    
+    
     $routeProvider.otherwise({
     	templateUrl : 'templates/error.php',
     });

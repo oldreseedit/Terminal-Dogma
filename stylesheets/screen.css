@@ -1932,7 +1932,7 @@ mark,
 }
 
 /* line 92, ../sass/bootstrap/_type.scss */
-.text-center, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #menu, #navbar-toggle, #navbar, #navbar-tabs, #footer, #team, #singleCourse .panel-title, #singleActivity .panel-title, #register, #register .XP, #profile .panel-title, #profile .profile-level-symbol, #cart .panel-title {
+.text-center, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #TT-matrix, #menu, #navbar-toggle, #navbar, #navbar-tabs, #footer, #team, #singleCourse .panel-title, #singleActivity .panel-title, #register, #register .XP, #profile .panel-title, #profile .profile-level-symbol, #cart .panel-title {
   text-align: center;
 }
 
@@ -9453,7 +9453,7 @@ button.close {
 }
 
 /* line 12, ../sass/_responsive.scss */
-.offset-15, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #payment .paymentStep, #faqPage .faqStep {
+.offset-15, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #TT-matrix, #payment .paymentStep, #faqPage .faqStep {
   margin-left: 15%;
 }
 
@@ -10322,7 +10322,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-70, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #news-events .news-title, #payment .paymentStep, #faqPage .faqStep {
+.col-70, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #TT-matrix, #news-events .news-title, #payment .paymentStep, #faqPage .faqStep {
   width: 70%;
   float: left;
 }
@@ -12296,12 +12296,12 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 /* line 144, ../sass/_tricks.scss */
-.in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences {
+.in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #TT-matrix {
   margin-bottom: 1em;
 }
 @media all and (max-device-width: 1079px) {
   /* line 144, ../sass/_tricks.scss */
-  .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences {
+  .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #TT-matrix {
     width: 94%;
     margin-left: 3%;
   }
@@ -17540,22 +17540,24 @@ label p {
   border: 1.5px solid #B3B2B3;
 }
 
-/* line 45, ../sass/_reseed.scss */
+/* Teaching Toolbox */
+/* MAIN */
+/* line 51, ../sass/_reseed.scss */
 #main {
   width: 100%;
   padding-left: 0.5em;
 }
 
-/* line 54, ../sass/_reseed.scss */
+/* line 60, ../sass/_reseed.scss */
 .mini-header {
   margin-bottom: 2em;
 }
-/* line 58, ../sass/_reseed.scss */
+/* line 64, ../sass/_reseed.scss */
 .mini-header img {
   width: 100%;
 }
 
-/* line 77, ../sass/_reseed.scss */
+/* line 83, ../sass/_reseed.scss */
 .bookmark, #courses .category-bookmark {
   z-index: 100;
   position: relative;
@@ -17565,12 +17567,12 @@ label p {
   margin-bottom: 1em;
 }
 
-/* line 90, ../sass/_reseed.scss */
+/* line 96, ../sass/_reseed.scss */
 .bookmark-content {
   height: 4em;
 }
 
-/* line 94, ../sass/_reseed.scss */
+/* line 100, ../sass/_reseed.scss */
 .bookmark-tail {
   position: absolute;
   left: 0;
