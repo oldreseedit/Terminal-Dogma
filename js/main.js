@@ -20,13 +20,13 @@ var main = angular.module('Main',[
     'teachingToolbox', // It explains itself
     ], function($httpProvider) {
 
-    // FOR CI
+    // For CI
     $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
     $httpProvider.defaults.transformRequest = [function(data) {
         return angular.isObject(data) && String(data) !== '[object File]' ? $.param(data) : data;
     }];
     
-    // FOR FB
+    // For FB
 	(function(d, s, id){
 		var js, fjs = d.getElementsByTagName(s)[0];
 		if (d.getElementById(id)) {return;}
@@ -37,6 +37,7 @@ var main = angular.module('Main',[
 		js.src = "//connect.facebook.net/it_it/sdk.js";
 		fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));
+	
 });
 
 /* Configures Moment plugin to display dates in Italian */
@@ -44,6 +45,25 @@ moment.locale('it', {});
 
 /*** RUN PHASE ***/
 main.run(['$rootScope','$location','$timeout','$server','$cookies','$window','$route','inform','$cookies','fb',function($rootScope, $location, $timeout, $server, $cookies, $window, $route, inform,$cookies,fb) {
+
+	// For MathJax
+	window.addEventListener('MathJaxLoaded', function(){
+		
+		$rootScope.$broadcast('endOfTypeset');
+		
+		$rootScope.reRender = function()
+		{
+			MathJax.Callback.Queue(
+				[function(){
+					$rootScope.$broadcast('beginOfTypeset');
+				},0],
+				["Typeset",MathJax.Hub],
+				[function(){
+					$rootScope.$broadcast('endOfTypeset');
+				},0]
+			);
+		};
+	});
 	
 	/** FOR RESPONSIVE STYLES **/
   

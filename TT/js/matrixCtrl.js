@@ -14,9 +14,11 @@ tt.controller('matrixCtrl', ['$scope','$timeout', function($scope, $timeout){
 			function(newValues)
 			{
 				self.m.setSize(newValues[0],newValues[1]);
-				$timeout(function(){
-					MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
-				});
+				if($scope.reRender)
+				{
+					console.log($scope.reRender);
+					$scope.reRender();
+				}
 			}
 	);
 	

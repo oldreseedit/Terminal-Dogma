@@ -114,6 +114,20 @@
     <script type="text/javascript" src="js/directives/elastic.js"></script>
     
 	<!-- MathJax  -->
+	<script type="text/javascript">
+		window.MathJax = {
+			AuthorInit: function () {
+				MathJax.Hub.Register.StartupHook('End Typeset',function () {
+					var event = document.createEvent('Event');
+					event.initEvent('MathJaxLoaded', true, true);
+					window.dispatchEvent(event);					
+				});
+// 				MathJax.Hub.Startup.signal.Interest(
+// 				  function (message) {console.log("Startup: "+message)}
+// 				);
+			}
+		};
+	</script>
 	<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
     
     
@@ -147,6 +161,7 @@
     <script type="text/javascript" src="js/directives/flipper.js"></script>
     <script type="text/javascript" src="js/directives/navbarLeft.js"></script>
     <script type="text/javascript" src="js/directives/responsiveBookmark.js"></script>
+    <script type="text/javascript" src="js/directives/math.js"></script>
     <script type="text/javascript" src="js/directives/sizeOn.js"></script>
     <script type="text/javascript" src="js/directives/spinner.js"></script>
     <script type="text/javascript" src="js/directives/macroList.js"></script>
