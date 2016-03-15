@@ -17185,63 +17185,6 @@ label p {
   margin-bottom: 0.5em;
 }
 
-<<<<<<< HEAD
-=======
-/* line 1, ../sass/_write-tutorial.scss */
-#write-tutorial {
-  text-align: left;
-  margin-top: 1em;
-}
-/* line 7, ../sass/_write-tutorial.scss */
-#write-tutorial .buttons {
-  margin: 3em 0px;
-}
-
-/* line 1, ../sass/_tutorials.scss */
-#tutorials {
-  text-align: left;
-  margin-top: 1em;
-}
-/* line 7, ../sass/_tutorials.scss */
-#tutorials .tutorial {
-  margin-bottom: 50px;
-  color: black;
-}
-/* line 13, ../sass/_tutorials.scss */
-#tutorials .tutorial-title {
-  color: white;
-  font-size: 2em;
-  padding-left: 10px;
-}
-/* line 21, ../sass/_tutorials.scss */
-#tutorials .tutorial-course {
-  font-size: 1.5em;
-  padding-left: 10px;
-}
-/* line 29, ../sass/_tutorials.scss */
-#tutorials .tutorial-description {
-  padding-left: 5px;
-}
-/* line 35, ../sass/_tutorials.scss */
-#tutorials .tutorial-footer {
-  line-height: 3em;
-  padding-bottom: 10px;
-}
-/* line 46, ../sass/_tutorials.scss */
-#tutorials .tutorial-readmore {
-  padding-left: 10px;
-  font-size: 1.5em;
-}
-/* line 52, ../sass/_tutorials.scss */
-#tutorials .tutorial-tag {
-  border-radius: 15px 100px 100px;
-  padding: 5px 20px;
-  line-height: 3em;
-  margin: 0px 10px;
-  font-weight: bold;
-}
-
->>>>>>> parent of e7ce6d5... Revert "Major advance in Tutorial pages"
 /* line 1, ../sass/_scrollbar.scss */
 .scrollbar-wrapper {
   padding: 10px;
