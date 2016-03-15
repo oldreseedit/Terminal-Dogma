@@ -53,7 +53,7 @@
     <div class="no-items">
 		<div  ng-repeat="item in course.items" ng-init="index = $index" ng-if="item.visible">
 			<div class="clearfix" ng-if="course.isNewRow(index) && !imOnResponsive"></div>
-	        <div class="no-gridster-item" equal-height="course.getAdjacent(item.id)" equal-height-if="!imOnResponsive" id="{{item.id}}" ng-class="course.getItemClass(item)" ng-style="item.noMaxHeight ? {'max-height':  'none'} : ''">
+	        <div class="no-gridster-item" equal-height="course.getAdjacent(item.id)" id="{{item.id}}" ng-class="course.getItemClass(item)" ng-style="item.noMaxHeight ? {'max-height':  'none'} : ''">
 <!-- 	        	<div ng-if="item.id === 'courseBanner'" class="container banner bg-dark-water text-center" > -->
 <!-- 					<div ng-include="item.templateUrl"></div> -->
 <!-- 				</div> -->
