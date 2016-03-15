@@ -16,7 +16,7 @@ tt.controller('matrixCtrl', ['$scope','$timeout', function($scope, $timeout){
 				self.m.setSize(newValues[0],newValues[1]);
 				if($scope.reRender)
 				{
-					console.log($scope.reRender);
+					console.log($scope.reRender());
 					$scope.reRender();
 				}
 			}

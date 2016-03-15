@@ -51,16 +51,16 @@ main.run(['$rootScope','$location','$timeout','$server','$cookies','$window','$r
 		
 		$rootScope.$broadcast('endOfTypeset');
 		
+		function broadcast(state){
+			$rootScope.$broadcast(state+'OfTypeset');
+		};
+		
 		$rootScope.reRender = function()
 		{
 			MathJax.Callback.Queue(
-				[function(){
-					$rootScope.$broadcast('beginOfTypeset');
-				},0],
+				[broadcast,'begin'],
 				["Typeset",MathJax.Hub],
-				[function(){
-					$rootScope.$broadcast('endOfTypeset');
-				},0]
+				[broadcast,'end']
 			);
 		};
 	});
