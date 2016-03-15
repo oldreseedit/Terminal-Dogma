@@ -19,10 +19,13 @@
 							</a>
 						</div>
 						<div class="col-lg-8" equal-height>
-							<div class="tutorial-title"><a ng-href="/tutorial/{{tutorial.url}}"><span ng-bind-html="tutorial.title"></span></a></div>
+							<div class="tutorial-title">
+								<a ng-href="/tutorial/{{tutorial.url}}"><span ng-bind-html="tutorial.title"></span></a>
+								<a title="Modifica il tutorial" style="float:right; margin-right:10px;" ng-href="/write-tutorial/{{tutorial.url}}"><span class="fa fa-pencil"></span></a>
+							</div>
 							<div class="tutorial-course">
 								<div><strong>Corso di:</strong> <span ng-bind-html="tutorial.course"></span></div>
-								<div class="tutorial-time" ng-bind="tutorial.time"></div>
+								<div><strong>Pubblicato:</strong> <span class="tutorial-time" ng-bind="tutorial.time"></span></div>
 							</div>
 							<div class="tutorial-description" ng-bind-html="tutorial.description"></div>
 							<div class="tutorial-footer">

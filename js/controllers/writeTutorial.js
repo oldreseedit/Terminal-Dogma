@@ -22,11 +22,11 @@ main.controller('writeTutorial',['$rootScope', '$routeParams','$server','$scope'
 	    		function(response)
 	    		{
 	    			self.tutorial = response.data;
-	    			console.log(self.tutorial);
+//	    			console.log(self.tutorial);
 	    			
 	    			self.tutorialTitle = self.tutorial.title;
 	    			self.tutorialID = self.tutorial.tutorialID;
-	    			self.tutorialCourse = self.tutorial.course;
+	    			self.tutorialCourse = {name: self.tutorial.course};
 	    			self.tutorialShortDescription = self.tutorial.description;
 	    			self.tutorialRequirements = self.tutorial.requirements;
 	    			self.tutorialBody = self.tutorial.body;
@@ -103,6 +103,7 @@ main.controller('writeTutorial',['$rootScope', '$routeParams','$server','$scope'
     		function(response)
     		{
     			self.courses = response.data;
+//    			console.log(self.courses);
     		}
         );
 	

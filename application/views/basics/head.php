@@ -136,6 +136,7 @@
     <script type="text/javascript" src="js/config/httpInterceptors.js"></script>
     <script type="text/javascript" src="js/config/informConfig.js"></script>
     <script type="text/javascript" src="js/config/routesConfig.js"></script>
+    <script type="text/javascript" src="js/config/textAngularConfig.js"></script>
     <script type="text/javascript" src="js/directives/bootstrapInput.js"></script>
     <script type="text/javascript" src="js/directives/centered.js"></script>
     <script type="text/javascript" src="js/directives/elastic.js"></script>

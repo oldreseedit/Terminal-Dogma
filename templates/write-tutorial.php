@@ -8,7 +8,7 @@
 		<h1>Corso del tutorial</h1>
 		<p>Scegli il corso per cui stai scrivendo questo tutorial (o in ogni caso quello che ritieni essere più vicino).</p>
 		<select name="subject" style="font-size: 1.3em; padding: 20px; font-weight: bold;"
-			ng-options="course.name for course in writeTutorial.courses"
+			ng-options="course.name for course in writeTutorial.courses track by course.name"
 			ng-model="writeTutorial.tutorialCourse">
 			<option value="" disabled>Scegli il corso</option>
 		</select>
@@ -80,7 +80,7 @@
 		
 		<h1>Requisiti (hardware/software)</h1>
 		<p>Qui dovresti inserire tutti gli strumenti necessari a (e)seguire il tutorial</p>
-		<div placeholder="Requisiti" text-angular ng-model="writeTutorial.tutorialRequirements"></div>
+		<div placeholder="Requisiti" text-angular ta-toolbar="[['h1','h2','h3','html'],['bold','italics','colourRed']]" ng-model="writeTutorial.tutorialRequirements"></div>
 		
 		<h1>Corpo del tutorial</h1>
 		<p>Corpo del tutorial: qui ci dovrebbero essere le vere e proprie istruzioni.</p>

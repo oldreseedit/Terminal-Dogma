@@ -17188,18 +17188,16 @@ label p {
 /* line 4, ../sass/_tutorial.scss */
 #tutorial a {
   text-decoration: none;
-  color: white;
 }
-/* line 15, ../sass/_tutorial.scss */
+/* line 14, ../sass/_tutorial.scss */
 #tutorial .no-gridster-item {
   margin-bottom: 1em;
-  max-height: 75vh;
 }
-/* line 20, ../sass/_tutorial.scss */
+/* line 18, ../sass/_tutorial.scss */
 #tutorial .panel-title {
   font-variant: small-caps;
 }
-/* line 26, ../sass/_tutorial.scss */
+/* line 24, ../sass/_tutorial.scss */
 #tutorial .panel-content {
   padding: 26px 10px 26px 10px;
 }
