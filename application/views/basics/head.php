@@ -98,6 +98,7 @@
     
     <!-- Angular File Upload -->
     <script src='bower_components/angular-upload/angular-upload.js'></script>
+    <script src='bower_components/angular-file-upload/dist/angular-file-upload.js'></script>
     
     <!-- Angular Inform -->
     <link rel="stylesheet" href="bower_components/angular-inform/dist/angular-inform.min.css"/>
@@ -112,6 +113,12 @@
     
     <!-- Angular monospaced elastic for textareas -->
     <script type="text/javascript" src="js/directives/elastic.js"></script>
+    
+    <!-- Text-angular -->
+    <link rel='stylesheet' href='/bower_components/textAngular/dist/textAngular.css'>
+	<script src='/bower_components/textAngular/dist/textAngular-rangy.min.js'></script>
+	<script src='/bower_components/textAngular/dist/textAngular-sanitize.min.js'></script>
+	<script src='/bower_components/textAngular/dist/textAngular.min.js'></script>
     
     <!-- AngularJS Modules -->
     <script type="text/javascript" src="js/main.js"></script>
@@ -176,6 +183,9 @@
     <script type="text/javascript" src="js/controllers/modifyPreference.js"></script>
     <script type="text/javascript" src="js/controllers/cart.js"></script>
     <script type="text/javascript" src="js/controllers/math.js"></script>
+    <script type="text/javascript" src="js/controllers/writeTutorial.js"></script>
+    <script type="text/javascript" src="js/controllers/tutorialController.js"></script>
+    <script type="text/javascript" src="js/controllers/viewTutorialController.js"></script>
     
     <!-- endinjector -->
      
