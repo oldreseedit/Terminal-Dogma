@@ -14,3 +14,4 @@ application/views/profile/profile2.php
 js/controllers/Copy of course.js
 application/views/courses/course2.php
 application/config/paypal.php
+*.db
