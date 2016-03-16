@@ -3,16 +3,14 @@ tt.directive('math',['$timeout',function($timeout){
 		restrict : 'A',
 		link : function($scope, $element, $attrs)
 		{
-			$element.addClass('animated-fast');
-			$element.css('visibility', 'hidden');
+			$element.addClass('animated-fastest');
+			$element.css('opacity',0);
 			
 			var appear = function(){
 				$element.addClass('fadeIn');
-				$element.removeClass('fadeOut');
-				$element.css('visibility','visible');				
+				$element.removeClass('fadeOut');		
 			}
 			var disappear = function(){
-				$element.css('visibility','hidden');
 				$element.addClass('fadeOut');
 				$element.removeClass('fadeIn');				
 			}
