@@ -2,7 +2,6 @@
 .externalToolBuilders/
 .settings/
 node_modules/
-bower_components/
 snapshots/
 uploads/
 .project
@@ -14,3 +13,5 @@ application/views/profile/profile2.php
 js/controllers/Copy of course.js
 application/views/courses/course2.php
 application/config/paypal.php
+*.db
+stylesheets/screen.css

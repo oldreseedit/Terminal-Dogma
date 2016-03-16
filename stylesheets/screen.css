@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /* Welcome to Compass.
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
@@ -1932,12 +1932,13 @@ mark,
 }
 
 /* line 92, ../sass/bootstrap/_type.scss */
-.text-center, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #TT-matrix, #menu, #navbar-toggle, #navbar, #navbar-tabs, #footer, #team, #singleCourse .panel-title, #singleActivity .panel-title, #register, #register .XP, #profile .panel-title, #profile .profile-level-symbol, #cart .panel-title {
+
+.text-center, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, #menu, #navbar-toggle, #navbar, #navbar-tabs, #footer, #team, #singleCourse .panel-title, #singleActivity .panel-title, #register, #register .XP, #profile .panel-title, #profile .profile-level-symbol, #cart .panel-title, #tutorial .panel-title {
   text-align: center;
 }
 
 /* line 93, ../sass/bootstrap/_type.scss */
-.text-justify, #singleCourse .gridster-item, #singleCourse .teacher-description, #singleActivity .gridster-item, #profile .gridster-item, #cart .gridster-item, .scrollbar-wrapper .scrollbar {
+.text-justify, #singleCourse .gridster-item, #singleCourse .teacher-description, #singleActivity .gridster-item, #profile .gridster-item, #cart .gridster-item, #tutorial .gridster-item, .scrollbar-wrapper .scrollbar {
   text-align: justify;
 }
 
@@ -9453,7 +9454,11 @@ button.close {
 }
 
 /* line 12, ../sass/_responsive.scss */
+<<<<<<< HEAD
 .offset-15, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #TT-matrix, #payment .paymentStep, #faqPage .faqStep {
+=======
+.offset-15, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, #payment .paymentStep, #faqPage .faqStep {
+>>>>>>> refs/remotes/origin/master
   margin-left: 15%;
 }
 
@@ -10322,7 +10327,11 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
+<<<<<<< HEAD
 .col-70, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #TT-matrix, #news-events .news-title, #payment .paymentStep, #faqPage .faqStep {
+=======
+.col-70, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, #news-events .news-title, #payment .paymentStep, #faqPage .faqStep {
+>>>>>>> refs/remotes/origin/master
   width: 70%;
   float: left;
 }
@@ -10802,7 +10811,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-100, #admin .admin-content, #navbar-logged, #footer, #footer #commercial-info, #home, #tiles-presentation, #tiles-presentation .inside-tab .tab-content, #team, #singleCourse .gridster-item, #singleCourse .panel-title, #singleCourse .panel-content, #singleCourse .teacher-icon .team-social-buttons, #singleCourse .teacher-avatar, #singleCourse .course-description-introduction, #singleCourse .course-description-syllabus, #singleCourse .course-description, #singleActivity .gridster-item, #singleActivity .panel-title, #singleActivity .panel-content, #media .media-panel, #media .media-panel .media-panel-title, #media .media-panel .media-panel-main, #register, #register .XP, #payment .stepLine, #payment .stepContent, #faqPage .stepLine, #faqPage .stepContent, #profile .gridster-item, #profile .panel-title, #profile .panel-content, #profile .profile-name-level-xp .profile-xp, #profile .profile-info, #cart .gridster-item, #cart .panel-title, #cart .panel-content, .scrollbar-wrapper, .wrapper, .mini-header {
+.col-100, #admin .admin-content, #navbar-logged, #footer, #footer #commercial-info, #home, #tiles-presentation, #tiles-presentation .inside-tab .tab-content, #team, #singleCourse .gridster-item, #singleCourse .panel-title, #singleCourse .panel-content, #singleCourse .teacher-icon .team-social-buttons, #singleCourse .teacher-avatar, #singleCourse .course-description-introduction, #singleCourse .course-description-syllabus, #singleCourse .course-description, #singleActivity .gridster-item, #singleActivity .panel-title, #singleActivity .panel-content, #media .media-panel, #media .media-panel .media-panel-title, #media .media-panel .media-panel-main, #register, #register .XP, #payment .stepLine, #payment .stepContent, #faqPage .stepLine, #faqPage .stepContent, #profile .gridster-item, #profile .panel-title, #profile .panel-content, #profile .profile-name-level-xp .profile-xp, #profile .profile-info, #cart .gridster-item, #cart .panel-title, #cart .panel-content, #tutorial .gridster-item, #tutorial .panel-title, #tutorial .panel-content, #tutorial .tutorial-panel, .scrollbar-wrapper, .wrapper, .mini-header {
   width: 100%;
   float: left;
 }
@@ -12296,12 +12305,20 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 /* line 144, ../sass/_tricks.scss */
+<<<<<<< HEAD
 .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #TT-matrix {
+=======
+.in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial {
+>>>>>>> refs/remotes/origin/master
   margin-bottom: 1em;
 }
 @media all and (max-device-width: 1079px) {
   /* line 144, ../sass/_tricks.scss */
+<<<<<<< HEAD
   .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #TT-matrix {
+=======
+  .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial {
+>>>>>>> refs/remotes/origin/master
     width: 94%;
     margin-left: 3%;
   }
@@ -12590,7 +12607,7 @@ h1 {
 }
 
 /* line 46, ../sass/_palette.scss */
-.bg-green, #tiles-experience #presentation-gain, #tiles-experience #presentation-unlock {
+.bg-green, #tiles-experience #presentation-gain, #tiles-experience #presentation-unlock, #tutorials .tutorial-tag {
   background-color: #4caf52;
 }
 
@@ -12600,7 +12617,7 @@ h1 {
 }
 
 /* line 48, ../sass/_palette.scss */
-.bg-pond {
+.bg-pond, #tutorials .tutorial-title {
   background-color: #4398a3;
 }
 
@@ -12690,7 +12707,7 @@ h1 {
 }
 
 /* line 69, ../sass/_palette.scss */
-.bg-lightest-grey, .table-striped > tbody > tr:nth-of-type(even) {
+.bg-lightest-grey, #tutorials .tutorial-course, #tutorials .tutorial-description, #tutorials .tutorial-footer, .table-striped > tbody > tr:nth-of-type(even) {
   background-color: #f7f7f7;
 }
 
@@ -17185,6 +17202,86 @@ label p {
   margin-bottom: 0.5em;
 }
 
+/* line 4, ../sass/_tutorial.scss */
+#tutorial a {
+  text-decoration: none;
+}
+/* line 14, ../sass/_tutorial.scss */
+#tutorial .no-gridster-item {
+  margin-bottom: 1em;
+}
+/* line 18, ../sass/_tutorial.scss */
+#tutorial .panel-title {
+  font-variant: small-caps;
+}
+/* line 24, ../sass/_tutorial.scss */
+#tutorial .panel-content {
+  padding: 26px 10px 26px 10px;
+}
+
+/* line 1, ../sass/_tutorials.scss */
+#tutorials {
+  text-align: left;
+  margin-top: 1em;
+}
+/* line 7, ../sass/_tutorials.scss */
+#tutorials .tutorial {
+  margin-bottom: 50px;
+  color: black;
+}
+/* line 13, ../sass/_tutorials.scss */
+#tutorials .tutorial-title {
+  color: white;
+  font-size: 2em;
+  padding-left: 10px;
+}
+/* line 20, ../sass/_tutorials.scss */
+#tutorials .tutorial-title a {
+  color: white;
+}
+/* line 22, ../sass/_tutorials.scss */
+#tutorials .tutorial-title a:hover {
+  text-decoration: underline;
+}
+/* line 28, ../sass/_tutorials.scss */
+#tutorials .tutorial-course {
+  font-size: 1.5em;
+  padding-left: 10px;
+}
+/* line 36, ../sass/_tutorials.scss */
+#tutorials .tutorial-description {
+  padding-left: 5px;
+}
+/* line 42, ../sass/_tutorials.scss */
+#tutorials .tutorial-footer {
+  line-height: 3em;
+  padding-bottom: 10px;
+}
+/* line 53, ../sass/_tutorials.scss */
+#tutorials .tutorial-readmore {
+  padding-left: 10px;
+  font-size: 1.5em;
+}
+/* line 59, ../sass/_tutorials.scss */
+#tutorials .tutorial-tag {
+  border: 5px solid green;
+  border-radius: 15px 100px 100px;
+  padding: 5px 20px;
+  line-height: 3em;
+  margin: 0px 10px;
+  font-weight: bold;
+}
+
+/* line 1, ../sass/_write-tutorial.scss */
+#write-tutorial {
+  text-align: left;
+  margin-top: 1em;
+}
+/* line 7, ../sass/_write-tutorial.scss */
+#write-tutorial .buttons {
+  margin: 3em 0px;
+}
+
 /* line 1, ../sass/_scrollbar.scss */
 .scrollbar-wrapper {
   padding: 10px;
@@ -17540,24 +17637,40 @@ label p {
   border: 1.5px solid #B3B2B3;
 }
 
+<<<<<<< HEAD
 /* Teaching Toolbox */
 /* MAIN */
 /* line 51, ../sass/_reseed.scss */
+=======
+/* line 48, ../sass/_reseed.scss */
+>>>>>>> refs/remotes/origin/master
 #main {
   width: 100%;
   padding-left: 0.5em;
 }
 
+<<<<<<< HEAD
 /* line 60, ../sass/_reseed.scss */
 .mini-header {
   margin-bottom: 2em;
 }
 /* line 64, ../sass/_reseed.scss */
+=======
+/* line 57, ../sass/_reseed.scss */
+.mini-header {
+  margin-bottom: 2em;
+}
+/* line 61, ../sass/_reseed.scss */
+>>>>>>> refs/remotes/origin/master
 .mini-header img {
   width: 100%;
 }
 
+<<<<<<< HEAD
 /* line 83, ../sass/_reseed.scss */
+=======
+/* line 80, ../sass/_reseed.scss */
+>>>>>>> refs/remotes/origin/master
 .bookmark, #courses .category-bookmark {
   z-index: 100;
   position: relative;
@@ -17567,12 +17680,20 @@ label p {
   margin-bottom: 1em;
 }
 
+<<<<<<< HEAD
 /* line 96, ../sass/_reseed.scss */
+=======
+/* line 93, ../sass/_reseed.scss */
+>>>>>>> refs/remotes/origin/master
 .bookmark-content {
   height: 4em;
 }
 
+<<<<<<< HEAD
 /* line 100, ../sass/_reseed.scss */
+=======
+/* line 97, ../sass/_reseed.scss */
+>>>>>>> refs/remotes/origin/master
 .bookmark-tail {
   position: absolute;
   left: 0;

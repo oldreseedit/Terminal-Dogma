@@ -18,6 +18,8 @@ var main = angular.module('Main',[
     'ngAnimate', // For animations
     'ngTouch', // For Touch Support
     'teachingToolbox', // It explains itself
+    'textAngular', // For TextAngular support
+    'angularFileUpload', // For angular-file-upload suppoer
     ], function($httpProvider) {
 
     // For CI

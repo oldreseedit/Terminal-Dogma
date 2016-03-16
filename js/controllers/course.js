@@ -236,7 +236,7 @@ main.controller('courseController',['utilities','$scope','$server','$routeParams
     	if(id==='courseInfo') return 'courseDescription';
     	if(id==='courseNotifications') return 'calendar';
     	if(id==='calendar') return 'courseNotifications';
-    	else return '';
+    	else return id;
     };
     
      // MAIN
@@ -413,8 +413,10 @@ main.controller('courseController',['utilities','$scope','$server','$routeParams
     			
     			if(allReady && !imOnResponsive)
     			{
+    				$scope.$broadcast('allReady');
     				$timeout(function(){
     					
+    					var timer;
     					$scope.$watchCollection(
     							function(){
     				    			if($('.no-gridster-item').length > 0)
@@ -429,26 +431,30 @@ main.controller('courseController',['utilities','$scope','$server','$routeParams
     							},
     							function(){
     		    					
-    		    	    			$('.no-gridster-item').each(function(){
-    		    	    				$(this).find('.scrollbar-wrapper').height(
-    		    	    						$(this).height() - $(this).find('.panel-title').height() - 20
-    		    	    				);
-    		    	    			});
-    		    	    			
-    		    	    			var scrollbars = $('.no-gridster-item').find('.scrollbar');
-    		    	    			
-    		    	    			if(!scrollbarsCreated)
-    		    					{
-    		    						scrollbars.perfectScrollbar({
-    		    							suppressScrollX: true,
-    		    							useSelectionScroll: true
-    		    						});
-    		    						scrollbarsCreated = true;
-    		    					}
-    		    					else
-    		    					{
-    		    						scrollbars.perfectScrollbar('update');
-    		    					}
+    								$timeout.cancel(timer);
+    								timer = $timeout(function(){
+    									
+    									$('.no-gridster-item').each(function(){
+        		    	    				$(this).find('.scrollbar-wrapper').height(
+        		    	    						$(this).height() - $(this).find('.panel-title').height() - 20
+        		    	    				);
+        		    	    			});
+        		    	    			
+        		    	    			var scrollbars = $('.no-gridster-item').find('.scrollbar');
+        		    	    			
+        		    	    			if(!scrollbarsCreated)
+        		    					{
+        		    						scrollbars.perfectScrollbar({
+        		    							suppressScrollX: true,
+        		    							useSelectionScroll: true
+        		    						});
+        		    						scrollbarsCreated = true;
+        		    					}
+        		    					else
+        		    					{
+        		    						scrollbars.perfectScrollbar('update');
+        		    					}        		    	    			
+    								},250);
     								
     							}
     					);	
