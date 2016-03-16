@@ -8,6 +8,7 @@ main.directive('equalHeight',['$timeout',function($timeout){
 				var targetName = $scope.$eval($attrs.equalHeight);
 				var target = (targetName && targetName !== '') ? $('#'+targetName) : $element.parent().find('[equal-height]');
 				var height = 0;
+				var timer;
 				if(target.length > 0)
 				{
 					$scope.$watchCollection(
@@ -24,7 +25,8 @@ main.directive('equalHeight',['$timeout',function($timeout){
 //							console.log(newValue, $element.height());
 							if(newValue > 0 && Math.abs(newValue - $element.height()) > 1)
 							{
-								$timeout(function(){$element.height(newValue);});
+								$timeout.cancel(timer);
+								timer = $timeout(function(){$element.height(newValue);},100);
 							}
 						}
 					);
