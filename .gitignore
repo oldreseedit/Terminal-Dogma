@@ -2,7 +2,6 @@
 .externalToolBuilders/
 .settings/
 node_modules/
-bower_components/
 snapshots/
 uploads/
 .project

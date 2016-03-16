@@ -26,7 +26,7 @@ main.directive('equalHeight',['$timeout',function($timeout){
 							if(newValue > 0 && Math.abs(newValue - $element.height()) > 1)
 							{
 								$timeout.cancel(timer);
-								timer = $timeout(function(){$element.height(newValue);},100);
+								timer = $timeout(function(){$element.height(newValue);},250);
 							}
 						}
 					);
