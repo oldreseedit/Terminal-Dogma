@@ -1,4 +1,4 @@
-﻿@charset "UTF-8";
+@charset "UTF-8";
 /* Welcome to Compass.
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
@@ -1932,8 +1932,7 @@ mark,
 }
 
 /* line 92, ../sass/bootstrap/_type.scss */
-
-.text-center, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, #menu, #navbar-toggle, #navbar, #navbar-tabs, #footer, #team, #singleCourse .panel-title, #singleActivity .panel-title, #register, #register .XP, #profile .panel-title, #profile .profile-level-symbol, #cart .panel-title, #tutorial .panel-title {
+.text-center, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, #TT-matrix, #menu, #navbar-toggle, #navbar, #navbar-tabs, #footer, #team, #singleCourse .panel-title, #singleActivity .panel-title, #register, #register .XP, #profile .panel-title, #profile .profile-level-symbol, #cart .panel-title, #tutorial .panel-title {
   text-align: center;
 }
 
@@ -9454,11 +9453,7 @@ button.close {
 }
 
 /* line 12, ../sass/_responsive.scss */
-<<<<<<< HEAD
-.offset-15, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #TT-matrix, #payment .paymentStep, #faqPage .faqStep {
-=======
-.offset-15, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, #payment .paymentStep, #faqPage .faqStep {
->>>>>>> refs/remotes/origin/master
+.offset-15, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, #TT-matrix, #payment .paymentStep, #faqPage .faqStep {
   margin-left: 15%;
 }
 
@@ -10327,11 +10322,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-<<<<<<< HEAD
-.col-70, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #TT-matrix, #news-events .news-title, #payment .paymentStep, #faqPage .faqStep {
-=======
-.col-70, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, #news-events .news-title, #payment .paymentStep, #faqPage .faqStep {
->>>>>>> refs/remotes/origin/master
+.col-70, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, #TT-matrix, #news-events .news-title, #payment .paymentStep, #faqPage .faqStep {
   width: 70%;
   float: left;
 }
@@ -12305,20 +12296,12 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 /* line 144, ../sass/_tricks.scss */
-<<<<<<< HEAD
-.in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #TT-matrix {
-=======
-.in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial {
->>>>>>> refs/remotes/origin/master
+.in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, #TT-matrix {
   margin-bottom: 1em;
 }
 @media all and (max-device-width: 1079px) {
   /* line 144, ../sass/_tricks.scss */
-<<<<<<< HEAD
-  .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #TT-matrix {
-=======
-  .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial {
->>>>>>> refs/remotes/origin/master
+  .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, #TT-matrix {
     width: 94%;
     margin-left: 3%;
   }
@@ -17637,40 +17620,24 @@ label p {
   border: 1.5px solid #B3B2B3;
 }
 
-<<<<<<< HEAD
 /* Teaching Toolbox */
 /* MAIN */
-/* line 51, ../sass/_reseed.scss */
-=======
-/* line 48, ../sass/_reseed.scss */
->>>>>>> refs/remotes/origin/master
+/* line 54, ../sass/_reseed.scss */
 #main {
   width: 100%;
   padding-left: 0.5em;
 }
 
-<<<<<<< HEAD
-/* line 60, ../sass/_reseed.scss */
+/* line 63, ../sass/_reseed.scss */
 .mini-header {
   margin-bottom: 2em;
 }
-/* line 64, ../sass/_reseed.scss */
-=======
-/* line 57, ../sass/_reseed.scss */
-.mini-header {
-  margin-bottom: 2em;
-}
-/* line 61, ../sass/_reseed.scss */
->>>>>>> refs/remotes/origin/master
+/* line 67, ../sass/_reseed.scss */
 .mini-header img {
   width: 100%;
 }
 
-<<<<<<< HEAD
-/* line 83, ../sass/_reseed.scss */
-=======
-/* line 80, ../sass/_reseed.scss */
->>>>>>> refs/remotes/origin/master
+/* line 86, ../sass/_reseed.scss */
 .bookmark, #courses .category-bookmark {
   z-index: 100;
   position: relative;
@@ -17680,20 +17647,12 @@ label p {
   margin-bottom: 1em;
 }
 
-<<<<<<< HEAD
-/* line 96, ../sass/_reseed.scss */
-=======
-/* line 93, ../sass/_reseed.scss */
->>>>>>> refs/remotes/origin/master
+/* line 99, ../sass/_reseed.scss */
 .bookmark-content {
   height: 4em;
 }
 
-<<<<<<< HEAD
-/* line 100, ../sass/_reseed.scss */
-=======
-/* line 97, ../sass/_reseed.scss */
->>>>>>> refs/remotes/origin/master
+/* line 103, ../sass/_reseed.scss */
 .bookmark-tail {
   position: absolute;
   left: 0;
