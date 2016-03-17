@@ -93,8 +93,8 @@
     <script src="bower_components/angular-youtube-mb/src/angular-youtube-embed.js"></script>
     
     <!-- Angular Gridster -->
-    <script src="bower_components/javascript-detect-element-resize/jquery.resize.js"></script>
-    <script src="bower_components/angular-gridster/src/angular-gridster.js"></script>
+<!--     <script src="bower_components/javascript-detect-element-resize/jquery.resize.js"></script> -->
+<!--     <script src="bower_components/angular-gridster/src/angular-gridster.js"></script> -->
     
     <!-- Angular File Upload -->
     <script src='bower_components/angular-upload/angular-upload.js'></script>
@@ -122,7 +122,46 @@
     <!-- Angular monospaced elastic for textareas -->
     <script type="text/javascript" src="js/directives/elastic.js"></script>
     
+	<!-- MathJax  -->
+	<script type="text/javascript">
+		window.MathJax = {
+			AuthorInit: function () {
+				MathJax.Hub.Register.StartupHook('End',function () {
+					var event = document.createEvent('Event');
+					event.initEvent('MathJaxLoaded', true, true);
+					window.dispatchEvent(event);					
+				});
+// 				MathJax.Hub.Register.MessageHook('Begin Process',function () {
+// 					var event = document.createEvent('Event');
+// 					event.initEvent('beginMath', true, true);
+// 					window.dispatchEvent(event);					
+// 				});
+// 				MathJax.Hub.Register.MessageHook('End Process',function () {
+// 					var event = document.createEvent('Event');
+// 					event.initEvent('endMath', true, true);
+// 					window.dispatchEvent(event);					
+// 				});
+// 				MathJax.Hub.signal.Interest(
+// 				  function (message) {console.log("Hub: "+message)}
+// 				);
+			}
+		};
+	</script>
+	<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
+    
+	<!--  Teaching Toolbox -->
+    <script type="text/javascript" src="TT/js/classes/Number.js"></script>
+    <script type="text/javascript" src="TT/js/classes/Vector.js"></script>
+    <script type="text/javascript" src="TT/js/classes/Matrix.js"></script>
+    
     <!-- AngularJS Modules -->
+    
+    <script type="text/javascript" src="TT/js/main.js"></script>       
+    <script type="text/javascript" src="TT/js/directives/math.js"></script>
+    <script type="text/javascript" src="TT/js/directives/matrixEntry.js"></script>
+    <script type="text/javascript" src="TT/js/matrixCtrl.js"></script>    
+    
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/filters/firstCapitalized.js"></script>
     <script type="text/javascript" src="js/filters/experiencePointsFormatter.js"></script>
@@ -132,7 +171,7 @@
     <script type="text/javascript" src="js/factories/reseedFacebook.js"></script>
     <script type="text/javascript" src="js/factories/server.js"></script>
     <script type="text/javascript" src="js/config/elasticConfig.js"></script>
-    <script type="text/javascript" src="js/config/gridsterConfig.js"></script>
+<!--     <script type="text/javascript" src="js/config/gridsterConfig.js"></script> -->
     <script type="text/javascript" src="js/config/httpInterceptors.js"></script>
     <script type="text/javascript" src="js/config/informConfig.js"></script>
     <script type="text/javascript" src="js/config/routesConfig.js"></script>
@@ -189,7 +228,6 @@
     <script type="text/javascript" src="js/controllers/writeTutorial.js"></script>
     <script type="text/javascript" src="js/controllers/viewTutorialController.js"></script>
     <script type="text/javascript" src="js/controllers/tutorialController.js"></script>
-    
     <!-- endinjector -->
      
     <!-- PERSONAL CSS-->

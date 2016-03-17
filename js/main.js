@@ -10,24 +10,25 @@ var main = angular.module('Main',[
     'monospaced.elastic', // For text-area auto-resizing
     'uiGmapgoogle-maps', // For Google Maps integration
     'youtube-embed', // For embedding Youtube Videos
-    'ngFitText', // My creation for perfectly centering text into div
-    'gridster', // For draggable/resizable divs
+//    'ngFitText', // My creation for perfectly centering text into div
+//    'gridster', // For draggable/resizable divs
     'lr.upload', // For uploading purposes
     'inform', // For notifier purposes
     'angularMoment', // For inline moment
     'ngAnimate', // For animations
     'ngTouch', // For Touch Support
+    'teachingToolbox', // It explains itself
     'textAngular', // For TextAngular support
     'angularFileUpload', // For angular-file-upload suppoer
     ], function($httpProvider) {
 
-    // FOR CI
+    // For CI
     $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
     $httpProvider.defaults.transformRequest = [function(data) {
         return angular.isObject(data) && String(data) !== '[object File]' ? $.param(data) : data;
     }];
     
-    // FOR FB
+    // For FB
 	(function(d, s, id){
 		var js, fjs = d.getElementsByTagName(s)[0];
 		if (d.getElementById(id)) {return;}
@@ -38,13 +39,53 @@ var main = angular.module('Main',[
 		js.src = "//connect.facebook.net/it_it/sdk.js";
 		fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));
+	
 });
 
 /* Configures Moment plugin to display dates in Italian */
 moment.locale('it', {}); 
 
 /*** RUN PHASE ***/
-main.run(['$rootScope','$location','$timeout','$server','$cookies','$window','$route','gridsterConfig','inform','$cookies','fb',function($rootScope, $location, $timeout, $server, $cookies, $window, $route, gridsterConfig,inform,$cookies,fb) {
+main.run(['$rootScope','$location','$timeout','$server','$cookies','$window','$route','inform','$cookies','fb',function($rootScope, $location, $timeout, $server, $cookies, $window, $route, inform,$cookies,fb) {
+
+	// For MathJax
+	window.addEventListener('MathJaxLoaded', function(){
+		
+		$rootScope.$broadcast('MathJaxLoaded');
+		
+		function render()
+		{
+			var promise = $timeout(function(){
+				MathJax.Hub.Typeset();
+			});
+			return promise;
+		}
+		
+		function broadcast()
+		{
+			$rootScope.$broadcast('endOfTypeset');			
+		}
+		
+		$rootScope.reRender = function(midStepFunc)
+		{
+			$rootScope.$broadcast('beginOfTypeset');
+			
+			$timeout(function(){
+				midStepFunc();
+			},200);
+			
+			$timeout(function(){
+				MathJax.Hub.Queue(["Typeset",MathJax.Hub],[broadcast]);
+			},400);
+			
+//			MathJax.Hub.Queue(
+//				[broadcast,'begin'],
+//				[exec,midStepFunc],
+//				[render],
+//				[broadcast,'end']
+//			);				
+		};
+	});
 	
 	/** FOR RESPONSIVE STYLES **/
   
