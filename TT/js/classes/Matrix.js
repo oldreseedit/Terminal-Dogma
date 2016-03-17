@@ -1,8 +1,8 @@
 var Matrix = function()
 {	
-	this.matrix = [[0]];
-	this.nRows = 1;
-	this.nCols = 1;
+	this.matrix = [];
+	this.nRows = 0;
+	this.nCols = 0;
 	this.errors = [];
 	
 	this.error = function(errorString)
@@ -60,7 +60,7 @@ var Matrix = function()
 	
 	this.pushRow = function(row)
 	{
-		if(this.nCols !== 1 && row.length !== this.nCols) this.error('Numero di colonne diverso dal pre-esistente');
+		if(this.nCols !== 0 && row.length !== this.nCols) this.error('Numero di colonne diverso dal pre-esistente');
 		else
 		{
 			this.matrix.push(row);
@@ -71,7 +71,7 @@ var Matrix = function()
 	
 	this.pushCol = function(col)
 	{
-		if(this.nRows !== 1 && col.length !== this.nRows) this.error('Numero di righe diverso dal pre-esistente');
+		if(this.nRows !== 0 && col.length !== this.nRows) this.error('Numero di righe diverso dal pre-esistente');
 		else
 		{
 			for(var i=0; i<col.length; i++)
@@ -84,11 +84,40 @@ var Matrix = function()
 		}		
 	};
 	
+	this.determinant = function()
+	{
+		if(this.nRows !== this.nCols) this.error('La matrice non è quadrata');
+		else
+		{
+			var a = [];
+			for(var i=0; i<this.nRows; i++)
+			{
+				a.push(i);
+			}
+			var perms = a.listOfPermutations();
+			var nPerms = perms.length;
+			
+			var sum = 0;
+			var product = 1;
+			for(var i=0; i<nPerms; i++)
+			{
+				product = 1;
+				for(var j=0; j<this.nRows; j++)
+				{
+					product *= this.matrix[j][perms[i][j]];
+				}
+				sum += ( i%2===0 ? 1 : -1)*product;
+			}
+			return sum;
+		}
+	}
+	
 	this.display = function(mode)
 	{
-		var tex;
+		var tex = '';
 		
-		tex = (mode === 'inline' ? '\\(' : '\\[');
+		if(mode === 'inline') tex += '\\(';
+		if(mode === 'standalone') tex += '\\[';
 		tex += ' \\begin{pmatrix} ';
 		
 		for(var i=0; i<this.nRows; i++)
@@ -102,7 +131,9 @@ var Matrix = function()
 		}
 
 		tex += ' \\end{pmatrix} ';
-		tex += (mode === 'inline' ? '\\)' : '\\]');
+		if(mode === 'inline') tex += '\\)';
+		if(mode === 'standalone') tex += '\\]';
+		
 		return tex;
 	};
 	

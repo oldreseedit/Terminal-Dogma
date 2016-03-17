@@ -13,6 +13,17 @@ tt.controller('matrixCtrl', ['$scope','$timeout', function($scope, $timeout){
 		self.m.setSize(self.numRows,self.numCols);
 	}
 	
+	self.m = new Matrix();
+	for(var i=0; i<3; i++)
+	{
+		self.m.pushRow([i+1,(i+1)*(i+1),(i+1)*(i+1)*(i+1)]);
+	};
+	$timeout(function(){
+		self.numRows = 3;
+		self.numCols = 3;
+	},1000);
+	
+	
 	$scope.$watchCollection(
 			function()
 			{
