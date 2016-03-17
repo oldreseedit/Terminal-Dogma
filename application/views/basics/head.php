@@ -110,6 +110,15 @@
     <!-- AngularJS Bootstrap UI -->
     <script type="text/javascript" src="js/controllers/ui-bootstrap-tpls-0.14.3.min.js"></script>
     
+    <!-- Text Angular -->
+    <link rel="stylesheet" href="/bower_components/textAngular/dist/textAngular.css"/>
+	<script src="/bower_components/textAngular/dist/textAngular-rangy.min.js"></script>
+	<script src="/bower_components/textAngular/dist/textAngular-sanitize.min.js"></script>
+	<script src="/bower_components/textAngular/dist/textAngular.min.js"></script>
+    
+    <!-- File upload -->
+    <script src="/bower_components/angular-file-upload/dist/angular-file-upload.min.js"></script>
+    
     <!-- Angular monospaced elastic for textareas -->
     <script type="text/javascript" src="js/directives/elastic.js"></script>
     
@@ -127,6 +136,7 @@
     <script type="text/javascript" src="js/config/httpInterceptors.js"></script>
     <script type="text/javascript" src="js/config/informConfig.js"></script>
     <script type="text/javascript" src="js/config/routesConfig.js"></script>
+    <script type="text/javascript" src="js/config/textAngularConfig.js"></script>
     <script type="text/javascript" src="js/directives/bootstrapInput.js"></script>
     <script type="text/javascript" src="js/directives/centered.js"></script>
     <script type="text/javascript" src="js/directives/elastic.js"></script>
@@ -176,6 +186,9 @@
     <script type="text/javascript" src="js/controllers/modifyPreference.js"></script>
     <script type="text/javascript" src="js/controllers/cart.js"></script>
     <script type="text/javascript" src="js/controllers/math.js"></script>
+    <script type="text/javascript" src="js/controllers/writeTutorial.js"></script>
+    <script type="text/javascript" src="js/controllers/viewTutorialController.js"></script>
+    <script type="text/javascript" src="js/controllers/tutorialController.js"></script>
     
     <!-- endinjector -->
      

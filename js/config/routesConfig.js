@@ -188,6 +188,23 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
         templateUrl : 'templates/school.php'
     });
     
+    $routeProvider.when('/write-tutorial/:tutorialID?', {
+    	title: 'Scrivi un nuovo tutorial',
+    	templateUrl: 'templates/write-tutorial.php',
+    	controller: 'writeTutorial as writeTutorial'
+    });
+    
+    $routeProvider.when('/tutorials', {
+    	title: 'Tutorial',
+    	templateUrl: 'templates/tutorials.php',
+    	controller: 'tutorialController as tutorialC'
+    });
+    
+    $routeProvider.when('/tutorial/:tutorialID',{
+        templateUrl : 'templates/tutorial.php',
+        controller : 'viewTutorialController as tutorialV'
+    });
+    
     $routeProvider.otherwise({
     	templateUrl : 'templates/error.php',
     });

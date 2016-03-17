@@ -116,5 +116,10 @@ class Courses_model extends CI_Model
         {
         	return $this->db->get(self::table_name)->result_array();
         }
+        
+        public function get_all_names()
+        {
+        	return $this->db->select('name')->distinct()->get(self::table_name)->result_array();
+        }
 }
 ?>

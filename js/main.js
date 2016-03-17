@@ -17,6 +17,8 @@ var main = angular.module('Main',[
     'angularMoment', // For inline moment
     'ngAnimate', // For animations
     'ngTouch', // For Touch Support
+    'textAngular', // For TextAngular support
+    'angularFileUpload', // For angular-file-upload suppoer
     ], function($httpProvider) {
 
     // FOR CI
