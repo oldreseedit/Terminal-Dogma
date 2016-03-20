@@ -5,6 +5,7 @@ node_modules/
 snapshots/
 uploads/
 .project
+.metadata
 dist/
 *.scssc
 .ftppass
