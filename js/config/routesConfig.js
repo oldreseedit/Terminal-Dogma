@@ -205,6 +205,12 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
         controller : 'viewTutorialController as tutorialV'
     });
     
+    $routeProvider.when('/demo',{
+    	title: 'Dimostrazione Live',
+    	templateUrl : 'templates/demo.php',
+    	controller : 'demoCtrl as demo'
+    });
+    
     $routeProvider.otherwise({
     	templateUrl : 'templates/error.php',
     });

@@ -189,6 +189,7 @@
     <script type="text/javascript" src="js/controllers/writeTutorial.js"></script>
     <script type="text/javascript" src="js/controllers/viewTutorialController.js"></script>
     <script type="text/javascript" src="js/controllers/tutorialController.js"></script>
+    <script type="text/javascript" src="js/controllers/demo.js"></script>
     
     <!-- endinjector -->
      

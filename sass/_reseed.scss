@@ -40,6 +40,7 @@
 @import "tutorial";
 @import "tutorials";
 @import "write-tutorial";
+@import "demo";
 
 @import "scrollbar";
 @import "perfect-scrollbar";
@@ -47,7 +48,10 @@
 
 #main{
     width: 100%;
-   	padding-left: 0.5em;
+   	@include responsive
+   	{
+   		padding-left: 0.5em;
+   	}
 }
     
 .wrapper{
