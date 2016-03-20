@@ -112,6 +112,51 @@ var Matrix = function()
 		}
 	}
 	
+	this.plus = function(m)
+	{
+		if(!m.hasOwnProperty('matrix')) this.error('L\'argomento non è una matrice');
+		else if(m.nRows !== this.nRows || m.nCols !== this.nCols) this.error('Le due matrici hanno dimensioni differenti');
+		else
+		{
+			var C = new Matrix();
+			for(var i=0; i<this.nRows; i++)
+			{
+				var c = [];
+				for(var j=0; j<this.nCols; j++)
+				{
+					c.push(this.matrix[i][j] + m.matrix[i][j]);
+				}
+				C.pushRow(c);
+			}
+			return C;
+		}
+	}
+	
+	this.times = function(m)
+	{
+		if(!m.hasOwnProperty('matrix')) this.error('L\'argomento non è una matrice');
+		else if(m.nRows !== this.nCols || m.nCols !== this.nCols) this.error('Le due matrici sono incompatibili per il prodotto');
+		else
+		{
+			var C = new Matrix();
+			for(var i=0; i<this.nRows; i++)
+			{
+				var c = [];
+				for(var j=0; j<this.nCols; j++)
+				{
+					var somma = 0;
+					for(var k=0; k<this.nCols; k++)
+					{
+						somma += this.matrix[i][k]*m.matrix[k][j];
+					}
+					c.push(somma);
+				}
+				C.pushRow(c);
+			}
+			return C;
+		}
+	}
+	
 	this.display = function(mode)
 	{
 		var tex = '';

@@ -1,47 +1,47 @@
-tt.directive('mjxMn',[function(){
+tt.directive('mjxMn',['$timeout',function($timeout){
 	return {
 		restrict : 'C',
 		link : function($scope, $element, $attrs)
 		{
-			$element.click(function(){
-				console.log('ciao');
-			});
-		}
-	};
-}]);
+			
+			var mathObject = $element.closest('[math-object]');;
+			
+			if(mathObject.length>0 && $.contains(mathObject[0], $element[0]) )
+			{
+				$element.addClass('clickable');
+				
+				$element.on('click',function(event){
+					event.stopImmediatePropagation();
+					
+					var row = $element.closest('.mjx-mtr');
+					var rows = row.parent().children();
+					
+					var i;
+					for(var k = 0; k<rows.length; k++)
+					{
+						if($(rows[k]).is(row)) i=k; 
+					}
+					
+					var j;
 
-tt.directive('mjx-mn',[function(){
-	return {
-		restrict : 'C',
-		link : function($scope, $element, $attrs)
-		{
-			$element.click(function(){
-				console.log('ciao');
-			});
-		}
-	};
-}]);
-
-tt.directive('mjxChar',[function(){
-	return {
-		restrict : 'C',
-		link : function($scope, $element, $attrs)
-		{
-			$element.click(function(){
-				console.log('ciao');
-			});
-		}
-	};
-}]);
-
-tt.directive('mjx-char',[function(){
-	return {
-		restrict : 'C',
-		link : function($scope, $element, $attrs)
-		{
-			$element.click(function(){
-				console.log('ciao');
-			});
+					var col = $element.closest('.mjx-mtd');
+					for(var k = 0; k<rows.length; k++)
+					{
+						if($(row.children()[k]).is(col)) j=k; 
+					}
+					
+					var changeNumber = function()
+					{
+						// HERE'S THE WORK
+						console.log($scope, $scope.mathObject);
+						$scope.mathObject.matrix[i][j]++;
+					};
+					
+					$timeout(function(){
+						$scope.reRender(changeNumber);
+					});
+				});			
+			}
 		}
 	};
 }]);

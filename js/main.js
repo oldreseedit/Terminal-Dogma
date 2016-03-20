@@ -70,13 +70,16 @@ main.run(['$rootScope','$location','$timeout','$server','$cookies','$window','$r
 		{
 			$rootScope.$broadcast('beginOfTypeset');
 			
-			$timeout(function(){
-				midStepFunc();
-			},200);
+			if(midStepFunc)
+			{
+				$timeout(function(){
+					midStepFunc();
+				},200);
+			}
 			
 			$timeout(function(){
 				MathJax.Hub.Queue(["Typeset",MathJax.Hub],[broadcast]);
-			},400);
+			}, midStepFunc ? 400 : 200);
 			
 //			MathJax.Hub.Queue(
 //				[broadcast,'begin'],
