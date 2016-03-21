@@ -1932,7 +1932,7 @@ mark,
 }
 
 /* line 92, ../sass/bootstrap/_type.scss */
-.text-center, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, #TT-matrix, #menu, #navbar-toggle, #navbar, #navbar-tabs, #footer, #team, #singleCourse .panel-title, #singleActivity .panel-title, #register, #register .XP, #profile .panel-title, #profile .profile-level-symbol, #cart .panel-title, #tutorial .panel-title {
+.text-center, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, #TT-matrix, #TT-equation, #menu, #navbar-toggle, #navbar, #navbar-tabs, #footer, #team, #singleCourse .panel-title, #singleActivity .panel-title, #register, #register .XP, #profile .panel-title, #profile .profile-level-symbol, #cart .panel-title, #tutorial .panel-title {
   text-align: center;
 }
 
@@ -9453,7 +9453,7 @@ button.close {
 }
 
 /* line 12, ../sass/_responsive.scss */
-.offset-15, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, #TT-matrix, #payment .paymentStep, #faqPage .faqStep {
+.offset-15, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, #TT-matrix, #TT-equation, #payment .paymentStep, #faqPage .faqStep {
   margin-left: 15%;
 }
 
@@ -10322,7 +10322,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-70, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, #TT-matrix, #news-events .news-title, #payment .paymentStep, #faqPage .faqStep {
+.col-70, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, #TT-matrix, #TT-equation, #news-events .news-title, #payment .paymentStep, #faqPage .faqStep {
   width: 70%;
   float: left;
 }
@@ -12296,12 +12296,12 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 /* line 144, ../sass/_tricks.scss */
-.in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, #TT-matrix {
+.in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, #TT-matrix, #TT-equation {
   margin-bottom: 1em;
 }
 @media all and (max-device-width: 1079px) {
   /* line 144, ../sass/_tricks.scss */
-  .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, #TT-matrix {
+  .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, #TT-matrix, #TT-equation {
     width: 94%;
     margin-left: 3%;
   }
@@ -17621,6 +17621,49 @@ label p {
 }
 
 /* Teaching Toolbox */
+/* line 1, ../sass/TT/_equation.scss */
+#TT-equation {
+  padding-bottom: 5em;
+}
+/* line 6, ../sass/TT/_equation.scss */
+#TT-equation .well, #TT-equation #contacts #contact-form-wrapper, #contacts #TT-equation #contact-form-wrapper, #TT-equation #contacts #how-to-map-wrapper, #contacts #TT-equation #how-to-map-wrapper {
+  width: 50%;
+  margin: auto;
+  margin-bottom: 0;
+  position: relative;
+}
+/* line 14, ../sass/TT/_equation.scss */
+#TT-equation .well .show-next-step, #TT-equation #contacts #contact-form-wrapper .show-next-step, #contacts #TT-equation #contact-form-wrapper .show-next-step, #TT-equation #contacts #how-to-map-wrapper .show-next-step, #contacts #TT-equation #how-to-map-wrapper .show-next-step {
+  width: 94%;
+  display: table-cell;
+  text-align: center;
+  vertical-align: bottom;
+  position: absolute;
+}
+/* line 22, ../sass/TT/_equation.scss */
+#TT-equation .well .show-next-step .fa-stack-1x, #TT-equation #contacts #contact-form-wrapper .show-next-step .fa-stack-1x, #contacts #TT-equation #contact-form-wrapper .show-next-step .fa-stack-1x, #TT-equation #contacts #how-to-map-wrapper .show-next-step .fa-stack-1x, #contacts #TT-equation #how-to-map-wrapper .show-next-step .fa-stack-1x {
+  top: -0.01em;
+  left: 0.08em;
+}
+/* line 28, ../sass/TT/_equation.scss */
+#TT-equation .well .show-all-steps, #TT-equation #contacts #contact-form-wrapper .show-all-steps, #contacts #TT-equation #contact-form-wrapper .show-all-steps, #TT-equation #contacts #how-to-map-wrapper .show-all-steps, #contacts #TT-equation #how-to-map-wrapper .show-all-steps {
+  width: 94%;
+  display: table-cell;
+  text-align: right;
+  vertical-align: middle;
+  position: absolute;
+}
+/* line 36, ../sass/TT/_equation.scss */
+#TT-equation .well .show-all-steps .fa-stack-1x, #TT-equation #contacts #contact-form-wrapper .show-all-steps .fa-stack-1x, #contacts #TT-equation #contact-form-wrapper .show-all-steps .fa-stack-1x, #TT-equation #contacts #how-to-map-wrapper .show-all-steps .fa-stack-1x, #contacts #TT-equation #how-to-map-wrapper .show-all-steps .fa-stack-1x {
+  top: -0.01em;
+  left: 0.08em;
+}
+/* line 44, ../sass/TT/_equation.scss */
+#TT-equation .well:not(:first-child), #TT-equation #contacts #contact-form-wrapper:not(:first-child), #contacts #TT-equation #contact-form-wrapper:not(:first-child), #TT-equation #contacts #how-to-map-wrapper:not(:first-child), #contacts #TT-equation #how-to-map-wrapper:not(:first-child) {
+  background-color: white;
+  background-image: none;
+}
+
 /* MAIN */
 /* line 54, ../sass/_reseed.scss */
 #main {

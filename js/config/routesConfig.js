@@ -197,6 +197,12 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
         templateUrl : 'TT/templates/matrix.php'
     });
     
+    $routeProvider.when('/equation',{
+    	title : 'Equazioni',
+    	templateUrl : 'TT/templates/equation.php',
+    	controller : 'equationCtrl as equation'
+    })
+    
     $routeProvider.when('/write-tutorial/:tutorialID?', {
     	title: 'Scrivi un nuovo tutorial',
     	templateUrl: 'templates/write-tutorial.php',

@@ -151,16 +151,20 @@
     
     
 	<!--  Teaching Toolbox -->
+    <script type="text/javascript" src="TT/js/classes/Step.js"></script>
+    <script type="text/javascript" src="TT/js/classes/Solution.js"></script>
     <script type="text/javascript" src="TT/js/classes/Number.js"></script>
     <script type="text/javascript" src="TT/js/classes/Vector.js"></script>
     <script type="text/javascript" src="TT/js/classes/Matrix.js"></script>
+    <script type="text/javascript" src="TT/js/classes/Equation.js"></script>
     
     <!-- AngularJS Modules -->
     
     <script type="text/javascript" src="TT/js/main.js"></script>       
     <script type="text/javascript" src="TT/js/directives/math.js"></script>
     <script type="text/javascript" src="TT/js/directives/matrixEntry.js"></script>
-    <script type="text/javascript" src="TT/js/matrixCtrl.js"></script>    
+    <script type="text/javascript" src="TT/js/controllers/matrixCtrl.js"></script>
+    <script type="text/javascript" src="TT/js/controllers/equationCtrl.js"></script>    
     
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/filters/firstCapitalized.js"></script>
