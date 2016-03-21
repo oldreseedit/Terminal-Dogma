@@ -79,7 +79,7 @@ main.run(['$rootScope','$location','$timeout','$server','$cookies','$window','$r
 			
 			$timeout(function(){
 				MathJax.Hub.Queue(["Typeset",MathJax.Hub],[broadcast]);
-			},200 + (midStepFunc ? 200 : 0));
+			}, midStepFunc ? 400 : 200);
 			
 //			MathJax.Hub.Queue(
 //				[broadcast,'begin'],

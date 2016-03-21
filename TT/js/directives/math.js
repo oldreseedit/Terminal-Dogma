@@ -1,4 +1,4 @@
-tt.directive('math',['$timeout',function($timeout){
+tt.directive('math',['$timeout','$compile',function($timeout,$compile){
 	return {
 		restrict : 'A',
 		link : function($scope, $element, $attrs)
@@ -15,19 +15,32 @@ tt.directive('math',['$timeout',function($timeout){
 				$element.removeClass('fadeIn');				
 			}
 			
-			
 			$scope.$on('beginOfTypeset', function(){
+				$compile($element.contents())($scope);
 				disappear();
 			});
 			
 			$scope.$on('endOfTypeset', function(){
+				$compile($element.contents())($scope);
 				appear();
 			});		
 			
 			$scope.$on('MathJaxLoaded', function(){
+				$compile($element.contents())($scope);
 				appear();
 			});		
 			
+		}
+	};
+}]);
+
+tt.directive('mathObject',[function(){
+	return {
+		restrict : 'A',
+		scope : true,
+		link : function($scope,$element,$attrs)
+		{
+			$scope.mathObject = $scope.$eval($attrs.mathObject) || null;			
 		}
 	};
 }]);
