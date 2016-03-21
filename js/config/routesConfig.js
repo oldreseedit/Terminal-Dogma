@@ -211,6 +211,11 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     	controller : 'demoCtrl as demo'
     });
     
+    $routeProvider.when('/pacinotti',{
+    	title: 'Polli ovunque',
+    	templateUrl : 'templates/pacinotti.php'
+    });
+    
     $routeProvider.otherwise({
     	templateUrl : 'templates/error.php',
     });

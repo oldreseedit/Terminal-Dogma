@@ -1932,7 +1932,7 @@ mark,
 }
 
 /* line 92, ../sass/bootstrap/_type.scss */
-.text-center, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, #menu, #navbar-toggle, #navbar, #navbar-tabs, #footer, #team, #singleCourse .panel-title, #singleActivity .panel-title, #register, #register .XP, #profile .panel-title, #profile .profile-level-symbol, #cart .panel-title, #tutorial .panel-title {
+.text-center, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, .game, #menu, #navbar-toggle, #navbar, #navbar-tabs, #footer, #team, #singleCourse .panel-title, #singleActivity .panel-title, #register, #register .XP, #profile .panel-title, #profile .profile-level-symbol, #cart .panel-title, #tutorial .panel-title {
   text-align: center;
 }
 
@@ -9453,7 +9453,7 @@ button.close {
 }
 
 /* line 12, ../sass/_responsive.scss */
-.offset-15, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, #payment .paymentStep, #faqPage .faqStep {
+.offset-15, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, .game, #payment .paymentStep, #faqPage .faqStep {
   margin-left: 15%;
 }
 
@@ -10322,7 +10322,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-70, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, #news-events .news-title, #payment .paymentStep, #faqPage .faqStep {
+.col-70, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, .game, #news-events .news-title, #payment .paymentStep, #faqPage .faqStep {
   width: 70%;
   float: left;
 }
@@ -12296,12 +12296,12 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 /* line 144, ../sass/_tricks.scss */
-.in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial {
+.in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, .game {
   margin-bottom: 1em;
 }
 @media all and (max-device-width: 1079px) {
   /* line 144, ../sass/_tricks.scss */
-  .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial {
+  .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, .game {
     width: 94%;
     margin-left: 3%;
   }
@@ -17352,6 +17352,59 @@ label p {
     left: 110%;
   }
 }
+/* line 1, ../sass/_game.scss */
+.game {
+  /* START - Login Dialog Box */
+  /* END - Login Dialog Box */
+}
+/* line 5, ../sass/_game.scss */
+.game canvas {
+  image-rendering: optimizeSpeed;
+  -webkit-interpolation-mode: nearest-neighbor;
+  -ms-touch-action: none;
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+}
+/* line 13, ../sass/_game.scss */
+.game :-webkit-full-screen #canvas {
+  width: 100%;
+  height: 100%;
+}
+/* line 17, ../sass/_game.scss */
+.game div.gm4html5_div_class {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+}
+/* line 24, ../sass/_game.scss */
+.game div.gm4html5_login {
+  padding: 20px;
+  position: absolute;
+  border: solid 2px #000000;
+  background-color: #404040;
+  color: #00ff00;
+  border-radius: 15px;
+  box-shadow: #101010 20px 20px 40px;
+}
+/* line 34, ../sass/_game.scss */
+.game div.gm4html5_cancel_button {
+  float: right;
+}
+/* line 38, ../sass/_game.scss */
+.game div.gm4html5_login_button {
+  float: left;
+}
+/* line 42, ../sass/_game.scss */
+.game div.gm4html5_login_header {
+  text-align: center;
+}
+/* line 47, ../sass/_game.scss */
+.game :-webkit-full-screen {
+  width: 100%;
+  height: 100%;
+}
+
 /* line 1, ../sass/_scrollbar.scss */
 .scrollbar-wrapper {
   padding: 10px;
@@ -17707,27 +17760,27 @@ label p {
   border: 1.5px solid #B3B2B3;
 }
 
-/* line 49, ../sass/_reseed.scss */
+/* line 50, ../sass/_reseed.scss */
 #main {
   width: 100%;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 49, ../sass/_reseed.scss */
+  /* line 50, ../sass/_reseed.scss */
   #main {
     padding-left: 0.5em;
   }
 }
 
-/* line 61, ../sass/_reseed.scss */
+/* line 62, ../sass/_reseed.scss */
 .mini-header {
   margin-bottom: 2em;
 }
-/* line 65, ../sass/_reseed.scss */
+/* line 66, ../sass/_reseed.scss */
 .mini-header img {
   width: 100%;
 }
 
-/* line 84, ../sass/_reseed.scss */
+/* line 85, ../sass/_reseed.scss */
 .bookmark, #courses .category-bookmark {
   z-index: 100;
   position: relative;
@@ -17737,12 +17790,12 @@ label p {
   margin-bottom: 1em;
 }
 
-/* line 97, ../sass/_reseed.scss */
+/* line 98, ../sass/_reseed.scss */
 .bookmark-content {
   height: 4em;
 }
 
-/* line 101, ../sass/_reseed.scss */
+/* line 102, ../sass/_reseed.scss */
 .bookmark-tail {
   position: absolute;
   left: 0;
