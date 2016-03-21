@@ -1,4 +1,9 @@
 #TT-matrix
 {
 	@extend .in-main;
+
+	.mjx-mn
+	{
+		@extend .clickable;
+	}
 }

@@ -12250,7 +12250,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 /* line 103, ../sass/_tricks.scss */
-.clickable, #preferences .modify, .mjx-mn {
+.clickable, #preferences .modify, #TT-matrix .mjx-mn {
   cursor: pointer;
 }
 

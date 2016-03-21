@@ -151,6 +151,8 @@
     
     
 	<!--  Teaching Toolbox -->
+    <script type="text/javascript" src="TT/js/classes/Error.js"></script>
+    <script type="text/javascript" src="TT/js/classes/Formula.js"></script>
     <script type="text/javascript" src="TT/js/classes/Step.js"></script>
     <script type="text/javascript" src="TT/js/classes/Solution.js"></script>
     <script type="text/javascript" src="TT/js/classes/Number.js"></script>
