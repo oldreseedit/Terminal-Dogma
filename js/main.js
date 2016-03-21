@@ -47,50 +47,6 @@ moment.locale('it', {});
 
 /*** RUN PHASE ***/
 main.run(['$rootScope','$location','$timeout','$server','$cookies','$window','$route','inform','$cookies','fb',function($rootScope, $location, $timeout, $server, $cookies, $window, $route, inform,$cookies,fb) {
-
-	// For MathJax
-	window.addEventListener('MathJaxLoaded', function(){
-		
-		$rootScope.$broadcast('MathJaxLoaded');
-		
-		function render()
-		{
-			var promise = $timeout(function(){
-				MathJax.Hub.Typeset();
-			});
-			return promise;
-		}
-		
-		function broadcast()
-		{
-			$rootScope.$broadcast('endOfTypeset');			
-		}
-		
-		$rootScope.reRender = function(midStepFunc)
-		{
-			$rootScope.$broadcast('beginOfTypeset');
-			
-			if(midStepFunc)
-			{
-				$timeout(function(){
-					midStepFunc();
-				},200);
-			}
-			
-			$timeout(function(){
-				MathJax.Hub.Queue(["Typeset",MathJax.Hub],[broadcast]);
-			}, midStepFunc ? 400 : 200);
-			
-//			MathJax.Hub.Queue(
-//				[broadcast,'begin'],
-//				[exec,midStepFunc],
-//				[render],
-//				[broadcast,'end']
-//			);				
-		};
-		
-		$rootScope.reRender();
-	});
 	
 	/** FOR RESPONSIVE STYLES **/
   

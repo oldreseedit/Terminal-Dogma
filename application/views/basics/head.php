@@ -122,33 +122,8 @@
     <!-- Angular monospaced elastic for textareas -->
     <script type="text/javascript" src="js/directives/elastic.js"></script>
     
-	<!-- MathJax  -->
-	<script type="text/javascript">
-		window.MathJax = {
-			AuthorInit: function () {
-				MathJax.Hub.Register.StartupHook('End',function () {
-					var event = document.createEvent('Event');
-					event.initEvent('MathJaxLoaded', true, true);
-					window.dispatchEvent(event);					
-				});
-// 				MathJax.Hub.Register.MessageHook('Begin Process',function () {
-// 					var event = document.createEvent('Event');
-// 					event.initEvent('beginMath', true, true);
-// 					window.dispatchEvent(event);					
-// 				});
-// 				MathJax.Hub.Register.MessageHook('End Process',function () {
-// 					var event = document.createEvent('Event');
-// 					event.initEvent('endMath', true, true);
-// 					window.dispatchEvent(event);					
-// 				});
-// 				MathJax.Hub.signal.Interest(
-// 				  function (message) {console.log("Hub: "+message)}
-// 				);
-			}
-		};
-	</script>
-	<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML,http://localhost/TT/local.js"></script>
-    
+	<!-- MathJax -->
+<!-- 	<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>     -->
     
 	<!--  Teaching Toolbox -->
     <script type="text/javascript" src="TT/js/classes/Error.js"></script>
@@ -162,10 +137,7 @@
     
     <!-- AngularJS Modules -->
     
-    <script type="text/javascript" src="TT/js/main.js"></script>       
-    <script type="text/javascript" src="TT/js/directives/math.js"></script>
-    <script type="text/javascript" src="TT/js/directives/matrixEntry.js"></script>
-    <script type="text/javascript" src="TT/js/controllers/matrixCtrl.js"></script>
+    <script type="text/javascript" src="TT/js/main.js"></script>
     <script type="text/javascript" src="TT/js/controllers/equationCtrl.js"></script>    
     
     <script type="text/javascript" src="js/main.js"></script>
