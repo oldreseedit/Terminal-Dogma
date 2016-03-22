@@ -544,7 +544,7 @@ MathJax.Hub.Config({
     //  Equation numbering parameters.
     //  
     equationNumbers: {
-      autoNumber: "none",  // "AMS" for standard AMS environment numbering,
+      autoNumber: "AMS",  // "AMS" for standard AMS environment numbering,
                            //  or "all" to number all displayed equations
 //    formatNumber: function (n) {return n},                // format for equation number n
 //    formatTag:    function (n) {return '('+n+')'},        // format for \tag and \eqref

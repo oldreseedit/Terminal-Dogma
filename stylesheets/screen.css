@@ -17703,3 +17703,11 @@ label p {
   border-bottom: 2em solid transparent;
   border-left: 2em solid white;
 }
+
+/* line 116, ../sass/_reseed.scss */
+hr {
+  width: 50%;
+  border-top-width: 0.2em;
+  border-radius: 100%;
+  border-top-color: #d5d5d5;
+}

@@ -4,11 +4,11 @@ var Formula = function(formulas)
 {
 	this.formulas = [];
 	this.mode = 'equation'; // Default, it assumes also 'inline';
-	this.errors = new Error();
+	this.errors = new MathError();
 	
 	if(formulas)
 	{
-		if(typeof formulas === 'object') this.formulas = formulas;
+		if(Array.isArray(formulas)) this.formulas = formulas;
 		else if(typeof formulas === 'string') this.formulas.push(formulas);
 		else this.errors.add('Input non compatibile.');
 	}

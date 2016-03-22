@@ -151,14 +151,16 @@
     
     
 	<!--  Teaching Toolbox -->
-    <script type="text/javascript" src="TT/js/classes/Error.js"></script>
+    <script type="text/javascript" src="TT/js/classes/MathError.js"></script>
+    <script type="text/javascript" src="TT/js/classes/Number.js"></script>
+    <script type="text/javascript" src="TT/js/classes/Fraction.js"></script>
+    <script type="text/javascript" src="TT/js/classes/Root.js"></script>
     <script type="text/javascript" src="TT/js/classes/Formula.js"></script>
     <script type="text/javascript" src="TT/js/classes/Step.js"></script>
     <script type="text/javascript" src="TT/js/classes/Solution.js"></script>
-    <script type="text/javascript" src="TT/js/classes/Number.js"></script>
     <script type="text/javascript" src="TT/js/classes/Vector.js"></script>
     <script type="text/javascript" src="TT/js/classes/Matrix.js"></script>
-    <script type="text/javascript" src="TT/js/classes/Equation.js"></script>
+    <script type="text/javascript" src="TT/js/classes/Polynomial.js"></script>
     
     <!-- AngularJS Modules -->
     

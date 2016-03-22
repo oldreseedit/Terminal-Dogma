@@ -52,45 +52,39 @@ main.run(['$rootScope','$location','$timeout','$server','$cookies','$window','$r
 	window.addEventListener('MathJaxLoaded', function(){
 		
 		$rootScope.$broadcast('MathJaxLoaded');
-		
-		function render()
-		{
-			var promise = $timeout(function(){
-				MathJax.Hub.Typeset();
-			});
-			return promise;
-		}
-		
-		function broadcast()
-		{
-			$rootScope.$broadcast('endOfTypeset');			
-		}
-		
-		$rootScope.reRender = function(midStepFunc)
-		{
-			$rootScope.$broadcast('beginOfTypeset');
-			
-			if(midStepFunc)
-			{
-				$timeout(function(){
-					midStepFunc();
-				},200);
-			}
-			
-			$timeout(function(){
-				MathJax.Hub.Queue(["Typeset",MathJax.Hub],[broadcast]);
-			}, midStepFunc ? 400 : 200);
-			
-//			MathJax.Hub.Queue(
-//				[broadcast,'begin'],
-//				[exec,midStepFunc],
-//				[render],
-//				[broadcast,'end']
-//			);				
-		};
-		
-		$rootScope.reRender();
 	});
+	
+	function render()
+	{
+		var promise = $timeout(function(){
+			MathJax.Hub.Typeset();
+		});
+		return promise;
+	}
+	
+	function broadcast()
+	{
+		$rootScope.$broadcast('endOfTypeset');			
+	}
+	
+	reRender = function(midStepFunc)
+	{
+		$rootScope.$broadcast('beginOfTypeset');
+		
+		if(midStepFunc)
+		{
+			$timeout(function(){
+				midStepFunc();
+			},200);
+		}
+		
+		$timeout(function(){
+			MathJax.Hub.Queue(["Typeset",MathJax.Hub],[broadcast]);
+		}, midStepFunc ? 400 : 200);
+		
+	};
+	
+	
 	
 	/** FOR RESPONSIVE STYLES **/
   

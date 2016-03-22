@@ -1,4 +1,4 @@
-var Error = function()
+var MathError = function()
 {
 	this.errors= [];
 	
