@@ -1,11 +1,11 @@
 var Step = function(step)
 {
-	this.formula = '';
+	this.formula = new Formula();
 	this.description = '';
 	
 	this.setFormula = function(formula)
 	{
-		this.formula  = formula;
+		this.formula = formula;
 	}
 	
 	this.setDescription = function(description)

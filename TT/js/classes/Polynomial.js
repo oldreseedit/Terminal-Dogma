@@ -50,7 +50,7 @@ var Polynomial = function(coefficients)
 			
 			if(this.coefficients[k] !== 0)
 			{
-				if(this.coefficients[k] !== 1 && k === this.coefficients.length-1) t += this.coefficients[k];
+				if(k === 0) t += this.coefficients[k].plusTex();
 				if(this.coefficients[k] !== 1 && this.coefficients[k] != -1 && k !== this.coefficients.length-1) t += this.coefficients[k].plusTex();
 				if(this.coefficients[k] === -1 && k !== this.coefficients.length-1) t+= '-';
 				
@@ -68,7 +68,12 @@ var Polynomial = function(coefficients)
 	{
 		if(this.degree() === 1) this.solveLinear();
 		if(this.degree() === 2) this.solveQuadratic();
-		else this.errors.add('Equazione di grado troppo alto');
+		else this.decompose();
+	}
+	
+	this.decompose = function()
+	{
+		
 	}
 	
 	this.solveLinear = function()
@@ -91,7 +96,7 @@ var Polynomial = function(coefficients)
 	{
 		var step = new Step();
 		
-		// If can be solved through simple decompositions
+		// If can be solved through simple decompositions TODO
 		
 		// Else normal formula
 		step.setDescription('Applico la formula risolutiva dell\'equazione di secondo grado');
@@ -127,25 +132,38 @@ var Polynomial = function(coefficients)
 		
 		var gcd = Math.abs(sqrt.outer.gcd(this.coefficients[1]).gcd(2*this.coefficients[2]));
 		
+		sqrt.outer /= gcd;
+		
+		newB = -this.coefficients[1]/gcd;
+		newC = 2*this.coefficients[2]/gcd;
+			
 		if(gcd !== 1)
 		{
-			sqrt.outer = sqrt.outer/gcd;
-			
-			step = new Step();
-			
+			step = new Step();		
 			step.setDescription('Semplifico la frazione');
+			if(newC === 1) step.setFormula(new Formula( 'x_{1,2} = ' + newB + '\\pm ' + sqrt.tex() ));
+			else step.setFormula(new Formula(  'x_{1,2} = \\dfrac{ ' + newB + '\\pm ' + sqrt.tex() + ' } { ' + newC + '}'  )); 
 			
-			if( 2*this.coefficients[2]/gcd === 1 )
-			{
-				step.setFormula(new Formula( 'x_{1,2} = ' + (-this.coefficients[1]/gcd) + '\\pm ' + sqrt.tex() ));
-			}
-			else
-			{
-				step.setFormula(new Formula(  'x_{1,2} = \\dfrac{ ' + (-this.coefficients[1]/gcd) + '\\pm ' + sqrt.tex() + ' } { ' + 2*this.coefficients[2]/gcd + '}'  )); 
-			}
-			
-			this.solution.addStep(step);	
-		}		
+			this.solution.addStep(step);
+		}
+		
+		step = new Step();
+		
+		step.setDescription('<b>Soluzione</b>');
+		
+		if(newC === 1)
+		{
+			if(sqrt.argument === 1) step.setFormula(new Formula( ['x_1 = ' + (newB + sqrt.outer), 'x_2 = ' + (newB - sqrt.outer)]));
+			else step.setFormula(new Formula( ['x_1 = ' + newB + sqrt.tex(), 'x_2 = ' + newB + '-' + sqrt.tex()]));
+		}
+		else
+		{
+			if(sqrt.argument === 1) step.setFormula(new Formula( ['x_1 = ' + new Fraction(newB + sqrt.outer, newC).tex(), 'x_2 = ' + new Fraction(newB - sqrt.outer, newC).tex() ] )); 
+			else step.setFormula(new Formula( ['x_1 = \\dfrac{ ' + newB + sqrt.tex() + ' } { ' + newC + '}', 'x_2 = \\dfrac{ ' + newB + '-' + sqrt.tex() + ' } { ' + newC + '}'  ] )); 
+		}
+		
+		this.solution.addStep(step);
+				
 	}
 	
 	this.ok = function()

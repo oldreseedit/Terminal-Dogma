@@ -8,7 +8,7 @@ var Formula = function(formulas)
 	
 	if(formulas)
 	{
-		if(Array.isArray(formulas)) this.formulas = formulas;
+		if(formulas instanceof Array) this.formulas = formulas;
 		else if(typeof formulas === 'string') this.formulas.push(formulas);
 		else this.errors.add('Input non compatibile.');
 	}
@@ -33,6 +33,7 @@ var Formula = function(formulas)
 		for(var i=0; i<this.formulas.length; i++)
 		{
 			t+= this.formulas[i];
+			if(i!== this.formulas.length-1) t += ' \\qquad ';
 		}
 		
 		if(this.mode === 'equation') t+= '\\]';

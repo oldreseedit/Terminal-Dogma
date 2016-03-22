@@ -1,18 +1,10 @@
 tt.controller('equationCtrl',['$scope',function($scope){
 	var self = this;
 	
-	self.e = new Polynomial();
+	self.e = new Polynomial([1,3,2,1]);
 
-	if(self.e.ok())
-	{
-		self.formula = new Formula(self.e.tex());
-		
-		if(self.formula.ok())
-		{
-			self.e.solve();
-			reRender();
-		}
-		
-	}
+	self.formula = new Formula(self.e.tex());
+	
+	self.e.solve();
 	
 }]);

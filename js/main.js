@@ -52,9 +52,13 @@ main.run(['$rootScope','$location','$timeout','$server','$cookies','$window','$r
 	window.addEventListener('MathJaxLoaded', function(){
 		
 		$rootScope.$broadcast('MathJaxLoaded');
+		
+		$timeout(function(){
+			mathRender();
+		});
 	});
 	
-	function render()
+	mathRender = function()
 	{
 		var promise = $timeout(function(){
 			MathJax.Hub.Typeset();
@@ -62,7 +66,7 @@ main.run(['$rootScope','$location','$timeout','$server','$cookies','$window','$r
 		return promise;
 	}
 	
-	function broadcast()
+	broadcast = function()
 	{
 		$rootScope.$broadcast('endOfTypeset');			
 	}
