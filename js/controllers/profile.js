@@ -106,7 +106,7 @@ main.controller('profileController',['$scope','$server','$routeParams','$route',
     self.userInfo = $server.post('preferences/get',{userID: self.username}).then(
     		function(response)
     		{
-//    			console.log(response.data);
+    			// console.log(response.data);
     			self.visible = response.data.profileVisibility === '1' ? true : false;
     		}
     );

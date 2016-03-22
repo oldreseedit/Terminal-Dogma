@@ -42,21 +42,21 @@
 	
 								<div class="choice-text" ng-if="cart.paymentOptions.seedon.length > 1">
 									<p class="inline"><strong>Seedon: </strong></p>
-									<select ng-model="cart.getCart().options.seedOnChosen" ng-click="cart.applySeedon(cart.getCart().options.seedOnChosen)">
+									<select ng-model="cart.getCart().options.seedOnChosen" ng-touch="cart.applySeedon(cart.getCart().options.seedOnChosen)">
 										<option ng-repeat="seedon in cart.paymentOptions.seedon" value="{{seedon.seedonID}}" title="{{seedon.description}}">{{seedon.longDescription}}</option>
 									</select>
 								</div>
 								
 								<div class="choice-text">
 									<p class="inline"><strong>Modalità di pagamento: </strong></p>
-									<select ng-model="cart.getCart().options.paymentMediaChosen" ng-click="cart.applyPaymentMedia()">
+									<select ng-model="cart.getCart().options.paymentMediaChosen" ng-touch="cart.applyPaymentMedia()">
 										<option ng-repeat="option in cart.paymentOptions.paymentMediaOptions" value="{{option.value}}" title="{{option.description}}">{{option.label}}</option>
 									</select>
 								</div>
 								
 								<div class="choice-text">
 									<p class="inline"><strong>Rateizzazione: </strong></p>
-									<select ng-model="cart.getCart().options.paymentCycleChosen" ng-click="cart.applyPaymentCycle()">
+									<select ng-model="cart.getCart().options.paymentCycleChosen" ng-touch="cart.applyPaymentCycle()">
 										<option ng-repeat="option in cart.paymentOptions.paymentCycleOptions" value="{{option.value}}" title="{{option.description}}">{{option.label}}</option>
 									</select>
 								</div>

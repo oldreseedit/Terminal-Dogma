@@ -35,7 +35,8 @@ module.exports = function(grunt) {
     	    includeDev: true,
     	    exclude: ['angular', 'font-awesome', 'jquery'],
 			mainFiles: {
-				'fullcalendar': ['dist/fullcalendar.js', 'dist/lang/it.js', 'dist/gcal.js', 'dist/fullcalendar.css']
+				'fullcalendar': ['dist/fullcalendar.js', 'dist/lang/it.js', 'dist/gcal.js', 'dist/fullcalendar.css'],
+				'angular-simple-logger': ['dist/index.js']
 			},
     	  }
     	},
