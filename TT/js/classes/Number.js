@@ -62,7 +62,7 @@ Number.prototype.gcd = function(b){
 
 Number.prototype.plusTex = function()
 {
-	return (this>0 ? '+' : '-') + this;
+	return (this>0 ? '+' : '') + this;
 }
 
 Number.prototype.dotTex = function()
@@ -73,8 +73,14 @@ Number.prototype.dotTex = function()
 Number.prototype.inPrimes = function()
 {
 	var primes = [];
-	var n = new Number(this);
+	var n = this.valueOf();
 	var d = 2;
+
+	if(n<0)
+	{
+		primes.push({base: -1, exponent : 1});
+		n *= -1;
+	}
 	
 	while(n !== 1 && d<=n)
 	{
@@ -85,6 +91,7 @@ Number.prototype.inPrimes = function()
 			n /= d;
 		}
 		if(factor.exponent !== 0) primes.push(factor);
+		
 		d++;
 	}
 	

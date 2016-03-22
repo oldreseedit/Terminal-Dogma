@@ -32,22 +32,14 @@ var Polynomial = function(coefficients)
 			
 			if(this.coefficients[k] !== 0)
 			{
-				// If coefficient is -1 then you have to add only symbol -, except it is the last one.
-				if(this.coefficients[k] === -1 && k !== 0) t += '-'; 
-				else
-				{
-					// If coefficient is 1 then you have to add nothing, just the 'x' part, except it is the last one, else just print the number.
-					if(this.coefficients[k] !== 1 && k !== 0) t += this.coefficients[k];
-					
-					if (k=== 0 && this.coefficients[k]<0) t = t.slice(0, t.length-1);
-					if(k===0) t += this.coefficients[k];
-				}
+				if(this.coefficients[k] !== 1 && k === this.coefficients.length-1) t += this.coefficients[k];
+				if(this.coefficients[k] !== 1 && this.coefficients[k] != -1 && k !== this.coefficients.length-1) t += this.coefficients[k].plusTex();
+				if(this.coefficients[k] === -1 && k !== this.coefficients.length-1) t+= '-';
 				
 				if(k !== 0)
 				{
 					t += 'x';
 					if(k!== 1) t+= '^' + k;
-					t += '+';
 				}
 			}			
 		}
@@ -92,8 +84,6 @@ var Polynomial = function(coefficients)
 		step = new Step();
 		step.setFormula(new Formula(  'x_{1,2} = \\dfrac{ ' + (-this.coefficients[1]) + '\\pm \\sqrt{ ' + Math.pow(this.coefficients[1],2) + (-4*this.coefficients[2]*this.coefficients[0]).plusTex() + ' }  } { ' + 2*this.coefficients[2] + ' }'  ));
 		
-		console.log(step.formula.formulas);
-		
 		this.solution.addStep(step);
 		
 		step = new Step();
@@ -102,11 +92,42 @@ var Polynomial = function(coefficients)
 		this.solution.addStep(step);
 		
 		var sqrt = new Root( Math.pow(this.coefficients[1],2) + (-4*this.coefficients[2]*this.coefficients[0]) );
-		if(sqrt.isFactorizable())
+		sqrt.factorize();
+		var sqrtDescr;
+		
+		if(sqrt.outer !== 1) sqrtDescr = 'Fattorizzo la radice';
+		if(sqrt.argument=== 1) sqrtDescr = 'Risolvo la radice';
+		
+		if(sqrt.outer !== 1 || sqrt.argument === 1)
 		{
+			step = new Step();
+			step.setDescription(sqrtDescr);
+			step.setFormula(new Formula(  'x_{1,2} = \\dfrac{ ' + (-this.coefficients[1]) + '\\pm ' + sqrt.tex() + ' } { ' + 2*this.coefficients[2] + ' }'  ));
 			
+			this.solution.addStep(step);			
 		}
 		
+		var gcd = Math.abs(sqrt.outer.gcd(this.coefficients[1]).gcd(2*this.coefficients[2]));
+		
+		if(gcd !== 1)
+		{
+			sqrt.outer = sqrt.outer/gcd;
+			
+			step = new Step();
+			
+			step.setDescription('Semplifico la frazione');
+			
+			if( 2*this.coefficients[2]/gcd === 1 )
+			{
+				step.setFormula(new Formula( 'x_{1,2} = ' + (-this.coefficients[1]/gcd) + '\\pm ' + sqrt.tex() ));
+			}
+			else
+			{
+				step.setFormula(new Formula(  'x_{1,2} = \\dfrac{ ' + (-this.coefficients[1]/gcd) + '\\pm ' + sqrt.tex() + ' } { ' + 2*this.coefficients[2]/gcd + '}'  )); 
+			}
+			
+			this.solution.addStep(step);	
+		}		
 	}
 	
 	

@@ -1,7 +1,7 @@
 tt.controller('equationCtrl',['$scope',function($scope){
 	var self = this;
 	
-	self.e = new Polynomial([3,-2,4]);
+	self.e = new Polynomial([-3,2,-2]);
 
 	if(self.e.ok())
 	{
