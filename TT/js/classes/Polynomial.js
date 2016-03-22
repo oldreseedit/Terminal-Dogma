@@ -6,6 +6,21 @@ var Polynomial = function(coefficients)
 	this.errors = new MathError();
 	this.solution = new Solution();
 	
+	this.generate = function(degree)
+	{
+		if(degree === 1) this.generateLinear();
+		if(degree === 2) this.generateQuadratic();
+	}
+	
+	this.generateQuadratic = function()
+	{
+		for(var i=0; i<3; i++)
+		{
+			this.coefficients[i] = Math.floor((Math.random() * 10) + 1);
+			this.coefficients[i] *= Math.random() < 0.5 ? -1 : 1;
+		}
+	}
+	
 	if(coefficients)
 	{
 		if(Array.isArray(coefficients))
@@ -17,6 +32,9 @@ var Polynomial = function(coefficients)
 			this.errors.add('L\'input non è un oggetto/array.');
 		}
 	}
+	else this.generate(2);
+	
+
 	
 	this.degree = function()
 	{
@@ -129,7 +147,6 @@ var Polynomial = function(coefficients)
 			this.solution.addStep(step);	
 		}		
 	}
-	
 	
 	this.ok = function()
 	{

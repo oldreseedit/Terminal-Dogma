@@ -20,10 +20,9 @@ var Root = function(argument, index)
 
 			for(var i=0; i< inPrimes.length; i++)
 			{
-				
 				if(inPrimes[i].exponent >= this.index)
 				{
-					outer *= inPrimes[i].exponent%this.index !== 0 ? Math.pow(inPrimes[i].base, (inPrimes[i].exponent%this.index)/this.index ) : Math.pow(inPrimes[i].base, inPrimes[i].exponent/this.index);
+					outer *= Math.pow(inPrimes[i].base, (inPrimes[i].exponent - inPrimes[i].exponent%this.index)/this.index );
 					inner *= Math.pow(inPrimes[i].base, inPrimes[i].exponent%this.index);
 				}
 				else inner*=Math.pow(inPrimes[i].base, inPrimes[i].exponent);
