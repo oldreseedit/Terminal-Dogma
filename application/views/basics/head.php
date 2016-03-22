@@ -155,6 +155,7 @@
     <script type="text/javascript" src="TT/js/classes/Number.js"></script>
     <script type="text/javascript" src="TT/js/classes/Fraction.js"></script>
     <script type="text/javascript" src="TT/js/classes/Root.js"></script>
+    <script type="text/javascript" src="TT/js/classes/Power.js"></script>
     <script type="text/javascript" src="TT/js/classes/Formula.js"></script>
     <script type="text/javascript" src="TT/js/classes/Step.js"></script>
     <script type="text/javascript" src="TT/js/classes/Solution.js"></script>

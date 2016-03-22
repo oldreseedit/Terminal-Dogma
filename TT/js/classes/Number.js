@@ -1,3 +1,13 @@
+Number.prototype.changeSign = function()
+{
+	return -this;
+}
+
+Number.prototype.abs = function()
+{
+	return Math.abs(this);
+}
+
 Number.prototype.factorial = function()
 {
 	var fact = function(n)
@@ -60,6 +70,14 @@ Number.prototype.gcd = function(b){
     return this.bezout(b).gcd;
 }
 
+Number.prototype.tex = function()
+{
+	if(this.valueOf() === 0) return '';
+	if(this.valueOf() === 1) return '';
+	if(this.valueOf() === -1) return '-';
+	return this;
+}
+
 Number.prototype.plusTex = function()
 {
 	return (this>0 ? '+' : '') + this;
@@ -96,6 +114,23 @@ Number.prototype.inPrimes = function()
 	}
 	
 	return primes;
+}
+
+Number.prototype.divisors = function()
+{
+	var divisors = [1,-1];
+	for(var i=2; i<=this.valueOf()/2; i++)
+	{
+		if(this.valueOf()/i % 1 === 0)
+		{
+			divisors.push(this.valueOf());
+			divisors.push(this.changeSign());
+		}
+	}
+	divisors.push(this.valueOf());
+	divisors.push(this.changeSign());
+	
+	return divisors;
 	
 }
 

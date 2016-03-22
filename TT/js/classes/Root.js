@@ -1,14 +1,14 @@
-var Root = function(argument, index)
+var Root = function(argument, outer, index)
 {
 	this.argument = argument || 0;
-	this.outer = 1;
+	this.outer = outer || 1;
 	this.index = index || 2;
 	
 	this.factorize = function()
 	{
 		if(Math.pow(this.argument,1/this.index) % 1 === 0)
 		{
-			this.outer = Math.pow(this.argument,1/this.index);
+			this.outer *= Math.pow(this.argument,1/this.index);
 			this.argument = 1;
 		}
 		else
@@ -38,15 +38,54 @@ var Root = function(argument, index)
 		}
 	}
 	
+	this.isInteger = function()
+	{
+		return (this.argument===1);
+	}
+	
+	this.dot = function(root)
+	{
+		if(this.index === root.index)
+		{
+			var result = new Root(this.argument*root.argument);
+			result.outer = this.outer*root.outer;
+			return result;
+		}
+		else
+		{
+			
+		}
+	}
+	
+	this.changeSign = function()
+	{
+		var r = new Root(this.argument, this.outer.changeSign());
+		return r;
+	}
+	
+	this.abs = function()
+	{
+		var r = new Root(this.argument, this.outer.abs());
+		return r;
+	}
+	
 	this.tex = function()
 	{
 		var t = '';
 		if(this.argument === 1 && this.outer === 1) return '1';
 		if(this.argument === 0) return '0';
-		if(this.outer !== 1) t += this.outer;
+		if(this.outer === -1) t += '-';
+		if(this.outer !== 1 && this.outer !== -1) t += this.outer.tex();
 		if(this.argument < 0) t+= 'i';
 		if(this.argument !== 1) t+= '\\sqrt{' + Math.abs(this.argument) + '}';
 		
+		return t;
+	}
+	
+	this.plusTex = function()
+	{
+		var t = (this.outer < 0 ? '' : '+');
+		t += this.tex();
 		return t;
 	}
 	

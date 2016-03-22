@@ -157,7 +157,7 @@ var Matrix = function()
 		}
 	}
 	
-	this.display = function(mode)
+	this.tex = function(mode)
 	{
 		var tex = '';
 		
