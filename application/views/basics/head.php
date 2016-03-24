@@ -152,6 +152,7 @@
     
 	<!--  Teaching Toolbox -->
     <script type="text/javascript" src="TT/js/classes/MathError.js"></script>
+    <script type="text/javascript" src="TT/js/classes/MathObject.js"></script>
     <script type="text/javascript" src="TT/js/classes/Number.js"></script>
     <script type="text/javascript" src="TT/js/classes/Fraction.js"></script>
     <script type="text/javascript" src="TT/js/classes/Root.js"></script>

@@ -50,12 +50,10 @@ var Polynomial = function(coefficients)
 			
 			if(this.coefficients[k] !== 0)
 			{
-				if(k === 0) t += this.coefficients[k].plusTex();
+				if(k === 0) t += this.coefficients[k].tex();
 				else
 				{
-					if(this.coefficients[k] !== 1 && this.coefficients[k] !== -1 && k === this.coefficients.length-1) t += this.coefficients[k].tex();
-					if(this.coefficients[k] !== 1 && this.coefficients[k] !== -1 && k !== this.coefficients.length-1) t += this.coefficients[k].plusTex();
-					if(this.coefficients[k] === -1) t+= '-';
+					t += this.coefficients[k].tex({isCoefficient: true, withSign: true});
 				}
 				
 				if(k !== 0)
@@ -144,13 +142,10 @@ var Polynomial = function(coefficients)
 		
 		var divisors = this.coefficients[0].divisors();
 		
-		console.log(divisors);
-		
 		for(var i=0; i<divisors.length; i++)
 		{
 			for(var j=0; j<divisors.length; j++)
 			{
-				console.log(divisors[i],divisors[j]);
 				if(divisors[i]+divisors[j] === this.coefficients[1] && divisors[i]*divisors[j] === this.coefficients[0]) return [new Polynomial([divisors[i],1]), new Polynomial([divisors[j],1])]
 			}
 		}

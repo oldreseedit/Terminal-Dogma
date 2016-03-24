@@ -1,15 +1,66 @@
 var Root = function(argument, outer, index)
 {
-	this.argument = argument || 0;
+	this.argument = 1;
 	this.outer = outer || 1;
 	this.index = index || 2;
 	
-	this.factorize = function()
+	if(argument)
+	{
+		if(argument.isOne()) return outer;
+		this.argument = argument;
+	}
+	
+	if(index)
+	{
+		if(index.isOne()) return this.argument.dot(this.outer);
+	}
+	
+	this.exists = function(real)
+	{
+		var real = real || false;
+		if(!real) return true;
+		else return this.isReal();
+	}
+	
+	this.isZero = function()
+	{
+		return ( this.argument.isZero() || this.outer.isZero() )
+	}
+	
+	this.isOne = function()
+	{
+		return ( this.argument.isOne() && this.outer.isOne() );
+	}
+	
+	this.isReal = function()
+	{
+		return this.argument.isPositive();
+	}
+	
+	this.isPositive = function()
+	{
+		if(!this.isReal()) return Number.NaN;
+		else return this.outer.isPositive();
+	}
+	
+	this.opposite = function()
+	{
+		 return new Root(this.argument, this.outer.opposite());
+	}
+	
+	this.equals = function(f)
+	{
+		var a = this.simplify();
+		var b = f.simplify();
+		if(!(f instanceof Root)) return false;
+		return (a.outer.equals(b.outer) && a.argument.equals(b.argument) && a.index.equals(b.index));
+	}
+	
+	this.simplify = function()
 	{
 		if(Math.pow(this.argument,1/this.index) % 1 === 0)
 		{
-			this.outer *= Math.pow(this.argument,1/this.index);
-			this.argument = 1;
+			return new Root(1,this.outer*Math.pow(this.argument/this.index));
 		}
 		else
 		{
@@ -17,7 +68,7 @@ var Root = function(argument, outer, index)
 			
 			var outer = 1;
 			var inner = 1;
-
+			var index = this.index;
 			for(var i=0; i< inPrimes.length; i++)
 			{
 				if(inPrimes[i].exponent >= this.index)
@@ -32,62 +83,86 @@ var Root = function(argument, outer, index)
 				inner *= -1;
 				outer *=-1;
 			}
+			var againInner = inner.inPrimes();
+			var gcd;
+			for(var i=0; i<againInner.length-1; i++)
+			{
+				gcd = againInner[i].exponent.gcd(againInner[i+1].exponent);
+			}
+			if(gcd !== 1 && index.isDivisible(gcd))
+			{
+				index /= gcd;
+			}
 			
-			this.outer = outer;
-			this.argument = inner;
+			return new Root(inner,outer,index);
 		}
-	}
-	
-	this.isInteger = function()
-	{
-		return (this.argument===1);
-	}
-	
-	this.dot = function(root)
-	{
-		if(this.index === root.index)
-		{
-			var result = new Root(this.argument*root.argument);
-			result.outer = this.outer*root.outer;
-			return result;
-		}
-		else
-		{
-			
-		}
-	}
-	
-	this.changeSign = function()
-	{
-		var r = new Root(this.argument, this.outer.changeSign());
-		return r;
 	}
 	
 	this.abs = function()
 	{
-		var r = new Root(this.argument, this.outer.abs());
-		return r;
+		if(!this.isReal()) return Number.NaN;
+		return new Root(this.argument,this.outer.abs(),this.index);
 	}
 	
-	this.tex = function()
+	this.gcd = function(f)
+	{
+		if(typeof f === 'number') return f.gcd(this.outer);
+		if(f instanceof Root)
+		{
+			var a = this.simplify();
+			var b = f.simplify();
+			var arguments=1;
+			if(a.index.equals(b.index))
+			{
+				arguments.dot(a.argument.gcd(b.argument));
+				return new Root(arguments,a.outer.dot(b.outer),a.index)
+			}
+			else return a.outer.dot(b.outer);
+		}
+		return 1;
+	}
+
+	this.plus = function(root)
+	{
+		if(!(root instanceof Root)) return Number.NaN;
+		if(!root.index.equals(this.index) || !root.argument.equals(this.argument)) return Number.NaN;
+		return new Root(this.argument, this.outer.plus(root.outer), this.index);		
+	}
+	
+	this.minus = function(root)
+	{
+		return this.plus(root.opposite());
+	}
+	
+	this.dot = function(f)
+	{
+		if( f instanceof Root)
+		{
+			var a = this.simplify();
+			var b = f.simplify();
+			var mcm = a.index.mcm(b.index);
+			return new Root( ( a.argument.over(mcm).simplify() ).dot( b.argument.over(mcm).simplify() ), a.outer.dot(b.outer), mcm);
+		}
+		else return new Root(this.argument, this.outer.dot(f.outer), this.index);
+	}
+	
+	this.over = function(f)
+	{
+		return this.dot(f.inverse());
+	}
+	
+	this.toTex = function()
 	{
 		var t = '';
-		if(this.argument === 1 && this.outer === 1) return '1';
-		if(this.argument === 0) return '0';
-		if(this.outer === -1) t += '-';
-		if(this.outer !== 1 && this.outer !== -1) t += this.outer.tex();
+		if(this.argument === 1 && this.outer === 1) return new Number(1).coefficientTex();
+		if(this.argument === 0) return new Number(0).coefficientTex();
+		t += this.outer.tex();
 		if(this.argument < 0) t+= 'i';
 		if(this.argument !== 1) t+= '\\sqrt{' + Math.abs(this.argument) + '}';
 		
 		return t;
-	}
-	
-	this.plusTex = function()
-	{
-		var t = (this.outer < 0 ? '' : '+');
-		t += this.tex();
-		return t;
-	}
-	
+	}	
 	
 }
+
+Root.prototype = Object.create(MathObject.prototype);

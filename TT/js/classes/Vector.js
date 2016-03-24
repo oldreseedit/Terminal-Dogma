@@ -42,6 +42,5 @@ Array.prototype.listOfPermutations = function()
 	
 	permute(w.length, w);
 
-	return perms;	
-	
+	return perms;
 }

@@ -1,65 +1,103 @@
 var Fraction = function(n,d)
 {
-	this.numerator = 1;
-	this.denominator = 1;
+	this.numerator = n || new mNumber(1);
+	this.denominator = d || new mNumber(1);	
+}
+
+Fraction.prototype = Object.create(MathObject.prototype);
+
+Fraction.prototype.exists = function()
+{
+	return !this.denominator.isZero();
+}
+
+Fraction.prototype.isZero = function()
+{
+	return this.numerator.isZero();
+}
+
+Fraction.prototype.isOne = function()
+{
+	return (this.numerator.isEqual(this.denominator) && this.isPositive());
+}
+
+Fraction.prototype.isPositive = function()
+{
+	return this.numerator.concordant(this.denominator);
+}
+
+Fraction.prototype.opposite = function()
+{
+	var f = new Fraction(this.numerator.opposite(), this.denominator)
+	return f;
+}
+
+Fraction.prototype.inverse = function()
+{
+	var f = new Fraction(this.denominator, this.numerator);
+	if(f.exists()) return f;
+	else return Number.Nan;
+}
+
+Fraction.prototype.equals = function(f)
+{
+	var g = f.simplify();
+	var h = this.simplify();
+	return (  h.numerator.equals(g.numerator) && g.denominator.equals(g.denominator)  );
+}
+
+Fraction.prototype.simplify = function()
+{
+	var gcd = this.numerator.gcd(this.denominator);
+	var num = this.numerator.over(gcd);
+	var den = this.denominator.over(gcd);
+	if(den.isOne()) return num;
+	return new Fraction(this.numerator.over(gcd), this.denominator.over(gcd));
+}
+
+Fraction.prototype.abs = function()
+{
+	return new Fraction(this.numerator.abs(), this.denominator.abs());
+}
+
+Fraction.prototype.plus = function(f)
+{
+	var mcm = this.denominator.mcm(f.denominator);
+	var num1 = this.numerator.dot(mcm.over(this.denominator));
+	var num2 = f.numerator.dot(mcm.over(f.denominator));
+	var num = num1.plus(num2);
+	return new Fraction(num, mcm);
+}
+
+Fraction.prototype.minus= function(f)
+{
+	return this.plus(f.opposite());
+}
+
+Fraction.prototype.dot = function(f)
+{
+	return new Fraction(this.numerator.dot(f.numerator), this.denominator.dot(f.denominator));
+}
+
+Fraction.prototype.over = function(f)
+{
+	return this.dot(f.inverse());
+}
+
+Fraction.prototype.gcd = function(f)
+{
+	// TODO
+}
+
+Fraction.prototype.mcm = function(f)
+{
+	// TODO
+}
+
+Fraction.prototype.toTex = function()
+{
+	if(this.denominator.isOne()) return this.numerator.toTex();
+	if(this.denominator.opposite().isOne()) return this.numerator.opposite().toTex();
 	
-	if(typeof n === 'number' && typeof d === 'number' )
-	{
-		var gcd = n.gcd(d);
-		
-		this.numerator = Math.abs(n/gcd);
-		this.denominator = Math.abs(d/gcd);
-		this.sign = !n.concordant(d) ? -1 : 1;
-	}
-	if(n instanceof Root && d instanceof Root)
-	{
-		this.numerator = n.abs();
-		this.denominator = d.abs();
-		this.sign = (n.outer).concordant(d.outer) ? 1 : -1;
-	}
-	if(n instanceof Root && typeof d === 'number' )
-	{
-		this.numerator = n.abs();
-		this.denominator = d.abs();
-		this.sign = (n.outer).concordant(d) ? 1 : -1;
-	}
-	if(typeof n === 'number' && d instanceof Root)
-	{
-		this.numerator = n.abs();
-		this.denominator = d.abs();
-		this.sign = n.concordant(d.outer) ? 1 : -1;
-	}
-	
-	this.mode = 'withoutSign'; // default
-	
-	// Check denominator != 0
-	
-	this.changeSign = function()
-	{
-		var f = new Fraction(this.numerator, this.denominator)
-		f.sign = f.sign.changeSign();
-		return f;
-	}
-	
-	this.tex = function(mode)
-	{
-		if(this.denominator === 1) return this.numerator;
-		if(this.denominator === -1) return -this.numerator;
-		
-		this.mode = mode || this.mode;
-		if(this.mode === 'withSign') return (this.sign===-1 ? '-' : '+') + '\\dfrac{' + this.numerator + '}{' + this.denominator + '}';
-		else return (this.sign===-1 ? '-' : '') + '\\dfrac{' + this.numerator.tex() + '}{' + this.denominator.tex() + '}';
-		
-	}
-	
-	this.plusTex = function()
-	{
-		return this.tex('withSign');
-	}
-	
-	this.dotTex = function()
-	{
-		return this.tex();
-	}
-	
+	return (!this.isPositive() ? '-' : '') + '\\dfrac{' + this.numerator.toTex() + '}{' + this.denominator.toTex() + '}';
 }
