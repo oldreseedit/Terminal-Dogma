@@ -1,2 +1,25 @@
 @import "matrix";
 @import "equation";
+
+/* @font-face { */
+/*     font-family: math; */
+/*     src: url(sansation_light.woff); */
+/* } */
+
+input[type=number]
+{
+	&.tt
+	{
+		font-family: MJXc-TeX-main-R,MJXc-TeX-main-Rw;
+		font-size: 2em;
+		margin:0;
+		padding:0;		
+		@extend .text-center;
+		@extend .white;
+		@extend .bg-jungle;
+		@extend .form-control;
+		border-radius: 100%;
+		width: 1.5em;
+		height: 1.5em;
+	}
+}

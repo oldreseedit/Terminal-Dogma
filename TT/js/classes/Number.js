@@ -1,49 +1,18 @@
-var mNumber = function(n)
+function mNumber (n)
 {
 	this.number = n.valueOf();
 }
 
-mNumber.prototype = Object.create(MathObject.prototype);
+$.extend(mNumber.prototype, MathObject.prototype);
+	
+mNumber.prototype.clone = function()
+{
+	return new mNumber(this.number);
+}
 
 mNumber.prototype.valueOf = function()
 {
 	return this.number;
-}
-
-mNumber.prototype.numerator = function()
-{
-	return this.valueOf();
-}
-
-mNumber.prototype.denominator = function()
-{
-	return 1;
-}
-
-mNumber.prototype.inverse = function()
-{
-	if(this.isZero()) return Number.Nan;
-	return new Fraction(new mNumber(1),this);
-}
-
-mNumber.prototype.concordant = function(f)
-{
-	return (f.isPositive() && this.isPositive()) || (f.opposite().isPositive() && this.opposite().isPositive())
-}
-
-mNumber.prototype.tex = function(mode)
-{
-	return tex(this,mode);
-}
-
-mNumber.prototype.plusTex = function(isCoefficient)
-{
-	return tex(this,{isCoefficient : isCoefficient || false, mode : 'plus'});
-}
-
-mNumber.prototype.dotTex = function(isCoefficient)
-{
-	return tex(this,{isCoefficient : isCoefficient || false, mode : 'dot'});
 }
 
 mNumber.prototype.exists = function()
@@ -51,61 +20,24 @@ mNumber.prototype.exists = function()
 	return true;
 }
 
-mNumber.prototype.isZero = function()
-{
-	return this.valueOf() === 0;
-}
-
-mNumber.prototype.isOne = function()
-{
-	return this.valueOf() === 1;
-}
-
-mNumber.prototype.isPositive = function()
-{
-	return this.valueOf() > 0;
-}
-
 mNumber.prototype.opposite = function()
 {
-	return new mNumber (-this.valueOf());
-}
-
-mNumber.prototype.equals = function(f)
-{
-	var g = f.simplify();
-	if( f instanceof mNumber ) return (this.valueOf() === g.valueOf() );
-	else return false;
-}
-
-mNumber.prototype.greaterThan = function(f)
-{
-	if(f instanceof mNumber) return (this.valueOf() > f.valueOf()); 
-}
-
-mNumber.prototype.simplify = function()
-{
-	return new mNumber(this.valueOf());
-}
-
-mNumber.prototype.abs = function()
-{
-	return new mNumber(Math.abs(this.valueOf()));
+	this.number = -this.number;
+	return this;
 }
 
 mNumber.prototype.gcd = function(b){
     return new mNumber(this.bezout(b.valueOf()).gcd);
-    // TODO better
 }
 
 mNumber.prototype.mcm = function(b)
 {
-	var c;
-	if(b instanceof mNumber)	c = b;
 	
 	var primesA = this.inPrimes();
-	var primesB = c.inPrimes();
+	var primesB = b.inPrimes();
 	var primesC = new Array();
+	
+//	console.log(primesA, primesB);
 	
 	var i = 0, j=0;
 	
@@ -118,7 +50,7 @@ mNumber.prototype.mcm = function(b)
 		}
 		else if(j === primesA.length)
 		{
-			primesC = primesC.join(primesB.slice(i,primesB.length));
+			primesC = primesC.concat(primesB.slice(i,primesB.length));
 			i = primesB.length;
 		}
 		else
@@ -128,13 +60,13 @@ mNumber.prototype.mcm = function(b)
 				primesC.push(primesA[j]);
 				j++;
 			}
-			if(primesB[i].base.equals(primesA[j].base))
+			else if(primesB[i].base.equals(primesA[j].base))
 			{
 				primesC.push({base: primesB[i].base, exponent: primesB[i].exponent.max(primesA[j].exponent)});
 				i++;
 				j++;
 			}
-			if(primesA[i].base.greaterThan(primesB[j].base))
+			else if(primesA[i].base.greaterThan(primesB[j].base))
 			{
 				primesC.push(primesB[i]);
 				i++;
@@ -151,52 +83,28 @@ mNumber.prototype.mcm = function(b)
 	return result;
 }
 
-mNumber.prototype.max = function(f)
-{
-	if(f instanceof mNumber) return new mNumber(Math.max(this.valueOf(), f.valueOf()));
-	
-	// TODO
-}
-
 mNumber.prototype.plus = function(f)
 {
-	if(!(f instanceof mNumber) && !(f instanceof Fraction)) return mNumber.NaN;
 	if(f instanceof mNumber) return new mNumber(this.valueOf() + f.valueOf());
-	return new Fraction(this).plus(new Fraction(f)).simplify();
-}
-
-mNumber.prototype.minus = function(f)
-{
-	return this.plus(f.opposite());
+	return new mSum([this,f]);
 }
 
 mNumber.prototype.dot = function(f)
 {
 	if(f instanceof mNumber) return new mNumber(this.valueOf()*f.valueOf());
-	if(f instanceof Fraction) return new Fraction(this.dot(f.numerator),f.denominator,f.index);
-	if(f instanceof Root) return new Root(f.argument,this.dot(f.outer),f.index);
-//	if(f instanceof Sin) return new Sin(f.argument,this.dot(f.outer));
-//	if(f instanceof Cos) return new Cos(f.argument,this.dot(f.outer));
-	if(f instanceof Power) return new Power(f.base,this.dot(f.exponent));
-//	if(f instanceof Log) return new Log(f.argument,this.dot(f.outer));
+	return new mProduct([this,f]);
 }
 
-mNumber.prototype.over = function(f)
+mNumber.prototype.over = function(f, explicit)
 {
-	if(f instanceof mNumber) return new mNumber(this.valueOf()/f.valueOf())
-	return this.dot(f.inverse()).simplify();
+	if(!explicit) return new mNumber(this.valueOf()/f.valueOf());
+	else return new Fraction(this,f);
 }
 
 mNumber.prototype.pow = function(f)
 {
 	if(f instanceof mNumber) return new mNumber(Math.pow(this.valueOf(),f.valueOf()));
-	
-	// TODO
-}
-
-mNumber.prototype.toTex = function()
-{
-	return this.valueOf();
+	else return new Power(this,f);
 }
 
 mNumber.prototype.factorial = function()
@@ -252,26 +160,28 @@ mNumber.prototype.bezout = function(b,c){ // di modo che risulti c = k_1 * a + k
 
 mNumber.prototype.inPrimes = function()
 {
+	if(this.isOne()) return [{base: new mNumber(1), exponent: new mNumber(1)}];
+	
 	var primes = new Array();
-	var n = this.valueOf();
-	var d = 2;
+	var n = this;
+	var d = new mNumber(2);
 
-	if(n<0)
+	if(n.lessThan(0))
 	{
 		primes.push({base: new mNumber(-1), exponent : new mNumber(1)});
-		n *= -1;
+		n.dot(new mNumber(1));
 	}
 	
-	while(n !== 1 && d<=n)
+	while(!n.isOne() && n.greaterEqThan(d))
 	{
 		var factor = {base : new mNumber(d), exponent : new mNumber(0)};
-		while(n%d === 0)
+		while(n.isDivisible(d))
 		{
 			factor.exponent = factor.exponent.plus(new mNumber(1));
-			n = n/d;
+			n = n.over(d);
 		}
 		if(!factor.exponent.isZero()) primes.push(factor);
-		d++;
+		d = d.plus(new mNumber(1));
 	}
 	
 	return primes;
@@ -299,3 +209,7 @@ mNumber.prototype.isDivisible = function(f)
 	return (this.valueOf() % f.valueOf() === 0);
 }
 
+mNumber.prototype.toTex = function(withoutSign)
+{
+	return withoutSign ? Math.abs(this.number) : this.number;
+}

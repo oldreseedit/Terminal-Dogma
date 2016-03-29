@@ -1,25 +1,31 @@
 tt.controller('equationCtrl',['$scope',function($scope){
 	var self = this;
 	
-//	self.n = new mNumber(30);
-//	self.n2 = new mNumber(42);
-	self.n = new Fraction(new mNumber(4), new mNumber(3));
-	self.n2 = new Fraction(new mNumber(3), new mNumber(2));
-//	self.n2 = new Fraction(new mNumber(3), new mNumber(3));
-//	self.r = new Root(4,2,3);
-//	self.r2 = new Root(2,2,3);
-//	self.r3 = new Root(2,3);
-//	self.n = new Power(new mNumber(2), new mNumber(3), new mNumber(4));
-//	self.n2 = new Power(new mNumber(2),new mNumber(4),new mNumber(3));
+	self.a = 1;
+	self.b = 0;
+	self.c = 0;
+
+	self.sum = new mSum([new Monomial( new mNumber(3), new mNumber(1)), new mNumber(7), new Monomial( new mNumber(-2), new mNumber(1)) ]);
+	self.sum2 = new mSum([new mNumber(3), new Monomial( new mNumber(1), new mNumber(1)), new mNumber(-2), new Monomial( new mNumber(2), new mNumber(1)) ]);
 	
-	console.log(self.n);
-	console.log(self.n2);
-	console.log(self.n.inverse());
-//	console.log(self.n.gcd(self.n2));
-//	console.log(self.n.mcm(self.n2));
-	console.log(self.n.plus(self.n2));
-	console.log(self.n.minus(self.n2));
-	console.log(self.n.dot(self.n2));
-	console.log(self.n.dot(self.n2).simplify());
+	self.e = new LinearEquation(self.sum, self.sum2);
+	self.e.solve();
+	
+	
+	self.display = function(f)
+	{
+		return new Formula(f.toTex()).display();
+	}
+	
+	self.add = function(f)
+	{
+		reRender(
+			function()
+			{
+				 self.e.plus(new mNumber(f));
+			}
+		);
+	}
+	
 	
 }]);
