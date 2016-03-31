@@ -42,9 +42,9 @@ mProduct.prototype.opposite = function()
 {
 	if(this.terms[0] instanceof mNumber)
 	{
-		if(this.terms[0].isMinusOne()) this.terms.splice(0,1);
-		else this.terms[0].opposite();
+		this.terms[0] = this.terms[0].opposite();
 	}
+	return this;
 }
 
 mProduct.prototype.simplify = function()
@@ -93,6 +93,7 @@ mProduct.prototype.toTex = function()
 	var t = this.terms[0].dotTex(true);
 	for(var i=1; i<this.terms.length; i++)
 	{
+		if(this.terms[i-1].constructor.name === this.terms[i].constructor.name) t += '\\cdot';
 		t += this.terms[i].dotTex();
 	}
 	return t;

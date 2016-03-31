@@ -10,6 +10,11 @@ MathObject.prototype.plusTex = function(isCoefficient)
 	return tex(this,{isCoefficient : isCoefficient || false, operation : 'plus'});
 }
 
+MathObject.prototype.pmTex = function(isCoefficient)
+{
+	return tex(this,{isCoefficient : isCoefficient || false, operation : 'pm'});
+}
+
 MathObject.prototype.dotTex = function(isCoefficient)
 {
 	return tex(this,{isCoefficient : isCoefficient || false, operation: 'dot'});

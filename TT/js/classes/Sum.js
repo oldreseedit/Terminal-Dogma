@@ -15,6 +15,11 @@ function mSum (terms)
 
 $.extend(mSum.prototype, MathObject.prototype);
 
+mSum.prototype.clone = function()
+{
+	return new mSum(new Array(this.terms));
+}
+
 mSum.prototype.valueOf = function()
 {
 	var sum = 0;
@@ -59,8 +64,19 @@ mSum.prototype.simplify = function()
 		{
 			if(this.terms[i].constructor.name === terms[j].mClass)
 			{
-				terms[j].argument = terms[j].argument.plus(this.terms[i]);
-				found = true;
+				if(this.terms[i] instanceof Monomial)
+				{
+					if(terms[j].argument.degree().equals(this.terms[i].degree()))
+					{
+						terms[j].argument = terms[j].argument.plus(this.terms[i]);
+						found = true;						
+					}
+				}
+				else
+				{
+					terms[j].argument = terms[j].argument.plus(this.terms[i]);
+					found = true;					
+				}
 			}
 		}
 		if(!found) terms.push({argument: this.terms[i], mClass: this.terms[i].constructor.name});
@@ -82,7 +98,7 @@ mSum.prototype.simplify = function()
 		}		
 	}
 	
-	// Add a zero if the Sum is void
+	// Add a last zero if the Sum is void
 	if(this.terms.length === 0) this.terms[0] = new mNumber(0);
 	
 	for(var i=0; i<this.terms.length; i++)
@@ -140,6 +156,43 @@ mSum.prototype.over = function(f,explicit)
 mSum.prototype.pow = function(f)
 {
 	return new Power(this,f);
+}
+
+mSum.prototype.order = function()
+{
+	var j = this.terms.length;
+	var numbers = new Array();
+	for(var i=0; i<this.terms.length; i++)
+	{		
+		if(!(this.terms[i] instanceof Monomial))
+		{
+			numbers.push(this.terms.splice(i,1)[0]);
+			j--;
+			i--;
+		}
+	}
+
+	var ordered = new Array();
+	for(var i=0; i<j; i++)
+	{
+		ordered[this.terms[i].degree().valueOf()] = this.terms[i];
+	}
+	for(var i=0; i<j; i++)
+	{
+		this.terms[i] = ordered[j-i];
+	}
+	
+	this.terms = this.terms.concat(numbers);
+	
+	return this;
+}
+
+mSum.prototype.remove = function(i)
+{
+	this.terms.splice(i,1);
+	if(this.terms.length === 0) this.terms[0] = new mNumber(0);
+	
+	return this;
 }
 
 mSum.prototype.toTex = function()

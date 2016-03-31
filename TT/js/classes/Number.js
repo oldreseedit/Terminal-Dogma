@@ -22,8 +22,7 @@ mNumber.prototype.exists = function()
 
 mNumber.prototype.opposite = function()
 {
-	this.number = -this.number;
-	return this;
+	return new mNumber(-this.number);
 }
 
 mNumber.prototype.gcd = function(b){

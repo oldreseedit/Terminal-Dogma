@@ -46,7 +46,6 @@ Polynomial.prototype.isBinomialSquare= function()
 	{
 		return new Power(new Polynomial([-sqrtC.outer,sqrtA.outer]), 2 ); 
 	}	
-	
 }
 
 Polynomial.prototype.isSquareDifference = function()

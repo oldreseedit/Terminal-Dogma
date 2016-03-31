@@ -155,6 +155,7 @@
     <script type="text/javascript" src="TT/js/classes/Tex.js"></script>
     <script type="text/javascript" src="TT/js/classes/MathObject.js"></script>
     <script type="text/javascript" src="TT/js/classes/Number.js"></script>
+    <script type="text/javascript" src="TT/js/classes/PM.js"></script>
     <script type="text/javascript" src="TT/js/classes/Sum.js"></script>
     <script type="text/javascript" src="TT/js/classes/Product.js"></script>
     <script type="text/javascript" src="TT/js/classes/Fraction.js"></script>
@@ -165,7 +166,9 @@
     <script type="text/javascript" src="TT/js/classes/Polynomial.js"></script>
     <script type="text/javascript" src="TT/js/classes/Formula.js"></script>
     <script type="text/javascript" src="TT/js/classes/Equation.js"></script>
+    <script type="text/javascript" src="TT/js/classes/Solvable.js"></script>
     <script type="text/javascript" src="TT/js/classes/LinearEquation.js"></script>
+    <script type="text/javascript" src="TT/js/classes/SecondDegreeEquation.js"></script>
     <script type="text/javascript" src="TT/js/classes/Step.js"></script>
     <script type="text/javascript" src="TT/js/classes/Solution.js"></script>
     <script type="text/javascript" src="TT/js/classes/Vector.js"></script>

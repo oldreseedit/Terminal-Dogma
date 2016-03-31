@@ -33,7 +33,11 @@ Equation.prototype.dot = function(f, explicit)
 {
 	this.left = this.left.dot(f);
 	this.right = this.right.dot(f);
-	if(!explicit) this.simplify();
+	if(!explicit)
+	{
+		this.left = this.left.simplify();
+		this.right = this.right.simplify();
+	}
 }
 
 Equation.prototype.over = function(f,explicit)
@@ -42,18 +46,64 @@ Equation.prototype.over = function(f,explicit)
 	this.right = this.right.over(f,explicit);
 }
 
-Equation.prototype.toLeft = function(i,explicit)
+Equation.prototype.getTerms = function(side, degree)
 {
-	var opposite = this.right.terms[i].clone();
-	opposite.opposite();
-	this.plus(opposite,explicit);
+	var side = (side === 'left' ? this.left : this.right);
+	var terms = new Array();
+	if(degree.isZero())
+	{
+		for(var i=0; i<side.terms.length; i++)
+		{
+			if(!(side.terms[i] instanceof Monomial))
+			{
+				terms.push(i);
+			}
+		}
+		return terms;
+	}
+	else
+	{
+		for(var i=0; i<side.terms.length; i++)
+		{
+			if(side.terms[i] instanceof Monomial && side.terms[i].degree().equals(degree))
+			{
+				terms.push(i);
+			}
+		}
+		return terms;
+	}
 }
 
-Equation.prototype.toRight = function(i,explicit)
+Equation.prototype.toLeft = function(i)
 {
-	var opposite = this.left.terms[i].clone();
-	opposite.opposite();
-	this.plus(opposite, explicit);
+	var opposite = this.right.terms[i].clone().opposite();
+	this.left.plus(opposite);
+	this.right.remove(i);
+}
+
+Equation.prototype.allToLeft = function()
+{
+	var k = this.right.terms.length;
+	for(var i=0;i<k; i++)
+	{
+		this.toLeft(0);
+	}
+}
+
+Equation.prototype.toRight = function(i)
+{
+	var opposite = this.left.terms[i].clone().opposite();
+	this.right.plus(opposite);
+	this.left.remove(i);
+}
+
+Equation.prototype.allToRight = function()
+{
+	var k = this.left.terms.length;
+	for(var i=0;i<k; i++)
+	{
+		this.toRight(0);
+	}
 }
 
 Equation.prototype.toTex = function()
