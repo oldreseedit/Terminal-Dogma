@@ -37,6 +37,8 @@ class Tutorials extends CI_Controller {
             	return;
             }
             
+            $body = json_encode($body);
+            
             $description = $this->input->post('description');
             if($description == false) $description = null;
             

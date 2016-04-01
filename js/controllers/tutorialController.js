@@ -13,7 +13,7 @@ main.controller('tutorialController',['$server','$scope','$uibModal','$route','i
 				{
 					self.tutorials[i].tags = self.tutorials[i].tags.split(" ");
 					self.tutorials[i].tags = self.tutorials[i].tags.map(function(tag){return tag.split("_").join(" ");});
-					self.tutorials[i].url = self.tutorials[i].title.toLowerCase().split(" ").join("-");
+					// self.tutorials[i].url = self.tutorials[i].title.toLowerCase().split(" ").join("-");
 	
 					if(self.tutorials[i].description.length > MAX_LENGTH)
 						self.tutorials[i].description = self.tutorials[i].description.substring(0, MAX_LENGTH).trim() + "...";

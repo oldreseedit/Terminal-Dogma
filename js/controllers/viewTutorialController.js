@@ -8,6 +8,8 @@ main.controller('viewTutorialController',['$rootScope','$scope','$server','$rout
     		function(response)
     		{
     			self.tutorial = response.data;
+//    			console.log(self.tutorial);
+    			
     			self.tutorial.body = JSON.parse(self.tutorial.body);
     			
     			console.log(self.tutorial);

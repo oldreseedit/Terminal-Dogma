@@ -115,9 +115,12 @@
 		<p>Inserisci qui dei link a pagine (interne o esterne) che vuoi consigliare al lettore. Potrebbe essere una buona idea puntare ad altre pagine del sito, a pagine "autorevoli" (e.g., Wikipedia) o per inserire una specie di bibliografia.</p>
 		<div placeholder="See also" text-angular ng-model="writeTutorial.tutorialSeealso"></div>
 		
+		<div class="buttons text-center" style="position:fixed; bottom:-2em; left: 1em;">
+			<a class="btn btn-info" href="tutorials">Torna ai tutorial</a>
+		</div>
 		<div class="buttons text-center" style="position:fixed; bottom:-2em; right: 1em;">
-			<button class="btn btn-success" ng-disabled="writeTutorial.tutorialTitle == '' || writeTutorial.tutorialBody == ''" ng-click="writeTutorial.send()">{{writeTutorial.mode == 'write' ? 'Salva tutorial' : 'Salva le modifiche'}}</button>
-			<button class="btn btn-success" ng-disabled="writeTutorial.tutorialTitle == '' || writeTutorial.tutorialBody == ''" ng-click="writeTutorial.preview()">Vedi anteprima</button>
+			<a class="btn btn-success" ng-disabled="writeTutorial.tutorialTitle == '' || writeTutorial.tutorialBody == ''" ng-click="writeTutorial.send()">{{writeTutorial.mode == 'write' ? 'Salva tutorial' : 'Salva le modifiche'}}</a>
+			<a ng-href="{{'/tutorial/'+writeTutorial.tutorialID}}" target="_blank" class="btn btn-success" ng-disabled="writeTutorial.tutorialTitle == '' || writeTutorial.tutorialBody == ''" ng-click="writeTutorial.preview()">Vedi anteprima</a>
 		</div>
 	</div>
 </div>

@@ -17253,7 +17253,7 @@ label p {
 /* line 47, ../sass/_tutorials.scss */
 #tutorials .tutorial-footer {
   line-height: 3em;
-  padding-bottom: 10px;
+  /*padding-bottom: 10px;*/
 }
 /* line 58, ../sass/_tutorials.scss */
 #tutorials .tutorial-readmore {

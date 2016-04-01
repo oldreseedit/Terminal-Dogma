@@ -194,6 +194,9 @@
     <script type="text/javascript" src="js/controllers/tutorialController.js"></script>
     <script type="text/javascript" src="js/controllers/demo.js"></script>
     
+    <!-- Prism -->
+    <script type="text/javascript" src="js/prism.js"></script>
+    
     <!-- endinjector -->
      
     <!-- PERSONAL CSS-->
@@ -202,13 +205,11 @@
     <link href="stylesheets/screen.css" rel="stylesheet" type="text/css" />
     <link href="stylesheets/fontcustom.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="stylesheets/awesome-bootstrap-checkbox.css" type="text/css" />
-    <!-- endinjector -->
     
     <!-- Prism -->
     <link rel="stylesheet" type="text/css" href="stylesheets/prism.css"/>
-    <!-- Prism -->
-    <script type="text/javascript" src="js/prism.js"></script>
     
+    <!-- endinjector -->    
     
     <!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
     <script type="text/javascript">

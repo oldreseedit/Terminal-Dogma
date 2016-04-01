@@ -6,7 +6,7 @@ main.controller('writeTutorial',['$rootScope', '$routeParams','$server','$scope'
 	self.tutorialCourse = "";
 	self.tutorialShortDescription = "";
 	self.tutorialRequirements = "";
-	self.tutorialBody = [];
+	self.tutorialBody = [{title: "", content: ""}];
 	self.tutorialTags = "";
 	self.tutorialSeealso = "";
 	self.tutorialMainImage = "";
@@ -109,7 +109,10 @@ main.controller('writeTutorial',['$rootScope', '$routeParams','$server','$scope'
 		    		{
 //		    			console.log(response);
 		    			
-		    			if(preview) location.href = "/tutorial/" + self.tutorialID;
+		    			if(preview)
+		    			{
+//		    				location.href = "/tutorial/" + self.tutorialID;
+		    			}
 		    			else inform.add(response.data.description);
 		    		}
 		        );
@@ -183,7 +186,7 @@ main.controller('writeTutorial',['$rootScope', '$routeParams','$server','$scope'
     
     self.preview = function()
     {
-    	self.send("/tutorial/" + self.tutorialID);
+    	self.send(true);
     }
     
     self.autosave = function(){
