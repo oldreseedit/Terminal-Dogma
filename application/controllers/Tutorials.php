@@ -164,5 +164,26 @@ class Tutorials extends CI_Controller {
         		echo json_encode( array( 'error' => true, 'description' => 'Nessun file caricato...') );
         	}
         }
+        
+        public function remove_image()
+        {
+        	$url = $this->input->post('url');
+        	if($url == false)
+        	{
+        		echo json_encode( array( 'error' => true, 'description' => "Specificare il nome dell'immagine da eliminare.") );
+        		return;
+        	}
+
+        	$result = unlink($url);
+        	
+			if($result)
+			{
+        		echo json_encode( array( 'error' => false, 'description' => 'File ' . $url . ' eliminato correttamente.') );
+        	}
+        	else
+        	{
+        		echo json_encode( array( 'error' => true, 'description' => 'Errore durante il tentativo di eliminazione del file.') );
+        	}
+        }
 }
 ?>

@@ -46,8 +46,8 @@ main.controller('writeTutorial',['$rootScope', '$routeParams','$server','$scope'
 	    			self.tutorialMainImage = self.tutorial.mainImage;
 	    			self.tutorialImages = self.tutorial.images;
 	    			
-	    			console.log(self.tutorial);
-	    			console.log(self.tutorialImages);
+//	    			console.log(self.tutorial);
+//	    			console.log(self.tutorialImages);
 	    			
 	    			$rootScope.title = self.tutorial.title;
 	    			$rootScope.description = self.tutorial.description;
@@ -151,9 +151,24 @@ main.controller('writeTutorial',['$rootScope', '$routeParams','$server','$scope'
     
     self.removeImage = function(index)
     {
-    	self.tutorialImages.splice(index, 1);
-    	console.log(self.tutorialImages);
-    	// TODO: index.php/tutorials/remove_image
+    	var image = self.tutorialImages[index];
+    	$server.post('tutorials/remove_image', {url: image})
+    	.then(function(response){
+            console.log(response);
+            
+            if(response.data.error){
+            	inform.add(response.data.description, {type: 'danger'});
+            }
+            else{
+            	inform.add(response.data.description);
+            	self.tutorialImages.splice(index, 1);
+            }
+
+        	console.log(self.tutorialImages);
+        },function(error){
+        	inform.add(response.data.description, {type: 'danger'});
+        });
+    	
     }
     
     self.removeStep = function(index)
