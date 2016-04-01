@@ -10,6 +10,8 @@ main.controller('viewTutorialController',['$rootScope','$scope','$server','$rout
     			self.tutorial = response.data;
     			self.tutorial.body = JSON.parse(self.tutorial.body);
     			
+    			console.log(self.tutorial);
+    			
     			$rootScope.title = self.tutorial.title;
     			$rootScope.description = self.tutorial.description;
     			

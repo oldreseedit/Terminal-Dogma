@@ -6,6 +6,7 @@ class Tutorials extends CI_Controller {
                 parent::__construct();
                 
                 $this->load->model('tutorials_model');
+                $this->load->model('courses_model');
         }
         
         public function init()
@@ -121,6 +122,10 @@ class Tutorials extends CI_Controller {
             $tutorial = $this->tutorials_model->get($tutorialID);
             $tutorial['images'] = json_decode($tutorial['images']);
             if($tutorial['images'] == null) $tutorial['images'] = json_last_error();
+            
+            // Search the most recent course, if specified
+            if($tutorial['course'])
+            	$tutorial['courseID'] = $this->courses_model->get_all_iterations($tutorial['course'])[0]['courseID'];
             
             echo json_encode($tutorial);
         }

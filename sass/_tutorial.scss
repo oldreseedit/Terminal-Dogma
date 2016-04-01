@@ -29,4 +29,21 @@
     .tutorial-panel{
 		@extend .col-100;
 	}
+	
+	.course-button {
+		position: fixed;
+		bottom: 1em;
+		right: 1em;
+		z-index: 104;
+		@extend .animated-class-fastest;
+			
+		&:hover {
+   			opacity: .7;
+   		}
+		
+		img {
+			height: 8em;
+		}
+		
+	}
 }
