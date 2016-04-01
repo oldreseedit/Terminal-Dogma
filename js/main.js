@@ -18,7 +18,8 @@ var main = angular.module('Main',[
     'ngAnimate', // For animations
     'ngTouch', // For Touch Support
     'textAngular', // For TextAngular support
-    'angularFileUpload', // For angular-file-upload suppoer
+    'angularFileUpload', // For angular-file-upload support
+    'angular-clipboard', // For angular-clipboard facility
     ], function($httpProvider) {
 
     // FOR CI
@@ -164,4 +165,32 @@ main.run(['$rootScope','$location','$timeout','$server','$cookies','$window','$r
 		}
     );    
     
+}]);
+
+main.directive('code', function($timeout) {
+	  return {
+	    restrict: 'E',
+	    link: function (scope, element, attrs) {
+	       $timeout(function(){
+	          Prism.highlightElement(element[0]);
+	       });      
+	    }
+	  };
+	});
+
+main.directive('compileHtml', ['$compile', function($compile){
+	return {
+		restrict: 'E',
+		scope: {src: '='},
+		link: function(scope, element){
+			
+			scope.$watch('src', function(newValue, oldValue){
+				if(newValue !== undefined)
+				{
+					element.html(scope.src);					
+					$compile(element.contents())(scope);
+				}
+			});
+		}
+	}
 }]);

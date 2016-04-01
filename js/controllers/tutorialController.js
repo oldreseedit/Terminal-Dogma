@@ -1,15 +1,6 @@
 main.controller('tutorialController',['$server','$scope','$uibModal','$route','inform',function($server,$scope,$uibModal,$route,inform){
 	var self = this;
 	
-//	self.tutorialTitle = "";
-//	self.tutorialCourse = "";
-//	self.tutorialShortDescription = "";
-//	self.tutorialRequirements = "";
-//	self.tutorialBody = "";
-//	self.tutorialTags = "";
-//	self.tutorialSeealso = "";
-//	self.tutorialID = "";
-	
 	self.tutorialAjax = $server.post('tutorials/get_all_tutorials',{}, true)
 		.then(
 			function(response)
@@ -24,6 +15,7 @@ main.controller('tutorialController',['$server','$scope','$uibModal','$route','i
 					self.tutorials[i].url = self.tutorials[i].title.toLowerCase().split(" ").join("-");
 					
 					self.tutorials[i].time = moment(self.tutorials[i].publishingTimestamp).fromNow();
+					self.tutorials[i].exactTime = moment(self.tutorials[i].publishingTimestamp).format("DD MMMM YYYY");
 				}
 				
 				console.log(self.tutorials);

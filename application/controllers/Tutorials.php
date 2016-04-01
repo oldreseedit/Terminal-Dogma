@@ -51,12 +51,15 @@ class Tutorials extends CI_Controller {
             $seealso = $this->input->post('seealso');
             if($seealso == false) $seealso = null;
             
+            $mainImage = $this->input->post('mainImage');
+            if($mainImage == false) $mainImage = null;
+            
             $images = $this->input->post('images');
             if($images == false) $images = array();
             
             $publishing_timestamp = date("Y-m-d H:i:s");
             
-            $tutorialId = $this->tutorials_model->add($tutorialID, $title, $body, $publishing_timestamp, $description, $course, $requirements, $tags, $seealso, $images);
+            $tutorialId = $this->tutorials_model->add($tutorialID, $title, $body, $publishing_timestamp, $description, $course, $requirements, $tags, $seealso, $mainImage, $images);
             
             echo json_encode(array("error" => false, "description" => "Tutorial memorizzato con successo."));
         }
@@ -75,7 +78,8 @@ class Tutorials extends CI_Controller {
         
         	$body = $this->input->post('body');
         	if($body == false) $body = null;
-        
+        	else $body = json_encode($body);
+        		
         	$description = $this->input->post('description');
         	if($description == false) $description = null;
         
@@ -90,10 +94,13 @@ class Tutorials extends CI_Controller {
         
         	$seealso = $this->input->post('seealso');
         	if($seealso == false) $seealso = null;
+        	
+        	$mainImage = $this->input->post('mainImage');
+        	if($mainImage == false) $mainImage = null;
         
         	$publishing_timestamp = date("Y-m-d H:i:s");
         
-        	$this->tutorials_model->update($tutorialID, $title, $body, $publishing_timestamp, $description, $course, $requirements, $tags, $seealso);
+        	$this->tutorials_model->update($tutorialID, $title, $body, $publishing_timestamp, $description, $course, $requirements, $tags, $seealso, $mainImage);
         
         	echo json_encode(array("error" => false, "description" => "Tutorial aggiornato con successo."));
         }
@@ -111,7 +118,11 @@ class Tutorials extends CI_Controller {
             $tutorialID = $this->input->post('tutorialID');
             if($tutorialID == false) $tutorialID = null;
             
-            echo json_encode($this->tutorials_model->get($tutorialID));
+            $tutorial = $this->tutorials_model->get($tutorialID);
+            $tutorial['images'] = json_decode($tutorial['images']);
+            if($tutorial['images'] == null) $tutorial['images'] = json_last_error();
+            
+            echo json_encode($tutorial);
         }
         
         public function get_all_tutorials()

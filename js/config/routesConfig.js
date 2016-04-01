@@ -190,18 +190,18 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     
     $routeProvider.when('/write-tutorial/:tutorialID?', {
     	title: 'Scrivi un nuovo tutorial',
-    	templateUrl: 'templates/write-tutorial.php',
+    	templateUrl: 'templates/tutorial/write-tutorial.php',
     	controller: 'writeTutorial as writeTutorial'
     });
     
     $routeProvider.when('/tutorials', {
     	title: 'Tutorial',
-    	templateUrl: 'templates/tutorials.php',
+    	templateUrl: 'templates/tutorial/tutorials.php',
     	controller: 'tutorialController as tutorialC'
     });
     
     $routeProvider.when('/tutorial/:tutorialID',{
-        templateUrl : 'templates/tutorial.php',
+        templateUrl : 'templates/tutorial/tutorial.php',
         controller : 'viewTutorialController as tutorialV'
     });
     

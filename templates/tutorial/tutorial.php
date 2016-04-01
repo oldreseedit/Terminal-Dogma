@@ -1,5 +1,6 @@
 <div id="tutorial">
-	<div class="container">
+
+	<div class="container">	
 		<div spinner="tutorialV.tutorialInfoAjax">
 			<spinner-place class="fa-4x"></spinner-place>
 			<spinner-final>
@@ -16,6 +17,25 @@
 											<div class="container">
 												<div ng-include="item.templateUrl"></div>
 											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div ng-repeat="step in tutorialV.tutorial.body">
+						<div class="clearfix"></div>
+
+						<div class="no-gridster-item bg-light-grey" ng-class="col-100">
+						    <div class="container">
+						        
+						        <div class="panel-title bg-leaf"><h4 ng-bind="step.title"></h4></div>
+						        
+				                <div class="panel-content">
+				                    <div class="container">
+				                        <div style="text-align:left;">
+											<compile-html src="step.content"></compile-html>
 										</div>
 									</div>
 								</div>

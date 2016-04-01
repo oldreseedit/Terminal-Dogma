@@ -119,6 +119,9 @@
     <!-- File upload -->
     <script src="/bower_components/angular-file-upload/dist/angular-file-upload.min.js"></script>
     
+    <!-- angular clipboard -->
+    <script src="/bower_components/angular-clipboard/angular-clipboard.js"></script>
+    
     <!-- Angular monospaced elastic for textareas -->
     <script type="text/javascript" src="js/directives/elastic.js"></script>
     
@@ -194,12 +197,18 @@
     <!-- endinjector -->
      
     <!-- PERSONAL CSS-->
-
+    
 	<!-- injector:css -->
     <link href="stylesheets/screen.css" rel="stylesheet" type="text/css" />
     <link href="stylesheets/fontcustom.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="stylesheets/awesome-bootstrap-checkbox.css" type="text/css" />
     <!-- endinjector -->
+    
+    <!-- Prism -->
+    <link rel="stylesheet" type="text/css" href="stylesheets/prism.css"/>
+    <!-- Prism -->
+    <script type="text/javascript" src="js/prism.js"></script>
+    
     
     <!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
     <script type="text/javascript">

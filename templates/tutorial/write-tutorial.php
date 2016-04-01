@@ -1,4 +1,4 @@
-<div id="write-tutorial">
+<div id="write-tutorial" tabindex="0" ng-keydown="writeTutorial.ctrlS($event)">
 	<div class="container">
 		<h1>Titolo del tutorial</h1>
 		<p>Fornisci un titolo. Max 100 caratteri.</p>
@@ -71,8 +71,12 @@
                             <span class="fa fa-icon fa-trash"></span> Remove all
                         </button>
                     </div>
-        <img ng-if="writeTutorial.tutorialImages.length > 0" ng-src="{{writeTutorial.tutorialImages}}">
-        <a ng-if="writeTutorial.tutorialImages.length > 0" class="btn btn-danger" ng-click="writeTutorial.tutorialImages = ''">Rimuovi</a>
+                    
+		<div ng-repeat="image in writeTutorial.tutorialImages track by $index" ng-init="$index"">
+			<img style="max-width: 50%;" ng-src="{{image}}">
+	        <a class="btn btn-danger" ng-click="writeTutorial.removeImage($index)">Rimuovi</a>
+    	    <a class="btn btn-info" clipboard on-copied="writeTutorial.copyLinkOK(image)" on-error="writeTutorial.copyLinkFailed(image)" text="image"><i class="fa fa-link"></i> Get link</a>
+		</div>
 		
 		<h1>Breve descrizione</h1>
 		<p>Fornisci una breve descrizione, di 2-3 righe del tutorial.</p>
@@ -80,22 +84,42 @@
 		
 		<h1>Requisiti (hardware/software)</h1>
 		<p>Qui dovresti inserire tutti gli strumenti necessari a (e)seguire il tutorial</p>
-		<div placeholder="Requisiti" text-angular ta-toolbar="[['h1','h2','h3','html'],['bold','italics','colourRed']]" ng-model="writeTutorial.tutorialRequirements"></div>
+		<div placeholder="Requisiti" text-angular ng-model="writeTutorial.tutorialRequirements"></div>
 		
 		<h1>Corpo del tutorial</h1>
 		<p>Corpo del tutorial: qui ci dovrebbero essere le vere e proprie istruzioni.</p>
-		<div placeholder="Corpo del tutorial" text-angular ng-model="writeTutorial.tutorialBody"></div>
+		
+		<div ng-repeat="step in writeTutorial.tutorialBody" ng-init="$index">
+			<input type="text" ng-model="step.title"></input>
+			<div style="padding:1em;">
+				<a ng-if="step.hidden" ng-click="step.hidden=false" class="btn btn-info"><i class="fa fa-eye"></i> Mostra</a>
+				<a ng-if="!step.hidden" ng-click="step.hidden=true" class="btn btn-info"><i class="fa fa-eye-slash"></i> Nascondi</a>
+			</div>
+			<div ng-if="!step.hidden" placeholder="Corpo del tutorial" text-angular ng-model="step.content"></div>
+			<div style="padding:1em;">
+				<a ng-if="writeTutorial.tutorialBody.length > 1" class="btn btn-danger" ng-click="writeTutorial.removeStep($index)"><i class="fa fa-minus"></i> Rimuovi passo</a>
+				<a class="btn btn-success" ng-click="writeTutorial.addStep($index+1)"><i class="fa fa-plus"></i> Aggiungi passo</a>
+			</div>
+			<hr/>
+		</div>
 		
 		<h1>Tags</h1>
 		<p>Inserisci qui i tag separati da spazi. Per parole composte usa gli underscore.</p>
 		<input placeholder="Tags" type="text" ng-model="writeTutorial.tutorialTags"/>
 		
+		<h1>Immagine principale</h1>
+		<p>Vuoi che ci sia un'immagine principale nel tutorial? Incolla l'URL qui.</p>
+		<input placeholder="Immagine principale" type="text" ng-model="writeTutorial.tutorialMainImage"/>
+		
 		<h1>See also</h1>
 		<p>Inserisci qui dei link a pagine (interne o esterne) che vuoi consigliare al lettore. Potrebbe essere una buona idea puntare ad altre pagine del sito, a pagine "autorevoli" (e.g., Wikipedia) o per inserire una specie di bibliografia.</p>
 		<div placeholder="See also" text-angular ng-model="writeTutorial.tutorialSeealso"></div>
 		
-		<div class="buttons text-center">
-			<button class="btn btn-success" ng-disabled="writeTutorial.tutorialTitle == '' || writeTutorial.tutorialBody == ''" ng-click="writeTutorial.send()">{{writeTutorial.mode == 'write' ? 'Salva tutorial' : 'Aggiorna tutorial'}}</button>
+		<div class="buttons text-center" style="position:fixed; bottom:-2em; right: 1em;">
+			<button class="btn btn-success" ng-disabled="writeTutorial.tutorialTitle == '' || writeTutorial.tutorialBody == ''" ng-click="writeTutorial.send()">{{writeTutorial.mode == 'write' ? 'Salva tutorial' : 'Salva le modifiche'}}</button>
+			<button class="btn btn-success" ng-disabled="writeTutorial.tutorialTitle == '' || writeTutorial.tutorialBody == ''" ng-click="writeTutorial.preview()">Vedi anteprima</button>
 		</div>
 	</div>
 </div>
+
+<!-- Per limitare/personalizzare la toolbar, includere il seguente attributo: ta-toolbar="[['h1','h2','h3','html'],['bold','italics','colourRed']]" -->
