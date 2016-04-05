@@ -1,7 +1,4 @@
-function X (n)
-{
-	this.degree = n || new mNumber(1)
-}
+function X (){}
 
 $.extend(X.prototype, MathObject.prototype);
 
@@ -22,5 +19,5 @@ X.prototype.isZero = function()
 
 X.prototype.toTex = function()
 {
-	return 'x' + (this.degree > 1 ? ('^{' + this.degree + '}') : '');
+	return 'x';
 }

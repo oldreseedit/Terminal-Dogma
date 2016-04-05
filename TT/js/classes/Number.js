@@ -82,15 +82,15 @@ mNumber.prototype.mcm = function(b)
 	return result;
 }
 
-mNumber.prototype.plus = function(f)
+mNumber.prototype.plus = function(f,implicit)
 {
-	if(f instanceof mNumber) return new mNumber(this.valueOf() + f.valueOf());
+	if(f instanceof mNumber && implicit) return new mNumber(this.valueOf() + f.valueOf());
 	return new mSum([this,f]);
 }
 
-mNumber.prototype.dot = function(f)
+mNumber.prototype.dot = function(f, implicit)
 {
-	if(f instanceof mNumber) return new mNumber(this.valueOf()*f.valueOf());
+	if(f instanceof mNumber && implicit) return new mNumber(this.valueOf()*f.valueOf());
 	return new mProduct([this,f]);
 }
 

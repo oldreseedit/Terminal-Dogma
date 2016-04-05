@@ -29,7 +29,7 @@ LinearEquation.prototype.solve = function()
 	{		
 		for(var i=0; i<leftZeroTerms.length; i++)
 		{
-			this.toRight(leftZeroTerms[i],true);
+			this.toRight(leftZeroTerms[i]);
 		}
 		this.addStep('Porto i' + (leftZeroTerms.length>1 ? '' : 'l') + ' termin' + (leftZeroTerms.length>1 ? 'i' : 'e') + ' not' + (leftZeroTerms.length>1 ? 'i' : 'o') + ' al secondo membro');
 		
@@ -42,7 +42,7 @@ LinearEquation.prototype.solve = function()
 	{
 		for(var i=0; i<rightOneTerms.length; i++)
 		{
-			this.toLeft(rightOneTerms[i],true);
+			this.toLeft(rightOneTerms[i]);
 		}
 		this.addStep('Porto i' + (rightOneTerms>1 ? '' : 'l') + ' termin' + (rightOneTerms>1 ? 'i' : 'e') + ' di primo grado al primo membro');
 		

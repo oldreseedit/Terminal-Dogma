@@ -9,8 +9,7 @@ function mSum (terms)
 	if(terms instanceof MathObject)
 	{
 		this.terms.push(terms);
-	}	
-	
+	}
 }
 
 $.extend(mSum.prototype, MathObject.prototype);
@@ -68,14 +67,14 @@ mSum.prototype.simplify = function()
 				{
 					if(terms[j].argument.degree().equals(this.terms[i].degree()))
 					{
-						terms[j].argument = terms[j].argument.plus(this.terms[i]);
+						terms[j].argument = terms[j].argument.plus(this.terms[i],true);
 						found = true;						
 					}
 				}
 				else
 				{
-					terms[j].argument = terms[j].argument.plus(this.terms[i]);
-					found = true;					
+					terms[j].argument = terms[j].argument.plus(this.terms[i],true);
+					found = true;		
 				}
 			}
 		}
@@ -106,6 +105,8 @@ mSum.prototype.simplify = function()
 		this.terms[i] = this.terms[i].simplify();
 	}
 	
+	if(this.terms.length === 1) return this.terms[0];
+	
 	return this;
 }
 
@@ -129,14 +130,16 @@ mSum.prototype.mcm = function(f)
 	return mcm.mcm(f);
 }
 
-mSum.prototype.plus = function(f)
+mSum.prototype.plus = function(f,implicit)
 {
 	this.terms.push(f);
+	if(implicit) this.simplify();
 	return this;
 }
 
-mSum.prototype.dot = function(f)
+mSum.prototype.dot = function(f,implicit)
 {
+	if(implicit) return new mProduct([this,f]).simplify();
 	return new mProduct([this,f]);
 }
 

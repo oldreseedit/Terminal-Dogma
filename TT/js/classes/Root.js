@@ -33,7 +33,7 @@ Root.prototype.simplify = function()
 	
 	if(this.argument.pow(new mNumber(1).over(this.index)).valueOf() % 1 === 0)
 	{
-		return new mNumber(Root(1,Math.pow(this.argument/this.index)));
+		return new mNumber(this.argument.pow(new mNumber(1).over(this.index)).valueOf());
 	}
 	else
 	{
@@ -84,9 +84,9 @@ this.gcd = function(f)
 	return new mNumber(1);
 }
 
-Root.prototype.plus = function(f)
+Root.prototype.plus = function(f, implicit)
 {
-	if(f instanceof Root)
+	if(f instanceof Root && implicit)
 	{
 		if(!f.index.equals(this.index) || !f.argument.equals(this.argument)) return new mSum([this,f]);
 		return new mProduct(new mNumber(2),this);		
@@ -94,9 +94,9 @@ Root.prototype.plus = function(f)
 	 return new mSum([this,f]);
 }
 
-Root.prototype.dot = function(f)
+Root.prototype.dot = function(f, implicit)
 {
-	if( f instanceof Root)
+	if( f instanceof Root && implicit)
 	{
 		var a = this;
 		var b = f;

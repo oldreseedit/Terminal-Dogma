@@ -18,32 +18,32 @@ Equation.prototype.simplify = function()
 	return this;
 }
 
-Equation.prototype.plus = function(f, explicit)
+Equation.prototype.plus = function(f, implicit)
 {
 	this.left = this.left.plus(f);
 	this.right = this.right.plus(f);
-	if(!explicit)
+	if(implicit)
 	{
 		this.left = this.left.simplify();
 		this.right = this.right.simplify();
 	}
 }
 
-Equation.prototype.dot = function(f, explicit)
+Equation.prototype.dot = function(f, implicit)
 {
 	this.left = this.left.dot(f);
 	this.right = this.right.dot(f);
-	if(!explicit)
+	if(implicit)
 	{
 		this.left = this.left.simplify();
 		this.right = this.right.simplify();
 	}
 }
 
-Equation.prototype.over = function(f,explicit)
+Equation.prototype.over = function(f,implicit)
 {
-	this.left = this.left.over(f,explicit);
-	this.right = this.right.over(f,explicit);
+	this.left = this.left.over(f,implicit);
+	this.right = this.right.over(f,implicit);
 }
 
 Equation.prototype.getTerms = function(side, degree)

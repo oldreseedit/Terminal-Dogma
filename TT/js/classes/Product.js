@@ -49,6 +49,36 @@ mProduct.prototype.opposite = function()
 
 mProduct.prototype.simplify = function()
 {
+	var terms = new Array({argument: this.terms[0], mClass: this.terms[0].constructor.name});
+	
+	for(var i=1; i<this.terms.length; i++)
+	{
+		var found = false;
+		for(var j=0; j<terms.length; j++)
+		{
+			if(this.terms[i].constructor.name === terms[j].mClass)
+			{
+				terms[j].argument = terms[j].argument.dot(this.terms[i],true);
+				found = true;
+			}
+		}
+		if(!found) terms.push({argument: this.terms[i], mClass: this.terms[i].constructor.name});
+	}
+	
+	this.terms = new Array();
+	
+	for(var i=0; i<terms.length; i++)
+	{
+		this.terms.push(terms[i].argument);
+	}
+	
+	for(var i=0; i<this.terms.length; i++)
+	{
+		this.terms[i] = this.terms[i].simplify();
+	}
+	
+	if(this.terms.length === 1) return this.terms[0];
+	
 	return this;
 }
 
