@@ -148,7 +148,7 @@
 		};
 	</script>
 	<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML,http://localhost/TT/local.js"></script>
-    
+	<script type="text/javascript" src="https://www.desmos.com/api/v0.6/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
     
 	<!--  Teaching Toolbox -->
     <script type="text/javascript" src="TT/js/classes/MathError.js"></script>
@@ -171,6 +171,7 @@
     <script type="text/javascript" src="TT/js/classes/SecondDegreeEquation.js"></script>
     <script type="text/javascript" src="TT/js/classes/Step.js"></script>
     <script type="text/javascript" src="TT/js/classes/Solution.js"></script>
+    <script type="text/javascript" src="TT/js/classes/Function.js"></script>
     <script type="text/javascript" src="TT/js/classes/Vector.js"></script>
     <script type="text/javascript" src="TT/js/classes/Matrix.js"></script>
     
