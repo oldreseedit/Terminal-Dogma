@@ -149,6 +149,9 @@
 	</script>
 	<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML,http://localhost/TT/local.js"></script>
 	<script type="text/javascript" src="https://www.desmos.com/api/v0.6/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+	<link rel="stylesheet" href="/bower_components/mathquill-0.10.1/mathquill.css"/>
+	<script src="/bower_components/mathquill-0.10.1/mathquill.js"></script>
+	
     
 	<!--  Teaching Toolbox -->
     <script type="text/javascript" src="TT/js/classes/MathError.js"></script>

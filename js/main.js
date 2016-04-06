@@ -45,50 +45,15 @@ var main = angular.module('Main',[
 /* Configures Moment plugin to display dates in Italian */
 moment.locale('it', {}); 
 
+var MQ = MathQuill.getInterface(2);
+
 /*** RUN PHASE ***/
 main.run(['$rootScope','$location','$timeout','$server','$cookies','$window','$route','inform','$cookies','fb',function($rootScope, $location, $timeout, $server, $cookies, $window, $route, inform,$cookies,fb) {
 
 	// For MathJax
 	window.addEventListener('MathJaxLoaded', function(){
-		
 		$rootScope.$broadcast('MathJaxLoaded');
-		
-		$timeout(function(){
-			mathRender();
-		});
 	});
-	
-	mathRender = function()
-	{
-		var promise = $timeout(function(){
-			MathJax.Hub.Typeset();
-		});
-		return promise;
-	}
-	
-	broadcast = function()
-	{
-		$rootScope.$broadcast('endOfTypeset');			
-	}
-	
-	reRender = function(midStepFunc)
-	{
-		$rootScope.$broadcast('beginOfTypeset');
-		
-		if(midStepFunc)
-		{
-			$timeout(function(){
-				midStepFunc();
-			},200);
-		}
-		
-		$timeout(function(){
-			MathJax.Hub.Queue(["Typeset",MathJax.Hub],[broadcast]);
-		}, midStepFunc ? 400 : 200);
-		
-	};
-	
-	
 	
 	/** FOR RESPONSIVE STYLES **/
   
