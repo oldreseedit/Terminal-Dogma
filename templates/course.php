@@ -76,5 +76,7 @@
 				<span class="middler"></span><i class="fa fa-2x fa-question white middle"></i><span class="button-title">Domande frequenti</span>
 			</generic-bookmark>
         </div>
-    </div>
+    </div>    
 </div>
+    
+<ng-include src="'templates/eventAd.php'"></ng-include>
