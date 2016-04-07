@@ -1922,7 +1922,7 @@ mark,
 }
 
 /* line 90, ../sass/bootstrap/_type.scss */
-.text-left, #navbar-home, #courses #tiles-courses .tile .back, #activities #tiles-activities .tile .back, #contacts #contact-form, #contacts #contacts-list, #profile .high-score-name {
+.text-left, #navbar-home, #courses #tiles-courses .tile .back, #activities #tiles-activities .tile .back, #contacts #contact-form, #contacts #contacts-list, #profile .high-score-name, .full-row .in-main, .full-row #admin, .full-row #presentation, .full-row #team #team-wrapper, #team .full-row #team-wrapper, .full-row #courses, .full-row #singleCourse, .full-row #activities, .full-row #singleActivity, .full-row #media, .full-row #contacts, .full-row #payment-disclaimer-modal, .full-row #payment, .full-row #faqPage, .full-row #profile, .full-row .modal-wrapper, .full-row #preferences, .full-row #tutorial, .full-row #tutorials, .full-row #write-tutorial, .full-row .game {
   text-align: left;
 }
 
@@ -17802,7 +17802,7 @@ blockquote {
   border-left: 10px solid #eeeeee;
 }
 
-/* line 94, ../sass/_reseed.scss */
+/* line 97, ../sass/_reseed.scss */
 .bookmark, #courses .category-bookmark {
   z-index: 100;
   position: relative;
@@ -17812,12 +17812,12 @@ blockquote {
   margin-bottom: 1em;
 }
 
-/* line 107, ../sass/_reseed.scss */
+/* line 110, ../sass/_reseed.scss */
 .bookmark-content {
   height: 4em;
 }
 
-/* line 111, ../sass/_reseed.scss */
+/* line 114, ../sass/_reseed.scss */
 .bookmark-tail {
   position: absolute;
   left: 0;

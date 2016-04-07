@@ -89,6 +89,9 @@ blockquote{
 
 .full-row{
 	@extend .col-100;
+	.in-main{
+		@extend .text-left;
+	}
 }
 
 .bookmark{
