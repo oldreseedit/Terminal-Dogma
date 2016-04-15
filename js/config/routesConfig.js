@@ -211,9 +211,19 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     	controller : 'demoCtrl as demo'
     });
     
-    $routeProvider.when('/pacinotti',{
+    $routeProvider.when('/flappyChicken',{
     	title: 'Polli ovunque',
-    	templateUrl : 'templates/pacinotti.php'
+    	templateUrl : 'templates/flappyChicken.php'
+    });
+    
+    $routeProvider.when('/jetpackJoypenguinV1',{
+    	title: 'Pinguini ovunque',
+    	templateUrl : 'templates/jetpackJoypenguinV1.php'
+    });
+    
+    $routeProvider.when('/jetpackJoypenguin',{
+    	title: 'Jetpack Joypenguin',
+    	templateUrl : 'templates/jetpackJoypenguin.php'
     });
     
     $routeProvider.otherwise({
