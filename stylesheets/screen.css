@@ -1922,7 +1922,7 @@ mark,
 }
 
 /* line 90, ../sass/bootstrap/_type.scss */
-.text-left, #navbar-home, #courses #tiles-courses .tile .back, #activities #tiles-activities .tile .back, #contacts #contact-form, #contacts #contacts-list, #profile .high-score-name, .full-row .in-main, .full-row #admin, .full-row #presentation, .full-row #team #team-wrapper, #team .full-row #team-wrapper, .full-row #courses, .full-row #singleCourse, .full-row #activities, .full-row #singleActivity, .full-row #media, .full-row #contacts, .full-row #payment-disclaimer-modal, .full-row #payment, .full-row #faqPage, .full-row #profile, .full-row .modal-wrapper, .full-row #preferences, .full-row #tutorial, .full-row #tutorials, .full-row #write-tutorial, .full-row .game {
+.text-left, #navbar-home, #courses #tiles-courses .tile .back, #activities #tiles-activities .tile .back, #contacts #contact-form, #contacts #contacts-list, #profile .high-score-name, .full-row .in-main, .full-row #admin, .full-row #presentation, .full-row #team #team-wrapper, #team .full-row #team-wrapper, .full-row #courses, .full-row #singleCourse, .full-row #activities, .full-row #singleActivity, .full-row #media, .full-row #contacts, .full-row #payment-disclaimer-modal, .full-row #payment, .full-row #faqPage, .full-row #profile, .full-row .modal-wrapper, .full-row #preferences, .full-row #tutorial, .full-row #tutorials, .full-row #write-tutorial, .full-row .game, .full-row #TT-matrix, .full-row #TT-equation {
   text-align: left;
 }
 
@@ -1932,7 +1932,7 @@ mark,
 }
 
 /* line 92, ../sass/bootstrap/_type.scss */
-.text-center, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, .game, #menu, #navbar-toggle, #navbar, #navbar-tabs, #footer, #team, #singleCourse .panel-title, #singleActivity .panel-title, #register, #register .XP, #profile .panel-title, #profile .profile-level-symbol, #cart .panel-title, #tutorial .panel-title {
+.text-center, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, .game, #TT-matrix, #TT-equation, #menu, #navbar-toggle, #navbar, #navbar-tabs, #footer, #team, #singleCourse .panel-title, #singleActivity .panel-title, #register, #register .XP, #profile .panel-title, #profile .profile-level-symbol, #cart .panel-title, #tutorial .panel-title, input[type=number].tt {
   text-align: center;
 }
 
@@ -3777,7 +3777,7 @@ output {
 }
 
 /* line 114, ../sass/bootstrap/_forms.scss */
-.form-control, input, textarea {
+.form-control, input, textarea, input[type=number].tt {
   display: block;
   width: 100%;
   height: 34px;
@@ -3796,32 +3796,32 @@ output {
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 /* line 57, ../sass/bootstrap/mixins/_forms.scss */
-.form-control:focus, input:focus, textarea:focus {
+.form-control:focus, input:focus, textarea:focus, input[type=number].tt:focus {
   border-color: #66afe9;
   outline: 0;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
 }
 /* line 103, ../sass/bootstrap/mixins/_vendor-prefixes.scss */
-.form-control::-moz-placeholder, input::-moz-placeholder, textarea::-moz-placeholder {
+.form-control::-moz-placeholder, input::-moz-placeholder, textarea::-moz-placeholder, input[type=number].tt::-moz-placeholder {
   color: #999;
   opacity: 1;
 }
 /* line 107, ../sass/bootstrap/mixins/_vendor-prefixes.scss */
-.form-control:-ms-input-placeholder, input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+.form-control:-ms-input-placeholder, input:-ms-input-placeholder, textarea:-ms-input-placeholder, input[type=number].tt:-ms-input-placeholder {
   color: #999;
 }
 /* line 108, ../sass/bootstrap/mixins/_vendor-prefixes.scss */
-.form-control::-webkit-input-placeholder, input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+.form-control::-webkit-input-placeholder, input::-webkit-input-placeholder, textarea::-webkit-input-placeholder, input[type=number].tt::-webkit-input-placeholder {
   color: #999;
 }
 /* line 140, ../sass/bootstrap/_forms.scss */
-.form-control[disabled], input[disabled], textarea[disabled], .form-control[readonly], input[readonly], textarea[readonly], fieldset[disabled] .form-control, fieldset[disabled] input, fieldset[disabled] textarea {
+.form-control[disabled], input[disabled], textarea[disabled], input[disabled][type=number].tt, .form-control[readonly], input[readonly], textarea[readonly], input[readonly][type=number].tt, fieldset[disabled] .form-control, fieldset[disabled] input, fieldset[disabled] textarea, fieldset[disabled] input[type=number].tt {
   background-color: #eeeeee;
   opacity: 1;
 }
 /* line 147, ../sass/bootstrap/_forms.scss */
-.form-control[disabled], input[disabled], textarea[disabled], fieldset[disabled] .form-control, fieldset[disabled] input, fieldset[disabled] textarea {
+.form-control[disabled], input[disabled], textarea[disabled], input[disabled][type=number].tt, fieldset[disabled] .form-control, fieldset[disabled] input, fieldset[disabled] textarea, fieldset[disabled] input[type=number].tt {
   cursor: not-allowed;
 }
 
@@ -3837,13 +3837,16 @@ input[type="search"] {
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   /* line 187, ../sass/bootstrap/_forms.scss */
-  input[type="date"].form-control, input[type="date"],
+  input[type="date"].form-control, input[type="date"], input[type="date"][type=number].tt,
   input[type="time"].form-control,
   input[type="time"],
+  input[type="time"][type=number].tt,
   input[type="datetime-local"].form-control,
   input[type="datetime-local"],
+  input[type="datetime-local"][type=number].tt,
   input[type="month"].form-control,
-  input[type="month"] {
+  input[type="month"],
+  input[type="month"][type=number].tt {
     line-height: 34px;
   }
   /* line 191, ../sass/bootstrap/_forms.scss */
@@ -4029,7 +4032,7 @@ input[type="checkbox"] {
 }
 
 /* line 71, ../sass/bootstrap/mixins/_forms.scss */
-.input-sm, .input-group-sm > .form-control, .input-group-sm > input, .input-group-sm > textarea,
+.input-sm, .input-group-sm > .form-control, .input-group-sm > input, .input-group-sm > textarea, .input-group-sm > input[type=number].tt,
 .input-group-sm > .input-group-addon,
 .input-group-sm > .input-group-btn > .btn,
 #contacts #contact-form .input-group-sm > .input-group-btn > #contacts-submit,
@@ -4079,7 +4082,7 @@ select[multiple].input-sm,
 }
 
 /* line 327, ../sass/bootstrap/_forms.scss */
-.form-group-sm .form-control, .form-group-sm input, .form-group-sm textarea {
+.form-group-sm .form-control, .form-group-sm input, .form-group-sm textarea, .form-group-sm input[type=number].tt {
   height: 30px;
   padding: 5px 10px;
   font-size: 12px;
@@ -4106,7 +4109,7 @@ select[multiple].input-sm,
 }
 
 /* line 71, ../sass/bootstrap/mixins/_forms.scss */
-.input-lg, .input-group-lg > .form-control, .input-group-lg > input, .input-group-lg > textarea,
+.input-lg, .input-group-lg > .form-control, .input-group-lg > input, .input-group-lg > textarea, .input-group-lg > input[type=number].tt,
 .input-group-lg > .input-group-addon,
 .input-group-lg > .input-group-btn > .btn,
 #contacts #contact-form .input-group-lg > .input-group-btn > #contacts-submit,
@@ -4156,7 +4159,7 @@ select[multiple].input-lg,
 }
 
 /* line 353, ../sass/bootstrap/_forms.scss */
-.form-group-lg .form-control, .form-group-lg input, .form-group-lg textarea {
+.form-group-lg .form-control, .form-group-lg input, .form-group-lg textarea, .form-group-lg input[type=number].tt {
   height: 46px;
   padding: 10px 16px;
   font-size: 18px;
@@ -4187,7 +4190,7 @@ select[multiple].input-lg,
   position: relative;
 }
 /* line 387, ../sass/bootstrap/_forms.scss */
-.has-feedback .form-control, .has-feedback input, .has-feedback textarea {
+.has-feedback .form-control, .has-feedback input, .has-feedback textarea, .has-feedback input[type=number].tt {
   padding-right: 42.5px;
 }
 
@@ -4217,7 +4220,8 @@ select[multiple].input-lg,
 .input-group-lg + .form-control-feedback,
 .form-group-lg .form-control + .form-control-feedback,
 .form-group-lg input + .form-control-feedback,
-.form-group-lg textarea + .form-control-feedback {
+.form-group-lg textarea + .form-control-feedback,
+.form-group-lg input[type=number].tt + .form-control-feedback {
   width: 46px;
   height: 46px;
   line-height: 46px;
@@ -4235,7 +4239,8 @@ select[multiple].input-lg,
 .input-group-sm + .form-control-feedback,
 .form-group-sm .form-control + .form-control-feedback,
 .form-group-sm input + .form-control-feedback,
-.form-group-sm textarea + .form-control-feedback {
+.form-group-sm textarea + .form-control-feedback,
+.form-group-sm input[type=number].tt + .form-control-feedback {
   width: 30px;
   height: 30px;
   line-height: 30px;
@@ -4251,13 +4256,13 @@ select[multiple].input-lg,
   color: #3c763d;
 }
 /* line 21, ../sass/bootstrap/mixins/_forms.scss */
-.has-success .form-control, .has-success input, .has-success textarea {
+.has-success .form-control, .has-success input, .has-success textarea, .has-success input[type=number].tt {
   border-color: #3c763d;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 /* line 24, ../sass/bootstrap/mixins/_forms.scss */
-.has-success .form-control:focus, .has-success input:focus, .has-success textarea:focus {
+.has-success .form-control:focus, .has-success input:focus, .has-success textarea:focus, .has-success input[type=number].tt:focus {
   border-color: #2b542c;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168;
@@ -4283,13 +4288,13 @@ select[multiple].input-lg,
   color: #8a6d3b;
 }
 /* line 21, ../sass/bootstrap/mixins/_forms.scss */
-.has-warning .form-control, .has-warning input, .has-warning textarea {
+.has-warning .form-control, .has-warning input, .has-warning textarea, .has-warning input[type=number].tt {
   border-color: #8a6d3b;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 /* line 24, ../sass/bootstrap/mixins/_forms.scss */
-.has-warning .form-control:focus, .has-warning input:focus, .has-warning textarea:focus {
+.has-warning .form-control:focus, .has-warning input:focus, .has-warning textarea:focus, .has-warning input[type=number].tt:focus {
   border-color: #66512c;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #c0a16b;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #c0a16b;
@@ -4315,13 +4320,13 @@ select[multiple].input-lg,
   color: #a94442;
 }
 /* line 21, ../sass/bootstrap/mixins/_forms.scss */
-.has-error .form-control, .has-error input, .has-error textarea {
+.has-error .form-control, .has-error input, .has-error textarea, .has-error input[type=number].tt {
   border-color: #a94442;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 /* line 24, ../sass/bootstrap/mixins/_forms.scss */
-.has-error .form-control:focus, .has-error input:focus, .has-error textarea:focus {
+.has-error .form-control:focus, .has-error input:focus, .has-error textarea:focus, .has-error input[type=number].tt:focus {
   border-color: #843534;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
@@ -4362,7 +4367,7 @@ select[multiple].input-lg,
     vertical-align: middle;
   }
   /* line 479, ../sass/bootstrap/_forms.scss */
-  .form-inline .form-control, .form-inline input, .form-inline textarea {
+  .form-inline .form-control, .form-inline input, .form-inline textarea, .form-inline input[type=number].tt {
     display: inline-block;
     width: auto;
     vertical-align: middle;
@@ -4381,11 +4386,12 @@ select[multiple].input-lg,
   .form-inline .input-group .input-group-btn,
   .form-inline .input-group .form-control,
   .form-inline .input-group input,
-  .form-inline .input-group textarea {
+  .form-inline .input-group textarea,
+  .form-inline .input-group input[type=number].tt {
     width: auto;
   }
   /* line 502, ../sass/bootstrap/_forms.scss */
-  .form-inline .input-group > .form-control, .form-inline .input-group > input, .form-inline .input-group > textarea {
+  .form-inline .input-group > .form-control, .form-inline .input-group > input, .form-inline .input-group > textarea, .form-inline .input-group > input[type=number].tt {
     width: 100%;
   }
   /* line 506, ../sass/bootstrap/_forms.scss */
@@ -5415,7 +5421,7 @@ tbody.collapse.in {
   padding-right: 0;
 }
 /* line 19, ../sass/bootstrap/_input-groups.scss */
-.input-group .form-control, .input-group input, .input-group textarea {
+.input-group .form-control, .input-group input, .input-group textarea, .input-group input[type=number].tt {
   position: relative;
   z-index: 2;
   float: left;
@@ -5428,7 +5434,8 @@ tbody.collapse.in {
 .input-group-btn,
 .input-group .form-control,
 .input-group input,
-.input-group textarea {
+.input-group textarea,
+.input-group input[type=number].tt {
   display: table-cell;
 }
 /* line 59, ../sass/bootstrap/_input-groups.scss */
@@ -5436,7 +5443,8 @@ tbody.collapse.in {
 .input-group-btn:not(:first-child):not(:last-child),
 .input-group .form-control:not(:first-child):not(:last-child),
 .input-group input:not(:first-child):not(:last-child),
-.input-group textarea:not(:first-child):not(:last-child) {
+.input-group textarea:not(:first-child):not(:last-child),
+.input-group input[type=number].tt:not(:first-child):not(:last-child) {
   border-radius: 0;
 }
 
@@ -5493,7 +5501,7 @@ tbody.collapse.in {
 }
 
 /* line 104, ../sass/bootstrap/_input-groups.scss */
-.input-group .form-control:first-child, .input-group input:first-child, .input-group textarea:first-child,
+.input-group .form-control:first-child, .input-group input:first-child, .input-group textarea:first-child, .input-group input[type=number].tt:first-child,
 .input-group-addon:first-child,
 .input-group-btn:first-child > .btn,
 #contacts #contact-form .input-group-btn:first-child > #contacts-submit,
@@ -5530,7 +5538,7 @@ tbody.collapse.in {
 }
 
 /* line 116, ../sass/bootstrap/_input-groups.scss */
-.input-group .form-control:last-child, .input-group input:last-child, .input-group textarea:last-child,
+.input-group .form-control:last-child, .input-group input:last-child, .input-group textarea:last-child, .input-group input[type=number].tt:last-child,
 .input-group-addon:last-child,
 .input-group-btn:last-child > .btn,
 #contacts #contact-form .input-group-btn:last-child > #contacts-submit,
@@ -6079,7 +6087,7 @@ tbody.collapse.in {
     vertical-align: middle;
   }
   /* line 479, ../sass/bootstrap/_forms.scss */
-  .navbar-form .form-control, .navbar-form input, .navbar-form textarea {
+  .navbar-form .form-control, .navbar-form input, .navbar-form textarea, .navbar-form input[type=number].tt {
     display: inline-block;
     width: auto;
     vertical-align: middle;
@@ -6098,11 +6106,12 @@ tbody.collapse.in {
   .navbar-form .input-group .input-group-btn,
   .navbar-form .input-group .form-control,
   .navbar-form .input-group input,
-  .navbar-form .input-group textarea {
+  .navbar-form .input-group textarea,
+  .navbar-form .input-group input[type=number].tt {
     width: auto;
   }
   /* line 502, ../sass/bootstrap/_forms.scss */
-  .navbar-form .input-group > .form-control, .navbar-form .input-group > input, .navbar-form .input-group > textarea {
+  .navbar-form .input-group > .form-control, .navbar-form .input-group > input, .navbar-form .input-group > textarea, .navbar-form .input-group > input[type=number].tt {
     width: 100%;
   }
   /* line 506, ../sass/bootstrap/_forms.scss */
@@ -9453,7 +9462,7 @@ button.close {
 }
 
 /* line 12, ../sass/_responsive.scss */
-.offset-15, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, .game, #payment .paymentStep, #faqPage .faqStep {
+.offset-15, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, .game, #TT-matrix, #TT-equation, #payment .paymentStep, #faqPage .faqStep {
   margin-left: 15%;
 }
 
@@ -10322,7 +10331,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-70, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, .game, #news-events .news-title, #payment .paymentStep, #faqPage .faqStep {
+.col-70, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, .game, #TT-matrix, #TT-equation, #news-events .news-title, #payment .paymentStep, #faqPage .faqStep {
   width: 70%;
   float: left;
 }
@@ -12250,7 +12259,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 /* line 103, ../sass/_tricks.scss */
-.clickable, #preferences .modify {
+.clickable, #preferences .modify, #TT-matrix .mjx-mn {
   cursor: pointer;
 }
 
@@ -12296,13 +12305,13 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 /* line 144, ../sass/_tricks.scss */
-.in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, .game {
+.in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, .game, #TT-matrix, #TT-equation {
   margin-top: 2em;
   margin-bottom: 2em;
 }
 @media all and (max-device-width: 1079px) {
   /* line 144, ../sass/_tricks.scss */
-  .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, .game {
+  .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, .game, #TT-matrix, #TT-equation {
     width: 94%;
     margin-left: 3%;
   }
@@ -12520,7 +12529,7 @@ h1 {
 }
 
 /* line 28, ../sass/_palette.scss */
-.white, #menu h3, #menu h5, #menu span, #navbar-toggle, #navbar-signin, #navbar-signup, #navbar-logged, #footer a:active, #news-events a, #courses .category-bookmark, #courses .course-bookmark, .modal-wrapper form .modal-submit, .modal-wrapper form .modal-submit:hover, .modal-wrapper form .modal-submit:active, .modal-wrapper form .modal-submit:focus {
+.white, #menu h3, #menu h5, #menu span, #navbar-toggle, #navbar-signin, #navbar-signup, #navbar-logged, #footer a:active, #news-events a, #courses .category-bookmark, #courses .course-bookmark, .modal-wrapper form .modal-submit, .modal-wrapper form .modal-submit:hover, .modal-wrapper form .modal-submit:active, .modal-wrapper form .modal-submit:focus, input[type=number].tt {
   color: white;
 }
 
@@ -12736,7 +12745,7 @@ h1 {
 }
 
 /* line 79, ../sass/_palette.scss */
-.bg-jungle, #menu, #left-border-responsive, #navbar-toggle, #courses .category-bookmark {
+.bg-jungle, #menu, #left-border-responsive, #navbar-toggle, #courses .category-bookmark, input[type=number].tt {
   background-color: #003E36;
 }
 
@@ -17776,33 +17785,93 @@ label p {
   border: 1.5px solid #B3B2B3;
 }
 
-/* line 50, ../sass/_reseed.scss */
+/* Teaching Toolbox */
+/* line 1, ../sass/TT/_equation.scss */
+#TT-equation {
+  padding-bottom: 5em;
+}
+/* line 6, ../sass/TT/_equation.scss */
+#TT-equation .well, #TT-equation #contacts #contact-form-wrapper, #contacts #TT-equation #contact-form-wrapper, #TT-equation #contacts #how-to-map-wrapper, #contacts #TT-equation #how-to-map-wrapper {
+  width: 50%;
+  margin: auto;
+  margin-bottom: 0;
+  position: relative;
+}
+/* line 14, ../sass/TT/_equation.scss */
+#TT-equation .well .show-next-step, #TT-equation #contacts #contact-form-wrapper .show-next-step, #contacts #TT-equation #contact-form-wrapper .show-next-step, #TT-equation #contacts #how-to-map-wrapper .show-next-step, #contacts #TT-equation #how-to-map-wrapper .show-next-step {
+  width: 94%;
+  display: table-cell;
+  text-align: center;
+  vertical-align: bottom;
+  position: absolute;
+}
+/* line 22, ../sass/TT/_equation.scss */
+#TT-equation .well .show-next-step .fa-stack-1x, #TT-equation #contacts #contact-form-wrapper .show-next-step .fa-stack-1x, #contacts #TT-equation #contact-form-wrapper .show-next-step .fa-stack-1x, #TT-equation #contacts #how-to-map-wrapper .show-next-step .fa-stack-1x, #contacts #TT-equation #how-to-map-wrapper .show-next-step .fa-stack-1x {
+  top: -0.01em;
+  left: 0.08em;
+}
+/* line 28, ../sass/TT/_equation.scss */
+#TT-equation .well .show-all-steps, #TT-equation #contacts #contact-form-wrapper .show-all-steps, #contacts #TT-equation #contact-form-wrapper .show-all-steps, #TT-equation #contacts #how-to-map-wrapper .show-all-steps, #contacts #TT-equation #how-to-map-wrapper .show-all-steps {
+  width: 94%;
+  display: table-cell;
+  text-align: right;
+  vertical-align: middle;
+  position: absolute;
+}
+/* line 36, ../sass/TT/_equation.scss */
+#TT-equation .well .show-all-steps .fa-stack-1x, #TT-equation #contacts #contact-form-wrapper .show-all-steps .fa-stack-1x, #contacts #TT-equation #contact-form-wrapper .show-all-steps .fa-stack-1x, #TT-equation #contacts #how-to-map-wrapper .show-all-steps .fa-stack-1x, #contacts #TT-equation #how-to-map-wrapper .show-all-steps .fa-stack-1x {
+  top: -0.01em;
+  left: 0.08em;
+}
+/* line 44, ../sass/TT/_equation.scss */
+#TT-equation .well:not(:first-child), #TT-equation #contacts #contact-form-wrapper:not(:first-child), #contacts #TT-equation #contact-form-wrapper:not(:first-child), #TT-equation #contacts #how-to-map-wrapper:not(:first-child), #contacts #TT-equation #how-to-map-wrapper:not(:first-child) {
+  background-color: white;
+  background-image: none;
+}
+
+/* @font-face { */
+/*     font-family: math; */
+/*     src: url(sansation_light.woff); */
+/* } */
+/* line 11, ../sass/TT/_tt.scss */
+input[type=number].tt {
+  font-family: MJXc-TeX-main-R,MJXc-TeX-main-Rw;
+  font-size: 2em;
+  margin: 0;
+  padding: 0;
+  border-radius: 100%;
+  width: 1.5em;
+  height: 1.5em;
+}
+
+/* MAIN */
+/* line 56, ../sass/_reseed.scss */
 #main {
   width: 100%;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 50, ../sass/_reseed.scss */
+  /* line 56, ../sass/_reseed.scss */
   #main {
     padding-left: 0.5em;
   }
 }
 
-/* line 62, ../sass/_reseed.scss */
+/* line 68, ../sass/_reseed.scss */
 .mini-header {
   /*     margin-bottom: 2em; */
 }
-/* line 66, ../sass/_reseed.scss */
+/* line 72, ../sass/_reseed.scss */
 .mini-header img {
   width: 100%;
 }
 
-/* line 85, ../sass/_reseed.scss */
+/* line 91, ../sass/_reseed.scss */
 blockquote {
   background-color: #F9F9F9;
   border-left: 10px solid #eeeeee;
 }
 
-/* line 97, ../sass/_reseed.scss */
+/* line 103, ../sass/_reseed.scss */
 .bookmark, #courses .category-bookmark {
   z-index: 100;
   position: relative;
@@ -17812,16 +17881,24 @@ blockquote {
   margin-bottom: 1em;
 }
 
-/* line 110, ../sass/_reseed.scss */
+/* line 116, ../sass/_reseed.scss */
 .bookmark-content {
   height: 4em;
 }
 
-/* line 114, ../sass/_reseed.scss */
+/* line 120, ../sass/_reseed.scss */
 .bookmark-tail {
   position: absolute;
   left: 0;
   border-top: 2em solid transparent;
   border-bottom: 2em solid transparent;
   border-left: 2em solid white;
+}
+
+/* line 133, ../sass/_reseed.scss */
+hr {
+  width: 50%;
+  border-top-width: 0.2em;
+  border-radius: 100%;
+  border-top-color: #d5d5d5;
 }

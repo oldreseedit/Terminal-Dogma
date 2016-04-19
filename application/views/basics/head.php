@@ -93,8 +93,8 @@
     <script src="bower_components/angular-youtube-mb/src/angular-youtube-embed.js"></script>
     
     <!-- Angular Gridster -->
-    <script src="bower_components/javascript-detect-element-resize/jquery.resize.js"></script>
-    <script src="bower_components/angular-gridster/src/angular-gridster.js"></script>
+<!--     <script src="bower_components/javascript-detect-element-resize/jquery.resize.js"></script> -->
+<!--     <script src="bower_components/angular-gridster/src/angular-gridster.js"></script> -->
     
     <!-- Angular File Upload -->
     <script src='bower_components/angular-upload/angular-upload.js'></script>
@@ -125,7 +125,70 @@
     <!-- Angular monospaced elastic for textareas -->
     <script type="text/javascript" src="js/directives/elastic.js"></script>
     
+	<!-- MathJax  -->
+	<script type="text/javascript">
+		window.MathJax = {
+			AuthorInit: function () {
+				MathJax.Hub.Register.StartupHook('End',function () {
+					var event = document.createEvent('Event');
+					event.initEvent('MathJaxLoaded', true, true);
+					window.dispatchEvent(event);					
+				});
+// 				MathJax.Hub.Register.MessageHook('Begin Process',function () {
+// 					var event = document.createEvent('Event');
+// 					event.initEvent('beginMath', true, true);
+// 					window.dispatchEvent(event);					
+// 				});
+// 				MathJax.Hub.Register.MessageHook('End Process',function () {
+// 					var event = document.createEvent('Event');
+// 					event.initEvent('endMath', true, true);
+// 					window.dispatchEvent(event);					
+// 				});
+// 				MathJax.Hub.signal.Interest(
+// 				  function (message) {console.log("Hub: "+message)}
+// 				);
+			}
+		};
+	</script>
+	<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML,http://localhost/TT/local.js"></script>
+	<script type="text/javascript" src="https://www.desmos.com/api/v0.6/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+	<link rel="stylesheet" href="/bower_components/mathquill-0.10.1/mathquill.css"/>
+	<script src="/bower_components/mathquill-0.10.1/mathquill.js"></script>
+	
+    
+	<!--  Teaching Toolbox -->
+    <script type="text/javascript" src="TT/js/classes/MathError.js"></script>
+    <script type="text/javascript" src="TT/js/classes/Tex.js"></script>
+    <script type="text/javascript" src="TT/js/classes/MathObject.js"></script>
+    <script type="text/javascript" src="TT/js/classes/Number.js"></script>
+    <script type="text/javascript" src="TT/js/classes/PM.js"></script>
+    <script type="text/javascript" src="TT/js/classes/Sum.js"></script>
+    <script type="text/javascript" src="TT/js/classes/Product.js"></script>
+    <script type="text/javascript" src="TT/js/classes/Fraction.js"></script>
+    <script type="text/javascript" src="TT/js/classes/Root.js"></script>
+    <script type="text/javascript" src="TT/js/classes/Power.js"></script>
+    <script type="text/javascript" src="TT/js/classes/X.js"></script>
+    <script type="text/javascript" src="TT/js/classes/Monomial.js"></script>
+    <script type="text/javascript" src="TT/js/classes/Polynomial.js"></script>
+    <script type="text/javascript" src="TT/js/classes/Formula.js"></script>
+    <script type="text/javascript" src="TT/js/classes/Equation.js"></script>
+    <script type="text/javascript" src="TT/js/classes/Solvable.js"></script>
+    <script type="text/javascript" src="TT/js/classes/LinearEquation.js"></script>
+    <script type="text/javascript" src="TT/js/classes/SecondDegreeEquation.js"></script>
+    <script type="text/javascript" src="TT/js/classes/Step.js"></script>
+    <script type="text/javascript" src="TT/js/classes/Solution.js"></script>
+    <script type="text/javascript" src="TT/js/classes/Function.js"></script>
+    <script type="text/javascript" src="TT/js/classes/Vector.js"></script>
+    <script type="text/javascript" src="TT/js/classes/Matrix.js"></script>
+    
     <!-- AngularJS Modules -->
+    
+    <script type="text/javascript" src="TT/js/main.js"></script>       
+    <script type="text/javascript" src="TT/js/directives/math.js"></script>
+    <script type="text/javascript" src="TT/js/directives/matrixEntry.js"></script>
+    <script type="text/javascript" src="TT/js/controllers/matrixCtrl.js"></script>
+    <script type="text/javascript" src="TT/js/controllers/equationCtrl.js"></script>    
+    
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/filters/firstCapitalized.js"></script>
     <script type="text/javascript" src="js/filters/experiencePointsFormatter.js"></script>
@@ -135,7 +198,7 @@
     <script type="text/javascript" src="js/factories/reseedFacebook.js"></script>
     <script type="text/javascript" src="js/factories/server.js"></script>
     <script type="text/javascript" src="js/config/elasticConfig.js"></script>
-    <script type="text/javascript" src="js/config/gridsterConfig.js"></script>
+<!--     <script type="text/javascript" src="js/config/gridsterConfig.js"></script> -->
     <script type="text/javascript" src="js/config/httpInterceptors.js"></script>
     <script type="text/javascript" src="js/config/informConfig.js"></script>
     <script type="text/javascript" src="js/config/routesConfig.js"></script>
@@ -196,7 +259,7 @@
     
     <!-- Prism -->
     <script type="text/javascript" src="js/prism.js"></script>
-    
+	
     <!-- endinjector -->
      
     <!-- PERSONAL CSS-->

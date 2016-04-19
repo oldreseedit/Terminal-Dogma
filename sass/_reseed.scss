@@ -47,6 +47,12 @@
 @import "perfect-scrollbar";
 @import "angular-gridster";
 
+/* Teaching Toolbox */
+
+@import "TT/tt";
+
+/* MAIN */
+
 #main{
     width: 100%;
    	@include responsive
@@ -122,6 +128,14 @@ blockquote{
 html{
 	@extend .animated-slow;
 	@extend .fadeIn;	
+}
+
+hr
+{
+	width: 50%;
+	border-top-width: 0.2em;
+	border-radius: 100%;
+	border-top-color: $grey;
 }
 
 

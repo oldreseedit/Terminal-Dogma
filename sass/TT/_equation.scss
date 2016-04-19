@@ -1,0 +1,50 @@
+#TT-equation
+{
+	@extend .in-main;
+	padding-bottom: 5em;
+	
+	.well
+	{
+		width: 50%;
+		margin: auto;
+		margin-bottom: 0;
+		
+		position: relative;
+		
+		.show-next-step
+		{
+			width: 94%;
+			display: table-cell;
+			text-align: center;
+			vertical-align: bottom;
+			position: absolute;
+			
+			.fa-stack-1x
+			{
+				top: -0.01em;
+				left: 0.08em;
+			}
+		}
+		.show-all-steps
+		{
+			width: 94%;
+			display: table-cell;
+			text-align: right;
+			vertical-align: middle;
+			position: absolute;
+			
+			.fa-stack-1x
+			{
+				top: -0.01em;
+				left: 0.08em;
+			}
+		}
+		
+		
+		&:not(:first-child)
+		{
+			background-color : white;
+			background-image: none;
+		}
+	}
+}

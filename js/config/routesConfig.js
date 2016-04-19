@@ -1,4 +1,4 @@
-main.run(['$rootScope','$location', function($rootScope,$location) {
+﻿main.run(['$rootScope','$location', function($rootScope,$location) {
     $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
     	if(current.$$route)
     	{
@@ -187,6 +187,21 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     	title : 'Presentazione',
         templateUrl : 'templates/school.php'
     });
+    
+    /* TEACHING TOOLBOX */
+    
+    // Matrix
+
+    $routeProvider.when('/matrix',{
+    	title : 'Calcolo Matriciale',
+        templateUrl : 'TT/templates/matrix.php'
+    });
+    
+    $routeProvider.when('/equation',{
+    	title : 'Equazioni',
+    	templateUrl : 'TT/templates/equation.php',
+    	controller : 'equationCtrl as equation'
+    })
     
     $routeProvider.when('/write-tutorial/:tutorialID?', {
     	title: 'Scrivi un nuovo tutorial',
