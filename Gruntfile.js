@@ -19,7 +19,7 @@ module.exports = function(grunt) {
     	ngtemplates:  {
             app: 
             {
-                src: 'templates/*.php',
+                src: ['templates/*.php', 'templates/tutorial/*.php'],
                 dest: 'dist/js/templates.js',
                 options: {
                     module: 'Main',
@@ -35,7 +35,8 @@ module.exports = function(grunt) {
     	    includeDev: true,
     	    exclude: ['angular', 'font-awesome', 'jquery'],
 			mainFiles: {
-				'fullcalendar': ['dist/fullcalendar.js', 'dist/lang/it.js', 'dist/gcal.js', 'dist/fullcalendar.css']
+				'fullcalendar': ['dist/fullcalendar.js', 'dist/lang/it.js', 'dist/gcal.js', 'dist/fullcalendar.css'],
+				'angular-simple-logger': ['dist/index.js']
 			},
     	  }
     	},
@@ -54,7 +55,9 @@ module.exports = function(grunt) {
 	                  'js/config/*.js',
 	                  'js/directives/*.js',
 	                  'js/controllers/*.js',
-	                  'dist/js/templates.js'],
+	                  'js/prism.js',
+	                  'dist/js/templates.js',
+	                  ],
 	          dest: 'dist/js/<%= pkg.name %>.js'
 		  },
 		  css: {
@@ -63,6 +66,7 @@ module.exports = function(grunt) {
 					'dist/stylesheets/screen.css',
 					'stylesheets/fontcustom.css',
 					'stylesheets/awesome-bootstrap-checkbox.css',
+					'stylesheets/prism.css',
 					],
 	          dest: 'dist/stylesheets/reseed.css'
 		  }

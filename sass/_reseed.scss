@@ -40,6 +40,8 @@
 @import "tutorial";
 @import "tutorials";
 @import "write-tutorial";
+@import "demo";
+@import "game";
 
 @import "scrollbar";
 @import "perfect-scrollbar";
@@ -53,7 +55,10 @@
 
 #main{
     width: 100%;
-   	padding-left: 0.5em;
+   	@include responsive
+   	{
+   		padding-left: 0.5em;
+   	}
 }
     
 .wrapper{
@@ -62,7 +67,7 @@
 
 .mini-header{
     @extend .col-100;
-    margin-bottom: 2em;
+/*     margin-bottom: 2em; */
     
     img{
         width: 100%;
@@ -81,6 +86,18 @@
             }
         }
     }
+}
+
+blockquote{
+	background-color: #F9F9F9;
+	border-left: 10px solid #eeeeee;
+}
+
+.full-row{
+	@extend .col-100;
+	.in-main{
+		@extend .text-left;
+	}
 }
 
 .bookmark{

@@ -24,7 +24,7 @@
 						</div>
 					</div>
 				</div>
-				<div ng-if="!profile.visible">
+				<div ng-if="!profile.isMyProfile() && !profile.visible">
 					<h3><i class="text-danger fa fa-2x fa-exclamation-triangle"></i></h3><h3> Questo profilo è privato</h3>
 					<p>Non ci si fa gli affari altrui!</p>
 				</div>

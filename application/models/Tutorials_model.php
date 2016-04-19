@@ -26,27 +26,30 @@ class Tutorials_model extends CI_Model
                 				'constraint' => 64
                 		),
                 		'description' => array(
+                				'type' => 'TEXT',
+                		),
+                		'mainImage' => array(
                 				'type' => 'VARCHAR',
                 				'constraint' => 2048
                 		),
                 		'requirements' => array(
-                				'type' => 'VARCHAR',
-                				'constraint' => 2048
+                				'type' => 'TEXT',
                 		),
                 		'body' => array(
-                				'type' => 'VARCHAR',
-                				'constraint' => 4096
+                				'type' => 'TEXT',
                 		),
                 		'tags' => array(
                 				'type' => 'VARCHAR',
                 				'constraint' => 512
                 		),
                 		'seealso' => array(
-                				'type' => 'VARCHAR',
-                				'constraint' => 1024
+                				'type' => 'TEXT',
                 		),
                 		'publishingTimestamp' => array(
                 				'type' => 'DATETIME'
+                		),
+                		'images' => array(
+                				'type' => 'TEXT',
                 		),
                 );
                 
@@ -56,7 +59,7 @@ class Tutorials_model extends CI_Model
                 $this->dbforge->create_table(self::table_name);
         }
         
-        public function add($tutorialID, $title, $body, $publishingTimestamp, $description = null, $course = null, $requirements = null, $tags = null, $seealso = null, $images)
+        public function add($tutorialID, $title, $body, $publishingTimestamp, $description = null, $course = null, $requirements = null, $tags = null, $seealso = null, $mainImage = null, $images)
         {
                 $data = array(
                 	'tutorialID' => $tutorialID,
@@ -69,23 +72,15 @@ class Tutorials_model extends CI_Model
                 if($course != null) $data['course'] = $course;
                 if($requirements != null) $data['requirements'] = $requirements;
                 if($tags != null) $data['tags'] = $tags;
+                if($mainImage != null) $data['mainImage'] = $mainImage;
                 if($seealso != null) $data['seealso'] = $seealso;
                 
-                if(!empty($images))
-                {
-	                $imagesString = $images[0];
-// 	                foreach ($images as $image)
-// 	                {
-// 	                	$imagesString .= $image . "|";
-// 	                }
-	                
-	                $data['images'] = $imagesString;
-                }
+                if(!empty($images)) $data['images'] = json_encode($images);
                 
                 $this->db->insert(self::table_name, $data);
         }
         
-        public function update($tutorialID, $title = null, $body = null, $publishingTimestamp = null, $description = null, $course = null, $requirements = null, $tags = null, $seealso = null)
+        public function update($tutorialID, $title = null, $body = null, $publishingTimestamp = null, $description = null, $course = null, $requirements = null, $tags = null, $seealso = null, $mainImage = null)
         {
                 $data = array();
                 if($title != null) $data['title'] = $title;
@@ -97,6 +92,7 @@ class Tutorials_model extends CI_Model
                 if($requirements != null) $data['requirements'] = $requirements;
                 if($tags != null) $data['tags'] = $tags;
                 if($seealso != null) $data['seealso'] = $seealso;
+                if($mainImage != null) $data['mainImage'] = $mainImage;
                 
                 if(count($data) == 0) return false;
                 

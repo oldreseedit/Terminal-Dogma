@@ -1,14 +1,6 @@
 main.controller('tutorialController',['$server','$scope','$uibModal','$route','inform',function($server,$scope,$uibModal,$route,inform){
 	var self = this;
-	
-//	self.tutorialTitle = "";
-//	self.tutorialCourse = "";
-//	self.tutorialShortDescription = "";
-//	self.tutorialRequirements = "";
-//	self.tutorialBody = "";
-//	self.tutorialTags = "";
-//	self.tutorialSeealso = "";
-//	self.tutorialID = "";
+	var MAX_LENGTH = 300;
 	
 	self.tutorialAjax = $server.post('tutorials/get_all_tutorials',{}, true)
 		.then(
@@ -21,9 +13,13 @@ main.controller('tutorialController',['$server','$scope','$uibModal','$route','i
 				{
 					self.tutorials[i].tags = self.tutorials[i].tags.split(" ");
 					self.tutorials[i].tags = self.tutorials[i].tags.map(function(tag){return tag.split("_").join(" ");});
-					self.tutorials[i].url = self.tutorials[i].title.toLowerCase().split(" ").join("-");
+					// self.tutorials[i].url = self.tutorials[i].title.toLowerCase().split(" ").join("-");
+	
+					if(self.tutorials[i].description.length > MAX_LENGTH)
+						self.tutorials[i].description = self.tutorials[i].description.substring(0, MAX_LENGTH).trim() + "...";
 					
 					self.tutorials[i].time = moment(self.tutorials[i].publishingTimestamp).fromNow();
+					self.tutorials[i].exactTime = moment(self.tutorials[i].publishingTimestamp).format("DD MMMM YYYY");
 				}
 				
 				console.log(self.tutorials);

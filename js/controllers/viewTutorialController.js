@@ -1,4 +1,4 @@
-main.controller('viewTutorialController',['$rootScope','$scope','$server','$routeParams','$route','$timeout', 'inform','$server',function($rootScope,$scope,$server,$routeParams,$route,$timeout,inform,$server){
+main.controller('viewTutorialController',['$rootScope','$scope','$server','$routeParams','$route','$timeout', 'inform','$server','$compile','$sce',function($rootScope,$scope,$server,$routeParams,$route,$timeout,inform,$server,$compile,$sce){
     var self = this;
     
     var scrollbarsCreated = false;
@@ -8,6 +8,10 @@ main.controller('viewTutorialController',['$rootScope','$scope','$server','$rout
     		function(response)
     		{
     			self.tutorial = response.data;
+//    			console.log(self.tutorial);
+    			
+    			self.tutorial.body = JSON.parse(self.tutorial.body);
+    			
     			console.log(self.tutorial);
     			
     			$rootScope.title = self.tutorial.title;
@@ -38,12 +42,12 @@ main.controller('viewTutorialController',['$rootScope','$scope','$server','$rout
                 	  templateUrl : 'templates/tutorial/tutorial-requirements.php',
                 	  width: 100
                   },
-                  {
-                	  id : 'tutorialMain',
-                	  title: 'Tutorial',
-                	  templateUrl : 'templates/tutorial/tutorial-main.php',
-                	  width: 100
-                  },
+//                  {
+//                	  id : 'tutorialMain',
+//                	  title: 'Tutorial',
+//                	  templateUrl : 'templates/tutorial/tutorial-main.php',
+//                	  width: 100
+//                  },
         	];
             
     self.getItemClass = function(item)
@@ -60,5 +64,5 @@ main.controller('viewTutorialController',['$rootScope','$scope','$server','$rout
     	}
     	if(sum%100 === 0) return true;
     	else return false;
-    }    
+    }
 }]);

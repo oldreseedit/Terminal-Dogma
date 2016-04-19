@@ -205,19 +205,40 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
     
     $routeProvider.when('/write-tutorial/:tutorialID?', {
     	title: 'Scrivi un nuovo tutorial',
-    	templateUrl: 'templates/write-tutorial.php',
+    	templateUrl: 'templates/tutorial/write-tutorial.php',
     	controller: 'writeTutorial as writeTutorial'
     });
     
     $routeProvider.when('/tutorials', {
     	title: 'Tutorial',
-    	templateUrl: 'templates/tutorials.php',
+    	templateUrl: 'templates/tutorial/tutorials.php',
     	controller: 'tutorialController as tutorialC'
     });
     
     $routeProvider.when('/tutorial/:tutorialID',{
-        templateUrl : 'templates/tutorial.php',
+        templateUrl : 'templates/tutorial/tutorial.php',
         controller : 'viewTutorialController as tutorialV'
+    });
+    
+    $routeProvider.when('/demo',{
+    	title: 'Dimostrazione Live',
+    	templateUrl : 'templates/demo.php',
+    	controller : 'demoCtrl as demo'
+    });
+    
+    $routeProvider.when('/flappyChicken',{
+    	title: 'Polli ovunque',
+    	templateUrl : 'templates/flappyChicken.php'
+    });
+    
+    $routeProvider.when('/jetpackJoypenguinV1',{
+    	title: 'Pinguini ovunque',
+    	templateUrl : 'templates/jetpackJoypenguinV1.php'
+    });
+    
+    $routeProvider.when('/jetpackJoypenguin',{
+    	title: 'Jetpack Joypenguin',
+    	templateUrl : 'templates/jetpackJoypenguin.php'
     });
     
     $routeProvider.otherwise({

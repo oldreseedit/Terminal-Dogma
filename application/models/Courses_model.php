@@ -121,5 +121,10 @@ class Courses_model extends CI_Model
         {
         	return $this->db->select('name')->distinct()->get(self::table_name)->result_array();
         }
+        
+        public function get_all_iterations($subject)
+        {
+        	return $this->db->where('name', $subject)->order_by('startingDate', 'desc')->get(self::table_name)->result_array();
+        }
 }
 ?>

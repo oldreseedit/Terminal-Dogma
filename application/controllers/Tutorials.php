@@ -6,6 +6,7 @@ class Tutorials extends CI_Controller {
                 parent::__construct();
                 
                 $this->load->model('tutorials_model');
+                $this->load->model('courses_model');
         }
         
         public function init()
@@ -36,6 +37,8 @@ class Tutorials extends CI_Controller {
             	return;
             }
             
+            $body = json_encode($body);
+            
             $description = $this->input->post('description');
             if($description == false) $description = null;
             
@@ -51,12 +54,15 @@ class Tutorials extends CI_Controller {
             $seealso = $this->input->post('seealso');
             if($seealso == false) $seealso = null;
             
+            $mainImage = $this->input->post('mainImage');
+            if($mainImage == false) $mainImage = null;
+            
             $images = $this->input->post('images');
             if($images == false) $images = array();
             
             $publishing_timestamp = date("Y-m-d H:i:s");
             
-            $tutorialId = $this->tutorials_model->add($tutorialID, $title, $body, $publishing_timestamp, $description, $course, $requirements, $tags, $seealso, $images);
+            $tutorialId = $this->tutorials_model->add($tutorialID, $title, $body, $publishing_timestamp, $description, $course, $requirements, $tags, $seealso, $mainImage, $images);
             
             echo json_encode(array("error" => false, "description" => "Tutorial memorizzato con successo."));
         }
@@ -75,7 +81,8 @@ class Tutorials extends CI_Controller {
         
         	$body = $this->input->post('body');
         	if($body == false) $body = null;
-        
+        	else $body = json_encode($body);
+        		
         	$description = $this->input->post('description');
         	if($description == false) $description = null;
         
@@ -90,10 +97,13 @@ class Tutorials extends CI_Controller {
         
         	$seealso = $this->input->post('seealso');
         	if($seealso == false) $seealso = null;
+        	
+        	$mainImage = $this->input->post('mainImage');
+        	if($mainImage == false) $mainImage = null;
         
         	$publishing_timestamp = date("Y-m-d H:i:s");
         
-        	$this->tutorials_model->update($tutorialID, $title, $body, $publishing_timestamp, $description, $course, $requirements, $tags, $seealso);
+        	$this->tutorials_model->update($tutorialID, $title, $body, $publishing_timestamp, $description, $course, $requirements, $tags, $seealso, $mainImage);
         
         	echo json_encode(array("error" => false, "description" => "Tutorial aggiornato con successo."));
         }
@@ -111,7 +121,15 @@ class Tutorials extends CI_Controller {
             $tutorialID = $this->input->post('tutorialID');
             if($tutorialID == false) $tutorialID = null;
             
-            echo json_encode($this->tutorials_model->get($tutorialID));
+            $tutorial = $this->tutorials_model->get($tutorialID);
+            $tutorial['images'] = json_decode($tutorial['images']);
+            if($tutorial['images'] == null) $tutorial['images'] = json_last_error();
+            
+            // Search the most recent course, if specified
+            if($tutorial['course'])
+            	$tutorial['courseID'] = $this->courses_model->get_all_iterations($tutorial['course'])[0]['courseID'];
+            
+            echo json_encode($tutorial);
         }
         
         public function get_all_tutorials()
@@ -151,6 +169,27 @@ class Tutorials extends CI_Controller {
         	else
         	{
         		echo json_encode( array( 'error' => true, 'description' => 'Nessun file caricato...') );
+        	}
+        }
+        
+        public function remove_image()
+        {
+        	$url = $this->input->post('url');
+        	if($url == false)
+        	{
+        		echo json_encode( array( 'error' => true, 'description' => "Specificare il nome dell'immagine da eliminare.") );
+        		return;
+        	}
+
+        	$result = unlink($url);
+        	
+			if($result)
+			{
+        		echo json_encode( array( 'error' => false, 'description' => 'File ' . $url . ' eliminato correttamente.') );
+        	}
+        	else
+        	{
+        		echo json_encode( array( 'error' => true, 'description' => 'Errore durante il tentativo di eliminazione del file.') );
         	}
         }
 }

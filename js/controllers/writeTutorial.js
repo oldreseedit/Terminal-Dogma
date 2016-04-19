@@ -1,4 +1,4 @@
-main.controller('writeTutorial',['$rootScope', '$routeParams','$server','$scope','$uibModal','$route','inform','FileUploader',function($rootScope, $routeParams, $server,$scope,$uibModal,$route,inform,FileUploader){
+main.controller('writeTutorial',['$rootScope', '$routeParams','$server','$scope','$uibModal','$route','inform','FileUploader','$interval',function($rootScope, $routeParams, $server,$scope,$uibModal,$route,inform,FileUploader,$interval){
 	var self = this;
 	
 	self.tutorialTitle = "";
@@ -6,12 +6,24 @@ main.controller('writeTutorial',['$rootScope', '$routeParams','$server','$scope'
 	self.tutorialCourse = "";
 	self.tutorialShortDescription = "";
 	self.tutorialRequirements = "";
-	self.tutorialBody = "";
+	self.tutorialBody = [{title: "", content: ""}];
 	self.tutorialTags = "";
 	self.tutorialSeealso = "";
+	self.tutorialMainImage = "";
 	self.tutorialImages = [];
 	
 	self.mode = "write";
+	
+	self.ctrlS = function(event){
+		if(event.ctrlKey && (event.keyCode == 83 || event.which == 83))
+		{
+			event.preventDefault();
+			self.send();
+			$interval.cancel(this.promise);
+			self.autosave();
+		}
+	};
+	
 	
 	if($routeParams.tutorialID)
 	{
@@ -22,17 +34,20 @@ main.controller('writeTutorial',['$rootScope', '$routeParams','$server','$scope'
 	    		function(response)
 	    		{
 	    			self.tutorial = response.data;
-//	    			console.log(self.tutorial);
 	    			
 	    			self.tutorialTitle = self.tutorial.title;
 	    			self.tutorialID = self.tutorial.tutorialID;
 	    			self.tutorialCourse = {name: self.tutorial.course};
 	    			self.tutorialShortDescription = self.tutorial.description;
 	    			self.tutorialRequirements = self.tutorial.requirements;
-	    			self.tutorialBody = self.tutorial.body;
+	    			self.tutorialBody = JSON.parse(self.tutorial.body);
 	    			self.tutorialTags = self.tutorial.tags;
 	    			self.tutorialSeealso = self.tutorial.seealso;
+	    			self.tutorialMainImage = self.tutorial.mainImage;
 	    			self.tutorialImages = self.tutorial.images;
+	    			
+//	    			console.log(self.tutorial);
+//	    			console.log(self.tutorialImages);
 	    			
 	    			$rootScope.title = self.tutorial.title;
 	    			$rootScope.description = self.tutorial.description;
@@ -42,7 +57,7 @@ main.controller('writeTutorial',['$rootScope', '$routeParams','$server','$scope'
 	    		});
 	}
 	
-	self.send = function()
+	self.send = function(preview)
 	{
 		var pending = self.uploader.getNotUploadedItems();
 		for(var i=0; i<pending.length; i++)
@@ -63,6 +78,7 @@ main.controller('writeTutorial',['$rootScope', '$routeParams','$server','$scope'
 						body: self.tutorialBody,
 						tags: self.tutorialTags,
 						seealso: self.tutorialSeealso,
+						mainImage: self.tutorialMainImage,
 						images: self.tutorialImages
 					}, true).then(
 		    		function(response)
@@ -93,7 +109,11 @@ main.controller('writeTutorial',['$rootScope', '$routeParams','$server','$scope'
 		    		{
 //		    			console.log(response);
 		    			
-		    			inform.add(response.data.description);
+		    			if(preview)
+		    			{
+//		    				location.href = "/tutorial/" + self.tutorialID;
+		    			}
+		    			else inform.add(response.data.description);
 		    		}
 		        );
 		}
@@ -132,9 +152,60 @@ main.controller('writeTutorial',['$rootScope', '$routeParams','$server','$scope'
     		self.tutorialID = self.tutorialTitle.toLowerCase().split(" ").join("-");
     });
     
-    self.removeImage = function()
+    self.removeImage = function(index)
     {
-    	self.tutorialImages = "";
-    	console.log(self.tutorialImages);
+    	var image = self.tutorialImages[index];
+    	$server.post('tutorials/remove_image', {url: image})
+    	.then(function(response){
+            console.log(response);
+            
+            if(response.data.error){
+            	inform.add(response.data.description, {type: 'danger'});
+            }
+            else{
+            	inform.add(response.data.description);
+            	self.tutorialImages.splice(index, 1);
+            }
+
+        	console.log(self.tutorialImages);
+        },function(error){
+        	inform.add(response.data.description, {type: 'danger'});
+        });
+    	
+    }
+    
+    self.removeStep = function(index)
+    {
+    	self.tutorialBody.splice(index, 1);
+    }
+    
+    self.addStep = function(index)
+    {
+    	self.tutorialBody.splice(index, 0, {"title": "Passo " + (index+1), "content": ""});
+    }
+    
+    self.preview = function()
+    {
+    	self.send(true);
+    }
+    
+    self.autosave = function(){
+    	self.promise = $interval(function(){
+	    	if(self.tutorialTitle !== '')
+	    	{
+	    		console.log("Saving to DB...");
+	    		self.send();
+	    	}
+	    }, 30000);
+    }
+    
+    self.copyLinkOK = function(image)
+    {
+    	inform.add("Link correttamente copiato: " + image);
+    }
+    
+    self.copyLinkFailed = function(image)
+    {
+    	inform.add("Errore durante la copia del link: " + image, {type: 'danger'});
     }
 }]);
