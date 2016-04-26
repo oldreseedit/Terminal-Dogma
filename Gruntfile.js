@@ -19,7 +19,7 @@ module.exports = function(grunt) {
     	ngtemplates:  {
             app: 
             {
-                src: ['templates/*.php', 'templates/tutorial/*.php'],
+                src: ['templates/*.php', 'templates/tutorial/*.php', 'TT/templates/*.php'],
                 dest: 'dist/js/templates.js',
                 options: {
                     module: 'Main',
@@ -50,11 +50,36 @@ module.exports = function(grunt) {
 			          'js/directives/fitText.js',
 			          'js/directives/elastic.js',
 					  'js/mathquill/mathquill.js',
-					  'TT/local.js',
+					  
+					  'TT/js/classes/MathError.js',
+					  'TT/js/classes/Tex.js',
+					  'TT/js/classes/MathObject.js',
+					  'TT/js/classes/Number.js',
+					  'TT/js/classes/PM.js',
+					  'TT/js/classes/Sum.js',
+					  'TT/js/classes/Product.js',
+					  'TT/js/classes/Fraction.js',
+					  'TT/js/classes/Root.js',
+					  'TT/js/classes/Power.js',
+					  'TT/js/classes/X.js',
+					  'TT/js/classes/Monomial.js',
+					  'TT/js/classes/Polynomial.js',
+					  'TT/js/classes/Formula.js',
+					  'TT/js/classes/Equation.js',
+					  'TT/js/classes/Solvable.js',
+					  'TT/js/classes/LinearEquation.js',
+					  'TT/js/classes/SecondDegreeEquation.js',
+					  'TT/js/classes/Step.js',
+					  'TT/js/classes/Solution.js',
+					  'TT/js/classes/Function.js',
+					  'TT/js/classes/Vector.js',
+					  'TT/js/classes/Matrix.js',
+					  
 					  'TT/js/main.js',
-					  'TT/js/classes/*.js',
-					  'TT/js/controllers/*.js',
-					  'TT/js/directives/*.js',
+					  
+					  'TT/js/controllers/matrixCtrl.js',
+					  'TT/js/controllers/equationCtrl.js',
+					  
 	                  'js/main.js',
 	                  'js/filters/*.js',
 	                  'js/factories/*.js',
