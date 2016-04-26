@@ -116,7 +116,7 @@
 		<div placeholder="See also" text-angular ng-model="writeTutorial.tutorialSeealso"></div>
 		
 		<div class="buttons text-center" style="position:fixed; bottom:-2em; left: 1em;">
-			<a class="btn btn-info" href="tutorials">Torna ai tutorial</a>
+			<a class="btn btn-info" href="tutorials"><i class="fa fa-chevron-circle-left"></i> Torna ai tutorial</a>
 		</div>
 		<div class="buttons text-center" style="position:fixed; bottom:-2em; right: 1em;">
 			<a class="btn btn-success" ng-disabled="writeTutorial.tutorialTitle == '' || writeTutorial.tutorialBody == ''" ng-click="writeTutorial.send()">{{writeTutorial.mode == 'write' ? 'Salva tutorial' : 'Salva le modifiche'}}</a>

@@ -98,7 +98,7 @@ class Users extends CI_Controller {
             // Store the user's additional information
             $this->userinfo_model->add($userID, $mail, $name, $surname, $registration_timestamp);
             
-            $this->preferences_model->add($userID, 0, 0, 0, 0, 0);
+            $this->preferences_model->add($userID, 0, 0, 0, 0, 0, 1);
             
             $this->login();
             

@@ -3,7 +3,7 @@
 		<h1 class="text-center">Tutorial di reSeed</h1>
 
 		<div ng-if="admin" class="buttons text-center" style="position:fixed; bottom:2em; right: 1em;">
-			<a class="btn btn-info" href="write-tutorial">Scrivi un tutorial</a>
+			<a class="btn btn-info" href="write-tutorial"><i class="fa fa-file-text"></i> Scrivi un tutorial</a>
 		</div>
 		
 		<div spinner="tutorialC.tutorialAjax">

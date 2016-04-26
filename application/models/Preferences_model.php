@@ -41,7 +41,7 @@ class Preferences_model extends CI_Model
                 $this->dbforge->create_table(self::table_name);
         }
         
-        public function add($userID, $exp, $info, $news, $events, $profile_visibility)
+        public function add($userID, $exp, $info, $news, $events, $profile_visibility, $visible_in_high_scores)
         {
         	$data = array(
         			'userID' => $userID,
@@ -49,7 +49,8 @@ class Preferences_model extends CI_Model
         			'info' => $info,
         			'news' => $news,
         			'events' => $events,
-        			'profileVisibility' => $profile_visibility
+        			'profileVisibility' => $profile_visibility,
+        			'visible_in_high_scores' => $visible_in_high_scores
         	);
         	
         	$this->db->insert(self::table_name, $data);

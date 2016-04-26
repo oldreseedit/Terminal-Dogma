@@ -77,7 +77,7 @@ class Preferences extends CI_Controller {
         		return;
         	}
         	
-        	$this->preferences_model->add($userID, $exp, $info, $news, $events);
+        	$this->preferences_model->add($userID, $exp, $info, $news, $events, $profileVisibility, $visibleInHighScore);
         }
         
         public function update()

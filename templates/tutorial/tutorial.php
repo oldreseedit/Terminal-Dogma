@@ -49,8 +49,8 @@
 					</div>
 					
 					<div class="buttons text-center" style="text-align:left; position:fixed; bottom:1em; left: 1em;">
-						<div style="padding-bottom: 0.5em;"><a ng-if="admin" class="btn btn-success" href="write-tutorial/{{tutorialV.tutorial.tutorialID}}">Modifica questo tutorial</a></div>
-						<div><a class="btn btn-info" href="tutorials">Torna ai tutorial</a></div>
+						<div style="padding-bottom: 0.5em;"><a ng-if="admin" class="btn btn-success" href="write-tutorial/{{tutorialV.tutorial.tutorialID}}"><i class="fa fa-pencil-square-o"></i>Modifica il tutorial</a></div>
+						<div><a class="btn btn-info" href="tutorials"><i class="fa fa-chevron-circle-left"></i> Torna ai tutorial</a></div>
 					</div>
 			</spinner-final>
 		</div>
