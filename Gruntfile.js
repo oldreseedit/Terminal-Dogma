@@ -49,6 +49,12 @@ module.exports = function(grunt) {
 			          'js/controllers/ie10-viewport-bug-workaround.js',
 			          'js/directives/fitText.js',
 			          'js/directives/elastic.js',
+					  'js/mathquill/mathquill.js',
+					  'TT/local.js',
+					  'TT/js/main.js',
+					  'TT/js/classes/*.js',
+					  'TT/js/controllers/*.js',
+					  'TT/js/directives/*.js',
 	                  'js/main.js',
 	                  'js/filters/*.js',
 	                  'js/factories/*.js',
@@ -67,6 +73,7 @@ module.exports = function(grunt) {
 					'stylesheets/fontcustom.css',
 					'stylesheets/awesome-bootstrap-checkbox.css',
 					'stylesheets/prism.css',
+					'js/mathquill/mathquill.css'
 					],
 	          dest: 'dist/stylesheets/reseed.css'
 		  }
