@@ -46,15 +46,8 @@ var main = angular.module('Main',[
 /* Configures Moment plugin to display dates in Italian */
 moment.locale('it', {}); 
 
-var MQ = MathQuill.getInterface(2);
-
 /*** RUN PHASE ***/
 main.run(['$rootScope','$location','$timeout','$server','$cookies','$window','$route','inform','$cookies','fb',function($rootScope, $location, $timeout, $server, $cookies, $window, $route, inform,$cookies,fb) {
-
-	// For MathJax
-	window.addEventListener('MathJaxLoaded', function(){
-		$rootScope.$broadcast('MathJaxLoaded');
-	});
 	
 	/** FOR RESPONSIVE STYLES **/
   

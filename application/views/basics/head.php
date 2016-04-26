@@ -71,32 +71,6 @@
     <script type="text/javascript" src="js/three/OBJMTLLoader.js"></script>
     -->
     
-	<!-- MathJax  -->
-	<script type="text/javascript">
-		window.MathJax = {
-			AuthorInit: function () {
-				MathJax.Hub.Register.StartupHook('End',function () {
-					var event = document.createEvent('Event');
-					event.initEvent('MathJaxLoaded', true, true);
-					window.dispatchEvent(event);					
-				});
-// 				MathJax.Hub.Register.MessageHook('Begin Process',function () {
-// 					var event = document.createEvent('Event');
-// 					event.initEvent('beginMath', true, true);
-// 					window.dispatchEvent(event);					
-// 				});
-// 				MathJax.Hub.Register.MessageHook('End Process',function () {
-// 					var event = document.createEvent('Event');
-// 					event.initEvent('endMath', true, true);
-// 					window.dispatchEvent(event);					
-// 				});
-// 				MathJax.Hub.signal.Interest(
-// 				  function (message) {console.log("Hub: "+message)}
-// 				);
-			}
-		};
-	</script>
-	<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
 	<script type="text/javascript" src="https://www.desmos.com/api/v0.6/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
     
     <!-- injector:js -->
@@ -153,8 +127,6 @@
     <!-- Angular monospaced elastic for textareas -->
     <script type="text/javascript" src="js/directives/elastic.js"></script>
     
-	<script src="js/mathquill/mathquill.js"></script>
-    
 	<!--  Teaching Toolbox -->
     <script type="text/javascript" src="TT/js/classes/MathError.js"></script>
     <script type="text/javascript" src="TT/js/classes/Tex.js"></script>
@@ -182,9 +154,7 @@
     
     <!-- AngularJS Modules -->
     
-    <script type="text/javascript" src="TT/js/main.js"></script>       
-    <script type="text/javascript" src="TT/js/directives/math.js"></script>
-    <script type="text/javascript" src="TT/js/directives/matrixEntry.js"></script>
+    <script type="text/javascript" src="TT/js/main.js"></script>
     <script type="text/javascript" src="TT/js/controllers/matrixCtrl.js"></script>
     <script type="text/javascript" src="TT/js/controllers/equationCtrl.js"></script>    
     
@@ -267,7 +237,6 @@
     <link href="stylesheets/screen.css" rel="stylesheet" type="text/css" />
     <link href="stylesheets/fontcustom.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="stylesheets/awesome-bootstrap-checkbox.css" type="text/css" />
-	<link rel="stylesheet" href="js/mathquill/mathquill.css"/>
     
     <!-- Prism -->
     <link rel="stylesheet" type="text/css" href="stylesheets/prism.css"/>
