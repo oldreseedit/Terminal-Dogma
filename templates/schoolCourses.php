@@ -104,7 +104,7 @@ materie curricolari. Le proposte si articolano in un percorso intracurricolare e
 								<div class="experience-content text-left">
 									<h4 class="white strong">ECDL</h4>
 									<p>
-									Il corso è pensato non solo per dare un’alfabetizza- zione informatica di base, ma per preparare gli studenti al sostenimento dell’esame per ottenere la pa-
+									Il corso è pensato non solo per dare un’alfabetizzazione informatica di base, ma per preparare gli studenti al sostenimento dell’esame per ottenere la pa-
 tente europea del computer.
 									</p>
 								</div>
@@ -118,7 +118,7 @@ tente europea del computer.
 								<div class="experience-content text-left">
 									<h4 class="white strong">ECDL</h4>
 									<p>
-									Il corso è pensato non solo per dare un’alfabetizza- zione informatica di base, ma per preparare gli studenti al sostenimento dell’esame per ottenere la patente europea del computer.
+									Il corso è pensato non solo per dare un’alfabetizzazione informatica di base, ma per preparare gli studenti al sostenimento dell’esame per ottenere la patente europea del computer.
 									</p>
 								</div>
 							</div>
