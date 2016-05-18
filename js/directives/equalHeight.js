@@ -5,7 +5,7 @@ main.directive('equalHeight',['$timeout',function($timeout){
 		{
 			var event = 'EH';
 			if($attrs.equalHeightWaitFor) event = $attrs.equalHeightWaitFor;
-			else $scope.$parent.$broadcast(event); 
+			else $timeout( function(){ $scope.$parent.$broadcast(event);}, 100); 
 			$scope.$on(event,function(){
 				if(!imOnResponsive)
 				{
