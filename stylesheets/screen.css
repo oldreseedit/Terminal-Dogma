@@ -12574,7 +12574,7 @@ h1 {
 }
 
 /* line 37, ../sass/_palette.scss */
-.black, #tiles-presentation .inside-tab p, #news-events a:hover, #tiles-experience p, #tiles-experience #presentation-gain, #tiles-experience #presentation-unlock, #tiles-course-presentation .inside-tab p, #tiles-courses p, #tiles-courses #tiles-courses-left, #tiles-courses #tiles-courses-right {
+.black, #tiles-presentation .inside-tab p, #news-events a:hover, #tiles-experience p, #tiles-experience #presentation-gain, #tiles-experience #presentation-unlock, #tiles-course-presentation .inside-tab p, #table-courses-table p, #tiles-courses p, #tiles-courses #tiles-courses-left, #tiles-courses #tiles-courses-right, #tiles-courses .experience-content p {
   color: black;
 }
 
@@ -17321,18 +17321,14 @@ label p {
   font-size: 2.2em;
   line-height: 1;
 }
-/* line 40, ../sass/_school-courses.scss */
-#tiles-course-presentation .inside-tab p {
-  margin-bottom: 1em;
-}
 
-/* line 47, ../sass/_school-courses.scss */
+/* line 51, ../sass/_school-courses.scss */
 #tiles-courses {
   margin-top: 2em;
   margin-bottom: 2em;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 56, ../sass/_school-courses.scss */
+  /* line 60, ../sass/_school-courses.scss */
   #tiles-courses #tiles-courses-left, #tiles-courses #tiles-courses-right {
     width: 100%;
     float: left;
@@ -17341,33 +17337,45 @@ label p {
   }
 }
 @media all and (max-device-width: 1079px) {
-  /* line 69, ../sass/_school-courses.scss */
+  /* line 73, ../sass/_school-courses.scss */
   #tiles-courses #tiles-courses-right {
     margin-left: 0%;
   }
 }
-/* line 80, ../sass/_school-courses.scss */
+/* line 84, ../sass/_school-courses.scss */
 #tiles-courses .gain-icon .fa, #tiles-courses .unlock-icon .fa {
   font-size: 13em;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 80, ../sass/_school-courses.scss */
+  /* line 84, ../sass/_school-courses.scss */
   #tiles-courses .gain-icon .fa, #tiles-courses .unlock-icon .fa {
     font-size: 7em;
   }
 }
-/* line 88, ../sass/_school-courses.scss */
+/* line 92, ../sass/_school-courses.scss */
 #tiles-courses .experience-content {
   margin-top: 1%;
 }
-/* line 93, ../sass/_school-courses.scss */
+/* line 97, ../sass/_school-courses.scss */
 #tiles-courses .experience-content ul {
   padding-left: 20px;
   font-size: 14px;
 }
-/* line 101, ../sass/_school-courses.scss */
+/* line 109, ../sass/_school-courses.scss */
 #tiles-courses .unlock-icon {
   margin-right: 5%;
+}
+
+/* line 114, ../sass/_school-courses.scss */
+.course-icon {
+  width: 8em;
+  float: left;
+  margin: 2em;
+}
+
+/* line 120, ../sass/_school-courses.scss */
+.course-cell {
+  padding: 0.6em;
 }
 
 /* line 1, ../sass/_demo.scss */

@@ -19,7 +19,7 @@ main.controller('navbarController',['utilities','$timeout','$window','$uibModal'
 //        },
         {
             url : 'school-courses',
-            content : 'Corsi per le scuole',
+            content : 'Scuole',
             title : "Vedi i corsi che offriamo nelle scuole"
         },
         {

@@ -39,11 +39,15 @@
         
         p{
             @extend .black;
-            margin-bottom: 1em;
         }
     }
 }
-  
+
+#table-courses-table{
+	p{
+        @extend .black;
+    }
+}
 #tiles-courses{
   
   	margin-top: 2em;
@@ -93,7 +97,11 @@
   		ul{
   			padding-left: 20px;
   			font-size: 14px;
-  		}  		
+  		}
+  		
+  		p{
+            @extend .black;
+        }
   	}
   	.gain-icon{
   		@extend .offset-5;
@@ -101,4 +109,14 @@
   	.unlock-icon{
 		margin-right: 5%;
   	}
+}
+
+.course-icon{
+	width:8em;
+	float: left;
+	margin: 2em;
+}
+
+.course-cell{
+	padding: 0.6em;
 }
