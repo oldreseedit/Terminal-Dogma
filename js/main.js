@@ -17,7 +17,6 @@ var main = angular.module('Main',[
     'angularMoment', // For inline moment
     'ngAnimate', // For animations
     'ngTouch', // For Touch Support
-    'teachingToolbox', // It explains itself
     'textAngular', // For TextAngular support
     'angularFileUpload', // For angular-file-upload support
     'angular-clipboard', // For angular-clipboard facility
