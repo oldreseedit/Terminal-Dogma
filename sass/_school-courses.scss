@@ -1,10 +1,10 @@
-#presentation{
+#school-courses{
     @extend .in-main;
     @extend .text-center;
     padding-bottom: 3vw;   
 }
 
-#tiles-presentation{
+#tiles-course-presentation{
 	@extend .col-100;
 	margin-top: 1em;
 	margin-bottom: 3em;
@@ -44,41 +44,7 @@
     }
 }
   
-#news-events{
-  
-  	margin-top: 1em;
-  	
-  	.news{
-  		margin-top: 1em;
-  	}
-  	
-  	.news-icon{
-  		@extend .col-25;
-  		@extend .offset-5;
-  		padding-top: 2%;
-  		.fa {
-  			font-size: 4em;
-  		}
-  	}
-  	
-  	.news-title{
-  		@extend .col-70;
-  	}
-  	
-  	.news-description{
-  		padding: 5%;
-  	}
-  	
-  	a{
-		@extend .white;
-		text-decoration: none;
-		&:hover{
-			@extend .black;
-		}
-	}
-}
-  
-#tiles-experience{
+#tiles-courses{
   
   	margin-top: 2em;
   	margin-bottom: 2em;
@@ -87,9 +53,9 @@
         @extend .black;
     }
     
-  	#presentation-gain, #presentation-unlock {
+  	#tiles-courses-left, #tiles-courses-right {
   		@extend .col-45;
-  		@extend .bg-green;
+  		@extend .bg-olive;
   		@extend .black;
   		
   		@include responsive
@@ -100,7 +66,7 @@
   		}
   	}
   	
-  	#presentation-unlock {
+  	#tiles-courses-right {
   		@extend .offset-10;
   		
   		@include responsive
@@ -122,6 +88,8 @@
   	.experience-content{
   		@extend .col-60;
   		@extend .offset-5;
+  		margin-top: 1%;
+  		
   		ul{
   			padding-left: 20px;
   			font-size: 14px;
@@ -133,17 +101,4 @@
   	.unlock-icon{
 		margin-right: 5%;
   	}
-}
-
-.spotlights-icon{
-	@extend .col-25;
-	@extend .offset-5;
-	padding-top: 2%;
-	.fa {
-		font-size: 8em;
-		@include responsive
-		{
-			font-size: 4em;
-		}
-	}
 }

@@ -18,6 +18,11 @@ main.controller('navbarController',['utilities','$timeout','$window','$uibModal'
 //            content : 'Media'
 //        },
         {
+            url : 'school-courses',
+            content : 'Corsi per le scuole',
+            title : "Vedi i corsi che offriamo nelle scuole"
+        },
+        {
             url : 'contacts',
             content : 'Contatti',
             title : "Ottieni maggiori informazioni su reSeed"

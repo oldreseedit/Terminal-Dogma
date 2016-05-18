@@ -220,6 +220,12 @@ main.config(['$routeProvider','$locationProvider',function($routeProvider,$locat
         controller : 'viewTutorialController as tutorialV'
     });
     
+    $routeProvider.when('/school-courses',{
+    	title: 'Corsi per le scuole',
+        templateUrl : 'templates/schoolCourses.php',
+        controller : 'schoolCoursesController as schoolCoursesC'
+    });
+    
     $routeProvider.when('/demo',{
     	title: 'Dimostrazione Live',
     	templateUrl : 'templates/demo.php',

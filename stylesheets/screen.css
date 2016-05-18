@@ -1922,7 +1922,7 @@ mark,
 }
 
 /* line 90, ../sass/bootstrap/_type.scss */
-.text-left, #navbar-home, #courses #tiles-courses .tile .back, #activities #tiles-activities .tile .back, #contacts #contact-form, #contacts #contacts-list, #profile .high-score-name, .full-row .in-main, .full-row #admin, .full-row #presentation, .full-row #team #team-wrapper, #team .full-row #team-wrapper, .full-row #courses, .full-row #singleCourse, .full-row #activities, .full-row #singleActivity, .full-row #media, .full-row #contacts, .full-row #payment-disclaimer-modal, .full-row #payment, .full-row #faqPage, .full-row #profile, .full-row .modal-wrapper, .full-row #preferences, .full-row #tutorial, .full-row #tutorials, .full-row #write-tutorial, .full-row .game, .full-row #TT-matrix, .full-row #TT-equation {
+.text-left, #navbar-home, #courses #tiles-courses .tile .back, #activities #tiles-activities .tile .back, #contacts #contact-form, #contacts #contacts-list, #profile .high-score-name, .full-row .in-main, .full-row #admin, .full-row #presentation, .full-row #team #team-wrapper, #team .full-row #team-wrapper, .full-row #courses, .full-row #singleCourse, .full-row #activities, .full-row #singleActivity, .full-row #media, .full-row #contacts, .full-row #payment-disclaimer-modal, .full-row #payment, .full-row #faqPage, .full-row #profile, .full-row .modal-wrapper, .full-row #preferences, .full-row #tutorial, .full-row #tutorials, .full-row #write-tutorial, .full-row #school-courses, .full-row .game, .full-row #TT-matrix, .full-row #TT-equation {
   text-align: left;
 }
 
@@ -1932,7 +1932,7 @@ mark,
 }
 
 /* line 92, ../sass/bootstrap/_type.scss */
-.text-center, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, .game, #TT-matrix, #TT-equation, #menu, #navbar-toggle, #navbar, #navbar-tabs, #footer, #team, #singleCourse .panel-title, #singleActivity .panel-title, #register, #register .XP, #profile .panel-title, #profile .profile-level-symbol, #cart .panel-title, #tutorial .panel-title, input[type=number].tt {
+.text-center, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, #school-courses, .game, #TT-matrix, #TT-equation, #menu, #navbar-toggle, #navbar, #navbar-tabs, #footer, #team, #singleCourse .panel-title, #singleActivity .panel-title, #register, #register .XP, #profile .panel-title, #profile .profile-level-symbol, #cart .panel-title, #tutorial .panel-title, input[type=number].tt {
   text-align: center;
 }
 
@@ -9302,7 +9302,7 @@ button.close {
 }
 
 /* line 12, ../sass/_responsive.scss */
-.offset-5, #tiles-presentation .inside-tab, #tiles-presentation .inside-tab .title-wrapper, #news-events .news-icon, #tiles-experience .experience-content, #tiles-experience .gain-icon, .spotlights-icon, #singleCourse .course-notification-text, #media .media-panel .media-panel-main .media-navbar {
+.offset-5, #tiles-presentation .inside-tab, #tiles-presentation .inside-tab .title-wrapper, #news-events .news-icon, #tiles-experience .experience-content, #tiles-experience .gain-icon, .spotlights-icon, #singleCourse .course-notification-text, #media .media-panel .media-panel-main .media-navbar, #tiles-course-presentation .inside-tab, #tiles-course-presentation .inside-tab .title-wrapper, #tiles-courses .experience-content, #tiles-courses .gain-icon {
   margin-left: 5%;
 }
 
@@ -9382,7 +9382,7 @@ button.close {
 }
 
 /* line 12, ../sass/_responsive.scss */
-.offset-10, #tiles-experience #presentation-unlock, #team #team-wrapper .team-social-buttons, #courses #tiles-courses, #singleCourse .material-content {
+.offset-10, #tiles-experience #presentation-unlock, #team #team-wrapper .team-social-buttons, #courses #tiles-courses, #singleCourse .material-content, #tiles-courses #tiles-courses-right {
   margin-left: 10%;
 }
 
@@ -9462,7 +9462,7 @@ button.close {
 }
 
 /* line 12, ../sass/_responsive.scss */
-.offset-15, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, .game, #TT-matrix, #TT-equation, #payment .paymentStep, #faqPage .faqStep {
+.offset-15, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, #school-courses, .game, #TT-matrix, #TT-equation, #payment .paymentStep, #faqPage .faqStep {
   margin-left: 15%;
 }
 
@@ -9691,7 +9691,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-30, #tiles-experience .gain-icon, #tiles-experience .unlock-icon, #singleCourse .course-notification-date, #contacts #contact-form #contacts-submit, #payment-disclaimer-modal form #payment-disclaimer-submit, #payment-disclaimer-modal form #payment-disclaimer-cancel, .modal-wrapper form .modal-submit, .modal-wrapper form .modal-cancel {
+.col-30, #tiles-experience .gain-icon, #tiles-experience .unlock-icon, #singleCourse .course-notification-date, #contacts #contact-form #contacts-submit, #payment-disclaimer-modal form #payment-disclaimer-submit, #payment-disclaimer-modal form #payment-disclaimer-cancel, .modal-wrapper form .modal-submit, .modal-wrapper form .modal-cancel, #tiles-courses .gain-icon, #tiles-courses .unlock-icon {
   width: 30%;
   float: left;
 }
@@ -9931,7 +9931,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-45, #tiles-experience #presentation-gain, #tiles-experience #presentation-unlock {
+.col-45, #tiles-experience #presentation-gain, #tiles-experience #presentation-unlock, #tiles-courses #tiles-courses-left, #tiles-courses #tiles-courses-right {
   width: 45%;
   float: left;
 }
@@ -10171,7 +10171,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-60, #tiles-experience .experience-content, #singleCourse .teacher-avatar .circle-img, #singleCourse .teacher-avatar .avatar, #media .media-panel .media-panel-main .media-content {
+.col-60, #tiles-experience .experience-content, #singleCourse .teacher-avatar .circle-img, #singleCourse .teacher-avatar .avatar, #media .media-panel .media-panel-main .media-content, #tiles-courses .experience-content {
   width: 60%;
   float: left;
 }
@@ -10331,7 +10331,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-70, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, .game, #TT-matrix, #TT-equation, #news-events .news-title, #payment .paymentStep, #faqPage .faqStep {
+.col-70, .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, #school-courses, .game, #TT-matrix, #TT-equation, #news-events .news-title, #payment .paymentStep, #faqPage .faqStep {
   width: 70%;
   float: left;
 }
@@ -10651,7 +10651,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-90, #tiles-presentation .inside-tab, #tiles-presentation .inside-tab .title-wrapper {
+.col-90, #tiles-presentation .inside-tab, #tiles-presentation .inside-tab .title-wrapper, #tiles-course-presentation .inside-tab, #tiles-course-presentation .inside-tab .title-wrapper {
   width: 90%;
   float: left;
 }
@@ -10811,7 +10811,7 @@ button.close {
 }
 
 /* line 3, ../sass/_responsive.scss */
-.col-100, #admin .admin-content, #navbar-logged, #footer, #footer #commercial-info, #home, #tiles-presentation, #tiles-presentation .inside-tab .tab-content, #team, #singleCourse .gridster-item, #singleCourse .panel-title, #singleCourse .panel-content, #singleCourse .teacher-icon .team-social-buttons, #singleCourse .teacher-avatar, #singleCourse .course-description-introduction, #singleCourse .course-description-syllabus, #singleCourse .course-description, #singleActivity .gridster-item, #singleActivity .panel-title, #singleActivity .panel-content, #media .media-panel, #media .media-panel .media-panel-title, #media .media-panel .media-panel-main, #register, #register .XP, #payment .stepLine, #payment .stepContent, #faqPage .stepLine, #faqPage .stepContent, #profile .gridster-item, #profile .panel-title, #profile .panel-content, #profile .profile-name-level-xp .profile-xp, #profile .profile-info, #cart .gridster-item, #cart .panel-title, #cart .panel-content, #tutorial .gridster-item, #tutorial .panel-title, #tutorial .panel-content, #tutorial .tutorial-panel, .scrollbar-wrapper, .wrapper, .mini-header, .full-row {
+.col-100, #admin .admin-content, #navbar-logged, #footer, #footer #commercial-info, #home, #tiles-presentation, #tiles-presentation .inside-tab .tab-content, #team, #singleCourse .gridster-item, #singleCourse .panel-title, #singleCourse .panel-content, #singleCourse .teacher-icon .team-social-buttons, #singleCourse .teacher-avatar, #singleCourse .course-description-introduction, #singleCourse .course-description-syllabus, #singleCourse .course-description, #singleActivity .gridster-item, #singleActivity .panel-title, #singleActivity .panel-content, #media .media-panel, #media .media-panel .media-panel-title, #media .media-panel .media-panel-main, #register, #register .XP, #payment .stepLine, #payment .stepContent, #faqPage .stepLine, #faqPage .stepContent, #profile .gridster-item, #profile .panel-title, #profile .panel-content, #profile .profile-name-level-xp .profile-xp, #profile .profile-info, #cart .gridster-item, #cart .panel-title, #cart .panel-content, #tutorial .gridster-item, #tutorial .panel-title, #tutorial .panel-content, #tutorial .tutorial-panel, #tiles-course-presentation, #tiles-course-presentation .inside-tab .tab-content, .scrollbar-wrapper, .wrapper, .mini-header, .full-row {
   width: 100%;
   float: left;
 }
@@ -12305,13 +12305,13 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 /* line 144, ../sass/_tricks.scss */
-.in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, .game, #TT-matrix, #TT-equation {
+.in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, #school-courses, .game, #TT-matrix, #TT-equation {
   margin-top: 2em;
   margin-bottom: 2em;
 }
 @media all and (max-device-width: 1079px) {
   /* line 144, ../sass/_tricks.scss */
-  .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, .game, #TT-matrix, #TT-equation {
+  .in-main, #admin, #presentation, #team #team-wrapper, #courses, #singleCourse, #activities, #singleActivity, #media, #contacts, #contacts #contact-form, #payment-disclaimer-modal, #payment, #faqPage, #profile, .modal-wrapper, #preferences, #tutorial, #tutorials, #write-tutorial, #school-courses, .game, #TT-matrix, #TT-equation {
     width: 94%;
     margin-left: 3%;
   }
@@ -12574,7 +12574,7 @@ h1 {
 }
 
 /* line 37, ../sass/_palette.scss */
-.black, #tiles-presentation .inside-tab p, #news-events a:hover, #tiles-experience #presentation-gain, #tiles-experience #presentation-unlock {
+.black, #tiles-presentation .inside-tab p, #news-events a:hover, #tiles-experience p, #tiles-experience #presentation-gain, #tiles-experience #presentation-unlock, #tiles-course-presentation .inside-tab p, #tiles-courses p, #tiles-courses #tiles-courses-left, #tiles-courses #tiles-courses-right {
   color: black;
 }
 
@@ -12590,7 +12590,7 @@ h1 {
 }
 
 /* line 44, ../sass/_palette.scss */
-.bg-olive {
+.bg-olive, #tiles-courses #tiles-courses-left, #tiles-courses #tiles-courses-right {
   background-color: #c6db3d;
 }
 
@@ -16352,7 +16352,7 @@ body {
   margin-bottom: 2em;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 86, ../sass/_presentation.scss */
+  /* line 90, ../sass/_presentation.scss */
   #tiles-experience #presentation-gain, #tiles-experience #presentation-unlock {
     width: 100%;
     float: left;
@@ -16361,41 +16361,41 @@ body {
   }
 }
 @media all and (max-device-width: 1079px) {
-  /* line 99, ../sass/_presentation.scss */
+  /* line 103, ../sass/_presentation.scss */
   #tiles-experience #presentation-unlock {
     margin-left: 0%;
   }
 }
-/* line 110, ../sass/_presentation.scss */
+/* line 114, ../sass/_presentation.scss */
 #tiles-experience .gain-icon .fa, #tiles-experience .unlock-icon .fa {
   font-size: 13em;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 110, ../sass/_presentation.scss */
+  /* line 114, ../sass/_presentation.scss */
   #tiles-experience .gain-icon .fa, #tiles-experience .unlock-icon .fa {
     font-size: 7em;
   }
 }
-/* line 121, ../sass/_presentation.scss */
+/* line 125, ../sass/_presentation.scss */
 #tiles-experience .experience-content ul {
   padding-left: 20px;
   font-size: 14px;
 }
-/* line 130, ../sass/_presentation.scss */
+/* line 133, ../sass/_presentation.scss */
 #tiles-experience .unlock-icon {
   margin-right: 5%;
 }
 
-/* line 135, ../sass/_presentation.scss */
+/* line 138, ../sass/_presentation.scss */
 .spotlights-icon {
   padding-top: 2%;
 }
-/* line 139, ../sass/_presentation.scss */
+/* line 142, ../sass/_presentation.scss */
 .spotlights-icon .fa {
   font-size: 8em;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 139, ../sass/_presentation.scss */
+  /* line 142, ../sass/_presentation.scss */
   .spotlights-icon .fa {
     font-size: 4em;
   }
@@ -17290,6 +17290,86 @@ label p {
   margin: 3em 0px;
 }
 
+/* line 1, ../sass/_school-courses.scss */
+#school-courses {
+  padding-bottom: 3vw;
+}
+
+/* line 7, ../sass/_school-courses.scss */
+#tiles-course-presentation {
+  margin-top: 1em;
+  margin-bottom: 3em;
+}
+@media all and (max-device-width: 1079px) {
+  /* line 12, ../sass/_school-courses.scss */
+  #tiles-course-presentation .tab {
+    margin-bottom: 2em;
+  }
+}
+/* line 18, ../sass/_school-courses.scss */
+#tiles-course-presentation .inside-tab {
+  margin-top: 1em;
+}
+/* line 23, ../sass/_school-courses.scss */
+#tiles-course-presentation .inside-tab .title {
+  font-weight: 600;
+}
+/* line 27, ../sass/_school-courses.scss */
+#tiles-course-presentation .inside-tab .title-wrapper {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  font-size: 2.2em;
+  line-height: 1;
+}
+/* line 40, ../sass/_school-courses.scss */
+#tiles-course-presentation .inside-tab p {
+  margin-bottom: 1em;
+}
+
+/* line 47, ../sass/_school-courses.scss */
+#tiles-courses {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+@media all and (max-device-width: 1079px) {
+  /* line 56, ../sass/_school-courses.scss */
+  #tiles-courses #tiles-courses-left, #tiles-courses #tiles-courses-right {
+    width: 100%;
+    float: left;
+    padding: 1%;
+    margin-bottom: 0.5em;
+  }
+}
+@media all and (max-device-width: 1079px) {
+  /* line 69, ../sass/_school-courses.scss */
+  #tiles-courses #tiles-courses-right {
+    margin-left: 0%;
+  }
+}
+/* line 80, ../sass/_school-courses.scss */
+#tiles-courses .gain-icon .fa, #tiles-courses .unlock-icon .fa {
+  font-size: 13em;
+}
+@media all and (max-device-width: 1079px) {
+  /* line 80, ../sass/_school-courses.scss */
+  #tiles-courses .gain-icon .fa, #tiles-courses .unlock-icon .fa {
+    font-size: 7em;
+  }
+}
+/* line 88, ../sass/_school-courses.scss */
+#tiles-courses .experience-content {
+  margin-top: 1%;
+}
+/* line 93, ../sass/_school-courses.scss */
+#tiles-courses .experience-content ul {
+  padding-left: 20px;
+  font-size: 14px;
+}
+/* line 101, ../sass/_school-courses.scss */
+#tiles-courses .unlock-icon {
+  margin-right: 5%;
+}
+
 /* line 1, ../sass/_demo.scss */
 #demo {
   width: 100%;
@@ -17845,33 +17925,33 @@ input[type=number].tt {
 }
 
 /* MAIN */
-/* line 56, ../sass/_reseed.scss */
+/* line 57, ../sass/_reseed.scss */
 #main {
   width: 100%;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 56, ../sass/_reseed.scss */
+  /* line 57, ../sass/_reseed.scss */
   #main {
     padding-left: 0.5em;
   }
 }
 
-/* line 68, ../sass/_reseed.scss */
+/* line 69, ../sass/_reseed.scss */
 .mini-header {
   /*     margin-bottom: 2em; */
 }
-/* line 72, ../sass/_reseed.scss */
+/* line 73, ../sass/_reseed.scss */
 .mini-header img {
   width: 100%;
 }
 
-/* line 91, ../sass/_reseed.scss */
+/* line 92, ../sass/_reseed.scss */
 blockquote {
   background-color: #F9F9F9;
   border-left: 10px solid #eeeeee;
 }
 
-/* line 103, ../sass/_reseed.scss */
+/* line 104, ../sass/_reseed.scss */
 .bookmark, #courses .category-bookmark {
   z-index: 100;
   position: relative;
@@ -17881,12 +17961,12 @@ blockquote {
   margin-bottom: 1em;
 }
 
-/* line 116, ../sass/_reseed.scss */
+/* line 117, ../sass/_reseed.scss */
 .bookmark-content {
   height: 4em;
 }
 
-/* line 120, ../sass/_reseed.scss */
+/* line 121, ../sass/_reseed.scss */
 .bookmark-tail {
   position: absolute;
   left: 0;
@@ -17895,7 +17975,7 @@ blockquote {
   border-left: 2em solid white;
 }
 
-/* line 133, ../sass/_reseed.scss */
+/* line 134, ../sass/_reseed.scss */
 hr {
   width: 50%;
   border-top-width: 0.2em;

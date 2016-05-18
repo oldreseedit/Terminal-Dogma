@@ -225,6 +225,7 @@
     <script type="text/javascript" src="js/controllers/viewTutorialController.js"></script>
     <script type="text/javascript" src="js/controllers/tutorialController.js"></script>
     <script type="text/javascript" src="js/controllers/demo.js"></script>
+    <script type="text/javascript" src="js/controllers/schoolCoursesController.js"></script>
     
     <!-- Prism -->
     <script type="text/javascript" src="js/prism.js"></script>
@@ -242,6 +243,23 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/prism.css"/>
     
     <!-- endinjector -->    
+    
+    <script type="text/javascript">
+	
+    	function sayHi(x){
+
+    		var calculator = Desmos.Calculator($('#graph'),{
+    			keypad: false,
+    			expressions: false,
+    			settingsMenu: false,
+    			border: false
+    		});
+        	
+    		calculator.setExpression({id:'function', latex: x});
+    		//document.getElementById("TT-equation").innerHTML = "Hi!";
+    		//alert("Replaced all with 'Hi!'");
+    	}
+    </script>
     
     <!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
     <script type="text/javascript">
