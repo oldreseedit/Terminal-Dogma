@@ -78,5 +78,3 @@
         </div>
     </div>    
 </div>
-    
-<ng-include src="'templates/eventAd.php'"></ng-include>

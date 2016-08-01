@@ -1,7 +1,10 @@
 #school-courses{
     @extend .in-main;
     @extend .text-center;
-    padding-bottom: 3vw;   
+    padding-bottom: 3vw;
+    p {
+    	@extend .text-justify;
+    }   
 }
 
 #tiles-course-presentation{
@@ -17,6 +20,7 @@
     
     .inside-tab{
         margin-top: 1em;
+        padding-bottom: 1em;
         @extend .col-90;
         @extend .offset-5;
         

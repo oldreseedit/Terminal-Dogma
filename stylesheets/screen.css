@@ -1937,7 +1937,7 @@ mark,
 }
 
 /* line 93, ../sass/bootstrap/_type.scss */
-.text-justify, #singleCourse .gridster-item, #singleCourse .teacher-description, #singleActivity .gridster-item, #profile .gridster-item, #cart .gridster-item, #tutorial .gridster-item, .scrollbar-wrapper .scrollbar {
+.text-justify, #singleCourse .gridster-item, #singleCourse .teacher-description, #singleActivity .gridster-item, #profile .gridster-item, #cart .gridster-item, #tutorial .gridster-item, #school-courses p, .scrollbar-wrapper .scrollbar {
   text-align: justify;
 }
 
@@ -17295,26 +17295,27 @@ label p {
   padding-bottom: 3vw;
 }
 
-/* line 7, ../sass/_school-courses.scss */
+/* line 10, ../sass/_school-courses.scss */
 #tiles-course-presentation {
   margin-top: 1em;
   margin-bottom: 3em;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 12, ../sass/_school-courses.scss */
+  /* line 15, ../sass/_school-courses.scss */
   #tiles-course-presentation .tab {
     margin-bottom: 2em;
   }
 }
-/* line 18, ../sass/_school-courses.scss */
+/* line 21, ../sass/_school-courses.scss */
 #tiles-course-presentation .inside-tab {
   margin-top: 1em;
+  padding-bottom: 1em;
 }
-/* line 23, ../sass/_school-courses.scss */
+/* line 27, ../sass/_school-courses.scss */
 #tiles-course-presentation .inside-tab .title {
   font-weight: 600;
 }
-/* line 27, ../sass/_school-courses.scss */
+/* line 31, ../sass/_school-courses.scss */
 #tiles-course-presentation .inside-tab .title-wrapper {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
@@ -17322,13 +17323,13 @@ label p {
   line-height: 1;
 }
 
-/* line 51, ../sass/_school-courses.scss */
+/* line 55, ../sass/_school-courses.scss */
 #tiles-courses {
   margin-top: 2em;
   margin-bottom: 2em;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 60, ../sass/_school-courses.scss */
+  /* line 64, ../sass/_school-courses.scss */
   #tiles-courses #tiles-courses-left, #tiles-courses #tiles-courses-right {
     width: 100%;
     float: left;
@@ -17337,43 +17338,43 @@ label p {
   }
 }
 @media all and (max-device-width: 1079px) {
-  /* line 73, ../sass/_school-courses.scss */
+  /* line 77, ../sass/_school-courses.scss */
   #tiles-courses #tiles-courses-right {
     margin-left: 0%;
   }
 }
-/* line 84, ../sass/_school-courses.scss */
+/* line 88, ../sass/_school-courses.scss */
 #tiles-courses .gain-icon .fa, #tiles-courses .unlock-icon .fa {
   font-size: 13em;
 }
 @media all and (max-device-width: 1079px) {
-  /* line 84, ../sass/_school-courses.scss */
+  /* line 88, ../sass/_school-courses.scss */
   #tiles-courses .gain-icon .fa, #tiles-courses .unlock-icon .fa {
     font-size: 7em;
   }
 }
-/* line 92, ../sass/_school-courses.scss */
+/* line 96, ../sass/_school-courses.scss */
 #tiles-courses .experience-content {
   margin-top: 1%;
 }
-/* line 97, ../sass/_school-courses.scss */
+/* line 101, ../sass/_school-courses.scss */
 #tiles-courses .experience-content ul {
   padding-left: 20px;
   font-size: 14px;
 }
-/* line 109, ../sass/_school-courses.scss */
+/* line 113, ../sass/_school-courses.scss */
 #tiles-courses .unlock-icon {
   margin-right: 5%;
 }
 
-/* line 114, ../sass/_school-courses.scss */
+/* line 118, ../sass/_school-courses.scss */
 .course-icon {
   width: 8em;
   float: left;
   margin: 2em;
 }
 
-/* line 120, ../sass/_school-courses.scss */
+/* line 124, ../sass/_school-courses.scss */
 .course-cell {
   padding: 0.6em;
 }
