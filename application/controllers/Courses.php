@@ -42,7 +42,7 @@ class Courses extends CI_Controller {
             $data = $this->courses_model->get($courseID);
             $data['next'] = $this->get_next($courseID);
             
-            $data['images'] = $this->course_images_model->get($data['name']);
+            $data['images'] = $this->course_images_model->get($data['subject']);
             
             echo json_encode($data);
         }

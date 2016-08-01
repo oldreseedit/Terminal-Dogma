@@ -17,7 +17,7 @@ class Courses_model extends CI_Model
                                 'type' => 'VARCHAR',
                                 'constraint' => 30,
                         ),
-                		'name' => array(
+                		'subject' => array(
                 				'type' => 'VARCHAR',
                 				'constraint' => 30
                 		),
@@ -69,7 +69,7 @@ class Courses_model extends CI_Model
         {
                 $data = array(
                    'courseID' => $courseID,
-                   'name' => $name,
+                   'subject' => $name,
                 );
                 
                 if($description != null) $data['description'] = $description;
@@ -96,7 +96,7 @@ class Courses_model extends CI_Model
         {
                 $data = array();
                 
-                if($name != null) $data['name'] = $name;
+                if($name != null) $data['subject'] = $name;
                 if($description != null) $data['description'] = $description;
                 if($syllabus != null) $data['syllabus'] = $syllabus;
                 if($iconURI != null) $data['icon'] = $iconURI;
@@ -119,12 +119,12 @@ class Courses_model extends CI_Model
         
         public function get_all_names()
         {
-        	return $this->db->select('name')->distinct()->get(self::table_name)->result_array();
+        	return $this->db->select('subject')->distinct()->get(self::table_name)->result_array();
         }
         
         public function get_all_iterations($subject)
         {
-        	return $this->db->where('name', $subject)->order_by('startingDate', 'desc')->get(self::table_name)->result_array();
+        	return $this->db->where('subject', $subject)->order_by('startingDate', 'desc')->get(self::table_name)->result_array();
         }
 }
 ?>
