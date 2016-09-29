@@ -5,22 +5,22 @@ main.controller('presentationController',["utilities",function(utilities){
         {
             id : 'apprendimento',
             faName : 'fa-user',
-            title : 'Apprendimento',
-            content : "Gli studenti seguono corsi innovativi tenuti da docenti che usano quotidianamente i concetti insegnati.",
+            title : 'Disponibili',
+            content : "Siamo ragazzi come voi. Aggiungeteci su Facebook per informazioni e consigli prima, dopo e durante il corso!",
             url : '/courses'
         },
         {
             id : 'simulazione',
             faName : 'fa-cog',
-            title : 'Simulazione',
-            content : "Tramite una rigorosa simulazione di On-The-Job Training gli studenti vengono immersi in un realistico ambiente di lavoro con lo scopo di sviluppare un prodotto.",
+            title : 'Pratici',
+            content : "Vogliamo insegnarvi quello che sappiamo fare in maniera pratica.",
             url : '/courses'
         },
         {
             id : 'pubblicazione',
             faName : 'fa-globe',
-            title : 'Pubblicazione',
-            content : "Il prodotto realizzato durante la simulazione viene reso disponibile al pubblico (web, Play Store, App Store, etc.).",
+            title : 'Accessibili',
+            content : "I nostri corsi sono economici e leggeri: possono essere seguiti da chiunque e accostati alla scuola, all’università o al lavoro.",
             url : '/courses'
         }
     ];
