@@ -84,6 +84,8 @@ main.factory('cartService',['inform','$cookies','moment','$server', function(inf
     	return $server.post('paypal/pay', undefined, undefined, undefined, true).then(
 				function(response)
 				{
+					console.log(response);
+					
 					if(!response.data.error)
 					{
 //						console.log(response);

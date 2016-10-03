@@ -40,7 +40,7 @@ class Paypal extends CI_Controller {
     {
     	if($teacherID == null) $teacherID = "default";
     	
-		$go_live = false;
+		$go_live = true;
 		
 		$file_content = file_get_contents(APPPATH . '/../../paypal_credentials.json');
     	$all_credentials = json_decode($file_content, true);
@@ -237,7 +237,7 @@ class Paypal extends CI_Controller {
 		{
 			$allCourses[$course['courseID']] = $course;
 		}
-		 
+		
 		$totalItems = array();
 		$total = 0;
 		foreach($cartItems as $item)

@@ -50,7 +50,7 @@ class Preferences_model extends CI_Model
         			'news' => $news,
         			'events' => $events,
         			'profileVisibility' => $profile_visibility,
-        			'visible_in_high_scores' => $visible_in_high_scores
+        			'visibleInHighScore' => $visible_in_high_scores
         	);
         	
         	$this->db->insert(self::table_name, $data);
