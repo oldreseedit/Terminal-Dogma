@@ -87,6 +87,16 @@ class Seedon_model extends CI_Model
 		return $this->db->where('username', $userID)->get(self::table_name)->result_array();
 	}
 	
+	public function get_seedon_by_name($seedon)
+	{
+		return $this->db->where('seedon', $seedon)->get(self::table_name)->row_array();
+	}
+	
+	public function get_special_seedons()
+	{
+		return $this->db->where('username', "*")->get(self::table_name)->result_array();
+	}
+	
 	public function get_seedon_not_used($userID)
 	{
 		return $this->db->where(array('username' => $userID, 'used' => false))->get(self::table_name)->result_array();

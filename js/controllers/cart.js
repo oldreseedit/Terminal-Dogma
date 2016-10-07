@@ -1,12 +1,19 @@
-main.controller('cartController',['$rootScope','utilities','inform','cartService','$server','$cookies',function($rootScope,utilities,inform,cartService,$server,$cookies){
+main.controller('cartController',['$rootScope','utilities','inform','cartService','$server','$cookies','$location',function($rootScope,utilities,inform,cartService,$server,$cookies,$location){
     var self = this;
 
     self.paymentOptions = {
+    		customSeedon: {
+	        	 description: '',
+	        	 longDescription: '',
+	        	 seedonID: -1,
+	        	 code: ''
+    		},
     		seedon: [
     		         {
     		        	 description: 'Usa questa opzione se non vuoi ancora usare i tuoi seedon.',
     		        	 longDescription: 'Non voglio usare seedon',
-    		        	 seedonID: -1
+    		        	 seedonID: -1,
+    		        	 code: ''
     		         }
     		         ],
     		paymentCycleOptions: [
@@ -62,7 +69,8 @@ main.controller('cartController',['$rootScope','utilities','inform','cartService
     
     self.prepay = function(){
   	  cartService.squeeze();
-  	  window.location = "/pre-pay";
+  	  $location.path("/pre-pay");
+  	  //window.location = "/pre-pay";
     }
 
     self.getCourseIcon = function(item)
@@ -119,6 +127,28 @@ main.controller('cartController',['$rootScope','utilities','inform','cartService
     	}
     	
     	self.getCart().save();
+    }
+    
+    self.applyCustomSeedon = function(customSeedon){
+    	$server.post('seedon/get_seedon_by_name', {"seedon": customSeedon.seedon}).then(
+    	    	function(response){
+    	    		console.log(response);
+    	    		inform.add(response.data.description);
+    	    		var seedon = response.data.seedon;
+    	    		self.paymentOptions.customSeedon = seedon;
+    	    		self.paymentOptions.customSeedon.longDescription = seedon.description + ": " + (100*seedon.data) + "%";
+    	    		console.log(self.paymentOptions.customSeedon);
+    	    		
+    	    		inform.add("Sconto del " + (100 * parseFloat(seedon.data)) + "% applicato.");
+    	    		
+    	    		self.getCart().options.seedonDiscount = parseFloat(seedon.data);
+    	    		self.getCart().options.customSeedon = self.paymentOptions.customSeedon;
+    	    		self.getCart().options.seedOnChosen = self.paymentOptions.customSeedon.seedonID;
+    	    		self.getCart().save();
+    	    	},
+    	    	function(response){
+    	    		console.log(response);
+    	    	});
     }
     
     self.applyPaymentMedia = function(){self.getCart().save();}

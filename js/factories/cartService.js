@@ -6,6 +6,7 @@ main.factory('cartService',['inform','$cookies','moment','$server', function(inf
 					discount: 0,
 					seedonDiscount: 0,
 					seedOnChosen: null,
+					customSeedon: null,
 					paymentCycleChosen: '',
 					paymentMediaChosen: '',
 				},
@@ -90,6 +91,7 @@ main.factory('cartService',['inform','$cookies','moment','$server', function(inf
 					{
 //						console.log(response);
 //						inform.add(response.data.url);
+						
 						window.location = response.data.url;
 					}
 				}

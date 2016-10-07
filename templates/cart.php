@@ -40,6 +40,13 @@
 									</tr>
 								</table>
 	
+								<div class="choice-text">
+									<p class="inline"><strong>Seedon: </strong></p>
+									<input style="width:30%; display: inline-block; margin: 0 0 0 0;}" type="text" ng-model="cart.paymentOptions.customSeedon.seedon"/>
+									<button class="btn btn-success pay-button" style="float: none; vertical-align: bottom; margin-left: 0.5em;" ng-disabled="!cart.paymentOptions.customSeedon.seedon" ng-click="cart.applyCustomSeedon(cart.paymentOptions.customSeedon)">Applica seedon</button>
+									<p ng-if="cart.paymentOptions.customSeedon.description.length > 0" ng-bind="cart.paymentOptions.customSeedon.description"></p>
+								</div>
+	
 								<div class="choice-text" ng-if="cart.paymentOptions.seedon.length > 1">
 									<p class="inline"><strong>Seedon: </strong></p>
 									<select ng-model="cart.getCart().options.seedOnChosen" ng-touch="cart.applySeedon(cart.getCart().options.seedOnChosen)">
@@ -73,7 +80,7 @@
 								
 								<div title="Attento: questo sconto può essere usato solo una volta." class="cart-total strong leaf" ng-if="cart.getCart().options.seedonDiscount">
 									<p class="inline"><strong>Sconto applicato in base al seedon scelto: </strong>
-									<strong><span ng-bind="{{100*cart.getCart().options.seedonDiscount}}"></span> % ({{cart.getTotalPrice()*cart.getCart().options.seedonDiscount}} €)</strong></p>
+									<strong><span>{{100*cart.getCart().options.seedonDiscount}} %</span> ({{cart.getTotalPrice()*cart.getCart().options.seedonDiscount}} €)</strong></p>
 								</div>
 								
 								<div title="Questo è il totale vero, calcolato dopo l'applicazione dei vari sconti." class="cart-total cart-grand-total">

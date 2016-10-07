@@ -134,6 +134,15 @@ class Paypal extends CI_Controller {
     				$userSeedons[$seedon['seedonID']] = $seedon;
     			}
     		}
+    		foreach($this->seedon_model->get_special_seedons() as $seedon)
+    		{
+    			// Considera solo seedon che non sono scaduti
+    			if($seedon['endingDate'] > $this->time->get_timestamp())
+    			{
+    				$userSeedons[$seedon['seedonID']] = $seedon;
+    			}
+    		}
+    		
     		if($this->debugMode) {print("<br/>Seedon dell'utente: "); print_r($userSeedons);}
     		if($this->debugMode) print_r(array_key_exists($seedonChosen, $userSeedons));
     	
@@ -147,7 +156,7 @@ class Paypal extends CI_Controller {
     		}
     	}
     	if($this->debugMode) print("<br/>SCONTO SEEDON FINALE: " . $seedOnDiscount);
-    		
+    	
     	// Considera gli sconti lifetime dell'utente
     	$lifetimeDiscount = 0;
     	foreach($this->user_achievements_rewards_model->get_achievements_and_rewards_obtained($userID, "REWARD", "DISCOUNT") as $discount)

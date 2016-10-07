@@ -53,11 +53,15 @@ class Payment_model extends CI_Model
 //                 $this->db->insert_batch(self::table_name, $data);
 //         }
 
-		public function add($userID, $courseID)
+		public function add($userID, $courseID, $course = 0, $simulation = 0, $coursePaymentID = -1, $simulationPaymentID = -1)
         {
                 $data = array(
 							'userID' => $userID,
                             'courseID' => $courseID,
+	                		'course' => $course,
+	                		'simulation' => $simulation,
+	                		'coursePaymentID' => $coursePaymentID,
+	                		'simulationPaymentID' => $simulationPaymentID
 				);
 
                 $this->db->insert(self::table_name, $data);

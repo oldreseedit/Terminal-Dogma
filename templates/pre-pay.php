@@ -48,6 +48,13 @@
 									<span ng-repeat="seedon in cart.paymentOptions.seedon" ng-bind="seedon.longDescription" ng-if="seedon.seedonID === cart.getCart().options.seedOnChosen"></span>
 								</div>
 								
+								<div class="choice-text" ng-if="cart.getCart().options.customSeedon != null">
+									<strong>Seedon speciali: </strong>
+									<span ng-bind="cart.getCart().options.customSeedon.seedon"></span>
+									<span>: </span>
+									<span ng-bind="cart.getCart().options.customSeedon.longDescription"></span>
+								</div>
+								
 								<div class="choice-text">
 									<strong>Modalità di pagamento: </strong>
 									<span ng-repeat="option in cart.paymentOptions.paymentMediaOptions" ng-bind="option.label" ng-if="option.value === cart.getCart().options.paymentMediaChosen"></span>

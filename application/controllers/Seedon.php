@@ -54,6 +54,29 @@ class Seedon extends CI_Controller
 		echo json_encode($this->seedon_model->get($userID));
 	}
 	
+	public function get_seedon_by_name()
+	{
+		$seedon = $this->input->post('seedon');
+		
+		if($seedon == false)
+		{
+			echo json_encode(array("error" => true, "description" => "Specificare un seedon.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("seedon")));
+			return;
+		}
+		
+		$found_seedon = $this->seedon_model->get_seedon_by_name($seedon);
+		if(count($found_seedon) == 0)
+		{
+			echo json_encode(array("error" => true, "description" => "Specificare un seedon valido.", "errorCode" => "MANDATORY_FIELD", "parameters" => array("seedon")));
+			return;
+		}
+		else
+		{
+			echo json_encode(array("error" => false, "description" => "Seedon applicato correttamente.", "seedon" => $found_seedon));
+			return;
+		}
+	}
+	
 	public function get_seedon_not_used()
 	{
 		$userID = $this->input->post('username');
