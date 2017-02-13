@@ -6,7 +6,7 @@ snapshots/
 uploads/
 .project
 .metadata
-dist/
+/dist/
 *.scssc
 .ftppass
 js/controllers/Copy of profile.js
